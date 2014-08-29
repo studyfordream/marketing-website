@@ -22,6 +22,9 @@
 	&.tablet {
 		display: none;
 	}
+	&.desktop {
+		display: none;
+	}
 }
 
 // Tests is vh CSS property is supported
@@ -418,6 +421,16 @@ body.processing-state .processing-show, body.error-state .error-show {opacity: 1
 			display: none;
 		}
 		&.tablet {
+			&.inline {
+				display: inline;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: $desktop-min-width) {
+	.show-hide {
+		&.desktop {
 			&.inline {
 				display: inline;
 			}
