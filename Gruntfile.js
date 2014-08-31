@@ -600,16 +600,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    inline: {
-      dist: {
-          options:{
-              uglify: true,
-              exts: 'hbs'
-          },
-          src: ['<%= config.guts %>/templates/layouts/wrapper.hbs'],
-          dest: ['<%= config.guts %>/templates/layouts/wrapper_compiled.hbs']
-      }
-    },
     handlebars: {
       compile: {
         options: {
@@ -670,7 +660,6 @@ module.exports = function(grunt) {
     'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
-    'inline',
     'assemble',
     'handlebars',
     'concat',
