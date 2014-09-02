@@ -1,5 +1,5 @@
 calculator_content:
-  conversion: 
+  conversion:
   -
     demo: "Baseline Conversion Rate"
     description: "Your control group's expected conversion rate."
@@ -20,40 +20,31 @@ calculator_content:
     link: "https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#statistical_significance"
     button_text: "edit"
   tailed:
-    demo: 
+    demo:
       - "1-tailed"
       - "2-tailed"
     description: "1-tailed tests will identify a winner faster than 2-tailed tests. Note: The Optimizely product uses a 1-tailed test to enable you to make faster decisions."
     link: "https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#calculating_significance"
-  bottom_title: "sample size per variation"
+  bottom_title: "Sample Size per Variation"
 
 faq_content:
-  title: "faq"
+  title: "FAQ"
   sections:
   -
     sub_title: "How many visitors do I need for my A/B test?"
     description: "This calculator allows you to calculate the sample size you will need in each variation of your A/B test in order to measure a change in conversion rate."
   -
     sub_title: "How do I determine the baseline conversion rate?"
-    description: "You can look at historical data on how this page has typically performed in the past, from a tool like Google Analytics or other website analytics you use."
-    link: 
-      title: "Learn more"
-      path: "https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#baseline"
+    description: "You can look at historical data on how this page has typically performed in the past, from a tool like Google Analytics or other website analytics you use. [Learn more](https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#baseline)."
   -
     sub_title: "What is Minimum Detectable Effect (MDE)?"
-    description: "This is essentially the sensitivity of your test, or its ability to detect a change in conversion rate. For example, if your baseline conversion rate is 20%, and you set an MDE of 10%, then you will be able to detect changes in your conversion rate of at least 10% * 20% = 2%. This means you would be able to detect any changes that take your conversion rate outside the range of 18% – 22%."
-    link: 
-      title: "Learn more"
-      path: "https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#minimum"
+    description: "This is essentially the sensitivity of your test, or its ability to detect a change in conversion rate. For example, if your baseline conversion rate is 20%, and you set an MDE of 10%, then you will be able to detect changes in your conversion rate of at least 10% * 20% = 2%. This means you would be able to detect any changes that take your conversion rate outside the range of 18% – 22%. [Learn more](https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#minimum)."
   -
     sub_title: "How do I choose a value for minimum detectable effect (MDE)?"
-    description: "Decide how willing you are to trade off sensitivity of your test versus how long you might need to run your test for. The smaller the MDE, the more sensitive you are asking your test to be, and the larger sample size you will need. For example, if you are satisfied with a 10% MDE, which will only detect changes in conversion rate of 10% or more, you will need a smaller sample size than if you are asking for a very sensitive test with 1% MDE."
-    link: 
-      title: "Learn more"
-      path: "https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#minimum"
+    description: "Decide how willing you are to trade off sensitivity of your test versus how long you might need to run your test for. The smaller the MDE, the more sensitive you are asking your test to be, and the larger sample size you will need. For example, if you are satisfied with a 10% MDE, which will only detect changes in conversion rate of 10% or more, you will need a smaller sample size than if you are asking for a very sensitive test with 1% MDE. [Learn more](https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#minimum)."
 
 cta:
   title: "Learn more about Optimizely"
-  button: 
+  button:
     text: "Visit the Knowledge Base"
     path: "https://help.optimizely.com/hc/en-us"
