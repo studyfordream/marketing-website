@@ -1,11 +1,11 @@
 ---
 page_intro:
-  header: "Let's personalize the web."
+  header: "Let’s personalize the web."
   body: "Join us as we enable everyone to make data-driven decisions and improve the way they show information to the world."
   button_text: "View All Jobs"
 
 benefits:
-  header: "Why you'll love it here"
+  header: "Why you’ll love it here"
   list:
   -
     header: "Compensation & Rewards"

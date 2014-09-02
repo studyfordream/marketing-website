@@ -25,7 +25,7 @@ layout_script: benefits.js
         <div class="container">
             <div class="clearfix page-subheader-cont">
                 <h1>
-                    {{#if page.above_logo_text}}<span class="super">{{page.above_logo_text}}</span>{{else}}<span class="super">Optimizely for</span>{{/if}}
+                    {{#unless page.hide_h1_super}}<span class="super">Optimizely for</span>{{/unless}}
                     {{page.visible_title}}
                 </h1>
                 <ul class="sub-header-nav">

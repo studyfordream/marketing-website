@@ -78,12 +78,12 @@ page_script: sample-size-calculator.js
     </div>
   </div>
   {{/with}}
-  
+
   <div class="calc-sample-cont">
     <div class="sample-label">{{bottom_title}}</div>
-    <div id="sample">10,316</div>
+    <div id="sample"></div>
   </div>
-  
+
 
 </div>
 {{/with}}
@@ -94,14 +94,9 @@ page_script: sample-size-calculator.js
   <div class="calc-faq-cont">
     {{#each sections}}
     <div class="calc-faq-subtitle">{{sub_title}}</div>
-    <p>
-      {{description}}
-      {{#if link}}
-      <a href="{{link.path}}" target="_blank">{{link.title}}</a>
-      {{/if}}
-    </p>
+    {{#omarkdown}}{{description}}{{/omarkdown}}
     {{/each}}
-  </div> 
+  </div>
   {{/with}}
 </div>
 

@@ -1,12 +1,3 @@
-/*
- * Generated on 2014-03-26
- * generator-assemble v0.4.11
- * https://github.com/assemble/generator-assemble
- *
- * Copyright (c) 2014 Hariadi Hinta
- * Licensed under the MIT license.
- */ 
-
 'use strict';
 
 // # Globbing
@@ -78,6 +69,30 @@ module.exports = function(grunt) {
             assetsDir: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets',
             link_path: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
             sassImagePath: '/<%= gitinfo.local.branch.current.name %>/assets/img',
+            compress_js: true,
+            drop_console: false,
+            concat_banner: '(function($){ \n\n' +
+                           '  window.optly = window.optly || {}; \n\n' +
+                           '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
+                           '  window.linkPath = "<%= gitinfo.local.branch.current.name %>" \n\n' +
+                           '  try { \n\n',
+            concat_footer: '  } catch(error){ \n\n' +
+                           '  //report errors to GA \n\n' +
+                           '  window.console.log("js error: " + error);' +
+                           '  } \n' +
+                           '})(jQuery);'
+          }
+        }
+      },
+      smartlingStaging: {
+        options: {
+          variables: {
+            aws: creds,
+            environment: 'staging',
+            environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
+            assetsDir: '/assets',
+            link_path: '',
+            sassImagePath: '/assets/img',
             compress_js: true,
             drop_console: false,
             concat_banner: '(function($){ \n\n' +
@@ -260,6 +275,25 @@ module.exports = function(grunt) {
         partials: ['<%= config.guts %>/templates/partials/*.hbs'],
         helpers: ['<%= config.helpers %>/**/*.js'],
       },
+      modals: {
+        options: {
+          ext: '.hbs'
+        },
+        files: [
+          {
+            src: 'templates/components/modals/**/*.hbs',
+            dest: '<%= config.guts %>/templates/partials/',
+            cwd: '<%= config.guts %>/',
+            expand: true,
+            filter: 'isFile',
+            flatten: true,
+            rename: function(dest, src) {
+              var split = src.split('.');
+              return dest + split[0] + '_compiled';
+            }
+          }
+        ]
+      },
       partners: {
         options: {
           collections: [
@@ -283,25 +317,6 @@ module.exports = function(grunt) {
             dest: '<%= config.dist %>/partners/',
             cwd: '<%= config.content %>/partners/',
             expand: true
-          }
-        ]
-      },
-      modals: {
-        options: {
-          ext: '.hbs'
-        },
-        files: [
-          {
-            src: 'templates/components/modals/**/*.hbs',
-            dest: '<%= config.guts %>/templates/partials/',
-            cwd: '<%= config.guts %>/',
-            expand: true,
-            filter: 'isFile',
-            flatten: true,
-            rename: function(dest, src) {
-              var split = src.split('.');
-              return dest + split[0] + '_compiled';
-            }
           }
         ]
       },
@@ -410,17 +425,31 @@ module.exports = function(grunt) {
       options: {
         key: '<%= grunt.config.get("aws.key") %>',
         secret: '<%= grunt.config.get("aws.secret") %>',
-        bucket: '<%= grunt.config.get("aws.staging_bucket") %>',
         access: 'public-read'
       },
       staging: {
-          upload: [
-            {
-              src: '<%= config.dist %>/**/*',
-              dest: '<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
-              rel: '<%= config.dist %>'
-            }
-          ]
+        options: {
+          bucket: '<%= grunt.config.get("aws.staging_bucket") %>'
+        },
+        upload: [
+          {
+            src: '<%= config.dist %>/**/*',
+            dest: '<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
+            rel: '<%= config.dist %>'
+          }
+        ]
+      },
+      smartling: {
+        options: {
+          bucket: '<%= grunt.config.get("aws.smartling_staging_bucket") %>'
+        },
+        upload: [
+          {
+            src: '<%= config.dist %>/**/*',
+            dest: '',
+            rel: '<%= config.dist %>'
+          }
+        ]
       }
     },
     jshint: {
@@ -654,6 +683,7 @@ module.exports = function(grunt) {
     'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
+    'inline',
     'assemble',
     'concat',
     'uglify',
@@ -662,7 +692,23 @@ module.exports = function(grunt) {
     'copy',
     's3:staging',
     'clean:postBuild'
+  ]);
 
+  grunt.registerTask('smartling-staging-deploy', [
+    'gitinfo',
+    'config:smartlingStaging',
+    'jshint:clientDev',
+    'jshint:server',
+    'clean:preBuild',
+    'inline',
+    'assemble',
+    'concat',
+    'uglify',
+    'sass',
+    'autoprefixer',
+    'copy',
+    's3:smartling',
+    'clean:postBuild'
   ]);
 
   grunt.registerTask('server', [

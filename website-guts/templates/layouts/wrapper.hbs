@@ -21,7 +21,7 @@ layout_modals:
         <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {{#if environmentVariables.staging}}<meta name="robots" content="noindex">{{/if}}
-        <title>Optimizely:{{#if page.seo_title}} {{page.seo_title}}{{else}} A/B testing software you'll actually use{{/if}}</title>
+        <title>{{#if page.seo_title}}{{page.seo_title}}{{else}}Optimizely: A/B testing software you'll actually use{{/if}}</title>
         {{!-- Standard meta tags --}}
         <meta name="description" content="{{#if page.description}}{{page.description}}{{else}}Improve conversions through A/B Testing, Split Testing and Multivariate Testing with Optimizely!{{/if}}">
         <meta name="keywords" content="AB test, split test, multivariate testing, conversion rate">
@@ -76,14 +76,14 @@ layout_modals:
                                         <p>Product</p>
                                         <ul>
                                             <li class="first"><a href="{{linkPath}}/benefits">Benefits</a></li>
-                                            <li><a href="{{linkPath}}/pricing">Plans and Pricing</a></li>
+                                            <li><a href="#">Plans and Pricing</a></li>
                                             <li><a href="{{linkPath}}/mobile">Mobile</a></li>
                                             <li><a href="{{linkPath}}/customers">Customer List</a></li>
                                             <li><a href="{{linkPath}}/customers/customer-stories">Customer Stories</a></li>
                                             <li class="last"><a href="{{linkPath}}/resources/live-demo-webinar">Live Demo Signup</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="{{linkPath}}/pricing">Pricing</a></li>
+                                    <li><a href="#">Pricing</a></li>
                                     <li>
                                         <p>Optiverse</p>
                                         <ul>
@@ -95,14 +95,15 @@ layout_modals:
                                     <li>
                                         <p>Resources</p>
                                         <ul>
-                                            <li><a href="{{linkPath}}/ab-testing">What is A/B testing?</a></li>
-                                            <li><a href="{{linkPath}}/split-testing">What is split testing?</a></li>
-                                            <li><a href="{{linkPath}}/resources/multivariate-testing">What is multivariate testing?</a></li>
-                                            <li><a href="{{linkPath}}/gettingstarted">Gestting Started</a></li>
+                                            <li><a href="{{linkPath}}/ab-testing">What is A/B Testing?</a></li>
+                                            <li><a href="{{linkPath}}/split-testing">What is Split Testing?</a></li>
+                                            <li><a href="#">What is Multivariate Testing?</a></li>
+                                            <li><a href="{{linkPath}}/gettingstarted">Getting Started</a></li>
                                             <li><a href="{{linkPath}}/faq">FAQ</a></li>
-                                            <li><a href="http://developers.optimizely.com">Developer platform</a></li>
+                                            <li><a href="http://developers.optimizely.com">Developer Platform</a></li>
                                             <li><a href="http://certification.optimizely.com">Certification</a></li>
                                             <li><a href="{{linkPath}}/partners">Solutions Partners</a></li>
+                                            <li><a href="{{linkPath}}/resources/sample-size-calculator">Sample Size Calculator</a></li>
                                             <li><a href="http://blog.optimizely.com">Blog</a></li>
                                         </ul>
                                     </li>
@@ -118,32 +119,32 @@ layout_modals:
                         <p><a class="logo" href="{{linkPath}}/">Optimizely</a></p>
                         <div id="footer-nav-cont">
                             <div class="left-nav">
-                                <p>&copy 2014, Optimizely. All rights reserved</p>
+                                <p>&copy; 2014, Optimizely. All Rights Reserved</p>
                                 <ul id="legalese" class="clearfix">
-                                    <li class="terms"><a href="{{linkPath}}/terms">Terms of Service</a> &nbsp;<span class="separater">|</span></li>
-                                    <li><a href="{{linkPath}}/privacy">Privacy Policy</a> &nbsp;<span class="separater">|</span></li>
+                                    <li class="terms"><a href="{{linkPath}}/terms" id="SL-link-terms" class="SL_swap">Terms of Service</a> &nbsp;<span class="separater">|</span></li>
+                                    <li><a href="{{linkPath}}/privacy" id="SL-link-privacy" class="SL_swap">Privacy Policy</a> &nbsp;<span class="separater">|</span></li>
                                     <li class="security"><a href="{{linkPath}}/security">Security</a></li>
                                 </ul>
                                 <ul class="social-links">
-                                    <li><a href="http://twitter.com/optimizely" class="twitter">Twitter</a></li>
-                                    <li><a href="http://www.facebook.com/optimizely" class="facebook">Facebook</a></li>
-                                    <li><a href="https://plus.google.com/+optimizely/posts" class="google-plus">Google+</a></li>
+                                    <li><a href="http://twitter.com/optimizely" id="SL-link-twitter" class="twitter SL_swap">Twitter</a></li>
+                                    <li><a href="http://www.facebook.com/optimizely" id="SL-link-facebook" class="facebook SL_swap">Facebook</a></li>
+                                    <li><a href="https://plus.google.com/+optimizely/posts" id="SL-link-gplus" class="google-plus SL_swap">Google+</a></li>
                                 </ul>
                             </div><!--/.left-->
                             <div class="right-nav">
                                     <ul id="footer-nav" class="row">
                                         <li id="footer-nav-features" class="columns three">
-                                            <h4>Product features &amp; benefits</h4>
+                                            <h4>Product Features &amp; Benefits</h4>
                                             <ul>
-                                                <li><a href="{{linkPath}}/pricing">Plans and pricing</a></li>
+                                                <li><a href="#">Plans and Pricing</a></li>
                                                 <li><a href="{{linkPath}}/benefits">Benefits</a></li>
-                                                <li><a href="{{linkPath}}/mobile">iOS beta</a></li>
-                                                <li><a href="{{linkPath}}/partners">Optimizely for Angencies</a></li>
-                                                <li><a href="http://developers.optimizely.com">Optimizely for Developers</a></li>
-                                                <li><a href="{{linkPath}}/ecommerce">Optimizely for E-commerce</a></li>
-                                                <li><a href="{{linkPath}}/enterprises">Optimizely for Enterprises</a></li>
-                                                <li><a href="{{linkPath}}/publishers">Optimizely for Eublishers</a></li>
-                                                <li><a href="{{linkPath}}/small-business">Optimizely for Small Business</a></li>
+                                                <li><a href="{{linkPath}}/mobile" class="SL_hide">iOS Beta</a></li>
+                                                <li><a href="{{linkPath}}/partners" class="SL_hide">Optimizely for Agencies</a></li>
+                                                <li><a href="http://developers.optimizely.com" class="SL_hide">Optimizely for Developers</a></li>
+                                                <li><a href="{{linkPath}}/ecommerce" class="SL_hide">Optimizely for E-commerce</a></li>
+                                                <li><a href="{{linkPath}}/enterprises" class="SL_hide">Optimizely for Enterprises</a></li>
+                                                <li><a href="{{linkPath}}/publishers" class="SL_hide">Optimizely for Publishers</a></li>
+                                                <li><a href="{{linkPath}}/small-business" class="SL_hide">Optimizely for Small Business</a></li>
                                             </ul>
                                         </li>
                                         <li id="footer-nav-customers" class="columns two">
@@ -156,10 +157,10 @@ layout_modals:
                                         <li id="footer-nav-resources" class="columns three">
                                             <h4>Resources</h4>
                                             <ul>
-                                                <li><a href="{{linkPath}}/ab-testing">What is a/b testing?</a></li>
-                                                <li><a href="{{linkPath}}/split-testing">What is split testing?</a></li>
-                                                <li><a href="{{linkPath}}/gettingstarted">Getting started</a></li>
-                                                <li><a href="{{linkPath}}/resources/live-demo-webinar">Live demo signup</a></li>
+                                                <li><a href="{{linkPath}}/ab-testing">What is A/B Testing?</a></li>
+                                                <li><a href="{{linkPath}}/split-testing">What is Split Testing?</a></li>
+                                                <li><a href="{{linkPath}}/gettingstarted">Getting Started</a></li>
+                                                <li><a href="{{linkPath}}/resources/live-demo-webinar">Live Demo Signup</a></li>
                                                 <li><a href="{{linkPath}}/faq">FAQ</a></li>
                                                 <li><a href="http://help.optimizely.com">Knowledge Base</a></li>
                                                 <li><a href="http://developers.optimizely.com">API Documentation</a></li>
@@ -180,14 +181,14 @@ layout_modals:
                                         <li id="footer-nav-other" class="columns two">
                                             <h4>Other</h4>
                                             <ul>
-                                                <li><a href="http://success.optimizely.com">Customer sucess</a></li>
-                                                <li><a href="{{linkPath}}/demo">Request a demo</a></li>
-                                                <li><a href="{{linkPath}}/opt_out">Opt out</a></li>
+                                                <li><a href="http://success.optimizely.com">Customer Success</a></li>
+                                                <li><a href="{{linkPath}}/demo">Request a Demo</a></li>
+                                                <li><a href="{{linkPath}}/opt_out">Opt Out</a></li>
                                             </ul>
                                         </li>
                                     </ul><!--/#footer-nav-->
                                 <div class="row intl-domains">
-                                    <ul id="intl-domains">
+                                    <ul id="intl-domains SL_norewrite" translate="no">
                                         <li class="first"><a href="https://www.optimizely.dk/" title="Danish">Dansk</a></li>
                                         <li><a href="https://www.optimizely.de/" title="German">Deutsch</a></li>
                                         <li><a href="https://www.optimizely.com/" title="English">English</a></li>
