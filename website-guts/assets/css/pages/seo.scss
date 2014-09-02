@@ -20,6 +20,13 @@ body.seo {
 }
 
 @media only screen and (min-width: $tablet-min-width) {
+  body.seo {
+    #page-header {
+      wbr {
+        display: none;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: $desktop-min-width) {
