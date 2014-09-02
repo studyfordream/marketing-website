@@ -144,7 +144,7 @@ module.exports = function(grunt) {
           '!<%= config.guts %>/templates/client/**/*.hbs',
           '<%= config.guts %>/helpers/**/*.js'
         ],
-        tasks: ['config:dev', 'inline', 'assemble:pages', 'assemble:modals']
+        tasks: ['config:dev', 'assemble:pages', 'assemble:modals']
       },
       assemblePartners: {
         files: [
@@ -153,7 +153,7 @@ module.exports = function(grunt) {
           '!<%= config.guts %>/templates/**/*_compiled.hbs',
           '!<%= config.guts %>/templates/client/**/*.hbs'
         ],
-        tasks: ['config:dev', 'inline', 'assemble:partners']
+        tasks: ['config:dev', 'assemble:partners']
       },
       sass: {
         files: '<%= config.guts %>/assets/css/**/*.scss',
@@ -162,10 +162,6 @@ module.exports = function(grunt) {
       img: {
         files: ['<%= config.guts %>/assets/img/*.{png,jpg,svg}'],
         tasks: ['copy:img']
-      },
-      inline: {
-        files: ['<%= config.guts %>/assets/js/services/user_state.js'],
-        tasks: ['config:dev', 'jshint', 'inline', 'assemble' ,'concat', 'clean:postBuild']
       },
       js: {
         files: ['<%= config.guts %>/assets/js/**/*.js', '<%= config.temp %>/assets/js/**/*.js'],
@@ -629,16 +625,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    inline: {
-      dist: {
-          options:{
-              uglify: true,
-              exts: 'hbs'
-          },
-          src: ['<%= config.guts %>/templates/layouts/wrapper.hbs'],
-          dest: ['<%= config.guts %>/templates/layouts/wrapper_compiled.hbs']
-      }
-    },
     handlebars: {
       compile: {
         options: {
@@ -683,7 +669,6 @@ module.exports = function(grunt) {
     'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
-    'inline',
     'assemble',
     'concat',
     'uglify',
@@ -700,7 +685,6 @@ module.exports = function(grunt) {
     'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
-    'inline',
     'assemble',
     'concat',
     'uglify',
@@ -716,7 +700,6 @@ module.exports = function(grunt) {
     'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
-    'inline',
     'assemble',
     'handlebars',
     'concat',

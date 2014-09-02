@@ -17,7 +17,7 @@ layout_modals:
             window.optly_q = [];
             window.analytics=window.analytics||[];
         </script>
-        <script src="../../assets/js/services/user_state.js?__inline=true"></script>
+        <script>{{#scriptinjector '../assets/js/services/user_state.js' true}}{{/scriptinjector}}</script>
         <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {{#if environmentVariables.staging}}<meta name="robots" content="noindex">{{/if}}
