@@ -66,7 +66,7 @@ sub_head: World-class service providers. Empowered customers. Lasting results.
             <div class="level">
               {{#if page.data.solutions }}
                 {{#if stars}}
-                  <div class="level-heading">{{{partners.solutions.filter.stars}}}: <span class="tooltip-hover" data-content="lorem ipsum dolor">?</span></div>
+                  <div class="level-heading">{{{partners.solutions.filter.stars}}}: <span data-tooltip title="{{{partners.solutions.partner_tooltip}}}">?</span></div>
                   <div class="star-cont {{#if stars}}star-cont--{{stars}}{{/if}} star-left"></div>
                 {{/if}}
               {{/if}}

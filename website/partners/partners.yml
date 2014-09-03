@@ -17,6 +17,7 @@ solutions:
   apply_link_intro: "Join the Optimizely Solutions Partner Program"
   apply_link_text: "Apply Now"
   kb_article: "Get Implementation Guide"
+  partner_tooltip: "Lorem Ipsum..."
   filter:
     region: "Region"
     title: "Filter By"
