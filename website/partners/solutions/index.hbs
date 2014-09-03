@@ -50,7 +50,9 @@ script_dependencies:
         <div class="dropdown-cont dropdown-cont--columns">{{{partners.solutions.filter.vertical}}} &#9662;
           <ul>
             {{#each tags}}
-            <li class="filter-item" data-filter="{{createClassList tag}}">{{tag}}</li>
+              {{#if tag.length}}
+                <li class="filter-item" data-filter="{{createClassList tag}}">{{tag}}</li>
+              {{/if}}
             {{/each}}
           </ul>
         </div>
