@@ -18,7 +18,7 @@ page_script: mobile.js
   <section id="hero">
     <h1>{{hero.header}}</h1>
     <h2>{{hero.sub_header}}</h2>
-    <a href="/signin?signup=true&signup_platform=ios&continue_to=/dashboard?show_code=true&utm_campaign=iosplatform" class="sign-up-btn">{{{sign_up.button_text}}}</a>
+    <a href="https://www.optimizely.com/signin?signup=true&signup_platform=ios&continue_to=/dashboard?show_code=true&utm_campaign=iosplatform" class="sign-up-btn">{{{sign_up.button_text}}}</a>
     {{#omarkdown}}{{{sign_up.existing_customer}}}{{/omarkdown}}
     <div id="down"></div>
   </section>
@@ -29,8 +29,7 @@ page_script: mobile.js
     <section id="visual-changes-features" class="gray-section light">
       <div class="container">
         <div class="section-container">
-          <h2>{{section_1.header}}<br><b><q>{{section_1.header_emphasis}}</b></q></h2>
-          <p>{{section_1.body}}</p>
+          {{#omarkdown}}{{section_1.body}}{{/omarkdown}}
         </div>
         <div id="visual-changes-demo">
           <span id="visual-change-photo" class="a"></span>
@@ -79,8 +78,7 @@ page_script: mobile.js
     <section id="flexible-powerful" class="blue-section">
       <div class="container a">
         <div class="section-container">
-          <h2>{{{section_2.header}}}</h2>
-          <p>{{section_2.body}}</p>
+          {{#omarkdown}}{{section_2.body}}{{/omarkdown}}
         </div>
         <div id="flexible-powerful-image"></div>
         <div class="visual-slider-cont a" id="flexible-powerful-slider">
@@ -93,7 +91,7 @@ page_script: mobile.js
           <div id="live-variables" class="feature columns one-third">
             <div style="background-image: url({{icon}})" class="feature-bg"></div>
             <h3>{{{header}}}</h3>
-            <p>{{body}}</p>
+            <p>{{body}}</p> 
           </div>
           {{/each}}
         </div>
@@ -104,8 +102,7 @@ page_script: mobile.js
     <section id="trusted" class="light">
       <div class="container">
         <div class="section-container">
-          <h2>{{section_3.header}}</h2>
-          <p>{{section_3.body}}</p>
+          {{#omarkdown}}{{section_3.body}}{{/omarkdown}}
         </div>
         <div id="deploy-cont">
           <div id="deploy-graphic-cont">
@@ -128,7 +125,7 @@ page_script: mobile.js
     {{#if footer}}
     <section id="signup-bottom">
       <h2>{{{footer.header}}}</h2>
-      <a href="/signin?signup=true&signup_platform=ios&continue_to=/dashboard?show_code=true&utm_campaign=iosplatform" class="sign-up-btn">{{{sign_up.button_text}}}</a>
+      <a href="https://www.optimizely.com/signin?signup=true&signup_platform=ios&continue_to=/dashboard?show_code=true&utm_campaign=iosplatform" class="sign-up-btn">{{{sign_up.button_text}}}</a>
       {{#omarkdown}}{{sign_up.existing_customer}}{{/omarkdown}}
     </section>
     {{/if}}

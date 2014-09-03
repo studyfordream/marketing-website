@@ -5,9 +5,10 @@ hero:
  header: "Fast and scalable A/B testing for iOS apps."
  sub_header: "Submit once. Iterate daily."
 section_1:
- header: "Faster than you can say"
- header_emphasis: Optimization
- body: "Make visual changes to your app on the fly using Optimizely's code-free visual editor. Push changes to the app without waiting for App Store review."
+ body: |
+  ## Faster than you can say **"Optimization"**
+
+  Make visual changes to your app on the fly using Optimizely's code-free visual editor. Push changes to the app without waiting for App Store review.
  subsections:
  -
   header: "Visual changes"
@@ -22,15 +23,17 @@ section_1:
   body: "Roll out visual changes immediately without waiting for App Store review."
   icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/instant-rollout.svg"
 section_2:
- header: "<strong>Flexible</strong> and <strong>powerful</strong> developer tools."
- body: "Stop compromising between speed and power. Optimizely’s simple developer tools make it easy to optimize even the most custom features."
+ body: |
+  ## **Flexible** and **powerful** developer tools.
+
+  Stop compromising between speed and power. Optimizely’s simple developer tools make it easy to optimize even the most custom features.
  subsections:
  -
   header: "Live variables"
   body: "Make on-the-fly changes to variables integrated into your app."
   icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/live-variables.svg"
  -
-  header: "Web &amp; Mobile"
+  header: "Web &amp; mobile"
   body: "Optimize and deliver personalized experiences across your website and mobile app using the same platform."
   icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/web-mobile.svg"
  -
@@ -38,15 +41,17 @@ section_2:
   body: "Test entirely custom features and designs and then gradually roll them out to users."
   icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/code-blocks.svg"
 section_3:
- header: "The most trusted and scalable optimization platform in the world."
- body: "Optimizely for iOS is built in the world's #1 optimization platform, trust by more than 6,000 customers globally."
+ body: |
+  ## The most trusted and scalable optimization platform in the world.
+
+  Optimizely for iOS is built in the world's #1 optimization platform, trust by more than 6,000 customers globally.
  subsections:
  -
   header: "World-class analytics platform"
   body: "Select goals seamlessly with a tap of your finger. Then, determine winners and roll them out with a single click."
   icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/world-class.svg"
  -
-  header: "Incredible Responsive"
+  header: "Incredibly responsive"
   body: "Rest easily knowing your experiments are being delivered quickly and reliably via Optimizely's one-of-a-kind CDN architecture."
   icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/responsive.svg"
  -
@@ -54,4 +59,4 @@ section_3:
   body: "Optimizely is already trusted by more than 6,000 of the world's top companies, including CNN, Yelp, Starbucks, and many more."
   icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/enterprise.svg"
 footer:
- header: "Sign up for<br>Optimizely iOS beta"
+ header: "Sign up for <br>Optimizely iOS beta"

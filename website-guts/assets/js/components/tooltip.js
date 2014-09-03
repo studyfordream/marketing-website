@@ -108,11 +108,6 @@ window.optly.mrkt.tooltip.initTipQ = function() {
   }.bind(this));
 
   $q.queue('showTip', function(next) {
-    this.positionTip();
-    next();
-  }.bind(this));
-
-  $q.queue('showTip', function(next) {
     $(window).on('resize', this.positionTip.bind(this));
     next();
   }.bind(this));
@@ -140,12 +135,12 @@ window.optly.mrkt.tooltip.toggleClass = function(added) {
 };
 
 window.optly.mrkt.tooltip.configTooltip = function() {
-  var targetPosTop, 
+  var targetPosTop,
     targetPosLeft,
-    tipHorizontalOffset, 
+    tipHorizontalOffset,
     tipVerticalOffset,
     posTop,
-    posLeft, 
+    posLeft,
     currentTip;
 
   tipHorizontalOffset = this.$tooltipElm.outerWidth() / 2;
@@ -183,9 +178,6 @@ window.optly.mrkt.tooltip.configTooltip = function() {
 
 $(function() {
   var $targetElms = $('[data-tooltip]');
-  
+
   window.optly.mrkt.tooltip.init($targetElms);
 });
-
-
-

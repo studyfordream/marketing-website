@@ -208,12 +208,15 @@ header {
       ul ul {
           display: none;
           background: linear-gradient(to bottom, #00558d 0%,#006eb6 15%,#006eb6 100%);
-      }
-      background:
-          image-url('bg-top-header.png') repeat-x,
-          image-url('bg-header.png');
+      }       
   }
-  #top-nav-cont {border-bottom: 1px solid #104682;}
+  #top-nav-cont {
+    background: image-url('bg-top-header.png') repeat-x;
+    border-bottom: 1px solid #104682;
+  }
+  #main-nav-cont {
+    background: image-url('bg-header.png') repeat;
+  }
   .logo-cont {
       position: absolute;
       left: 0;
