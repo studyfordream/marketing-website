@@ -28,7 +28,7 @@ body_class:
   <div class="case-studies-bg-container">
     <div class="case-studies-container container">
       {{#each customer_stories_data.customer_stories}}
-        {{#classgridstart @index}}
+        {{#classgridstart @index 3}}
           <div class="row stories">
         {{/classgridstart}}
             <div class="columns one-third customer-grid-elm">
@@ -43,7 +43,7 @@ body_class:
                 </div>
               </div>
             </div> <!-- .customer-grid-elm -->
-        {{#classgridfinish @index @last}}
+        {{#classgridfinish @index @last 3}}
           </div>
         {{/classgridfinish}}
       {{/each}}
