@@ -165,6 +165,11 @@ ul {
             margin: .3em 0 0 0;
         }
     }
+    #page-header, .ugc h2, .ugc h3, .ugc h4, .ugc h5 {
+      br {
+        display: none;
+      }
+    }
     .sub-header-nav {
       padding: 0;
       li {
@@ -227,7 +232,7 @@ ul {
         }
         li {margin-bottom: 7px;}
         h2, h3, h4, h5 {
-          font-weight: 400;
+          font-weight: 100;
           font-family: $gotham-small-type;
         }
         p, li {
@@ -280,6 +285,11 @@ ul {
     */
     #page-content {background: $page-content-color;}
     #page-header-gradient {background-color: #f4f4f4;}
+    #page-header, .ugc h2, .ugc h3, .ugc h4, .ugc h5 {
+      br {
+        display: block;
+      }
+    }
     .ugc {
         ul {
           margin-left: 20px;
