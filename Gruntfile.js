@@ -240,6 +240,11 @@ module.exports = function(grunt) {
                 res.writeHead(200, {'Content-Type': 'application/json'});
                 res.end('{"success": "true"}');
 
+            } else if(req.url === '/api/jobs/details.json') {
+
+              res.writeHead(200, {'Content-Type': 'application/json'});
+              res.end( grunt.file.read('website-guts/endpoint-mocks/jobscoreData.json') );
+              
             } else{
 
               return next();
