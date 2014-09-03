@@ -108,11 +108,6 @@ window.optly.mrkt.tooltip.initTipQ = function() {
   }.bind(this));
 
   $q.queue('showTip', function(next) {
-    this.positionTip();
-    next();
-  }.bind(this));
-
-  $q.queue('showTip', function(next) {
     $(window).on('resize', this.positionTip.bind(this));
     next();
   }.bind(this));
