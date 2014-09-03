@@ -1,4 +1,9 @@
 body.seo {
+  #page-header {
+    br {
+      display: none;
+    }
+  }
   .attention {
     a {
       width: 230px;
@@ -19,11 +24,13 @@ body.seo {
   }
 }
 
-@media only screen and (min-width: $tablet-min-width) {
-}
-
 @media only screen and (min-width: $desktop-min-width) {
   body.seo {
+    #page-header {
+      br {
+        display: block;
+      }
+    }
     .attention {
       a {
         width: auto;

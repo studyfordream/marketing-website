@@ -12,6 +12,12 @@
     margin: 0 auto 45px auto;
     text-align: center;
   }
+  #hero,
+  #signup-bottom {
+    a:last-child {
+      text-decoration: underline;
+    }
+  }
   .ios-logo-cont {
     background: none;
   }
