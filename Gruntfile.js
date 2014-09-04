@@ -414,7 +414,8 @@ module.exports = function(grunt) {
             src: '**',
             dest: '<%= config.dist %>/assets/img/',
             expand: true
-          }
+          },
+          {src: ['<%= config.guts %>/assets/img/favicon.ico'], dest: '<%= config.dist %>/favicon.ico'},
         ]
       }
     },

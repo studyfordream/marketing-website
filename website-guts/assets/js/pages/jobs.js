@@ -43,8 +43,10 @@ function getGreenhouseData() {
       }
 
     });
+
 }
 */
+
 
 function jobScoreData(data) {
     var jobsObj = {
