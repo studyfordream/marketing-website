@@ -20,6 +20,7 @@ $('#view-all-jobs').click(function() {
 
 window.optly.mrkt.jobsPage.testimonials();
 
+/*
 function getGreenhouseData() {
     $.getJSON('https://api.greenhouse.io/v1/boards/optimizely7/embed/departments?callback=?').always(function(data){
 
@@ -43,6 +44,7 @@ function getGreenhouseData() {
 
     });
 }
+*/
 
 function jobScoreData(data) {
     var jobsObj = {
@@ -65,7 +67,7 @@ function jobScoreData(data) {
                 return jobListing.department;
             }
         });
-        
+
         if( filtered.length === 0 ) {
             jobsObj.departments.push({
                 name: jobListing.department,

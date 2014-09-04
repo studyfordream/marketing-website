@@ -244,7 +244,7 @@ module.exports = function(grunt) {
 
               res.writeHead(200, {'Content-Type': 'application/json'});
               res.end( grunt.file.read('website-guts/endpoint-mocks/jobscoreData.json') );
-              
+
             } else{
 
               return next();
@@ -675,6 +675,7 @@ module.exports = function(grunt) {
     'jshint:server',
     'clean:preBuild',
     'assemble',
+    'handlebars',
     'concat',
     'uglify',
     'sass',
@@ -691,6 +692,7 @@ module.exports = function(grunt) {
     'jshint:server',
     'clean:preBuild',
     'assemble',
+    'handlebars',
     'concat',
     'uglify',
     'sass',
@@ -723,6 +725,7 @@ module.exports = function(grunt) {
     'jshint:server',
     'clean:preBuild',
     'assemble',
+    'handlebars',
     'concat',
     'copy:cssFontFile',
     'copy:jquery',
