@@ -42,9 +42,9 @@ module.exports = function(grunt) {
           variables: {
             environment: 'production',
             environmentData: 'website-guts/data/environments/production/environmentVariables.json',
-            assetsDir: 'dist/assets',
+            assetsDir: 'https://du7782fucwe1l.cloudfront.net',
             link_path: '',
-            sassImagePath: '/dist/assets/img',
+            sassImagePath: 'https://du7782fucwe1l.cloudfront.net/img',
             compress_js: true,
             drop_console: true,
             concat_banner: '(function($){ \n\n' +
