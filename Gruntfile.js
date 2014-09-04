@@ -389,9 +389,15 @@ module.exports = function(grunt) {
         src: '<%= config.temp %>/css/styles.css.map',
         dest: '<%= config.dist %>/assets/css/styles.css.map'
       },
-      cssFontFile: {
-        src: ['<%= config.guts %>/assets/css/fonts.css'],
-        dest: '<%= config.dist %>/assets/css/fonts.css'
+      fonts: {
+        files: [
+          {
+            cwd: '<%= config.guts %>/assets/fonts/',
+            src: '**',
+            dest: '<%= config.dist %>/assets/fonts/',
+            expand: true
+          }
+        ]
       },
       jquery: {
         files: [
@@ -728,8 +734,7 @@ module.exports = function(grunt) {
     'assemble',
     'handlebars',
     'concat',
-    'copy:cssFontFile',
-    'copy:jquery',
+    'copy',
     'uglify',
     'sass:prod',
     'replace',
