@@ -2,9 +2,6 @@ $property: opacity 1 0;
 $transition: opacity 0.1s linear;
 
 [data-tooltip] {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-  opacity: 0.7;
-  background: image-url('buttons.png') no-repeat -24px 0;
   cursor: pointer;
   display: inline-block;
   width: 18px;
@@ -13,6 +10,26 @@ $transition: opacity 0.1s linear;
   margin: 0 5px;
   position: relative;
   text-indent: -9999px;
+  z-index: 9999;
+  line-height: 1.6em;
+  &:before {
+    content: "";
+    opacity: 0.7;
+    background: image-url('buttons.png') no-repeat -24px 0;
+    display: block;
+    height: 100%;
+  }
+}
+
+[data-tooltip ~= "custom"] {
+  width: auto;
+  height: auto;
+  text-indent: 0;
+  vertical-align: baseline;
+  &:before {
+    content: "";
+    background: none;
+  }
 }
 
 [data-tooltip-dialog] {
