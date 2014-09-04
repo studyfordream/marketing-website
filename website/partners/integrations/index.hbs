@@ -25,14 +25,14 @@ body_class:
           {{#each pages}}
             <div class="partner-grid-elm" data-priority="{{data.priority}}">
               <div class="title-container">
-                <h4 class="partner-title"><a href="{{linkPath}}/{{this.dest}}">{{data.title}}</a></h4>
+                <h4 class="partner-title"><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></h4>
               </div> <!-- .title-container -->
               <div class="partner-inner-content">
-                <a href="{{linkPath}}/{{this.dest}}" class="partner-logos" style="background-image: url('{{data.logo}}');"></a>
+                <a href="{{relative ../../page.dest this.dest}}" class="partner-logos" style="background-image: url('{{data.logo}}');"></a>
                 <p>{{ data.summary }}</p>
               </div>
               <div class="button-container">
-                <a href="{{linkPath}}/{{ this.dest }}" class="button">{{{../../partners.more}}} &gt;</a>
+                <a href="{{relative ../../page.dest this.dest}}" class="button">{{{../../partners.more}}} &gt;</a>
               </div>
             </div> <!-- .partner-grid-elm -->
           {{/each}}
