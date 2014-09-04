@@ -20,24 +20,78 @@ $('#view-all-jobs').click(function() {
 
 window.optly.mrkt.jobsPage.testimonials();
 
-$.getJSON('https://api.greenhouse.io/v1/boards/optimizely7/embed/departments?callback=?').always(function(data){
+function getGreenhouseData() {
+    $.getJSON('https://api.greenhouse.io/v1/boards/optimizely7/embed/departments?callback=?').always(function(data){
 
-  if(typeof data === 'object'){
+      if(typeof data === 'object'){
 
-    var i;
+        var i;
 
-    for(i = 0; i < data.departments.length; i++){
+        for(i = 0; i < data.departments.length; i++){
 
-      if(data.departments[i].jobs.length === 0){
+          if(data.departments[i].jobs.length === 0){
 
-        delete data.departments[i];
+            delete data.departments[i];
+
+          }
+
+        }
+
+        $('#job-list-cont').append( window.optly.mrkt.templates.jobList(data) );
 
       }
 
-    }
+    });
+}
 
-    $('#job-list-cont').append( window.optly.mrkt.templates.jobList(data) );
+function jobScoreData(data) {
+    var jobsObj = {
+        departments: []
+    };
 
-  }
+    var jobs = JSON.parse(data.jobs);
 
+    $.each(jobs, function(i, jobListing) {
+
+        var filtered = jobsObj.departments.filter(function(elm) {
+            if ( elm.name === jobListing.department ) {
+                elm.jobs.push({
+                    absolute_url: jobListing.url,
+                    title: jobListing.title,
+                    location: {
+                        name: jobListing.location
+                    }
+                });
+                return jobListing.department;
+            }
+        });
+        
+        if( filtered.length === 0 ) {
+            jobsObj.departments.push({
+                name: jobListing.department,
+                jobs: [{
+                    absolute_url: jobListing.url,
+                    title: jobListing.title,
+                    location: {
+                        name: jobListing.location
+                    }
+                }]
+            });
+        }
+
+    });
+
+    $('#job-list-cont').append( window.optly.mrkt.templates.jobList(jobsObj) );
+}
+
+var deferred = $.ajax({
+    type: 'GET',
+    url: '/api/jobs/details.json'
+});
+
+deferred.then(jobScoreData, function(err) {
+    window.analytics.track(window.location.pathname, {
+      category: 'api error',
+      label: err.responseText + ', Response Code: ' + err.status,
+    });
 });

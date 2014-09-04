@@ -4,6 +4,20 @@ body.jobs-layout {
         font-family: "Sentinel A","Sentinel B",Georgia,serif;
     }
 
+    #jobs-icons {
+        li {
+            margin-bottom: 20px;
+        }
+    }
+
+    #job-list-cont {
+        margin-bottom: 60px;
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
     #page-content {
         padding-bottom: 0;
     }
@@ -98,9 +112,7 @@ body.jobs-layout {
     .benefits {
         li {
             color: #242424;
-            float: left;
             padding-left: 50px;
-            margin: 1em 0;
             min-height: 60px;
             background-repeat: no-repeat;
         }
@@ -227,19 +239,7 @@ body.jobs-layout {
             }
         }
 
-        .benefits {
-            padding-top: 40px;
-
-            li {
-                // width: 400px;
-                margin: 1em 100px 1em 0;
-
-                &:nth-child(even) {
-                    margin-right: 0;
-                }
-            }
-
-        }
+        .benefits {padding-top: 40px;}
 
         .jobs-list {
             li {
@@ -257,10 +257,8 @@ body.jobs-layout {
 
 @media only screen and(min-width: $desktop-min-width) {
     body.jobs-layout {
-        .benefits {
-            li {
-                width: 400px;
-            }
+        #main-nav-cont {
+            background: none;
         }
     }
 }
