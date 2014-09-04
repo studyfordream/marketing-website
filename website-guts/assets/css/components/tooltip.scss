@@ -14,7 +14,6 @@ $transition: opacity 0.1s linear;
   line-height: 1.6em;
   &:before {
     content: "";
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
     opacity: 0.7;
     background: image-url('buttons.png') no-repeat -24px 0;
     display: block;
