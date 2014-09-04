@@ -652,7 +652,7 @@ module.exports = function(grunt) {
     },
     filerev: {
       assets: {
-        src: '<%= config.dist %>/assets/**/*.{js,css}'
+        src: ['<%= config.dist %>/assets/**/*.{js,css}', '!<%= config.dist %>/assets/fonts/**']
       }
     },
     userevvd: {
