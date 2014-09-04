@@ -208,7 +208,7 @@ header {
       ul ul {
           display: none;
           background: linear-gradient(to bottom, #00558d 0%,#006eb6 15%,#006eb6 100%);
-      }       
+      }
   }
   #top-nav-cont {
     background: image-url('bg-top-header.png') repeat-x;
@@ -255,7 +255,7 @@ header {
               top: 50px;
               z-index: 5;
               max-height: auto!important;
-              min-width: 210px;
+              min-width: 245px;
               text-align: left;
               padding: 10px 0;
               z-index: 20;
@@ -263,11 +263,11 @@ header {
                   width: 100%;
               }
               a {
-                  padding: 0.4em 1.5em;
+                  padding: 0.2em 1.5em;
                   width: 100%;
                   display: block;
                   box-sizing: border-box;
-                  font-size: .8em;
+                  font-size: .9em;
                   font-weight: 300;
               }
               a:hover {
