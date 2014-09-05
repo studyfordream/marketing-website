@@ -1,37 +1,51 @@
 ---
-layout: test_form.hbs
+layout: trial_form.hbs
 visible_title: "The Most Popular Split Testing Tool"
 seo_title: "The Most Popular Split Testing Tool"
+page_header: true
+form_text: "Welcome to Optimizely. Test out the easiest split testing tool on the planet!"
 body_class:
 - split-testing-page
 ---
-<div class="seo-content">
-  <div class="grids-container">
-    <p><img alt="Segmentation" src="https://s3.amazonaws.com/optimizely-marketing/segmentation.png" /></p>
-    <h3>A Visual Split Testing Tool</h3>
-    <p>Optimizely's WYSIWYG experiment editor allows you to move, resize, add, or hide any element on your page, just by typing in the URL - no extra files, no extra programs, no code required.  When you're ready, just click start, and Optimizely automatically begins hosting your page variations, splitting visitor traffic between them, and collecting results. </p>
-    <p><img alt="Goal tracking" src="https://s3.amazonaws.com/optimizely-marketing/goals.png" /></p>
-    <h3>Goal Tracking Lets The Money Talk</h3>
-    <p>You can track any goal with Optimizely, but if you're looking to increase revenue, revenue tracking lets you tune out the background noise and focus on what matters - the sales.  Our Javascript API lets you integrate revenue tracking with any shopping cart solution.  From geolocation targeting to multi-page funnels, get the full story on what drives your customers to the sales page.  </p>
-    <p><img alt="Data you can put to work" src="https://s3.amazonaws.com/optimizely-marketing/chart.png" /></p>
-    <h3>Instant Insight With Total Control</h3>
-    <p>Waiting sucks, especially when there's ROI on the line. With Optimizely as a split testing tool, you don't have to.  From the moment you start your experiment, log in to the web dashboard at any time, and you'll have access to astoundingly clear live reports on how your variations are performing.  Tweak traffic allocation, add additional goals, or even pull a surprise leader out of the test and divert all traffic to it so you can start benefiting immediately.  </p>
-    <p><img alt="Optimization culture" src="https://s3.amazonaws.com/optimizely-marketing/lightbulb.png" /></p>
-    <h3>Unlimited Optimization</h3>
-    <p>It's a fact - testing is most effective when you do it all the time.  With unlimited experiments, unlimited variations, and unlimited goals supported in every Optimizely package, get ready to feel effective.  Meanwhile, administrative features such as scheduling, project organization, and user roles keep everything running smoothly. </p>
-    <p><img alt="Integrates well by design" src="https://s3.amazonaws.com/optimizely-marketing/gears.png" /></p>
-    <h3>Integration With Other Tools In One Click</h3>
-    <p>Experimentation and flexibility go hand in hand.  Whether you're sending data to existing reporting systems, or combining Optimizely with other optimization tools such as heat maps or analytics products, you can do it with confidence!  One-click integration with dozens of leading optimization tools is built right in, and a rich jQuery API ensures that you're in charge of your data and can get it where you need it to go, every time.</p>
-  </div>
-</div>
+<div id="page-content">
+  <div class="container">
+      <div class="columns-container">
+        <div class="column-wrapper">
+          <img alt="Segmentation" src="https://s3.amazonaws.com/optimizely-marketing/segmentation.png" />
+          <h3>A Visual Split Testing Tool</h3>
+          <p>Optimizely's WYSIWYG experiment editor allows you to move, resize, add, or hide any element on your page, just by typing in the URL - no extra files, no extra programs, no code required.  When you're ready, just click start, and Optimizely automatically begins hosting your page variations, splitting visitor traffic between them, and collecting results. </p>
+        </div>
+        <div class="column-wrapper">
+          <img alt="Goal tracking" src="https://s3.amazonaws.com/optimizely-marketing/goals.png" />
+          <h3>Goal Tracking Lets The Money Talk</h3>
+          <p>You can track any goal with Optimizely, but if you're looking to increase revenue, revenue tracking lets you tune out the background noise and focus on what matters - the sales.  Our Javascript API lets you integrate revenue tracking with any shopping cart solution.  From geolocation targeting to multi-page funnels, get the full story on what drives your customers to the sales page.  </p>
+        </div>
+        <div class="column-wrapper">
+          <img alt="Data you can put to work" src="https://s3.amazonaws.com/optimizely-marketing/chart.png" />
+          <h3>Instant Insight With Total Control</h3>
+          <p>Waiting sucks, especially when there's ROI on the line. With Optimizely as a split testing tool, you don't have to.  From the moment you start your experiment, log in to the web dashboard at any time, and you'll have access to astoundingly clear live reports on how your variations are performing.  Tweak traffic allocation, add additional goals, or even pull a surprise leader out of the test and divert all traffic to it so you can start benefiting immediately.  </p>
+        </div>
+        <div class="column-wrapper">
+          <img alt="Optimization culture" src="https://s3.amazonaws.com/optimizely-marketing/lightbulb.png" />
+          <h3>Unlimited Optimization</h3>
+          <p>It's a fact - testing is most effective when you do it all the time.  With unlimited experiments, unlimited variations, and unlimited goals supported in every Optimizely package, get ready to feel effective.  Meanwhile, administrative features such as scheduling, project organization, and user roles keep everything running smoothly. </p>
+        </div>
+        <div class="column-wrapper">
+          <img alt="Integrates well by design" src="https://s3.amazonaws.com/optimizely-marketing/gears.png" />
+          <h3>Integration With Other Tools In One Click</h3>
+          <p>Experimentation and flexibility go hand in hand.  Whether you're sending data to existing reporting systems, or combining Optimizely with other optimization tools such as heat maps or analytics products, you can do it with confidence!  One-click integration with dozens of leading optimization tools is built right in, and a rich jQuery API ensures that you're in charge of your data and can get it where you need it to go, every time.</p>
+        </div>
+      </div>
+  </div><!--/.container-->
+</div><!--/#content-->
 
-<div class="seo-customers">
-  <div class="grid4">
-    <h4>Happy Customers testing with Optimizely</h4>
-  </div>
-  <div class="grid12 SL_swap" id="seo-customer-images">
-    <img src="{{assetsDir}}/img/resources/free-trial-logos-bw.png" alt="Happy customer logos" />
-  </div>
-  </div><!-- .seo-customers -->
-
-</div>
+<div class="seo-customers container">
+  <div class="row">
+    <div class="columns four">
+      <h4>Happy Customers <br>testing with Optimizely</h4>
+    </div>
+    <div class="columns eight SL_swap" id="seo-customer-images">
+      <img src="{{assetsDir}}/img/resources/free-trial-logos-bw.png" alt="Happy customer logos" />
+    </div>
+    </div>
+</div><!-- .seo-customers -->
