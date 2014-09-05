@@ -1,62 +1,96 @@
 ---
 layout: page.hbs
-seo_title: Solutions Partners
-visible_title: Optimizely Solutions Partners
+seo_title: "Solutions Partners"
+visible_title: "Solutions Partners"
 sub_head: World-class service providers. Empowered customers. Lasting results.
 body_class:
-- partners
+- "integrations-solutions"
+page_script:
+- "solutions.js"
+script_dependencies:
+- "//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"
 ---
+
 <div class="columns twelve">
 
-    <p class="center-desktop partners-desc">As the global leader in website optimization, Optimizely is focused on developing the most robust and intuitive testing platform on the planet. Enabling our customers when needed, we partner with the best service providers around the world so our clients never have to compromise.</p>
-
-    <div class="divider-heading">
-        <h2>Strategic benefits</h2>
+  <div class="row">
+    <div class="columns seven">
+      <p>{{{partners_data.page_intro}}}</p>
     </div>
+    <div class="columns five learn-more">
+      {{{partners_data.apply_link_intro}}}
+      <a class="big" href="{{{partners_data.apply_link_url}}}">{{{partners_data.apply_link_text}}} &gt;</a>
+    </div>
+  </div>
 
-    <p class="center-desktop">Optimizely Solutions Partners are leaders in their field, benefiting from exclusive growth, marketing and development opportunities.</p>
-
-    <div class="benefits-cont row box-shadow">
-        <div class="columns one-third">
-            <h3>Sales support</h3>
-            <ul>
-                <li>Advanced sales and development training</li>
-                <li>Dedicated Account Manager</li>
-                <li>Direct access to market-speciﬁc sales experts</li>
-                <li>Sales enablement collateral</li>
-                <li>Access to client referrals</li>
-            </ul>
+  <div class="row">
+    <div class="columns twelve filter">
+      <div class="pill clearfix">
+        <div class="heading">{{{partners_data.filter.title}}}:</div>
+        <div class="dropdown-cont dropdown-cont--region">{{{partners_data.filter.region}}} &#9662;
+          <ul>
+            {{#each partners.filter.regions}}
+              <li class="filter-item" data-filter="{{ createClassList this }}">{{this}}</li>
+            {{/each}}
+          </ul>
         </div>
-        <div class="columns one-third">
-            <h3>Marketing support</h3>
-            <ul>
-                <li>Use of Optimizely partner logo</li>
-                <li>Co-branded marketing collateral</li>
-                <li>Joint webinars and events</li>
-                <li>Guest speaking opportunities</li>
-            </ul>
+        <div class="dropdown-cont">{{{partners_data.filter.stars}}} &#9662;
+          <ul>
+            <li class="filter-item" data-filter="3-star">
+              <span class="star-cont star-cont--3"></span>
+            </li>
+            <li class="filter-item" data-filter="2-star">
+              <span class="star-cont star-cont--2"></span>
+            </li>
+            <li class="filter-item" data-filter="1-star">
+              <span class="star-cont star-cont--1"></span>
+            </li>
+          </ul>
         </div>
-        <div class="columns one-third">
-            <h3>Strategic benefits</h3>
-            <ul>
-                <li>Incentives for referrals</li>
-                <li>Access to product team and roadmap</li>
-                <li>First to hear about new features</li>
-                <li>Access to products in beta</li>
-            </ul>
+        <div class="dropdown-cont dropdown-cont--columns">{{{partners_data.filter.vertical}}} &#9662;
+          <ul>
+            {{#each tags}}
+              {{#if tag.length}}
+                <li class="filter-item" data-filter="{{createClassList tag}}">{{tag}}</li>
+              {{/if}}
+            {{/each}}
+          </ul>
         </div>
+        <a href="#" class="filter--reset tooltip-hover" data-content="Reset filters"><span>{{{partners_data.filter.reset}}} </span>X</a>
+      </div>
     </div>
+  </div>
 
-    <div class="apply-today attention row">
-        <p>Optimizely Solutions Partners are best-in-class service providers focused on making our mutual clients successful.</p>
-        <a href="http://pages.optimizely.com/OptimizelySolutionsPartnerRegistration.html" class="primary-button">Apply today</a>
-    </div>
+  <div class="row">
+    <div class="integrations-container">
+      <div class="integrations-message">
+        <p>{{{partners_data.filter.no_results}}}</p>
+      </div>
+      <div class="row partner-grid">
+        {{#solutions}}
+          {{#each pages}}
+            <div class="partner-grid-elm {{#if data.stars}}{{data.stars}}-star{{/if}} {{#each data.locations}}{{createClassList this.location.region}}{{/each}} {{#each data.tags}}{{createClassList this}}{{/each}}" data-priority="{{data.priority}}">
+              <div class="title-container">
+                <h4 class="partner-title"><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></h4>
+                {{#each data.locations}}
+                  <div class="partner-location {{#if @first}}active{{/if}}" data-region="{{createClassList this.location.region}}">{{this.location.city}}, {{stateCountry this.location.state this.location.country }}</div>
+                {{/each}}
+              </div> <!-- .title-container -->
+              <div class="partner-inner-content">
+                <a href="{{relative ../../page.dest this.dest}}" class="partner-logos" style="background-image: url('{{data.logo}}');"></a>
+                <div class="level">
+                  <div class="level-heading">{{{../../partners_data.filter.stars}}}: <span data-tooltip title="{{{../../partners_data.partner_tooltip}}}"></span></div>
+                  <div class="star-cont {{#if data.stars}}star-cont--{{data.stars}}{{/if}}"></div>
+                </div>
+              </div>
+              <div class="button-container">
+                <a href="{{relative ../../page.dest this.dest}}" class="button">{{{../../partners_data.more}}} &gt;</a>
+              </div>
+            </div>
+          {{/each}}
+        {{/solutions}}
 
-    <div class="divider-heading">
-        <h2>Looking for a Solutions Partner?</h2>
-    </div>
-
-    <div id="optimizely_274948183">
-        <iframe width="100%" height="465" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?ie=UTF8&amp;hl=en&amp;oe=UTF8&amp;msa=0&amp;msid=212202199493655986980.0004ca25b90a53c3463bd&amp;t=m&amp;ll=35.46067,1.757813&amp;spn=115.840622,337.148438&amp;z=2&amp;output=embed"></iframe>
-    </div>
-</div>
+      </div><!-- /.partner-grid -->
+    </div><!-- /.integrations-container-->
+  </div><!-- /.row -->
+</div><!-- /.columns -->
