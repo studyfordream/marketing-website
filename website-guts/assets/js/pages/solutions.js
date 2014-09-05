@@ -69,7 +69,7 @@ window.optly.mrkt.filter = {
 
     heights = heights.sort().reverse();
 
-    $('.partner-grid-elm').each( function(i) {
+    $('.partner-grid-elm').each( function() {
       $(this).height( heights[0] );
     });
 
@@ -85,7 +85,7 @@ window.optly.mrkt.filter = {
     var $activeItems = $filterElems.filter('.active');
     var values = [];
 
-    $activeItems.each( function(i) {
+    $activeItems.each( function() {
       var value = $(this).data( 'filter' ).trim();
       values.push( '.' + value );
     });
