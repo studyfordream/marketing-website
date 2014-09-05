@@ -62,7 +62,6 @@ window.optly.mrkt.filter = {
   isotope: function() {
 
     var heights = [];
-    var toolTipZ = 100;
 
     $('.partner-grid-elm').each( function() {
       heights.push( $(this).outerHeight() );
@@ -72,8 +71,6 @@ window.optly.mrkt.filter = {
 
     $('.partner-grid-elm').each( function(i) {
       $(this).height( heights[0] );
-      // all z-indexes should be less than the tooltip, and greater than the element to the right
-      $(this).css('z-index', toolTipZ - i);
     });
 
     $('.integrations-container').css('min-height', heights[0]);
