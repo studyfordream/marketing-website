@@ -10,11 +10,11 @@ body_class:
 
   <div class="row">
     <div class="columns seven">
-      <p>{{{integrations.page_intro}}}</p>
+      <p>{{{integrations_data.page_intro}}}</p>
     </div>
     <div class="columns five learn-more">
-      {{{integrations.dev_link_intro}}}
-      <a class="big" href="http://developers.optimizely.com/">{{{integrations.dev_link_text}}} &gt;</a>
+      {{{integrations_data.dev_link_intro}}}
+      <a class="big" href="http://developers.optimizely.com/">{{{integrations_data.dev_link_text}}} &gt;</a>
     </div>
   </div>
 
@@ -32,7 +32,7 @@ body_class:
                 <p>{{ data.summary }}</p>
               </div>
               <div class="button-container">
-                <a href="{{relative ../../page.dest this.dest}}" class="button">{{{../../integrations.more}}} &gt;</a>
+                <a href="{{relative ../../page.dest this.dest}}" class="button">{{{../../integrations_data.more}}} &gt;</a>
               </div>
             </div> <!-- .partner-grid-elm -->
           {{/each}}
