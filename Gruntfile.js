@@ -42,7 +42,7 @@ module.exports = function(grunt) {
           variables: {
             environment: 'production',
             environmentData: 'website-guts/data/environments/production/environmentVariables.json',
-            assetsDir: 'https://du7782fucwe1l.cloudfront.net',
+            assetsDir: '//du7782fucwe1l.cloudfront.net',
             link_path: '',
             sassImagePath: 'https://du7782fucwe1l.cloudfront.net/img',
             compress_js: true,
@@ -139,6 +139,7 @@ module.exports = function(grunt) {
         files: [
           '<%= config.content %>/**/*.{hbs,yml}',
           '!<%= config.content %>/partners/**/*.{hbs,yml}',
+          '!<%= config.content %>/integrations/**/*.{hbs,yml}',
           '<%= config.guts %>/templates/**/*.hbs',
           '!<%= config.guts %>/templates/**/*_compiled.hbs',
           '!<%= config.guts %>/templates/client/**/*.hbs',
@@ -149,6 +150,7 @@ module.exports = function(grunt) {
       assemblePartners: {
         files: [
           '<%= config.content %>/partners/**/*.{hbs,yml}',
+          '<%= config.content %>/integrations/**/*.{hbs,yml}',
           '<%= config.guts %>/templates/**/*.hbs',
           '!<%= config.guts %>/templates/**/*_compiled.hbs',
           '!<%= config.guts %>/templates/client/**/*.hbs'
@@ -314,9 +316,9 @@ module.exports = function(grunt) {
         },
         files: [
           {
-            src: ['**/*.hbs'],
-            dest: '<%= config.dist %>/partners/',
-            cwd: '<%= config.content %>/partners/',
+            src: ['integrations/**/*.hbs', 'partners/**/*.hbs'],
+            dest: '<%= config.dist %>/',
+            cwd: '<%= config.content %>/',
             expand: true
           }
         ]
@@ -324,7 +326,7 @@ module.exports = function(grunt) {
       pages: {
         files: [
           {
-            src: ['**/*.hbs', '!partners/**/*.hbs'],
+            src: ['**/*.hbs', '!partners/**/*.hbs', '!integrations/**/*.hbs'],
             dest: '<%= config.dist %>/',
             cwd: '<%= config.content %>/',
             expand: true
@@ -389,9 +391,15 @@ module.exports = function(grunt) {
         src: '<%= config.temp %>/css/styles.css.map',
         dest: '<%= config.dist %>/assets/css/styles.css.map'
       },
-      cssFontFile: {
-        src: ['<%= config.guts %>/assets/css/fonts.css'],
-        dest: '<%= config.dist %>/assets/css/fonts.css'
+      fonts: {
+        files: [
+          {
+            cwd: '<%= config.guts %>/assets/fonts/',
+            src: '**',
+            dest: '<%= config.dist %>/assets/fonts/',
+            expand: true
+          }
+        ]
       },
       jquery: {
         files: [
@@ -646,14 +654,17 @@ module.exports = function(grunt) {
     },
     filerev: {
       assets: {
-        src: '<%= config.dist %>/assets/**/*.{js,css}'
+        src: ['<%= config.dist %>/assets/**/*.{js,css}', '!<%= config.dist %>/assets/fonts/**']
       }
     },
     userevvd: {
       html: {
         options: {
-          formatPath: function(path){
-            return path.replace(/^dist\/assets/, 'https://cdn.optimizelyassets.com');
+          formatOriginalPath: function(path){
+            return path.replace(/^dist\/assets/, '//du7782fucwe1l.cloudfront.net');
+          },
+          formatNewPath: function(path){
+            return path.replace(/^dist\/assets/, '//du7782fucwe1l.cloudfront.net');
           }
         },
         files: [
@@ -728,8 +739,7 @@ module.exports = function(grunt) {
     'assemble',
     'handlebars',
     'concat',
-    'copy:cssFontFile',
-    'copy:jquery',
+    'copy',
     'uglify',
     'sass:prod',
     'replace',
