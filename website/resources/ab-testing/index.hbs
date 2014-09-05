@@ -1,13 +1,13 @@
 ---
 layout: trial_form.hbs
-visible_title: "The Most Popular Split Testing Tool"
-seo_title: "The Most Popular Split Testing Tool"
+visible_title: "The Hottest A/B Testing Tool On The Planet"
+seo_title: "The Hottest A/B Testing Tool On The Planet"
 page_header: true
-form_text: "Welcome to Optimizely. Test out the easiest split testing tool on the planet!"
+form_text: "Welcome to Optimizely. Sign up for a free account and test out the most popular A/B testing tool on the planet!"
 body_class:
 - split-testing-page
 ---
-{{#with split_testing_tool}}
+{{#with ab_testing}}
 <div id="page-content">
   <div class="container">
     <div class="columns-container">
@@ -25,10 +25,10 @@ body_class:
 <div class="seo-customers container">
   <div class="row">
     <div class="columns four">
-      <h4>{{{split_testing_tool.bottom_content.heading}}}</h4>
+      <h4>{{{ab_testing.bottom_content.heading}}}</h4>
     </div>
     <div class="columns eight SL_swap" id="seo-customer-images">
-      <img src="{{assetsDir}}{{split_testing_tool.bottom_content.url}}" alt="Happy customer logos" />
+      <img src="{{assetsDir}}{{ab_testing.bottom_content.url}}" alt="Happy customer logos" />
     </div>
   </div>
-</div><!-- .seo-customers -->
+</div>
