@@ -42,7 +42,7 @@ module.exports = function(grunt) {
           variables: {
             environment: 'production',
             environmentData: 'website-guts/data/environments/production/environmentVariables.json',
-            assetsDir: 'https://du7782fucwe1l.cloudfront.net',
+            assetsDir: '//du7782fucwe1l.cloudfront.net',
             link_path: '',
             sassImagePath: 'https://du7782fucwe1l.cloudfront.net/img',
             compress_js: true,
@@ -658,8 +658,11 @@ module.exports = function(grunt) {
     userevvd: {
       html: {
         options: {
-          formatPath: function(path){
-            return path.replace(/^dist\/assets/, 'https://cdn.optimizelyassets.com');
+          formatOriginalPath: function(path){
+            return path.replace(/^dist\/assets/, '//du7782fucwe1l.cloudfront.net');
+          },
+          formatNewPath: function(path){
+            return path.replace(/^dist\/assets/, '//du7782fucwe1l.cloudfront.net');
           }
         },
         files: [
