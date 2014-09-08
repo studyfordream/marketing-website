@@ -1,0 +1,51 @@
+body.testing-tool-page {
+  #main {
+    background: #f4f4f4;
+  }
+  #page-header {
+    background: transparent;
+    padding: 30px 0;
+
+  }
+  #page-content {
+    background: image-url("noise.png");
+    box-shadow: inset 0px 0px 11px rgba(0,0,0,0.1);
+    border-top: 1px solid #d5d5d5;
+    padding: 40px 0;
+  }
+  .column-wrapper {
+    margin-top: 60px;
+    &:first-child {
+      margin-top: 0;
+    }
+    h3 {
+      color: #006eb6;
+      font-size: 1.3em;
+      margin-top: 0;
+    }
+    img {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  body.testing-tool-page {
+    .columns-container {
+      column-count: 2;
+      column-gap: 2em;
+      * {
+        text-align: left;
+      }
+    }
+    .column-wrapper {
+      position: relative;
+      padding-left: 120px;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}

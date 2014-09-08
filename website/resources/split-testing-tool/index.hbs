@@ -1,0 +1,24 @@
+---
+layout: trial_form.hbs
+visible_title: "The Most Popular Split Testing Tool"
+seo_title: "The Most Popular Split Testing Tool"
+page_header: true
+form_text: "Welcome to Optimizely. Test out the easiest split testing tool on the planet!"
+body_class:
+- testing-tool-page
+---
+{{#with split_testing_tool}}
+<div id="page-content">
+  <div class="container">
+    <div class="columns-container">
+      {{#each grid_content}}
+      <div class="column-wrapper">
+        <img alt="Segmentation" src="{{url}}" />
+        <h3>{{heading}}</h3>
+        <p>{{text}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div><!--/.container-->
+</div><!--/#content-->
+{{/with}}
