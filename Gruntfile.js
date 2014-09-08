@@ -821,8 +821,6 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'config:production',
     'jshint:clientProd',
-    'jshint:server','connect:resemble',
-    'resemble',
     'clean:preBuild',
     'assemble',
     'handlebars',
@@ -836,6 +834,24 @@ module.exports = function(grunt) {
     'userevvd',
     'clean:postBuild'
   ]);
+  
+  grunt.registerTask('test', [
+    'config:dev',
+    'jshint:clientDev',
+    'jshint:server',
+    'clean:preBuild',
+    'assemble',
+    'handlebars',
+    'concat',
+    'sass:dev',
+    'replace',
+    'autoprefixer',
+    'copy',
+    'clean:postBuild',
+    'connect:resemble',
+    'resemble'
+  ]);
+
 
   grunt.registerTask('default', [
     'build'
