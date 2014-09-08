@@ -15,6 +15,3 @@ grid_content:
   url: "https://s3.amazonaws.com/optimizely-marketing/lightbulb.png"
   heading: "Unlimited Optimization"
   text: "It's a fact - testing is most effective when you do it all the time.  With unlimited experiments, unlimited variations, and unlimited goals supported in every Optimizely package, get ready to feel effective.  Meanwhile, administrative features such as scheduling, project organization, and user roles keep everything running smoothly."
-bottom_content:
-  url: "/img/resources/free-trial-logos-bw.png"
-  heading: "Happy Customers <br>testing with Optimizely"

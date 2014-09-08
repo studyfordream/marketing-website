@@ -5,7 +5,7 @@ seo_title: "The Hottest A/B Testing Tool On The Planet"
 page_header: true
 form_text: "Welcome to Optimizely. Sign up for a free account and test out the most popular A/B testing tool on the planet!"
 body_class:
-- split-testing-page
+- testing-tool-page
 ---
 {{#with ab_testing}}
 <div id="page-content">
@@ -22,13 +22,3 @@ body_class:
   </div><!--/.container-->
 </div><!--/#content-->
 {{/with}}
-<div class="seo-customers container">
-  <div class="row">
-    <div class="columns four">
-      <h4>{{{ab_testing.bottom_content.heading}}}</h4>
-    </div>
-    <div class="columns eight SL_swap" id="seo-customer-images">
-      <img src="{{assetsDir}}{{ab_testing.bottom_content.url}}" alt="Happy customer logos" />
-    </div>
-  </div>
-</div>

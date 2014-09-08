@@ -17,7 +17,7 @@ layout_body_class:
     <div class="container">
       <div class="row">
         <div class="columns six hero-left-cont">
-          <img src="https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/ppc/ppc.png">
+          <img src="{{assetsDir}}/img/ppc/ppc.png">
           {{#if page.social_proof}}
           <div id="social-proof-cont">
               <div class="social-numbers visitors-tested-cont">
@@ -75,4 +75,14 @@ layout_body_class:
     </div>
   </div><!--/.header-wrapper-->
   {{> body }}
+  <div class="seo-customers container">
+    <div class="row">
+      <div class="columns four">
+        <h4>Happy Customers <br>testing with Optimizely</h4>
+      </div>
+      <div class="columns eight SL_swap" id="seo-customer-images">
+        <img src="{{assetsDir}}/img/resources/free-trial-logos-bw.png" alt="Happy customer logos" />
+      </div>
+    </div>
+  </div>
 </div><!--/#main-->

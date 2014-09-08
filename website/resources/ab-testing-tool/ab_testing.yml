@@ -23,6 +23,3 @@ grid_content:
   url: "https://s3.amazonaws.com/optimizely-marketing/lightbulb.png"
   heading: "Engineer An Optimization Culture"
   text: "The more you test, the better.  Streamlined administrative tools let you keep everything running smoothly and maintain control.  Set up a battery of tests and schedule them to run when you want to.  Group experiments by domain, and create multiple user accounts and roles for each project.  The sky's the limit when you use Optimizely as your choice of AB testing tools."
-bottom_content:
-  url: "/img/resources/free-trial-logos-bw.png"
-  heading: "Happy Customers <br>testing with Optimizely"

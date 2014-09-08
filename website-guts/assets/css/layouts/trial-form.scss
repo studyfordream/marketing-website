@@ -44,8 +44,7 @@ body.trial-form-layout {
   }
 
   .social-numbers {
-    background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/ppc/free-trial-sprite-adjusted-2.png');
-    background-repeat: no-repeat;
+    background: image-url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/ppc/free-trial-sprite-adjusted-2.png') no-repeat;
     padding: 0 0 0 80px;
     width: 221px;
     p {
@@ -60,6 +59,18 @@ body.trial-form-layout {
 
   .experiments-run-cont {
     background-position: -735px 13px;
+  }
+  
+  .seo-customers {
+    .row {
+      margin: 60px 0;
+    }
+    br {
+      display: none;
+    }
+    h4 {
+      margin: 0 0 40px 0;
+    }
   }
 
   @media only screen and (min-width: $tablet-min-width) {
@@ -125,6 +136,17 @@ body.trial-form-layout {
         }
       }
     }
-
+    
+    .seo-customers {
+      * {
+        text-align: left;
+      }
+      h4 {
+        margin: 0;
+      }
+      br {
+        display: block;
+      }
+    }
   }
 }

@@ -5,7 +5,7 @@ seo_title: "The Most Popular Split Testing Tool"
 page_header: true
 form_text: "Welcome to Optimizely. Test out the easiest split testing tool on the planet!"
 body_class:
-- split-testing-page
+- testing-tool-page
 ---
 {{#with split_testing_tool}}
 <div id="page-content">
@@ -22,13 +22,3 @@ body_class:
   </div><!--/.container-->
 </div><!--/#content-->
 {{/with}}
-<div class="seo-customers container">
-  <div class="row">
-    <div class="columns four">
-      <h4>{{{split_testing_tool.bottom_content.heading}}}</h4>
-    </div>
-    <div class="columns eight SL_swap" id="seo-customer-images">
-      <img src="{{assetsDir}}{{split_testing_tool.bottom_content.url}}" alt="Happy customer logos" />
-    </div>
-  </div>
-</div><!-- .seo-customers -->
