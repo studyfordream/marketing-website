@@ -13,7 +13,8 @@ module.exports = function(grunt) {
   //makes livereload much faster.
   require('jit-grunt')(grunt, {
     replace: 'grunt-text-replace',
-    handlebars: 'grunt-contrib-handlebars'
+    handlebars: 'grunt-contrib-handlebars',
+    resemble: 'grunt-resemble-cli'
   });
 
   //get configs
@@ -263,6 +264,12 @@ module.exports = function(grunt) {
             target: 'http://0.0.0.0:9000/dist',
             base: '.'
           }
+        }
+      },
+      resemble: {
+        options: {
+           port: '9000',
+           hostnae: '0.0.0.0'
         }
       }
     },
@@ -677,6 +684,86 @@ module.exports = function(grunt) {
         ]
       }
     },
+    resemble: { 
+      options: {
+        screenshotRoot: 'screens',
+        url: 'http://0.0.0.0:9000/dist',
+        gm: true
+      },
+      desktop: {
+        options: {
+          width: 1024,
+        },
+        files: [
+          { 
+          cwd: 'dist/',
+          expand: true,     
+          src: [
+            'free-trial/**/*.html', 
+            'customers/**/*.html',
+            'enterprises/**/*.html',
+            'events/**/*.html','faq/**/*.html',
+            'integrations/{,bizible/}*.html',
+            'mobile/**/*.html',
+            'partners/{,brooks-bell/}*.html',
+            'press/**/*.html',
+            'resources/{live-demo-webinar,sample-size-calculator}/*.html',
+            'terms/**/*.html'
+          ],
+          dest: 'desktop'
+          }
+        ]
+      },
+      tablet: {
+        options: {
+          width: 800,
+        },
+        files: [
+          { 
+          cwd: 'dist/',
+          expand: true,     
+          src: [
+            'free-trial/**/*.html', 
+            'customers/**/*.html',
+            'enterprises/**/*.html',
+            'events/**/*.html','faq/**/*.html',
+            'integrations/{,bizible/}*.html',
+            'mobile/**/*.html',
+            'partners/{,brooks-bell/}*.html',
+            'press/**/*.html',
+            'resources/{live-demo-webinar,sample-size-calculator}/*.html',
+            'terms/**/*.html'
+          ],
+          dest: 'tablet'
+          }
+        ]
+      },
+      mobile: {
+        options: {
+          width: 450,
+        },
+        files: [
+          { 
+          cwd: 'dist/',
+          expand: true,     
+          src: [
+            'free-trial/**/*.html', 
+            'customers/**/*.html',
+            'enterprises/**/*.html',
+            'events/**/*.html','faq/**/*.html',
+            'integrations/{,bizible/}*.html',
+            'mobile/**/*.html',
+            'partners/{,brooks-bell/}*.html',
+            'press/**/*.html',
+            'resources/{live-demo-webinar,sample-size-calculator}/*.html',
+            'terms/**/*.html'
+          ],
+          dest: 'mobile'
+          }
+        ]
+      }
+    },
+
     gitinfo: {}
   });
 
@@ -734,7 +821,8 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'config:production',
     'jshint:clientProd',
-    'jshint:server',
+    'jshint:server','connect:resemble',
+    'resemble',
     'clean:preBuild',
     'assemble',
     'handlebars',
