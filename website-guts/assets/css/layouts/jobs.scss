@@ -219,7 +219,10 @@ body.jobs-layout {
 
         #jobs-intro {
             position: absolute;
+            left: 50%;
             bottom: -25px;
+            width: 600px;
+            transform: translateX(-50%);
         }
 
         .testimonials {
