@@ -1,0 +1,17 @@
+grid_content:
+-
+  url: "https://s3.amazonaws.com/optimizely-marketing/segmentation.png"
+  heading: "A Visual Split Testing Tool"
+  text: "Optimizely's WYSIWYG experiment editor allows you to move, resize, add, or hide any element on your page, just by typing in the URL - no extra files, no extra programs, no code required.  When you're ready, just click start, and Optimizely automatically begins hosting your page variations, splitting visitor traffic between them, and collecting results."
+-
+  url: "https://s3.amazonaws.com/optimizely-marketing/goals.png"
+  heading: "Goal Tracking Lets The Money Talk"
+  text: "You can track any goal with Optimizely, but if you're looking to increase revenue, revenue tracking lets you tune out the background noise and focus on what matters - the sales.  Our Javascript API lets you integrate revenue tracking with any shopping cart solution.  From geolocation targeting to multi-page funnels, get the full story on what drives your customers to the sales page."
+-
+  url: "https://s3.amazonaws.com/optimizely-marketing/chart.png"
+  heading: "Instant Insight With Total Control"
+  text: "Waiting sucks, especially when there's ROI on the line. With Optimizely as a split testing tool, you don't have to.  From the moment you start your experiment, log in to the web dashboard at any time, and you'll have access to astoundingly clear live reports on how your variations are performing.  Tweak traffic allocation, add additional goals, or even pull a surprise leader out of the test and divert all traffic to it so you can start benefiting immediately.Iron Mountain optimized its lead generation process to improve the quality of leads generated from its online sign-up form. Iron Mountain optimized its lead generation process to improve the quality of leads generated from its online sign-up form."
+-
+  url: "https://s3.amazonaws.com/optimizely-marketing/lightbulb.png"
+  heading: "Unlimited Optimization"
+  text: "It's a fact - testing is most effective when you do it all the time.  With unlimited experiments, unlimited variations, and unlimited goals supported in every Optimizely package, get ready to feel effective.  Meanwhile, administrative features such as scheduling, project organization, and user roles keep everything running smoothly."

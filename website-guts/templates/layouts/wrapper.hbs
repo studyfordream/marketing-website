@@ -29,6 +29,11 @@ layout_modals:
         <meta property="og:title" content="Optimizely:{{#if page.og_title}}{{page.og_title}}{{else}} A/B testing software you'll actually use{{/if}}">
         <meta property="og:description" content="Optimizely:{{#if page.og_description}}{{page.og_description}}{{else}} Improve conversions through A/B Testing, Split Testing and Multivariate Testing with Optimizely!{{/if}}">
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+        {{#if page.external_stylesheets}}
+        {{#each page.external_stylesheets}}
+        <link rel="stylesheet" type="text/css" href="{{.}}">
+        {{/each}}
+        {{/if}}
         <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7838232/684744/css/fonts.css">
         {{!--<link rel="stylesheet" href="{{assetsDir}}/css/fonts.css">--}}
         <link rel="stylesheet" href="{{assetsDir}}/css/styles.css">

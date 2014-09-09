@@ -1,68 +1,17 @@
 ---
-layout: simple.hbs
+layout: trial_form.hbs
 seo_title: "Optimizely: Test it Out"
+page_header: false
+form_header: "Test it Out for Free"
+form_text: "Welcome to Optimizely. Sign up for a free account and test out the most popular <span id='symmetry_test'>A/B testing tool</span> on the planet!"
+social_proof: true
 page_script: free-trial.js
+external_stylesheets:
+- "//cloud.typography.com/7838232/736966/css/fonts.css"
 body_class:
 - ppc-page
 compact_header: true
 ---
-<div class="white-section">
-  <div class="container">
-    <div class="row">
-      <div class="columns six hero-left-cont">
-        <img src="https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/ppc/ppc.png">
-        <div id="social-proof-cont">
-            <div class="social-numbers visitors-tested-cont">
-              <p class="social-number" id="visitors-tested-number">1,306,200,329</p>
-              <p class="description">Visitors tested</p>
-            </div>
-            <div class="social-numbers experiments-run-cont">
-              <p class="social-number" id="experiments-run-number">100,329</p>
-              <p class="description">Experiments run</p>
-            </div>
-        </div>
-      </div>
-      <div class="columns six ppc-form-cont">
-        <div id="ppc-form" class="landing-page-form">
-          <h4 class="seo-form-heading">Test it Out for Free</h4>
-          <p>Welcome to Optimizely. Sign up for a free account and test out the most popular <span id="symmetry_test">A/B testing tool</span> on the planet!</p>
-          <form id="seo-form" class="seo-form inline-labels" action="/account/free_trial_landing" autocomplete="off" novalidate="novalidate">
-            <p class="error-message error error-show"></p>
-            <input id="utm_medium" type="hidden" name="utm_medium" value="direct">
-            <ul>
-              <li class="url-input-related">
-                <label for="url">Type in a URL to try it out</label>
-                <input id="url" required name="url-input" type="url">
-              </li>
-              <li class="name-related">
-                <label for="name">Your Name</label>
-                <input id="name" required data-validation="name" name="name" type="text">
-              </li>
-              <li id="phone-email-cont">
-                <div class="label half left email-related">
-                  <label for="email">Email - no spam</label>
-                  <input id="email" required name="email" type="email">
-                </div>
-
-                <div class="label half right phone_number-related">
-                  <label for="phone">Phone Number</label>
-                  <input id="phone" required name="phone_number" type="tel">
-                </div>
-              </li>
-              <li class="terms">
-                <small>By clicking the <q>Test it Out</q> button below I agree to the <br><a href="/terms" target="_blank">Terms of Service</a> and <a href="{{linkpath}}/privacy" target="_blank">Privacy Policy</a>.</small>
-              </li>
-              <li class="a-center">
-                <input type="submit" id="submit" class="button" value="Test it Out">
-                <p class=" processing-hide">Processing...</p>
-              </li>
-            </ul>
-          </form>
-        </div><!--/#ppc-form-->
-      </div>
-    </div><!--/.row-->
-  </div>
-</div>
 <div class="light-gray-section">
   <div class="container">
     <div class="row">
@@ -95,16 +44,6 @@ compact_header: true
       <div class="columns ten offset-one">
         <q class="pull-quote" cite="http://www.sliderocket.com">Optimizely removed every roadblock to landing page testing and allows us to quickly make user-driven decisions.</q>
         <img src="https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/ppc/sliderocket.png">
-      </div>
-    </div>
-  </div>
-</div>
-<div class="light-gray-section customer-logos">
-  <div class="container">
-    <div class="row">
-      <div class="columns ten offset-one">
-        <p>Happy Customers testing with Optimizely</p>
-        <img src="https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/ppc/free-trial-logos-bw.png">
       </div>
     </div>
   </div>

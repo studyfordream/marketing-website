@@ -1,0 +1,1 @@
+window.optly.mrkt.inlineFormLabels();

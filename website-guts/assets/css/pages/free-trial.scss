@@ -3,7 +3,7 @@ body.ppc-page {
     text-align: center;
   }
 
-  .white-section {
+  .header-wrapper {
     padding-top: 60px;
     background: #fff;
     border-bottom: 1px solid #d5d5d5;
@@ -20,60 +20,7 @@ body.ppc-page {
     background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/ppc/noise.png');
   }
 
-  .social-numbers {margin: 0 auto;}
-
-  .social-number {
-    font-family: $condensed-sans-serif;
-    font-size: 2.1em;
-    font-style: normal;
-    font-weight: 400;
-    color: #036;
-  }
-
-  .description {
-    font-family: $body-font-family;
-    font-size: .8em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: #036;
-  }
-
-  #social-proof-cont {
-    padding-top: 20px;
-  }
-
-  .social-numbers {
-    background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/ppc/free-trial-sprite-adjusted-2.png');
-    background-repeat: no-repeat;
-    padding: 0 0 0 80px;
-    width: 221px;
-    p {
-      margin: 0;
-      padding: 0;
-    }
-  }
-
-  .visitors-tested-cont {
-    background-position: 0 13px;
-  }
-
-  .experiments-run-cont {
-    background-position: -735px 13px;
-  }
-
   @media only screen and (min-width: $tablet-min-width) {
-    #social-proof-cont {
-      width: 475px;
-      margin: 0 auto 50px auto;
-      @extend .clearfix;
-      .visitors-tested-cont {
-        float: left;
-      }
-
-      .experiments-run-cont {
-        float: right;
-      }
-    }
 
     #about-optimizely, #how-it-works {
       ul {
@@ -92,13 +39,6 @@ body.ppc-page {
       margin-bottom: 50px;
     }
 
-    #ppc-form {
-      width: 400px;
-      margin: 0 auto;
-      h4 {margin-top: 0;}
-      #submit {width: 200px;}
-    }
-
     .customer-quote {
       text-align: center;
     }
@@ -114,22 +54,6 @@ body.ppc-page {
   }
 
   @media only screen and (min-width: $desktop-min-width) {
-    .hero-left-cont {
-      padding-top: 50px;
-    }
-
-    #social-proof-cont {
-      width: 100%;
-    }
-
-    .ppc-form-cont {
-      width: 400px;
-      float: right;
-    }
-
-    #ppc-form {
-      width: auto;
-    }
 
     #about-optimizely, #how-it-works {
       li {
