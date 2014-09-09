@@ -101,6 +101,10 @@ body {
     }
     .options {
       text-align: center;
+      p {
+        margin: 0;
+        line-height: 1.4em;
+      }
       a { text-decoration: none; }
     }
   }
