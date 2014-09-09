@@ -259,6 +259,7 @@ module.exports = function(grunt) {
       },
       livereload: {
         options: {
+          keepalive: true,
           open: {
             target: 'http://0.0.0.0:9000/dist',
             base: '.'
@@ -677,7 +678,16 @@ module.exports = function(grunt) {
         ]
       }
     },
-    gitinfo: {}
+    gitinfo: {},
+
+    concurrent: {
+      dev: {
+        tasks: ['connect', 'watch'],
+        options: {
+          logConcurrentOutput: true
+        }
+      } 
+    }
   });
 
   grunt.registerTask('staging-deploy', [
@@ -727,8 +737,7 @@ module.exports = function(grunt) {
     'autoprefixer',
     'copy',
     'clean:postBuild',
-    'connect:livereload',
-    'watch'
+    'concurrent'
   ]);
 
   grunt.registerTask('build', [
@@ -752,5 +761,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'build'
   ]);
-
+  
 };
