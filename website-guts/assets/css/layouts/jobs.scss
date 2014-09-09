@@ -44,7 +44,7 @@ body.jobs-layout {
             float: left;
         }
 
-        q {
+        .hide {
             display: none;
         }
 
@@ -238,6 +238,11 @@ body.jobs-layout {
 
             .employee-icons {
                 margin-top: 60px;
+                li {
+                    &.opaque {
+                        opacity: 0.6;
+                    }
+                }
                 a {text-decoration: none;}
             }
         }
