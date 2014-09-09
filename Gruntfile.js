@@ -821,6 +821,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'config:production',
     'jshint:clientProd',
+    'jshint:server',
     'clean:preBuild',
     'assemble',
     'handlebars',
