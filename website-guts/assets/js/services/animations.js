@@ -11,15 +11,20 @@ window.optly.mrkt.anim.transitionend = (function(transition) {
   return transEndEventNames[transition];
 })(window.Modernizr.prefixed('transition'));
 
-window.optly.mrkt.anim.bindTranEnd = function($elm) {
-  
+window.optly.mrkt.anim.bindTranEnd = function($elm, transClass) {
+
   $elm.bind(this.transitionend, function() {
    var classList = Array.prototype.slice.call( $elm[0].classList );
 
     // If the animation is over and modal is closed display none
    if ( classList.indexOf('leave') !== -1 ) {
-     $elm.addClass('optly-hide')
-         .removeClass('anim-leave leave');
+     $elm.addClass('optly-hide').removeClass('anim-leave leave');
+     
+     classList.forEach(function(elmClass){
+      if(elmClass === transClass || elmClass === 'anim-leave' || elmClass === 'leave') {
+        $elm.removeClass(elmClass); 
+      }
+     });
 
      $elm.unbind(this.transitionend, this.bindTranEnd);
 
@@ -28,7 +33,11 @@ window.optly.mrkt.anim.bindTranEnd = function($elm) {
    } 
    // If the animation is over and modal is open
    else if ( classList.indexOf('anim-enter') !== -1 ) {
-     $elm.removeClass('anim-enter');
+     classList.forEach(function(elmClass){
+      if(elmClass === transClass || elmClass === 'anim-enter') {
+        $elm.removeClass(elmClass); 
+      }
+     });
 
      $elm.unbind(this.transitionend, this.bindTranEnd);
 
@@ -110,15 +119,19 @@ window.optly.mrkt.anim.cacheTrans = function($elm) {
   return currentElmKey;
 };
 
-window.optly.mrkt.anim.enter = function($elm) {
+window.optly.mrkt.anim.enter = function($elm, transClass) {
   var currentElmKey = this.cacheTrans($elm);
+
+  if(transClass){
+    $elm.addClass(transClass); 
+  }
 
   if( !this.elmCache[ currentElmKey ].transitionRunning ) {
     this.elmCache[ currentElmKey ].transitionRunning = true;
 
-    this.bindTranEnd( $elm );
+    this.bindTranEnd($elm, transClass);
 
-    this.enterQ( $elm );
+    this.enterQ($elm);
 
     return true;
   }
@@ -126,13 +139,17 @@ window.optly.mrkt.anim.enter = function($elm) {
   return false;  
 };
 
-window.optly.mrkt.anim.leave = function ($elm) {
+window.optly.mrkt.anim.leave = function ($elm, transClass) {
   var currentElmKey = this.cacheTrans($elm);
+
+  if(transClass){
+    $elm.addClass(transClass); 
+  }
 
   if( !this.elmCache[ currentElmKey ].transitionRunning ) {
     this.elmCache[ currentElmKey ].transitionRunning = true;
 
-    this.bindTranEnd( $elm );
+    this.bindTranEnd($elm, transClass);
 
     this.leaveQ($elm);
 

@@ -112,3 +112,98 @@
     }
   }
 }
+
+/* Example Usage
+**
+**
+* $properties: transform translateX(0) translateX(100%) translateX(-100%), transform translateX(0) translateX(-100%) translateX(100%);
+* $classes: move-left move-right;
+* $transition: all 0.5s linear;
+
+* .box {
+*   @include optly--animate--opposite($properties, $transition, $classes);
+* }
+*/
+
+@mixin optly--animate--opposite($properties, $transition, $classes) {
+
+  &.optly-hide {
+    display: none!important;
+  }
+  
+  @for $i from 1 through length($classes) {
+    $class: nth($classes, $i);
+    $property: nth($properties, $i);
+  
+    &.#{$class} {
+      &.anim-enter {
+        @if (type-of(nth($property, 1)) == list) {
+          @each $val in $property {
+            $prop-name: nth($property, 1);
+            $hide-value: nth($property, 3);
+            
+            #{$prop-name}: $hide-value;
+          }
+        } @else {
+          $prop-name: nth($property, 1);
+          $hide-value: nth($property, 3);
+          
+          #{$prop-name}: $hide-value;
+        }
+        transition: $transition;
+      }
+      
+      &.enter {
+        @if (type-of(nth($property, 1)) == list) {
+          @each $val in $property {
+            $prop-name: nth($val, 1);
+            $show-value: nth($val, 2);
+    
+            #{$prop-name}: $show-value;
+          }
+        } @else {
+          $prop-name: nth($property, 1);
+          $show-value: nth($property, 2);
+    
+          #{$prop-name}: $show-value;
+        }
+      }
+    
+  
+    
+      &.anim-leave {
+        @if (type-of(nth($property, 1)) == list) {
+          @each $val in $property {
+            $prop-name: nth($val, 1);
+            $show-value: nth($val, 2);
+    
+            #{$prop-name}: $show-value;
+          }
+        } @else {
+          $prop-name: nth($property, 1);
+          $show-value: nth($property, 2);
+    
+          #{$prop-name}: $show-value;
+        }
+        transition: $transition;
+      }
+    
+      &.leave {
+        @if (type-of(nth($property, 1)) == list) {
+          @each $val in $property {
+            $prop-name: nth($val, 1);
+            $hide-value: nth($val, 4);
+            
+            #{$prop-name}: $hide-value;
+          }
+        } @else {
+          $prop-name: nth($property, 1);
+          $hide-value: nth($property, 4);
+    
+          #{$prop-name}: $hide-value;
+        }
+      }
+      
+    } //end class wrapper
+  } // end for loop
+} // end @mixin
