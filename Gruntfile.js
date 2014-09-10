@@ -678,7 +678,6 @@ module.exports = function(grunt) {
       }
     },
     gitinfo: {}
-
   });
 
   grunt.registerTask('staging-deploy', [
@@ -753,5 +752,4 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'build'
   ]);
-  
 };
