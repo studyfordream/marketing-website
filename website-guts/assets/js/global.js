@@ -24,7 +24,9 @@ window.optly.mrkt.mobileJS = function(){
 
 		});
 
-		$('body').delegate('.mobile-nav-toggle', 'click', function(e){
+		$('.mobile-nav-toggle').on('click', function(e){
+
+      console.log('main nav click');
 
 				$('body').toggleClass('nav-open');
 
@@ -32,7 +34,9 @@ window.optly.mrkt.mobileJS = function(){
 
 		});
 
-		$('.user-nav-toggle').click(function(e){
+		$('.user-nav-toggle').on('click', function(e){
+
+      console.log('user nav clicked');
 
 				$('body').toggleClass('user-nav-open');
 

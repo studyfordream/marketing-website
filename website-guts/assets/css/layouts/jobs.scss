@@ -17,7 +17,7 @@ body.jobs-layout {
             padding: 0;
         }
     }
-
+ 
     #page-content {
         padding-bottom: 0;
     }
@@ -197,11 +197,6 @@ body.jobs-layout {
             text-align: center;
         }
 
-        #main-nav-cont {
-            position: relative;
-            z-index: 2;
-        }
-
         #lead-image {
             background: image-url("jobs/office-photo-shanann.jpg") no-repeat center top;
             background-size: cover;
@@ -239,7 +234,7 @@ body.jobs-layout {
             }
         }
 
-        .benefits {padding-top: 40px;}
+        .benefits {padding: 40px 10% 0 10%;}
 
         .jobs-list {
             li {
@@ -263,11 +258,18 @@ body.jobs-layout {
 
         #top-nav-cont {
             border-bottom: none;
-            background-repeat: repeat;
         }
 
         #main {
             margin-top: -58px;
+        }
+
+        #main-nav-cont {
+            position: relative;
+            z-index: 2;
+        }
+        .benefits {
+            padding: 40px 0;
         }
     }
 }
