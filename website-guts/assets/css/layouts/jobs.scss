@@ -202,14 +202,6 @@ body.jobs-layout {
             z-index: 2;
         }
 
-        #top-nav-cont {
-            background: url("/dist/assets/img/bg-top-header.png") repeat-x, url("/dist/assets/img/bg-header.png");
-        }
-
-        #main {
-            margin-top: -66px;
-        }
-
         #lead-image {
             background-image: image-url("jobs/office-photo-shanann.jpg");
             background-size: cover;
@@ -267,6 +259,15 @@ body.jobs-layout {
     body.jobs-layout {
         #main-nav-cont {
             background: none;
+        }
+
+        #top-nav-cont {
+            border-bottom: none;
+            background-repeat: repeat;
+        }
+
+        #main {
+            margin-top: -58px;
         }
     }
 }
