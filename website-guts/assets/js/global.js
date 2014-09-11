@@ -26,8 +26,6 @@ window.optly.mrkt.mobileJS = function(){
 
 		$('.mobile-nav-toggle').on('click', function(e){
 
-      console.log('main nav click');
-
 				$('body').toggleClass('nav-open');
 
 				e.preventDefault();
@@ -35,8 +33,6 @@ window.optly.mrkt.mobileJS = function(){
 		});
 
 		$('.user-nav-toggle').on('click', function(e){
-
-      console.log('user nav clicked');
 
 				$('body').toggleClass('user-nav-open');
 
