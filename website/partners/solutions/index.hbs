@@ -15,26 +15,26 @@ script_dependencies:
 
   <div class="row">
     <div class="columns seven">
-      <p>{{{partners_data.page_intro}}}</p>
+      <p>{{{solutions_data.page_intro}}}</p>
     </div>
     <div class="columns five learn-more">
-      {{{partners_data.apply_link_intro}}}
-      <a class="big" href="{{{partners_data.apply_link_url}}}">{{{partners_data.apply_link_text}}} &gt;</a>
+      {{{solutions_data.apply_link_intro}}}
+      <a class="big" href="{{{solutions_data.apply_link_url}}}">{{{solutions_data.apply_link_text}}} &gt;</a>
     </div>
   </div>
 
   <div class="row">
     <div class="columns twelve filter">
       <div class="pill clearfix">
-        <div class="heading">{{{partners_data.filter.title}}}:</div>
-        <div class="dropdown-cont dropdown-cont--region">{{{partners_data.filter.region}}} &#9662;
+        <div class="heading">{{{solutions_data.filter.title}}}:</div>
+        <div class="dropdown-cont dropdown-cont--region">{{{solutions_data.filter.region}}} &#9662;
           <ul>
             {{#each partners.filter.regions}}
               <li class="filter-item" data-filter="{{ createClassList this }}">{{this}}</li>
             {{/each}}
           </ul>
         </div>
-        <div class="dropdown-cont">{{{partners_data.filter.stars}}} &#9662;
+        <div class="dropdown-cont">{{{solutions_data.filter.stars}}} &#9662;
           <ul>
             <li class="filter-item" data-filter="3-star">
               <span class="star-cont star-cont--3"></span>
@@ -47,7 +47,7 @@ script_dependencies:
             </li>
           </ul>
         </div>
-        <div class="dropdown-cont dropdown-cont--columns">{{{partners_data.filter.vertical}}} &#9662;
+        <div class="dropdown-cont dropdown-cont--columns">{{{solutions_data.filter.vertical}}} &#9662;
           <ul>
             {{#each tags}}
               {{#if tag.length}}
@@ -56,7 +56,7 @@ script_dependencies:
             {{/each}}
           </ul>
         </div>
-        <a href="#" class="filter--reset tooltip-hover" data-content="Reset filters"><span>{{{partners_data.filter.reset}}} </span>X</a>
+        <a href="#" class="filter--reset tooltip-hover" data-content="Reset filters"><span>{{{solutions_data.filter.reset}}} </span>X</a>
       </div>
     </div>
   </div>
@@ -64,7 +64,7 @@ script_dependencies:
   <div class="row">
     <div class="integrations-container">
       <div class="integrations-message">
-        <p>{{{partners_data.filter.no_results}}}</p>
+        <p>{{{solutions_data.filter.no_results}}}</p>
       </div>
       <div class="row partner-grid">
         {{#solutions}}
@@ -79,12 +79,12 @@ script_dependencies:
               <div class="partner-inner-content">
                 <a href="{{relative ../../page.dest this.dest}}" class="partner-logos" style="background-image: url('{{data.logo}}');"></a>
                 <div class="level">
-                  <div class="level-heading">{{{../../partners_data.filter.stars}}}: <span data-tooltip title="{{{../../partners_data.partner_tooltip}}}"></span></div>
+                  <div class="level-heading">{{{../../solutions_data.filter.stars}}}: <span data-tooltip title="{{{../../solutions_data.partner_tooltip}}}"></span></div>
                   <div class="star-cont {{#if data.stars}}star-cont--{{data.stars}}{{/if}}"></div>
                 </div>
               </div>
               <div class="button-container">
-                <a href="{{relative ../../page.dest this.dest}}" class="button">{{{../../partners_data.more}}} &gt;</a>
+                <a href="{{relative ../../page.dest this.dest}}" class="button">{{{../../solutions_data.more}}} &gt;</a>
               </div>
             </div>
           {{/each}}
