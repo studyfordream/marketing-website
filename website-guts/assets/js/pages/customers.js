@@ -14,7 +14,7 @@ $(function(){
     if (e) {
       direction = $(this).data('slider-nav');
     } else {
-      direction = lastDirection ? lastDirection : 'right';    
+      direction = lastDirection ? lastDirection : 'anim-right';    
     }
 
     $slides.each(function(i, elm) {
@@ -23,13 +23,13 @@ $(function(){
       }
     });
 
-    if(direction === 'right') {
+    if(direction === 'anim-right') {
       if(currentIndex === $slides.length - 1) {
         enterIndex = 0;
       } else {
         enterIndex = currentIndex + 1;
       }
-    } else if (direction === 'left') {
+    } else if (direction === 'anim-left') {
       if(currentIndex === 0) {
         enterIndex = $slides.length - 1;
       } else {

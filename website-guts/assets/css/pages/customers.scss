@@ -128,7 +128,7 @@ body.customers-page {
       //$properties: left 0 100% -100%, left 0 -100% 100%;
       $properties: transform translateX(0) translateX(100%) translateX(-100%), transform translateX(0) translateX(-100%) translateX(100%);
       $transition: all 0.5s linear;
-      $classes: left right;
+      $classes: anim-left anim-right;
       @include optly--animate--opposite($properties, $transition, $classes);
       -webkit-perspective: 1000;
       -webkit-backface-visibility: hidden;

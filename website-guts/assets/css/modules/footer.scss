@@ -2,6 +2,10 @@ footer {
     #footer-nav {
       display: none;
     }
+    .container {
+        //weird hack to remove blinking in footer when using transform: translate
+        position: static;
+    }
     #footer-nav-cont {
         @extend .clearfix;
         margin-top: 25px;
