@@ -64,10 +64,11 @@ window.optly.mrkt.anim.enterQ = function($enterElm) {
     next();
   });
 
-  for( var i = 0; i < $q.queue('enter').length; i +=1 ) {
-    $q.dequeue('enter');
+  if($enterElm[0]) {
+    for( var i = 0; i < $q.queue('enter').length; i +=1 ) {
+      $q.dequeue('enter');
+    }
   }
-
 };
 
 window.optly.mrkt.anim.leaveQ = function($leaveElm) {
@@ -90,8 +91,10 @@ window.optly.mrkt.anim.leaveQ = function($leaveElm) {
     next();
   });
 
-  for( var i = 0; i < $q.queue('leave').length; i +=1 ) {
-    $q.dequeue('leave');
+  if($leaveElm[0]) {
+    for( var i = 0; i < $q.queue('leave').length; i +=1 ) {
+      $q.dequeue('leave');
+    }
   }
 };
 

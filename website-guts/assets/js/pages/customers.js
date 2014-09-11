@@ -1,11 +1,21 @@
+
+
+
 $(function(){
+  var intId, lastDirection, setCarouselInv;
+  var int = 4000;
   var currentIndex = 0;
   var $slides = $('[data-slides]');
 
-  $('[data-slider-nav]').on('click', function() {
+  var animateCarousel = function(e) {
     var enterIndex;
     var animInProgress;
-    var direction = $(this).data('slider-nav');
+    var direction;
+    if (e) {
+      direction = $(this).data('slider-nav');
+    } else {
+      direction = lastDirection ? lastDirection : 'right';    
+    }
 
     $slides.each(function(i, elm) {
       if( !!$(elm).data('trans-class') ) {
@@ -35,6 +45,17 @@ $(function(){
       window.optly.mrkt.anim.leave($exitElm, direction);
 
       currentIndex = enterIndex;
+      lastDirection = direction;
+      window.clearTimeout(intId);
+      intId = setCarouselInv();
     }
-  });
+  };
+
+  setCarouselInv = function() {
+    return window.setTimeout(animateCarousel, int);
+  };
+  
+  intId = setCarouselInv();
+
+  $('[data-slider-nav]').on('click', animateCarousel);
 });

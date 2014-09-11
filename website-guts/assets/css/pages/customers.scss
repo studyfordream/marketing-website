@@ -114,7 +114,7 @@ body.customers-page {
     ul {
       position: relative;
       width: 100%;
-      padding-top: 25%;
+      height: 300px;
     }
     q {
       display: block;
@@ -125,6 +125,7 @@ body.customers-page {
       quotes: '\201c' '\201d' '\2018' '\2019';
     } 
     li {
+      //$properties: left 0 100% -100%, left 0 -100% 100%;
       $properties: transform translateX(0) translateX(100%) translateX(-100%), transform translateX(0) translateX(-100%) translateX(100%);
       $transition: all 0.5s linear;
       $classes: left right;
@@ -141,7 +142,6 @@ body.customers-page {
     }
     .logo-border {
       width: 100%;
-      height: 55px;
       position: absolute;
       bottom: 0;
       left: 50%;
@@ -165,7 +165,7 @@ body.customers-page {
       }
     }
     img {
-      width: 50%;
+      width: 170px;
       display: block;
       margin: 0 auto;
     }
@@ -229,13 +229,13 @@ body.customers-page {
       padding-bottom: 35px;
     }
     .testimonials-container {
+      ul {
+        height: 220px; 
+      } 
       .logo-border {
         &:before,
         &:after, {
           width: 38%;
-        }
-        img {
-          width: 20%; 
         }
       }
     }
@@ -249,6 +249,11 @@ body.customers-page {
       @include column;
       @include columns(2.6);
       margin: 0 0 20px 0;
+    }
+    .testimonials-container {
+      ul {
+        height: 180px; 
+      }
     }
   }
 }
