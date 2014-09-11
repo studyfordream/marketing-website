@@ -54,14 +54,13 @@ window.optly.mrkt.anim.enterQ = function($enterElm) {
 
   $q.queue('enter', function(next){
     $enterElm.addClass('anim-enter');
-    $enterElm[0].offsetHeight;
+    //force layout render
+    $enterElm[0].offsetHeight; // jshint ignore:line
     next();
   });
 
   $q.queue('enter', function(next){
-    //window.setTimeout(function(){
-      $enterElm.addClass('enter');
-    //}, 50);
+    $enterElm.addClass('enter');
     next();
   });
 
@@ -81,14 +80,13 @@ window.optly.mrkt.anim.leaveQ = function($leaveElm) {
 
   $q.queue('leave', function(next){
     $leaveElm.addClass('anim-leave');
-    $leaveElm[0].offsetHeight;
+    //force layout render
+    $leaveElm[0].offsetHeight; // jshint ignore:line
     next();
   });
 
   $q.queue('leave', function(next){
-    //window.setTimeout(function(){
-      $leaveElm.addClass('leave');
-    //}, 50);
+    $leaveElm.addClass('leave');
     next();
   });
 
