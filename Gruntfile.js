@@ -269,7 +269,7 @@ module.exports = function(grunt) {
       resemble: {
         options: {
            port: '9000',
-           hostnae: '0.0.0.0'
+           hostname: '0.0.0.0'
         }
       }
     },
@@ -703,7 +703,7 @@ module.exports = function(grunt) {
             'customers/**/*.html',
             'enterprises/**/*.html',
             'events/**/*.html','faq/**/*.html',
-            'integrations/{,bizible/}*.html',
+            'partners/technology/{,bizible/}*.html',
             'mobile/**/*.html',
             'partners/{,brooks-bell/}*.html',
             'press/**/*.html',
@@ -727,7 +727,7 @@ module.exports = function(grunt) {
             'customers/**/*.html',
             'enterprises/**/*.html',
             'events/**/*.html','faq/**/*.html',
-            'integrations/{,bizible/}*.html',
+            'partners/technology/{,bizible/}*.html',
             'mobile/**/*.html',
             'partners/{,brooks-bell/}*.html',
             'press/**/*.html',
@@ -751,7 +751,7 @@ module.exports = function(grunt) {
             'customers/**/*.html',
             'enterprises/**/*.html',
             'events/**/*.html','faq/**/*.html',
-            'integrations/{,bizible/}*.html',
+            'partners/technology/{,bizible/}*.html',
             'mobile/**/*.html',
             'partners/{,brooks-bell/}*.html',
             'press/**/*.html',
