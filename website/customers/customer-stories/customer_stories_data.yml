@@ -95,4 +95,7 @@ customer_stories:
   body: "Ustream tested combinations of text and icons on their site's primary call-to-action to see which would drive more broadcasts."
   download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/ustream-casestudy.pdf"
 
-
+call_to_action:
+  header: "Share your testing story"
+  body: "Big wins. Surprising test results. A real impact on your business. Tell us how you did it." 
+  button_text: "Submit Your Story"
