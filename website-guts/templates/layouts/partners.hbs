@@ -3,17 +3,17 @@ layout: wrapper.hbs
 layout_script: false
 layout_body_class:
 - integrations-solutions
-sub_head: World-class service providers. Empowered customers. Lasting results.
 ---
 <div id="main">
   <div id="page-header">
     <div class="container">
       {{#if page.data.solutions }}
         <h1>{{solutions_data.page_heading}}</h1>
+        {{#if solutions_data.sub_head}}<p>{{solutions_data.sub_head}}</p>{{/if}}
       {{else}}
         <h1>{{technology_data.page_heading}}</h1>
+        {{#if technology_data.sub_head}}<p>{{technology_data.sub_head}}</p>{{/if}}
       {{/if}}
-      {{#if sub_head}}<p>{{sub_head}}</p>{{/if}}
     </div><!--/.container-->
   </div><!--/#page-header-->
   <div id="page-header-gradient"></div>
