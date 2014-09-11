@@ -8,7 +8,7 @@ $(function(){
     var direction = $(this).data('slider-nav');
 
     $slides.each(function(i, elm) {
-      if( $(elm).hasClass('anim-enter') || $(elm).hasClass('anim-leave') ) {
+      if( !!$(elm).data('trans-class') ) {
         animInProgress = true;
       }
     });

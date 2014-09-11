@@ -20,10 +20,6 @@ window.optly.mrkt.anim.bindTranEnd = function($elm) {
    if ( classList.indexOf('leave') !== -1 ) {
      $elm.addClass('optly-hide').removeClass('anim-leave leave');
 
-    if( $elm.data('trans-class') ) {
-      $elm.removeClass( $elm.data('trans-class') );
-    }
-
      $elm.unbind(this.transitionend, this.bindTranEnd);
 
      // allow for new click events to trigger animation
@@ -33,14 +29,16 @@ window.optly.mrkt.anim.bindTranEnd = function($elm) {
    else if ( classList.indexOf('anim-enter') !== -1 ) {
     $elm.removeClass('anim-enter');
 
-    if( $elm.data('trans-class') ) {
-      $elm.removeClass( $elm.data('trans-class') );
-    }
-
     $elm.unbind(this.transitionend, this.bindTranEnd);
 
     // allow for new click events to trigger animation
     this.elmCache[ $elm.data('anim-cache') ].transitionRunning = false;
+   }
+   // if it is a directional animation remove the directional class and data
+   // bit of a hack, allows for checking animation in progress on 
+   if( $elm.data('trans-class') ) {
+     $elm.removeClass( $elm.data('trans-class') );
+     $elm.data('trans-class', '');
    }
   }.bind(this));
 
@@ -56,13 +54,14 @@ window.optly.mrkt.anim.enterQ = function($enterElm) {
 
   $q.queue('enter', function(next){
     $enterElm.addClass('anim-enter');
+    $enterElm[0].offsetHeight;
     next();
   });
 
   $q.queue('enter', function(next){
-    window.setTimeout(function(){
+    //window.setTimeout(function(){
       $enterElm.addClass('enter');
-    }, 50);
+    //}, 50);
     next();
   });
 
@@ -82,13 +81,14 @@ window.optly.mrkt.anim.leaveQ = function($leaveElm) {
 
   $q.queue('leave', function(next){
     $leaveElm.addClass('anim-leave');
+    $leaveElm[0].offsetHeight;
     next();
   });
 
   $q.queue('leave', function(next){
-    window.setTimeout(function(){
+    //window.setTimeout(function(){
       $leaveElm.addClass('leave');
-    }, 50);
+    //}, 50);
     next();
   });
 
@@ -113,9 +113,12 @@ window.optly.mrkt.anim.cacheTrans = function($elm, transClass) {
   } else {
     currentElmKey = $elm.data('anim-cache');
   }
-
+  
+  //transition class specifies directional animations
+  //bit of a hack because passing this to the animation end listener was breaking
   if(transClass) {
     $elm.data('trans-class', transClass);
+    $elm.addClass(transClass);
   }
 
   return currentElmKey;
@@ -123,10 +126,6 @@ window.optly.mrkt.anim.cacheTrans = function($elm, transClass) {
 
 window.optly.mrkt.anim.enter = function($elm, transClass) {
   var currentElmKey = this.cacheTrans($elm, transClass);
-
-  if(transClass){
-    $elm.addClass(transClass);
-  }
 
   if( !this.elmCache[ currentElmKey ].transitionRunning ) {
     this.elmCache[ currentElmKey ].transitionRunning = true;
@@ -143,10 +142,6 @@ window.optly.mrkt.anim.enter = function($elm, transClass) {
 
 window.optly.mrkt.anim.leave = function ($elm, transClass) {
   var currentElmKey = this.cacheTrans($elm, transClass);
-
-  if(transClass){
-    $elm.addClass(transClass);
-  }
 
   if( !this.elmCache[ currentElmKey ].transitionRunning ) {
     this.elmCache[ currentElmKey ].transitionRunning = true;

@@ -473,6 +473,7 @@ module.exports = function(grunt) {
         nonbsp: true,
         undef: true,
         quotmark: 'single',
+        '-W030': true,
         '-W087': (function() {
           if(grunt.config.get("environment") == "dev") {
             return true;
