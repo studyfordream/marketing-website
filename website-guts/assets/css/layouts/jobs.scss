@@ -203,7 +203,7 @@ body.jobs-layout {
         }
 
         #lead-image {
-            background-image: image-url("jobs/office-photo-shanann.jpg");
+            background: image-url("jobs/office-photo-shanann.jpg") no-repeat center top;
             background-size: cover;
             height: 660px;
             position: relative;
