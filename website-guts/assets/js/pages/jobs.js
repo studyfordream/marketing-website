@@ -1,15 +1,23 @@
 window.optly.mrkt.jobsPage = {};
 
 window.optly.mrkt.jobsPage.testimonials = function() {
+    var lastIndex = 0;
     var $quotes = $('h4.quotes q');
-    $($quotes[0]).show();
+    var $icons = $('.employee-icons li');
 
-    $('.employee-icons a').each(function(index){
-        $(this).click(function(event){
-            event.preventDefault();
-            $quotes.hide();
-            $($quotes[index]).show();
-        });
+    $icons.on('click', function(e){
+        e.preventDefault();
+        var index = $(this).index();
+
+        if(index !== lastIndex) {
+            $( $quotes[index] ).removeClass('hide');
+            $(this).removeClass('opaque');
+
+            $( $quotes[lastIndex] ).addClass('hide');
+            $( $icons[lastIndex] ).addClass('opaque');
+
+            lastIndex = index;
+        }
     });
 };
 
