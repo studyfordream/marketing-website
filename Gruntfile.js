@@ -140,7 +140,6 @@ module.exports = function(grunt) {
         files: [
           '<%= config.content %>/**/*.{hbs,yml}',
           '!<%= config.content %>/partners/**/*.{hbs,yml}',
-          '!<%= config.content %>/integrations/**/*.{hbs,yml}',
           '<%= config.guts %>/templates/**/*.hbs',
           '!<%= config.guts %>/templates/**/*_compiled.hbs',
           '!<%= config.guts %>/templates/client/**/*.hbs',
@@ -151,7 +150,6 @@ module.exports = function(grunt) {
       assemblePartners: {
         files: [
           '<%= config.content %>/partners/**/*.{hbs,yml}',
-          '<%= config.content %>/integrations/**/*.{hbs,yml}',
           '<%= config.guts %>/templates/**/*.hbs',
           '!<%= config.guts %>/templates/**/*_compiled.hbs',
           '!<%= config.guts %>/templates/client/**/*.hbs'
@@ -323,7 +321,7 @@ module.exports = function(grunt) {
         },
         files: [
           {
-            src: ['integrations/**/*.hbs', 'partners/**/*.hbs'],
+            src: ['partners/**/*.hbs'],
             dest: '<%= config.dist %>/',
             cwd: '<%= config.content %>/',
             expand: true
@@ -333,7 +331,7 @@ module.exports = function(grunt) {
       pages: {
         files: [
           {
-            src: ['**/*.hbs', '!partners/**/*.hbs', '!integrations/**/*.hbs'],
+            src: ['**/*.hbs', '!partners/**/*.hbs'],
             dest: '<%= config.dist %>/',
             cwd: '<%= config.content %>/',
             expand: true
