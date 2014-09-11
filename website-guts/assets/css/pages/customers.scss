@@ -108,6 +108,108 @@ body.customers-page {
   .livestrong {
     background-position: 50% -876px;
   }
+  .testimonials-container {
+    margin-top: 60px;
+    overflow: hidden;
+    ul {
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+    q {
+      display: block;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: 300;
+      line-height: 1.2;
+      quotes: '\201c' '\201d' '\2018' '\2019';
+    } 
+    li {
+      //$properties: left 0 100% -100%, left 0 -100% 100%;
+      $properties: transform translateX(0) translateX(100%) translateX(-100%), transform translateX(0) translateX(-100%) translateX(100%);
+      $transition: all 0.5s linear;
+      $classes: anim-left anim-right;
+      @include optly--animate--opposite($properties, $transition, $classes);
+      -webkit-perspective: 1000;
+      -webkit-backface-visibility: hidden;
+      list-style: none;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .logo-border {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      &:before,
+      &:after, {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 50%;
+        width: 20%;
+        background: #dadada;
+        border-bottom: 1px solid #fff;
+        height: 2px;
+      }
+      &:before {
+        left: 0;
+      }
+      &:after {
+        right: 0;      
+      }
+    }
+    img {
+      width: 170px;
+      display: block;
+      margin: 0 auto;
+    }
+    
+  }
+  .button-container {
+    width: 100px;
+    text-align: center;
+    margin: 60px auto;
+  }
+  .slider-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    opacity: 0.6;
+    background-color: white;
+    border: 1px solid #888;
+    color: #888;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    .arrow {
+      width: 0;
+      height: 0;
+      position: relative;
+      top: 6px;
+    }
+    &:first-child {
+      .arrow {
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 8px solid #888;
+        left: 8px;
+      }
+    }
+    &:last-child {
+      .arrow {
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid #888;
+        left: 12px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: $tablet-min-width) {
@@ -126,6 +228,17 @@ body.customers-page {
     #page-content {
       padding-bottom: 35px;
     }
+    .testimonials-container {
+      ul {
+        height: 220px; 
+      } 
+      .logo-border {
+        &:before,
+        &:after, {
+          width: 38%;
+        }
+      }
+    }
   }
 }
 
@@ -136,6 +249,11 @@ body.customers-page {
       @include column;
       @include columns(2.6);
       margin: 0 0 20px 0;
+    }
+    .testimonials-container {
+      ul {
+        height: 180px; 
+      }
     }
   }
 }

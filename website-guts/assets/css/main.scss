@@ -59,7 +59,20 @@ hr {
     margin: 1em 0;
     padding: 0;
 }
-
+/*
+ * Remove the blue highlighting when clicking elements 
+ * 
+ */
+*::selection {
+    background-color:transparent;
+} 
+* {        
+    user-select: none;
+    tap-highlight-color: rgba(0, 0, 0, 0);
+}    
+input[type="text"], textarea, [contenteditable] {
+    user-select: text;
+}
 /*
  * Remove the gap between images, videos, audio and canvas and the bottom of
  * their containers: h5bp.com/i/440
