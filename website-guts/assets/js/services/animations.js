@@ -19,30 +19,28 @@ window.optly.mrkt.anim.bindTranEnd = function($elm, transClass) {
     // If the animation is over and modal is closed display none
    if ( classList.indexOf('leave') !== -1 ) {
      $elm.addClass('optly-hide').removeClass('anim-leave leave');
-     
-     classList.forEach(function(elmClass){
-      if(elmClass === transClass || elmClass === 'anim-leave' || elmClass === 'leave') {
-        $elm.removeClass(elmClass); 
-      }
-     });
+
+    if( $elm.data('trans-class') ) {
+      $elm.removeClass( $elm.data('trans-class') );
+    }
 
      $elm.unbind(this.transitionend, this.bindTranEnd);
 
      // allow for new click events to trigger animation
      this.elmCache[ $elm.data('anim-cache') ].transitionRunning = false;
-   } 
+   }
    // If the animation is over and modal is open
    else if ( classList.indexOf('anim-enter') !== -1 ) {
-     classList.forEach(function(elmClass){
-      if(elmClass === transClass || elmClass === 'anim-enter') {
-        $elm.removeClass(elmClass); 
-      }
-     });
+    $elm.removeClass('anim-enter');
 
-     $elm.unbind(this.transitionend, this.bindTranEnd);
+    if( $elm.data('trans-class') ) {
+      $elm.removeClass( $elm.data('trans-class') );
+    }
 
-     // allow for new click events to trigger animation
-     this.elmCache[ $elm.data('anim-cache') ].transitionRunning = false;
+    $elm.unbind(this.transitionend, this.bindTranEnd);
+
+    // allow for new click events to trigger animation
+    this.elmCache[ $elm.data('anim-cache') ].transitionRunning = false;
    }
   }.bind(this));
 
@@ -55,12 +53,12 @@ window.optly.mrkt.anim.enterQ = function($enterElm) {
     $enterElm.removeClass('optly-hide');
     next();
   });
-  
+
   $q.queue('enter', function(next){
     $enterElm.addClass('anim-enter');
     next();
   });
-  
+
   $q.queue('enter', function(next){
     window.setTimeout(function(){
       $enterElm.addClass('enter');
@@ -81,12 +79,12 @@ window.optly.mrkt.anim.leaveQ = function($leaveElm) {
     $leaveElm.removeClass('enter');
     next();
   });
-  
+
   $q.queue('leave', function(next){
     $leaveElm.addClass('anim-leave');
     next();
   });
-  
+
   $q.queue('leave', function(next){
     window.setTimeout(function(){
       $leaveElm.addClass('leave');
@@ -99,7 +97,7 @@ window.optly.mrkt.anim.leaveQ = function($leaveElm) {
   }
 };
 
-window.optly.mrkt.anim.cacheTrans = function($elm) {
+window.optly.mrkt.anim.cacheTrans = function($elm, transClass) {
   var currentElmKey;
   this.elmCache = this.elmCache || {};
   this.cacheKey = this.cacheKey || 0;
@@ -107,7 +105,7 @@ window.optly.mrkt.anim.cacheTrans = function($elm) {
   if( !$elm.data('anim-cache') ) {
     currentElmKey = this.cacheKey += 1;
     $elm.data('anim-cache', this.cacheKey);
-    
+
     this.elmCache[ this.cacheKey ] = {
       elm: $elm
     };
@@ -116,14 +114,18 @@ window.optly.mrkt.anim.cacheTrans = function($elm) {
     currentElmKey = $elm.data('anim-cache');
   }
 
+  if(transClass) {
+    $elm.data('trans-class', transClass);
+  }
+
   return currentElmKey;
 };
 
 window.optly.mrkt.anim.enter = function($elm, transClass) {
-  var currentElmKey = this.cacheTrans($elm);
+  var currentElmKey = this.cacheTrans($elm, transClass);
 
   if(transClass){
-    $elm.addClass(transClass); 
+    $elm.addClass(transClass);
   }
 
   if( !this.elmCache[ currentElmKey ].transitionRunning ) {
@@ -135,15 +137,15 @@ window.optly.mrkt.anim.enter = function($elm, transClass) {
 
     return true;
   }
-  
-  return false;  
+
+  return false;
 };
 
 window.optly.mrkt.anim.leave = function ($elm, transClass) {
-  var currentElmKey = this.cacheTrans($elm);
+  var currentElmKey = this.cacheTrans($elm, transClass);
 
   if(transClass){
-    $elm.addClass(transClass); 
+    $elm.addClass(transClass);
   }
 
   if( !this.elmCache[ currentElmKey ].transitionRunning ) {
