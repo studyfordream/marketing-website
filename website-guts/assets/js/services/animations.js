@@ -11,7 +11,7 @@ window.optly.mrkt.anim.transitionend = (function(transition) {
   return transEndEventNames[transition];
 })(window.Modernizr.prefixed('transition'));
 
-window.optly.mrkt.anim.bindTranEnd = function($elm, transClass) {
+window.optly.mrkt.anim.bindTranEnd = function($elm) {
 
   $elm.bind(this.transitionend, function() {
    var classList = Array.prototype.slice.call( $elm[0].classList );
@@ -131,7 +131,7 @@ window.optly.mrkt.anim.enter = function($elm, transClass) {
   if( !this.elmCache[ currentElmKey ].transitionRunning ) {
     this.elmCache[ currentElmKey ].transitionRunning = true;
 
-    this.bindTranEnd($elm, transClass);
+    this.bindTranEnd($elm);
 
     this.enterQ($elm);
 
@@ -151,7 +151,7 @@ window.optly.mrkt.anim.leave = function ($elm, transClass) {
   if( !this.elmCache[ currentElmKey ].transitionRunning ) {
     this.elmCache[ currentElmKey ].transitionRunning = true;
 
-    this.bindTranEnd($elm, transClass);
+    this.bindTranEnd($elm);
 
     this.leaveQ($elm);
 
