@@ -607,31 +607,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    'phantomcss-gitdiff': {
-      options: {
-        baseUrl: 'http://0.0.0.0:9000/',
-        serverRoot: 'dist/',
-        gitDiff: true,
-      },
-      desktop: {
-        options: {
-          screenshots: 'screens/desktop/',
-          viewportSize: [1024, 768]
-        },
-        src: [
-          'dist/{,**/}*.html'
-        ]
-      },
-      mobile: {
-        options: {
-          screenshots: 'screens/mobile/',
-          viewportSize: [320, 480]
-        },
-        src: [
-          'dist/{,**/}*.html'
-        ]
-      }
-    },
     imagemin: {
       prod: {
         files: [
@@ -686,6 +661,8 @@ module.exports = function(grunt) {
       options: {
         screenshotRoot: 'screens',
         url: 'http://0.0.0.0:9000/dist',
+        selector: '#outer-wrapper',
+        tolerance: 0,
         gm: true
       },
       desktop: {
@@ -703,7 +680,7 @@ module.exports = function(grunt) {
             'events/**/*.html','faq/**/*.html',
             'partners/technology/{,bizible/}*.html',
             'mobile/**/*.html',
-            'partners/{,brooks-bell/}*.html',
+            'partners/solutions/{,blue-acorn/}*.html',
             'press/**/*.html',
             'resources/{live-demo-webinar,sample-size-calculator}/*.html',
             'terms/**/*.html'
@@ -727,7 +704,7 @@ module.exports = function(grunt) {
             'events/**/*.html','faq/**/*.html',
             'partners/technology/{,bizible/}*.html',
             'mobile/**/*.html',
-            'partners/{,brooks-bell/}*.html',
+            'partners/solutions/{,blue-acorn/}*.html',
             'press/**/*.html',
             'resources/{live-demo-webinar,sample-size-calculator}/*.html',
             'terms/**/*.html'
@@ -751,7 +728,7 @@ module.exports = function(grunt) {
             'events/**/*.html','faq/**/*.html',
             'partners/technology/{,bizible/}*.html',
             'mobile/**/*.html',
-            'partners/{,brooks-bell/}*.html',
+            'partners/solutions/{,blue-acorn/}*.html',
             'press/**/*.html',
             'resources/{live-demo-webinar,sample-size-calculator}/*.html',
             'terms/**/*.html'
