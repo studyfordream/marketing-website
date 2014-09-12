@@ -1,143 +1,41 @@
-window.optly = window.optly || {};
+(function(){
 
-window.optly.mrkt = window.optly.mrkt || {};
+  var w, d;
 
-window.optly.mrkt.oForm = {};
+  w = window;
 
-window.optly.mrkt.oForm.ppcFormDefaultResponseHandler = function(resp, callback){
+  d = document;
 
-  var runCallback, success;
+  w.optly = w.optly || {};
 
-  runCallback = function(arg){
+  w.optly.mrkt = w.optly.mrkt || {};
 
-    if(typeof callback === 'function'){
+  w.optly.mrkt.Oform = {};
 
-      callback(arg);
+  w.optly.mrkt.Oform.before = function(){
 
-    }
+    d.getElementsByTagName('body')[0].classList.add('processing');
 
-  };
-
-  success = function(){
-
-    var name, email, path;
-
-    name = $('#name').val();
-
-    email = $('#email').val();
-
-    path = window.location.pathname;
-
-    //add reporting
-
-    window.analytics.identify( email, {
-
-      name: name,
-
-      email: email
-
-    },{
-
-      Marketo: true
-
-    });
-
-    window.analytics.track('/account/create/success', {
-
-      category: 'Accounts',
-
-      label: path
-
-    },{
-
-      Marketo: true
-
-    });
-
-    window.analytics.track('/free-trial/success', {
-
-      category: 'Free trial',
-
-      label: path
-
-    },{
-
-      Marketo: true
-
-    });
-
-    setTimeout(function(){
-
-      runCallback(callback);
-
-      window.location = 'https://www.optimizely.com/edit?url=' + $('#url').val();
-
-    }, 2000);
+    return true;
 
   };
 
-  if(typeof resp === 'object'){
+  w.optly.mrkt.Oform.validationError = function(element){
 
-    if(typeof resp.responseJSON === 'object'){
+    w.analytics.track(w.location.pathname, {
 
-      if(resp.responseJSON.succeeded){
+      category: 'form error',
 
-        success();
+      label: element.getAttribute('name')
 
-      } else if(!resp.responseJSON.succeeded){
+    });
 
-          //error from api, did not succeed, update ui
+  };
 
-          $('.error-message').text(resp.responseJSON.error);
+  w.optly.mrkt.Oform.done = function(){
 
-          $('body').addClass('error-state');
+    d.getElementsByTagName('body')[0].classList.remove('processing');
 
-      } else {
+  };
 
-        $('body').removeClass('error-state');
-
-      }
-
-    } else {
-
-      //response contained something that wasn't json, report this
-
-      window.analytics.track('invalid json', {
-
-        category: 'api error',
-
-        label: window.location.pathname
-
-      });
-
-    }
-
-  } else {
-
-    $('body').toggleClass('processing-state');
-
-  }
-
-};
-
-jQuery.oFormGlobalOverrides = {
-
-  beforeGlobal: function(){
-
-    $('body').toggleClass('processing-state');
-
-  },
-
-  reportValidationError: function(element){
-
-      window.analytics.track( $(element).attr('name') + ' validation error', {
-
-        category: 'form field error',
-
-        label: window.location.pathname
-
-      });
-
-  }
-
-};
+})();

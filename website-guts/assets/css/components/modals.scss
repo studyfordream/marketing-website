@@ -130,6 +130,14 @@ body {
 }
 
 @media only screen and (min-width: $tablet-min-width) {
+  body {
+    &.modal-open {
+      padding-right: 15px;
+      .dialog {
+        left: -8px;
+      }
+    }
+  }
   .modal-dialog-container {
     overflow: scroll;
     background: transparent;

@@ -1,8 +1,4 @@
-// $('#seo-form').oForm({
-
-//   afterLocal: window.optly.mrkt.oForm.ppcFormDefaultResponseHandler
-
-// });
+/* global Oform */
 
 var settings,
     showIncrementValues,
