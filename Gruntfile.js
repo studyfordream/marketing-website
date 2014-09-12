@@ -554,10 +554,10 @@ module.exports = function(grunt) {
         },
         files: {
             '<%= config.temp %>/assets/js/global.js': [
+              '<%= config.guts %>/assets/js/utils/*.js',
               '<%= config.guts %>/assets/js/global.js',
               '<%= config.guts %>/assets/js/components/*.js',
               '<%= config.guts %>/assets/js/services/*.js',
-              '<%= config.guts %>/assets/js/utils/*.js',
               '!<%= config.guts %>/assets/js/services/user_state.js'
               ]
         }
