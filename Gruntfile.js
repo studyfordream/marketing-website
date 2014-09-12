@@ -493,7 +493,11 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          src: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/libraries/**/*.js']
+          src: [
+            '<%= config.guts %>/assets/js/**/*.js',
+            '!<%= config.guts %>/assets/js/libraries/**/*.js',
+            '!<%= config.guts %>/assets/js/utils/*.js',
+          ]
         }
       },
       clientDev: {
@@ -511,7 +515,11 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          src: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/libraries/**/*.js']
+          src: [
+            '<%= config.guts %>/assets/js/**/*.js',
+            '!<%= config.guts %>/assets/js/libraries/**/*.js',
+            '!<%= config.guts %>/assets/js/utils/*.js',
+          ]
         }
       },
       server: {
@@ -549,6 +557,7 @@ module.exports = function(grunt) {
               '<%= config.guts %>/assets/js/global.js',
               '<%= config.guts %>/assets/js/components/*.js',
               '<%= config.guts %>/assets/js/services/*.js',
+              '<%= config.guts %>/assets/js/utils/*.js',
               '!<%= config.guts %>/assets/js/services/user_state.js'
               ]
         }

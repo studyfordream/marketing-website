@@ -2,7 +2,10 @@ w.optly.mrkt.inlineFormLabels();
 
 //form
 new Oform({
-  selector: '#seo-form'
+  selector: '#seo-form',
+  middleware: function(XhrObj, data){
+    return w.optly.mrkt.utils.Base64.encode(data);
+  }
 })
 .on('before', w.optly.mrkt.Oform.before)
 .on('validationError', w.optly.mrkt.Oform.validationError)
