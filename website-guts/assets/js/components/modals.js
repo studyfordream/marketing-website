@@ -121,11 +121,7 @@ window.optly.mrkt.modal.open = function(modalType) {
     storeModalState(modalType, true);
   }
 
-  $('html, body').addClass('modal-open').delay(0)
-                 .queue(function(next){
-                    $(this).addClass('modal-open');
-                    next();
-                 });
+  $('html, body').addClass('modal-open');
 
   animInitiated = window.optly.mrkt.anim.enter( $elm );
 
@@ -133,7 +129,7 @@ window.optly.mrkt.modal.open = function(modalType) {
     // Fade in the modal and attach the close modal handler
     $elm.bind('click', closeModalHandler);
   }
-  
+
 };
 
 window.optly.mrkt.modal.close = function(modalType) {

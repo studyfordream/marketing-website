@@ -197,24 +197,12 @@ body.jobs-layout {
             text-align: center;
         }
 
-        #main-nav-cont {
-            position: relative;
-            z-index: 2;
-        }
-
-        #top-nav-cont {
-            background: url("/dist/assets/img/bg-top-header.png") repeat-x, url("/dist/assets/img/bg-header.png");
-        }
-
-        #main {
-            margin-top: -66px;
-        }
-
         #lead-image {
-            background-image: image-url("jobs/office-photo-shanann.jpg");
+            background: image-url("jobs/office-photo-shanann.jpg") no-repeat center top;
             background-size: cover;
             height: 660px;
             position: relative;
+            top: -2px;
         }
 
         #jobs-intro {
@@ -247,7 +235,7 @@ body.jobs-layout {
             }
         }
 
-        .benefits {padding-top: 40px;}
+        .benefits {padding: 40px 10% 0 10%;}
 
         .jobs-list {
             li {
@@ -267,6 +255,22 @@ body.jobs-layout {
     body.jobs-layout {
         #main-nav-cont {
             background: none;
+        }
+
+        #top-nav-cont {
+            //border-bottom: none;
+        }
+
+        #main {
+            margin-top: -58px;
+        }
+
+        #main-nav-cont {
+            position: relative;
+            z-index: 2;
+        }
+        .benefits {
+            padding: 40px 0;
         }
     }
 }
