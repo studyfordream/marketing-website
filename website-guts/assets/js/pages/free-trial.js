@@ -1,5 +1,3 @@
-/* global Oform */
-
 var settings,
     showIncrementValues,
     addCommas;
