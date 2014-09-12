@@ -47,7 +47,7 @@ module.exports = function(grunt) {
             sassImagePath: 'https://du7782fucwe1l.cloudfront.net/img',
             compress_js: true,
             drop_console: true,
-            concat_banner: '(function($){ \n\n' +
+            concat_banner: '(function($, w, d){ \n\n' +
                            '  window.optly = window.optly || {}; \n\n' +
                            '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
                            '  window.linkPath = "" \n\n' +
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
                            '  //report errors to GA \n\n' +
                            '  window.console.log("js error: " + error);' +
                            '  } \n' +
-                           '})(jQuery);'
+                           '})(jQuery, window, document);'
           }
         }
       },
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
             sassImagePath: '/<%= gitinfo.local.branch.current.name %>/assets/img',
             compress_js: true,
             drop_console: false,
-            concat_banner: '(function($){ \n\n' +
+            concat_banner: '(function($, w, d){ \n\n' +
                            '  window.optly = window.optly || {}; \n\n' +
                            '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
                            '  window.linkPath = "<%= gitinfo.local.branch.current.name %>" \n\n' +
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
                            '  //report errors to GA \n\n' +
                            '  window.console.log("js error: " + error);' +
                            '  } \n' +
-                           '})(jQuery);'
+                           '})(jQuery, window, document);'
           }
         }
       },
@@ -95,7 +95,7 @@ module.exports = function(grunt) {
             sassImagePath: '/assets/img',
             compress_js: true,
             drop_console: false,
-            concat_banner: '(function($){ \n\n' +
+            concat_banner: '(function($, w, d){ \n\n' +
                            '  window.optly = window.optly || {}; \n\n' +
                            '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
                            '  window.linkPath = "<%= gitinfo.local.branch.current.name %>" \n\n' +
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
                            '  //report errors to GA \n\n' +
                            '  window.console.log("js error: " + error);' +
                            '  } \n' +
-                           '})(jQuery);'
+                           '})(jQuery, window, document);'
           }
         }
       },
@@ -119,11 +119,11 @@ module.exports = function(grunt) {
             sassImagePath: '/dist/assets/img',
             compress_js: false,
             drop_console: false,
-            concat_banner: '(function($){ \n\n' +
+            concat_banner: '(function($, w, d){ \n\n' +
                            '  window.optly = window.optly || {}; \n\n' +
                            '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
                            '  window.linkPath = "/dist" \n\n',
-            concat_footer: '})(jQuery);'
+            concat_footer: '})(jQuery, window, document);'
           }
         }
       },
@@ -486,7 +486,10 @@ module.exports = function(grunt) {
           globals: {
             jQuery: false,
             moment: false,
-            $: false
+            $: false,
+            Oform: false,
+            w: false,
+            d: false
           }
         },
         files: {
@@ -501,7 +504,10 @@ module.exports = function(grunt) {
             console: false,
             moment: false,
             _gaq: false,
-            $: false
+            $: false,
+            Oform: false,
+            w: false,
+            d: false
           }
         },
         files: {
