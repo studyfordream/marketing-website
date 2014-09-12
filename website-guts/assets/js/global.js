@@ -23,32 +23,48 @@ window.optly.mrkt.mobileJS = function(){
 			window.FastClick.attach(document.body);
 
 		});
+  }
 
-		$('.mobile-nav-toggle').on('click', function(e){
+  var mobileNavBound = false;
+  $(window).on('load resize', function() {
+    if(window.innerWidth <= 960) {
+        $('body').addClass('mobile-nav-ready');
 
-				$('body').toggleClass('nav-open');
+        if(!mobileNavBound) {
+            $('.mobile-nav-toggle').on('click', function(e){
 
-				e.preventDefault();
+            $('body').toggleClass('nav-open');
 
-		});
+                e.preventDefault();
 
-		$('.user-nav-toggle').on('click', function(e){
+            });
 
-				$('body').toggleClass('user-nav-open');
+            $('.user-nav-toggle').on('click', function(e){
 
-				e.preventDefault();
+                $('body').toggleClass('user-nav-open');
 
-		});
+                e.preventDefault();
 
-		$('body').addClass('mobile-nav-ready');
+            });
 
-		$('#main-nav > li').click(function(){
 
-				$(this).toggleClass('active').find('ul').toggleClass('active');
 
-		});
+            $('#main-nav > li').on('click', function(){
 
-	}
+                $(this).toggleClass('active').find('ul').toggleClass('active');
+
+            });
+
+            mobileNavBound = true;
+        }
+
+
+    } else {
+        $('body').removeClass('mobile-nav-ready');
+    }
+
+  });
+
 
 };
 

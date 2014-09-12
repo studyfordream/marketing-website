@@ -64,6 +64,10 @@ header {
         transform: translate(0);
         transition: transform .2s;
     }
+    .mobile-nav-toggle,
+    .user-nav-toggle {
+      cursor: pointer;
+    }
     .mobile-nav-toggle {
       float: left;
       padding: 10px 0;
@@ -122,6 +126,7 @@ header {
         top: 17px;
         transform: translate(0);
         transition: transform 50ms;
+        cursor: pointer;
     }
     #main-nav > li.active p:after {
         transform: rotate(90deg);

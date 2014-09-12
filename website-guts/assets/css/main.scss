@@ -60,16 +60,16 @@ hr {
     padding: 0;
 }
 /*
- * Remove the blue highlighting when clicking elements 
- * 
+ * Remove the blue highlighting when clicking elements
+ *
  */
 *::selection {
     background-color:transparent;
-} 
-* {        
+}
+* {
     user-select: none;
     tap-highlight-color: rgba(0, 0, 0, 0);
-}    
+}
 input[type="text"], textarea, [contenteditable] {
     user-select: text;
 }
