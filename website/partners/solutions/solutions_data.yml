@@ -10,7 +10,7 @@ apply_link_url: "http://pages.optimizely.com/OptimizelySolutionsPartnerRegistrat
 apply_link_intro: "Join the Optimizely Solutions Partner Program"
 apply_link_text: "Apply Now"
 kb_article: "Get Implementation Guide"
-partner_tooltip: "Lorem Ipsum..."
+partner_tooltip: "Optimizely Solutions Partner level indicates the degree of expertise a partner has working with Optimizely customers"
 filter:
   region: "Region"
   title: "Filter By"
