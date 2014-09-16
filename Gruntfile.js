@@ -830,7 +830,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'config:dev',
-    'jshint:clientDev',
+    'jshint:clientProd',
     'jshint:server',
     'clean:preBuild',
     'assemble',
