@@ -672,24 +672,24 @@ module.exports = function(grunt) {
         ]
       }
     },
-    resemble: { 
+    resemble: {
       options: {
         screenshotRoot: 'screens',
         url: 'http://0.0.0.0:9000/dist',
         selector: '#outer-wrapper',
-        tolerance: 0,
         gm: true
       },
       desktop: {
         options: {
           width: 1024,
+          tolerance: 0.001
         },
         files: [
-          { 
+          {
           cwd: 'dist/',
-          expand: true,     
+          expand: true,
           src: [
-            'free-trial/**/*.html', 
+            'free-trial/**/*.html',
             'customers/**/*.html',
             'enterprises/**/*.html',
             'events/**/*.html','faq/**/*.html',
@@ -707,13 +707,14 @@ module.exports = function(grunt) {
       tablet: {
         options: {
           width: 800,
+          tolerance: 0.001
         },
         files: [
-          { 
+          {
           cwd: 'dist/',
-          expand: true,     
+          expand: true,
           src: [
-            'free-trial/**/*.html', 
+            'free-trial/**/*.html',
             'customers/**/*.html',
             'enterprises/**/*.html',
             'events/**/*.html','faq/**/*.html',
@@ -731,13 +732,14 @@ module.exports = function(grunt) {
       mobile: {
         options: {
           width: 450,
+          tolerance: 0.001
         },
         files: [
-          { 
+          {
           cwd: 'dist/',
-          expand: true,     
+          expand: true,
           src: [
-            'free-trial/**/*.html', 
+            'free-trial/**/*.html',
             'customers/**/*.html',
             'enterprises/**/*.html',
             'events/**/*.html','faq/**/*.html',
@@ -825,7 +827,7 @@ module.exports = function(grunt) {
     'userevvd',
     'clean:postBuild'
   ]);
-  
+
   grunt.registerTask('test', [
     'config:dev',
     'jshint:clientDev',
