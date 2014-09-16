@@ -19,7 +19,6 @@ new Oform({
     }
   }
 }).on('validationError', function(element){
-  debugger;
   $('body').addClass('error-state');
 
   window.analytics.track(window.location, {
