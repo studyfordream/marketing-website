@@ -158,7 +158,7 @@ module.exports = function(grunt) {
       },
       sass: {
         files: '<%= config.guts %>/assets/css/**/*.scss',
-        tasks: ['config:dev', 'sass', 'replace', 'autoprefixer', 'clean:postBuild']
+        tasks: ['config:dev', 'sass', 'replace', 'autoprefixer:prod', 'clean:postBuild']
       },
       img: {
         files: ['<%= config.guts %>/assets/img/*.{png,jpg,svg}'],
@@ -381,14 +381,27 @@ module.exports = function(grunt) {
       }
     },
     autoprefixer: {
-      options: {
-        options: ['last 2 versions', 'Firefox ESR'],
-        map: true
+      prod: {
+        options: {
+          options: ['last 2 versions', 'Firefox ESR'],
+          map: true
+        },
+        files: {
+          flatten: true,
+          src: '<%= config.temp %>/css/styles.css',
+          dest: '<%= config.dist %>/assets/css/styles.css'
+        }
       },
-      files: {
-        flatten: true,
-        src: '<%= config.temp %>/css/styles.css',
-        dest: '<%= config.dist %>/assets/css/styles.css'
+      test: {
+        options: {
+          options: ['last 3 versions', 'Firefox ESR'],
+          map: true
+        },
+        files: {
+          flatten: true,
+          src: '<%= config.temp %>/css/styles.css',
+          dest: '<%= config.dist %>/assets/css/styles.css'
+        }
       }
     },
     copy: {
@@ -770,7 +783,7 @@ module.exports = function(grunt) {
     'concat',
     'uglify',
     'sass',
-    'autoprefixer',
+    'autoprefixer:prod',
     'copy',
     's3:staging',
     'clean:postBuild'
@@ -787,7 +800,7 @@ module.exports = function(grunt) {
     'concat',
     'uglify',
     'sass',
-    'autoprefixer',
+    'autoprefixer:prod',
     'copy',
     's3:smartling',
     'clean:postBuild'
@@ -803,7 +816,7 @@ module.exports = function(grunt) {
     'concat',
     'sass:dev',
     'replace',
-    'autoprefixer',
+    'autoprefixer:prod',
     'copy',
     'clean:postBuild',
     'connect:livereload',
@@ -822,7 +835,7 @@ module.exports = function(grunt) {
     'uglify',
     'sass:prod',
     'replace',
-    'autoprefixer',
+    'autoprefixer:prod',
     'filerev',
     'userevvd',
     'clean:postBuild'
@@ -838,7 +851,7 @@ module.exports = function(grunt) {
     'concat',
     'sass:dev',
     'replace',
-    'autoprefixer',
+    'autoprefixer:test',
     'copy',
     'clean:postBuild',
     'connect:resemble',
