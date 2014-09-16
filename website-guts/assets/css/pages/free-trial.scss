@@ -1,6 +1,7 @@
 body.ppc-page {
-  #ppc-form h4 {
-    text-align: center;
+  #ppc-form {
+    h4 {text-align: center;}
+    button {margin-top: 10px;}
   }
 
   .header-wrapper {
@@ -27,7 +28,7 @@ body.ppc-page {
         width: 340px;
         margin: 0 auto;
       }
-      
+
       li {
         list-style-type: disc;
         margin: 0;

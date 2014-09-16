@@ -44,6 +44,9 @@ layout_modals:
             window.analytics.load('{{environmentVariables.segmentProjectID}}');
             window.analytics.page();
         </script>
+        {{#if environmentVariables.production}}
+        <script id="bizible-settings" type="text/javascript" src="//cdn.bizible.com/_biz-a.js" async data-attach-secure-forms="true"></script>
+        {{/if}}
     </head>
      <body class="signed-out{{#if page.compact_header}} compact-header{{/if}}{{#each layout_body_class}} {{.}}{{/each}}{{#each page.body_class}} {{.}}{{/each}}">
         <!--[if lt IE 8]>
@@ -241,9 +244,6 @@ layout_modals:
         {{~/if}}
         {{#if page.page_script}}
         <script src="{{assetsDir}}/js/pages/{{page.page_script}}" defer></script>
-        {{/if}}
-        {{#if environmentVariables.production}}
-        <script id="bizible-settings" type="text/javascript" src="//cdn.bizible.com/_biz-a.js" async data-attach-secure-forms="true"></script>
         {{/if}}
     </body>
 </html>
