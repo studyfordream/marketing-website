@@ -827,17 +827,20 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('test', [
-    'config:dev',
-    'jshint:clientDev',
+    'config:production',
+    'jshint:clientProd',
     'jshint:server',
     'clean:preBuild',
     'assemble',
     'handlebars',
     'concat',
-    'sass:dev',
+    'copy',
+    'uglify',
+    'sass:prod',
     'replace',
     'autoprefixer',
-    'copy',
+    'filerev',
+    'userevvd',
     'clean:postBuild',
     'connect:resemble',
     'resemble'
