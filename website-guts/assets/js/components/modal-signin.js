@@ -1,23 +1,33 @@
 var $signinModal = $('[data-optly-modal="signin"]');
 
-function requestSignin(e) {
-  e.preventDefault();
 
-  var deferred = window.optly.mrkt.services.xhr.makeRequest({
-    type: 'POST',
-    url: '/account/signin'
-  });
-
-
-  deferred.then(function(data) {
-    if (data.success === 'true') {
-      if(sessionStorage !== undefined) {
-        sessionStorage.modalType = '';
-      }
-      window.location = 'https://www.optimizely.com/dashboard';
+new Oform({
+  selector: '#sign-in-dialog',
+  errorHiddenClass: 'error-hide',
+  customValidation: {
+    password: function(elm) {
+      return window.optly.mrkt.utils.checkComplexPassword(elm.value);
     }
+  },
+  middleware: function(XhrObj, data){
+    var checkedElm = document.getElementById(this.selector.replace(/\#/, '')).querySelector('[name="persist"');
+
+    if( !checkedElm.checked ) {
+      return data.replace(/\&persist\=on/, '');
+    } else {
+      return data;
+    }
+  }
+}).on('validationError', function(element){
+  debugger;
+  $('body').addClass('error-state');
+
+  window.analytics.track(window.location, {
+    category: 'signin',
+    label: 'form-error',
+    value: element.getAttribute('name')
   });
+}).on('load', function(event){
+  window.location = 'https://www.optimizely.com/dashboard';
+});
 
-}
-
-$signinModal.delegate('[data-modal-btn="signin"]', 'click', requestSignin);
