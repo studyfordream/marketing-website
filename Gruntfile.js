@@ -672,7 +672,7 @@ module.exports = function(grunt) {
         ]
       }
     },
-    resemble: {
+    resemble: { 
       options: {
         screenshotRoot: 'screens',
         url: 'http://0.0.0.0:9000/dist',
@@ -685,11 +685,11 @@ module.exports = function(grunt) {
           width: 1024,
         },
         files: [
-          {
+          { 
           cwd: 'dist/',
-          expand: true,
+          expand: true,     
           src: [
-            'free-trial/**/*.html',
+            'free-trial/**/*.html', 
             'customers/**/*.html',
             'enterprises/**/*.html',
             'events/**/*.html','faq/**/*.html',
@@ -709,11 +709,11 @@ module.exports = function(grunt) {
           width: 800,
         },
         files: [
-          {
+          { 
           cwd: 'dist/',
-          expand: true,
+          expand: true,     
           src: [
-            'free-trial/**/*.html',
+            'free-trial/**/*.html', 
             'customers/**/*.html',
             'enterprises/**/*.html',
             'events/**/*.html','faq/**/*.html',
@@ -733,11 +733,11 @@ module.exports = function(grunt) {
           width: 450,
         },
         files: [
-          {
+          { 
           cwd: 'dist/',
-          expand: true,
+          expand: true,     
           src: [
-            'free-trial/**/*.html',
+            'free-trial/**/*.html', 
             'customers/**/*.html',
             'enterprises/**/*.html',
             'events/**/*.html','faq/**/*.html',
@@ -825,22 +825,19 @@ module.exports = function(grunt) {
     'userevvd',
     'clean:postBuild'
   ]);
-
+  
   grunt.registerTask('test', [
-    'config:production',
-    'jshint:clientProd',
+    'config:dev',
+    'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
     'assemble',
     'handlebars',
     'concat',
-    'copy',
-    'uglify',
-    'sass:prod',
+    'sass:dev',
     'replace',
     'autoprefixer',
-    'filerev',
-    'userevvd',
+    'copy',
     'clean:postBuild',
     'connect:resemble',
     'resemble'
