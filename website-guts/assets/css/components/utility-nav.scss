@@ -1,5 +1,5 @@
 $navs-to-index: main-nav dropdown-menu-top;
-@include z-index-list($navs-to-index);
+@include z-index-list($navs-to-index, 10, 10);
 
 #signed-in-utility {
     > li:last-child {
@@ -19,6 +19,7 @@ $navs-to-index: main-nav dropdown-menu-top;
     display: block;
     padding: 12px 30px;
     text-align: right;
+    cursor: pointer;
   }
   #my-account-menu {
     .dropdown-menu-top { width: 100%; }
@@ -84,8 +85,8 @@ $navs-to-index: main-nav dropdown-menu-top;
 @media only screen and (min-width: $desktop-min-width) {
   .utility-nav {
     .hide-in-mobile { display: inline-block; }
-    li { 
-      border: none; 
+    li {
+      border: none;
       text-align: left;
     }
     a {
@@ -172,7 +173,7 @@ $navs-to-index: main-nav dropdown-menu-top;
       }
       a:last-child {
         float: right;
-        width: 25%; 
+        width: 25%;
         text-align: right;
         color: #aaa;
       }

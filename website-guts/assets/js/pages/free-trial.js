@@ -1,9 +1,3 @@
-// $('#seo-form').oForm({
-
-//   afterLocal: window.optly.mrkt.oForm.ppcFormDefaultResponseHandler
-
-// });
-
 var settings,
     showIncrementValues,
     addCommas;
