@@ -43,7 +43,7 @@ module.exports = function(grunt) {
           variables: {
             environment: 'production',
             environmentData: 'website-guts/data/environments/production/environmentVariables.json',
-            assetsDir: '//du7782fucwe1l.cloudfront.net',
+            assetsDir: '/dist/assets',
             link_path: '',
             sassImagePath: 'https://du7782fucwe1l.cloudfront.net/img',
             compress_js: true,
@@ -656,7 +656,7 @@ module.exports = function(grunt) {
       html: {
         options: {
           formatOriginalPath: function(path){
-            return path.replace(/^dist\/assets/, '//du7782fucwe1l.cloudfront.net');
+            return '/' + path;
           },
           formatNewPath: function(path){
             return path.replace(/^dist\/assets/, '//du7782fucwe1l.cloudfront.net');
@@ -829,17 +829,18 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('test', [
-    'config:dev',
-    'jshint:clientDev',
+    'config:production',
+    'jshint:clientProd',
     'jshint:server',
     'clean:preBuild',
     'assemble',
     'handlebars',
     'concat',
-    'sass:dev',
+    'copy',
+    'uglify',
+    'sass:prod',
     'replace',
     'autoprefixer',
-    'copy',
     'clean:postBuild',
     'connect:resemble',
     'resemble'
