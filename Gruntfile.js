@@ -381,20 +381,11 @@ module.exports = function(grunt) {
       }
     },
     autoprefixer: {
-      files: {
-        options: {
-          options: ['last 2 versions', 'Firefox ESR'],
-          map: true
-        },
-        flatten: true,
-        src: '<%= config.temp %>/css/styles.css',
-        dest: '<%= config.dist %>/assets/css/styles.css'
+      options: {
+        options: ['last 2 versions', 'Firefox ESR'],
+        map: true
       },
-      test: {
-        options: {
-          options: ['last 4 versions', 'Firefox ESR'],
-          map: true
-        },
+      files: {
         flatten: true,
         src: '<%= config.temp %>/css/styles.css',
         dest: '<%= config.dist %>/assets/css/styles.css'
@@ -779,7 +770,7 @@ module.exports = function(grunt) {
     'concat',
     'uglify',
     'sass',
-    'autoprefixer:files',
+    'autoprefixer',
     'copy',
     's3:staging',
     'clean:postBuild'
@@ -796,7 +787,7 @@ module.exports = function(grunt) {
     'concat',
     'uglify',
     'sass',
-    'autoprefixer:files',
+    'autoprefixer',
     'copy',
     's3:smartling',
     'clean:postBuild'
@@ -812,7 +803,7 @@ module.exports = function(grunt) {
     'concat',
     'sass:dev',
     'replace',
-    'autoprefixer:files',
+    'autoprefixer',
     'copy',
     'clean:postBuild',
     'connect:livereload',
@@ -831,7 +822,7 @@ module.exports = function(grunt) {
     'uglify',
     'sass:prod',
     'replace',
-    'autoprefixer:files',
+    'autoprefixer',
     'filerev',
     'userevvd',
     'clean:postBuild'
@@ -849,7 +840,7 @@ module.exports = function(grunt) {
     'uglify',
     'sass:prod',
     'replace',
-    'autoprefixer:test',
+    'autoprefixer',
     'clean:postBuild',
     'connect:resemble',
     'resemble'
