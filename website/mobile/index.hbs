@@ -8,13 +8,13 @@ body_class:
 page_script: mobile.js
 ---
 
-{{#with mobile_data}}
 <div id="top">
   <div class="container">
     <header class="clearfix ios-logo-cont">
-      <p class="logo"><a href="/">Optimizely</a></p>
+      <p class="logo"><a href="{{linkPath}}/">Optimizely</a></p>
     </header>
   </div>
+{{#with mobile_data}}
   <section id="hero">
     <h1>{{hero.header}}</h1>
     <h2>{{hero.sub_header}}</h2>
