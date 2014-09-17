@@ -7,7 +7,7 @@ module.exports.register = function (Handlebars)  {
     if( startsWithPercent.test(value) ){
       var number,
           restOfHeader;
-      number = value.match(/^[0-9]{1,2}/);
+      number = value.match(/^[0-9]{1,3}/);
       restOfHeader = value.split('% ')[1];
       newHeader = '<span>' + number + '</span><span class="' + percentClass + '"> % </span><h4 class="customer-title">' + restOfHeader + '</h4>';
       return newHeader;
