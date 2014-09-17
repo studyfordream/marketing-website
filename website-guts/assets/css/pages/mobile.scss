@@ -52,9 +52,9 @@
     @extend .clearfix;
     position: relative;
   }
-  .inner-float-cont {
-    float: right;
-    width: 563px;
+  .flex-cont {
+    /*float: right;*/
+    /*w*/idth: 61%;
     display: none;
   }
   .nav-main {
@@ -226,7 +226,6 @@
   #visual-changes-features {
     background: #fff;
     background: linear-gradient(to bottom, white 0%, whitesmoke 100%);
-    box-sizing: border-box;
     #visual-changes-demo {
       display: none;
     }
@@ -415,16 +414,18 @@
       }
     }
     #visual-changes-features {
+      min-height: 720px;
       .container {
         position: relative;
       }
-      .inner-float-cont {
+      .flex-cont {
         display: flex;
       }
       .phone-img-wrapper {
         position: relative;
         float: left;
-        width: 45%;
+        width: 350px;
+        overflow: visbile;
       }
       h2 {
         text-align: left;
@@ -439,11 +440,11 @@
       }
       #visual-changes-demo {
         display: block;
-        height: 630px;
-        width: 100%;
+        height: 700px;
+        width: 400px;
         background: image-url('mobile/iphone-1.png') left top no-repeat;
         position: absolute;
-        top: 0;
+        top: -155px;
         left: 0;
       }
       .visual-options-cont {
