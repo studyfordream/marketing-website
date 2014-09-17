@@ -22,8 +22,10 @@
     background: none;
   }
   .feature-bg {
+    width: 40px;
+    margin: 0 auto;
     padding-top: 2.7em;
-    background-size: 39px 38px;
+    background-size: contain;
     background-position: center top;
     background-repeat: no-repeat;
   }
@@ -366,7 +368,7 @@
       text-align: left;
     }
     .feature-bg {
-      background-size: 60px 59px;
+      width: 60px;
       padding-top: 4.3em;
     }
     #starts-seconds, 
