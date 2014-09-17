@@ -8,33 +8,39 @@ form_action: /account/create
 primary_button_text: Create account
 negative_button_text: Cancel
 ---
-              <label id="name-label">
+             <label id="name-label">
                   <span>Name</span>
-                  <input type="text" name="name" />
+                  <span class="name-related validation-error-message error-hide">Name is required</span>
+                  <input type="text" name="name" required>
               </label>
               <label>
                   <span>Work email address</span>
-                  <input type="text" name="email" />
+                  <span class="email-related validation-error-message error-hide">Email is required</span>
+                  <input type="email" name="email" required>
               </label>
               <label>
                   <span>Password</span>
+                  <span class="password1-related validation-error-message error-hide">Password is required</span>
                   <h5 class="password-req">Must use at least 8 characters and a mix of upper/lowercase letters, numbers or symbols</h5>
-                  <input type="password" name="password1" class="password1" />
+                  <input type="password" name="password1" class="password1" data-validation="password1" required>
               </label>
               <label>
                   <span>Confirm password</span>
-                  <input type="password" name="password2" />
+                  <span class="password2-related validation-error-message error-hide">This field is required</span>
+                  <input type="password" name="password2" data-validation="password2" required>
               </label>
               <label id="phone-label">
                   <span>Phone number</span>
-                  <input type="text" name="phone_number" />
+                  <input type="tel" name="phone_number" />
               </label>
-              <div class="account-terms">
-                 <p>
-                 <small>By clicking the <q>Test it Out</q> button below I agree to the <br><a href="{{linkPath}}/terms" target="_blank">Terms of Service</a> and <a href="{{linkpath}}/privacy" target="_blank">Privacy Policy</a>.</small>
-                </p>
+              <div class="terms">
+                  <input type="checkbox" name="terms-of-service" required>
+                  <p>
+                      I agree to the <a href="{{linkPath}}/terms" target="_blank">Terms of Service</a> and <a href="{{linkPath}}/privacy" target="_blank">Privacy Policy</a>.
+                  </p>
+                  <span class="terms-of-service-related validation-error-message error-hide">This field is required</span>
               </div>
-              <!-- <input id="hidden" type="hidden" name="hidden" value="" /> -->
+              <input id="hidden" type="hidden" name="hidden" value="" />
               <div class="options">
                   <p>Already have an Optimizely account? <a class="show-sign-in" data-modal-click="signin">Sign in here</a></p>
-              </div>
+              </div> 

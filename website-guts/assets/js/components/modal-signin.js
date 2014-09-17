@@ -1,32 +1,34 @@
-var $signinModal = $('[data-optly-modal="signin"]');
-
-
 new Oform({
   selector: '#sign-in-dialog',
   errorHiddenClass: 'error-hide',
   customValidation: {
     password: function(elm) {
-      return window.optly.mrkt.utils.checkComplexPassword(elm.value);
-    }
-  },
-  middleware: function(XhrObj, data){
-    var checkedElm = document.getElementById(this.selector.replace(/\#/, '')).querySelector('[name="persist"');
-
-    if( !checkedElm.checked ) {
-      return data.replace(/\&persist\=on/, '');
-    } else {
-      return data;
+      return w.optly.mrkt.utils.checkComplexPassword(elm.value);
     }
   }
-}).on('validationError', function(element){
-  $('body').addClass('error-state');
+}).on('validationerror', function(elm){
+  var body = document.body;
+  var formElm = document.getElementById('sign-in-dialog');
 
-  window.analytics.track(window.location, {
-    category: 'signin',
-    label: 'form-error',
-    value: element.getAttribute('name')
-  });
-}).on('load', function(event){
-  window.location = 'https://www.optimizely.com/dashboard';
-});
+  if( !body.classList.contains('error-state') ) {
+    body.classList.add('error-state');
+  }
+
+  var optionsErrorElm = formElm.getElementsByClassName('options')[0].querySelector('p:last-child');
+
+  if( !optionsErrorElm.classList.contains('error-show') ) {
+    optionsErrorElm.classList.add('error-show');
+  }
+
+  w.optly.mrkt.Oform.validationError(elm);
+  
+}).on('load', function(){
+  var body = document.body;
+
+  if( body.classList.contains('error-state') ) {
+    body.classList.remove('error-state');
+  }
+
+  w.location = 'https://www.optimizely.com/dashboard';
+}).on('done', w.optly.mrkt.Oform.done);
 

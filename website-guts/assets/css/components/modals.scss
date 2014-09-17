@@ -8,6 +8,18 @@ body {
     overflow: hidden;
     height: 100%;
   }
+  &.error-state {
+    .error-show {
+      float: right;
+      &.password-req {
+        float: none;
+      }
+    }
+    input.error-show,
+    .options p.error-show {
+      float: none;
+    }
+  } 
 }
 
 .modal-dialog-container {

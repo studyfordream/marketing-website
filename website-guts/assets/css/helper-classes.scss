@@ -396,6 +396,9 @@ input[type="text"], input[type="url"], input[type="email"], input[type="tel"],  
 		background-color: #fef3f3;
 		border-color: #f3b6b3;
 	}
+  &.error-hide {
+    opacity: 1;
+  }
 }
 
 .small-caps {
@@ -411,9 +414,14 @@ input[type="text"], input[type="url"], input[type="email"], input[type="tel"],  
 
 //classes for processing and error states on forms
 
-.processing-hide, .error-hide {opacity: 0;}
+.processing-hide, 
+.error-hide {opacity: 0;}
 
-body.processing-state .processing-show, body.error-state .error-show {opacity: 1;}
+body.processing-state .processing-show, 
+body.error-state .error-show {
+	opacity: 1;
+	color: #911d16!important;
+}
 
 @media screen and (min-width: 769px) {
 	.show-hide {
