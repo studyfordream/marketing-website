@@ -48,6 +48,15 @@
       }
     }
   }
+  .float-cont {
+    @extend .clearfix;
+    position: relative;
+  }
+  .inner-float-cont {
+    float: right;
+    width: 564px;
+    display: none;
+  }
   .nav-main {
     display: none;
   }
@@ -335,6 +344,10 @@
     .dropdown-menu-nav-main {
       display: none;
     }
+    .inner-float-cont {
+      display: flex;
+      flex-direction: row;
+    }
     .nav-main {
       > li > a {
         color: #fff;
@@ -406,10 +419,15 @@
       }
     }
     #visual-changes-features {
-      height: 700px;
       .container {
         position: relative;
       }
+      .phone-img-wrapper {
+        position: relative;
+        float: left;
+        width: 45%;
+      }
+      
       h2 {
         text-align: left;
         q {
@@ -418,23 +436,26 @@
         }
       }
       .section-container {
-        position: absolute;
-        width: 32em;
-        right: 0;
+        width: 55%;
+        float: right;
       }
       #visual-changes-demo {
         display: block;
-        height: 40.75em;
-        width: 32.5em;
+        height: 630px;
+        width: 100%;
         background: image-url('mobile/iphone-1.png') left top no-repeat;
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .visual-options-cont {
+        padding-top: 50px;
+        flex: none;
       }
       #visual-change-options {
+        min-width: 230px;
         background: #fff;
-        width: 200px;
-        position: absolute;
-        left: 349px;
-        top: 245px;
+        margin-right: 10px;
         padding: 0 20px;
         border: 1px solid #cdcdcd;
         border-left: 0;
@@ -447,17 +468,13 @@
       .feature {
         text-align: left;
         background-position: left top;
-        //padding: 0 0 0 3.7em;
         h3 {
           font-weight: 300;
         }
       }
     }
     #visual-changes-icons {
-      position: absolute;
-      right: 0;
-      top: 12em;
-      width: 21em;
+      flex: 0 1 auto;
     }
     .visual-slider-cont {
       display: block;
