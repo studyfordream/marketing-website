@@ -80,49 +80,49 @@ $(function(){
 
   $('#events').html(eventDisplayHTML);
 
-  $('#webinar-registration-form').oForm({
+  /*$('#webinar-registration-form').oForm({*/
 
-    beforeLocal: function(){
+    //beforeLocal: function(){
 
-      var name = $('#name').val().split(' ');
+      //var name = $('#name').val().split(' ');
 
-      $('[name="FirstName"]').val( name[0] );
+      //$('[name="FirstName"]').val( name[0] );
 
-      $('[name="LastName"]').val( name[1] );
+      //$('[name="LastName"]').val( name[1] );
 
-    },
+    //},
 
-    afterLocal: function(resp){
+    //afterLocal: function(resp){
 
-      if(typeof resp === 'object'){
+      //if(typeof resp === 'object'){
 
-        if(typeof resp.responseJSON === 'object'){
+        //if(typeof resp.responseJSON === 'object'){
 
-          if(resp.responseJSON.succeeded){
+          //if(resp.responseJSON.succeeded){
 
-            //window.optly.mrkt.modal.open('webinar-confirmation');
+            ////window.optly.mrkt.modal.open('webinar-confirmation');
 
-            window.optly.mrkt.modal.openModalHandler('webinar-confirmation');
+            //window.optly.mrkt.modal.openModalHandler('webinar-confirmation');
 
-          } else {
+          //} else {
 
-            if(resp.responseJSON.message){
+            //if(resp.responseJSON.message){
 
-              $('body').addClass('error-state');
+              //$('body').addClass('error-state');
 
-              $('.error-message').text(resp.responseJSON.message).addClass('error-show').removeClass('error-hide');
+              //$('.error-message').text(resp.responseJSON.message).addClass('error-show').removeClass('error-hide');
 
-            }
+            //}
 
-          }
+          //}
 
-        }
+        //}
 
-      }
+      //}
 
-    }
+    //}
 
-  });
+  /*});*/
 
   $('body').delegate('.register-btn', 'click', function(e){
 

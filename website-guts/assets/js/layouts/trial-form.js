@@ -10,10 +10,7 @@ if(medium){
 
 //form
 new Oform({
-  selector: '#seo-form',
-  middleware: function(XhrObj, data){
-    return w.optly.mrkt.utils.Base64.encode(data);
-  }
+  selector: '#seo-form'
 })
 .on('before', w.optly.mrkt.Oform.before)
 .on('validationError', w.optly.mrkt.Oform.validationError)
@@ -61,7 +58,7 @@ new Oform({
     Marketo: true
   });
   setTimeout(function(){
-    w.location = '/edit?url=' + url;
+    //w.location = '/edit?url=' + url;
   }, 500);
 })
 .on('done', w.optly.mrkt.Oform.done);
