@@ -42,21 +42,23 @@ $(function() {
   $('.sign-up-btn').attr('href', fullUrl);
   
   //create the parallax panel entry animation
-  $(window).on('load scroll', function() {
-    $.each(animParents, function(index, $elm) {
-      if( !window.optly.mrkt.isMobile() ) { 
+  if( !window.optly.mrkt.isMobile() ) { 
+    $(window).on('load scroll', function() {
+      $.each(animParents, function(index, $elm) {
         if(index === animParents.length - 1) {
           animShowSlide($elm, true);
         } else {
           animShowSlide($elm);
         }
-      } else {
-        if ( !$elm[0].classList.contains('enter') ) {
-          $elm.children('.container').addClass('enter');
-        }
-      }
+      });
     });
-  });
+  } else {
+    $(window).on('load', function() {
+      $.each(animParents, function(index, $elm) {
+        $elm.children('.container').addClass('enter');
+      });
+    });
+  }
 
   //track text input for the iphone button interaction on update text in the display
   (function() {
