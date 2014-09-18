@@ -1,5 +1,5 @@
 new Oform({
-  selector: '#signup-dialog',
+  selector: '#signup-form',
   customValidation: {
     password1: function(elm) {
       var message;
