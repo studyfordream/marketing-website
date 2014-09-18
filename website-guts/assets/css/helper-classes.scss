@@ -392,13 +392,12 @@ body .small-note, body p.small-note {
 }
 
 input[type="text"], input[type="url"], input[type="email"], input[type="tel"],  input[type="password"]{
-	&.error-show {
+	transition: background-color 0.1s linear;
+  &.oform-error-show,
+  &.error-show {
 		background-color: #fef3f3;
 		border-color: #f3b6b3;
 	}
-  &.error-hide {
-    opacity: 1;
-  }
 }
 
 .small-caps {
@@ -415,12 +414,23 @@ input[type="text"], input[type="url"], input[type="email"], input[type="tel"],  
 //classes for processing and error states on forms
 
 .processing-hide, 
-.error-hide {opacity: 0;}
+.error-hide {
+  transition: all 0.1s linear;
+  opacity: 0;
+  font-size: 11px;
+}
 
 body.processing-state .processing-show, 
-body.error-state .error-show {
-	opacity: 1;
-	color: #911d16!important;
+body.error-state {
+  .oform-error-show,
+  .error-show {
+    opacity: 1;
+    color: #911d16!important;
+  }
+}
+
+.error-right {
+  float: right;
 }
 
 @media screen and (min-width: 769px) {

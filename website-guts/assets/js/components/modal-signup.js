@@ -1,16 +1,25 @@
 new Oform({
   selector: '#signup-dialog',
-  errorHiddenClass: 'error-hide',
   customValidation: {
     password1: function(elm) {
+      var message;
       var formElm = document.getElementById('signup-dialog');
       var validationPassed = w.optly.mrkt.utils.checkComplexPassword(elm.value);
       var characterMessageElm = formElm.getElementsByClassName('password-req')[0];
 
       if(!validationPassed) {
+        if(elm.value.length === 0) {
+          message = 'This field is required';
+        } else {
+          message = 'Password is Invalid';
+        }
         characterMessageElm.classList.add('error-show');
       } else if (validationPassed && characterMessageElm.classList.contains('error-show')) {
         characterMessageElm.className = characterMessageElm.classList.remove('error-show');
+      }
+
+      if(message) {
+        formElm.getElementsByClassName('password1-related')[0].innerHTML = message;
       }
 
       return validationPassed;
@@ -18,7 +27,7 @@ new Oform({
     password2: function(elm) {
       var message;
       var formElm = document.getElementById('signup-dialog');
-      var password1 = formElm.querySelector('[data-validation="password1"]');
+      var password1 = formElm.querySelector('[name="password1"]');
       if(elm.value.length === 0) {
         message = 'This field is required';
       } else if (elm.value !== password1.value) {
@@ -29,11 +38,7 @@ new Oform({
         formElm.getElementsByClassName('password2-related')[0].innerHTML = message;
       }
       
-      if( elm.value === password1.value && w.optly.mrkt.utils.checkComplexPassword(password1.value) ) {
-        return true;
-      } else {
-        return false;
-      }
+      return elm.value === password1.value && w.optly.mrkt.utils.checkComplexPassword(password1.value);
     }
   },
 }).on('before', function() {

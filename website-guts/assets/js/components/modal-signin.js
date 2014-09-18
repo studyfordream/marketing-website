@@ -1,6 +1,5 @@
 new Oform({
   selector: '#sign-in-dialog',
-  errorHiddenClass: 'error-hide',
   customValidation: {
     password: function(elm) {
       return w.optly.mrkt.utils.checkComplexPassword(elm.value);
