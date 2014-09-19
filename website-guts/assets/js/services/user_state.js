@@ -3,8 +3,56 @@ window.optly.mrkt           = window.optly.mrkt || {};
 window.optly.mrkt.services  = window.optly.mrkt.services || {};
 window.optly.mrkt.user      = window.optly.mrkt.user || {};
 
+window.optly.mrkt.optly_QFactory = function(acctData, expData) {
+  this.acctData = acctData;
+  this.expData = expData;
+
+  this.transformQuedArgs = function(quedArgs) {
+    $.each(quedArgs, function(index, arg) {
+      if (this[ arg ] !== undefined) {
+        quedArgs[ index ] = this[ arg ];
+      }
+    }.bind(this));
+  };
+
+  this.parseQ = function(fnQ, i) {
+    var quedArgs;
+    if (typeof fnQ[i] === 'function') {
+      quedArgs = fnQ.slice(1);
+
+      this.transformQuedArgs(quedArgs);
+
+      fnQ[i].apply( fnQ[i], quedArgs );
+    }
+    else {
+      for(var nestedI = 0; nestedI < fnQ[i].length; nestedI += 1) {
+
+        if (typeof fnQ[i][nestedI] === 'function') {
+          quedArgs = fnQ[i].slice(1);
+
+          this.transformQuedArgs(quedArgs);
+
+          fnQ[i][nestedI].apply( fnQ[i][nestedI], quedArgs );
+        }
+      }
+    }
+  };
+
+  this.push = function(fnQ) {
+    for (var i = 0; i < fnQ.length; i += 1) {
+      this.parseQ(fnQ, i);
+    }
+  };
+
+  this.userData = {
+    account: this.acctData,
+    experiments: this.expData
+  };
+
+};
+
 window.optly.mrkt.services.xhr = {
-  makeRequest: function(request, callback) {
+  makeRequest: function(request) {
     var deffereds = [], defferedPromise;
 
     // check if multiple requests are present
@@ -24,9 +72,7 @@ window.optly.mrkt.services.xhr = {
 
         }
       }
-      if (callback !== undefined) {
-        this.resolveDeffereds(deffereds, callback);
-      }
+      this.resolveDeffereds(deffereds);
       return deffereds;
     }
     // If single request, then return the promise directly
@@ -156,7 +202,7 @@ window.optly.mrkt.services.xhr = {
     return promiseThenSrc === valueThenSrc;
   },
 
-  resolveDeffereds: function(deffereds, callback) {
+  resolveDeffereds: function(deffereds) {
     var responses = [], oldQue;
     $.when.apply($, deffereds).done(function() {
       // get all arguments returned from done
@@ -174,7 +220,7 @@ window.optly.mrkt.services.xhr = {
             experiments: responses[1]
           };
           // consume qued data
-          window.optly_q = new callback(responses[0], responses[1]);
+          window.optly_q = new window.optly.mrkt.optly_QFactory(responses[0], responses[1]);
           window.optly_q.push(oldQue);
         }
       }.bind(this) );
@@ -193,11 +239,11 @@ window.optly.mrkt.services.xhr = {
     return match && window.unescape(match[1]);
   },
 
-  getLoginStatus: function(requestParams, callback) {
+  getLoginStatus: function(requestParams) {
     var deferreds;
 
     if ( !!this.readCookie('optimizely_signed_in') ) {
-      deferreds = this.makeRequest(requestParams, callback);
+      deferreds = this.makeRequest(requestParams);
       return deferreds;
     }
   }
@@ -208,54 +254,7 @@ window.optly.mrkt.services.xhr = {
   'use strict';
 
   var acctParams,
-    expParams,
-    optly_QFactory = function(acctData, expData) {
-      this.acctData = acctData;
-      this.expData = expData;
-
-      this.transformQuedArgs = function(quedArgs) {
-        $.each(quedArgs, function(index, arg) {
-          if (this[ arg ] !== undefined) {
-            quedArgs[ index ] = this[ arg ];
-          }
-        }.bind(this));
-      };
-
-      this.parseQ = function(fnQ, i) {
-        var quedArgs;
-        if (typeof fnQ[i] === 'function') {
-          quedArgs = fnQ.slice(1);
-
-          this.transformQuedArgs(quedArgs);
-
-          fnQ[i].apply( fnQ[i], quedArgs );
-        }
-        else {
-          for(var nestedI = 0; nestedI < fnQ[i].length; nestedI += 1) {
-
-            if (typeof fnQ[i][nestedI] === 'function') {
-              quedArgs = fnQ[i].slice(1);
-
-              this.transformQuedArgs(quedArgs);
-
-              fnQ[i][nestedI].apply( fnQ[i][nestedI], quedArgs );
-            }
-          }
-        }
-      };
-
-      this.push = function(fnQ) {
-        for (var i = 0; i < fnQ.length; i += 1) {
-          this.parseQ(fnQ, i);
-        }
-      };
-
-      this.userData = {
-        account: this.acctData,
-        experiments: this.expData
-      };
-
-    };
+    expParams;
 
   acctParams = {
     type: 'GET',
@@ -279,5 +278,5 @@ window.optly.mrkt.services.xhr = {
     }
   };
 
-  return window.optly.mrkt.services.xhr.getLoginStatus([acctParams, expParams], optly_QFactory);
+  return window.optly.mrkt.services.xhr.getLoginStatus([acctParams, expParams]);
 }());

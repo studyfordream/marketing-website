@@ -40,19 +40,23 @@ $(function() {
 
   //add url parameter to the sign up button
   $('.sign-up-btn').attr('href', fullUrl);
-
+  
   //create the parallax panel entry animation
-  if ( !window.optly.mrkt.isMobile() ) {
-    $(window).on('load scroll', function() {
-      $.each(animParents, function(index, $elm) {
+  $(window).on('load scroll', function() {
+    $.each(animParents, function(index, $elm) {
+      if( !window.optly.mrkt.isMobile() ) { 
         if(index === animParents.length - 1) {
           animShowSlide($elm, true);
         } else {
           animShowSlide($elm);
         }
-      });
+      } else {
+        if ( !$elm[0].classList.contains('enter') ) {
+          $elm.children('.container').addClass('enter');
+        }
+      }
     });
-  }
+  });
 
   //track text input for the iphone button interaction on update text in the display
   (function() {

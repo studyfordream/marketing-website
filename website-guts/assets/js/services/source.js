@@ -17,6 +17,7 @@ var campaign,
     otmSource,
     otmKeyword,
     urlParam,
+    gclid,
     signupPlatform;
 
 urlParam = window.optly.mrkt.utils.getURLParameter;
@@ -31,6 +32,7 @@ otmContent = urlParam('otm_content') || '';
 otmMedium = urlParam('otm_medium') || '';
 otmSource = urlParam('otm_source') || '';
 otmKeyword = urlParam('otm_keyword') || '';
+gclid = urlParam('gclid') || '';
 // Parameter specifies which platform (e.g. ios vs. web) user signed-up from
 signupPlatform = urlParam('signup_platform') || '';
 
@@ -92,5 +94,6 @@ var source = window.optly.mrkt.source = {
     source: otmSource,
     keyword: otmKeyword
   },
+  gclid: gclid,
   signupPlatform: signupPlatform
 };

@@ -3,7 +3,7 @@
 </li>
 <li id="experiment-nav-item" class="hide-in-mobile" data-show-user-state="logged-in">
     <a href="" class="dropdown-arrow" data-dropdown="experiments">Experiments</a>
-    <ul class="dropdown-menu-top" data-show-dropdown="experiments">
+    <ul class="dropdown-menu-top{{#unless experiments}} no-exp{{/unless}}" data-show-dropdown="experiments">
       <div class="message"></div>
       {{#each experiments}}
         <span class="experiment-container hide-in-mobile">
@@ -26,6 +26,9 @@
           </li>
         </span>
       {{/each}}
+      {{#unless experiments}}
+        <span>There Are No Experiments</span>
+      {{/unless}}
       <li class="view-all-experiments hide-in-mobile" data-show="dashboard-link">
         <a id="view-all-experiments-link" href="https://www.optimizely.com/dashboard?project_id={{account_id}}">
           <span>View All Experiments</span>

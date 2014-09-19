@@ -1,4 +1,3 @@
-var $utilityNavElm = $('.utility-nav.signed-in-content');
 var lastDropdown;
 
 function bindDropdownClick($dropdownMenus) {
@@ -29,11 +28,11 @@ function bindDropdownClick($dropdownMenus) {
   });
 }
 
-function showUtilityNav($elm, acctData, expData) {
+window.optly.mrkt.showUtilityNav = function (acctData, expData) {
   var handlebarsData = {
     account_id: acctData.account_id,
     email: acctData.email,
-    experiments: expData.experiments
+    experiments: expData ? expData.experiments : undefined
   };
 
   $('body').addClass('signed-in').removeClass('signed-out');
@@ -43,7 +42,7 @@ function showUtilityNav($elm, acctData, expData) {
 
   bindDropdownClick($dropdownMenus);
   $('[data-logout]').on('click', window.optly.mrkt.signOut);
-}
+};
 
 window.optly.mrkt.closeDropdown = function(e) {
   if ( e !== undefined ) {
@@ -90,4 +89,4 @@ window.optly.mrkt.signOut = function(redirectPath) {
 };
 
 // Make call to optly Q
-window.optly_q.push([showUtilityNav, $utilityNavElm, 'acctData', 'expData']);
+window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData', 'expData']);

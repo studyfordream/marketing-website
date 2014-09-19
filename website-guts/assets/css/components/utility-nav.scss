@@ -100,6 +100,14 @@ $navs-to-index: main-nav dropdown-menu-top;
       border: 1px solid #d5d5d5;
       background: #fff;
       .hide-in-mobile { display: inline-block; }
+      &.no-exp {
+        width: 290px;
+        > span {
+          display: block;
+          text-align: center;
+          padding: 20px 0;
+        }
+      }
       li {
         width: 100%;
         display: block;

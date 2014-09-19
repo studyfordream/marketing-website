@@ -1,6 +1,6 @@
 window.optly.mrkt.utils = window.optly.mrkt.utils || {};
 
-window.optly.mrkt.utils.depram = $.deparam = function(text) {
+window.optly.mrkt.utils.deparam = $.deparam = function(text) {
   var undef;
   var decode = decodeURIComponent;
   var result = {};
@@ -33,6 +33,9 @@ window.optly.mrkt.utils.depram = $.deparam = function(text) {
         }
       }
     } else {
+      if(/\?/.test(key)) {
+        key = key.split('?')[1];
+      }
       if ( $.isArray(result[key]) ) {
         result[key].push(value);
       } else if ( key in result ) {
