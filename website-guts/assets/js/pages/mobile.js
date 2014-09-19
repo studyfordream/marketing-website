@@ -40,9 +40,9 @@ $(function() {
 
   //add url parameter to the sign up button
   $('.sign-up-btn').attr('href', fullUrl);
-
+  
   //create the parallax panel entry animation
-  if ( !window.optly.mrkt.isMobile() ) {
+  if( !window.optly.mrkt.isMobile() ) { 
     $(window).on('load scroll', function() {
       $.each(animParents, function(index, $elm) {
         if(index === animParents.length - 1) {
@@ -50,6 +50,12 @@ $(function() {
         } else {
           animShowSlide($elm);
         }
+      });
+    });
+  } else {
+    $(window).on('load', function() {
+      $.each(animParents, function(index, $elm) {
+        $elm.children('.container').addClass('enter');
       });
     });
   }

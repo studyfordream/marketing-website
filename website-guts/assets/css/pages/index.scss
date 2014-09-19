@@ -49,12 +49,13 @@ body.home-page {
         margin: 0 auto;
         overflow: hidden;
         box-sizing: border-box;
+        display: flex;
       }
       input[type=text] {
         border: solid 1px #e3e3e3;
         box-shadow: inset 0 0px 10px 0 rgba(0,0,0,0.2);
         color: #006eb6;
-        width: 446px;
+        flex-grow: 1;
         font-size: 16px;
         line-height: 22px;
         padding: 5px 8px;
@@ -63,9 +64,10 @@ body.home-page {
         margin-right: 15px;
         display: inline-block;
       }
-      input[type=submit] {
+      button[type=submit] {
         @extend .primary-button;
         display: inline-block;
+        height: 40px;
       }
     }
     h1 {

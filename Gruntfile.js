@@ -43,7 +43,7 @@ module.exports = function(grunt) {
           variables: {
             environment: 'production',
             environmentData: 'website-guts/data/environments/production/environmentVariables.json',
-            assetsDir: '//du7782fucwe1l.cloudfront.net',
+            assetsDir: '/dist/assets',
             link_path: '',
             sassImagePath: 'https://du7782fucwe1l.cloudfront.net/img',
             compress_js: true,
@@ -649,14 +649,14 @@ module.exports = function(grunt) {
     },
     filerev: {
       assets: {
-        src: ['<%= config.dist %>/assets/**/*.{js,css}', '!<%= config.dist %>/assets/fonts/**']
+        src: ['<%= config.dist %>/assets/**/*.{js,css,png,jpg,jpeg,gif}', '!<%= config.dist %>/assets/fonts/**']
       }
     },
     userevvd: {
       html: {
         options: {
           formatOriginalPath: function(path){
-            return path.replace(/^dist\/assets/, '//du7782fucwe1l.cloudfront.net');
+            return '/' + path;
           },
           formatNewPath: function(path){
             return path.replace(/^dist\/assets/, '//du7782fucwe1l.cloudfront.net');
@@ -672,24 +672,24 @@ module.exports = function(grunt) {
         ]
       }
     },
-    resemble: { 
+    resemble: {
       options: {
         screenshotRoot: 'screens',
         url: 'http://0.0.0.0:9000/dist',
         selector: '#outer-wrapper',
-        tolerance: 0,
         gm: true
       },
       desktop: {
         options: {
           width: 1024,
+          tolerance: 0.001
         },
         files: [
-          { 
+          {
           cwd: 'dist/',
-          expand: true,     
+          expand: true,
           src: [
-            'free-trial/**/*.html', 
+            'free-trial/**/*.html',
             'customers/**/*.html',
             'enterprises/**/*.html',
             'events/**/*.html','faq/**/*.html',
@@ -707,13 +707,14 @@ module.exports = function(grunt) {
       tablet: {
         options: {
           width: 800,
+          tolerance: 0.001
         },
         files: [
-          { 
+          {
           cwd: 'dist/',
-          expand: true,     
+          expand: true,
           src: [
-            'free-trial/**/*.html', 
+            'free-trial/**/*.html',
             'customers/**/*.html',
             'enterprises/**/*.html',
             'events/**/*.html','faq/**/*.html',
@@ -731,13 +732,14 @@ module.exports = function(grunt) {
       mobile: {
         options: {
           width: 450,
+          tolerance: 0.001
         },
         files: [
-          { 
+          {
           cwd: 'dist/',
-          expand: true,     
+          expand: true,
           src: [
-            'free-trial/**/*.html', 
+            'free-trial/**/*.html',
             'customers/**/*.html',
             'enterprises/**/*.html',
             'events/**/*.html','faq/**/*.html',
@@ -825,7 +827,7 @@ module.exports = function(grunt) {
     'userevvd',
     'clean:postBuild'
   ]);
-  
+
   grunt.registerTask('test', [
     'config:dev',
     'jshint:clientDev',
@@ -838,6 +840,25 @@ module.exports = function(grunt) {
     'replace',
     'autoprefixer',
     'copy',
+    'clean:postBuild',
+    'connect:resemble',
+    'resemble'
+  ]);
+
+
+  grunt.registerTask('test', [
+    'config:production',
+    'jshint:clientProd',
+    'jshint:server',
+    'clean:preBuild',
+    'assemble',
+    'handlebars',
+    'concat',
+    'copy',
+    'uglify',
+    'sass:prod',
+    'replace',
+    'autoprefixer',
     'clean:postBuild',
     'connect:resemble',
     'resemble'

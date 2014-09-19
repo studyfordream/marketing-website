@@ -1,19 +1,12 @@
 w.optly.mrkt.inlineFormLabels();
 
-var param = w.optly.mrkt.utils.getURLParameter;
+$('[name="hidden"]').val('touched');
 
-var medium = param('utm_medium');
-
-if(medium){
-  $('#utm_medium').val(medium);
-}
+document.querySelector('[name="hidden"]').value = 'touched';
 
 //form
 new Oform({
-  selector: '#seo-form',
-  middleware: function(XhrObj, data){
-    return w.optly.mrkt.utils.Base64.encode(data);
-  }
+  selector: '#seo-form'
 })
 .on('before', w.optly.mrkt.Oform.before)
 .on('validationError', w.optly.mrkt.Oform.validationError)
@@ -48,6 +41,7 @@ new Oform({
     otm_Medium__c: source.otm.medium,
     otm_Source__c: source.otm.source,
     otm_Keyword__c: source.otm.keyword,
+    GCLID__c: source.gclid,
     Signup_Platform__c: source.signupPlatform
   }, {
     integrations: {
@@ -61,7 +55,7 @@ new Oform({
     Marketo: true
   });
   setTimeout(function(){
-    w.location = '/edit?url=' + url;
+    //w.location = '/edit?url=' + url;
   }, 500);
 })
 .on('done', w.optly.mrkt.Oform.done);
