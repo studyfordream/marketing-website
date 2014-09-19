@@ -222,7 +222,7 @@ module.exports = function(grunt) {
 
                 res.cookie('optimizely_signed_in', '1', {httpOnly: false});
                 res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end('{"success": "true"}');
+                res.end(grunt.file.read('website-guts/endpoint-mocks/accountInfo.json'));
 
               } else {
 

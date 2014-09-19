@@ -16,7 +16,8 @@ $navs-to-index: main-nav dropdown-menu-top;
     border-top: 1px solid #08448a;
   }
   a {
-    display: block;
+    display: flex;
+    justify-content: flex-end;
     padding: 12px 30px;
     text-align: right;
     cursor: pointer;
@@ -48,15 +49,11 @@ $navs-to-index: main-nav dropdown-menu-top;
       z-index: 9999;
     }
   }
-  .customer-email {
-    width: 100%;
-    display: inline-block;
-  }
   #email-wrapper {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 100%;
+    width: 200px;
     display: block;
   }
   .dropdown-menu-top {
@@ -74,7 +71,9 @@ $navs-to-index: main-nav dropdown-menu-top;
       border-bottom: 1px solid #042142;
     }
     li:first-child { border-top: 1px solid #08448a; }
-    a { color: #fff; }
+    a { 
+      color: #fff; 
+    }
     a:hover {
       background: transparent;
       cursor: pointer;
@@ -126,9 +125,7 @@ $navs-to-index: main-nav dropdown-menu-top;
       li:first-child { border-top: none; }
     }
     #email-wrapper {
-      overflow: visible;
-      width: auto;
-      display: inline-block;
+      width: 170px;
     }
     #mobile-top-border {
       display: none;
@@ -155,13 +152,26 @@ $navs-to-index: main-nav dropdown-menu-top;
       span {
         font-size: 1.2em;
         position: relative;
-        top: 2px;
         left: 8px;
       }
     }
     #view-all-experiments-link {
-      background: image-url("common.png") no-repeat 33px -70px;
+      text-align: center;
+      position: relative;
+      span {
+        display: inline-block;
+      }
+      .view-all-icon {
+        position: absolute;
+        top: 40%;
+        left: -10px;
+        transform: translateY(-40%);
+        width: 20px;
+        height: 20px;
+        background: image-url("common.png") no-repeat -23px -77px;
+      }
     }
+    
     .experiment-container {
       width: 100%;
       li {
@@ -200,7 +210,11 @@ $navs-to-index: main-nav dropdown-menu-top;
         padding: 8px 12px;
         text-align: left;
       }
-      .dropdown-menu-top { width: 100%; }
+      .dropdown-menu-top { 
+        width: auto; 
+        right: 0;
+        padding: 0 10px;
+      }
       a { padding: 8px 12px; }
     }
   }

@@ -5,7 +5,7 @@
   formElm = document.getElementById('signin-form'),
   message;
 
-  function showOptionsErorr(elm, message){
+  function showOptionsError(elm, message){
     if( !elm.classList.contains('error-show') ) {
       elm.classList.add('error-show');
       elm.innerHTML = message;
@@ -35,7 +35,7 @@
   });
 
   signinForm.on('validationerror', function(elm){
-    showOptionsErorr(optionsErrorElm, 'Invalid Email or Password');
+    showOptionsError(optionsErrorElm, 'Invalid Email or Password');
 
     w.optly.mrkt.Oform.validationError(elm);
   });
@@ -45,14 +45,14 @@
     //{"id":"5adec841-e681-41c8-adf6-80497d71a542","succeeded":false,"error":"Incorrect email or password."}
     var resp = JSON.parse(e.target.responseText);
 
-    showOptionsErorr(optionsErrorElm, resp.error);
+    showOptionsError(optionsErrorElm, resp.error);
   });
 
   signinForm.on('load', function(e){
-    var resp;
+    var resp = JSON.parse(e.target.response);
     var path = w.location.pathname;
 
-    if (path !== '/edit' && path !== '/pricing') {
+    if (path !== window.linkPath + '/pricing/') {
       w.location = '/dashboard';
     }
     else {
@@ -60,8 +60,28 @@
         resp = JSON.parse(e.target.responseText);
         $('body').prepend($('<input id="csrf-token" type="hidden" value="' + resp.csrf_token + '">'));
       }
-
       window.optly.mrkt.modal.close('signin');
+      
+      var expParams = {
+        type: 'GET',
+        url: '/experiment/load_recent?max_experiments=5',
+        properties: {
+          experiments: {
+            id: 'number',
+            description: 'string',
+            has_started: 'boolean',
+            can_edit: 'boolean'
+          }
+        }
+      };
+      //uses xhr service to track any request errors
+      var deferred = window.optly.mrkt.services.xhr.makeRequest(expParams);
+
+      deferred.then(function(expData) {
+        debugger;
+        window.optly_q = new window.optly.mrkt.optly_QFactory(resp, expData);
+        window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData', 'expData']);
+      });
     }
 
   });

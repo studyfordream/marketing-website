@@ -59,6 +59,12 @@ body {
     border-top: 1px solid #eee;
     input { width: 100%; }
     .primary-button { margin-bottom: 25px; }
+    button {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      width: 190px;
+    }
   }
   .modal-body {
     background: transparent;
@@ -148,17 +154,18 @@ body {
       overflow: hidden;
     }
     .modal-footer {
-      @extend .clearfix;
       input { width: auto; }
+      @extend .clearfix;
       .primary-button {
         float: right;
         margin: 0;
       }
       .secondary-button { float: left; }
+      &.no-primary-button {
+        .secondary-button { float: right; }
+      }
+      button {width: auto;}
     }
-    .modal-footer.no-primary-button {
-      .secondary-button { float: right; }
-    }
+    .webinar-detail-info { width: 350px; }
   }
-  .webinar-detail-info { width: 350px; }
 }
