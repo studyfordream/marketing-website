@@ -6,7 +6,7 @@ function bindDropdownClick($dropdownMenus) {
     e.preventDefault();
     // Get the type of dropdown anchor that was clicked
     var clickedData = $(this).data('dropdown');
-
+    
     // Iterate through cached dropdown containers looking for the clicked type
     $.each($dropdownMenus, function(index, elm) {
       var $elm = $(elm);
@@ -14,11 +14,11 @@ function bindDropdownClick($dropdownMenus) {
       if (clickedData !== lastDropdown && lastDropdown !== undefined) {
         $('[data-show-dropdown="' + lastDropdown + '"]').removeClass('show-dropdown');
       }
-
+      
       // Logic to open the dropdown and cache the last opened dropdown
       if ( $elm.data('show-dropdown') ===  clickedData ) {
         // force synchornous behavior so dropdown doesn't cloase as soon as it opens
-        $elm.toggleClass('show-dropdown').delay(0).queue(function(next) {
+        $elm.toggleClass('show-dropdown').delay(50).queue(function(next) {
           $(document).bind('click', window.optly.mrkt.closeDropdown);
           next();
         });
@@ -32,6 +32,7 @@ window.optly.mrkt.showUtilityNav = function (acctData, expData) {
   var handlebarsData = {
     account_id: acctData.account_id,
     email: acctData.email,
+    admin: acctData.is_admin,
     experiments: expData ? expData.experiments : undefined
   };
 

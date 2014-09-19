@@ -6,6 +6,7 @@ window.optly.mrkt.user      = window.optly.mrkt.user || {};
 window.optly.mrkt.optly_QFactory = function(acctData, expData) {
   this.acctData = acctData;
   this.expData = expData;
+  window.optly.PRELOAD.token = acctData.csrf_token;
 
   this.transformQuedArgs = function(quedArgs) {
     $.each(quedArgs, function(index, arg) {

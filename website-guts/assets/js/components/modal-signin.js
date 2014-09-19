@@ -52,7 +52,11 @@
     var resp = JSON.parse(e.target.response);
     var path = w.location.pathname;
 
-    if (path !== window.linkPath + '/pricing/') {
+    if(path.substr(-1) === '/') {
+        path = path.substr(0, path.length - 1);
+    }
+
+    if (path !== window.linkPath + '/pricing') {
       w.location = '/dashboard';
     }
     else {
@@ -78,7 +82,6 @@
       var deferred = window.optly.mrkt.services.xhr.makeRequest(expParams);
 
       deferred.then(function(expData) {
-        debugger;
         window.optly_q = new window.optly.mrkt.optly_QFactory(resp, expData);
         window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData', 'expData']);
       });

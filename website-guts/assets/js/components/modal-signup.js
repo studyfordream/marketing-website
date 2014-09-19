@@ -160,7 +160,8 @@
     }
 
     window.optly.mrkt.modal.close('signup');
-    window.optly.mrkt.showUtilityNav(resp);
+    window.optly_q = new window.optly.mrkt.optly_QFactory(resp);
+    window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
 
   });
 

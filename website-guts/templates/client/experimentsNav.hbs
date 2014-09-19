@@ -1,8 +1,9 @@
 <li class="first">
   <a href="https://www.optimizely.com/dashboard?project_id={{account_id}}">Dashboard</a>
 </li>
-<li id="experiment-nav-item" class="hide-in-mobile" data-show-user-state="logged-in">
-    <a href="" class="dropdown-arrow" data-dropdown="experiments">Experiments</a>
+<li id="experiment-nav-item" class="hide-in-mobile " data-show-user-state="logged-in">
+    <div class="dropdown-arrow"></div>
+    <a href="" data-dropdown="experiments">Experiments</a>
     <ul class="dropdown-menu-top{{#unless experiments}} no-exp{{/unless}}" data-show-dropdown="experiments">
       <div class="message"></div>
       {{#each experiments}}
@@ -14,7 +15,6 @@
               >
               <span class="experiment-description">{{description}}</span>
             </a>
-            
             <a class="experiment-results" 
               {{#if can_edit}}href="https://www.optimizely.com/edit?experiment_id={{id}}"{{/if}}
               {{#unless has_started}}style="display: none;"{{/unless}}
@@ -44,15 +44,15 @@
   <a href="https://help.optimizely.com/hc/en-us">Support</a>
 </li>
 <li id="my-account-menu">
-      <a class="customer-email dropdown-arrow" data-dropdown="account">
-        <span id="email-wrapper">{{email}}</span>
-      </a>
-    <ul id="account-dropdown" class="dropdown-menu-top" data-show-dropdown="account">
-        <li class="hide-in-mobile">
-          <a href="https://www.optimizely.com/account">Account Setting</a>
-        </li>
-        <li>
-          <a data-logout >Log Out</a>
-        </li>
-    </ul>
+  <div class="dropdown-arrow"></div>
+  <a id="desktop-email-nav" class="customer-email{{#if admin}} admin{{/if}}" data-dropdown="account" href="#">{{email}}</a>
+  <a id="mobile-email-nav" class="customer-email{{#if admin}} admin{{/if}}" href="/account">{{email}}</a>
+  <ul id="account-dropdown" class="dropdown-menu-top" data-show-dropdown="account">
+      <li class="hide-in-mobile">
+        <a href="https://www.optimizely.com/account">Account Setting</a>
+      </li>
+      <li>
+        <a data-logout >Log Out</a>
+      </li>
+   </ul>
 </li>

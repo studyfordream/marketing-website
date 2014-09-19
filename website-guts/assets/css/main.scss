@@ -131,13 +131,13 @@ ul {
    */
    body.signed-out {
         .signed-in-content {
-            display: none;
+            display: none!important;
         }
     }
 
     body.signed-in {
         .signed-out-content {
-            display: none;
+            display: none!important;
         }
     }
 

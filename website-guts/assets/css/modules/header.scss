@@ -12,6 +12,11 @@ header {
     a {
         text-decoration: none;
     }
+    &.utility-nav {
+      a {
+        display: block;
+      }
+    }
 }
 @media only screen and (max-width: 59.99em) {
     body {
@@ -223,17 +228,24 @@ header {
       left: 0;
       bottom: 0;
   }
+  #utility-nav-cont {
+    > ul {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
   .utility-nav {
       margin: 0;
-      li {cursor: pointer;}
+      li {
+        cursor: pointer;
+        &:hover {
+          background: $nav-hover-color;
+        }
+      }
       a {
           font-size: .8em;
           font-weight: normal;
           padding: 12px;
-          display: block;
-      }
-      a:hover {
-          background: $nav-hover-color;
       }
   }
   #main-nav {

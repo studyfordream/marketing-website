@@ -16,11 +16,38 @@ $navs-to-index: main-nav dropdown-menu-top;
     border-top: 1px solid #08448a;
   }
   a {
-    display: flex;
-    justify-content: flex-end;
     padding: 12px 30px;
     text-align: right;
     cursor: pointer;
+  }
+  #desktop-email-nav {
+    display: none;
+  }
+  #my-account-menu {
+    position: relative;
+    .customer-email {
+      float: right;
+      width: 200px;
+      position: relative;
+      top: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 12px 0;
+      margin-right: 30px;
+    }
+    #account-dropdown {
+      clear: both;
+      margin: 0;
+    }
+  }
+  #my-account-menu { 
+    &.admin {
+     color: #fcb423;
+     &.dropdown-arrow:before {
+      color: #fcb423;
+     }
+    }
   }
   #my-account-menu {
     .dropdown-menu-top { width: 100%; }
@@ -49,13 +76,6 @@ $navs-to-index: main-nav dropdown-menu-top;
       z-index: 9999;
     }
   }
-  #email-wrapper {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 200px;
-    display: block;
-  }
   .dropdown-menu-top {
     text-align: left;
     .hide-in-mobile { display: none; }
@@ -72,7 +92,8 @@ $navs-to-index: main-nav dropdown-menu-top;
     }
     li:first-child { border-top: 1px solid #08448a; }
     a { 
-      color: #fff; 
+      color: #fff;
+      display: block;
     }
     a:hover {
       background: transparent;
@@ -92,6 +113,12 @@ $navs-to-index: main-nav dropdown-menu-top;
       padding: 9px 12px;
       text-align: left;
       font-size: 0.85em;
+    }
+    #desktop-email-nav {
+      display: block;
+    }
+    #mobile-email-nav {
+      display: none;
     }
     .dropdown-menu-top {
       display: none;
@@ -132,16 +159,32 @@ $navs-to-index: main-nav dropdown-menu-top;
       border: none;
     }
     .dropdown-arrow:after {
-      content: '\25be';
-      position: relative;
-      top: 1px;
+      content: ' \25be';
       color: #fff;
       padding-left: 2px;
+      font-size: 14px;
     }
-    .last {
-      .dropdown-arrow:after { left: 10px; }
+    .dropdown-arrow {
+      position: absolute;
+      top: 2px;
+      right: 5px;
+      padding: 8px 0;
+      &+ a {
+        margin-right: 20px!important;
+        padding-right: 0px!important;
+      }
     }
-    .customer-email { overflow: visible; }
+    #my-account-menu {
+      .customer-email {
+        width: 200px;
+        float: none;
+        padding: 9px 12px;
+      }
+      #account-dropdown {
+        clear: none;
+        top: 100%;
+      }
+    }
     #experiment-nav-item { position: relative; }
     .show-create-experiment {
       a,
@@ -164,14 +207,13 @@ $navs-to-index: main-nav dropdown-menu-top;
       .view-all-icon {
         position: absolute;
         top: 40%;
-        left: -10px;
+        left: 62px;
         transform: translateY(-40%);
         width: 20px;
         height: 20px;
         background: image-url("common.png") no-repeat -23px -77px;
       }
     }
-    
     .experiment-container {
       width: 100%;
       li {
@@ -211,7 +253,7 @@ $navs-to-index: main-nav dropdown-menu-top;
         text-align: left;
       }
       .dropdown-menu-top { 
-        width: auto; 
+        width: 100%; 
         right: 0;
         padding: 0 10px;
       }
