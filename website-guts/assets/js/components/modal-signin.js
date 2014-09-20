@@ -56,7 +56,7 @@
         path = path.substr(0, path.length - 1);
     }
 
-    if (path !== window.linkPath + '/pricing') {
+    if (path !== '/pricing') {
       w.location = '/dashboard';
     }
     else {
