@@ -40,16 +40,12 @@ $navs-to-index: main-nav dropdown-menu-top;
       clear: both;
       margin: 0;
     }
-  }
-  #my-account-menu { 
     &.admin {
      color: #fcb423;
      &.dropdown-arrow:before {
       color: #fcb423;
      }
     }
-  }
-  #my-account-menu {
     .dropdown-menu-top { width: 100%; }
     li {
       border-bottom: 1px solid #042142;
@@ -176,13 +172,16 @@ $navs-to-index: main-nav dropdown-menu-top;
     }
     #my-account-menu {
       .customer-email {
-        width: 200px;
+        width: 160px;
         float: none;
         padding: 9px 12px;
       }
       #account-dropdown {
         clear: none;
         top: 100%;
+      }
+      .dropdown-arrow {
+        right: 14px;
       }
     }
     #experiment-nav-item { position: relative; }
@@ -207,7 +206,7 @@ $navs-to-index: main-nav dropdown-menu-top;
       .view-all-icon {
         position: absolute;
         top: 40%;
-        left: 62px;
+        left: 48px;
         transform: translateY(-40%);
         width: 20px;
         height: 20px;

@@ -238,6 +238,8 @@ header {
       margin: 0;
       li {
         cursor: pointer;
+      }
+      > li {
         &:hover {
           background: $nav-hover-color;
         }
