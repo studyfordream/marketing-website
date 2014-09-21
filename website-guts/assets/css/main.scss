@@ -70,8 +70,8 @@ hr {
     user-select: none;
     tap-highlight-color: rgba(0, 0, 0, 0);
 }
-input[type="text"], textarea, [contenteditable] {
-    user-select: text;
+input, textarea, [contenteditable] {
+    user-select: auto;
 }
 /*
  * Remove the gap between images, videos, audio and canvas and the bottom of

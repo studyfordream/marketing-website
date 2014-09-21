@@ -2,8 +2,7 @@
   <a href="https://www.optimizely.com/dashboard?project_id={{account_id}}">Dashboard</a>
 </li>
 <li id="experiment-nav-item" class="hide-in-mobile " data-show-user-state="logged-in">
-    <div class="dropdown-arrow"></div>
-    <a href="" data-dropdown="experiments">Experiments</a>
+    <a href="" class="dropdown-arrow experiments" data-dropdown="experiments">Experiments</a>
     <ul class="dropdown-menu-top{{#unless experiments}} no-exp{{/unless}}" data-show-dropdown="experiments">
       <div class="message"></div>
       {{#each experiments}}
@@ -44,8 +43,7 @@
   <a href="https://help.optimizely.com/hc/en-us">Support</a>
 </li>
 <li id="my-account-menu">
-  <div class="dropdown-arrow"></div>
-  <a id="desktop-email-nav" class="customer-email{{#if admin}} admin{{/if}}" data-dropdown="account" href="#">{{email}}</a>
+  <a id="desktop-email-nav" class="dropdown-arrow customer-email{{#if admin}} admin{{/if}}" data-dropdown="account" href="#">{{email}}</a>
   <a id="mobile-email-nav" class="customer-email{{#if admin}} admin{{/if}}" href="/account">{{email}}</a>
   <ul id="account-dropdown" class="dropdown-menu-top" data-show-dropdown="account">
       <li class="hide-in-mobile">

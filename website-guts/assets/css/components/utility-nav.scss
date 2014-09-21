@@ -20,32 +20,15 @@ $navs-to-index: main-nav dropdown-menu-top;
     text-align: right;
     cursor: pointer;
   }
+  #mobile-email-nav {
+    text-align: left;
+    position: relative;
+    left: 5px;
+  }
   #desktop-email-nav {
     display: none;
   }
   #my-account-menu {
-    position: relative;
-    .customer-email {
-      float: right;
-      width: 200px;
-      position: relative;
-      top: 1px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      padding: 12px 0;
-      margin-right: 30px;
-    }
-    #account-dropdown {
-      clear: both;
-      margin: 0;
-    }
-    &.admin {
-     color: #fcb423;
-     &.dropdown-arrow:before {
-      color: #fcb423;
-     }
-    }
     .dropdown-menu-top { width: 100%; }
     li {
       border-bottom: 1px solid #042142;
@@ -71,6 +54,20 @@ $navs-to-index: main-nav dropdown-menu-top;
       border-top: 1px solid #08448a;
       z-index: 9999;
     }
+    &.admin {
+     color: #fcb423;
+     &.dropdown-arrow:after {
+      color: #fcb423;
+     }
+    }
+  }
+  .customer-email {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    width: 240px;
+    text-overflow: ellipsis;
   }
   .dropdown-menu-top {
     text-align: left;
@@ -87,10 +84,7 @@ $navs-to-index: main-nav dropdown-menu-top;
       border-bottom: 1px solid #042142;
     }
     li:first-child { border-top: 1px solid #08448a; }
-    a { 
-      color: #fff;
-      display: block;
-    }
+    a { color: #fff; }
     a:hover {
       background: transparent;
       cursor: pointer;
@@ -111,7 +105,7 @@ $navs-to-index: main-nav dropdown-menu-top;
       font-size: 0.85em;
     }
     #desktop-email-nav {
-      display: block;
+      display: inline-block;
     }
     #mobile-email-nav {
       display: none;
@@ -122,14 +116,6 @@ $navs-to-index: main-nav dropdown-menu-top;
       border: 1px solid #d5d5d5;
       background: #fff;
       .hide-in-mobile { display: inline-block; }
-      &.no-exp {
-        width: 290px;
-        > span {
-          display: block;
-          text-align: center;
-          padding: 20px 0;
-        }
-      }
       li {
         width: 100%;
         display: block;
@@ -147,54 +133,62 @@ $navs-to-index: main-nav dropdown-menu-top;
       a:hover { text-decoration: underline; }
       li:first-child { border-top: none; }
     }
-    #email-wrapper {
-      width: 170px;
-    }
     #mobile-top-border {
       display: none;
       border: none;
     }
-    .dropdown-arrow:after {
-      content: ' \25be';
-      color: #fff;
-      padding-left: 2px;
-      font-size: 14px;
-    }
     .dropdown-arrow {
-      position: absolute;
-      top: 2px;
-      right: 5px;
-      padding: 8px 0;
-      &+ a {
-        margin-right: 20px!important;
-        padding-right: 0px!important;
+      position: relative;
+      &:after {
+        content: '\25be';
+        color: #fff;
       }
     }
-    #my-account-menu {
-      .customer-email {
-        width: 160px;
-        float: none;
-        padding: 9px 12px;
+    .experiments {
+      &.dropdown-arrow {
+        &:after {
+          position: relative;
+          left: 3px;
+        }
       }
-      #account-dropdown {
-        clear: none;
-        top: 100%;
+    }
+    .customer-email { 
+      &.dropdown-arrow {
+        padding-right: 20px!important;
+        &:after {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 10px;
+        }
       }
-      .dropdown-arrow {
-        right: 14px;
-      }
+    }
+    .last {
+      .dropdown-arrow:after { left: 10px; }
+    }
+    .customer-email { 
+      width: 200px; 
     }
     #experiment-nav-item { position: relative; }
     .show-create-experiment {
+      &.hide-in-mobile {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .show-create-experiment {
       a,
       span {
-        display: inline-block;
         color: #006eb6;
       }
+      a {
+        padding-left: 5px;
+      }
       span {
-        font-size: 1.2em;
         position: relative;
-        left: 8px;
+        top: -1px;
+        font-size: 1.2em;
+        padding: 9px 0;
       }
     }
     #view-all-experiments-link {
@@ -202,11 +196,14 @@ $navs-to-index: main-nav dropdown-menu-top;
       position: relative;
       span {
         display: inline-block;
+        &:hover {
+          text-decoration: underline;
+        }
       }
       .view-all-icon {
         position: absolute;
         top: 40%;
-        left: 48px;
+        left: -10px;
         transform: translateY(-40%);
         width: 20px;
         height: 20px;
@@ -251,11 +248,7 @@ $navs-to-index: main-nav dropdown-menu-top;
         padding: 8px 12px;
         text-align: left;
       }
-      .dropdown-menu-top { 
-        width: 100%; 
-        right: 0;
-        padding: 0 10px;
-      }
+      .dropdown-menu-top { width: 100%; }
       a { padding: 8px 12px; }
     }
   }

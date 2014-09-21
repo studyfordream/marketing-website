@@ -1,5 +1,18 @@
 header {
     background: #052f60;
+    .utility-nav {
+      margin: 0;
+      li {
+        text-align: right;
+        & > a {
+          display: inline-block;
+          vertical-align: bottom;
+        }
+        ul {
+          padding-left: 0;
+        }
+      }
+    }
 }
 .nav {
     padding: 0;
@@ -11,11 +24,6 @@ header {
     }
     a {
         text-decoration: none;
-    }
-    &.utility-nav {
-      a {
-        display: block;
-      }
     }
 }
 @media only screen and (max-width: 59.99em) {
@@ -228,26 +236,18 @@ header {
       left: 0;
       bottom: 0;
   }
-  #utility-nav-cont {
-    > ul {
-      display: flex;
-      justify-content: flex-end;
-    }
-  }
   .utility-nav {
       margin: 0;
       li {
         cursor: pointer;
       }
-      > li {
-        &:hover {
-          background: $nav-hover-color;
-        }
-      }
       a {
           font-size: .8em;
           font-weight: normal;
           padding: 12px;
+      }
+      a:hover {
+          background: $nav-hover-color;
       }
   }
   #main-nav {
