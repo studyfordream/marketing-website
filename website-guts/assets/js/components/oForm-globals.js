@@ -66,11 +66,11 @@
 
     for(propertyName in data){
 
-      reportingObject['propertyName'] = data['propertyName'];
+      reportingObject['propertyName'] = data['propertyName']; //jshint ignore:line
 
     }
 
-    w.analytics.identify(email, reportingObject, {
+    w.analytics.identify(data.email, reportingObject, {
       integrations: {
         Marketo: true
       }
