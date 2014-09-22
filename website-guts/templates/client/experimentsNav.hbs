@@ -35,22 +35,22 @@
         </a>
       </li>
       <li class="show-create-experiment hide-in-mobile" data-modal-click="create-exp">
-        <span>+ </span><a >Create New Experiment</a>
+        <a>Create New Experiment</a>
       </li>
     </ul>
 </li>
 <li>
   <a href="https://help.optimizely.com/hc/en-us">Support</a>
 </li>
-<li id="my-account-menu">
-  <a id="desktop-email-nav" class="dropdown-arrow customer-email{{#if admin}} admin{{/if}}" data-dropdown="account" href="#">{{email}}</a>
-  <a id="mobile-email-nav" class="customer-email{{#if admin}} admin{{/if}}" href="/account">{{email}}</a>
+<li id="my-account-menu" class="{{#if admin}}admin{{/if}}">
+  <a id="desktop-email-nav" class="dropdown-arrow customer-email" data-dropdown="account" href="#">{{email.desktop}}</a>
+  <a id="mobile-email-nav" class="customer-email" href="/account">{{email.mobile}}</a>
   <ul id="account-dropdown" class="dropdown-menu-top" data-show-dropdown="account">
       <li class="hide-in-mobile">
         <a href="https://www.optimizely.com/account">Account Setting</a>
       </li>
       <li>
-        <a data-logout >Log Out</a>
+        <a data-logout>Log Out</a>
       </li>
    </ul>
 </li>

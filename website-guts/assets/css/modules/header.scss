@@ -6,7 +6,6 @@ header {
         text-align: right;
         & > a {
           display: inline-block;
-          vertical-align: bottom;
         }
         ul {
           padding-left: 0;
@@ -240,6 +239,7 @@ header {
       margin: 0;
       li {
         cursor: pointer;
+        text-align: left;
       }
       a {
           font-size: .8em;

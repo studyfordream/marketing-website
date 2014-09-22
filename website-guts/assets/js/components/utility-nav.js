@@ -29,9 +29,23 @@ function bindDropdownClick($dropdownMenus) {
 }
 
 window.optly.mrkt.showUtilityNav = function (acctData, expData) {
+  var email = acctData.email;
+  var emailObj = {
+    desktop: email,
+    mobile: email
+  };
+
+  if(email.length > 24) {
+    emailObj.desktop = email.substr(0, 24) + '...';
+  }
+
+  if(email.length > 15) {
+    emailObj.mobile = email.substr(0, 15) + '...';
+  }
+
   var handlebarsData = {
     account_id: acctData.account_id,
-    email: acctData.email,
+    email: emailObj,
     admin: acctData.is_admin,
     experiments: expData ? expData.experiments : undefined
   };
@@ -78,7 +92,11 @@ window.optly.mrkt.signOut = function(redirectPath) {
     }
     // If no path is specified then reload location
     else if (data) {
-      window.location.reload();
+      if(window.location.pathname !== '/pricing') {
+        window.location = window.linkPath + '/';
+      } else {
+        window.location.reload();
+      }
     }
   }, function(err) {
     // Report error here

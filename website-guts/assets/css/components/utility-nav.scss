@@ -29,6 +29,14 @@ $navs-to-index: main-nav dropdown-menu-top;
     display: none;
   }
   #my-account-menu {
+    &.admin {
+      > a {
+        color: #fcb423;
+        &.dropdown-arrow:after {
+          color: #fcb423;
+        }
+      }
+    }
     .dropdown-menu-top { width: 100%; }
     li {
       border-bottom: 1px solid #042142;
@@ -54,20 +62,9 @@ $navs-to-index: main-nav dropdown-menu-top;
       border-top: 1px solid #08448a;
       z-index: 9999;
     }
-    &.admin {
-     color: #fcb423;
-     &.dropdown-arrow:after {
-      color: #fcb423;
-     }
-    }
   }
   .customer-email {
-    width: 200px;
     white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    width: 240px;
-    text-overflow: ellipsis;
   }
   .dropdown-menu-top {
     text-align: left;
@@ -138,7 +135,6 @@ $navs-to-index: main-nav dropdown-menu-top;
       border: none;
     }
     .dropdown-arrow {
-      position: relative;
       &:after {
         content: '\25be';
         color: #fff;
@@ -147,48 +143,37 @@ $navs-to-index: main-nav dropdown-menu-top;
     .experiments {
       &.dropdown-arrow {
         &:after {
-          position: relative;
-          left: 3px;
+          padding-left: 3px;
         }
       }
     }
     .customer-email { 
       &.dropdown-arrow {
-        padding-right: 20px!important;
         &:after {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          right: 10px;
+          padding-left: 5px;
         }
       }
     }
     .last {
       .dropdown-arrow:after { left: 10px; }
     }
-    .customer-email { 
-      width: 200px; 
-    }
     #experiment-nav-item { position: relative; }
     .show-create-experiment {
-      &.hide-in-mobile {
-        display: flex;
-        justify-content: center;
-      }
-    }
-    .show-create-experiment {
-      a,
-      span {
-        color: #006eb6;
-      }
+      text-align: center;
       a {
-        padding-left: 5px;
-      }
-      span {
         position: relative;
-        top: -1px;
-        font-size: 1.2em;
+        color: #006eb6;
+        display: inline-block;
+        vertical-align: middle;
         padding: 9px 0;
+        &:before {
+          content: "+";
+          position: absolute;
+          left: -10px;
+          &:hover {
+            text-decoration: none;
+          }
+        }
       }
     }
     #view-all-experiments-link {
