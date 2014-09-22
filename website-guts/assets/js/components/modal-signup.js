@@ -105,6 +105,7 @@
       otm_Campaign__c: source.otm.campaign,
       otm_Content__c: source.otm.content,
       otm_Medium__c: source.otm.medium,
+      GCLID__c: source.gclid,
       otm_Source__c: source.otm.source,
       otm_Keyword__c: source.otm.keyword,
       Signup_Platform__c: source.signupPlatform

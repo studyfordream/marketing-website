@@ -1,9 +1,7 @@
 (function(){
   'use strict';
   var dialogElm = document.getElementById('signin-dialog'),
-  optionsErrorElm = dialogElm.getElementsByClassName('options')[0].querySelector('p:last-child'),
-  formElm = document.getElementById('signin-form'),
-  message;
+  optionsErrorElm = dialogElm.getElementsByClassName('options')[0].querySelector('p:last-child');
 
   function showOptionsError(elm, message){
     if(!document.body.classList.contains('error-state')) {
@@ -27,7 +25,7 @@
       }
     }
   });
-
+  
   signinForm.on('validationerror', function(elm){
     w.optly.mrkt.Oform.validationError(elm);
   });
@@ -71,6 +69,15 @@
         window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData', 'expData']);
       });
     }
+
+    window.analytics.identify(resp.email, {
+      email: resp.email
+    });
+    
+    window.analytics.track('acount sign-in', {
+      category: 'account',
+      label: window.location.pathname
+    });
 
   });
 
