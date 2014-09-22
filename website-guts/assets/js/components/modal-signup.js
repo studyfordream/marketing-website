@@ -59,15 +59,6 @@
 
         return elm.value === password1.value && w.optly.mrkt.utils.checkComplexPassword(password1.value);
       }
-    },
-    middleware: function(xhrObj, data) {
-      var urlParams = w.optly.mrkt.utils.deparam( window.location.search );
-
-      if (urlParams.signup_platform) {
-        data += '&platform=' + urlParams.signup_platform;
-      }
-
-      return data;
     }
   });
 
@@ -77,11 +68,7 @@
     return true;
   });
 
-  signupForm.on('validationerror', function(elm){
-    
-    w.optly.mrkt.Oform.validationError(elm);
-    
-  });
+  signupForm.on('validationerror', w.optly.mrkt.Oform.validationError);
   
   signupForm.on('load', function(e){
     var resp = JSON.parse(e.target.responseText);
