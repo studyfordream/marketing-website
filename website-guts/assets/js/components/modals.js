@@ -67,8 +67,9 @@ window.optly.mrkt.modal.openModalHandler = function(modalType) {
 };
 
 function closeModalHandler(e) {
-  var $modalCont = $(this);
-  var $clickedElm = $(e.target);
+  var $modalCont = $(this),
+    $clickedElm = $(e.target),
+    trackClose = true;
   if ($modalCont.find(e.target).length === 0 || $clickedElm.data('modal-btn') === 'close') {
     // move history back because this event is outside of the history navigation state
     if (isHistorySupported) {
@@ -77,7 +78,7 @@ function closeModalHandler(e) {
       History.back();
     } else {
       //window.location.hash = '';
-      window.optly.mrkt.modal.close($modalCont.data('optly-modal'));
+      window.optly.mrkt.modal.close($modalCont.data('optly-modal'), trackClose);
     }
   }
 }
@@ -107,6 +108,7 @@ function storeModalState(modalType, modalOpen) {
 
 window.optly.mrkt.modal.open = function(modalType) {
   var $elm = $elms[modalType],
+    modalName = $elm.data('modalName'),
     animInitiated;
   // if modalState exists then close modal of the currently open modal state
   if(modalState.type !== undefined) {
@@ -130,10 +132,18 @@ window.optly.mrkt.modal.open = function(modalType) {
     $elm.bind('click', closeModalHandler);
   }
 
+  window.analytics.page('modal-' + modalName);
+
+  window.analytics.track('modal-' + modalName + '-open', {
+    category: 'modal',
+    label: window.location.pathname
+  });
+
 };
 
-window.optly.mrkt.modal.close = function(modalType) {
+window.optly.mrkt.modal.close = function(modalType, trackClose) {
   var $elm = $elms[modalType],
+    modalName = $elm.data('modalName'),
     animInitiated;
 
   // update the global modal state
@@ -156,6 +166,13 @@ window.optly.mrkt.modal.close = function(modalType) {
 
     if (animInitiated) {
       $elm.unbind('click', closeModalHandler);
+    }
+
+    if(trackClose) {
+      window.analytics.track('modal-' + modalName + '-close', {
+        category: 'modal',
+        label: window.location.pathname
+      });
     }
 
   }, 0);
