@@ -18,6 +18,7 @@
     "node": ">=0.8"
   },
   "scripts": {
+    "install": "./install.sh",
     "test": "grunt assemble"
   },
   "devDependencies": {
