@@ -1,7 +1,7 @@
 #!/bin/bash
 
-command -v nvm >/dev/null 2>&1 || { echo >&2 "You must install NVM."; exit 1; }
+# Get submodules.
+git submodule update --init --force
 
-source ~/.nvm/nvm.sh
-
-nvm use || nvm install
+# "Install" nvm. https://github.com/creationix/nvm#manual-install
+cd .nvm && git checkout `git describe --abbrev=0 --tags` && cd ..
