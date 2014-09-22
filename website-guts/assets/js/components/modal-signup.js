@@ -12,35 +12,15 @@
       elm.innerHTML = message;
     }
   }
-
-  function logSignupType() {
-    var trackEvent;
-    // Log event in Marketo if this signup occurred as part of the signin flow for the Optimizely community
-    var queryParameters = w.optly.mrkt.utils.deparam( window.location.search );
-    if (!('continue_to' in queryParameters)) {
-      return;
+  
+  function showOptionsError(elm, message){
+    if(!document.body.classList.contains('error-state')) {
+      document.body.classList.add('error-state');
     }
-
-    var continue_to_parts = decodeURIComponent(queryParameters.continue_to).split('?');
-    if (continue_to_parts.length !== 2) {
-      return;
+    if( !elm.classList.contains('error-show') ) {
+      elm.classList.add('error-show');
+      elm.innerHTML = message;
     }
-
-    var POSSIBLE_COMMUNITY_SSO_REFERER_PREFIXES = [
-      'referer=http://community.optimizely.com',
-      'referer=https://community.optimizely.com'
-    ];
-    var continue_to_url_param_parts = continue_to_parts[1].split('&');
-    for (var i = 0; i < continue_to_url_param_parts.length; i++) {
-      for (var j = 0; j < POSSIBLE_COMMUNITY_SSO_REFERER_PREFIXES.length; j++) {
-        if (continue_to_url_param_parts[i].indexOf(POSSIBLE_COMMUNITY_SSO_REFERER_PREFIXES[j]) === 0) {
-          trackEvent = '/account/create/for_community_signin';
-          break;
-        }
-      }
-    }
-
-    return trackEvent;
   }
 
   var signupForm = new Oform({
@@ -102,26 +82,15 @@
     w.optly.mrkt.Oform.validationError(elm);
     
   });
-
-  signupForm.on('error', function(e) {
-    //Show error message based upon the response object
-    //{"id":"440b1896-ebd5-47f8-a5e8-6932d20eb242","succeeded":false,"error":"Account already exists."}
-    var resp = JSON.parse(e.target.responseText);
-    
-    if(!optionsErrorElm.classList.contains('error-show')) {
-      optionsErrorElm.classList.add('error-show');
-      optionsErrorElm.innerHTML = resp.error;
-    }
-
-  });
-
+  
   signupForm.on('load', function(e){
-    var optCommSignup = logSignupType();
-    var resp = JSON.parse(e.target.response);
-    //get resonse info here and log to segment
-    if ($('#csrf-token').length === 0) {
-        $('body').prepend($('<input id="csrf-token" type="hidden" value="' + resp.csrf_token + '">'));
+    var resp = JSON.parse(e.target.responseText);
+
+    if(e.target.status !== 200) {
+      showOptionsError(optionsErrorElm, resp.error);
+      return;
     }
+
     var source = w.optly.mrkt.source;
     w.analytics.identify(resp.email,{
       email: resp.email,
@@ -150,14 +119,6 @@
     }, {
       Marketo: true
     });
-    if ( optCommSignup ) {
-      w.analytics.track(optCommSignup, {
-        category: 'account',
-        label: w.location.pathname
-      }, {
-        Marketo: true
-      });
-    }
 
     window.optly.mrkt.modal.close('signup');
     window.optly_q = new window.optly.mrkt.optly_QFactory(resp);
