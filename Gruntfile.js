@@ -213,9 +213,9 @@ module.exports = function(grunt) {
         middleware: function(connect, options, middlewares){
           return [
               connect().use(bodyParser.urlencoded({extended: true})),
-              
-              connect.static(options.base[0]), 
-              
+
+              connect.static(options.base[0]),
+
               function(req, res, next){
                 var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 if(req.method === 'POST'){
@@ -242,7 +242,7 @@ module.exports = function(grunt) {
 
                   } else if(req.url === '/account/create') {
                     var readPath, code;
-                    
+
                     if(req.body.email !== 'david.fox-powell@optimizely.com') {
                       readPath = 'website-guts/endpoint-mocks/createAccount.json';
                       code = 200;
@@ -305,7 +305,7 @@ module.exports = function(grunt) {
             }
 
           ]
-          
+
         }
       },
       livereload: {
@@ -821,7 +821,7 @@ module.exports = function(grunt) {
     'handlebars',
     'concat',
     'uglify',
-    'sass',
+    'sass:prod',
     'autoprefixer',
     'copy',
     's3:staging',
@@ -838,7 +838,7 @@ module.exports = function(grunt) {
     'handlebars',
     'concat',
     'uglify',
-    'sass',
+    'sass:prod',
     'autoprefixer',
     'copy',
     's3:smartling',
