@@ -12,7 +12,7 @@
       elm.innerHTML = message;
     }
   }
-  
+
   function showOptionsError(elm, message){
     if(!document.body.classList.contains('error-state')) {
       document.body.classList.add('error-state');
@@ -69,7 +69,7 @@
   });
 
   signupForm.on('validationerror', w.optly.mrkt.Oform.validationError);
-  
+
   signupForm.on('load', function(e){
     var resp = JSON.parse(e.target.responseText);
 
@@ -108,8 +108,8 @@
       Marketo: true
     });
 
-    window.optly.mrkt.modal.close('signup');
-    window.optly_q = new window.optly.mrkt.optly_QFactory(resp);
+    window.optly.mrkt.modal.close('signup', false);
+    window.optly_q.acctData = resp;
     window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
 
   });

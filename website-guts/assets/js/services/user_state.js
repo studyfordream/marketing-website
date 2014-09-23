@@ -3,54 +3,105 @@ window.optly.mrkt           = window.optly.mrkt || {};
 window.optly.mrkt.services  = window.optly.mrkt.services || {};
 window.optly.mrkt.user      = window.optly.mrkt.user || {};
 
-window.optly.mrkt.optly_QFactory = function(acctData, expData) {
-  this.acctData = acctData;
-  this.expData = expData;
-  window.optly.PRELOAD.token = acctData.csrf_token;
+window.optly.mrkt.Optly_Q = function(acctData, expData){
 
-  this.transformQuedArgs = function(quedArgs) {
+  window.optly.PRELOAD = window.optly.PRELOAD = {};
+
+  if(arguments.length > 0 ){
+    window.optly.PRELOAD.token = acctData.csrf_token;
+
+    return Object.create(window.optly.mrkt.Optly_Q.prototype, {
+      acctData: {
+        value: window.optly.mrkt.user.acctData = acctData,
+      },
+      expData: {
+        value: window.optly.mrkt.user.expData = expData
+      }
+    });
+  } else {
+    var acctCache, expCache;
+
+    return Object.create(window.optly.mrkt.Optly_Q.prototype, {
+      acctData: {
+        get: function(){return acctCache},
+        set: function(val){
+          if(!acctCache){
+            window.optly.PRELOAD.token = val.csrf_token;
+            window.optly.mrkt.user.acctData = val;
+            acctCache = val;
+          }
+        }
+      },
+      expData: {
+        get: function(){return expCache},
+        set: function(val){
+          if(!expCache){
+            window.optly.mrkt.user.expData = val;
+            expCache = val;
+          }
+        }
+      }
+    });
+  }
+};
+
+window.optly.mrkt.Optly_Q.prototype = {
+
+  transformQuedArgs: function(quedArgs) {
+    var funcArgs = [];
     $.each(quedArgs, function(index, arg) {
-      if (this[ arg ] !== undefined) {
-        quedArgs[ index ] = this[ arg ];
+      if (this[ arg ] !== undefined && arg !== 'object') {
+        funcArgs.push(this[ arg ]);
+      } else if(arg === 'object') {
+        funcArgs.push[arg];
       }
     }.bind(this));
-  };
 
-  this.parseQ = function(fnQ, i) {
-    var quedArgs;
+    return funcArgs;
+  },
+
+  parseQ: function(fnQ, i) {
+    var quedArgs, transformedArgs;
+    //if not a nested array
     if (typeof fnQ[i] === 'function') {
       quedArgs = fnQ.slice(1);
 
-      this.transformQuedArgs(quedArgs);
+      //if there are no arguments call the function with the object scope
+      if(quedArgs.length === 0) {
+        fnQ[i].call(this);
+      } else {
+        transformedArgs = this.transformQuedArgs(quedArgs);
+        fnQ[i].apply( fnQ[i], transformedArgs );
+      }
 
-      fnQ[i].apply( fnQ[i], quedArgs );
     }
+    //if a nested array
     else {
       for(var nestedI = 0; nestedI < fnQ[i].length; nestedI += 1) {
 
         if (typeof fnQ[i][nestedI] === 'function') {
           quedArgs = fnQ[i].slice(1);
 
-          this.transformQuedArgs(quedArgs);
+          //if there are no arguments call the function with the object scope
+          if(quedArgs.length === 0) {
+            fnQ[i][nestedI].call(this);
+          } else {
+            transformedArgs = this.transformQuedArgs(quedArgs);
+            fnQ[i][nestedI].apply( fnQ[i][nestedI], transformedArgs );
+          }
 
-          fnQ[i][nestedI].apply( fnQ[i][nestedI], quedArgs );
         }
       }
     }
-  };
+  },
 
-  this.push = function(fnQ) {
+  push: function(fnQ) {
     for (var i = 0; i < fnQ.length; i += 1) {
       this.parseQ(fnQ, i);
     }
-  };
+  }
 
-  this.userData = {
-    account: this.acctData,
-    experiments: this.expData
-  };
-
-};
+}
 
 window.optly.mrkt.services.xhr = {
   makeRequest: function(request) {
@@ -215,13 +266,9 @@ window.optly.mrkt.services.xhr = {
         }
         if (index === tranformedArgs.length - 1) {
           oldQue = window.optly_q;
-          // create the global user object properties
-          window.optly.mrkt.user = {
-            account: responses[0],
-            experiments: responses[1]
-          };
+
           // consume qued data
-          window.optly_q = new window.optly.mrkt.optly_QFactory(responses[0], responses[1]);
+          window.optly_q = window.optly.mrkt.Optly_Q(responses[0], responses[1]);
           window.optly_q.push(oldQue);
         }
       }.bind(this) );
@@ -245,8 +292,11 @@ window.optly.mrkt.services.xhr = {
 
     if ( !!this.readCookie('optimizely_signed_in') ) {
       deferreds = this.makeRequest(requestParams);
-      return deferreds;
+    } else {
+      window.optly_q = window.optly.mrkt.Optly_Q();
     }
+
+    return deferreds;
   }
 
 };

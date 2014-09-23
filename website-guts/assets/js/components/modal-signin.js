@@ -25,7 +25,7 @@
       }
     }
   });
-  
+
   signinForm.on('validationerror', function(elm){
     w.optly.mrkt.Oform.validationError(elm);
   });
@@ -47,8 +47,8 @@
      w.location = '/dashboard';
     }
     else {
-      window.optly.mrkt.modal.close('signin');
-      
+      window.optly.mrkt.modal.close('signin', false);
+
       var expParams = {
         type: 'GET',
         url: '/experiment/load_recent?max_experiments=5',
@@ -65,7 +65,8 @@
       var deferred = window.optly.mrkt.services.xhr.makeRequest(expParams);
 
       deferred.then(function(expData) {
-        window.optly_q = new window.optly.mrkt.optly_QFactory(resp, expData);
+        window.optly_q.acctData = resp;
+        window.optly_q.expData = expData;
         window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData', 'expData']);
       });
     }
@@ -73,7 +74,7 @@
     window.analytics.identify(resp.email, {
       email: resp.email
     });
-    
+
     window.analytics.track('acount sign-in', {
       category: 'account',
       label: window.location.pathname
