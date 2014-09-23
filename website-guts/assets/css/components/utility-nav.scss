@@ -219,6 +219,12 @@ $navs-to-index: main-nav dropdown-menu-top;
         color: #aaa;
       }
       a:last-child:hover { color: #444; }
+    } 
+    .no-experiments {
+      width: 200px;
+      padding: 9px 0;
+      display: inline-block;
+      text-align: center;
     }
     #my-account-menu {
       li {

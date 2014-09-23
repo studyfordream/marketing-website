@@ -49,12 +49,18 @@ window.optly.mrkt.utils.deparam = $.deparam = function(text) {
   return result;
 };
 
-window.optly.mrkt.utils.param = function(uri, params) {
+window.optly.mrkt.utils.param = function(uri, params, order) {
   this._params = {};
 
-  $.each(params, function(k, v) {
-    this._params[k] = v;
-  }.bind(this));
+  if (order) {
+    $.each(order, function(i, prop) {
+      this._params[prop] = params[prop];
+    }.bind(this));
+  } else {
+    $.each(params, function(k, v) {
+      this._params[k] = v;
+    }.bind(this));
+  }
 
   var paramString = $.param(this._params);
 
