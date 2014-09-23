@@ -152,6 +152,22 @@ window.Modernizr.addTest('viewportunits', function() {
     return bool;
 });
 
+window.optly_q.push([function(){
+
+	if(typeof w.optly_q.acctData === 'object'){
+
+		window.analytics.identify(w.optly_q.acctData.email, {
+
+			name: w.optly_q.acctData.name,
+
+			email: w.optly_q.acctData.email
+
+		});
+
+	}
+
+}]);
+
 (function(){
 
   var w, d;
