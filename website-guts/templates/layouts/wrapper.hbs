@@ -15,6 +15,11 @@ layout_modals:
         <script src="{{assetsDir}}/js/libraries/jquery-2.1.1.min.js"></script>
         <script>
             window.optly_q = [];
+            window.optly = {
+              PRELOAD: {
+                token: null
+              }
+            };
         </script>
         <script>{{#scriptinjector '../assets/js/services/user_state.js' true}}{{/scriptinjector}}</script>
         <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>

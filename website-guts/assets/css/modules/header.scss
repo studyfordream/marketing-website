@@ -1,5 +1,17 @@
 header {
     background: #052f60;
+    .utility-nav {
+      margin: 0;
+      li {
+        text-align: right;
+        & > a {
+          display: inline-block;
+        }
+        ul {
+          padding-left: 0;
+        }
+      }
+    }
 }
 .nav {
     padding: 0;
@@ -225,12 +237,14 @@ header {
   }
   .utility-nav {
       margin: 0;
-      li {cursor: pointer;}
+      li {
+        cursor: pointer;
+        text-align: left;
+      }
       a {
           font-size: .8em;
           font-weight: normal;
           padding: 12px;
-          display: block;
       }
       a:hover {
           background: $nav-hover-color;

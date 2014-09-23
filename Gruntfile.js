@@ -5,6 +5,28 @@
 // '<%= config.src %>/templates/pages/{,*/}*.hbs'
 // use this if you want to match all subfolders:
 // '<%= config.src %>/templates/pages/**/*.hbs'
+var bodyParser = require('body-parser');
+
+var checkComplexPassword = function(password) {
+  var CHAR_LOWERS = /[a-z]/,
+    CHAR_UPPERS   = /[A-Z]/,
+    CHAR_NUMBERS  = /[0-9]/,
+    CHAR_SPECIAL  = /[?=.*!@#$%^&*]/,
+    CHAR_TYPES    = [CHAR_LOWERS,CHAR_UPPERS,CHAR_NUMBERS,CHAR_SPECIAL],
+    counter       = 4;
+
+  for (var i=0; i<CHAR_TYPES.length; i++){
+    if(!CHAR_TYPES[i].test(password)){
+      counter--;
+    }
+  }
+
+  if (counter <= 1 || password.length < 8){
+    return false;
+  } else {
+    return true;
+  }
+};
 
 module.exports = function(grunt) {
 
@@ -143,9 +165,10 @@ module.exports = function(grunt) {
           '<%= config.guts %>/templates/**/*.hbs',
           '!<%= config.guts %>/templates/**/*_compiled.hbs',
           '!<%= config.guts %>/templates/client/**/*.hbs',
+          '<%= config.guts %>/assets/js/services/user_state.js',
           '<%= config.guts %>/helpers/**/*.js'
         ],
-        tasks: ['config:dev', 'assemble:pages', 'assemble:modals']
+        tasks: ['config:dev', 'assemble:modals', 'assemble:pages']
       },
       assemblePartners: {
         files: [
@@ -165,7 +188,7 @@ module.exports = function(grunt) {
         tasks: ['copy:img']
       },
       js: {
-        files: ['<%= config.guts %>/assets/js/**/*.js', '<%= config.temp %>/assets/js/**/*.js'],
+        files: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/services/user_state.js', '<%= config.temp %>/assets/js/**/*.js'],
         tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'handlebars', 'concat', 'clean:postBuild']
       },
       clientHandlebarsTemplates: {
@@ -188,72 +211,101 @@ module.exports = function(grunt) {
         // change this to '0.0.0.0' to access the server from outside
         hostname: '0.0.0.0',
         middleware: function(connect, options, middlewares){
-          middlewares.unshift(function(req, res, next){
-            if(req.method === 'POST'){
+          return [
+              connect().use(bodyParser.urlencoded({extended: true})),
 
-              if(req.url === '/webinar/register'){
+              connect.static(options.base[0]),
 
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/webinarSuccess.json') );
+              function(req, res, next){
+                var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                if(req.method === 'POST'){
 
-              } else if(req.url === '/webinar/register-fail'){
+                  if(req.url === '/webinar/register'){
 
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/webinarFail.json') );
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end( grunt.file.read('website-guts/endpoint-mocks/webinarSuccess.json') );
 
-              } else if(req.url === '/account/free_trial_landing'){
+                  } else if(req.url === '/webinar/register-fail'){
 
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/formSuccess.json') );
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end( grunt.file.read('website-guts/endpoint-mocks/webinarFail.json') );
 
-              } else if(req.url === '/account/free_trial_landing/account_exists'){
+                  } else if(req.url === '/account/free_trial_landing'){
 
-                res.writeHead(400, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/accountExists.json') );
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end( grunt.file.read('website-guts/endpoint-mocks/formSuccess.json') );
+
+                  } else if(req.url === '/account/free_trial_landing/account_exists'){
+
+                    res.writeHead(400, {'Content-Type': 'application/json'});
+                    res.end( grunt.file.read('website-guts/endpoint-mocks/accountExists.json') );
+
+                  } else if(req.url === '/account/create') {
+                    var readPath, code;
+
+                    if(req.body.email !== 'david.fox-powell@optimizely.com') {
+                      readPath = 'website-guts/endpoint-mocks/createAccount.json';
+                      code = 200;
+                      res.cookie('optimizely_signed_in', '1', {httpOnly: false});
+                    } else {
+                      readPath = 'website-guts/endpoint-mocks/accountExists.json';
+                      code = 400;
+                    }
+                    res.writeHead(code, {'Content-Type': 'application/json'});
+                    res.end( grunt.file.read(readPath) );
+
+                  } else if(req.url === '/account/signin') {
+                    var readPath, code;
+
+                    if(emailRegEx.test(req.body.email) && checkComplexPassword(req.body.password)) {
+                      readPath = 'website-guts/endpoint-mocks/accountInfo.json';
+                      code = 200;
+                      res.cookie('optimizely_signed_in', '1', {httpOnly: false});
+                    } else {
+                      readPath = 'website-guts/endpoint-mocks/invalidSignin.json';
+                      code = 400;
+                    }
+                    res.writeHead(code, {'Content-Type': 'application/json'});
+                    res.end(grunt.file.read(readPath));
+
+                  } else {
+
+                    return next();
+
+                  }
+
+                } else if(req.url === '/account/info') {
+
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/accountInfo.json') );
+
+                } else if(req.url === '/experiment/load_recent?max_experiments=5') {
+
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/lastFiveExperiments.json') );
+
+                } else if(req.url === '/account/signout') {
+
+                    res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
+                    res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end('{"success": "true"}');
+
+                } else if(req.url === '/api/jobs/details.json') {
+
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/jobscoreData.json') );
+
+                } else{
+
+                  return next();
 
               }
-              else if(req.url === '/account/signin') {
-
-                res.cookie('optimizely_signed_in', '1', {httpOnly: false});
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end('{"success": "true"}');
-
-              } else {
-
-                return next();
-
-              }
-
-            } else if(req.url === '/account/info') {
-
-              res.writeHead(200, {'Content-Type': 'application/json'});
-              res.end( grunt.file.read('website-guts/endpoint-mocks/accountInfo.json') );
-
-            } else if(req.url === '/experiment/load_recent?max_experiments=5') {
-
-              res.writeHead(200, {'Content-Type': 'application/json'});
-              res.end( grunt.file.read('website-guts/endpoint-mocks/lastFiveExperiments.json') );
-
-            } else if(req.url === '/account/signout') {
-
-                res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
-                res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end('{"success": "true"}');
-
-            } else if(req.url === '/api/jobs/details.json') {
-
-              res.writeHead(200, {'Content-Type': 'application/json'});
-              res.end( grunt.file.read('website-guts/endpoint-mocks/jobscoreData.json') );
-
-            } else{
-
-              return next();
 
             }
 
-          });
-          return middlewares;
+          ]
+
         }
       },
       livereload: {
@@ -769,7 +821,7 @@ module.exports = function(grunt) {
     'handlebars',
     'concat',
     'uglify',
-    'sass',
+    'sass:prod',
     'autoprefixer',
     'copy',
     's3:staging',
@@ -786,7 +838,7 @@ module.exports = function(grunt) {
     'handlebars',
     'concat',
     'uglify',
-    'sass',
+    'sass:prod',
     'autoprefixer',
     'copy',
     's3:smartling',

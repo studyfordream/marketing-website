@@ -1,28 +1,32 @@
 ---
 layout: modal_wrapper.hbs
 modal_title: Sign in to Optimizely
-data_attr_value: signin
-wrapper_id: sign-in-dialog
+data_modal_id: signin
+data_modal_name: sign-in
+form_id: signin-form
+wrapper_id: signin-dialog
 form_action: /account/signin
 primary_button_text: Sign in
 negative_button_text: Cancel
 ---
               <label>
                   <span>Email address</span>
-                  <input type="text" name="email" required />
+                  <span class="email-related error-hide error-right">Email is required</span>
+                  <input type="text" name="email" required>
               </label>
               <label>
                   <span>Password</span>
-                  <input type="password" name="password" data-validation="password" />
+                  <span class="password-related error-hide error-right">Password is required</span>
+                  <input type="password" name="password" required>
               </label>
               <div class="terms">
                   <label class="spaced">
-                      <input type="checkbox" name="persist" checked="checked" />
+                      <input type="checkbox" name="persist" checked="checked">
                       <p>Keep me signed in</p>
                   </label>
               </div>
               <div class="options">
-                  <p><a href="{{linkPath}}/privacy">Privacy Policy</a><p>
-                  <p><a class="show-forgot-password">Forgot your password?</a><p>
+                  <p><a class="show-forgot-password">Forgot your password?</a></p>
                   <p>No account? <a class="show-create-account" data-modal-click="signup">Register here</a></p>
+                  <p class="error-message error-hide">Incorrect email or password</p>
               </div>

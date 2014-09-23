@@ -391,8 +391,10 @@ body .small-note, body p.small-note {
 	display: none;
 }
 
-input[type="text"], input[type="url"], input[type="email"], input[type="tel"] {
-	&.error-show {
+input[type="text"], input[type="url"], input[type="email"], input[type="tel"],  input[type="password"]{
+	transition: background-color 0.1s linear;
+  &.oform-error-show,
+  &.error-show {
 		background-color: #fef3f3;
 		border-color: #f3b6b3;
 	}
@@ -411,9 +413,35 @@ input[type="text"], input[type="url"], input[type="email"], input[type="tel"] {
 
 //classes for processing and error states on forms
 
-.processing-hide, .error-hide {opacity: 0;}
+.processing-hide, 
+.error-hide {
+  transition: all 0.1s linear;
+  opacity: 0;
+  font-size: 11px;
+}
 
-body.processing-state .processing-show, body.error-state .error-show {opacity: 1;}
+body {
+  .processing-state {
+    input {
+      background-color: rgba(233, 233, 233, 0.6);
+    }
+    .processing-show {
+    
+    }
+  }
+}
+body.error-state,
+body.oform-error {
+  .oform-error-show,
+  .error-show {
+    opacity: 1;
+    color: #911d16!important;
+  }
+}
+
+.error-right {
+  float: right;
+}
 
 @media screen and (min-width: 769px) {
 	.show-hide {
