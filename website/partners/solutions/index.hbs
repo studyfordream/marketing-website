@@ -29,7 +29,7 @@ script_dependencies:
         <div class="heading">{{{solutions_data.filter.title}}}:</div>
         <div class="dropdown-cont dropdown-cont--region">{{{solutions_data.filter.region}}} &#9662;
           <ul>
-            {{#each partners.filter.regions}}
+            {{#each solutions_data.filter.regions}}
               <li class="filter-item" data-filter="{{ createClassList this }}">{{this}}</li>
             {{/each}}
           </ul>
