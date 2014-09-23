@@ -391,8 +391,10 @@ body .small-note, body p.small-note {
 	display: none;
 }
 
-input[type="text"], input[type="url"], input[type="email"], input[type="tel"] {
-	&.error-show {
+input[type="text"], input[type="url"], input[type="email"], input[type="tel"],  input[type="password"]{
+	transition: background-color 0.1s linear;
+  &.oform-error-show,
+  &.error-show {
 		background-color: #fef3f3;
 		border-color: #f3b6b3;
 	}
