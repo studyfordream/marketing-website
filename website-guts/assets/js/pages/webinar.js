@@ -100,9 +100,7 @@ $(function(){
 
           //if(resp.responseJSON.succeeded){
 
-            ////window.optly.mrkt.modal.open('webinar-confirmation');
-
-            //window.optly.mrkt.modal.openModalHandler('webinar-confirmation');
+            ////window.optly.mrkt.modal.open({ modalType: 'webinar-confirmation' });
 
           //} else {
 
@@ -142,7 +140,7 @@ $(function(){
 
     });
 
-    window.optly.mrkt.modal.openModalHandler('webinar-signup');
+    window.optly.mrkt.modal.open({ modalType: 'webinar-signup' });
 
   });
 

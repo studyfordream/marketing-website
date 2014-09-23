@@ -29,6 +29,7 @@ function bindDropdownClick($dropdownMenus) {
 }
 
 window.optly.mrkt.showUtilityNav = function (acctData, expData) {
+
   if(acctData) {
     var email = acctData.email;
     var emailObj = {

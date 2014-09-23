@@ -78,37 +78,13 @@
       return;
     }
 
-    var source = w.optly.mrkt.source;
-    w.analytics.identify(resp.email,{
-      email: resp.email,
-      name: resp.first_name + ' ' + resp.last_name,
-      phone: resp.phone,
-      token: resp.csrf_token,
-      utm_Campaign__c: source.utm.campaign,
-      utm_Content__c: source.utm.content,
-      utm_Medium__c: source.utm.medium,
-      utm_Source__c: source.utm.source,
-      utm_Keyword__c: source.utm.keyword,
-      otm_Campaign__c: source.otm.campaign,
-      otm_Content__c: source.otm.content,
-      otm_Medium__c: source.otm.medium,
-      GCLID__c: source.gclid,
-      otm_Source__c: source.otm.source,
-      otm_Keyword__c: source.otm.keyword,
-      Signup_Platform__c: source.signupPlatform
-    }, {
-      integrations: {
-        Marketo: true
-      }
-    });
-    w.analytics.track('account created', {
-      category: 'account',
-      label: w.location.pathname
-    }, {
-      Marketo: true
-    });
-
-    window.optly.mrkt.modal.close('signup', false);
+    w.optly.mrkt.Oform.trackLead({
+      name: formElm.querySelector('[name="name"]').value,
+      email: formElm.querySelector('[name="email"]').value,
+      phone: formElm.querySelector('[name="phone_number"]').value
+    }, e);
+    
+    window.optly.mrkt.modal.close({ modalType: 'signup', track: false });
     window.optly_q.acctData = resp;
     window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
 

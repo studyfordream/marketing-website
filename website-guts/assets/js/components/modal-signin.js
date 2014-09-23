@@ -1,5 +1,6 @@
 (function(){
   'use strict';
+  
   var dialogElm = document.getElementById('signin-dialog'),
   optionsErrorElm = dialogElm.getElementsByClassName('options')[0].querySelector('p:last-child');
 
@@ -47,7 +48,7 @@
      w.location = '/dashboard';
     }
     else {
-      window.optly.mrkt.modal.close('signin', false);
+      window.optly.mrkt.modal.close({ modalType: 'signin', trace: false });
 
       var expParams = {
         type: 'GET',

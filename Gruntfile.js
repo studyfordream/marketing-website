@@ -165,9 +165,10 @@ module.exports = function(grunt) {
           '<%= config.guts %>/templates/**/*.hbs',
           '!<%= config.guts %>/templates/**/*_compiled.hbs',
           '!<%= config.guts %>/templates/client/**/*.hbs',
+          '<%= config.guts %>/assets/js/services/user_state.js',
           '<%= config.guts %>/helpers/**/*.js'
         ],
-        tasks: ['config:dev', 'assemble:pages', 'assemble:modals']
+        tasks: ['config:dev', 'assemble:modals', 'assemble:pages']
       },
       assemblePartners: {
         files: [
@@ -187,7 +188,7 @@ module.exports = function(grunt) {
         tasks: ['copy:img']
       },
       js: {
-        files: ['<%= config.guts %>/assets/js/**/*.js', '<%= config.temp %>/assets/js/**/*.js'],
+        files: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/services/user_state.js', '<%= config.temp %>/assets/js/**/*.js'],
         tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'handlebars', 'concat', 'clean:postBuild']
       },
       clientHandlebarsTemplates: {
