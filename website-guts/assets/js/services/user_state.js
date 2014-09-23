@@ -4,8 +4,24 @@ window.optly.mrkt.services  = window.optly.mrkt.services || {};
 window.optly.mrkt.user      = window.optly.mrkt.user || {};
 
 window.optly.mrkt.Optly_Q = function(acctData, expData){
+  var objectCreateSupported = typeof Object.create === 'function';
 
   window.optly.PRELOAD = window.optly.PRELOAD = {};
+
+  if(!objectCreateSupported) {
+    var ThrowAway = function (a, e) {
+      this.acctData = a;
+      this.expData = e;
+    };
+
+    ThrowAway.prototype = window.optly.mrkt.Optly_Q.prototype;
+
+    if(arguments.length > 0) {
+      return new ThrowAway(acctData, expData);
+    } else{
+      return new ThrowAway();
+    }
+  }
 
   if(arguments.length > 0 ){
     window.optly.PRELOAD.token = acctData.csrf_token;
