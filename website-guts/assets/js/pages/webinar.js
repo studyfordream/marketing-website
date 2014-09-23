@@ -80,47 +80,26 @@ $(function(){
 
   $('#events').html(eventDisplayHTML);
 
-  /*$('#webinar-registration-form').oForm({*/
-
-    //beforeLocal: function(){
-
-      //var name = $('#name').val().split(' ');
-
-      //$('[name="FirstName"]').val( name[0] );
-
-      //$('[name="LastName"]').val( name[1] );
-
-    //},
-
-    //afterLocal: function(resp){
-
-      //if(typeof resp === 'object'){
-
-        //if(typeof resp.responseJSON === 'object'){
-
-          //if(resp.responseJSON.succeeded){
-
-            ////window.optly.mrkt.modal.open({ modalType: 'webinar-confirmation' });
-
-          //} else {
-
-            //if(resp.responseJSON.message){
-
-              //$('body').addClass('error-state');
-
-              //$('.error-message').text(resp.responseJSON.message).addClass('error-show').removeClass('error-hide');
-
-            //}
-
-          //}
-
-        //}
-
-      //}
-
-    //}
-
-  /*});*/
+  new Oform({
+    selector: '#webinar-registration-form'
+  }).on('before', function(){
+    var name = $('#name').val().split(' ');
+    $('[name="FirstName"]').val( name[0] );
+    $('[name="LastName"]').val( name[1] );
+    return true;
+  }).on('load', function(event){
+    if(event.target.status === 200){
+      w.optly.mrkt.modal.close({
+        modalType: 'webinar-signup',
+        track: false
+      });
+      w.optly.mrkt.modal.open({modalType: 'webinar-confirmation'});
+    }
+    window.analytics.track('webinar signup', {
+      category: 'webinar',
+      label: w.location.pathname
+    });
+  }).on('validationerror', w.optly.mrkt.Oform.validationError);
 
   $('body').delegate('.register-btn', 'click', function(e){
 

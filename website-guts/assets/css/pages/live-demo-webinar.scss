@@ -86,6 +86,10 @@ body.live-demo-page {
             color: #242424;
         }
     }
+
+    .error-hint {
+      display: none;
+    }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
@@ -97,4 +101,10 @@ body.live-demo-page {
         border-bottom: 1px solid #d5d5d5;
     }
     .validation-error-message {text-align: right;}
+}
+
+body.oform-error {
+  .error-hint.oform-error-show {
+    display: block;
+  }
 }
