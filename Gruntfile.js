@@ -145,7 +145,7 @@ module.exports = function(grunt) {
           '!<%= config.guts %>/templates/client/**/*.hbs',
           '<%= config.guts %>/helpers/**/*.js'
         ],
-        tasks: ['config:dev', 'assemble:pages', 'assemble:modals']
+        tasks: ['config:dev', 'assemble:modals', 'assemble:pages']
       },
       assemblePartners: {
         files: [
