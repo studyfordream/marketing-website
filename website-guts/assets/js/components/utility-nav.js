@@ -31,12 +31,14 @@ function bindDropdownClick($dropdownMenus) {
 window.optly.mrkt.showUtilityNav = function (acctData, expData) {
 
   if(acctData) {
-    var email = acctData.email;
-    var emailObj = {
-      desktop: email,
-      mobile: email
-    };
-
+    var iosProjectCount = 0,
+      projectCount = Object.keys(acctData.projects).length,
+      email = acctData.email,
+      emailObj = {
+        desktop: email,
+        mobile: email
+      };
+    
     if(email.length > 24) {
       emailObj.desktop = email.substr(0, 24) + '...';
     }
@@ -45,11 +47,19 @@ window.optly.mrkt.showUtilityNav = function (acctData, expData) {
       emailObj.mobile = email.substr(0, 15) + '...';
     }
 
+    $.each(acctData.projects, function(projId, projObj) {
+      var platforms = projObj.project_platforms;
+      if(platforms.indexOf('ios') !== -1 && platforms.indexOf('web') === -1) {
+        iosProjectCount += 1;
+      }
+    });
+
     var handlebarsData = {
       account_id: acctData.account_id,
       email: emailObj,
       admin: acctData.is_admin,
-      experiments: expData ? expData.experiments : undefined
+      experiments: expData ? expData.experiments : undefined,
+      showCreateLink: ( iosProjectCount !== projectCount )
     };
 
     $('body').addClass('signed-in').removeClass('signed-out');

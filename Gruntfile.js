@@ -275,9 +275,15 @@ module.exports = function(grunt) {
                   }
 
                 } else if(req.url === '/account/info') {
+                  var paths = [
+                    'website-guts/endpoint-mocks/accountInfo.json',
+                    'website-guts/endpoint-mocks/allIosInfo.json'
+                  ];
+
+                  var randIndex = Math.round(Math.random());
 
                   res.writeHead(200, {'Content-Type': 'application/json'});
-                  res.end( grunt.file.read('website-guts/endpoint-mocks/accountInfo.json') );
+                  res.end( grunt.file.read(paths[randIndex]) );
 
                 } else if(req.url === '/experiment/load_recent?max_experiments=5') {
 
