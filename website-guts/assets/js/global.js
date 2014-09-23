@@ -184,7 +184,7 @@ window.optly_q.push([function(){
 
   w.optly.mrkt.Oform.before = function(){
 
-    d.getElementsByTagName('body')[0].classList.add('processing');
+    d.getElementsByTagName('body')[0].classList.add('oform-processing');
 
     return true;
 

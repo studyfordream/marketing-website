@@ -38,7 +38,7 @@ layout_body_class:
             {{/if}}
             <p>{{{page.form_text}}}</p>
             <form id="seo-form" method="POST" class="seo-form inline-labels" action="/account/free_trial_create" autocomplete="off" novalidate="novalidate">
-              <p class="error-message error error-show"></p>
+              <p class="error-message oform-error-show"></p>
               <input id="utm_medium" type="hidden" name="utm_medium" value="">
               <input id="hidden" type="hidden" name="hidden" value="">
               <ul>
@@ -65,8 +65,8 @@ layout_body_class:
                 <small>By clicking the <q>Test it Out</q> button below I agree to the <br><a href="{{linkPath}}/terms" target="_blank">Terms of Service</a> and <a href="{{linkpath}}/privacy" target="_blank">Privacy Policy</a>.</small>
                 </li>
                 <li class="a-center">
-                  <button type="submit" id="submit" class="button">Test it Out</button>
-                  <p class=" processing-hide">Processing...</p>
+                  <button type="submit" id="submit" class="button oform-processing-hide">Test it Out</button>
+                  <p class="oform-processing-show">Processing...</p>
                 </li>
               </ul>
             </form>
