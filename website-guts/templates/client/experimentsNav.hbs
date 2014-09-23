@@ -26,17 +26,19 @@
         </span>
       {{/each}}
       {{#unless experiments}}
-        <span>There Are No Experiments</span>
+      <span class="no-experiments">There Are No<br>Experiments</span>
       {{/unless}}
       <li class="view-all-experiments hide-in-mobile" data-show="dashboard-link">
-        <a id="view-all-experiments-link" href="https://www.optimizely.com/dashboard?project_id={{account_id}}">
+        <a id="view-all-experiments-link" href="/dashboard">
           <span class="view-all-icon"></span>
           <span>View All Experiments</span>
         </a>
       </li>
+      {{#if showCreateLink}}
       <li class="show-create-experiment hide-in-mobile" data-modal-click="create-exp">
         <a>Create New Experiment</a>
       </li>
+      {{/if}}
     </ul>
 </li>
 <li>
