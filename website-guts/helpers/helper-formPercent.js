@@ -13,7 +13,7 @@ module.exports.register = function (Handlebars)  {
 
       restOfHeader = value.split('% ')[1];
 
-      newHeader = '<span>' + number + '</span><span class="' + percentClass + '"> % </span><h4 class="customer-title">' + restOfHeader + '</h4>';
+      newHeader = '<h4 class="customer-title"><span>' + number + '</span><span class="' + percentClass + '"> % </span>' + restOfHeader + '</h4>';
 
     } else if( /\d+/.test(value) ) {
 
@@ -21,7 +21,7 @@ module.exports.register = function (Handlebars)  {
 
       restOfHeader = value.split(number)[1];
 
-      newHeader = '<span>' + number + ' </span><h4 class="customer-title">' + restOfHeader + '</h4>';
+      newHeader = '<h4 class="customer-title"><span>' + number + '</span> ' + restOfHeader + '</h4>';
 
     } else {
 

@@ -51,9 +51,6 @@ body.customer-stories-page {
       font-size: 14px;
       font-weight: 300;
       letter-spacing: -1.2px;
-      span {
-        font-weight: bold;
-      }
     }
     .percent {
       position: relative;
@@ -62,6 +59,9 @@ body.customer-stories-page {
     }
     .customer-title {
       display: inline-block;
+      font-family: $body-font-family;
+      font-weight: 100;
+      span {font-weight: 500;}
     }
     .customer-inner-content {
       padding: 20px 20px 60px;
