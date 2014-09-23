@@ -6,12 +6,14 @@ window.optly.mrkt.user      = window.optly.mrkt.user || {};
 window.optly.mrkt.Optly_Q = function(acctData, expData){
   var objectCreateSupported = typeof Object.create === 'function';
 
-  window.optly.PRELOAD = window.optly.PRELOAD = {};
+  window.optly.PRELOAD = window.optly.PRELOAD || {token: null};
 
   if(!objectCreateSupported) {
     var ThrowAway = function (a, e) {
       this.acctData = a;
       this.expData = e;
+
+      window.optly.PRELOAD.token = this.acctData.csrf_token;
     };
 
     ThrowAway.prototype = window.optly.mrkt.Optly_Q.prototype;
