@@ -23,7 +23,7 @@ window.optly.mrkt.Optly_Q = function(acctData, expData){
 
     return Object.create(window.optly.mrkt.Optly_Q.prototype, {
       acctData: {
-        get: function(){return acctCache},
+        get: function(){return acctCache;},
         set: function(val){
           if(!acctCache){
             window.optly.PRELOAD.token = val.csrf_token;
@@ -33,7 +33,7 @@ window.optly.mrkt.Optly_Q = function(acctData, expData){
         }
       },
       expData: {
-        get: function(){return expCache},
+        get: function(){return expCache;},
         set: function(val){
           if(!expCache){
             window.optly.mrkt.user.expData = val;
@@ -53,7 +53,7 @@ window.optly.mrkt.Optly_Q.prototype = {
       if (this[ arg ] !== undefined && arg !== 'object') {
         funcArgs.push(this[ arg ]);
       } else if(arg === 'object') {
-        funcArgs.push[arg];
+        funcArgs.push(arg);
       }
     }.bind(this));
 
@@ -101,7 +101,7 @@ window.optly.mrkt.Optly_Q.prototype = {
     }
   }
 
-}
+};
 
 window.optly.mrkt.services.xhr = {
   makeRequest: function(request) {

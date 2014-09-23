@@ -29,34 +29,37 @@ function bindDropdownClick($dropdownMenus) {
 }
 
 window.optly.mrkt.showUtilityNav = function (acctData, expData) {
-  var email = acctData.email;
-  var emailObj = {
-    desktop: email,
-    mobile: email
-  };
+  if(acctData) {
+    var email = acctData.email;
+    var emailObj = {
+      desktop: email,
+      mobile: email
+    };
 
-  if(email.length > 24) {
-    emailObj.desktop = email.substr(0, 24) + '...';
+    if(email.length > 24) {
+      emailObj.desktop = email.substr(0, 24) + '...';
+    }
+
+    if(email.length > 15) {
+      emailObj.mobile = email.substr(0, 15) + '...';
+    }
+
+    var handlebarsData = {
+      account_id: acctData.account_id,
+      email: emailObj,
+      admin: acctData.is_admin,
+      experiments: expData ? expData.experiments : undefined
+    };
+
+    $('body').addClass('signed-in').removeClass('signed-out');
+
+    $('#signed-in-utility').html( window.optly.mrkt.templates.experimentsNav(handlebarsData) );
+    var $dropdownMenus = $('[data-show-dropdown]');
+
+    bindDropdownClick($dropdownMenus);
+    $('[data-logout]').on('click', window.optly.mrkt.signOut);
+
   }
-
-  if(email.length > 15) {
-    emailObj.mobile = email.substr(0, 15) + '...';
-  }
-
-  var handlebarsData = {
-    account_id: acctData.account_id,
-    email: emailObj,
-    admin: acctData.is_admin,
-    experiments: expData ? expData.experiments : undefined
-  };
-
-  $('body').addClass('signed-in').removeClass('signed-out');
-
-  $('#signed-in-utility').html( window.optly.mrkt.templates.experimentsNav(handlebarsData) );
-  var $dropdownMenus = $('[data-show-dropdown]');
-
-  bindDropdownClick($dropdownMenus);
-  $('[data-logout]').on('click', window.optly.mrkt.signOut);
 };
 
 window.optly.mrkt.closeDropdown = function(e) {
