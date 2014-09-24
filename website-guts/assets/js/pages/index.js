@@ -3,7 +3,7 @@ window.optly.mrkt.index = {};
 window.optly.mrkt.index.testItOut = function(editURL){
 
   //send user to the editor
-  window.location = 'https://www.optimizely.com/edit?url=' + editURL;
+  window.location = '/edit?url=' + editURL;
 
 };
 
@@ -11,7 +11,7 @@ $('input[type="text"]').focus();
 
 $('#test-it-out-form').submit(function(e){
 
-  var inputVal = $('input[type="text"]').val();
+  var inputVal = $('test-it-out-url').val();
 
   if( inputVal ){
 

@@ -64,7 +64,7 @@ body_class:
 			</div>
 			{{/if}}
 			{{#if press.blog}}
-			<div id="optimizely-blog">
+			<div id="optimizely-blog" class="SL_swap" id="press-blog-sidebar">
 				<h3>{{press.blog.header}}</h3>
 				<p><a href="{{press.blog.link}}">{{press.blog.btn_text}}</a>&nbsp;{{press.blog.text}}</p>
 			</div>
@@ -72,7 +72,7 @@ body_class:
 		</aside><!--/#press-info-->
 	</div><!--/#press-content-->
 	{{#if press.follow_the_latest}}
-	<div id="follow-latest">
+	<div id="follow-latest" class="SL_swap" id="press-follow-latest">
 		<p>{{press.follow_the_latest.header}}</p>
 		<ul>
 			{{#each press.follow_the_latest.items}}
