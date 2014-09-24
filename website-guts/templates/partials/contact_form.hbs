@@ -1,14 +1,16 @@
 <div id="contact-form" class="box clearfix">
     <h4 class="a-center">{{#if page.form_heading}}{{page.form_heading}}{{else}}Questions? Contact us.{{/if}}</h4>
-    <form id="contact-form" class="standard" autocomplete="off" novalidate="novalidate">
+    <form id="contact-form" class="standard" autocomplete="off" novalidate action="/contact/form" method="post">
       <ul class="list-unstyled">
-        <li>
+        <li class="clearfix">
           <label for="name" class="required" >Name</label>
-          <input class="required" id="name" name="name" required="" type="text">
+          <p class="field-error name-related">Name is required</p>
+          <input class="required" id="name" name="name" required type="text">
         </li>
-        <li>
+        <li class="clearfix">
           <label for="email" class="required" >E-mail</label>
-          <input class="required email" id="email" name="email" required="" type="email">
+          <p class="field-error email-related">Email is required</p>
+          <input class="required email" id="email" name="email" required type="email">
         </li>
         <li>
           <label for="company">Company</label>
@@ -19,7 +21,7 @@
           <input id="website" name="website" type="text">
         </li>
         <li class="form-neighbors first">
-          <label> 
+          <label>
             Monthly Visitors<div title="This is the sum across all your clients" data-tooltip></div>
           </label>
           <select id="traffic" name="traffic" tabindex="1">
@@ -36,12 +38,14 @@
           <label for="phone">Phone</label>
           <input id="phone" name="phone" type="text">
         </li>
-        <li class="a-right clearfix submit-cont">
+        <li class="a-right clearfix submit-cont success-hide">
           <button class="button small" type="submit">Submit</button>
         </li>
-        <li style="display: none;">
-          Thanks for contacting us! We'll be in touch shortly!
+        <li id="confirmation" class="success-show">
+          <p>Thanks for contacting us! We'll be in touch shortly!</p>
         </li>
       </ul>
+      <input type="hidden" name="inboundFormLeadType" value="{{page.inbound_form_lead_type}}">
+      <input type="hidden" name="hidden" value="">
     </form>
   </div>
