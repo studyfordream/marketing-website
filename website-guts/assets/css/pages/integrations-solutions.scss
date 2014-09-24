@@ -159,7 +159,6 @@ body.integrations-solutions {
       padding: 0.8em 0;
       font-size: 14px;
       font-weight: 300;
-      letter-spacing: -1.2px;
 
       span {
         font-weight: bold;
@@ -173,7 +172,7 @@ body.integrations-solutions {
 
       h4 {
         text-align: center;
-        font-size: 1.5em;
+        font-size: 16px;
         margin: 0;
       }
     }
@@ -185,7 +184,8 @@ body.integrations-solutions {
     }
 
     .partner-title a {
-      color: $text-color;
+      color: #4D6C81;
+      font-weight: 400;
     }
 
     .partner-location {
@@ -199,7 +199,7 @@ body.integrations-solutions {
     }
 
     .partner-inner-content {
-      padding: 20px;
+      padding: 10px;
       flex-grow: 2;
     }
 
@@ -207,16 +207,16 @@ body.integrations-solutions {
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center bottom;
-      margin: 0 auto;
+      margin: 10px auto;
       height: 80px;
       width: 100%;
-      max-width: 250px;
+      max-width: 220px;
       display: block;
     }
 
     .button {
       color: rgb(255, 255, 255);
-      font-size: 18px;
+      font-size: 14px;
       text-shadow: 0 2px 0 rgb(25, 82, 158);
       width: 100%;
     }
@@ -270,6 +270,7 @@ body.integrations-solutions {
     .partners-languages,
     .partners-tags {
       color: #a9a9a9;
+      font-size: 14px;
       a {
         color: #a9a9a9;
       }
@@ -281,13 +282,17 @@ body.integrations-solutions {
   }
 
   .level {
-    margin: 30px 0 10px 0;
+    margin: 30px 0 20px 0;
 
     .level-heading {
       color: #a9a9a9;
       font-size: 12px;
       font-weight: 400;
       text-transform: uppercase;
+
+      div {
+        text-transform: none;
+      }
     }
 
     .tooltip-hover {
