@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  
+
   var dialogElm = document.getElementById('signin-dialog'),
   optionsErrorElm = dialogElm.getElementsByClassName('options')[0].querySelector('p:last-child');
 
@@ -79,6 +79,8 @@
     window.analytics.track('acount sign-in', {
       category: 'account',
       label: window.location.pathname
+    }, {
+      Marketo: true
     });
 
   });
@@ -87,4 +89,3 @@
 
 
 }());
-

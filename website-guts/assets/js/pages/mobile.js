@@ -4,7 +4,7 @@ function animShowSlide($parent, last) {
     if (last) {
       $(window).off('load scroll');
     }
-  } 
+  }
 }
 
 function logSegment(sEvent, category, label, value) {
@@ -20,7 +20,7 @@ function logSegment(sEvent, category, label, value) {
     }
   }
 
-  window.analytics.track(sEvent, data);
+  window.analytics.track(sEvent, data, {Marketo: true});
 }
 
 $(function() {
@@ -40,9 +40,9 @@ $(function() {
 
   //add url parameter to the sign up button
   $('.sign-up-btn').attr('href', fullUrl);
-  
+
   //create the parallax panel entry animation
-  if( !window.optly.mrkt.isMobile() ) { 
+  if( !window.optly.mrkt.isMobile() ) {
     $(window).on('load scroll', function() {
       $.each(animParents, function(index, $elm) {
         if(index === animParents.length - 1) {
@@ -70,9 +70,9 @@ $(function() {
         logSegment('input keyup', 'Mobile landing page', 'text change', inputVal);
         keyupLog += 1;
       }
-    }); 
+    });
   })();
-  
+
   //track color change for iphon button interaction
   $('#visual-change-color').on('click', '.color-btn', function(e) {
     var color = $(e.target).attr('id').replace('visual-change-', '');
@@ -83,7 +83,7 @@ $(function() {
 
   //track slider interaction
   $('.visual-slider-cont').on('click', function() {
-    var slider = $(this).attr('id'), 
+    var slider = $(this).attr('id'),
       segmentLabel;
 
     if ($(this).hasClass('a')) {
@@ -112,7 +112,7 @@ $(function() {
       logSegment('slider click', 'Mobile landing page', segmentLabel, 'a');
     }
   });
-  
+
   //track deploy button interaction
   $('#deploy-btn').on('click', function(e) {
     e.preventDefault();

@@ -198,7 +198,11 @@ window.optly_q.push([function(){
 
       label: element.getAttribute('name')
 
-    });
+    }, {
+
+			Marketo: true
+
+		});
 
   };
 
@@ -254,7 +258,9 @@ window.optly_q.push([function(){
     w.analytics.track('account signin', {
       category: 'account',
       lable: w.location.pathname
-    });
+    }, {
+			Marketo: true
+		});
 
   };
 

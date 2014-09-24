@@ -98,6 +98,8 @@ $(function(){
     window.analytics.track('webinar signup', {
       category: 'webinar',
       label: w.location.pathname
+    }, {
+      Marketo: true
     });
   }).on('validationerror', w.optly.mrkt.Oform.validationError);
 
