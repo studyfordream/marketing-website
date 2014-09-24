@@ -1,22 +1,22 @@
 <label id="name-label">
     <span>Name</span>
-    <span class="name-related error-hide">Required</span>
+    <span class="name-related error-hide error-right">Required</span>
     <input type="text" name="name" required>
 </label>
 <label>
     <span>Work email</span>
-    <span class="email-related error-hide">Required</span>
+    <span class="email-related error-hide error-right">Required</span>
     <input type="text" name="email" required>
 </label>
 <label>
     <span>Password</span>
-    <span class="password1-related error-hide" id="mobile-password1-error-message">Required</span>
-    <h5 class="password-req" id="mobile-password-req">Must use at least 8 characters and a mix of upper/lowercase letters, numbers or symbols</h5>
-    <input type="password" name="password1" id="mobile-password-1" class="password1" required>
+    <span class="password1-related error-hide error-right">Required</span>
+    <h5 class="password-req">must use at least 8 characters and a mix of upper/lowercase letters, numbers or symbols</h5>
+    <input type="password" name="password1" required>
 </label>
 <label>
     <span>Confirm password</span>
-    <span class="password2-related error-hide" id="mobile-password-2-error-message">Required</span>
+    <span class="password2-related error-hide error-right">Required</span>
     <input type="password" name="password2" required>
 </label>
 <label id="phone-label">
@@ -29,4 +29,5 @@
 <input id="hidden" type="hidden" name="hidden" value="" />
 <div class="options">
     <p>Already have an Optimizely account? <a class="show-sign-in" data-modal-click="signin">Sign in here</a></p>
+    <p class="error-message error-hide">Create Account Error</p>
 </div>

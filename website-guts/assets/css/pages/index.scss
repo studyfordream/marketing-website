@@ -4,6 +4,11 @@ body.home-page {
   #cta {
     form {display: none;}
   }
+  &.signed-in {
+    #touch-cta {
+      display: none;
+    }
+  }
   #touch-cta {
     width: 96%;
     margin: 0 auto 80px auto;
@@ -32,11 +37,18 @@ body.home-page {
 
     label span:first-of-type {
       display: block;
-      text-align: left;
+      float: left;
     }
 
-    input[type="checkbox"]{
-      display: inline-block;
+    .password-req {
+      clear: both;
+    }
+
+    input {
+      clear: both;
+      &[type="checkbox"]{
+        display: inline-block;
+      }
     }
 
     .terms, .options {margin-bottom: 30px}
