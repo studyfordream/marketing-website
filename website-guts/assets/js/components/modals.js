@@ -78,9 +78,9 @@ function closeModalHandler(e) {
       History.back();
     } else {
       //window.location.hash = '';
-      window.optly.mrkt.modal.close({ 
-        modalType: $modalCont.data('optly-modal'), 
-        track: trackClose 
+      window.optly.mrkt.modal.close({
+        modalType: $modalCont.data('optly-modal'),
+        track: trackClose
       });
     }
   }
@@ -141,6 +141,8 @@ window.optly.mrkt.modal.open = function(modalArgs) {
   window.analytics.track('modal-' + modalName + '-open', {
     category: 'modal',
     label: window.location.pathname
+  }, {
+    Marketo: true
   });
 
 };
@@ -178,6 +180,8 @@ window.optly.mrkt.modal.close = function(modalArgs) {
       window.analytics.track('modal-' + modalName + '-close', {
         category: 'modal',
         label: window.location.pathname
+      }, {
+        Marketo: true
       });
     }
 
