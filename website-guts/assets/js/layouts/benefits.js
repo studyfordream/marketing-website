@@ -24,3 +24,5 @@ window.optly.mrkt.benefitsLayout.menuOrder = function() {
 
 window.optly.mrkt.benefitsLayout.menuHandlers();
 window.optly.mrkt.benefitsLayout.menuOrder();
+
+w.optly.mrkt.Oform.initContactForm({selector: '#contact-form'});

@@ -220,7 +220,12 @@ module.exports = function(grunt) {
                 var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 if(req.method === 'POST'){
 
-                  if(req.url === '/webinar/register'){
+                  if(req.url === '/contact/form'){
+
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end( grunt.file.read('website-guts/endpoint-mocks/contactSuccess.json') );
+
+                  } else if(req.url === '/webinar/register'){
 
                     res.writeHead(200, {'Content-Type': 'application/json'});
                     res.end( grunt.file.read('website-guts/endpoint-mocks/webinarSuccess.json') );
