@@ -4,21 +4,20 @@
     <input type="text" name="name" required>
 </label>
 <label>
-    <span>Work email address</span>
+    <span>Work email</span>
     <span class="email-related error-hide">Required</span>
     <input type="text" name="email" required>
 </label>
 <label>
     <span>Password</span>
-    <h5 class="password-req">Must use at least 8 characters and a mix of upper/lowercase letters, numbers or symbols</h5>
-    <span class="password1-related error-hide">Required</span>
-    <input type="password" name="password1" data-validation="password1" class="password1" required>
+    <h5 class="password-req" id="mobile-password-req">Must use at least 8 characters and a mix of upper/lowercase letters, numbers or symbols</h5>
+    <span class="password1-related error-hide" id="mobile-password1-error-message">Required</span>
+    <input type="password" name="password1" id="mobile-password-1" class="password1" required>
 </label>
 <label>
     <span>Confirm password</span>
-    <span class="name-related error-hide">Required</span>
-    <span class="password2-related error-hide">Required</span>
-    <input type="password" name="password2" data-validation="password2" required>
+    <span class="password2-related error-hide" id="mobile-password-2-error-message">Required</span>
+    <input type="password" name="password2" required>
 </label>
 <label id="phone-label">
     <span>Phone number</span>
