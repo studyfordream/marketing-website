@@ -116,17 +116,6 @@ body.benefits-layout {
     }
   }
 
-  label[for='name'], label[for='email'] {
-    float: left;
-  }
-
-  p.field-error {
-    float: right;
-    text-align: right;
-    font-size: .8em;
-    margin: 0;
-  }
-
   .field-error, .success-show {display: none;}
 
 }
@@ -164,6 +153,16 @@ body.benefits-layout.oform-success {
       a {
         margin: 0;
       }
+    }
+    label[for='name'], label[for='email'] {
+      float: left;
+    }
+
+    p.field-error {
+      float: right;
+      text-align: right;
+      font-size: .8em;
+      margin: 0;
     }
   }
 }

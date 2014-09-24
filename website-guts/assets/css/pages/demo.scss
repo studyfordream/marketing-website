@@ -1,0 +1,26 @@
+body.demo-page {
+  .field-error, .success-show {display: none;}
+}
+
+body.demo-page.oform-error {
+  .field-error {display: block;}
+}
+
+body.demo-page.oform-success {
+  .success-show {display: block;}
+  .success-hide {display: none;}
+}
+
+@media screen and (min-width: $tablet-min-width) {
+  body.demo-page {
+    label[for='name'], label[for='email'] {
+      float: left;
+    }
+    p.field-error {
+      float: right;
+      text-align: right;
+      font-size: .8em;
+      margin: 0;
+    }
+  }
+}
