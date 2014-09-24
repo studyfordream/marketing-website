@@ -59,7 +59,20 @@ hr {
     margin: 1em 0;
     padding: 0;
 }
-
+/*
+ * Remove the blue highlighting when clicking elements
+ *
+ */
+*::selection {
+    background-color:transparent;
+}
+* {
+    user-select: none;
+    tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea, [contenteditable] {
+    user-select: auto;
+}
 /*
  * Remove the gap between images, videos, audio and canvas and the bottom of
  * their containers: h5bp.com/i/440
@@ -93,7 +106,7 @@ textarea {
 
 ul {
   margin: 5px 0;
-  padding: 0;
+  padding: 0 0 0 1em;
 }
 
 /* ==========================================================================
@@ -118,13 +131,13 @@ ul {
    */
    body.signed-out {
         .signed-in-content {
-            display: none;
+            display: none!important;
         }
     }
 
     body.signed-in {
         .signed-out-content {
-            display: none;
+            display: none!important;
         }
     }
 
@@ -132,6 +145,9 @@ ul {
         font-family: $body-font-family;
         text-align: center;
         position: relative;
+    }
+    li {
+      text-align: left;
     }
 
     .logo {
@@ -162,6 +178,11 @@ ul {
             margin: .3em 0 0 0;
         }
     }
+    #page-header, .ugc h2, .ugc h3, .ugc h4, .ugc h5 {
+      br {
+        display: none;
+      }
+    }
     .sub-header-nav {
       padding: 0;
       li {
@@ -173,7 +194,10 @@ ul {
         text-align: center;
         font-weight: normal;
         &.active {
-          display: none;
+          display: block;
+          &:hover {
+            text-decoration: none;
+          }
         }
         &.current {
           color: $dark-blue;
@@ -208,6 +232,9 @@ ul {
         p, li {
             font-size: 1.1em;
         }
+        li {
+          list-style: none;
+        }
         p {
             line-height: 1.7;
             text-align: left;
@@ -218,7 +245,7 @@ ul {
         }
         li {margin-bottom: 7px;}
         h2, h3, h4, h5 {
-          font-weight: 400;
+          font-weight: 100;
           font-family: $gotham-small-type;
         }
         p, li {
@@ -271,12 +298,21 @@ ul {
     */
     #page-content {background: $page-content-color;}
     #page-header-gradient {background-color: #f4f4f4;}
+    #page-header, .ugc h2, .ugc h3, .ugc h4, .ugc h5 {
+      br {
+        display: block;
+      }
+    }
     .ugc {
         ul {
           margin-left: 20px;
         }
         p, li {
             font-size: .9em;
+        }
+        li {
+          list-style: disc;
+          text-align: left;
         }
         h2, h3, h3, h4, h5 {
             text-align: left;

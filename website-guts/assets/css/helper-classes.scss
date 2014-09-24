@@ -8,6 +8,25 @@
 	}
 }
 
+.required {
+	&:after {
+		content: " *";
+    color: rgb(255, 0, 0);
+    display: inline;
+		height: auto;
+		width: auto;
+	}
+}
+
+.show-hide {
+	&.tablet {
+		display: none;
+	}
+	&.desktop {
+		display: none;
+	}
+}
+
 // Tests is vh CSS property is supported
 #vh-test {
 	position: fixed;
@@ -150,7 +169,7 @@
 	}
 }
 
-.error-show {
+p.error-show {
 	color: #911d16;
 	font-weight: 400;
 }
@@ -372,10 +391,15 @@ body .small-note, body p.small-note {
 	display: none;
 }
 
-input[type="text"], input[type="url"], input[type="email"], input[type="tel"] {
-	&.error-show {
-		background-color: #fef3f3;
-		border-color: #f3b6b3;
+body.oform-error {
+	input[type="text"], input[type="url"], input[type="email"], input[type="tel"],  input[type="password"]{
+		transition: background-color 0.1s linear;
+	  &.oform-error-show,
+	  &.error-show {
+			background-color: #fef3f3;
+			border-color: #f3b6b3;
+			color: #242424;
+		}
 	}
 }
 
@@ -384,8 +408,63 @@ input[type="text"], input[type="url"], input[type="email"], input[type="tel"] {
 	text-transform: lowercase;
 }
 
+.pull-quote {
+	font-size: 1.81em;
+	font-weight: 300;
+	line-height: 1.2;
+}
+
 //classes for processing and error states on forms
 
-.processing-hide, .error-hide {display: none;}
+.processing-hide,
+.error-hide {
+  transition: all 0.1s linear;
+  opacity: 0;
+  font-size: 11px;
+}
 
-body.processing-state .processing-show, body.error-state .error-show {display: block;}
+body {
+  .processing-state {
+    input {
+      background-color: rgba(233, 233, 233, 0.6);
+    }
+    .processing-show {
+
+    }
+  }
+}
+body.error-state,
+body.oform-error {
+  .oform-error-show,
+  .error-show {
+    opacity: 1;
+    color: #911d16;
+  }
+}
+
+.error-right {
+  float: right;
+}
+
+@media screen and (min-width: 769px) {
+	.show-hide {
+		&.mobile {
+			display: none;
+		}
+		&.tablet {
+			&.inline {
+				display: inline;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: $desktop-min-width) {
+	.show-hide {
+		&.desktop {
+			&.inline {
+				display: inline;
+			}
+		}
+	}
+}

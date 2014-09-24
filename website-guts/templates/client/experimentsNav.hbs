@@ -1,9 +1,9 @@
 <li class="first">
   <a href="https://www.optimizely.com/dashboard?project_id={{account_id}}">Dashboard</a>
 </li>
-<li id="experiment-nav-item" class="hide-in-mobile" data-show-user-state="logged-in">
-    <a href="" class="dropdown-arrow" data-dropdown="experiments">Experiments</a>
-    <ul class="dropdown-menu-top" data-show-dropdown="experiments">
+<li id="experiment-nav-item" class="hide-in-mobile " data-show-user-state="logged-in">
+    <a href="" class="dropdown-arrow experiments" data-dropdown="experiments">Experiments</a>
+    <ul class="dropdown-menu-top{{#unless experiments}} no-exp{{/unless}}" data-show-dropdown="experiments">
       <div class="message"></div>
       {{#each experiments}}
         <span class="experiment-container hide-in-mobile">
@@ -14,7 +14,6 @@
               >
               <span class="experiment-description">{{description}}</span>
             </a>
-            
             <a class="experiment-results" 
               {{#if can_edit}}href="https://www.optimizely.com/edit?experiment_id={{id}}"{{/if}}
               {{#unless has_started}}style="display: none;"{{/unless}}
@@ -26,29 +25,34 @@
           </li>
         </span>
       {{/each}}
+      {{#unless experiments}}
+      <span class="no-experiments">There Are No<br>Experiments</span>
+      {{/unless}}
       <li class="view-all-experiments hide-in-mobile" data-show="dashboard-link">
-        <a id="view-all-experiments-link" href="https://www.optimizely.com/dashboard?project_id={{account_id}}">
+        <a id="view-all-experiments-link" href="/dashboard">
+          <span class="view-all-icon"></span>
           <span>View All Experiments</span>
         </a>
       </li>
+      {{#if showCreateLink}}
       <li class="show-create-experiment hide-in-mobile" data-modal-click="create-exp">
-        <span>+ </span><a >Create New Experiment</a>
+        <a>Create New Experiment</a>
       </li>
+      {{/if}}
     </ul>
 </li>
 <li>
   <a href="https://help.optimizely.com/hc/en-us">Support</a>
 </li>
-<li id="my-account-menu">
-      <a class="customer-email dropdown-arrow" data-dropdown="account">
-        <span id="email-wrapper">{{email}}</span>
-      </a>
-    <ul id="account-dropdown" class="dropdown-menu-top" data-show-dropdown="account">
-        <li class="hide-in-mobile">
-          <a href="https://www.optimizely.com/account">Account Setting</a>
-        </li>
-        <li>
-          <a data-logout >Log Out</a>
-        </li>
-    </ul>
+<li id="my-account-menu" class="{{#if admin}}admin{{/if}}">
+  <a id="desktop-email-nav" class="dropdown-arrow customer-email" data-dropdown="account" href="#">{{email.desktop}}</a>
+  <a id="mobile-email-nav" class="customer-email" href="/account">{{email.mobile}}</a>
+  <ul id="account-dropdown" class="dropdown-menu-top" data-show-dropdown="account">
+      <li class="hide-in-mobile">
+        <a href="https://www.optimizely.com/account">Account Setting</a>
+      </li>
+      <li>
+        <a data-logout>Log Out</a>
+      </li>
+   </ul>
 </li>

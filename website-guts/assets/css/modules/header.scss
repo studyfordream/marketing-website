@@ -1,5 +1,17 @@
 header {
     background: #052f60;
+    .utility-nav {
+      margin: 0;
+      li {
+        text-align: right;
+        & > a {
+          display: inline-block;
+        }
+        ul {
+          padding-left: 0;
+        }
+      }
+    }
 }
 .nav {
     padding: 0;
@@ -18,7 +30,10 @@ header {
         background: #052f60;
     }
     header {
-        padding-bottom: 10px;
+        position: relative;
+        .container {
+          @extend .clearfix;
+        }
         nav {
             text-align: left;
             position: absolute;
@@ -38,7 +53,11 @@ header {
             background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
         }
         .logo-cont {
-            margin: -36px auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
             .logo {
                 background-size: 130px 28px;
                 width: 130px;
@@ -57,20 +76,21 @@ header {
         transform: translate(0);
         transition: transform .2s;
     }
+    .mobile-nav-toggle,
+    .user-nav-toggle {
+      cursor: pointer;
+    }
+    .mobile-nav-toggle {
+      float: left;
+      padding: 10px 0;
+    }
     #nav-menu {
         color: #fff;
-        text-decoration: none;
         font-size: .8em;
-        line-height: .8em;
-        display: block;
+        line-height: .9em;
         font-weight: 100;
         text-transform: uppercase;
-        float: left;
-        margin: 20px 0 0 5px;
-        padding: 9px 5px 7px 5px;
-        /*width: 35px;*/
-        background-size: 35px 35px;
-        /*background: image-url('menu.svg') center center no-repeat;*/
+        padding: 9px 5px;
         text-align: center;
         border: 1px solid #fff;
         border-radius: 3px;
@@ -118,6 +138,7 @@ header {
         top: 17px;
         transform: translate(0);
         transition: transform 50ms;
+        cursor: pointer;
     }
     #main-nav > li.active p:after {
         transform: rotate(90deg);
@@ -128,17 +149,12 @@ header {
         }
     }
     #user-nav-cont {
-        display: block;
-        height: 35px;
-        width: 35px;
         float: right;
-        margin: 0;
-        text-align: right;
-        padding: 22px 10px 0 10px;
+        padding: 10px 0;
     }
     #user-icon {
-        height: 25px;
-        width: 25px;
+        height: 31px;
+        width: 31px;
     }
     #user-icon-path {
         fill: #fff;
@@ -180,11 +196,7 @@ header {
 
     body.compact-header {
       header {
-        padding: 5px 0;
-        .logo-cont {
-          padding: 0;
-          margin: 10px auto;
-        }
+        height: 51px;
       }
     }
 }
@@ -193,7 +205,8 @@ header {
   .container {
       position: relative;
   }
-  #nav-menu, #user-nav-cont {
+  #nav-menu,
+  #user-nav-cont {
       display: none;
   }
   header {
@@ -209,11 +222,14 @@ header {
           display: none;
           background: linear-gradient(to bottom, #00558d 0%,#006eb6 15%,#006eb6 100%);
       }
-      background:
-          image-url('bg-top-header.png') repeat-x,
-          image-url('bg-header.png');
   }
-  #top-nav-cont {border-bottom: 1px solid #104682;}
+  #top-nav-cont {
+    background: image-url('bg-top-header.png') repeat;
+    border-bottom: 1px solid #104682;
+  }
+  #main-nav-cont {
+    background: image-url('bg-header.png') repeat;
+  }
   .logo-cont {
       position: absolute;
       left: 0;
@@ -221,12 +237,14 @@ header {
   }
   .utility-nav {
       margin: 0;
-      li {cursor: pointer;}
+      li {
+        cursor: pointer;
+        text-align: left;
+      }
       a {
           font-size: .8em;
           font-weight: normal;
           padding: 12px;
-          display: block;
       }
       a:hover {
           background: $nav-hover-color;
@@ -252,7 +270,7 @@ header {
               top: 50px;
               z-index: 5;
               max-height: auto!important;
-              min-width: 210px;
+              min-width: 245px;
               text-align: left;
               padding: 10px 0;
               z-index: 20;
@@ -260,11 +278,11 @@ header {
                   width: 100%;
               }
               a {
-                  padding: 0.4em 1.5em;
+                  padding: 0.2em 1.5em;
                   width: 100%;
                   display: block;
                   box-sizing: border-box;
-                  font-size: .8em;
+                  font-size: .9em;
                   font-weight: 300;
               }
               a:hover {
@@ -280,6 +298,7 @@ header {
   body.compact-header {
     header {
       background: #006eb6;
+      height: auto;
       .logo-cont {
         float: left;
         position: static;

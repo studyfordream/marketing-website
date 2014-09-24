@@ -1,7 +1,7 @@
 ---
 layout: faq.hbs
 visible_title: FAQ
-body_class: 
+body_class:
 - faq-page
 page_script:
 - faq.js
@@ -27,7 +27,7 @@ page_script:
                 <a class="question">What amount of technical expertise is required to use Optimizely?</a>
                 <div class="answer">
                     <p>Minimal technical expertise is necessary to use Optimizely.  We have built a what-you-see-is-what-you-get editor for making A/B tests.  Simply load your website in the editor, click on an element, and make your changes.  You can even<a href="https://www.optimizely.com/edit#url=www.google.com"> try the editor for yourself</a>.</p>
-                    <p>For power users, we also provide the ability to write custom variation code with JavaScript. For more information, see <a href="https://help.optimizely.com/hc/en-us/articles/200039835"> this knowledge base article </a>.</p>
+                    <p>For power users, we also provide the ability to write custom variation code with JavaScript. For more information, see <a href="https://help.optimizely.com/hc/en-us/articles/200039835"> this knowledge base article</a>.</p>
                 </div>
             </div>
 
@@ -43,7 +43,7 @@ page_script:
             <div class="item">
                 <a class="question">Can I integrate Optimizely with a third party analytics service such as Omniture SiteCatalyst or Google Analytics?</a>
                 <div class="answer">
-                    <p>Yes, Optimizely can be integrated with third party analytics services such as Google Analytics and Adobe Omniture SiteCatalyst.  Additionally, with the API, Optimizely can be integrated with just about any analytics service or homegrown data store.  For more information see <a href="https://help.optimizely.com/hc/en-us/articles/200040015">"How can I integrate Optimizely with the analytics service of my choice?</a></p>
+                    <p>Yes, Optimizely can be integrated with third party analytics services such as Google Analytics and Adobe Omniture SiteCatalyst.  Additionally, with the API, Optimizely can be integrated with just about any analytics service or homegrown data store.  For more information see <a href="https://help.optimizely.com/hc/en-us/articles/200040015">"How can I integrate Optimizely with the analytics service of my choice?"</a></p>
                 </div>
             </div>
 
@@ -51,7 +51,7 @@ page_script:
                 <a class="question">What impact will Optimizely have on my page load time?</a>
                 <div class="answer">
                     <p>Optimizely was built with speed and reliability as a primary concern. It takes approximately 100 ms to load, and should not noticeably impact your page load times.  Here are some of the ways Optimizely is built for speed:</p>
-                    <p>- Your Optimizely script is completely static, and is delivered through a content delivery network. The first load should take approximately 100 ms</p>
+                    <p>- Your Optimizely script is completely static, and is delivered through a content delivery network. The first load should take approximately 100 ms.</p>
                     <p>- Because your Optimizely script is static, it is cached for your visitors after the first request. This means that your visitors will not load the script more than the first time, until you make changes to your experiment.</p>
                     <p>- Your Optimizely script is small, typically weighing between 25kb and 35kb, depending on the number of experiments you are running.</p>
                     <p>For more information, see <a href="https://help.optimizely.com/hc/en-us/articles/200040395">"How will Optimizely affect my page load times?"</a></p>
@@ -68,7 +68,7 @@ page_script:
             <div class="item">
                 <a class="question">Does Optimizely support multivariate testing or is it just for A/B testing?</a>
                 <div class="answer">
-                    <p>Optimizely supports multivariate testing at the Gold and Platinum plans. Additionally, there is no limit on the number of A/B tests you can run concurrently. For more information on how to run a <a href="{{linkPath}}/resources/multivariate-test-vs-ab-test">multivariate test</a>, see <a href="https://help.optimizely.com/hc/en-us/articles/200040135">"How can I create a multivariate test?"</a>.</p>
+                    <p>Optimizely supports multivariate testing at the Gold and Platinum plans. Additionally, there is no limit on the number of A/B tests you can run concurrently. For more information on how to run a <a href="{{linkPath}}/resources/multivariate-test-vs-ab-test">multivariate test</a>, see <a href="https://help.optimizely.com/hc/en-us/articles/200040135">"How can I create a multivariate test?"</a></p>
                 </div>
             </div>
 
@@ -76,7 +76,7 @@ page_script:
                 <a class="question">How does Optimizely's tracking work?</a>
                 <div class="answer">
                     <p>Optimizely uses both first and third party cookies to uniquely identify visitors. When a new visitor comes to a page with an experiment, they get bucketed into
-                    one of the active variations.  Each time a visitor takes an action that you are tracking, a tracking beacon is set to Optimizely.  We then log the event data.  This data is statistically interpreted and presented to you on the results page. Individual users can opt out of Optimizely for your domain at the <a href="{{linkPath}}/opt_out">opt out</a> page.
+                    one of the active variations.  Each time a visitor takes an action that you are tracking, a tracking beacon is sent to Optimizely.  We then log the event data.  This data is statistically interpreted and presented to you on the results page. Individual users can opt out of Optimizely for your domain at the <a href="{{linkPath}}/opt-out">opt out</a> page.
                     </p>
                 </div>
             </div>
@@ -92,7 +92,7 @@ page_script:
             <div class="item">
                 <a class="question">I have millions of page views per month. Can Optimizely handle my load?</a>
                 <div class="answer">
-                    <p>A number of our customers have millions of page views per month, and we are able to handle their load.  Since the Optimizely script is hosted on Akamai, a global content delivery network (CDN), we can scale very well for delivery of the snippet.  The tracking calls are made asynchronously to our tracking servers on Amazon EC2, where we also have the ability to scale capacity seamlesslessly with usage.</p>
+                    <p>A number of our customers have millions of page views per month, and we are able to handle their load.  Since the Optimizely script is hosted on Akamai, a global content delivery network (CDN), we can scale very well for delivery of the snippet.  The tracking calls are made asynchronously to our tracking servers on Amazon EC2, where we also have the ability to scale capacity seamlessly with usage.</p>
                 </div>
             </div>
 
@@ -102,6 +102,11 @@ page_script:
                     <p>During the first month, you are in a free trial and will not be billed. If you no longer wish to use Optimizely, you can cancel your account at any time. At that point, your subscription will last until the end of the current monthly billing cycle, and you will not be billed for future months.</p>
                 </div>
             </div>
+        </div>
+
+        <div class="shadow-cta">
+          <h4>Learn more about Optimizely</h4>
+          <a href="https://help.optimizely.com/hc/en-us" target="_blank" class="primary-button">Visit the Knowledge Base</a>
         </div>
     </div>
 </div>

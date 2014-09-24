@@ -9,12 +9,18 @@ page_script: jobs.js
     <div class="row">
         {{#if jobs.benefits.header}}<h2 class="heading center a-center blue">{{jobs.benefits.header}}</h2>{{/if}}
         {{#if jobs.benefits.list}}
-        <ul class="list-unstyled">
+        <ul id="jobs-icons" class="list-unstyled">
           {{#each jobs.benefits.list}}
-          <li id="{{id}}">
+          {{#classgridstart @index 2}}
+          <div class="row">
+          {{/classgridstart}}
+          <li id="{{id}}" class="columns five {{#is_odd @index}}offset-two{{/is_odd}}">
             <h6>{{header}}</h6>
             <p>{{body}}</p>
           </li>
+          {{#classgridfinish @index @last 2}}
+          </div>
+          {{/classgridfinish}}
           {{/each}}
         </ul>
         {{/if}}
@@ -25,12 +31,12 @@ page_script: jobs.js
     <div class="container">
         <h4 class="a-center quotes">
             {{#each jobs.employee_testimonials}}
-            <q>{{quote}}</q>
+            <q {{#isnt @index 0}}class="hide"{{/isnt}}>{{quote}}</q>
             {{/each}}
         </h4>
         <ul class="employee-icons">
             {{#each jobs.employee_testimonials}}
-            <li>
+            <li {{#isnt @index 0}}class="opaque"{{/isnt}}>
                 <a href="#">
                     <img src="{{image}}">
                     <h5 class="name">{{name}}</h5>

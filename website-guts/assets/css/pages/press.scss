@@ -1,15 +1,36 @@
 body.press-page {
 	text-align: center;
+	.sheet {
+		overflow: hidden
+	}
 	#press-intro {
 		margin-bottom: 30px;
+	}
+	.show-more,
+	.hide-more {
+		width: 100%;
+	}
+	.hide-more {
+		display: none;
 	}
 	h3 {
 		@extend .heading-underline;
 	}
 	.press-feed-item {
+		&.enter,
+		&.leave,
+		&.anim-enter,
+		&.anim-leave {
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			-webkit-perspective: 1000;
+		}
+		$propterties: opacity 1 0;
+		$transition: all 0.1s linear;
 		margin-bottom: 60px;
 		background-position: top center;
 		background-repeat: no-repeat;
+		@include optly--animate($propterties, $transition);
 		img {
 			width: 40%;
 			display: block;
@@ -78,13 +99,14 @@ body.press-page {
 			text-transform: uppercase;
 		}
 		#follow-latest {
+			margin-top: 60px;
 			text-align: center;
 			li {
 				display: inline-block;
 				border-right: 1px solid #242424;
-				padding: 0 4px;
+				padding: 0 10px 0 4px;
 			}
-			li.last {
+			li:last-child {
 				border-right: 0;
 			}
 		}

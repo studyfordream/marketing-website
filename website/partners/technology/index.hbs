@@ -1,0 +1,43 @@
+---
+layout: page.hbs
+seo_title: "Technology Partners"
+visible_title: "Technology Partners"
+sub_head: ""
+body_class:
+- "integrations-solutions"
+---
+<div class="columns twelve">
+
+  <div class="row">
+    <div class="columns seven">
+      <p>{{{technology_data.page_intro}}}</p>
+    </div>
+    <div class="columns five learn-more">
+      {{{technology_data.dev_link_intro}}}
+      <a class="big" href="{{technology_data.dev_link_url}}">{{{technology_data.dev_link_text}}} &gt;</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="integrations-container">
+      <div class="row partner-grid">
+        {{#integrations}}
+          {{#each pages}}
+            <div class="partner-grid-elm" data-priority="{{data.priority}}">
+              <div class="title-container">
+                <h4 class="partner-title"><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></h4>
+              </div> <!-- .title-container -->
+              <div class="partner-inner-content">
+                <a href="{{relative ../../page.dest this.dest}}" class="partner-logos" style="background-image: url('{{data.logo}}');"></a>
+                <p>{{ data.summary }}</p>
+              </div>
+              <div class="button-container">
+                <a href="{{relative ../../page.dest this.dest}}" class="button">{{{../../technology_data.more}}} &gt;</a>
+              </div>
+            </div> <!-- .partner-grid-elm -->
+          {{/each}}
+        {{/integrations}}
+      </div><!-- .partner-grid -->
+    </div> <!-- .integrations-container -->
+  </div>
+</div>

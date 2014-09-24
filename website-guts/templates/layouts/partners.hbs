@@ -3,17 +3,17 @@ layout: wrapper.hbs
 layout_script: false
 layout_body_class:
 - integrations-solutions
-sub_head: World-class service providers. Empowered customers. Lasting results.
 ---
 <div id="main">
   <div id="page-header">
     <div class="container">
       {{#if page.data.solutions }}
-        <h1>{{partners.solutions.page_heading}}</h1>
+        <h1>{{solutions_data.page_heading}}</h1>
+        {{#if solutions_data.sub_head}}<p>{{solutions_data.sub_head}}</p>{{/if}}
       {{else}}
-        <h1>{{partners.integrations.page_heading}}</h1>
+        <h1>{{technology_data.page_heading}}</h1>
+        {{#if technology_data.sub_head}}<p>{{technology_data.sub_head}}</p>{{/if}}
       {{/if}}
-      {{#if sub_head}}<p>{{sub_head}}</p>{{/if}}
     </div><!--/.container-->
   </div><!--/#page-header-->
   <div id="page-header-gradient"></div>
@@ -24,9 +24,9 @@ sub_head: World-class service providers. Empowered customers. Lasting results.
           <div class="columns four">
             <div class="partners-back">
               {{#if page.data.solutions }}
-                <a href="{{linkPath}}/partners/solutions">&lt; {{{partners.solutions.see_all}}}</a>
+                <a href="{{linkPath}}/partners/solutions/">&lt; {{{solutions_data.see_all}}}</a>
               {{else}}
-                <a href="{{linkPath}}/partners/integrations">&lt; {{{partners.integrations.see_all}}}</a>
+                <a href="{{linkPath}}/partners/technology/">&lt; {{{technology_data.see_all}}}</a>
               {{/if}}
             </div>
 
@@ -49,12 +49,15 @@ sub_head: World-class service providers. Empowered customers. Lasting results.
                   </p>
                 </div>
               {{/each}}
+              {{#if page.data.contact}}
+                {{breaklines page.data.contact}}
+              {{/if}}
             </div>
 
             {{#if page.data.languages}}
               <div class="partners-languages">
                 <p>
-                  <strong>{{{partners.languages}}}</strong> <br />
+                  <strong>{{{solutions_data.languages}}}</strong> <br />
                   {{#eachNoTrailing page.data.languages ", "}}{{.}}, {{/eachNoTrailing}}
                 </p>
               </div>
@@ -66,7 +69,7 @@ sub_head: World-class service providers. Empowered customers. Lasting results.
             <div class="level">
               {{#if page.data.solutions }}
                 {{#if stars}}
-                  <div class="level-heading">{{{partners.solutions.filter.stars}}}: <span class="tooltip-hover" data-content="lorem ipsum dolor">?</span></div>
+                  <div class="level-heading">{{{solutions_data.filter.stars}}}: <span data-tooltip title="{{{solutions_data.partner_tooltip}}}"></span></div>
                   <div class="star-cont {{#if stars}}star-cont--{{stars}}{{/if}} star-left"></div>
                 {{/if}}
               {{/if}}
@@ -84,7 +87,7 @@ sub_head: World-class service providers. Empowered customers. Lasting results.
 
             {{#if kb_article}}
             <a class="button" href="{{kb_article}}">
-              {{{partners.solutions.kb_article}}}
+              {{{solutions_data.kb_article}}}
             </a>
             {{/if}}
           </div>

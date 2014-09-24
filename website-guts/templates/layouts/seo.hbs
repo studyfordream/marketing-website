@@ -1,12 +1,13 @@
 ---
-layout: wrapper_compiled.hbs
+layout: wrapper.hbs
 layout_script: false
-layout_body_class: false
+layout_body_class: 
+- seo
 ---
 <div id="main">
   <div id="page-header">
     <div class="container">
-      <h1>{{page.visible_title}}</h1>
+      <h1>{{{page.visible_title}}}</h1>
       {{#if page.sub_head}}<p>{{page.sub_head}}</p>{{/if}}
     </div><!--/.container-->
   </div><!--/#page-header-->
@@ -20,8 +21,9 @@ layout_body_class: false
       </div>
       <div class="row">
         <div class="columns twelve">
-          <div class="attention a-center">
-            <h5>Start using Optimizely to test your website today!  <a href="/pricing" class="primary-button">View Plans &amp; Pricing</a></h5>
+          <div class="shadow-cta">
+            <h4>Start using Optimizely to test your website today!</h4>
+            <a href="{{linkPath}}/pricing" class="primary-button">View Plans &amp; Pricing</a>
           </div>
         </div>
       </div>

@@ -1,0 +1,169 @@
+body.trial-form-layout {
+  #ppc-form {
+    h4 {
+      text-align: center;
+    }
+  }
+
+  #seo-form {
+    li {
+      margin-bottom: 0;
+      &.terms {
+        text-align: center;
+      }
+    }
+    input {
+      margin-bottom: 10px;
+      text-align: center;
+      &.button {
+        margin-top: 10px;
+      }
+    }
+    .oform-error-message, .oform-processing-show {
+      display: none;
+    }
+  }
+
+  .social-numbers {margin: 0 auto;}
+
+  .social-number {
+    font-family: $condensed-sans-serif;
+    font-size: 2.1em;
+    font-style: normal;
+    font-weight: 400;
+    color: #036;
+  }
+
+  .description {
+    font-family: $body-font-family;
+    font-size: .8em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #036;
+  }
+
+  #social-proof-cont {
+    padding-top: 20px;
+  }
+
+  .social-numbers {
+    background: image-url('ppc/free-trial-sprite-adjusted-2.png') no-repeat;
+    padding: 0 0 0 80px;
+    width: 220px;
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .visitors-tested-cont {
+    background-position: 0 13px;
+  }
+
+  .experiments-run-cont {
+    background-position: -735px 13px;
+  }
+
+  .seo-customers {
+    .row {
+      margin: 60px 0;
+    }
+    br {
+      display: none;
+    }
+    h4 {
+      margin: 0 0 40px 0;
+    }
+  }
+
+  @media only screen and (min-width: $tablet-min-width) {
+
+    #ppc-form {
+      width: 400px;
+      margin: 0 auto;
+      h4,
+      p:first-child {margin-top: 0;}
+      #submit {width: 200px;}
+    }
+
+    #seo-form {
+      input {
+        text-align: left;
+        &.button {
+          text-align: center;
+        }
+      }
+    }
+
+    .hero-left-cont {
+      padding-top: 50px;
+    }
+
+  }
+
+  @media only screen and (min-width: $desktop-min-width) {
+
+    .hero-left-cont {
+      padding-top: 0;
+    }
+
+    #social-proof-cont {
+      .social-numbers {
+        width: 50%;
+      }
+      margin: 0 auto 50px auto;
+      @extend .clearfix;
+      .visitors-tested-cont {
+        float: left;
+      }
+
+      .experiments-run-cont {
+        float: right;
+      }
+    }
+
+    #social-proof-cont {
+      width: 100%;
+    }
+
+    .ppc-form-cont {
+      width: 400px;
+      float: right;
+    }
+
+    #ppc-form {
+      width: auto;
+    }
+
+    #seo-form {
+      li {
+        &.terms {
+          text-align: left;
+        }
+      }
+    }
+
+    .seo-customers {
+      * {
+        text-align: left;
+      }
+      h4 {
+        margin: 0;
+      }
+      br {
+        display: block;
+      }
+    }
+  }
+}
+body.trial-form-layout.oform-error {
+  #seo-form {
+    .oform-error-message {display: block;}
+  }
+}
+body.trial-form-layout.oform-processing {
+  #seo-form {
+    .oform-processing-show {display: block;}
+    .oform-processing-hide {display: none;}
+  }
+}

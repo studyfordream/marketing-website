@@ -1,6 +1,6 @@
 ---
 layout: customers.hbs
-seo_title: "Optimizely: Customer Stories"
+seo_title: "Customer Stories"
 visible_title: "Customer Stories"
 no_container: true
 subnav_first: "customers"
@@ -11,7 +11,7 @@ body_class:
 ---
 <div id="customer-stories-content">
   <div class="container">
-    <div class="row top-content">
+    <div class="row top-content SL_swap" id="featured-customer-story">
       {{#if customer_stories_data.featured_video}}
         <div class="columns two-thirds">
           <div class="video-container">
@@ -28,8 +28,8 @@ body_class:
   <div class="case-studies-bg-container">
     <div class="case-studies-container container">
       {{#each customer_stories_data.customer_stories}}
-        {{#classgridstart @index}}
-          <div class="row">
+        {{#classgridstart @index 3}}
+          <div class="row stories">
         {{/classgridstart}}
             <div class="columns one-third customer-grid-elm">
               <div class="title-container">
@@ -43,7 +43,7 @@ body_class:
                 </div>
               </div>
             </div> <!-- .customer-grid-elm -->
-        {{#classgridfinish @index @last}}
+        {{#classgridfinish @index @last 3}}
           </div>
         {{/classgridfinish}}
       {{/each}}

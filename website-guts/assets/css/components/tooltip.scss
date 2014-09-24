@@ -1,45 +1,105 @@
-// TODO(imjared): switch to @dtothefp's new tooltip compon
-// creates a snazzy tooltip for use on your favorite questionable element
-// example: <span class="tooltip-hover" data-content="tooltip content here">?</span>
-// screenshot: https://cloud.githubusercontent.com/assets/525011/3952583/c459c2c0-26e3-11e4-8dea-38fe3e6133e3.png
+$property: opacity 1 0;
+$transition: opacity 0.1s linear;
 
-.tooltip-hover {
-  background: #a9a9a9;
-  border-radius: 100%;
-  color: #fff;
+[data-tooltip] {
+  cursor: pointer;
   display: inline-block;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin: 0 5px;
   position: relative;
-  text-align: center;
-  &:hover {
+  text-indent: -9999px;
+  z-index: 9999;
+  line-height: 1.6em;
+  &:before {
+    content: "";
+    opacity: 0.7;
+    background: image-url('buttons.png') no-repeat -24px 0;
+    display: block;
+    height: 100%;
+  }
+}
+
+[data-tooltip ~= "custom"] {
+  width: auto;
+  height: auto;
+  text-indent: 0;
+  vertical-align: baseline;
+  &:before {
+    content: "";
+    background: none;
+  }
+}
+
+[data-tooltip-dialog] {
+    text-align: center;
+    color: #fff;
+    background: #000;
+    position: absolute;
+    width: 40vh;
+    opacity: 1;
+    z-index: 100;
+    padding: 15px;
+    border-radius: 5px;
+    text-indent: 0;
+    @include optly--animate($property, $transition);
+  &:after {
+    width: 0;
+    height: 0;
+    content: '';
+    position: absolute;
+    border-bottom: none;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #000;
+    left: 50%;
+    bottom: -5px;
+    margin: 0 0 0 -5px;
+  }
+  &.top-tip {
     &:after {
-      background: #222;
-      box-sizing: border-box;
-      box-shadow: 0 0 5px rgba(0,0,0,0.3);
-      color: #fff;
-      content: attr(data-content);
-      font-size: 12px;
-      height: 25px;
-      left: -25px;
-      line-height: 25px;
-      padding: 0 10px;
-      position: absolute;
-      border-radius: $pill-radius;
-      text-shadow: 0 0 5px #000;
-      text-align: center;
-      top: -30px;
-      white-space: nowrap;
-      z-index: 10;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #000;
+      border-top: none;
+      top: -5px;
+      left: 50%;
+      margin: 0 0 0 -5px;
+      bottom: auto;
+      right: auto;
     }
-    &:before {
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-      content: '';
-      position: absolute;
-      background-color: #222;
-      height: 15px;
-      width: 15px;
-      top: -15px;
-      left: 0;
-      transform: rotate(-45deg);
+  }
+  &.left-tip {
+    &:after {
+      border-left: none;
+      border-right: 5px solid #000;
+      border-bottom: 5px solid transparent;
+      border-top: 5px solid transparent;
+      top: 50%;
+      margin: -5px 0 0 0;
+      left: -5px;
+      right: auto;
+      bottom: auto;
     }
+  }
+  &.right-tip {
+    &:after {
+      border-left: 5px solid #000;
+      border-right: none;
+      border-bottom: 5px solid transparent;
+      border-top: 5px solid transparent;
+      top: 50%;
+      margin: -5px 0 0 0;
+      right: -5px;
+      left: auto;
+      bottom: auto;
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  [data-tooltip-dialog] {
+    width: 250px;
   }
 }

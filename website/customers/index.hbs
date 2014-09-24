@@ -3,6 +3,7 @@ layout: page.hbs
 seo_title: Customers
 visible_title: "Over 6,000 Happy Customers"
 sub_head: Find out who's testing with Optimizely right now
+page_script: customers.js
 body_class:
 - customers-page
 ---
@@ -86,3 +87,24 @@ body_class:
         </div>
     </div>
 </div>
+<div class="testimonials-container">
+  <ul>
+    {{#each customers.slides}}
+    <li {{#isnt @index 0}}class="optly-hide"{{/isnt}}data-slides={{@index}}>
+      <q>{{header}}</q>
+      <div class="logo-border">
+        <img src="{{../assetsDir}}{{logo}}" alt="Customer Quote Logos">
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+  <div class="button-container">
+    <div class="slider-button" data-slider-nav="anim-left">
+      <div class="arrow"></div>
+    </div>
+    <div class="slider-button" data-slider-nav="anim-right">
+      <div class="arrow"></div>
+    </div>
+  </div>
+ </div>
+

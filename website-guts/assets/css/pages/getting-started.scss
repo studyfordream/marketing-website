@@ -10,7 +10,14 @@ body.getting-started {
 
         li {
             margin-bottom: 20px;
+            .columns {
+                &:last-child {
+                    margin: 0;
+                    padding: 0 0 0 2.128%;
+                }
+            }
         }
+
     }
 
     .nextLink {
@@ -19,6 +26,20 @@ body.getting-started {
 
     .controls {
         display: none;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+    body.getting-started { 
+        h3,
+        h4 {
+            margin-top: 0;
+        }
     }
 }
 
@@ -33,7 +54,7 @@ body.getting-started {
 
         .controls {
             display: block;
-            background: image-url('gettingstarted/tracking-bg.png') no-repeat 50% 50%;
+            background: image-url('gettingstarted/tracking-bg.png') no-repeat 42% 50%;
             margin-bottom: 20px;
 
             a {
@@ -77,6 +98,14 @@ body.getting-started {
                     margin-left: 44px;
                 }
             }
+        }
+
+        .container {
+            padding: 0;
+        }
+
+        img {
+            display: inline;
         }
 
         .slider {

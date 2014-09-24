@@ -1,12 +1,3 @@
-/*
- * Generated on 2014-03-26
- * generator-assemble v0.4.11
- * https://github.com/assemble/generator-assemble
- *
- * Copyright (c) 2014 Hariadi Hinta
- * Licensed under the MIT license.
- */
-
 'use strict';
 
 // # Globbing
@@ -14,6 +5,28 @@
 // '<%= config.src %>/templates/pages/{,*/}*.hbs'
 // use this if you want to match all subfolders:
 // '<%= config.src %>/templates/pages/**/*.hbs'
+var bodyParser = require('body-parser');
+
+var checkComplexPassword = function(password) {
+  var CHAR_LOWERS = /[a-z]/,
+    CHAR_UPPERS   = /[A-Z]/,
+    CHAR_NUMBERS  = /[0-9]/,
+    CHAR_SPECIAL  = /[?=.*!@#$%^&*]/,
+    CHAR_TYPES    = [CHAR_LOWERS,CHAR_UPPERS,CHAR_NUMBERS,CHAR_SPECIAL],
+    counter       = 4;
+
+  for (var i=0; i<CHAR_TYPES.length; i++){
+    if(!CHAR_TYPES[i].test(password)){
+      counter--;
+    }
+  }
+
+  if (counter <= 1 || password.length < 8){
+    return false;
+  } else {
+    return true;
+  }
+};
 
 module.exports = function(grunt) {
 
@@ -22,7 +35,8 @@ module.exports = function(grunt) {
   //makes livereload much faster.
   require('jit-grunt')(grunt, {
     replace: 'grunt-text-replace',
-    handlebars: 'grunt-contrib-handlebars'
+    handlebars: 'grunt-contrib-handlebars',
+    resemble: 'grunt-resemble-cli'
   });
 
   //get configs
@@ -51,12 +65,12 @@ module.exports = function(grunt) {
           variables: {
             environment: 'production',
             environmentData: 'website-guts/data/environments/production/environmentVariables.json',
-            assetsDir: 'dist/assets',
+            assetsDir: '/dist/assets',
             link_path: '',
-            sassImagePath: '/dist/assets/img',
+            sassImagePath: 'https://du7782fucwe1l.cloudfront.net/img',
             compress_js: true,
             drop_console: true,
-            concat_banner: '(function($){ \n\n' +
+            concat_banner: '(function($, w, d){ \n\n' +
                            '  window.optly = window.optly || {}; \n\n' +
                            '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
                            '  window.linkPath = "" \n\n' +
@@ -65,7 +79,7 @@ module.exports = function(grunt) {
                            '  //report errors to GA \n\n' +
                            '  window.console.log("js error: " + error);' +
                            '  } \n' +
-                           '})(jQuery);'
+                           '})(jQuery, window, document);'
           }
         }
       },
@@ -80,7 +94,7 @@ module.exports = function(grunt) {
             sassImagePath: '/<%= gitinfo.local.branch.current.name %>/assets/img',
             compress_js: true,
             drop_console: false,
-            concat_banner: '(function($){ \n\n' +
+            concat_banner: '(function($, w, d){ \n\n' +
                            '  window.optly = window.optly || {}; \n\n' +
                            '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
                            '  window.linkPath = "<%= gitinfo.local.branch.current.name %>" \n\n' +
@@ -89,7 +103,31 @@ module.exports = function(grunt) {
                            '  //report errors to GA \n\n' +
                            '  window.console.log("js error: " + error);' +
                            '  } \n' +
-                           '})(jQuery);'
+                           '})(jQuery, window, document);'
+          }
+        }
+      },
+      smartlingStaging: {
+        options: {
+          variables: {
+            aws: creds,
+            environment: 'staging',
+            environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
+            assetsDir: '/assets',
+            link_path: '',
+            sassImagePath: '/assets/img',
+            compress_js: true,
+            drop_console: false,
+            concat_banner: '(function($, w, d){ \n\n' +
+                           '  window.optly = window.optly || {}; \n\n' +
+                           '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
+                           '  window.linkPath = "<%= gitinfo.local.branch.current.name %>" \n\n' +
+                           '  try { \n\n',
+            concat_footer: '  } catch(error){ \n\n' +
+                           '  //report errors to GA \n\n' +
+                           '  window.console.log("js error: " + error);' +
+                           '  } \n' +
+                           '})(jQuery, window, document);'
           }
         }
       },
@@ -104,11 +142,11 @@ module.exports = function(grunt) {
             sassImagePath: '/dist/assets/img',
             compress_js: false,
             drop_console: false,
-            concat_banner: '(function($){ \n\n' +
+            concat_banner: '(function($, w, d){ \n\n' +
                            '  window.optly = window.optly || {}; \n\n' +
                            '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
                            '  window.linkPath = "/dist" \n\n',
-            concat_footer: '})(jQuery);'
+            concat_footer: '})(jQuery, window, document);'
           }
         }
       },
@@ -127,9 +165,10 @@ module.exports = function(grunt) {
           '<%= config.guts %>/templates/**/*.hbs',
           '!<%= config.guts %>/templates/**/*_compiled.hbs',
           '!<%= config.guts %>/templates/client/**/*.hbs',
+          '<%= config.guts %>/assets/js/services/user_state.js',
           '<%= config.guts %>/helpers/**/*.js'
         ],
-        tasks: ['config:dev', 'inline', 'assemble:pages', 'assemble:modals']
+        tasks: ['config:dev', 'assemble:modals', 'assemble:pages']
       },
       assemblePartners: {
         files: [
@@ -138,7 +177,7 @@ module.exports = function(grunt) {
           '!<%= config.guts %>/templates/**/*_compiled.hbs',
           '!<%= config.guts %>/templates/client/**/*.hbs'
         ],
-        tasks: ['config:dev', 'inline', 'assemble:partners']
+        tasks: ['config:dev', 'assemble:partners']
       },
       sass: {
         files: '<%= config.guts %>/assets/css/**/*.scss',
@@ -148,12 +187,8 @@ module.exports = function(grunt) {
         files: ['<%= config.guts %>/assets/img/*.{png,jpg,svg}'],
         tasks: ['copy:img']
       },
-      inline: {
-        files: ['<%= config.guts %>/assets/js/services/user_state.js'],
-        tasks: ['config:dev', 'jshint', 'inline', 'assemble' ,'concat', 'clean:postBuild']
-      },
       js: {
-        files: ['<%= config.guts %>/assets/js/**/*.js', '<%= config.temp %>/assets/js/**/*.js'],
+        files: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/services/user_state.js', '<%= config.temp %>/assets/js/**/*.js'],
         tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'handlebars', 'concat', 'clean:postBuild']
       },
       clientHandlebarsTemplates: {
@@ -176,72 +211,107 @@ module.exports = function(grunt) {
         // change this to '0.0.0.0' to access the server from outside
         hostname: '0.0.0.0',
         middleware: function(connect, options, middlewares){
-          middlewares.unshift(function(req, res, next){
-            if(req.method === 'POST'){
+          return [
+              connect().use(bodyParser.urlencoded({extended: true})),
 
-              if(req.url === '/webinar/register'){
+              connect.static(options.base[0]),
 
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/webinarSuccess.json') );
+              function(req, res, next){
+                var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                if(req.method === 'POST'){
 
-              } else if(req.url === '/webinar/register-fail'){
+                  if(req.url === '/webinar/register'){
 
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/webinarFail.json') );
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end( grunt.file.read('website-guts/endpoint-mocks/webinarSuccess.json') );
 
-              } else if(req.url === '/account/free_trial_landing'){
+                  } else if(req.url === '/webinar/register-fail'){
 
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/formSuccess.json') );
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end( grunt.file.read('website-guts/endpoint-mocks/webinarFail.json') );
 
-              } else if(req.url === '/account/free_trial_landing/account_exists'){
+                  } else if(req.url === '/account/free_trial_create'){
 
-                res.writeHead(400, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/accountExists.json') );
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end( grunt.file.read('website-guts/endpoint-mocks/formSuccess.json') );
 
-              } else if(req.url === '/account/signin') {
+                  } else if(req.url === '/account/free_trial_landing/account_exists'){
 
-                res.cookie('optimizely_signed_in', '1', {httpOnly: false});
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end('{"success": "true"}');
+                    res.writeHead(400, {'Content-Type': 'application/json'});
+                    res.end( grunt.file.read('website-guts/endpoint-mocks/accountExists.json') );
 
-              } else if(req.url === '/account/create'){
+                  } else if(req.url === '/account/create') {
+                    var readPath, code;
 
-                res.cookie('optimizely_signed_in', '1', {httpOnly: false});
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/createAccountSuccess.json') );
+                    if(req.body.email !== 'david.fox-powell@optimizely.com') {
+                      readPath = 'website-guts/endpoint-mocks/createAccount.json';
+                      code = 200;
+                      res.cookie('optimizely_signed_in', '1', {httpOnly: false});
+                    } else {
+                      readPath = 'website-guts/endpoint-mocks/accountExists.json';
+                      code = 400;
+                    }
+                    res.writeHead(code, {'Content-Type': 'application/json'});
+                    res.end( grunt.file.read(readPath) );
 
-              } else {
+                  } else if(req.url === '/account/signin') {
+                    var readPath, code;
 
-                return next();
+                    if(emailRegEx.test(req.body.email) && checkComplexPassword(req.body.password)) {
+                      readPath = 'website-guts/endpoint-mocks/accountInfo.json';
+                      code = 200;
+                      res.cookie('optimizely_signed_in', '1', {httpOnly: false});
+                    } else {
+                      readPath = 'website-guts/endpoint-mocks/invalidSignin.json';
+                      code = 400;
+                    }
+                    res.writeHead(code, {'Content-Type': 'application/json'});
+                    res.end(grunt.file.read(readPath));
+
+                  } else {
+
+                    return next();
+
+                  }
+
+                } else if(req.url === '/account/info') {
+                  var paths = [
+                    'website-guts/endpoint-mocks/accountInfo.json',
+                    'website-guts/endpoint-mocks/allIosInfo.json'
+                  ];
+
+                  var randIndex = Math.round(Math.random());
+
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read(paths[randIndex]) );
+
+                } else if(req.url === '/experiment/load_recent?max_experiments=5') {
+
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/lastFiveExperiments.json') );
+
+                } else if(req.url === '/account/signout') {
+
+                    res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
+                    res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end('{"success": "true"}');
+
+                } else if(req.url === '/api/jobs/details.json') {
+
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/jobscoreData.json') );
+
+                } else{
+
+                  return next();
 
               }
 
-            } else if(req.url === '/account/info') {
-
-              res.writeHead(200, {'Content-Type': 'application/json'});
-              res.end( grunt.file.read('website-guts/endpoint-mocks/accountInfo.json') );
-
-            } else if(req.url === '/experiment/load_recent?max_experiments=5') {
-
-              res.writeHead(200, {'Content-Type': 'application/json'});
-              res.end( grunt.file.read('website-guts/endpoint-mocks/lastFiveExperiments.json') );
-
-            } else if(req.url === '/account/signout') {
-
-                res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
-                res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end('{"success": "true"}');
-
-            } else{
-
-              return next();
-
             }
 
-          });
-          return middlewares;
+          ]
+
         }
       },
       livereload: {
@@ -250,6 +320,12 @@ module.exports = function(grunt) {
             target: 'http://0.0.0.0:9000/dist',
             base: '.'
           }
+        }
+      },
+      resemble: {
+        options: {
+           port: '9000',
+           hostname: '0.0.0.0'
         }
       }
     },
@@ -264,6 +340,25 @@ module.exports = function(grunt) {
         data: ['<%= config.content %>/**/*.json', '<%= config.content %>/**/*.yml', '<%= grunt.config.get("environmentData") %>'],
         partials: ['<%= config.guts %>/templates/partials/*.hbs'],
         helpers: ['<%= config.helpers %>/**/*.js'],
+      },
+      modals: {
+        options: {
+          ext: '.hbs'
+        },
+        files: [
+          {
+            src: 'templates/components/modals/**/*.hbs',
+            dest: '<%= config.guts %>/templates/partials/',
+            cwd: '<%= config.guts %>/',
+            expand: true,
+            filter: 'isFile',
+            flatten: true,
+            rename: function(dest, src) {
+              var split = src.split('.');
+              return dest + split[0] + '_compiled';
+            }
+          }
+        ]
       },
       partners: {
         options: {
@@ -284,29 +379,10 @@ module.exports = function(grunt) {
         },
         files: [
           {
-            src: ['**/*.hbs'],
-            dest: '<%= config.dist %>/partners/',
-            cwd: '<%= config.content %>/partners/',
+            src: ['partners/**/*.hbs'],
+            dest: '<%= config.dist %>/',
+            cwd: '<%= config.content %>/',
             expand: true
-          }
-        ]
-      },
-      modals: {
-        options: {
-          ext: '.hbs'
-        },
-        files: [
-          {
-            src: 'templates/components/modals/**/*.hbs',
-            dest: '<%= config.guts %>/templates/partials/',
-            cwd: '<%= config.guts %>/',
-            expand: true,
-            filter: 'isFile',
-            flatten: true,
-            rename: function(dest, src) {
-              var split = src.split('.');
-              return dest + split[0] + '_compiled';
-            }
           }
         ]
       },
@@ -378,9 +454,15 @@ module.exports = function(grunt) {
         src: '<%= config.temp %>/css/styles.css.map',
         dest: '<%= config.dist %>/assets/css/styles.css.map'
       },
-      cssFontFile: {
-        src: ['<%= config.guts %>/assets/css/fonts.css'],
-        dest: '<%= config.dist %>/assets/css/fonts.css'
+      fonts: {
+        files: [
+          {
+            cwd: '<%= config.guts %>/assets/fonts/',
+            src: '**',
+            dest: '<%= config.dist %>/assets/fonts/',
+            expand: true
+          }
+        ]
       },
       jquery: {
         files: [
@@ -403,7 +485,8 @@ module.exports = function(grunt) {
             src: '**',
             dest: '<%= config.dist %>/assets/img/',
             expand: true
-          }
+          },
+          {src: ['<%= config.guts %>/assets/img/favicon.ico'], dest: '<%= config.dist %>/favicon.ico'},
         ]
       }
     },
@@ -415,17 +498,31 @@ module.exports = function(grunt) {
       options: {
         key: '<%= grunt.config.get("aws.key") %>',
         secret: '<%= grunt.config.get("aws.secret") %>',
-        bucket: '<%= grunt.config.get("aws.staging_bucket") %>',
         access: 'public-read'
       },
       staging: {
-          upload: [
-            {
-              src: '<%= config.dist %>/**/*',
-              dest: '<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
-              rel: '<%= config.dist %>'
-            }
-          ]
+        options: {
+          bucket: '<%= grunt.config.get("aws.staging_bucket") %>'
+        },
+        upload: [
+          {
+            src: '<%= config.dist %>/**/*',
+            dest: '<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
+            rel: '<%= config.dist %>'
+          }
+        ]
+      },
+      smartling: {
+        options: {
+          bucket: '<%= grunt.config.get("aws.smartling_staging_bucket") %>'
+        },
+        upload: [
+          {
+            src: '<%= config.dist %>/**/*',
+            dest: '',
+            rel: '<%= config.dist %>'
+          }
+        ]
       }
     },
     jshint: {
@@ -454,11 +551,18 @@ module.exports = function(grunt) {
           globals: {
             jQuery: false,
             moment: false,
-            $: false
+            $: false,
+            Oform: false,
+            w: false,
+            d: false
           }
         },
         files: {
-          src: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/libraries/**/*.js']
+          src: [
+            '<%= config.guts %>/assets/js/**/*.js',
+            '!<%= config.guts %>/assets/js/libraries/**/*.js',
+            '!<%= config.guts %>/assets/js/utils/*.js',
+          ]
         }
       },
       clientDev: {
@@ -469,11 +573,18 @@ module.exports = function(grunt) {
             console: false,
             moment: false,
             _gaq: false,
-            $: false
+            $: false,
+            Oform: false,
+            w: false,
+            d: false
           }
         },
         files: {
-          src: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/libraries/**/*.js']
+          src: [
+            '<%= config.guts %>/assets/js/**/*.js',
+            '!<%= config.guts %>/assets/js/libraries/**/*.js',
+            '!<%= config.guts %>/assets/js/utils/*.js',
+          ]
         }
       },
       server: {
@@ -508,6 +619,7 @@ module.exports = function(grunt) {
         },
         files: {
             '<%= config.temp %>/assets/js/global.js': [
+              '<%= config.guts %>/assets/js/utils/*.js',
               '<%= config.guts %>/assets/js/global.js',
               '<%= config.guts %>/assets/js/components/*.js',
               '<%= config.guts %>/assets/js/services/*.js',
@@ -568,31 +680,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    'phantomcss-gitdiff': {
-      options: {
-        baseUrl: 'http://0.0.0.0:9000/',
-        serverRoot: 'dist/',
-        gitDiff: true,
-      },
-      desktop: {
-        options: {
-          screenshots: 'screens/desktop/',
-          viewportSize: [1024, 768]
-        },
-        src: [
-          'dist/{,**/}*.html'
-        ]
-      },
-      mobile: {
-        options: {
-          screenshots: 'screens/mobile/',
-          viewportSize: [320, 480]
-        },
-        src: [
-          'dist/{,**/}*.html'
-        ]
-      }
-    },
     imagemin: {
       prod: {
         files: [
@@ -603,16 +690,6 @@ module.exports = function(grunt) {
             expand: true
           }
         ]
-      }
-    },
-    inline: {
-      dist: {
-          options:{
-              uglify: true,
-              exts: 'hbs'
-          },
-          src: ['<%= config.guts %>/templates/layouts/wrapper.hbs'],
-          dest: ['<%= config.guts %>/templates/layouts/wrapper_compiled.hbs']
       }
     },
     handlebars: {
@@ -630,14 +707,17 @@ module.exports = function(grunt) {
     },
     filerev: {
       assets: {
-        src: '<%= config.dist %>/assets/**/*.{js,css}'
+        src: ['<%= config.dist %>/assets/**/*.{js,css,png,jpg,jpeg,gif}', '!<%= config.dist %>/assets/fonts/**']
       }
     },
     userevvd: {
       html: {
         options: {
-          formatPath: function(path){
-            return path.replace(/^dist\/assets/, 'https://cdn.optimizelyassets.com');
+          formatOriginalPath: function(path){
+            return '/' + path;
+          },
+          formatNewPath: function(path){
+            return path.replace(/^dist\/assets/, '//du7782fucwe1l.cloudfront.net');
           }
         },
         files: [
@@ -650,6 +730,90 @@ module.exports = function(grunt) {
         ]
       }
     },
+    resemble: {
+      options: {
+        screenshotRoot: 'screens',
+        url: 'http://0.0.0.0:9000/dist',
+        selector: '#outer-wrapper',
+        gm: true
+      },
+      desktop: {
+        options: {
+          width: 1024,
+          tolerance: 0.001
+        },
+        files: [
+          {
+          cwd: 'dist/',
+          expand: true,
+          src: [
+            'free-trial/**/*.html',
+            'customers/**/*.html',
+            'enterprises/**/*.html',
+            'events/**/*.html','faq/**/*.html',
+            'partners/technology/{,bizible/}*.html',
+            'mobile/**/*.html',
+            'partners/solutions/{,blue-acorn/}*.html',
+            'press/**/*.html',
+            'resources/{live-demo-webinar,sample-size-calculator}/*.html',
+            'terms/**/*.html'
+          ],
+          dest: 'desktop'
+          }
+        ]
+      },
+      tablet: {
+        options: {
+          width: 800,
+          tolerance: 0.001
+        },
+        files: [
+          {
+          cwd: 'dist/',
+          expand: true,
+          src: [
+            'free-trial/**/*.html',
+            'customers/**/*.html',
+            'enterprises/**/*.html',
+            'events/**/*.html','faq/**/*.html',
+            'partners/technology/{,bizible/}*.html',
+            'mobile/**/*.html',
+            'partners/solutions/{,blue-acorn/}*.html',
+            'press/**/*.html',
+            'resources/{live-demo-webinar,sample-size-calculator}/*.html',
+            'terms/**/*.html'
+          ],
+          dest: 'tablet'
+          }
+        ]
+      },
+      mobile: {
+        options: {
+          width: 450,
+          tolerance: 0.001
+        },
+        files: [
+          {
+          cwd: 'dist/',
+          expand: true,
+          src: [
+            'free-trial/**/*.html',
+            'customers/**/*.html',
+            'enterprises/**/*.html',
+            'events/**/*.html','faq/**/*.html',
+            'partners/technology/{,bizible/}*.html',
+            'mobile/**/*.html',
+            'partners/solutions/{,blue-acorn/}*.html',
+            'press/**/*.html',
+            'resources/{live-demo-webinar,sample-size-calculator}/*.html',
+            'terms/**/*.html'
+          ],
+          dest: 'mobile'
+          }
+        ]
+      }
+    },
+
     gitinfo: {}
   });
 
@@ -660,14 +824,31 @@ module.exports = function(grunt) {
     'jshint:server',
     'clean:preBuild',
     'assemble',
+    'handlebars',
     'concat',
     'uglify',
-    'sass',
+    'sass:prod',
     'autoprefixer',
     'copy',
     's3:staging',
     'clean:postBuild'
+  ]);
 
+  grunt.registerTask('smartling-staging-deploy', [
+    'gitinfo',
+    'config:smartlingStaging',
+    'jshint:clientDev',
+    'jshint:server',
+    'clean:preBuild',
+    'assemble',
+    'handlebars',
+    'concat',
+    'uglify',
+    'sass:prod',
+    'autoprefixer',
+    'copy',
+    's3:smartling',
+    'clean:postBuild'
   ]);
 
   grunt.registerTask('server', [
@@ -675,7 +856,6 @@ module.exports = function(grunt) {
     'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
-    'inline',
     'assemble',
     'handlebars',
     'concat',
@@ -694,9 +874,9 @@ module.exports = function(grunt) {
     'jshint:server',
     'clean:preBuild',
     'assemble',
+    'handlebars',
     'concat',
-    'copy:cssFontFile',
-    'copy:jquery',
+    'copy',
     'uglify',
     'sass:prod',
     'replace',
@@ -706,8 +886,44 @@ module.exports = function(grunt) {
     'clean:postBuild'
   ]);
 
+  grunt.registerTask('test', [
+    'config:dev',
+    'jshint:clientDev',
+    'jshint:server',
+    'clean:preBuild',
+    'assemble',
+    'handlebars',
+    'concat',
+    'sass:dev',
+    'replace',
+    'autoprefixer',
+    'copy',
+    'clean:postBuild',
+    'connect:resemble',
+    'resemble'
+  ]);
+
+
+  grunt.registerTask('test', [
+    'config:production',
+    'jshint:clientProd',
+    'jshint:server',
+    'clean:preBuild',
+    'assemble',
+    'handlebars',
+    'concat',
+    'copy',
+    'uglify',
+    'sass:prod',
+    'replace',
+    'autoprefixer',
+    'clean:postBuild',
+    'connect:resemble',
+    'resemble'
+  ]);
+
+
   grunt.registerTask('default', [
     'build'
   ]);
-
 };

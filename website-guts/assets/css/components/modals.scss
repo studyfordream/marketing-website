@@ -1,6 +1,6 @@
 $children: dialog;
 $animprop: opacity 1 0;
-$transition: opacity 0.3s linear;
+$transition: all 0.3s linear;
 
 html,
 body {
@@ -15,7 +15,6 @@ body {
   height: 100%;
   cursor: pointer;
   background: #fff;
-  opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -34,6 +33,10 @@ body {
     cursor: auto;
     overflow: hidden;
     overflow-y: scroll;
+  }
+  .account-terms {
+    text-align: center;
+    font-size: 1em;
   }
   .modal-header, .modal-footer {
     background: #f8f8f8;
@@ -56,6 +59,13 @@ body {
     border-top: 1px solid #eee;
     input { width: 100%; }
     .primary-button { margin-bottom: 25px; }
+    button {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      width: 190px;
+      white-space: nowrap;
+    }
   }
   .modal-body {
     background: transparent;
@@ -102,6 +112,16 @@ body {
     }
     .options {
       text-align: center;
+      p {
+        margin: 0;
+        line-height: 1.4em;
+        &:last-child {
+         &.error-hide {
+          position: relative;
+          top: 5px;
+         }
+        }
+      }
       a { text-decoration: none; }
     }
   }
@@ -124,7 +144,7 @@ body {
 
 @media only screen and (min-width: $tablet-min-width) {
   .modal-dialog-container {
-    overflow: scroll;
+    overflow: auto;
     background: transparent;
     background-image: radial-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 35%, rgba(0, 0, 0, 0.498039));
     .dialog {
@@ -135,17 +155,18 @@ body {
       overflow: hidden;
     }
     .modal-footer {
-      @extend .clearfix;
       input { width: auto; }
+      @extend .clearfix;
       .primary-button {
         float: right;
         margin: 0;
       }
       .secondary-button { float: left; }
+      &.no-primary-button {
+        .secondary-button { float: right; }
+      }
+      button {width: auto;}
     }
-    .modal-footer.no-primary-button {
-      .secondary-button { float: right; }
-    }
+    .webinar-detail-info { width: 350px; }
   }
-  .webinar-detail-info { width: 350px; }
 }

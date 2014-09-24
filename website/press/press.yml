@@ -3,8 +3,14 @@ left_column_header: "News"
 press_kit:
   header: "Press Kit"
   items:
-  - "<a href='https://s3.amazonaws.com/optimizely-marketing/OptimizelyPressKit.zip' title='Download our press kit'>Download Optimizely Logos</a>"
-  - "<a href='http://www.scribd.com/doc/197409519/Fact-Sheet' title='Download our fact sheet'>Download Fact Sheet</a>"
+  -
+    link: "https://s3.amazonaws.com/optimizely-marketing/OptimizelyPressKit.zip"
+    title: "Download our press kit"
+    text: "Download Optimizely Logos"
+  -
+    link: "http://www.scribd.com/doc/197409519/Fact-Sheet"
+    title: "Download our fact sheet"
+    text: "Download Fact Sheet"
 press_releases:
     header: "Press Releases"
 press_inquiries:
@@ -16,13 +22,33 @@ investors:
   header: "Investors"
 blog:
   header: "Optimizely Blog"
-  body: "<a href='http://blog.optimizely.com/'>Click here</a> to read the latest articles on our blog."
+  link: "http://blog.optimizely.com/"
+  btn_text: "Click here"
+  text: "to read the latest articles on our blog."
 follow_the_latest:
   header: "Follow the latest from Optimizely:"
   items:
-  - "<a href='://blog.optimizely.com' title='Optimizely Blog: Conversion Rate Optimism'>Optimizely Blog</a>"
-  - "<a href='http://pages.optimizely.com/newsletter_subscribe.html' title='Optimizely Newsletter'>Newsletter</a>"
-  - "<a href='http://www.facebook.com/optimizely' title='Optimizely on Facebook'>Facebook</a>"
-  - "<a href='http://www.twitter.com/optimizely' title='Optimizely on Twitter'>Twitter</a>"
-  - "<a href='http://www.youtube.com/optimizely' title='Optimizely on Youtube'>YouTube</a>"
-  - "<a href='https://plus.google.com/113842166556345533815/posts' title='Optimizely on Google Plus'>Google+</a>"
+  -
+    link: "http://blog.optimizely.com"
+    title: "Optimizely Blog: Conversion Rate Optimism"
+    text: "Optimizely Blog"
+  -
+    link: "http://pages.optimizely.com/newsletter_subscribe.html"
+    title: "Optimizely Newsletter"
+    text: "Newsletter"
+  -
+    link: "http://www.facebook.com/optimizely"
+    title: "Optimizely on Facebook"
+    text: "Facebook"
+  -
+    link: "http://www.twitter.com/optimizely"
+    title: "Optimizely on Twitter"
+    text: "Twitter"
+  -
+    link: "http://www.youtube.com/optimizely"
+    title: "Optimizely on Youtube"
+    text: "YouTube"
+  -
+    link: "https://plus.google.com/113842166556345533815/posts"
+    title: "Optimizely on Google Plus"
+    text: "Google+"

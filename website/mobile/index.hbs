@@ -1,0 +1,145 @@
+---
+layout: mobile.hbs
+seo_title: Optimizely for iOS
+visible_title: Optimizely Solutions Partners
+sub_head: World-class service providers. Empowered customers. Lasting results.
+body_class:
+- ios
+page_script: mobile.js
+---
+
+<div id="top">
+  <div class="container">
+    <header class="clearfix ios-logo-cont">
+      <p class="logo"><a href="{{linkPath}}/">Optimizely</a></p>
+    </header>
+  </div>
+{{#with mobile_data}}
+  <section id="hero">
+    <h1>{{hero.header}}</h1>
+    <h2>{{hero.sub_header}}</h2>
+    <a href="https://www.optimizely.com/signin?signup=true&signup_platform=ios&continue_to=/dashboard?show_code=true&utm_campaign=iosplatform" class="sign-up-btn">{{{sign_up.button_text}}}</a>
+    {{#omarkdown}}{{{sign_up.existing_customer}}}{{/omarkdown}}
+    <div id="down"></div>
+  </section>
+</div>
+<div role="main">
+  <main>
+    {{#if section_1}}
+    <section id="visual-changes-features" class="gray-section light">
+      <div class="container">
+        <div class="float-cont">
+          <div class="section-container">
+            {{#omarkdown}}{{section_1.body}}{{/omarkdown}}
+          </div>
+        </div>
+        <div class="flex-cont">
+          <div class="phone-img-wrapper">
+            <div id="visual-changes-demo">
+              <span id="visual-change-photo" class="a"></span>
+              <span id="visual-change-button">Book it now!</span>
+            </div>
+          </div>
+          <div class="visual-options-cont">
+            <div id="visual-change-options">
+              <div id="visual-change-image" class="change-option">
+                <p>Image</p>
+                <div class="visual-slider-cont a" id="visual-change-slider">
+                  <span class="left-label">a</span>
+                  <span class="right-label">b</span>
+                  <span class="slider"></span>
+                </div>
+                <span id="visual-change-image-slider"></span>
+              </div>
+              <div id="visual-change-button-text" class="change-option">
+                <p>Button text</p>
+                <input id="visual-change-input" type="text" placeholder="Book it now!">
+              </div>
+              <div id="visual-change-button-color" class="change-option">
+                <p>Button color</p>
+                <div id="visual-change-color">
+                  <a href="#" id="visual-change-blue" class="color-btn"></a>
+                  <a href="#" id="visual-change-green" class="color-btn"></a>
+                  <a href="#" id="visual-change-orange" class="color-btn"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="visual-changes-icons" class="feature-container">
+            {{#each section_1.subsections}}
+            <div id="visual-changes" class="row tablet-columns feature">
+              <div class="bg-container">
+                <div class="feature-bg" style="background-image: url({{icon}})"></div>
+              </div>
+              <div class="content-container">
+                <h3>{{header}}</h3>
+                <p>{{body}}</p>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </section>
+    {{/if}}
+    {{#if section_2}}
+    <section id="flexible-powerful" class="blue-section">
+      <div class="container a">
+        <div class="section-container">
+          {{#omarkdown}}{{section_2.body}}{{/omarkdown}}
+        </div>
+        <div id="flexible-powerful-image"></div>
+        <div class="visual-slider-cont a" id="flexible-powerful-slider">
+          <span class="left-label">a</span>
+          <span class="right-label">b</span>
+          <span class="slider"></span>
+        </div>
+        <div class="feature-container row">
+          {{#each section_2.subsections}}
+          <div id="live-variables" class="feature columns one-third">
+            <div style="background-image: url({{icon}})" class="feature-bg"></div>
+            <h3>{{{header}}}</h3>
+            <p>{{body}}</p> 
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </section>
+    {{/if}}
+    {{#if section_3}}
+    <section id="trusted" class="light">
+      <div class="container">
+        <div class="section-container">
+          {{#omarkdown}}{{section_3.body}}{{/omarkdown}}
+        </div>
+        <div id="deploy-cont">
+          <div id="deploy-graphic-cont">
+            <div id="deployed-graphic"></div>
+          </div>
+          <a href="#" id="deploy-btn">Deploy winning variation</a>
+        </div>
+        <div class="feature-container row">
+          {{#each section_3.subsections}}
+          <div class="feature columns one-third" id="world-class">
+            <div style="background-image: url({{icon}})" class="feature-bg"></div>
+            <h3>{{{header}}}</h3>
+            <p>{{body}}</p>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </section>
+    {{/if}}
+    {{#if footer}}
+    <section id="signup-bottom">
+      <h2>{{{footer.header}}}</h2>
+      <a href="https://www.optimizely.com/signin?signup=true&signup_platform=ios&continue_to=/dashboard?show_code=true&utm_campaign=iosplatform" class="sign-up-btn">{{{sign_up.button_text}}}</a>
+      {{#omarkdown}}{{sign_up.existing_customer}}{{/omarkdown}}
+    </section>
+    {{/if}}
+  </main>
+</div>
+<div id="preload-airbnb-img" class="preload"></div>
+<div id="preload-hipmunk-img" class="preload"></div>
+<div id="preload-deploy-img" class="preload"></div>
+{{/with}}

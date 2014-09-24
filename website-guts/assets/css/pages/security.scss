@@ -1,24 +1,17 @@
 body.security-page {
 
-  h4 {margin-top: 40px;}
-
-  h4:first-child {margin-top: 0;}
-  
-  .security-content {
-    li {list-style: none;}
+  h4 {
+    margin-top: 40px;
+    &:first-child {
+      margin-top: 0;
+    }
   }
+  
 }
 
-@media only screen and (min-width: $tablet-min-width) {
-
-}
 
 @media only screen and (min-width: $desktop-min-width) {
   body.security-page {
     h4 {font-size: 1.2em;}
-    .security-content {
-      ul {margin-left: 20px;}
-      li {list-style: disc;}
-    }
   }
 }

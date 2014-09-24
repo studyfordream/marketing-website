@@ -1,0 +1,32 @@
+body.seo {
+  .attention {
+    a {
+      width: 230px;
+      display: block;
+      margin: 10px auto;
+    }
+  }
+  &.multivariate-testing {
+    .ugc {
+      p {
+        img {
+          float: none;
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.seo {
+    .attention {
+      a {
+        width: auto;
+        display: inline-block;
+        margin: 0 0 0 10px;
+      }
+    }
+  }
+}

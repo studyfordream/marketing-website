@@ -24,7 +24,10 @@ body.privacy-page {
 	.privacy-content {
 		ol {padding-left: 0;}
 
-		li {list-style: none;}
+		li {
+			list-style: none;
+			text-align: center;
+		}
 	}
 	
 
@@ -36,7 +39,10 @@ body.privacy-page {
 		.privacy-content {
 			ol {padding-left: 40px;}
 
-			li {list-style: decimal;}
+			li {
+				list-style: decimal;
+				text-align: left;
+			}
 		}
 	}
 }

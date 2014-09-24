@@ -1,65 +1,83 @@
 body.ppc-page {
-  h4 {text-align: center;}
-  #phone-email-cont div {
-    margin-bottom: 10px;
+  #ppc-form {
+    h4 {text-align: center;}
+    button {margin-top: 10px;}
   }
+
+  .header-wrapper {
+    padding-top: 60px;
+    background: #fff;
+    border-bottom: 1px solid #d5d5d5;
+  }
+
+  .light-gray-section {
+    padding: 50px 0;
+  }
+
+  .textured-section {
+    padding: 50px 0;
+    border-top: 1px solid #d5d5d5;
+    box-shadow: inset 0px 0px 11px rgba(0,0,0,0.1);
+    background: image-url('img/noise.png');
+  }
+
   @media only screen and (min-width: $tablet-min-width) {
-    input[type=text], input[type=url], input[type=tel], input[type=email] {
-      width: 400px;
-      margin: 0 auto 0 auto;
+
+    #about-optimizely, #how-it-works {
+      ul {
+        width: 340px;
+        margin: 0 auto;
+      }
+
+      li {
+        list-style-type: disc;
+        margin: 0;
+        padding: 0;
+      }
     }
+
+    #about-optimizely {
+      margin-bottom: 50px;
+    }
+
+    .customer-quote {
+      text-align: center;
+    }
+
+    .pull-quote {
+      color: #6b6b6b;
+      display: block;
+      margin-bottom: 0.5em;
+      text-shadow: 1px 1px #fff;
+    }
+
+    .customer-logos p {text-align: center;}
   }
+
   @media only screen and (min-width: $desktop-min-width) {
-    height: 100%;
-    header {
-      @extend .vertical-center-header;
+
+    #about-optimizely, #how-it-works {
+      li {
+        font-size: .9em;
+      }
+
+      background: image-url('ppc/free-trial-sprite-adjusted-2.png') no-repeat;
+      p {
+        margin: 0;
+        line-height: 1em;
+      }
     }
-    h4 {
-      margin: 0!important;
-      padding: 0!important;
+
+    #about-optimizely {
+      padding-left: 130px;
+      background-position: -1572px 0;
     }
-    input[type=text], input[type=url], input[type=tel], input[type=email] {
+
+    #how-it-works {
+      padding-left: 145px;
+      width: 400px;
       margin: 0 auto;
-      width: auto;
-    }
-    #outer-wrapper, #inner-wrapper, #main, .container, .row, .columns {
-      position: relative;
-      height: 100%;
-      margin: auto;
-    }
-    #ppc-form {
-      margin-top: 75px;
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-      #phone-email-cont div {
-        margin-bottom: auto;
-      }
-      #url, #name {width: 100%;}
-      .terms {
-        clear: both;
-        padding: 10px 0;
-        color: #999;
-        font-size: 15px;
-        a {
-          font-size: 12px!important;
-          font-weight: 500;
-        }
-      }
-      .half.left, .half.right {
-        width: 47%;
-        input {
-          width: 100%;
-        }
-      }
-      #terms {
-        width: 30px;
-        text-align: left;
-        margin-bottom: 20px;
-      }
-      .button {
-        width: auto;
-      }
+      background-position: -2830px 0;
     }
   }
 }

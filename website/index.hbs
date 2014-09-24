@@ -1,5 +1,5 @@
 ---
-layout: wrapper_compiled.hbs
+layout: wrapper.hbs
 body_class:
 - home-page
 page_script: index.js
@@ -11,7 +11,7 @@ layout_body_class: false
     <h1>A/B testing you'll actually use.</h1>
     <form id="test-it-out-form" action="/account/create" method="POST">
       <input type="text" placeholder="Type in a URL to try it out">
-      <input type="submit" value="Test it Out &raquo;">
+      <button type="submit" class="primary-button">Test it Out &raquo;</button>
     </form>
   </div><!--/.container-->
 </div><!--/#cta-->

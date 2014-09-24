@@ -94,6 +94,13 @@ body.benefits-page {
       }
     }
 
+    .graphic {
+      &.track {
+        background-position: 48% -1797px;
+        background-size: 310px;
+      }
+    }
+
     .benefits-copy {
       &.revenue-now {
         p, h3 {
@@ -101,5 +108,18 @@ body.benefits-page {
         }
       }
     }
+  }
+}
+
+@media screen and (min-width: $desktop-min-width) {
+  body.benefits-page {
+
+    .graphic {
+      &.track {
+        background-position: 48% -2027px;
+        background-size: 350px;
+      }
+    }
+
   }
 }

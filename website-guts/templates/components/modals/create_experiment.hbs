@@ -1,19 +1,22 @@
 ---
 layout: modal_wrapper.hbs
-modal_title: Create Experiment
+modal_title: Create experiment
 modal_sub_header: Enter a URL below to get started on a new experiment!
 form_id: create-exp-form
-data_attr_value: create-exp
+data_modal_id: create-exp
+data_modal_name: create-experiment
 wrapper_id: create-exp-dialog
-form_action: /account/signin
-primary_button_text: Create Experiment
+form_method: GET
+form_action: /edit
+primary_button_text: Create experiment
 negative_button_text: Cancel
 ---
               <label>
-                  <span>Experiment Name (optional)</span>
+                  <span>Experiment name (optional)</span>
                   <input type="text" name="name" />
               </label>
               <label>
                   <span>Experiment URL</span>
-                  <input type="text" name="url" maxlength="500" required="true" />
+                  <span class="url-related error-hide error-right">This field is required</span>
+                  <input type="text" name="url" maxlength="500" required />
               </label>

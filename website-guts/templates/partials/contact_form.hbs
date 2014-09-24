@@ -3,11 +3,11 @@
     <form id="contact-form" class="standard" autocomplete="off" novalidate="novalidate">
       <ul class="list-unstyled">
         <li>
-          <label for="name">Name</label>
+          <label for="name" class="required" >Name</label>
           <input class="required" id="name" name="name" required="" type="text">
         </li>
         <li>
-          <label for="email">E-mail</label>
+          <label for="email" class="required" >E-mail</label>
           <input class="required email" id="email" name="email" required="" type="email">
         </li>
         <li>
@@ -20,8 +20,7 @@
         </li>
         <li class="form-neighbors first">
           <label> 
-            Monthly Visitors
-            <a href="#" class="help-button" tabindex="-1" title=""></a>
+            Monthly Visitors<div title="This is the sum across all your clients" data-tooltip></div>
           </label>
           <select id="traffic" name="traffic" tabindex="1">
             <option value="">Select an option...</option>
@@ -38,9 +37,7 @@
           <input id="phone" name="phone" type="text">
         </li>
         <li class="a-right clearfix submit-cont">
-          <button class="button small" type="submit">
-            Submit
-          </button>
+          <button class="button small" type="submit">Submit</button>
         </li>
         <li style="display: none;">
           Thanks for contacting us! We'll be in touch shortly!

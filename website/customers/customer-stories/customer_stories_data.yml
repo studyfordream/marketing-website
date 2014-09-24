@@ -3,34 +3,99 @@ featured_video:
   header: "12 Million More Sign-ups"
   body: "Code.org used website optimization to bring computer science education to the world. With Optimizely, the team was able to quickly and easily improve the registration flow on their website, generating 12 million more sign-ups for the annual Hour of Code campaign."
 
-customer_stories:
--
-  header: "10% Lift in social shares"
-  logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/customer-stories/images/upworth-logo.png"
+customer_stories: 
+- 
+  header: "28% lift in social shares"
+  logo_url: "//cdn.optimizely.com/img/5935064/befd776a60b44ea3bec46c54ec11d3cb.png"
   body: "Upworthy tested adding a recommended content module to its website to drive more social shares and engagement."
   download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/upworthy-casestudy.pdf"
--
-  header: "80% More student sign-ups"
-  logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/customer-stories/images/code-dot-org-logo.png"
+- 
+  header: "More Student Sign-ups"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/code-dot-org-logo.png"
   body: "Code.org optimized its headlines and CTA messaging to significantly increase sign-ups for its Hour of Code campaign."
   download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/codeorg-casestudy.pdf"
--
+- 
   header: "140% Increase in lead quality"
-  logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/customer-stories/images/ironmountain-logo.png"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/ironmountain-logo.png"
   body: "Iron Mountain optimized its lead generation process to improve the quality of leads generated from its online sign-up form."
   download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/ironmountain-casestudy.pdf"
--
-  header: "Improved checkout funnel"
-  logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/customer-stories/images/ironmountain-logo.png"
-  body: "Sony optimized banners ads and product pages to drive more customers through the checkout funnel to makea final purchase on its website."
+- 
+  header: "Improved Checkout Funnel"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/sony-logo.png"
+  body: "Sony optimized banners ads and product pages to drive more customers through the checkout funnel to make a final purchase on its website."
   download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/sony-casestudy.pdf"
--
-  header: "49% Lift in 'adds-to-cart'"
-  logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/customer-stories/images/fab-logo.png"
-  body: "Fab tested different designs and messaging on its primary call to action button to see which would drive the more purchases."
+- 
+  header: "49% lift in 'Adds-to-Cart' "
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/fab-logo.png"
+  body: "Fab tested different designs and messaging on its primary call to action button to see which would drive more purchases."
   download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/fab-casestudy.pdf"
+- 
+  header: "Optimized Landing Pages"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/vacationroost-logo.png"
+  body: "VacationRoost strategically optimized multiple high-traffic landing pages at once to maximize revenue with multipage testing."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/vacationroost-casestudy.pdf"
+- 
+  header: "43% Lift in SimCity Pre-Orders"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/ea-logo.png"
+  body: "To maximize revenue during a launch of SimCity, Electronic Arts tested a promotional offer on the game's pre-order page and in paid advertising."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/ea-casestudy.pdf"
+- 
+  header: "46% increase in subscriptions"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/guardian-logo.png"
+  body: "The Guardian tested the homepage, landing pages, and navigation menu on its dating site – Soulmates –to increase subscriptions."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/guardian-casestudy.pdf"
+- 
+  header: "Validated Mobile Strategy"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/rentpath-logo.png"
+  body: "RentPath validated its mobile strategy by testing changes to its ApartmentGuide.com mobile site that increased leads and revenue."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/rentpath-casestudy.pdf"
+- 
+  header: "69% Increase in Conversions"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/comscore-logo.png"
+  body: "ComScore tested the layout and design of customer testimonials on product pages to measure the impact on leads generated."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/comscore-casestudy.pdf"
+- 
+  header: "Optimized shipping offers"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/backcountry-logo.png"
+  body: "Backcountry A/B tested a variety of shipping offers to figure out the most profitable shipping strategy for the holiday season."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/backcountry-casestudy.pdf"
+- 
+  header: "23% Lift in Sign-Ups"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/1800dentist-logo.png"
+  body: "1-800-Dentist ran a test on it's customer funnel to see if removing form fields from the first steps would increase conversions."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/1800dentist-casestudy.pdf"
+- 
+  header: "24% lift in Revenue from SEM"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/liftopia-logo.png"
+  body: "Liftopia built a test to show SEM traffic exactly what they were searching for, rather than additional product options and deals."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/liftopia-casestudy.pdf"
+- 
+  header: "10% Increase in Conversions"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/bigstock-logo.png"
+  body: "Bigstock tested a new search algorithm to see if it would present better results to users browsing for images on their website."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/bigstock-casestudy.pdf"
+- 
+  header: "10% Increase in RPV"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/zagg-logo.png"
+  body: "ZAGG ran a test to determine whether presenting a product video or a 360° image on product pages would increase conversions."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/zagg-casestudy.pdf"
+- 
+  header: "6 Figure Lift in Online Revenue"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/black-and-decker-logo.png"
+  body: "With the support of an Optimizely Solutions Partner, Stanley Black & Decker optimized its homepage and product pages to generate huge revenue gains."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/stanleyblackanddecker-casestudy.pdf"
+- 
+  header: "19% Increase in Revenue"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/lifeproof-logo.png"
+  body: "Lifeproof teamed up with an Optimizely Solutions Partner to build a data-driven testing culture and increase revenue by 19%."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/lifeproof-casestudy.pdf"
+- 
+  header: "12% lift in Total Broadcasts"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/ustream-logo.png"
+  body: "Ustream tested combinations of text and icons on their site's primary call-to-action to see which would drive more broadcasts."
+  download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/ustream-casestudy.pdf"
 
 call_to_action:
   header: "Share your testing story"
-  body: "Big wins. Surprising test results. A real impact on your business. Tell us how you did it."
+  body: "Big wins. Surprising test results. A real impact on your business. Tell us how you did it." 
   button_text: "Submit Your Story"

@@ -1,7 +1,7 @@
 body.faq-page {
 
   .button-controls {
-    text-align: right;
+    text-align: center;
   }
 
   .accordion {
@@ -17,12 +17,11 @@ body.faq-page {
     border-radius: 2px;
     border: 1px solid #e6e6e6;
     margin-bottom: 15px;
-    padding: 10px 20px 8px;
+    padding: 10px 30px 8px;
     cursor: pointer;
     color: #006eb6;
     font-weight: 400;
     position: relative;
-
     &:hover {
       box-shadow: 0 0 4px rgba(64,152,226,0.25);
       text-decoration: none;
@@ -61,6 +60,17 @@ body.faq-page {
       &:last-child {
         padding-bottom: 20px;
       }
+    }
+  }
+}
+
+@media screen and (min-width: $tablet-min-width) {
+  body.faq-page {
+    .question {
+      padding: 10px 20px 8px;
+    }
+    .button-controls {
+      text-align: center;
     }
   }
 }

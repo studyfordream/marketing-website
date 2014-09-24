@@ -1,6 +1,6 @@
-<div id="{{page.wrapper_id}}" class="modal-dialog-container{{#if page.wrapper_class}} {{page.wrapper_class}}{{/if}} optly-hide" data-optly-modal="{{ page.data_attr_value }}">
+<div id="{{page.wrapper_id}}" class="modal-dialog-container{{#if page.wrapper_class}} {{page.wrapper_class}}{{/if}} optly-hide" data-optly-modal="{{ page.data_modal_id }}" data-modal-name="{{ page.data_modal_name }}">
     <div class="dialog narrow">
-        {{#if page.form_action}}<form action="{{page.form_action}}" method="POST" autocomplete="off"{{#if page.form_id}} id="{{page.form_id}}"{{/if}} novalidate>{{/if}}
+      {{#if page.form_action}}<form action="{{page.form_action}}" method="{{page.form_method}}" autocomplete="off"{{#if page.form_id}} id="{{page.form_id}}"{{/if}} novalidate>{{/if}}
             {{#if page.modal_title}}
             <div class="modal-header">
                 <p class="normal-header header-h1">{{page.modal_title}}</p>
@@ -12,10 +12,10 @@
             </div><!--/.modal-body-->
             <div class="modal-footer{{#unless page.primary_button_text}} no-primary-button{{/unless}}">
                 {{#if page.primary_button_text}}
-                <input type="submit" class="primary-button submit-btn translate" data-modal-btn="signin" value="{{page.primary_button_text}} &raquo;">
+                <button type="submit" class="primary-button submit-btn translate" data-modal-btn="signin">{{page.primary_button_text}} &raquo;</button>
                 {{/if}}
                 {{#if page.negative_button_text}}
-                <input type="button" data-modal-btn="close" class="secondary-button close-btn translate" value="{{page.negative_button_text}}">
+                <button type="button" data-modal-btn="close" class="secondary-button close-btn translate">{{page.negative_button_text}}</button>
                 {{/if}}
             </div><!--/.modal-footer-->
         {{#if page.form_action}}</form>{{/if}}

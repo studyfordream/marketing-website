@@ -1,5 +1,5 @@
 $navs-to-index: main-nav dropdown-menu-top;
-@include z-index-list($navs-to-index);
+@include z-index-list($navs-to-index, 10, 10);
 
 #signed-in-utility {
     > li:last-child {
@@ -16,11 +16,27 @@ $navs-to-index: main-nav dropdown-menu-top;
     border-top: 1px solid #08448a;
   }
   a {
-    display: block;
     padding: 12px 30px;
     text-align: right;
+    cursor: pointer;
+  }
+  #mobile-email-nav {
+    text-align: left;
+    position: relative;
+    left: 5px;
+  }
+  #desktop-email-nav {
+    display: none;
   }
   #my-account-menu {
+    &.admin {
+      > a {
+        color: #fcb423;
+        &.dropdown-arrow:after {
+          color: #fcb423;
+        }
+      }
+    }
     .dropdown-menu-top { width: 100%; }
     li {
       border-bottom: 1px solid #042142;
@@ -48,15 +64,7 @@ $navs-to-index: main-nav dropdown-menu-top;
     }
   }
   .customer-email {
-    width: 100%;
-    display: inline-block;
-  }
-  #email-wrapper {
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    display: block;
   }
   .dropdown-menu-top {
     text-align: left;
@@ -84,13 +92,20 @@ $navs-to-index: main-nav dropdown-menu-top;
 @media only screen and (min-width: $desktop-min-width) {
   .utility-nav {
     .hide-in-mobile { display: inline-block; }
-    li { 
-      border: none; 
+    li {
+      border: none;
       text-align: left;
     }
     a {
-      padding: 12px;
+      padding: 9px 12px;
       text-align: left;
+      font-size: 0.85em;
+    }
+    #desktop-email-nav {
+      display: inline-block;
+    }
+    #mobile-email-nav {
+      display: none;
     }
     .dropdown-menu-top {
       display: none;
@@ -115,42 +130,70 @@ $navs-to-index: main-nav dropdown-menu-top;
       a:hover { text-decoration: underline; }
       li:first-child { border-top: none; }
     }
-    #email-wrapper {
-      overflow: visible;
-      width: auto;
-      display: inline-block;
-    }
     #mobile-top-border {
       display: none;
       border: none;
     }
-    .dropdown-arrow:after {
-      content: '\25be';
-      position: relative;
-      top: 1px;
-      color: #fff;
-      padding-left: 2px;
+    .dropdown-arrow {
+      &:after {
+        content: '\25be';
+        color: #fff;
+      }
+    }
+    .experiments {
+      &.dropdown-arrow {
+        &:after {
+          padding-left: 3px;
+        }
+      }
+    }
+    .customer-email { 
+      &.dropdown-arrow {
+        &:after {
+          padding-left: 5px;
+        }
+      }
     }
     .last {
       .dropdown-arrow:after { left: 10px; }
     }
-    .customer-email { overflow: visible; }
     #experiment-nav-item { position: relative; }
     .show-create-experiment {
-      a,
-      span {
-        display: inline-block;
-        color: #006eb6;
-      }
-      span {
-        font-size: 1.2em;
+      text-align: center;
+      a {
         position: relative;
-        top: 2px;
-        left: 8px;
+        color: #006eb6;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 9px 0;
+        &:before {
+          content: "+";
+          position: absolute;
+          left: -10px;
+          &:hover {
+            text-decoration: none;
+          }
+        }
       }
     }
     #view-all-experiments-link {
-      background: image-url("common.png") no-repeat 33px -70px;
+      text-align: center;
+      position: relative;
+      span {
+        display: inline-block;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .view-all-icon {
+        position: absolute;
+        top: 40%;
+        left: -10px;
+        transform: translateY(-40%);
+        width: 20px;
+        height: 20px;
+        background: image-url("common.png") no-repeat -23px -77px;
+      }
     }
     .experiment-container {
       width: 100%;
@@ -171,11 +214,17 @@ $navs-to-index: main-nav dropdown-menu-top;
       }
       a:last-child {
         float: right;
-        width: 25%; 
+        width: 25%;
         text-align: right;
         color: #aaa;
       }
       a:last-child:hover { color: #444; }
+    } 
+    .no-experiments {
+      width: 200px;
+      padding: 9px 0;
+      display: inline-block;
+      text-align: center;
     }
     #my-account-menu {
       li {

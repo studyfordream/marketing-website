@@ -3,6 +3,7 @@ layout: about.hbs
 no_container: true
 seo_title: Press
 visible_title: Press
+page_script: press.js
 body_class:
 - press-page
 ---
@@ -12,19 +13,23 @@ body_class:
 		<article id="press-mentions">
 			<h3>{{press.left_column_header}}</h3>
 			{{#each press_mentions.items}}
-			<div class="press-feed-item">
+			<div class="press-feed-item{{#compare @index '>=' 20}} optly-hide{{/compare}}">
 				<img src="{{logo_url}}">
 				<time datetime="{{formatDate story_date "%Y-%m-%d"}}">{{formatDate story_date "%b. %Y"}}</time>
-				<h4 class="press-article-headline"><a href="{{link_to_story}}">{{story_title}}</a></h4>
-		    </div><!--/.press-feed-item-->
-		    {{/each}}
+				<h4 class="press-article-headline"><a href="{{link_to_story}}" target="_blank">{{story_title}}</a></h4>
+	    </div><!--/.press-feed-item-->
+	    {{/each}}
+	    <div class="show-more secondary-button">Show More</div>
+	    <div class="hide-more secondary-button">Hide More</div>
 		</article><!--/#press-mentions-->
 		<aside id="press-info">
 			{{#if press.press_kit}}
 			<div id="press-kit">
 				<h3 class="heading-underline">{{press.press_kit.header}}</h3>
 				{{#each press.press_kit.items}}
-				<p>{{{.}}}</p>
+				<p>
+					<a href="{{this.link}}" title="{{this.title}}">{{this.text}}</a>
+				</p>
 				{{/each}}
 			</div><!--/#press-kit-->
 			{{/if}}
@@ -61,7 +66,7 @@ body_class:
 			{{#if press.blog}}
 			<div id="optimizely-blog">
 				<h3>{{press.blog.header}}</h3>
-				<p>{{{press.blog.body}}}</p>
+				<p><a href="{{press.blog.link}}">{{press.blog.btn_text}}</a>&nbsp;{{press.blog.text}}</p>
 			</div>
 			{{/if}}
 		</aside><!--/#press-info-->
@@ -71,7 +76,7 @@ body_class:
 		<p>{{press.follow_the_latest.header}}</p>
 		<ul>
 			{{#each press.follow_the_latest.items}}
-			<li>{{{.}}}</li>
+			<li><a href="{{this.link}}" title="{{this.title}}">{{this.text}}</a></li>
 			{{/each}}
 		</ul>
 	</div>

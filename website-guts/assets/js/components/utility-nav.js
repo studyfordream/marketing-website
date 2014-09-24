@@ -1,4 +1,3 @@
-var $utilityNavElm = $('.utility-nav.signed-in-content');
 var lastDropdown;
 
 function bindDropdownClick($dropdownMenus) {
@@ -7,7 +6,7 @@ function bindDropdownClick($dropdownMenus) {
     e.preventDefault();
     // Get the type of dropdown anchor that was clicked
     var clickedData = $(this).data('dropdown');
-
+    
     // Iterate through cached dropdown containers looking for the clicked type
     $.each($dropdownMenus, function(index, elm) {
       var $elm = $(elm);
@@ -15,11 +14,11 @@ function bindDropdownClick($dropdownMenus) {
       if (clickedData !== lastDropdown && lastDropdown !== undefined) {
         $('[data-show-dropdown="' + lastDropdown + '"]').removeClass('show-dropdown');
       }
-
+      
       // Logic to open the dropdown and cache the last opened dropdown
       if ( $elm.data('show-dropdown') ===  clickedData ) {
         // force synchornous behavior so dropdown doesn't cloase as soon as it opens
-        $elm.toggleClass('show-dropdown').delay(0).queue(function(next) {
+        $elm.toggleClass('show-dropdown').delay(50).queue(function(next) {
           $(document).bind('click', window.optly.mrkt.closeDropdown);
           next();
         });
@@ -29,21 +28,50 @@ function bindDropdownClick($dropdownMenus) {
   });
 }
 
-function showUtilityNav($elm, acctData, expData) {
-  var handlebarsData = {
-    account_id: acctData.account_id,
-    email: acctData.email,
-    experiments: expData.experiments
-  };
+window.optly.mrkt.showUtilityNav = function (acctData, expData) {
 
-  $('body').addClass('signed-in').removeClass('signed-out');
+  if(acctData) {
+    var iosProjectCount = 0,
+      projectCount = Object.keys(acctData.projects).length,
+      email = acctData.email,
+      emailObj = {
+        desktop: email,
+        mobile: email
+      };
+    
+    if(email.length > 24) {
+      emailObj.desktop = email.substr(0, 24) + '...';
+    }
 
-  $('#signed-in-utility').html( window.optly.mrkt.templates.experimentsNav(handlebarsData) );
-  var $dropdownMenus = $('[data-show-dropdown]');
+    if(email.length > 15) {
+      emailObj.mobile = email.substr(0, 15) + '...';
+    }
 
-  bindDropdownClick($dropdownMenus);
-  $('[data-logout]').on('click', window.optly.mrkt.signOut);
-}
+    $.each(acctData.projects, function(projId, projObj) {
+      var platforms = projObj.project_platforms;
+      if(platforms.indexOf('ios') !== -1 && platforms.indexOf('web') === -1) {
+        iosProjectCount += 1;
+      }
+    });
+
+    var handlebarsData = {
+      account_id: acctData.account_id,
+      email: emailObj,
+      admin: acctData.is_admin,
+      experiments: expData ? expData.experiments : undefined,
+      showCreateLink: ( iosProjectCount !== projectCount )
+    };
+
+    $('body').addClass('signed-in').removeClass('signed-out');
+
+    $('#signed-in-utility').html( window.optly.mrkt.templates.experimentsNav(handlebarsData) );
+    var $dropdownMenus = $('[data-show-dropdown]');
+
+    bindDropdownClick($dropdownMenus);
+    $('[data-logout]').on('click', window.optly.mrkt.signOut);
+
+  }
+};
 
 window.optly.mrkt.closeDropdown = function(e) {
   if ( e !== undefined ) {
@@ -78,7 +106,11 @@ window.optly.mrkt.signOut = function(redirectPath) {
     }
     // If no path is specified then reload location
     else if (data) {
-      window.location.reload();
+      if(window.location.pathname !== '/pricing') {
+        window.location = window.linkPath + '/';
+      } else {
+        window.location.reload();
+      }
     }
   }, function(err) {
     // Report error here
@@ -90,4 +122,4 @@ window.optly.mrkt.signOut = function(redirectPath) {
 };
 
 // Make call to optly Q
-window.optly_q.push([showUtilityNav, $utilityNavElm, 'acctData', 'expData']);
+window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData', 'expData']);

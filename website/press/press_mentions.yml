@@ -54,8 +54,358 @@ items:
  link_to_story: "http://techcrunch.com/2014/03/25/bizible-partners-with-optimizely-to-improve-ab-testing-for-sales-teams/"
  story_date: "2014-3-25"
  story_title: "Bizible Partners With Optimizely To Improve A/B Testing For Sales Teams"
--
- logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/cnn-money.svg"
- link_to_story: "http://fortune.com/2014/05/05/a-or-b-for-website-testing-firm-optimizely-its-a-multimillion-dollar-question/?section=magazines_fortune"
- story_date: "2014-5-5"
- story_title: "A or B? For website testing firm Optimizely, it's a multimillion-dollar question"
+- 
+  story_title: "Website Testing Company Optimizely Raises $57M Round Led By Andreessen Horowitz"
+  link_to_story: "http://techcrunch.com/2014/05/05/optimizely-raises-a-lot-of-money/"
+  story_date: "2014-05-05"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
+- 
+  story_title: "The Importance of A/B Website Testing"
+  link_to_story: "http://www.bloomberg.com/video/the-importance-of-a-b-website-testing-2JpdTAcMTN~VVStHKV83JA.html"
+  story_date: "2014-05-05"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/bloomberg.svg"
+- 
+  story_title: "A or B? For website testing firm Optimizely, it's a multimillion-dollar question"
+  link_to_story: "http://tech.fortune.cnn.com/2014/05/05/a-or-b-for-website-testing-firm-optimizely-its-a-multimillion-dollar-question/?section=magazines_fortune"
+  story_date: "2014-05-05"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/cnn-money.svg"
+- 
+  story_title: "Optimizely raises $57 million for website testing"
+  link_to_story: "http://in.reuters.com/article/2014/05/05/venture-funding-optimizely-idINL2N0NR13F20140505"
+  story_date: "2014-05-05"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/reuters.png"
+- 
+  story_title: "Optimizely Raises $57 Million to Stamp Out Hippos and Turn Data Into Action"
+  link_to_story: "http://recode.net/2014/05/05/optimizely-raises-57m-to-stamp-out-hippos-and-turn-data-into-action/"
+  story_date: "2014-05-05"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/recode.png"
+- 
+  story_title: "Optimizely Raises $57M to Make the Web More Personal"
+  link_to_story: "http://pevc.dowjones.com/Article?an=DJFVW00020140506ea56di5zj&ReturnUrl=http://pevc.dowjones.com/Article?an=DJFVW00020140506ea56di5zj"
+  story_date: "2014-05-05"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/wall_street_journal.svg"
+- 
+  story_title: "A/B testing company Optimizely raises a massive $57M"
+  link_to_story: "http://venturebeat.com/2014/05/05/ab-testing-company-optimizely-raises-a-massive-57m/"
+  story_date: "2014-05-05"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/venturebeat.png"
+- 
+  story_title: "TC Cribs Tours Optimizely’s Spacious HQ, Where Table Tennis Is A Serious Sport"
+  link_to_story: "http://techcrunch.com/2014/04/29/tc-cribs-tours-optimizelys-spacious-hq-where-table-tennis-is-a-serious-sport/"
+  story_date: "2014-04-29"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
+- 
+  story_title: "BlueKai and Optimizely Team Up in Personalized Marketing Effort"
+  link_to_story: "http://www.destinationcrm.com/Articles/CRM-News/CRM-Featured-News/BlueKai-and-Optimizely-Team-Up-in-Personalized-Marketing-Effort-96406.aspx"
+  story_date: "2014-04-17"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/destination-crm.gif"
+- 
+  story_title: "Optimizely’s new developer tool takes the guesswork out of building iOS apps"
+  link_to_story: "http://venturebeat.com/2014/04/17/optimizelys-new-developer-tool-takes-the-guesswork-out-of-building-ios-apps/"
+  story_date: "2014-04-17"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/venturebeat.png"
+- 
+  story_title: "Optimizely launches platform for testing and tweaking your native iOS apps"
+  link_to_story: "http://thenextweb.com/dd/2014/04/17/optimizely-launches-platform-testing-tweaking-native-ios-apps/"
+  story_date: "2014-04-17"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/the-next-web.svg"
+- 
+  story_title: "Optimizely Brings Its A/B Testing Platform To iOS Apps"
+  link_to_story: "http://techcrunch.com/2014/04/17/optimizely-for-ios/"
+  story_date: "2014-04-17"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
+- 
+  story_title: "The Three Unconventional Questions To Ask Every Job Candidate"
+  link_to_story: "http://www.forbes.com/sites/theyec/2014/04/01/the-three-unconventional-questions-i-ask-every-candidate/"
+  story_date: "2014-04-01"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/forbes.svg"
+- 
+  story_title: "Bizible Partners With Optimizely To Improve A/B Testing For Sales Teams"
+  link_to_story: "http://techcrunch.com/2014/03/25/bizible-partners-with-optimizely-to-improve-ab-testing-for-sales-teams/"
+  story_date: "2014-03-25"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
+- 
+  story_title: "Searching for Profits in Mobile"
+  link_to_story: "http://bits.blogs.nytimes.com/2014/03/17/searching-for-profits-in-mobile/?_php=true&_type=blogs&_r=0"
+  story_date: "2014-03-17"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/new_york_times.svg"
+- 
+  story_title: "What do Upworthy, the president and Starbucks have in common?"
+  link_to_story: "http://www.allvoices.com/contributed-news/16714456-what-do-upworthy-the-president-and-starbucks-have-in-common"
+  story_date: "2014-03-17"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/all-voices.jpg"
+- 
+  story_title: "How I Increased My User-Registration Rate 2,800% in 4 Days"
+  link_to_story: "http://www.entrepreneur.com/article/231518"
+  story_date: "2014-02-14"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/entrepreneur.png"
+- 
+  story_title: "How To Generate Money-Making Test Hypotheses"
+  link_to_story: "http://marketingland.com/generate-money-making-test-hypotheses-72474"
+  story_date: "2014-02-06"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/marketing-land.png"
+- 
+  story_title: "How Optimizely helped Code.org sign up 15 million students in 5 days"
+  link_to_story: "http://venturebeat.com/2014/01/31/how-optimizely-helped-code-org-sign-up-15-million-students-in-5-days/"
+  story_date: "2014-01-22"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/venturebeat.png"
+- 
+  story_title: "Seeking Edge, Websites Turn to Experiments"
+  link_to_story: "http://www.technologyreview.com/news/523671/seeking-edge-websites-turn-to-experiments/"
+  story_date: "2014-01-22"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/mit-technology-review.png"
+- 
+  story_title: "Testing, testing"
+  link_to_story: "http://www.economist.com/news/special-report/21593581-launching-startup-has-become-fairly-easy-what-follows-back-breaking"
+  story_date: "2014-01-18"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/economist.svg"
+- 
+  story_title: "Remember To Vote For Crunchies Finalists!"
+  link_to_story: "http://techcrunch.com/2014/01/17/remember-to-vote-for-crunchies-finalists/"
+  story_date: "2014-01-17"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
+- 
+  story_title: "Top 13 Startups That Killed It In 2013"
+  link_to_story: "http://www.forbes.com/sites/ilyapozin/2014/01/09/top-13-startups-that-killed-it-in-2013/"
+  story_date: "2014-01-09"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/forbes.svg"
+- 
+  story_title: "Optimizely's so fast, Web surfers won't notice it"
+  link_to_story: "http://www.usatoday.com/story/tech/columnist/shinal/2013/12/18/optimizely-startup-website-optimization/4113943/"
+  story_date: "2013-12-18"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/usa-today.svg"
+- 
+  story_title: "Liftopia Gets Skiers To Bounce Off Moguls, Not Its Website"
+  link_to_story: "http://www.adexchanger.com/ecommerce-2/liftopia-gets-skiers-to-bounce-off-moguls-not-its-website/"
+  story_date: "2013-12-11"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/adexchanger.png"
+- 
+  story_title: "Top 5 elements brands should test"
+  link_to_story: "http://www.bizreport.com/2013/12/top-5-elements-brands-should-test.html"
+  story_date: "2013-12-11"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/bizreport.png"
+- 
+  story_title: "How to Optimize Your Marketing in Real Time"
+  link_to_story: "http://mashable.com/2013/12/08/a-b-testing-metrics/"
+  story_date: "2013-12-08"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/mashable.png"
+- 
+  story_title: "Tech firms pitch in to help Philippines recover post-typhoon"
+  link_to_story: "http://www.zdnet.com/ph/tech-firms-pitch-in-to-help-philippines-recover-post-typhoon-7000024008/?s_cid=e305&ttag=e305"
+  story_date: "2013-12-06"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/zdnet.png"
+- 
+  story_title: "The Top 5 Ecommerce Tests You Should be Running Right Now"
+  link_to_story: "http://multichannelmerchant.com/ecommerce/top-5-ecommerce-tests-running-right-now-04122013/"
+  story_date: "2013-12-04"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/multi-channel-merchant.png"
+- 
+  story_title: "The Rise Of The Enterprise Hacker"
+  link_to_story: "http://www.fastcolabs.com/3022896/open-company/the-rise-of-the-enterprise-hacker"
+  story_date: "2013-12-04"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/fast-company.svg"
+- 
+  story_title: "Testing the strength of the paywall"
+  link_to_story: "http://wallblog.co.uk/2013/12/02/testing-the-strength-of-the-paywall/"
+  story_date: "2013-12-02"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/thewall.png"
+- 
+  story_title: "3 Smart Ways to Use Data When Developing Products"
+  link_to_story: "http://www.inc.com/magazine/201312/ryan-underwood/how-to-put-data-in-product-development.html"
+  story_date: "2013-12-01"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/inc.png"
+- 
+  story_title: "Top web optimisation tips for retailers as the Christmas rush begins with Black Friday and Cyber Monday"
+  link_to_story: "http://www.thedrum.com/opinion/2013/11/29/top-web-optimisation-tips-retailers-christmas-rush-begins-black-friday-and-cyber"
+  story_date: "2013-11-29"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/thedrum.png"
+- 
+  story_title: "The Guardian boosts sign-ups to its dating site with Optimizely testing platform"
+  link_to_story: "http://news.techworld.com/applications/3489223/guardian-boosts-sign-ups-to-its-dating-site-with-optimizelys-testing-platform/"
+  story_date: "2013-11-15"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techworld.png"
+- 
+  story_title: "Founder Stories: Optimizely’s Pete Koomen"
+  link_to_story: "http://techcrunch.com/video/founder-stories-optimizelys-pete-koomen/517916192/"
+  story_date: "2013-11-13"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
+- 
+  story_title: "How they increased conversions by 46% on the Guardian’s Soulmates dating site / Kerstin Exner talks with theMarketingblog"
+  link_to_story: "http://www.themarketingblog.co.uk/2013/11/how-they-increased-conversions-by-137-on-the-guardians-soulmates-dating-site-kerstin-exner-talks-with-themarketingblog/"
+  story_date: "2013-11-13"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/marketingblog.png"
+- 
+  story_title: "ClickTale Partners with Optimizely for User Tracking, A/B Testing"
+  link_to_story: "http://www.cmswire.com/cms/customer-experience/clicktale-partners-with-optimizely-for-user-tracking-ab-testing-023090.php"
+  story_date: "2013-11-07"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/cmswire.png"
+- 
+  story_title: "News Byte: ClickTale, Optimizely Partner on Refining A/B Tests"
+  link_to_story: "http://www.dmnews.com/news-byte-clicktale-optimizely-partner-on-refining-ab-tests/article/319812/"
+  story_date: "2013-11-06"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/direct-marketing-news.png"
+- 
+  story_title: "Optimizely CEO Dan Siroker’s Trick For How To Test Investors, Board Members"
+  link_to_story: "http://techcrunch.com/2013/10/19/optimizelys-dan-sirokers-trick-for-how-to-test-investors-board-members/"
+  story_date: "2013-10-19"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
+- 
+  story_title: "How Optimizely Optimizes Web Site Sales"
+  link_to_story: "http://insider.thomsonreuters.com/link.html?cn=share&cid=1133718&shareToken=MzpkYTcwYjI2NS02NWU4LTRiODYtODYwMC05MTc3MWZlMmQ0OTc%3D"
+  story_date: "2013-09-24"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/reuters.png"
+- 
+  story_title: "A/B testing: Math men are the new mad men"
+  link_to_story: "http://venturebeat.com/2013/09/06/ab-testing-math-men-are-the-new-mad-men/"
+  story_date: "2013-09-06"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/venturebeat.png"
+- 
+  story_title: "Optimizely Co-Founder Pete Koomen On Using The Art Of A/B Testing"
+  link_to_story: "http://techcrunch.com/2013/09/03/optimizely-co-founder-pete-koomen-on-using-the-art-of-ab-testing/"
+  story_date: "2013-09-03"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
+- 
+  story_title: "Why Yahoo's \"30 Logos in 30 Days\" Campaign is Actually Brilliant Rebranding"
+  link_to_story: "http://www.fastcompany.com/3016504/dialed/why-yahoos-30-logos-in-30-days-campaign-is-actually-brilliant-rebranding"
+  story_date: "2013-08-30"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/fast-company.svg"
+- 
+  story_title: "10 Feedback Tools for Designers"
+  link_to_story: "http://mashable.com/2013/08/27/design-feedback-tools/"
+  story_date: "2013-08-27"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/mashable.png"
+- 
+  story_title: "IBM, Optimizely, Equinix, and more join CloudBeat 2013 lineup"
+  link_to_story: "http://venturebeat.com/2013/08/13/ibm-optimizely-equinix-and-more-join-cloudbeat-2013-lineup/"
+  story_date: "2013-08-13"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/venturebeat.png"
+- 
+  story_title: "Simple Split Testing Techniques To Improve Your Website"
+  link_to_story: "http://www.forbes.com/sites/allbusiness/2013/07/24/simple-split-testing-techniques-to-improve-your-website/"
+  story_date: "2013-07-24"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/forbes.svg"
+- 
+  story_title: "Understanding A/B Split Tests"
+  link_to_story: "http://www.practicalecommerce.com/articles/4093-Understanding-A-B-Split-Tests"
+  story_date: "2013-07-10"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/practical-ecommerce.jpg"
+- 
+  story_title: "Silicon Valley not waiting for U.S. immigration reform"
+  link_to_story: "http://www.usatoday.com/story/tech/2013/07/04/immigration-reform-bill-new-relic-wily-technology-zendesk/2479631/"
+  story_date: "2013-07-04"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/usa-today.svg"
+- 
+  story_title: "Experiments help e-marketplace uSell find new sources of revenue"
+  link_to_story: "http://www.internetretailer.com/2013/07/02/experiments-help-e-marketplace-usell-find-new-sources-revenue"
+  story_date: "2013-07-02"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/internet-retailer.png"
+- 
+  story_title: "Healthcare.gov: Code Developed by the People and for the People, Released Back to the People"
+  link_to_story: "http://www.theatlantic.com/technology/archive/2013/06/healthcaregov-code-developed-by-the-people-and-for-the-people-released-back-to-the-people/277295/"
+  story_date: "2013-06-28"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/the-atlantic.jpg"
+- 
+  story_title: "Sand Hill Road Invasion: Corporate Venture Capitalists"
+  link_to_story: "http://www.cnbc.com/id/100853442"
+  story_date: "2013-06-28"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/cnbc.svg"
+- 
+  story_title: "Optimizely Explains How It Boosted SimCity Pre-Order Revenue"
+  link_to_story: "http://techcrunch.com/2013/06/14/optimizely-simcity-case-study/"
+  story_date: "2013-06-14"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
+- 
+  story_title: "Dan Siroker: A Eureka Moment on the Campaign Trail"
+  link_to_story: "http://blogs.wsj.com/accelerators/2013/05/04/dan-siroker-a-eureka-moment-on-the-campaign-trail/"
+  story_date: "2012-05-04"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/wall_street_journal.svg"
+- 
+  story_title: "One Entrepreneur's Favorite Start-Up Tools"
+  link_to_story: "http://boss.blogs.nytimes.com/2013/05/01/one-entrepreneurs-favorite-start-up-tools/"
+  story_date: "2012-05-01"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/new_york_times.svg"
+- 
+  story_title: "Optimizely Raises $28 Million To Expand To Custom Website Service"
+  link_to_story: "http://www.forbes.com/sites/tomiogeron/2013/04/10/optimizely-raises-28-million-to-expand-to-custom-website-service/"
+  story_date: "2012-04-10"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/forbes.svg"
+- 
+  story_title: "How Optimizely Is Improving Website Personalization"
+  link_to_story: "http://www.bloomberg.com/video/how-optimizely-is-improving-website-personalization-f4yaOT9oRGeXCTvnD7mPQA.html"
+  story_date: "2012-04-10"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/bloomberg.svg"
+- 
+  story_title: "Optimizely (YC W10) raises $28M from Benchmark Capital, growing over 400% a year"
+  link_to_story: "http://blog.ycombinator.com/optimizely-yc-w10-raises-$28m-from-benchmark-capital-growing-over-400-percent-a-year"
+  story_date: "2012-04-10"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/yc115-2x.png"
+- 
+  story_title: "Website Testing Service Optimizely Raises $28M Round Led By Benchmark, Plans Global Expansion"
+  link_to_story: "http://techcrunch.com/2013/04/10/optimizely-series-a/"
+  story_date: "2012-04-10"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
+- 
+  story_title: "Hot web optimization startup Optimizely gets $28M, boasts 400% revenue growth"
+  link_to_story: "http://venturebeat.com/2013/04/10/hot-web-optimization-startup-optimizely-gets-28m-boasts-400-revenue-growth/"
+  story_date: "2012-04-10"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/venturebeat.png"
+- 
+  story_title: "The New King Of Web Optimization? Optimizely Has Run 100K A/B Tests On More Than 1B Visitors"
+  link_to_story: "http://techcrunch.com/2012/10/09/optimizely-vs-omniture/"
+  story_date: "2012-10-09"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
+- 
+  story_title: "The A/B Test: Inside the Technology That’s Changing the Rules of Business"
+  link_to_story: "http://www.wired.com/business/2012/04/ff_abtesting"
+  story_date: "2012-04-25"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/wired.svg"
+- 
+  story_title: "Obama Inc.: What businesses want to learn from the president’s campaign"
+  link_to_story: "http://www.washingtonpost.com/blogs/wonkblog/wp/2013/03/17/obama-inc-what-businesses-want-to-learn-from-the-presidents-campaign/"
+  story_date: "2013-03-17"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/washington-post.svg"
+- 
+  story_title: "Unconventional Wisdom from Global Brands: Four Ideas from the Brite '13 Conference"
+  link_to_story: "http://www.forbes.com/sites/philjohnson/2013/03/11/unconventional-wisdom-from-global-brands/"
+  story_date: "2013-03-11"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/forbes.svg"
+- 
+  story_title: "5 Optimization Lessons from Optimizely CEO Dan Siroker"
+  link_to_story: "http://www.redbricksmedia.com/5-optimization-lessons-from-optimizely-ceo-dan-siroker/"
+  story_date: "2013-03-06"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/red-bricks-media.png"
+- 
+  story_title: "How Crate & Barrel keeps their website looking awesome: testing"
+  link_to_story: "http://www.examiner.com/article/how-crate-barrel-keeps-their-website-looking-awesome-testing"
+  story_date: "2013-02-27"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/examiner.png"
+- 
+  story_title: "30 Under 30: Forbes Announces Young Pioneers In Technology // Dan Siroker: Forbes' 30-Under-30"
+  link_to_story: "http://www.forbes.com/pictures/lmf45fdij/dan-siroker/"
+  story_date: "2012-12-17"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/forbes.svg"
+- 
+  story_title: "The Obama start-ups"
+  link_to_story: "http://www.economist.com/news/business/21567403-techniques-presidents-election-campaigns-have-spawned-one-lot-young-firms-obama"
+  story_date: "2012-12-01"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/economist.svg"
+- 
+  story_title: "Our interview with Pete Koomen and Dan Siroker, co-founders of Optimizely — a Y Combinator startup"
+  link_to_story: "http://howtowriteabusinessplan.com/2012/10/optimizely-interview/"
+  story_date: "2012-10-31"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/how-to-write-a-business-plan.png"
+- 
+  story_title: "Pete Koomen: The Quest for More Clicks"
+  link_to_story: "http://www.businessweek.com/articles/2012-09-20/pete-koomen-the-quest-for-more-clicks"
+  story_date: "2012-09-20"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/business-week.svg"
+- 
+  story_title: "Optimizely’s Assault on the One-Size-Fits-All Web"
+  link_to_story: "http://www.xconomy.com/san-francisco/2012/05/31/optimizelys-assault-on-the-one-size-fits-all-web/"
+  story_date: "2012-05-31"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/xconomy.jpg"
+- 
+  story_title: "Optimizely aims to give Obama 2012 a data edge"
+  link_to_story: "http://money.cnn.com/2012/04/23/technology/startups/optimizely-election/index.htm?section=money_topstories"
+  story_date: "2012-05-02"
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/cnn-money.svg"
