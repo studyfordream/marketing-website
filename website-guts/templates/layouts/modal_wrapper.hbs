@@ -12,10 +12,10 @@
             </div><!--/.modal-body-->
             <div class="modal-footer{{#unless page.primary_button_text}} no-primary-button{{/unless}}">
                 {{#if page.primary_button_text}}
-                <button type="submit" class="primary-button submit-btn translate" data-modal-btn="signin">{{page.primary_button_text}} &raquo;</button>
+                <button type="submit" class="primary-button submit-btn translate">{{page.primary_button_text}} &raquo;</button>
                 {{/if}}
                 {{#if page.negative_button_text}}
-                <button type="button" data-modal-btn="close" class="secondary-button close-btn translate">{{page.negative_button_text}}</button>
+                <button type="button" data-modal-btn="{{#unless page.negative_button_action}}close{{/unless}}{{page.negative_button_action}}" class="secondary-button close-btn translate">{{page.negative_button_text}}</button>
                 {{/if}}
             </div><!--/.modal-footer-->
         {{#if page.form_action}}</form>{{/if}}

@@ -391,7 +391,8 @@ body .small-note, body p.small-note {
 	display: none;
 }
 
-body.oform-error {
+body.oform-error,
+body.error-state {
 	input[type="text"], input[type="url"], input[type="email"], input[type="tel"],  input[type="password"]{
 		transition: background-color 0.1s linear;
 	  &.oform-error-show,
@@ -432,16 +433,21 @@ body {
 
     }
   }
+  .error-right {
+    float: right;
+  }
+  .success-show {
+  	color: #266620;
+  	opacity: 1;
+  }
 }
+
 body.error-state,
 body.oform-error {
   .oform-error-show,
   .error-show {
     opacity: 1;
     color: #911d16;
-    &.error-right {
-      float: right;
-    }
   }
 }
 

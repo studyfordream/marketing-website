@@ -28,7 +28,7 @@ $('#test-it-out-form').submit(function(e){
 });
 
 
-var touchHomeFormHelperInst = window.optly.mrkt.form.createAccount('touch-homepage-create-account-form');
+var touchHomeFormHelperInst = window.optly.mrkt.form.createAccount({formId: 'touch-homepage-create-account-form'});
 
 var touchHomeForm = new Oform({
   selector: '#touch-homepage-create-account-form',

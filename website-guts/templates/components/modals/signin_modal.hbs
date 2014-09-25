@@ -13,7 +13,7 @@ negative_button_text: Cancel
               <label>
                   <span>Email address</span>
                   <span class="email-related error-hide error-right">Email is required</span>
-                  <input type="text" name="email" required>
+                  <input type="email" name="email">
               </label>
               <label>
                   <span>Password</span>
@@ -27,7 +27,8 @@ negative_button_text: Cancel
                   </label>
               </div>
               <div class="options">
-                  <p><a class="show-forgot-password">Forgot your password?</a></p>
+                  <p><a href="{{linkPath}}/privacy" target="_blank">Privacy Policy</a></p>
+                  <p><a class="show-forgot-password" data-modal-click="reset-password">Forgot your password?</a></p>
                   <p>No account? <a class="show-create-account" data-modal-click="signup">Register here</a></p>
                   <p class="error-message error-hide">Incorrect email or password</p>
               </div>

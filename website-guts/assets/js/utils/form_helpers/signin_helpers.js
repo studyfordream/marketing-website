@@ -19,10 +19,43 @@ SigninConst.prototype = {
   },
 
   passwordValidation: function(elm) {
+    this.beforeValidateEmail();
     if(elm.value.length > 0) {
       return true;
     } else {
       return false;
+    }
+  },
+
+  addError: function(elm) {
+    if(!document.body.classList.contains('error-state')) {
+      document.body.classList.add('error-state');
+    }
+    if( !elm.classList.contains('error-show') ) {
+      elm.classList.add('error-show');
+    }
+  },
+
+  removeError: function(elm) {
+    if(document.body.classList.contains('error-state')) {
+      document.body.classList.remove('error-state');
+    }
+    if( elm.classList.contains('error-show') ) {
+      elm.classList.remove('error-show');
+    }
+  },
+
+  beforeValidateEmail: function() {
+    var emailInput = this.formElm.querySelector('[name="email"]');
+    var emailErrorElm = this.formElm.querySelector('.email-related');
+    if(emailInput.value.length === 0) {
+      $.each([emailInput, emailErrorElm], function(i, elm) {
+        this.addError(elm);
+      }.bind(this));
+    } else {
+      $.each([emailInput, emailErrorElm], function(i, elm) {
+        this.removeError(elm);
+      }.bind(this));
     }
   },
 
@@ -101,11 +134,11 @@ SigninConst.prototype = {
 
 };
 
-window.optly.mrkt.form.signin = function(formId, dialogId) {
+window.optly.mrkt.form.signin = function(argumentsObj) {
   var constructorArgs = {};
-  constructorArgs.formElm = document.getElementById(formId);
-  if (dialogId) {
-    constructorArgs.dialogElm = document.getElementById(dialogId);
+  constructorArgs.formElm = document.getElementById(argumentsObj.formId);
+  if (argumentsObj.dialogId) {
+    constructorArgs.dialogElm = document.getElementById(argumentsObj.dialogId);
   }
   constructorArgs.optionsErrorElm = constructorArgs.formElm.getElementsByClassName('options')[0].querySelector('p:last-child');
 
