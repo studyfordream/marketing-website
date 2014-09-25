@@ -24,6 +24,14 @@ new Oform({
       name: d.getElementById('name').value,
       phone: d.getElementById('phone').value
     }, event);
+    /* legacy reporting - to be deprecated */
+    w.analytics.track('/free-trial/success', {
+      category: 'account',
+      label: w.location.pathname
+    }, {
+      Marketo: true
+    });
+    /* end legacy reporting */
     setTimeout(function(){
       w.location = '/edit?url=' + d.getElementById('url').value;
     }, 500);

@@ -81,6 +81,14 @@ SigninConst.prototype = {
 
     //track customer type
     if(resp.subscription_plan) {
+      /* legacy reportin - to be deprecated */
+      window.analytics.track('/customer/signed-in', {
+        category: 'account',
+        label: w.location.pathname
+      }, {
+        Marketo: true
+      });
+      /* new reporting */
       window.analytics.track('customer sign in', {
         category: 'account',
         label: w.location.pathname

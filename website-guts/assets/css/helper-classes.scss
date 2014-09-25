@@ -467,3 +467,6 @@ body.oform-error {
 		}
 	}
 }
+
+body.signed-in .signed-in-hide, .signed-in-show {display: none;}
+body.signed-in .signed-in-show {display: block;}
