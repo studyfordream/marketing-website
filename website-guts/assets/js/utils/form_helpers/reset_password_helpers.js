@@ -1,14 +1,6 @@
 window.optly.mrkt.form = window.optly.mrkt.form || {};
 
-var ResetPassword = function(scopeObj) {
-  $.each(scopeObj, function(key, val){
-    this[key] = val;
-  }.bind(this));
-
-  this.bindEmailValidation();
-};
-
-ResetPassword.prototype = {
+var resetPasswordHelper = {
 
   customErrorMessage: function (elm, message) {
     if(message) {
@@ -124,13 +116,13 @@ ResetPassword.prototype = {
 };
 
 window.optly.mrkt.form.resetPassword = function(argumentsObj) {
-  var constructorArgs = {};
-  constructorArgs.formElm = document.getElementById(argumentsObj.formId);
-  if (argumentsObj.dialogId) {
-    constructorArgs.dialogElm = document.getElementById(argumentsObj.dialogId);
-  }
-  constructorArgs.optionsErrorElm = constructorArgs.formElm.getElementsByClassName('options')[0].querySelector('p:last-child');
+  var constructorArgs = {
+    formId: argumentsObj.formId,
+    dialogId: argumentsObj.dialogId,
+    init: 'bindEmailValidation',
+    prototype: resetPasswordHelper
+  };
 
-  return new ResetPassword(constructorArgs);
+  return new window.optly.mrkt.form.HelperFactory(constructorArgs);
 
 };

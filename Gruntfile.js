@@ -641,6 +641,7 @@ module.exports = function(grunt) {
               '<%= config.guts %>/assets/js/utils/check_complex_password.js',
               '<%= config.guts %>/assets/js/utils/get_url_parameter.js',
               '<%= config.guts %>/assets/js/utils/uri.js',
+              '<%= config.guts %>/assets/js/utils/form_helper_factory.js',
               '<%= config.guts %>/assets/js/utils/form_helpers/*.js',
               '<%= config.guts %>/assets/js/global.js',
               '<%= config.guts %>/assets/js/components/*.js',
