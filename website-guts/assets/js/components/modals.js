@@ -83,6 +83,12 @@ function closeModalHandler(e) {
         track: trackClose
       });
     }
+  } 
+  //specifying cancel button functionality
+  else if( $clickedElm.data().modalBtn !== undefined ) {
+    window.optly.mrkt.modal.open({
+      modalType: $clickedElm.data('modal-btn')
+    });
   }
 }
 
@@ -116,7 +122,7 @@ window.optly.mrkt.modal.open = function(modalArgs) {
     animInitiated;
   // if modalState exists then close modal of the currently open modal state
   if(modalState.type !== undefined) {
-    window.optly.mrkt.modal.close({ modalType: modalState.type});
+    window.optly.mrkt.modal.close({ modalType: modalState.type, track: false });
   }
 
   // update the global modal state

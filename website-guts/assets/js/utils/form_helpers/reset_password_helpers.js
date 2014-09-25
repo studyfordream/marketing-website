@@ -106,9 +106,16 @@ ResetPassword.prototype = {
     var resp = JSON.parse(e.target.responseText);
 
     if(e.target.status !== 200) {
+      window.analytics.track('password reset fail', {
+        category: 'account',
+        label: w.location.pathname
+      });
       this.showOptionsError(resp.error);
-      return;
     } else {
+      window.analytics.track('password reset', {
+        category: 'account',
+        label: w.location.pathname
+      });
       this.showOptionsSuccess(resp.message);
     }
 
