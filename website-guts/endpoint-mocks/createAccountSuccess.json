@@ -1,0 +1,49 @@
+{
+    "project_count": 1,
+    "last_name": "rush",
+    "csrf_token": "046e9fa82f7333fb5a4e13878f2a32bfdbf70999828ec8bc917482429c3fcd7aab559f20e3ee81a4fc08a714801b56f7e13f3eb940128e42176f5262df9e3d4e58001f748d21cf8518771a261c6db691",
+    "beta_customer": false,
+    "experiments_total": 0,
+    "use_project_goals": true,
+    "first_name": "kyle",
+    "has_installed_snippet": false,
+    "user_accounts": [{
+        "current_account": false,
+        "account_id": 1758831151,
+        "email": "kyle+optimizelytest201408222230@optimizely.com",
+        "is_admin": true,
+        "role": "Administrator",
+        "account_name": null
+    }],
+    "subscribed": false,
+    "has_seen_editor_guiders": false,
+    "project_ids": [1758831151],
+    "source": null,
+    "company_name": null,
+    "has_seen_results2_guiders": false,
+    "email": "kyle+optimizelytest201408222230@optimizely.com",
+    "phone_number": "7146860883",
+    "account_id": 1758831151,
+    "has_seen_audience_guiders": false,
+    "munchkin_token": "a583bef4814216c4f91a0eef9cd69e3f51f6f47e",
+    "preview_script_url": "https://www.optimizely.com/js/preview-master-1584.378157179622384885.js?token=7243dd652cb547fab6c7c32006e31532&account_id=1758831151",
+    "is_admin": false,
+    "include_whitelist_feature": null,
+    "trusted_tester": false,
+    "has_seen_first_notice": false,
+    "projects": {
+        "1758831151": {
+            "preview_js_file_name": "012b2f1a98997041e9dcb9a09ba34477",
+            "project_platforms": ["web"]
+        }
+    },
+    "permissions": {
+        "userPermissions": ["delete-note", "modify-account-tokens", "invite", "delete-experiment", "create-visitor-segment", "view-note", "pause-experiment", "reset-results", "view-usage", "modify-running-experiment", "create-goal", "modify-project", "update-note", "view-users", "modify-dimension", "archive-experiment", "create-note", "modify-paused-experiment", "edit-project", "billing", "create-ios-project", "view-goal", "create-project", "start-experiment", "delete-goal", "user-permissions", "create-experiment", "view-experiment", "modify-goal", "view-audit-log", "create-dimension"],
+        "accountPermissions": ["audience-targeting"]
+    },
+    "subscription_plan": null,
+    "succeeded": true,
+    "max_projects": 2,
+    "must_change_password": false,
+    "is_master_account": true
+}

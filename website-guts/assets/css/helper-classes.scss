@@ -439,11 +439,10 @@ body.oform-error {
   .error-show {
     opacity: 1;
     color: #911d16;
+    &.error-right {
+      float: right;
+    }
   }
-}
-
-.error-right {
-  float: right;
 }
 
 @media screen and (min-width: 769px) {

@@ -4,7 +4,79 @@ body.home-page {
   #cta {
     form {display: none;}
   }
+  &.signed-in {
+    #touch-cta {
+      display: none;
+    }
+  }
+  #touch-cta {
+    width: 96%;
+    margin: 0 auto 80px auto;
+    color: #fff;
+    form {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    input[type="text"], input[type="password"] {
+      margin: 0 auto 25px auto;
+    }
+
+    .password-req {
+      font-size: .6em;
+    }
+
+    label, .password-req {
+      margin-bottom: 5px;
+    }
+
+    .password-req {
+      margin-top: 0;
+      text-align: left;
+    }
+
+    label span:first-of-type {
+      display: block;
+      float: left;
+    }
+
+    .password-req {
+      clear: both;
+    }
+
+    input {
+      clear: both;
+      &[type="checkbox"]{
+        display: inline-block;
+      }
+    }
+
+    .terms, .options {margin-bottom: 30px}
+
+    .terms p {
+      font-size: .9em;
+      display: inline;
+      line-height: 1.5em;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .options p {
+      font-size: .9em;
+    }
+
+    .error-show {
+      color: #e58d88;
+    }
+  }
+  @media only screen and (min-width: $tablet-min-width){
+    #touch-cta {width: 65%;}
+  }
   @media only screen and (min-width: $desktop-min-width){
+    #touch-cta {display: none;}
     height: 100%;
     text-align: center;
     #outer-wrapper, #inner-wrapper, #cta {

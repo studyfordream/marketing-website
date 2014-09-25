@@ -624,7 +624,12 @@ module.exports = function(grunt) {
         },
         files: {
             '<%= config.temp %>/assets/js/global.js': [
-              '<%= config.guts %>/assets/js/utils/*.js',
+              '<%= config.guts %>/assets/js/utils/oform_globals.js',
+              '<%= config.guts %>/assets/js/utils/check_complex_password.js',
+              '<%= config.guts %>/assets/js/utils/get_url_parameter.js',
+              '<%= config.guts %>/assets/js/utils/uri.js',
+              '<%= config.guts %>/assets/js/utils/create_account_helpers.js',
+              '<%= config.guts %>/assets/js/utils/signin_helpers.js',
               '<%= config.guts %>/assets/js/global.js',
               '<%= config.guts %>/assets/js/components/*.js',
               '<%= config.guts %>/assets/js/services/*.js',
