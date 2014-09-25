@@ -71,12 +71,24 @@ SigninConst.prototype = {
       email: resp.email
     });
 
+    //track signin
     window.analytics.track('acount sign-in', {
       category: 'account',
       label: window.location.pathname
     }, {
       Marketo: true
     });
+
+    //track customer type
+    if(resp.subscription_plan) {
+      window.analytics.track('customer sign in', {
+        category: 'account',
+        label: w.location.pathname
+      }, {
+        Marketo: true
+      });
+    }
+
   }
 
 };
