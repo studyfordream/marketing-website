@@ -1,4 +1,4 @@
-var signinDialogHelperInst = window.optly.mrkt.form.signin('signin-dialog');
+var signinDialogHelperInst = window.optly.mrkt.form.signin({formId: 'signin-form'});
 
 var signinForm = new Oform({
   selector: '#signin-form',

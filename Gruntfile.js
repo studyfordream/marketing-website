@@ -273,6 +273,19 @@ module.exports = function(grunt) {
                     res.writeHead(code, {'Content-Type': 'application/json'});
                     res.end(grunt.file.read(readPath));
 
+                  } else if(req.url === '/recover/request') {
+                    var code, respObj;
+
+                    if(req.body.email === 'david.fox-powell@optimizely.com') {
+                      respObj = '{"message":"Email sent.","succeeded":true}';
+                      code = 200;
+                    } else {
+                      respObj = '{"id":"18137fdc-1e90-45a7-bf91-50c5a69c59e6","succeeded":false,"error":"Account was not found."}';
+                      code = 400;
+                    }
+                    res.writeHead(code, {'Content-Type': 'application/json'});
+                    res.end(respObj);
+
                   } else {
 
                     return next();
@@ -628,8 +641,7 @@ module.exports = function(grunt) {
               '<%= config.guts %>/assets/js/utils/check_complex_password.js',
               '<%= config.guts %>/assets/js/utils/get_url_parameter.js',
               '<%= config.guts %>/assets/js/utils/uri.js',
-              '<%= config.guts %>/assets/js/utils/create_account_helpers.js',
-              '<%= config.guts %>/assets/js/utils/signin_helpers.js',
+              '<%= config.guts %>/assets/js/utils/form_helpers/*.js',
               '<%= config.guts %>/assets/js/global.js',
               '<%= config.guts %>/assets/js/components/*.js',
               '<%= config.guts %>/assets/js/services/*.js',

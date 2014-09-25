@@ -83,11 +83,11 @@ CreateAccountConst.prototype = {
 
 };
 
-window.optly.mrkt.form.createAccount = function(formId, dialogId) {
+window.optly.mrkt.form.createAccount = function(argumentsObj) {
   var constructorArgs = {};
-  constructorArgs.formElm = document.getElementById(formId);
-  if (dialogId) {
-    constructorArgs.dialogElm = document.getElementById(dialogId);
+  constructorArgs.formElm = document.getElementById(argumentsObj.formId);
+  if (argumentsObj.dialogId) {
+    constructorArgs.dialogElm = document.getElementById(argumentsObj.dialogId);
   }
   constructorArgs.optionsErrorElm = constructorArgs.formElm.getElementsByClassName('options')[0].querySelector('p:last-child');
   constructorArgs.characterMessageElm = constructorArgs.formElm.getElementsByClassName('password-req')[0];

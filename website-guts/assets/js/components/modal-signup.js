@@ -1,4 +1,4 @@
-var signupDialogHelperInst = window.optly.mrkt.form.createAccount('signup-form', 'signup-dialog');
+var signupDialogHelperInst = window.optly.mrkt.form.createAccount({formId: 'signup-form', dialogId: 'signup-dialog'});
 
 var signupForm = new Oform({
   selector: '#signup-form',
