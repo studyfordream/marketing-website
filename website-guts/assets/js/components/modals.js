@@ -116,7 +116,7 @@ window.optly.mrkt.modal.open = function(modalArgs) {
     animInitiated;
   // if modalState exists then close modal of the currently open modal state
   if(modalState.type !== undefined) {
-    window.optly.mrkt.modal.close(modalState.type);
+    window.optly.mrkt.modal.close({ modalType: modalState.type});
   }
 
   // update the global modal state
