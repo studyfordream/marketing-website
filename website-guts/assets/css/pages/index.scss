@@ -148,4 +148,15 @@ body.home-page {
       font-weight: 300;
     }
   }
+  #signed-in-mobile {
+    margin: 1em 0 8em 0;
+  }
+  #mobile-dashboard-link {
+    display: inline-block;
+    background: #006eb6;
+    border: 1px solid #005891;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.42);
+    color: #fff;
+    padding: 0.5em 1em;
+  }
 }
