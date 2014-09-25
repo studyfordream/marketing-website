@@ -11,7 +11,7 @@ body.home-page {
   }
   #touch-cta {
     width: 96%;
-    margin: 0 auto 80px auto;
+    margin: 0 auto 30px auto;
     color: #fff;
     form {
       width: 80%;
@@ -72,11 +72,30 @@ body.home-page {
       color: #e58d88;
     }
   }
+  .mobile-container {margin: auto;}
+  #customers {
+    background: #f8f8f8;
+    color: #2d2d2d;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    p {margin-bottom: 30px;}
+    img {
+      max-height: 50px;
+      max-width: 120px;
+      display: inline-block;
+      padding: 0 1em;
+      margin-bottom: 30px;
+    }
+  }
+  #description {
+    padding: 20px 0;
+    background: #fff;
+  }
   @media only screen and (min-width: $tablet-min-width){
-    #touch-cta {width: 65%;}
+    #touch-cta, .mobile-container {width: 65%;}
   }
   @media only screen and (min-width: $desktop-min-width){
-    #touch-cta {display: none;}
+    #touch-cta, .mobile-content {display: none;}
     height: 100%;
     text-align: center;
     #outer-wrapper, #inner-wrapper, #cta {
