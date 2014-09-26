@@ -18,10 +18,54 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       this[ scopeObj.init ]();
     }
 
+    this.bodyClass = document.body.classList;
+    this.inputs = Array.prototype.slice.call( this.formElm.getElementsByTagName('input') );
+
   }
 
-  
-  Const.prototype = scopeObj.prototype;
+  var processingHelpers = {
+
+    handleDisable: function(disableState) {
+      var inputs = this.inputs;
+
+      if(disableState === 'add') {
+        $.each(inputs, function(i, input) {
+          input.setAttribute('disabled', '');
+        });
+      } else if (disableState === 'remove') {
+        $.each(inputs, function(i, input) {
+          input.removeAttribute('disabled');
+        });
+      }
+      
+    },
+
+    processingAdd: function(argsObj) {
+      if( !this.bodyClass.contains('processing-state') ) {
+        this.bodyClass.add('processing-state');
+        if(!argsObj || !argsObj.omitDisabled) {
+          this.handleDisable('add');
+        } 
+      }
+
+      return true;
+    },
+
+    processingRemove: function(argsObj) {
+      if( this.bodyClass.contains('processing-state') ) {
+        if(( argsObj && argsObj.callee === 'done' && this.bodyClass.contains('oform-error') ) || argsObj.callee == 'load') {
+          this.bodyClass.remove('processing-state');
+          if(!argsObj || !argsObj.retainDisabled) {
+            this.handleDisable('remove');
+          }
+        }
+      }
+
+      return true;
+    }
+  };
+
+  $.extend(Const.prototype, scopeObj.prototype, processingHelpers);
 
   return new Const();
 

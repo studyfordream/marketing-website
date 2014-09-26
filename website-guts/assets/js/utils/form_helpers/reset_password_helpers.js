@@ -103,12 +103,14 @@ var resetPasswordHelper = {
         label: w.location.pathname
       });
       this.showOptionsError(resp.error);
+      this.processingRemove({callee: 'load'});
     } else {
       window.analytics.track('password reset', {
         category: 'account',
         label: w.location.pathname
       });
       this.showOptionsSuccess(resp.message);
+      this.processingRemove({callee: 'load', retainDisabled: true});
     }
 
   }
