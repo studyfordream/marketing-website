@@ -1,5 +1,9 @@
 body.customer-stories-page {
-  .sub-header-nav {text-align: right;}
+  .sub-header-nav {
+    li {
+      display: block;
+    }  
+  }
   .top-content {
     margin-bottom: 25px;
     h2 {
@@ -97,6 +101,13 @@ body.customer-stories-page {
     .top-content {
       h2 {
         margin: 0;
+      }
+    }
+    .sub-header-nav {
+      text-align: right;
+      li {
+        display: inline-block;
+        width: auto;
       }
     }
     .callout {

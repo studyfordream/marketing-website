@@ -8,8 +8,10 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       this.dialogElm = document.getElementById(scopeObj.dialogId);
     }
     
-    this.optionsErrorElm = this.formElm.getElementsByClassName('options')[0].querySelector('p:last-child');
-
+    if(this.formElm.getElementsByClassName('options').length > 0) {
+      this.optionsErrorElm = this.formElm.getElementsByClassName('options')[0].querySelector('p:last-child');
+    }
+    
     if(scopeObj.characterMessageSelector) {
       this.characterMessageElm = this.formElm.querySelector( scopeObj.characterMessageSelector );
     }
@@ -20,7 +22,8 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
     this.bodyClass = document.body.classList;
     this.inputs = Array.prototype.slice.call( this.formElm.getElementsByTagName('input') );
-
+    
+    this.inputs.push(this.formElm.querySelector('button[type="submit"]'));
   }
 
   var processingHelpers = {

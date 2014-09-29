@@ -96,6 +96,8 @@ var resetPasswordHelper = {
 
   load: function(e) {
     var resp = JSON.parse(e.target.responseText);
+    var submitButton = this.formElm.querySelector('[type="submit"');
+    var closeButton = this.formElm.querySelector('[data-modal-btn="close"]');
 
     if(e.target.status !== 200) {
       window.analytics.track('password reset fail', {
@@ -109,6 +111,8 @@ var resetPasswordHelper = {
         category: 'account',
         label: w.location.pathname
       });
+      submitButton.classList.add('hide-button');
+      closeButton.classList.remove('hide-button');
       this.showOptionsSuccess(resp.message);
       this.processingRemove({callee: 'load', retainDisabled: true});
     }

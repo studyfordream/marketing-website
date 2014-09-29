@@ -424,20 +424,36 @@ body.error-state {
 }
 
 body {
-  input[type="text"], input[type="url"], input[type="email"], input[type="tel"],  input[type="password"]{
-    transition: background-color 0.1s linear;
+  input[type="text"], 
+  input[type="url"], 
+  input[type="email"], 
+  input[type="tel"],  
+  input[type="password"]
+  button[type="submit"] {
+    transition: all 0.1s linear;
   }
   input[disabled] {
     background-color: #eee;
-    opacity: 0.65;
+  }
+  input[disabled],
+  button[disabled] {
+    opacity: 0.65
   }
   .processing-state {
-    input {
+    input[type="text"], 
+    input[type="url"], 
+    input[type="email"], 
+    input[type="tel"],  
+    input[type="password"] {
       background-color: #eee;
-      opacity: 0.65;
     }
-    .processing-show {
-
+    input[type="text"], 
+    input[type="url"], 
+    input[type="email"], 
+    input[type="tel"],  
+    input[type="password"]
+    button[type="submit"] {
+      opacity: 0.65;
     }
   }
   .error-right {

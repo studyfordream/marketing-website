@@ -1,39 +1,31 @@
-$('#create-exp-form').on('submit', function(e) {
+var createExpHelperInst = window.optly.mrkt.form.createExp({formId: 'create-exp-form'});
+
+$(createExpHelperInst.formElm).on('submit', function(e) {
   var uri,
-    params = {},
-    validationError = false,
-    orderQ = ['url'];
+    validationError = false;
 
   e.preventDefault();
+  
+  validationError = createExpHelperInst.validateInputs();
 
-  $(this).find('[required]').each(function(i, elm) {
-    var $elm = $(elm);
+  if(!validationError) {
 
-    if($elm.val().length === 0) {
-      $('body').addClass('error-state');
-      $elm.parent().find('.' + $elm.attr('name') + '-related').addClass('error-show');
-      $elm.addClass('error-show');
-      validationError = true;
-    }
-  });
+    createExpHelperInst.processingAdd();
 
-  if(validationError) {
-    return;
-  }
+    uri = createExpHelperInst.getUri();
 
-  $(this).find('input').each(function(i, inputElm) {
-    var inputName = inputElm.getAttribute('name');
-    if(!!inputElm.value) {
-      params[ inputName ] = inputElm.value;
-      
-      if(orderQ.indexOf(inputName) === -1) {
-        orderQ.push(inputName);
-      }
+    w.analytics.track('create experiment submit', {
+      category: 'experiment',
+      label: w.location.pathname
+    }, {
+      Marketo: true
+    });
 
-    }
-  });
+    w.setTimeout(function() {
+      window.location = window.location.origin + uri;
+    }, 500);
 
-  uri = window.optly.mrkt.utils.param('/edit', params, orderQ);
+  } 
+  
 
-  window.location = window.location.origin + uri;
 });

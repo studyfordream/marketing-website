@@ -21,6 +21,6 @@ signinForm.on('load', function(e){
   signinDialogHelperInst.processingRemove({callee: 'load'});
 }.bind(signinDialogHelperInst));
 
-signinForm.on('done', function(e){
+signinForm.on('done', function(){
   signinDialogHelperInst.processingRemove({callee: 'done'});
 }.bind(signinDialogHelperInst));

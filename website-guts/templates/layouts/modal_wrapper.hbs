@@ -14,6 +14,9 @@
                 {{#if page.primary_button_text}}
                 <button type="submit" class="primary-button submit-btn translate">{{page.primary_button_text}} &raquo;</button>
                 {{/if}}
+                {{#if page.hidden_button_text}}
+                <button type="button" data-modal-btn="{{page.hidden_button_action}}" class="hide-button right-button secondary-button close-btn translate">{{page.hidden_button_text}}</button>
+                {{/if}}
                 {{#if page.negative_button_text}}
                 <button type="button" data-modal-btn="{{#unless page.negative_button_action}}close{{/unless}}{{page.negative_button_action}}" class="secondary-button close-btn translate">{{page.negative_button_text}}</button>
                 {{/if}}

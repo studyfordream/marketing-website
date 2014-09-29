@@ -157,7 +157,12 @@ $navs-to-index: main-nav dropdown-menu-top;
     .last {
       .dropdown-arrow:after { left: 10px; }
     }
-    #experiment-nav-item { position: relative; }
+    #experiment-nav-item { 
+      position: relative; 
+      .dropdown-menu-top {
+        min-width: 200px;
+      }
+    }
     .show-create-experiment {
       text-align: center;
       a {
