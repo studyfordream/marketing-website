@@ -67,7 +67,7 @@ module.exports = function(grunt) {
             environmentData: 'website-guts/data/environments/production/environmentVariables.json',
             assetsDir: '/dist/assets',
             link_path: '',
-            sassImagePath: 'https://du7782fucwe1l.cloudfront.net/img',
+            sassImagePath: '/img',
             compress_js: true,
             drop_console: true,
             concat_banner: '(function($, w, d){ \n\n' +
