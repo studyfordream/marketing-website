@@ -1,12 +1,6 @@
 window.optly.mrkt.form = window.optly.mrkt.form || {};
 
-var CreateAccountConst = function(scopeObj) {
-  $.each(scopeObj, function(key, val){
-    this[key] = val;
-  }.bind(this));
-};
-
-CreateAccountConst.prototype = {
+var createAccountHelper = {
 
   customErrorMessage: function (elm, message) {
     if(message) {
@@ -84,14 +78,13 @@ CreateAccountConst.prototype = {
 };
 
 window.optly.mrkt.form.createAccount = function(argumentsObj) {
-  var constructorArgs = {};
-  constructorArgs.formElm = document.getElementById(argumentsObj.formId);
-  if (argumentsObj.dialogId) {
-    constructorArgs.dialogElm = document.getElementById(argumentsObj.dialogId);
-  }
-  constructorArgs.optionsErrorElm = constructorArgs.formElm.getElementsByClassName('options')[0].querySelector('p:last-child');
-  constructorArgs.characterMessageElm = constructorArgs.formElm.getElementsByClassName('password-req')[0];
+  var constructorArgs = {
+    formId: argumentsObj.formId,
+    dialogId: argumentsObj.dialogId,
+    characterMessageSelector: '.password-req',
+    prototype: createAccountHelper
+  };
 
-  return new CreateAccountConst(constructorArgs);
+  return window.optly.mrkt.form.HelperFactory(constructorArgs);
 
 };

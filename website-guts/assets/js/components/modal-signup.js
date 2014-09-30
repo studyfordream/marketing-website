@@ -15,13 +15,19 @@ var signupForm = new Oform({
 signupForm.on('before', function() {
   //set the hidden input value
   signupDialogHelperInst.formElm.querySelector('[name="hidden"]').value = 'touched';
+  signupDialogHelperInst.processingAdd();
   return true;
 });
 
 signupForm.on('validationerror', w.optly.mrkt.Oform.validationError);
 
-signupForm.on('load', signupDialogHelperInst.load.bind(signupDialogHelperInst));
+signupForm.on('load', function(e){
+  signupDialogHelperInst.load(e);
+  signupDialogHelperInst.processingRemove({callee: 'load'});
+});
 
-signupForm.on('done', w.optly.mrkt.Oform.done);
+signupForm.on('done', function() {
+  signupDialogHelperInst.processingRemove({callee: 'done'});
+}.bind(signupDialogHelperInst));
 
 

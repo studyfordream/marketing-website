@@ -1,14 +1,6 @@
 window.optly.mrkt.form = window.optly.mrkt.form || {};
 
-var ResetPassword = function(scopeObj) {
-  $.each(scopeObj, function(key, val){
-    this[key] = val;
-  }.bind(this));
-
-  this.bindEmailValidation();
-};
-
-ResetPassword.prototype = {
+var resetPasswordHelper = {
 
   customErrorMessage: function (elm, message) {
     if(message) {
@@ -104,6 +96,8 @@ ResetPassword.prototype = {
 
   load: function(e) {
     var resp = JSON.parse(e.target.responseText);
+    var submitButton = this.formElm.querySelector('[type="submit"');
+    var closeButton = this.formElm.querySelector('[data-modal-btn="close"]');
 
     if(e.target.status !== 200) {
       window.analytics.track('password reset fail', {
@@ -111,12 +105,16 @@ ResetPassword.prototype = {
         label: w.location.pathname
       });
       this.showOptionsError(resp.error);
+      this.processingRemove({callee: 'load'});
     } else {
       window.analytics.track('password reset', {
         category: 'account',
         label: w.location.pathname
       });
+      submitButton.classList.add('hide-button');
+      closeButton.classList.remove('hide-button');
       this.showOptionsSuccess(resp.message);
+      this.processingRemove({callee: 'load', retainDisabled: true});
     }
 
   }
@@ -124,13 +122,13 @@ ResetPassword.prototype = {
 };
 
 window.optly.mrkt.form.resetPassword = function(argumentsObj) {
-  var constructorArgs = {};
-  constructorArgs.formElm = document.getElementById(argumentsObj.formId);
-  if (argumentsObj.dialogId) {
-    constructorArgs.dialogElm = document.getElementById(argumentsObj.dialogId);
-  }
-  constructorArgs.optionsErrorElm = constructorArgs.formElm.getElementsByClassName('options')[0].querySelector('p:last-child');
+  var constructorArgs = {
+    formId: argumentsObj.formId,
+    dialogId: argumentsObj.dialogId,
+    init: 'bindEmailValidation',
+    prototype: resetPasswordHelper
+  };
 
-  return new ResetPassword(constructorArgs);
+  return new window.optly.mrkt.form.HelperFactory(constructorArgs);
 
 };

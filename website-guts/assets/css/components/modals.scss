@@ -66,6 +66,12 @@ body {
       width: 190px;
       white-space: nowrap;
     }
+    .hide-button {
+      display: none;
+    }
+    .right-button {
+      float: right!important;
+    }
   }
   .modal-body {
     background: transparent;

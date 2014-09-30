@@ -1,12 +1,6 @@
 window.optly.mrkt.form = window.optly.mrkt.form || {};
 
-var SigninConst = function(scopeObj) {
-  $.each(scopeObj, function(key, val){
-    this[key] = val;
-  }.bind(this));
-};
-
-SigninConst.prototype = {
+var signinHelper = {
 
   showOptionsError: function (message){
     if(!document.body.classList.contains('error-state')) {
@@ -135,13 +129,12 @@ SigninConst.prototype = {
 };
 
 window.optly.mrkt.form.signin = function(argumentsObj) {
-  var constructorArgs = {};
-  constructorArgs.formElm = document.getElementById(argumentsObj.formId);
-  if (argumentsObj.dialogId) {
-    constructorArgs.dialogElm = document.getElementById(argumentsObj.dialogId);
-  }
-  constructorArgs.optionsErrorElm = constructorArgs.formElm.getElementsByClassName('options')[0].querySelector('p:last-child');
+  var constructorArgs = {
+    formId: argumentsObj.formId,
+    dialogId: argumentsObj.dialogId,
+    prototype: signinHelper
+  };
 
-  return new SigninConst(constructorArgs);
+  return new window.optly.mrkt.form.HelperFactory(constructorArgs);
 
 };

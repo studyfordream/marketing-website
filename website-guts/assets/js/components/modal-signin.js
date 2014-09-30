@@ -9,8 +9,18 @@ var signinForm = new Oform({
   }
 });
 
+signinForm.on('before', function() {
+  signinDialogHelperInst.processingAdd();
+  return true;
+});
+
 signinForm.on('validationerror', w.optly.mrkt.Oform.validationError);
 
-signinForm.on('load', signinDialogHelperInst.load.bind(signinDialogHelperInst));
+signinForm.on('load', function(e){
+  signinDialogHelperInst.load(e);
+  signinDialogHelperInst.processingRemove({callee: 'load'});
+}.bind(signinDialogHelperInst));
 
-signinForm.on('done', w.optly.mrkt.Oform.done);
+signinForm.on('done', function(){
+  signinDialogHelperInst.processingRemove({callee: 'done'});
+}.bind(signinDialogHelperInst));
