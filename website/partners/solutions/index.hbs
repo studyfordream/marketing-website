@@ -71,20 +71,20 @@ script_dependencies:
           {{#each pages}}
             <div class="partner-grid-elm {{#if data.stars}}{{data.stars}}-star{{/if}} {{#each data.locations}}{{createClassList this.location.region}}{{/each}} {{#each data.tags}}{{createClassList this}}{{/each}}" data-priority="{{data.priority}}">
               <div class="title-container">
-                <h4 class="partner-title"><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></h4>
+                <h4 class="partner-title"><a href="{{relativeDir ../../page.dest this.dest}}">{{data.title}}</a></h4>
                 {{#each data.locations}}
                   <div class="partner-location {{#if @first}}active{{/if}}" data-region="{{createClassList this.location.region}}">{{this.location.city}}, {{stateCountry this.location.state this.location.country }}</div>
                 {{/each}}
               </div> <!-- .title-container -->
               <div class="partner-inner-content">
-                <a href="{{relative ../../page.dest this.dest}}" class="partner-logos" style="background-image: url('{{data.logo}}');"></a>
+                <a href="{{relativeDir ../../page.dest this.dest}}" class="partner-logos" style="background-image: url('{{data.logo}}');"></a>
                 <div class="level">
                   <div class="level-heading">{{{../../solutions_data.filter.stars}}}: <span data-tooltip title="{{{../../solutions_data.partner_tooltip}}}"></span></div>
                   <div class="star-cont {{#if data.stars}}star-cont--{{data.stars}}{{/if}}"></div>
                 </div>
               </div>
               <div class="button-container">
-                <a href="{{relative ../../page.dest this.dest}}" class="button">{{{../../solutions_data.more}}} &gt;</a>
+                <a href="{{relativeDir ../../page.dest this.dest}}" class="button">{{{../../solutions_data.more}}} &gt;</a>
               </div>
             </div>
           {{/each}}
