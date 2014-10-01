@@ -1,8 +1,12 @@
 module.exports.register = function (Handlebars) {
-  Handlebars.registerHelper('relativeDir', function(pageDest, thisDest) {
-    thisDest = thisDest.substr(0, thisDest.lastIndexOf('/') + 1);
-    pageDest = pageDest.substr(0, pageDest.lastIndexOf('/') + 1);
+  Handlebars.registerHelper('relativeDir', function(thisDest, linkPath) {
+    thisDest = thisDest.substr(0, thisDest.lastIndexOf('/') + 1).replace('dist', '');
 
-    return thisDest.replace(pageDest, '');
+    if(!!linkPath) {
+      console.log(linkPath);
+      thisDest = linkPath + thisDest;
+    }
+
+    return thisDest;
   });
 };
