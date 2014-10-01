@@ -45,11 +45,17 @@ var touchHomeForm = new Oform({
 touchHomeForm.on('before', function() {
   //set the hidden input value
   touchHomeFormHelperInst.formElm.querySelector('[name="hidden"]').value = 'touched';
+  touchHomeFormHelperInst.processingAdd();
   return true;
 });
 
 touchHomeForm.on('validationerror', w.optly.mrkt.Oform.validationError);
 
-touchHomeForm.on('load', touchHomeFormHelperInst.load.bind(touchHomeFormHelperInst));
+touchHomeForm.on('load', function(e){
+  touchHomeFormHelperInst.load(e);
+  touchHomeFormHelperInst.processingRemove({callee: 'load'});
+});
 
-touchHomeForm.on('done', w.optly.mrkt.Oform.done);
+touchHomeForm.on('done', function(){
+  touchHomeFormHelperInst.processingRemove({callee: 'done'});
+}.bind(touchHomeFormHelperInst));

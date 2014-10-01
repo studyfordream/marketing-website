@@ -257,8 +257,9 @@ module.exports = function(grunt) {
                       code = 400;
                     }
                     res.writeHead(code, {'Content-Type': 'application/json'});
-                    res.end( grunt.file.read(readPath) );
-
+                    setTimeout(function() {
+                      res.end( grunt.file.read(readPath) );
+                    }, 2000);
                   } else if(req.url === '/account/signin') {
                     var readPath, code;
 
@@ -271,7 +272,9 @@ module.exports = function(grunt) {
                       code = 400;
                     }
                     res.writeHead(code, {'Content-Type': 'application/json'});
-                    res.end(grunt.file.read(readPath));
+                    setTimeout(function() {
+                      res.end(grunt.file.read(readPath));
+                    }, 2000);
 
                   } else if(req.url === '/recover/request') {
                     var code, respObj;
@@ -284,7 +287,10 @@ module.exports = function(grunt) {
                       code = 400;
                     }
                     res.writeHead(code, {'Content-Type': 'application/json'});
-                    res.end(respObj);
+                    setTimeout(function() {
+                      res.end(respObj);
+                    }, 2000);
+
 
                   } else {
 
@@ -579,7 +585,7 @@ module.exports = function(grunt) {
           src: [
             '<%= config.guts %>/assets/js/**/*.js',
             '!<%= config.guts %>/assets/js/libraries/**/*.js',
-            '!<%= config.guts %>/assets/js/utils/*.js',
+            '!<%= config.guts %>/assets/js/utils/*.js'
           ]
         }
       },
@@ -641,6 +647,7 @@ module.exports = function(grunt) {
               '<%= config.guts %>/assets/js/utils/check_complex_password.js',
               '<%= config.guts %>/assets/js/utils/get_url_parameter.js',
               '<%= config.guts %>/assets/js/utils/uri.js',
+              '<%= config.guts %>/assets/js/utils/form_helper_factory.js',
               '<%= config.guts %>/assets/js/utils/form_helpers/*.js',
               '<%= config.guts %>/assets/js/global.js',
               '<%= config.guts %>/assets/js/components/*.js',

@@ -12,8 +12,18 @@ var resetPassForm = new Oform({
   }
 });
 
+resetPassForm.on('before', resetPassDialogHelperInst.processingAdd.bind(resetPassDialogHelperInst));
+
 resetPassForm.on('validationerror', w.optly.mrkt.Oform.validationError);
 
-resetPassForm.on('load', resetPassDialogHelperInst.load.bind(resetPassDialogHelperInst));
+resetPassForm.on('load', function(e) {
+  resetPassDialogHelperInst.load(e);
+  resetPassDialogHelperInst.processingRemove({callee: 'load'});
+} .bind(resetPassDialogHelperInst));
 
-resetPassForm.on('done', w.optly.mrkt.Oform.done);
+resetPassForm.on('done', function() {
+  resetPassDialogHelperInst.processingRemove({callee: 'done'});
+}.bind(resetPassDialogHelperInst));
+
+
+
