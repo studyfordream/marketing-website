@@ -108,6 +108,10 @@ body {
     .terms {
       margin: 15px 0;
       font-weight: 400;
+      text-align: center;
+      br {
+        display: none;
+      }
       input {
         margin-right: 3px;
         width: auto;
@@ -160,6 +164,18 @@ body {
       margin: 100px auto;
       overflow: hidden;
     }
+    .modal-body {
+      .terms {
+        br {
+          display: inline;
+        }
+      }
+    }
+    .options {
+      br {
+        display: none;
+      }
+    }
     .modal-footer {
       input { width: auto; }
       @extend .clearfix;
@@ -176,3 +192,4 @@ body {
     .webinar-detail-info { width: 350px; }
   }
 }
+

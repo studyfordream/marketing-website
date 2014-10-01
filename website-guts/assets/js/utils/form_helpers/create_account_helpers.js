@@ -18,6 +18,23 @@ var createAccountHelper = {
     }
   },
 
+  scrollTopDialog: function() {
+    if(document.body.classList.contains('oform-error')) {
+      var dialog = this.dialogElm.querySelector('.dialog'),
+        scrollAmt = dialog.scrollTop,
+        callee = this.scrollTopDialog;
+
+      if(scrollAmt !== 0) {
+        dialog.scrollTop = (scrollAmt - 10);
+        if(window.requestAnimationFrame) {
+          window.requestAnimationFrame(callee.bind(this));
+        } else {
+          dialog.scrollTop = 0;
+        }
+      }
+    }
+  },
+
   password1Validate: function(elm) {
     var validationPassed = w.optly.mrkt.utils.checkComplexPassword(elm.value),
       errorElm = this.formElm.getElementsByClassName('password1-related')[0],

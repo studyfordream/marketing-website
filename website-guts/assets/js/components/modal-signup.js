@@ -19,7 +19,10 @@ signupForm.on('before', function() {
   return true;
 });
 
-signupForm.on('validationerror', w.optly.mrkt.Oform.validationError);
+signupForm.on('validationerror', function(elm) {
+  w.optly.mrkt.Oform.validationError(elm);
+  signupDialogHelperInst.showOptionsError('Please Correct Form Errors');
+});
 
 signupForm.on('load', function(e){
   signupDialogHelperInst.load(e);
@@ -27,6 +30,10 @@ signupForm.on('load', function(e){
 });
 
 signupForm.on('done', function() {
+  window.setTimeout(function() {
+    signupDialogHelperInst.scrollTopDialog();
+  }, 500);
+
   signupDialogHelperInst.processingRemove({callee: 'done'});
 }.bind(signupDialogHelperInst));
 
