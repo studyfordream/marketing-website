@@ -438,7 +438,7 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          sourceMap: true,
+          sourceMap: false,
           imagePath: '<%= grunt.config.get("sassImagePath") %>',
           precision: 3
         },
