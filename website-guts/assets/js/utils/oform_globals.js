@@ -46,13 +46,18 @@
 
     var propertyName,
         reportingObject,
-        source;
+        source,
+        token;
 
     source = w.optly.mrkt.source;
 
+    token = JSON.parse(XMLHttpRequest.target.responseText);
+
+    token = token.token || '';
+
     reportingObject = {
 
-      token: JSON.parse(XMLHttpRequest.target.responseText) || '',
+      token: token,
       utm_Campaign__c: source.utm.campaign,
       utm_Content__c: source.utm.content,
       utm_Medium__c: source.utm.medium,
@@ -73,6 +78,12 @@
       reportingObject['propertyName'] = data['propertyName']; //jshint ignore:line
 
     }
+
+    if(typeof console === 'object'){
+        console.log('reportingObject: ', reportingObject);
+    }
+
+    window.Munchkin.munchkinFunction('associateLead', reportingObject, token);
 
     w.analytics.identify(data.email, reportingObject, {
       integrations: {
