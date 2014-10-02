@@ -23,7 +23,7 @@
 
 @mixin z-index-list($properties, $start: 0, $increment: 1) {
   @for $i from 1 through length($properties) {
-    .#{nth($properties, $i)} {
+    #{nth($properties, $i)} {
       z-index: $start + ( index($properties, nth($properties, $i)) * $increment);
     }
   }

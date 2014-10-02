@@ -206,7 +206,7 @@ body.integrations-solutions {
     .partner-logos {
       background-repeat: no-repeat;
       background-size: contain;
-      background-position: center bottom;
+      background-position: center;
       margin: 10px auto;
       height: 80px;
       width: 100%;
@@ -239,7 +239,7 @@ body.integrations-solutions {
     .partners-logo {
       background-repeat: no-repeat;
       background-size: contain;
-      background-position: left bottom;
+      background-position: left center;
       margin: 0 auto;
       height: 80px;
       width: 100%;
@@ -247,7 +247,7 @@ body.integrations-solutions {
       display: block;
 
       @media (max-width: 960px) {
-        background-position: center bottom;
+        background-position: center center;
       }
     }
 
