@@ -1,5 +1,9 @@
+$components: '[data-tooltip]' '[data-tooltip-dialog]' '.modal-dialog-container' '.dialog';
 $property: opacity 1 0;
 $transition: opacity 0.1s linear;
+
+//z-index the tooltip and modals appropriately
+@include z-index-list($components, 50, 50);
 
 [data-tooltip] {
   cursor: pointer;
@@ -10,7 +14,6 @@ $transition: opacity 0.1s linear;
   margin: 0 5px;
   position: relative;
   text-indent: -9999px;
-  z-index: 9999;
   line-height: 1.6em;
   &:before {
     content: "";
@@ -39,7 +42,6 @@ $transition: opacity 0.1s linear;
     position: absolute;
     width: 40vh;
     opacity: 1;
-    z-index: 100;
     padding: 15px;
     border-radius: 5px;
     text-indent: 0;
