@@ -51,6 +51,12 @@ touchHomeForm.on('before', function() {
 
 touchHomeForm.on('validationerror', w.optly.mrkt.Oform.validationError);
 
+touchHomeForm.on('validationerror', function(elm) {
+  w.optly.mrkt.Oform.validationError(elm);
+  touchHomeFormHelperInst.showOptionsError('Please Correct Form Errors');
+});
+
+
 touchHomeForm.on('load', function(e){
   touchHomeFormHelperInst.load(e);
   touchHomeFormHelperInst.processingRemove({callee: 'load'});
@@ -58,4 +64,7 @@ touchHomeForm.on('load', function(e){
 
 touchHomeForm.on('done', function(){
   touchHomeFormHelperInst.processingRemove({callee: 'done'});
+  window.setTimeout(function() {
+    touchHomeFormHelperInst.scrollTopCta('touch-cta');
+  }, 500);
 }.bind(touchHomeFormHelperInst));

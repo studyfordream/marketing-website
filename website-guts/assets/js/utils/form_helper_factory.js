@@ -31,6 +31,10 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     handleDisable: function(disableState) {
       var inputs = this.inputs;
 
+      if(inputs.indexOf(null) !== -1) {
+        inputs.splice(inputs.indexOf(null), 1);
+      }
+      
       if(disableState === 'add') {
         $.each(inputs, function(i, input) {
           input.setAttribute('disabled', '');
