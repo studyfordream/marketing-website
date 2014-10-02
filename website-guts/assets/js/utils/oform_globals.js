@@ -73,6 +73,20 @@
 
     };
 
+    $.cookie('sourceCookie',
+      source.utm.campaign + '|||' +
+      source.utm.content + '|||' +
+      source.utm.medium + '|||' +
+      source.utm.source + '|||' +
+      source.utm.keyword + '|||' +
+      source.otm.campaign + '|||' +
+      source.otm.content + '|||' +
+      source.otm.medium + '|||' +
+      source.otm.source + '|||' +
+      source.otm.keyword + '|||' +
+      source.signupPlatform + '|||'
+    );
+
     for(propertyName in data){
 
       reportingObject['propertyName'] = data['propertyName']; //jshint ignore:line
