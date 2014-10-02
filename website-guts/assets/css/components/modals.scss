@@ -86,6 +86,9 @@ body {
       font-weight: 100;
       color: #6b6b6b;
       text-align: left;
+      &.error-show {
+        color: #911d16;
+      }
     }
     input {
       width: 100%;

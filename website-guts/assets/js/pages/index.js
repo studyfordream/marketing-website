@@ -64,4 +64,7 @@ touchHomeForm.on('load', function(e){
 
 touchHomeForm.on('done', function(){
   touchHomeFormHelperInst.processingRemove({callee: 'done'});
+  window.setTimeout(function() {
+    touchHomeFormHelperInst.scrollTopCta('touch-cta');
+  }, 500);
 }.bind(touchHomeFormHelperInst));
