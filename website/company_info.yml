@@ -1,4 +1,5 @@
-employee_count: 8000
+employee_count: 225
+customer_count: "8000,"
 locations:
 - San Francisco, CA
 - Amsterdam, The Netherlands

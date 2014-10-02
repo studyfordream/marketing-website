@@ -88,6 +88,12 @@ body.home-page {
       display: inline-block;
       width: 45%;
       margin-bottom: 30px;
+      &:nth-child(even) {
+        text-align: left;
+      }
+      &:nth-child(odd) {
+        text-align: right;
+      }
     }
     img {
       height: 80px;
@@ -107,9 +113,14 @@ body.home-page {
     #customers {
       .logo-cont {
         width: 100%;
+        text-align: center;
       }
       .logo-img-cont {
         width: 23%;
+        &:nth-child(even), 
+        &:nth-child(odd) {
+          text-align: center;
+        }
       }
     }
   }
