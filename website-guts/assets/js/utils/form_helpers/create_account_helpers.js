@@ -153,18 +153,18 @@ var createAccountHelper = {
 
     if(e.target.status !== 200) {
       this.showOptionsError(resp.error);
-      return;
+    } else {
+      w.optly.mrkt.Oform.trackLead({
+        name: formElm.querySelector('[name="name"]').value,
+        email: formElm.querySelector('[name="email"]').value,
+        phone: formElm.querySelector('[name="phone_number"]').value
+      }, e);
+      
+      window.optly.mrkt.modal.close({ modalType: 'signup', track: false });
+      window.optly_q.acctData = resp;
+      window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
     }
 
-    w.optly.mrkt.Oform.trackLead({
-      name: formElm.querySelector('[name="name"]').value,
-      email: formElm.querySelector('[name="email"]').value,
-      phone: formElm.querySelector('[name="phone_number"]').value
-    }, e);
-    
-    window.optly.mrkt.modal.close({ modalType: 'signup', track: false });
-    window.optly_q.acctData = resp;
-    window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
   }
 
 };

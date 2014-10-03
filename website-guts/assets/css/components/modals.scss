@@ -56,7 +56,8 @@ body {
   .modal-footer {
     border-top: 1px solid #eee;
     input { width: 100%; }
-    .primary-button { margin-bottom: 25px; }
+    .primary-button,
+    .right-button { margin-bottom: 25px; }
     button {
       display: block;
       margin-right: auto;
@@ -66,9 +67,6 @@ body {
     }
     .hide-button {
       display: none;
-    }
-    .right-button {
-      float: right!important;
     }
   }
   .modal-body {
@@ -117,6 +115,7 @@ body {
         margin-right: 3px;
         width: auto;
         height: auto;
+        text-align: left;
       }
       input,
       p { display: inline; }
@@ -134,6 +133,11 @@ body {
         }
       }
       a { text-decoration: none; }
+    }
+  }
+  #signin-form {
+    .terms {
+      text-align: left;
     }
   }
   &.webinar-modal {
@@ -187,6 +191,9 @@ body {
       .secondary-button { float: left; }
       &.no-primary-button {
         .secondary-button { float: right; }
+      }
+      .right-button {
+        float: right!important;
       }
       button {width: auto;}
     }
