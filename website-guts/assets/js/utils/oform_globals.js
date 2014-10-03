@@ -47,11 +47,26 @@
     var propertyName,
         reportingObject,
         source,
+        response,
         token;
 
     source = w.optly.mrkt.source;
 
-    token = JSON.parse(XMLHttpRequest.target.responseText);
+    response = JSON.parse(XMLHttpRequest.target.responseText);
+
+    if(response.token){
+
+      token = response.token;
+
+    } else if(response.munchkin_token){
+
+      token = response.munchkin_token
+
+    } else {
+
+      token = '';
+
+    }
 
     token = token.token || '';
 
