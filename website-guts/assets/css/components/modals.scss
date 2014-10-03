@@ -135,6 +135,11 @@ body {
       a { text-decoration: none; }
     }
   }
+  #signin-form {
+    .terms {
+      text-align: left;
+    }
+  }
   &.webinar-modal {
     .webinar-info-cont { @extend .clearfix; }
     .webinar-detail-info {

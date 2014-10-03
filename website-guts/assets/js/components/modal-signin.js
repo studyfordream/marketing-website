@@ -18,7 +18,7 @@ signinForm.on('validationerror', w.optly.mrkt.Oform.validationError);
 
 signinForm.on('error', function() {
   signinDialogHelperInst.processingRemove({callee: 'error'});
-  signinDialogHelperInst.showOptionsError('Form Submission Error');
+  signinDialogHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
   window.analytics.track('signin xhr error', {
     category: 'account',
     label: w.location.pathname

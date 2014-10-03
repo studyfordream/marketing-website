@@ -32,7 +32,7 @@ signupForm.on('validationerror', function(elm) {
 
 signupForm.on('error', function() {
   signupDialogHelperInst.processingRemove({callee: 'error'});
-  signupDialogHelperInst.showOptionsError('Form Submission Error');
+  signupDialogHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
   window.analytics.track('create account xhr error', {
     category: 'account',
     label: w.location.pathname
