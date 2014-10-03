@@ -60,15 +60,13 @@
 
     } else if(response.munchkin_token){
 
-      token = response.munchkin_token
+      token = response.munchkin_token;
 
     } else {
 
       token = '';
 
     }
-
-    token = token.token || '';
 
     reportingObject = {
 
