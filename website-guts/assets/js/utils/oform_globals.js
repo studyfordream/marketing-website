@@ -62,7 +62,7 @@
 
       token = response.munchkin_token
 
-    } else if(){
+    } else {
 
       token = '';
 
