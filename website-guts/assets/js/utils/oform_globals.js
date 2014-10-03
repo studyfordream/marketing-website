@@ -106,6 +106,10 @@
 
     }
 
+    if(window.debug){
+      window.debugger;
+    }
+
     window.Munchkin.munchkinFunction('associateLead', reportingObject, token);
 
     w.analytics.identify(data.email, reportingObject, {
