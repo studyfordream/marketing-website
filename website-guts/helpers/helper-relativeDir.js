@@ -3,7 +3,6 @@ module.exports.register = function (Handlebars) {
     thisDest = thisDest.substr(0, thisDest.lastIndexOf('/') + 1).replace('dist', '');
 
     if(!!linkPath) {
-      console.log(linkPath);
       thisDest = linkPath + thisDest;
     }
 

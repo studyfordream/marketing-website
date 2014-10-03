@@ -46,13 +46,33 @@
 
     var propertyName,
         reportingObject,
-        source;
+        source,
+        response,
+        token;
 
     source = w.optly.mrkt.source;
 
+    response = JSON.parse(XMLHttpRequest.target.responseText);
+
+    if(response.token){
+
+      token = response.token;
+
+    } else if(response.munchkin_token){
+
+      token = response.munchkin_token
+
+    } else {
+
+      token = '';
+
+    }
+
+    token = token.token || '';
+
     reportingObject = {
 
-      token: JSON.parse(XMLHttpRequest.target.responseText) || '',
+      token: token,
       utm_Campaign__c: source.utm.campaign,
       utm_Content__c: source.utm.content,
       utm_Medium__c: source.utm.medium,
@@ -68,11 +88,31 @@
 
     };
 
+    $.cookie('sourceCookie',
+      source.utm.campaign + '|||' +
+      source.utm.content + '|||' +
+      source.utm.medium + '|||' +
+      source.utm.source + '|||' +
+      source.utm.keyword + '|||' +
+      source.otm.campaign + '|||' +
+      source.otm.content + '|||' +
+      source.otm.medium + '|||' +
+      source.otm.source + '|||' +
+      source.otm.keyword + '|||' +
+      source.signupPlatform + '|||'
+    );
+
     for(propertyName in data){
 
       reportingObject['propertyName'] = data['propertyName']; //jshint ignore:line
 
     }
+
+    if(typeof console === 'object'){
+        console.log('reportingObject: ', reportingObject);
+    }
+
+    window.Munchkin.munchkinFunction('associateLead', reportingObject, token);
 
     w.analytics.identify(data.email, reportingObject, {
       integrations: {

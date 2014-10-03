@@ -19,9 +19,6 @@ body.integrations-solutions {
   .filter {
     .pill {
       .filter--reset {
-        span {
-          display: none;
-        }
       }
       .dropdown-cont {
         &.dropdown-cont--region {
@@ -82,13 +79,14 @@ body.integrations-solutions {
           padding-bottom: 12px;
         }
         .filter--reset {
-          display: inline-block;
+          width: 100%;
+          display: block;
           float: none;
           clear: both;
           margin-left: auto;
           margin-right: auto;
-          padding-top: 5px;
-          padding-bottom: 5px;
+          padding-top: 12px;
+          padding-bottom: 12px;
           border-radius: 0;
           span {
             display: inline-block;
