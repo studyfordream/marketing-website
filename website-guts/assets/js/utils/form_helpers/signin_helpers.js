@@ -67,7 +67,10 @@ var signinHelper = {
     }
 
     if (path !== '/pricing') {
-     w.location = '/dashboard';
+      // allow analytics logging before redirect
+      window.setTimeout(function() {
+        w.location = '/dashboard';
+      }, 500);
     }
     else {
       window.optly.mrkt.modal.close({ modalType: 'signin', trace: false });

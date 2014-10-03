@@ -93,10 +93,6 @@
 
     }
 
-    if(typeof console === 'object'){
-        console.log('reportingObject: ', reportingObject);
-    }
-
     window.Munchkin.munchkinFunction('associateLead', reportingObject, token);
 
     w.analytics.identify(data.email, reportingObject, {

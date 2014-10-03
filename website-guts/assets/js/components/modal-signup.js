@@ -30,6 +30,15 @@ signupForm.on('validationerror', function(elm) {
   }
 });
 
+signupForm.on('error', function() {
+  signupDialogHelperInst.processingRemove({callee: 'error'});
+  signupDialogHelperInst.showOptionsError('Form Submission Error');
+  window.analytics.track('create account xhr error', {
+    category: 'account',
+    label: w.location.pathname
+  });
+}.bind(signupDialogHelperInst));
+
 signupForm.on('load', function(e){
   signupDialogHelperInst.load(e);
   signupDialogHelperInst.processingRemove({callee: 'load'});

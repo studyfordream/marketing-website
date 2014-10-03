@@ -16,6 +16,15 @@ resetPassForm.on('before', resetPassDialogHelperInst.processingAdd.bind(resetPas
 
 resetPassForm.on('validationerror', w.optly.mrkt.Oform.validationError);
 
+resetPassForm.on('error', function() {
+  resetPassDialogHelperInst.processingRemove({callee: 'error'});
+  resetPassDialogHelperInst.showOptionsError('Form Submission Error');
+  window.analytics.track('reset password xhr error', {
+    category: 'account',
+    label: w.location.pathname
+  });
+}.bind(resetPassDialogHelperInst));
+
 resetPassForm.on('load', function(e) {
   resetPassDialogHelperInst.load(e);
   resetPassDialogHelperInst.processingRemove({callee: 'load'});
