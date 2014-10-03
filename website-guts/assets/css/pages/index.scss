@@ -4,10 +4,13 @@ body.home-page {
   #cta {
     form {display: none;}
   }
+  #signed-in-mobile {
+    display: none;
+    margin: 1em 0 8em 0;
+  }
   &.signed-in {
     #signed-in-mobile {
       display: block;
-      margin: 1em 0 8em 0;
     }
     #touch-cta {
       display: none;
