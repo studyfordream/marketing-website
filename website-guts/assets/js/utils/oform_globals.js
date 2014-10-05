@@ -70,7 +70,6 @@
 
     reportingObject = {
 
-      token: token,
       utm_Campaign__c: source.utm.campaign,
       utm_Content__c: source.utm.content,
       utm_Medium__c: source.utm.medium,
@@ -82,7 +81,11 @@
       otm_Source__c: source.otm.source,
       otm_Keyword__c: source.otm.keyword,
       GCLID__c: source.gclid,
-      Signup_Platform__c: source.signupPlatform
+      Signup_Platform__c: source.signupPlatform,
+      Email: response.email,
+      FirstName: response.first_name,
+      LastName: response.last_name,
+      Phone: response.phone_number
 
     };
 
