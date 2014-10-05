@@ -123,13 +123,13 @@
 
     /* legacy reporting - to be deprecated */
 
-    w.analytics.track('/account/create/success', {
+    w.analytics.track('account/create/success', {
       category: 'account',
       label: w.location.pathname
     }, {
       Marketo: true
     });
-    w.analytics.track('/account/signin', {
+    w.analytics.track('account/signin', {
       category: 'account',
       lable: w.location.pathname
     }, {
