@@ -156,7 +156,7 @@ window.optly_q.push([function(){
 
 	if(typeof w.optly_q.acctData === 'object'){
 
-		window.analytics('ready', function(){
+		window.analytics.ready(function(){
 
 			w.Munchkin.munchkinFunction('associateLead', {
 
