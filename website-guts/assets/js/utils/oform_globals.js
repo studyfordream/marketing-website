@@ -113,7 +113,7 @@
       window.debugger;
     }
 
-    window.Munchkin.munchkinFunction('associateLead', reportingObject, token);
+    w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
 
     w.analytics.identify(data.email, reportingObject, {
       integrations: {
@@ -129,11 +129,20 @@
     }, {
       Marketo: true
     });
+
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/account/create/success'
+    });
+
     w.analytics.track('/account/signin', {
       category: 'account',
       lable: w.location.pathname
     }, {
       Marketo: true
+    });
+
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/account/signin'
     });
 
     /* new reporting */
