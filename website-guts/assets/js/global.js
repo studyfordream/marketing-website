@@ -156,11 +156,15 @@ window.optly_q.push([function(){
 
 	if(typeof w.optly_q.acctData === 'object'){
 
-		w.Munchkin.munchkinFunction('associateLead', {
+		window.analytics('ready', function(){
 
-			Email: w.optly_q.acctData.email
+			w.Munchkin.munchkinFunction('associateLead', {
 
-		}, w.optly_q.acctData.munchkin_token);
+				Email: w.optly_q.acctData.email
+
+			}, w.optly_q.acctData.munchkin_token);
+
+		});
 
 		window.analytics.identify(w.optly_q.acctData.email, {
 
