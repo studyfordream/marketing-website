@@ -97,16 +97,28 @@ var signinHelper = {
       });
     }
 
-    window.analytics.identify(resp.email, {
+    w.analytics.identify(resp.email, {
       email: resp.email
+    }, {
+      integrations: {
+        Marketo: true
+      }
     });
 
+    w.Munchkin.munchkinFunction('associateLead', {
+      Email: resp.email
+    }, resp.munchkin_token);
+
     //track signin
-    window.analytics.track('acount sign-in', {
+    w.analytics.track('acount sign-in', {
       category: 'account',
       label: window.location.pathname
     }, {
       Marketo: true
+    });
+
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/account/signed-in'
     });
 
     //track customer type
@@ -117,6 +129,9 @@ var signinHelper = {
         label: w.location.pathname
       }, {
         Marketo: true
+      });
+      w.Munchkin.munchkinFunction('visitWebPage', {
+        url: '/customer/signed-in'
       });
       /* new reporting */
       window.analytics.track('customer sign in', {
