@@ -23,19 +23,27 @@ layout_body_class: false
     <input type="submit" value="Create account &raquo;" class="primary-button submit-btn">
   </form>
 </div>
-<div class="signed-in-show" id="signed-in-mobile">
+<div id="signed-in-mobile">
   <a id="mobile-dashboard-link" href="/dashboard">Dashboard &raquo;</a>
 </div>
 <div class="mobile-content">
   <div id="customers">
     <div class="mobile-container">
-      <p>Over 6,000 happy customers</p>
-      <div class="logo-cont">
-        <img src="{{assetsDir}}/img/mobile-home/starbucks.png">
-        <img src="{{assetsDir}}/img/mobile-home/ae.svg">
-        <img src="{{assetsDir}}/img/mobile-home/guardian.svg">
-        <img src="{{assetsDir}}/img/mobile-home/mtv.png">
-      </div>
+      <p>Over {{company_info.customer_count}} happy customers</p>
+        <div class="logo-cont">
+          <div class="logo-img-cont">
+            <img src="https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-home/starbucks.png">
+          </div>
+          <div class="logo-img-cont">
+            <img src="https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-home/ae.svg">
+          </div>
+          <div class="logo-img-cont">
+            <img src="https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-home/guardian.svg">
+          </div>
+          <div class="logo-img-cont">
+            <img src="https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-home/trulia.png">
+          </div>
+        </div>
     </div>
   </div>
   <div id="description">

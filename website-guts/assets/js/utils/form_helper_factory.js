@@ -31,6 +31,10 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     handleDisable: function(disableState) {
       var inputs = this.inputs;
 
+      if(inputs.indexOf(null) !== -1) {
+        inputs.splice(inputs.indexOf(null), 1);
+      }
+      
       if(disableState === 'add') {
         $.each(inputs, function(i, input) {
           input.setAttribute('disabled', '');
@@ -56,7 +60,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
     processingRemove: function(argsObj) {
       if( this.bodyClass.contains('processing-state') ) {
-        if(( argsObj && argsObj.callee === 'done' && this.bodyClass.contains('oform-error') ) || argsObj.callee == 'load') {
+        if(( argsObj && argsObj.callee === 'done' && this.bodyClass.contains('oform-error') ) || argsObj.callee == 'load' || argsObj.callee == 'error') {
           this.bodyClass.remove('processing-state');
           if(!argsObj || !argsObj.retainDisabled) {
             this.handleDisable('remove');

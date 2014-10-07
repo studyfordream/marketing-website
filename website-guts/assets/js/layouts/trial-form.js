@@ -31,6 +31,9 @@ new Oform({
     }, {
       Marketo: true
     });
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/free-trial/success'
+    });
     /* end legacy reporting */
     setTimeout(function(){
       w.location = '/edit?url=' + d.getElementById('url').value;

@@ -46,13 +46,30 @@
 
     var propertyName,
         reportingObject,
-        source;
+        source,
+        response,
+        token;
 
     source = w.optly.mrkt.source;
 
+    response = JSON.parse(XMLHttpRequest.target.responseText);
+
+    if(response.token){
+
+      token = response.token;
+
+    } else if(response.munchkin_token){
+
+      token = response.munchkin_token;
+
+    } else {
+
+      token = '';
+
+    }
+
     reportingObject = {
 
-      token: JSON.parse(XMLHttpRequest.target.responseText) || '',
       utm_Campaign__c: source.utm.campaign,
       utm_Content__c: source.utm.content,
       utm_Medium__c: source.utm.medium,
@@ -64,15 +81,39 @@
       otm_Source__c: source.otm.source,
       otm_Keyword__c: source.otm.keyword,
       GCLID__c: source.gclid,
-      Signup_Platform__c: source.signupPlatform
+      Signup_Platform__c: source.signupPlatform,
+      Email: response.email,
+      FirstName: response.first_name,
+      LastName: response.last_name,
+      Phone: response.phone_number
 
     };
+
+    $.cookie('sourceCookie',
+      source.utm.campaign + '|||' +
+      source.utm.content + '|||' +
+      source.utm.medium + '|||' +
+      source.utm.source + '|||' +
+      source.utm.keyword + '|||' +
+      source.otm.campaign + '|||' +
+      source.otm.content + '|||' +
+      source.otm.medium + '|||' +
+      source.otm.source + '|||' +
+      source.otm.keyword + '|||' +
+      source.signupPlatform + '|||'
+    );
 
     for(propertyName in data){
 
       reportingObject['propertyName'] = data['propertyName']; //jshint ignore:line
 
     }
+
+    if(window.debug){
+      window.debugger;
+    }
+
+    w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
 
     w.analytics.identify(data.email, reportingObject, {
       integrations: {
@@ -88,11 +129,20 @@
     }, {
       Marketo: true
     });
+
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/account/create/success'
+    });
+
     w.analytics.track('/account/signin', {
       category: 'account',
       lable: w.location.pathname
     }, {
       Marketo: true
+    });
+
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/account/signin'
     });
 
     /* new reporting */
