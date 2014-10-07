@@ -96,7 +96,7 @@ var resetPasswordHelper = {
 
   load: function(e) {
     var resp = JSON.parse(e.target.responseText);
-    var submitButton = this.formElm.querySelector('[type="submit"');
+    var submitButton = this.formElm.querySelector('[type="submit"]');
     var closeButton = this.formElm.querySelector('[data-modal-btn="close"]');
 
     if(e.target.status !== 200) {

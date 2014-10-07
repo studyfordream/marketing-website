@@ -244,7 +244,13 @@ $navs-to-index: main-nav dropdown-menu-top;
         padding: 8px 12px;
         text-align: left;
       }
-      .dropdown-menu-top { width: 100%; }
+      .dropdown-menu-top { 
+        width: auto;
+        right: 0;
+        li {
+          white-space: nowrap;
+        } 
+      }
       a { padding: 8px 12px; }
     }
   }
