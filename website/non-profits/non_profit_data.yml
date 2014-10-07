@@ -1,0 +1,35 @@
+panel_1:
+  bg_img: ""
+  header: "Optimizely <span>for</span> Good"
+  text: "Optimizely.org aims to empower nonprofits and foundations to increase their ability to drive social impact."
+  button_text: "Sign Up"
+panel_2:
+  img: ""
+  header: "Social Impact is <span>Out Heritage</span>"
+  text: "Optimizely tested the Clinton Bush Haiti Fund landing page in 2010, helping raise an additional million dollars for earthquake survivors in a week. This proved that not only could A/B testing do great work for noprofits, but also became the case study we presented as our public debut during Demo Day at Y-Combinator."
+  button_text: "Learn More"
+panel_3:
+  bg_img: ""
+  italic_title: "Our Ongoing Work"
+  main_title: "CODE.ORG"
+  text: "Optimizely is proud to offer ongoing programming for organizations changing the world. Code.org, for example, is using Optimizely to helpl close the opportunity gap by introducing more students to learn to code."
+  button_text: "Watch Video"
+panel_4:
+  logo_1: ""
+  logo_2: ""
+  logo_3: ""
+  logo_4: ""
+  logo_5: ""
+  header: "A Partnership in <span>Good Company</span>"
+  text: "Here are just some of the Optimizely for Nonprofits program members testing their pages to improve donation checkout flows, petition forms, newsletter signups, and other elements of their sites."
+  button_text: "Sign Up"
+panel_5:
+  bg_img: ""
+  header: "How Can I <span>Get Involved?</span>"
+  text: "Sign up to learn more about possible nonprofit discoutns, public demos where you will learn how to accelerate your website optimization efforts and get excited about the immediate impacts of testing with Optimizely can have on your website, and how other nonprofits have improved donation pages and other lead conversions."
+  sub_text: "We look forward to hearing from you!"
+  button_text: "Get In Touch"
+
+
+
+

@@ -1,5 +1,14 @@
 body.non-profits-page {
-  
+  &.compact-header {
+    header {
+      .logo-cont {
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
