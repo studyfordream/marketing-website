@@ -14,8 +14,8 @@ var createAccountHelper = {
     }
     if( !this.optionsErrorElm.classList.contains('error-show') ) {
       this.optionsErrorElm.classList.add('error-show');
-      this.optionsErrorElm.innerHTML = message;
     }
+    this.optionsErrorElm.innerHTML = message;
   },
 
   scrollTopDialog: function() {
@@ -152,6 +152,8 @@ var createAccountHelper = {
     var resp = JSON.parse(e.target.responseText);
 
     if(e.target.status !== 200) {
+      debugger;
+      this.processingRemove({callee: 'load'});
       this.showOptionsError(resp.error);
     } else {
       w.optly.mrkt.Oform.trackLead({
