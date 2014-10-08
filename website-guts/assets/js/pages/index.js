@@ -5,13 +5,22 @@ w.optly.mrkt.index.testItOut = function(editURL){
   //send user to the editor
   w.location = '/edit?url=' + editURL;
 
+  w.analytics.track('homepage test it out submitted', {
+
+    category: 'forms',
+    label: w.location.pathname
+
+  });
+
 };
 
-$('input[type="text"]').focus();
+$('#test-it-out-form input[type="text"]').focus();
 
 $('#test-it-out-form').submit(function(e){
 
-  var inputVal = $('test-it-out-url').val();
+  console.log('clicked');
+
+  var inputVal = $('#test-it-out-form input[type="text"]').val();
 
   if( inputVal ){
 
@@ -26,7 +35,6 @@ $('#test-it-out-form').submit(function(e){
   e.preventDefault();
 
 });
-
 
 var touchHomeFormHelperInst = window.optly.mrkt.form.createAccount({formId: 'touch-homepage-create-account-form'});
 
