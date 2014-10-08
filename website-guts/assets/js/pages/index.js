@@ -1,9 +1,9 @@
-window.optly.mrkt.index = {};
+w.optly.mrkt.index = {};
 
-window.optly.mrkt.index.testItOut = function(editURL){
+w.optly.mrkt.index.testItOut = function(editURL){
 
   //send user to the editor
-  window.location = '/edit?url=' + editURL;
+  w.location = '/edit?url=' + editURL;
 
 };
 
@@ -15,7 +15,7 @@ $('#test-it-out-form').submit(function(e){
 
   if( inputVal ){
 
-      window.optly.mrktEng.index.testItOut( inputVal );
+      w.optly.mrkt.index.testItOut( inputVal );
 
   } else {
 
