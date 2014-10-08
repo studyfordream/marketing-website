@@ -1,4 +1,4 @@
-var DEFAULT_ERROR_MESSAGE = '<t>Don\'t worry, most issues are minor - please refresh your browser and try again.</t>';
+var DEFAULT_ERROR_MESSAGE = 'Don\'t worry, most issues are minor - please refresh your browser and try again.';
 
 function showError(errorMessage, errorId) {
   var info = {
