@@ -32,6 +32,7 @@ follow_the_latest:
     link: "http://blog.optimizely.com"
     title: "Optimizely Blog: Conversion Rate Optimism"
     text: "Optimizely Blog"
+    swap_id: "press-footer-blog"
   -
     link: "http://pages.optimizely.com/newsletter_subscribe.html"
     title: "Optimizely Newsletter"
