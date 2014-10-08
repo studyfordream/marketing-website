@@ -1,0 +1,22 @@
+---
+layout: modal_wrapper.hbs
+wrapper_id: error-modal
+wrapper_class: error-modal
+dialog_id: optimizely_error_dialog
+data_modal_id: error
+data_modal_name: error
+hidden_button_action: close
+hidden_button_text: Close
+modal_title: Something went wrong.
+---
+          <div class="content-body">
+            <p id="optimizely_error_type"></p>
+            <p>
+              If this error persists, please let us know at our 
+              <span id="SL-link-email-support" class="SL_swap">
+                <a target="_blank" href="https://help.optimizely.com/?ticket=true">support page</a>
+              </span>
+            </p>
+            <p>Our engineering team has been notified.</p>
+            <p id="optimizely_error_info"></p>
+          </div>
