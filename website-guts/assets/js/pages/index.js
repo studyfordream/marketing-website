@@ -18,8 +18,6 @@ $('#test-it-out-form input[type="text"]').focus();
 
 $('#test-it-out-form').submit(function(e){
 
-  console.log('clicked');
-
   var inputVal = $('#test-it-out-form input[type="text"]').val();
 
   if( inputVal ){
