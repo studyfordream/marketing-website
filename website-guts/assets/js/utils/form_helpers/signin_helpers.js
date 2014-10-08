@@ -8,8 +8,8 @@ var signinHelper = {
     }
     if( !this.optionsErrorElm.classList.contains('error-show') ) {
       this.optionsErrorElm.classList.add('error-show');
-      this.optionsErrorElm.innerHTML = message;
     }
+    this.optionsErrorElm.innerHTML = message;
   },
 
   passwordValidation: function(elm) {
@@ -58,6 +58,7 @@ var signinHelper = {
     var path = w.location.pathname;
 
     if(e.target.status !== 200) {
+      this.processingRemove({callee: 'load'});
       this.showOptionsError(resp.error);
       return;
     }

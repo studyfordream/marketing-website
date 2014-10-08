@@ -140,6 +140,15 @@ body {
       text-align: left;
     }
   }
+  &.error-modal {
+    #optimizely_error_type {
+      font-weight: bold;
+      color: #242424;
+    }
+    #optimizely_error_info {
+      color: #888;
+    }
+  }
   &.webinar-modal {
     .webinar-info-cont { @extend .clearfix; }
     .webinar-detail-info {
@@ -194,6 +203,7 @@ body {
       }
       .right-button {
         float: right!important;
+        margin-bottom: 0;
       }
       button {width: auto;}
     }

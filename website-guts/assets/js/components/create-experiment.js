@@ -22,7 +22,7 @@ $(createExpHelperInst.formElm).on('submit', function(e) {
     });
 
     w.setTimeout(function() {
-      window.location = window.location.origin + uri;
+      window.location.href = uri;
     }, 500);
 
   } 

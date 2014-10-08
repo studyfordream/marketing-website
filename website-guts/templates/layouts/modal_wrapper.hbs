@@ -1,5 +1,5 @@
 <div id="{{page.wrapper_id}}" class="modal-dialog-container{{#if page.wrapper_class}} {{page.wrapper_class}}{{/if}} optly-hide" data-optly-modal="{{ page.data_modal_id }}" data-modal-name="{{ page.data_modal_name }}">
-    <div class="dialog narrow">
+  <div {{#if page.dialog_id}}id="{{page.dialog_id}}"{{/if}}class="dialog narrow">
       {{#if page.form_action}}<form action="{{page.form_action}}" method="{{page.form_method}}" autocomplete="off"{{#if page.form_id}} id="{{page.form_id}}"{{/if}} novalidate>{{/if}}
             {{#if page.modal_title}}
             <div class="modal-header">
@@ -15,10 +15,10 @@
                 <button type="submit" class="primary-button submit-btn translate">{{page.primary_button_text}} &raquo;</button>
                 {{/if}}
                 {{#if page.hidden_button_text}}
-                <button type="button" data-modal-btn="{{page.hidden_button_action}}" class="hide-button right-button secondary-button close-btn translate">{{page.hidden_button_text}}</button>
+                <button type="button" data-modal-btn="{{page.hidden_button_action}}" class="{{#if page.hide}}hide-button {{/if}}right-button secondary-button close-btn jqmClose translate">{{page.hidden_button_text}}</button>
                 {{/if}}
                 {{#if page.negative_button_text}}
-                <button type="button" data-modal-btn="{{#unless page.negative_button_action}}close{{/unless}}{{page.negative_button_action}}" class="secondary-button close-btn translate">{{page.negative_button_text}}</button>
+                <button type="button" data-modal-btn="{{#unless page.negative_button_action}}close{{/unless}}{{page.negative_button_action}}" class="secondary-button close-btn jqmClose translate">{{page.negative_button_text}}</button>
                 {{/if}}
             </div><!--/.modal-footer-->
         {{#if page.form_action}}</form>{{/if}}

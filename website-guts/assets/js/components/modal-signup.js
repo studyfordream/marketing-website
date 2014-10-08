@@ -39,10 +39,7 @@ signupForm.on('error', function() {
   });
 }.bind(signupDialogHelperInst));
 
-signupForm.on('load', function(e){
-  signupDialogHelperInst.load(e);
-  signupDialogHelperInst.processingRemove({callee: 'load'});
-});
+signupForm.on('load', signupDialogHelperInst.load.bind(signupDialogHelperInst));
 
 signupForm.on('done', function() {
   window.setTimeout(function() {

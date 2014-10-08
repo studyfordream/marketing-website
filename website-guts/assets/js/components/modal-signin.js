@@ -25,10 +25,7 @@ signinForm.on('error', function() {
   });
 }.bind(signinDialogHelperInst));
 
-signinForm.on('load', function(e){
-  signinDialogHelperInst.load(e);
-  signinDialogHelperInst.processingRemove({callee: 'load'});
-}.bind(signinDialogHelperInst));
+signinForm.on('load', signinDialogHelperInst.load.bind(signinDialogHelperInst));
 
 signinForm.on('done', function(){
   signinDialogHelperInst.processingRemove({callee: 'done'});
