@@ -1,6 +1,6 @@
 panel_1:
-  bg_img: ""
-  header: "Optimizely <span>for</span> Good"
+  bg_img: "hero.png"
+  header: "Optimizely <i>for</i> <strong>Good</strong>"
   text: "Optimizely.org aims to empower nonprofits and foundations to increase their ability to drive social impact."
   button_text: "Sign Up"
 panel_2:

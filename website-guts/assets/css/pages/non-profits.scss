@@ -1,12 +1,39 @@
 body.non-profits-page {
   &.compact-header {
     header {
+      background: transparent;
+      height: 0;
       .logo-cont {
         position: absolute;
-        top: 50px;
+        top: 25px;
         left: 50%;
         transform: translateX(-50%);
       }
+    }
+  }
+  #panel-1 {
+    padding: 200px 0 90px 0;
+    text-align: center;
+    > * {
+      color: #fff;
+    }
+    h1 {
+      font-size: 2.7em;
+      display: inline-block;
+      margin: 0;
+    }
+    p {
+      width: 345px;
+      display: block;
+      margin: 60px auto;
+    }
+  }
+  .panel {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    i {
+      font-family: $sentinel-font-family;
     }
   }
 }

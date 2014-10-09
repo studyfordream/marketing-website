@@ -7,30 +7,33 @@ body_class:
 page_script: non-profits.js
 ---
 
-{{#with non_profit_data}}
-<section id="panel-1">
+
+<section id="panel-1" class="panel" style="background-image: url('{{assetsDir}}/img/non-profits/{{non_profit_data.panel_1.bg_img}}')">
   <div class="container">
-  
-  </div>
-</section>
-<section id="panel-2">
-  <div class="container">
-  
-  </div>
-</section>
-<section id="panel-3">
-  <div class="container">
-  
-  </div>
-</section>
-<section id="panel-4">
-  <div class="container">
-  
-  </div>
-</section>
-<section id="panel-5">
-  <div class="container">
-  
+{{#with non_profit_data.panel_1}}
+    <h1>{{{header}}}</h1>
+    <p>{{text}}</p>
+    <div class="button">{{button_text}}</div>
   </div>
 </section>
 {{/with}}
+<section id="panel-2" class="panel">
+  <div class="container">
+  
+  </div>
+</section>
+<section id="panel-3" class="panel">
+  <div class="container">
+  
+  </div>
+</section>
+<section id="panel-4" class="panel">
+  <div class="container">
+  
+  </div>
+</section>
+<section id="panel-5" class="panel">
+  <div class="container">
+  
+  </div>
+</section>
