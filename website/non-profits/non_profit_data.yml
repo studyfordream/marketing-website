@@ -4,12 +4,13 @@ panel_1:
   text: "Optimizely.org aims to empower nonprofits and foundations to increase their ability to drive social impact."
   button_text: "Sign Up"
 panel_2:
-  img: ""
-  header: "Social Impact is <span>Out Heritage</span>"
+  img: "clinton-bush.png"
+  header: "Social Impact is"
+  sub_header: "Our Heritage"
   text: "Optimizely tested the Clinton Bush Haiti Fund landing page in 2010, helping raise an additional million dollars for earthquake survivors in a week. This proved that not only could A/B testing do great work for noprofits, but also became the case study we presented as our public debut during Demo Day at Y-Combinator."
   button_text: "Learn More"
 panel_3:
-  bg_img: ""
+  bg_img: "code-org.png"
   italic_title: "Our Ongoing Work"
   main_title: "CODE.ORG"
   text: "Optimizely is proud to offer ongoing programming for organizations changing the world. Code.org, for example, is using Optimizely to helpl close the opportunity gap by introducing more students to learn to code."

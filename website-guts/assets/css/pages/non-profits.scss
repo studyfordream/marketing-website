@@ -11,6 +11,38 @@ body.non-profits-page {
       }
     }
   }
+  .outline-button {
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: bold;
+    border: 4px solid #fff;
+    border-radius: 5px;
+    padding: 15px 20px;
+    display: inline-block;
+    text-transform: uppercase;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .panel {
+    text-align: center;
+    > * {
+      font-family: $gotham-large-type;
+      text-align: center;
+    }
+    p {
+      line-height: 2;
+    }
+    i {
+      font-family: $sentinel-font-family;
+    }
+  }
+  .bg-img {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
   #panel-1 {
     padding: 200px 0 90px 0;
     text-align: center;
@@ -23,17 +55,106 @@ body.non-profits-page {
       margin: 0;
     }
     p {
-      width: 345px;
+      font-size: 1em;
+      line-height: 2.5;
+      width: 320px;
       display: block;
       margin: 60px auto;
     }
   }
-  .panel {
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    i {
-      font-family: $sentinel-font-family;
+  .left-content {
+    padding-right: 20px;
+  }
+  .right-content {
+    position: relative;
+    padding-left: 20px;
+  }
+  #panel-2 {
+    padding: 110px 0 160px 0;
+    background: #fff;
+    > * {
+      color: #00415D;
+    }
+    .row {
+      display: flex;
+    }
+    h2,
+    h3 {
+      margin: 0;
+    }
+    h3 {
+      font-size: 2.3em;
+    }
+    h2 {
+      font-size: 2.6em;
+      font-weight: bold;
+    }
+    p {
+      text-align: left;
+    }
+    .bg-img {
+      width: 100%;
+      padding-top: 95%;
+      border: 1px solid #00415D;
+    }
+    .btn-cont {
+      position: absolute;
+      font-size: 1.4em;
+      bottom: 0;
+      left: 20px;
+    }
+    a,
+    .caret {
+      text-transform: uppercase;
+      color: #0081BA;
+      font-weight: bold;
+    }
+  }
+  #panel-3 {
+    padding: 100px 0 120px 0;
+    .header-cont {
+      width: 350px;
+      margin: 0 auto 60px auto;
+    }
+    h2,
+    h3 {
+      display: inline-block;
+    }
+    h2 {
+      font-size: 2.7em;
+      margin: 10px 0 0;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    h3 {
+      margin: 0;
+    }
+    p {
+      margin: 0 auto 100px auto;
+      width: 500px;
+      line-height: 2.7;
+    }
+    .outline-button {
+      position: relative;
+    }
+    .circle-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 15px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      display: inline-block;
+      &:after {
+        content: "\25B6";
+        font-size: 0.6em;
+        position: absolute;
+        top: 50%;
+        left: 6px;
+        transform: translateY(-50%);
+      }
     }
   }
 }

@@ -8,24 +8,46 @@ page_script: non-profits.js
 ---
 
 
-<section id="panel-1" class="panel" style="background-image: url('{{assetsDir}}/img/non-profits/{{non_profit_data.panel_1.bg_img}}')">
+<section id="panel-1" class="panel bg-img" style="background-image: url('{{assetsDir}}/img/non-profits/{{non_profit_data.panel_1.bg_img}}')">
   <div class="container">
 {{#with non_profit_data.panel_1}}
     <h1>{{{header}}}</h1>
     <p>{{text}}</p>
-    <div class="button">{{button_text}}</div>
+    <a href="#" class="outline-button">{{button_text}}</a>
   </div>
 </section>
 {{/with}}
 <section id="panel-2" class="panel">
   <div class="container">
-  
+    <div class="row">
+      <div class="columns six left-content">
+        <div class="bg-img" style="background-image: url('{{assetsDir}}/img/non-profits/{{non_profit_data.panel_2.img}}')"></div>
+      </div>
+      {{#with non_profit_data.panel_2}}
+      <div class="columns six right-content">
+        <h3><i>{{header}}</i></h3>
+        <h2>{{sub_header}}</h2>
+        <p>{{text}}</p>
+        <div class="btn-cont">
+          <a href="#" >{{button_text}}</a>
+          <span class="caret">&rsaquo;<span>
+        </div>
+      </div>
+      {{/with}}
+    </div>
   </div>
 </section>
-<section id="panel-3" class="panel">
+<section id="panel-3" class="panel bg-img" style="background-image: url('{{assetsDir}}/img/non-profits/{{non_profit_data.panel_3.bg_img}}')">
+  {{#with non_profit_data.panel_3}}
   <div class="container">
-  
+    <div class="header-cont">
+      <h3><i>{{italic_title}}</i></h3>
+      <h2>{{main_title}}</h2>
+    </div>
+    <p>{{text}}</p>
+    <a href="#" class="outline-button">{{button_text}}<span class="circle-arrow"></span></a>
   </div>
+  {{/with}}
 </section>
 <section id="panel-4" class="panel">
   <div class="container">
