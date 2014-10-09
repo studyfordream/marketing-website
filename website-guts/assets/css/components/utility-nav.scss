@@ -205,10 +205,16 @@ $navs-to-index: main-nav dropdown-menu-top;
       li {
         white-space: nowrap;
         @extend .clearfix;
+        padding: 0 12px 16px 12px;
+      }
+      &:first-of-type {
+        li {
+          padding-top: 16px;
+        }
       }
       a {
         overflow: hidden;
-        padding: 16px 12px;
+        padding: 0;
       }
       a:first-child {
         max-width: 300px;
@@ -244,7 +250,13 @@ $navs-to-index: main-nav dropdown-menu-top;
         padding: 8px 12px;
         text-align: left;
       }
-      .dropdown-menu-top { width: 100%; }
+      .dropdown-menu-top { 
+        width: auto;
+        right: 0;
+        li {
+          white-space: nowrap;
+        } 
+      }
       a { padding: 8px 12px; }
     }
   }

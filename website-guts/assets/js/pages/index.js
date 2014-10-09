@@ -1,21 +1,28 @@
-window.optly.mrkt.index = {};
+w.optly.mrkt.index = {};
 
-window.optly.mrkt.index.testItOut = function(editURL){
+w.optly.mrkt.index.testItOut = function(editURL){
 
   //send user to the editor
-  window.location = '/edit?url=' + editURL;
+  w.location = '/edit?url=' + editURL;
+
+  w.analytics.track('homepage test it out submitted', {
+
+    category: 'forms',
+    label: w.location.pathname
+
+  });
 
 };
 
-$('input[type="text"]').focus();
+$('#test-it-out-form input[type="text"]').focus();
 
 $('#test-it-out-form').submit(function(e){
 
-  var inputVal = $('test-it-out-url').val();
+  var inputVal = $('#test-it-out-form input[type="text"]').val();
 
   if( inputVal ){
 
-      window.optly.mrktEng.index.testItOut( inputVal );
+      w.optly.mrkt.index.testItOut( inputVal );
 
   } else {
 
@@ -26,7 +33,6 @@ $('#test-it-out-form').submit(function(e){
   e.preventDefault();
 
 });
-
 
 var touchHomeFormHelperInst = window.optly.mrkt.form.createAccount({formId: 'touch-homepage-create-account-form'});
 
@@ -51,6 +57,12 @@ touchHomeForm.on('before', function() {
 
 touchHomeForm.on('validationerror', w.optly.mrkt.Oform.validationError);
 
+touchHomeForm.on('validationerror', function(elm) {
+  w.optly.mrkt.Oform.validationError(elm);
+  touchHomeFormHelperInst.showOptionsError('Please Correct Form Errors');
+});
+
+
 touchHomeForm.on('load', function(e){
   touchHomeFormHelperInst.load(e);
   touchHomeFormHelperInst.processingRemove({callee: 'load'});
@@ -58,4 +70,7 @@ touchHomeForm.on('load', function(e){
 
 touchHomeForm.on('done', function(){
   touchHomeFormHelperInst.processingRemove({callee: 'done'});
+  window.setTimeout(function() {
+    touchHomeFormHelperInst.scrollTopCta('touch-cta');
+  }, 500);
 }.bind(touchHomeFormHelperInst));

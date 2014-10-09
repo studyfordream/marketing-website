@@ -4,23 +4,24 @@ layout_script: false
 layout_body_class: false
 faq_navigation:
 -
-    text: Getting Started
-    url: /gettingstarted
+ text: "Getting Started"
+ url: "/gettingstarted"
 -
-    text: Webinar Signup
-    url: /resources/live-demo-webinar
+ text: "Webinar Signup"
+ url: "/resources/live-demo-webinar"
 -
-    text: FAQ
-    url: /faq
+ text: "FAQ"
+ url: "/faq"
 -
-    text: Knowledge Base
-    url: https://help.optimizely.com
+ text: "Knowledge Base"
+ url: "https://help.optimizely.com"
 -
-    text: API Documentation
-    url: http://developers.optimizely.com
+ text: "API Documentation"
+ url: "http://developers.optimizely.com"
 -
-    text: Blog
-    url: http://blog.optimizely.com
+ text: "Blog"
+ url: "http://blog.optimizely.com"
+ swap_id: "faq-subnav-blog"
 ---
 <div id="main">
     <div id="page-header">
@@ -29,7 +30,7 @@ faq_navigation:
                 <h1>{{page.visible_title}}</h1>
                 <ul class="sub-header-nav">
                     {{#each faq_navigation}}
-                    <li><a href="{{#isUrl url}}{{../../linkPath}}{{/isUrl}}{{url}}">{{text}}</a></li>
+                    <li{{#if swap_id}} class="SL_swap" id="{{swap_id}}"{{/if}}><a href="{{#isUrl url}}{{../../linkPath}}{{/isUrl}}{{url}}">{{text}}</a></li>
                     {{/each}}
                 </ul>
             </div><!---->

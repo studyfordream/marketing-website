@@ -8,8 +8,8 @@ var signinHelper = {
     }
     if( !this.optionsErrorElm.classList.contains('error-show') ) {
       this.optionsErrorElm.classList.add('error-show');
-      this.optionsErrorElm.innerHTML = message;
     }
+    this.optionsErrorElm.innerHTML = message;
   },
 
   passwordValidation: function(elm) {
@@ -58,6 +58,7 @@ var signinHelper = {
     var path = w.location.pathname;
 
     if(e.target.status !== 200) {
+      this.processingRemove({callee: 'load'});
       this.showOptionsError(resp.error);
       return;
     }
@@ -67,7 +68,10 @@ var signinHelper = {
     }
 
     if (path !== '/pricing') {
-     w.location = '/dashboard';
+      // allow analytics logging before redirect
+      window.setTimeout(function() {
+        w.location = '/dashboard';
+      }, 500);
     }
     else {
       window.optly.mrkt.modal.close({ modalType: 'signin', trace: false });
@@ -94,16 +98,28 @@ var signinHelper = {
       });
     }
 
-    window.analytics.identify(resp.email, {
+    w.analytics.identify(resp.email, {
       email: resp.email
+    }, {
+      integrations: {
+        Marketo: true
+      }
     });
 
+    w.Munchkin.munchkinFunction('associateLead', {
+      Email: resp.email
+    }, resp.munchkin_token);
+
     //track signin
-    window.analytics.track('acount sign-in', {
+    w.analytics.track('acount sign-in', {
       category: 'account',
       label: window.location.pathname
     }, {
       Marketo: true
+    });
+
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/account/signed-in'
     });
 
     //track customer type
@@ -114,6 +130,9 @@ var signinHelper = {
         label: w.location.pathname
       }, {
         Marketo: true
+      });
+      w.Munchkin.munchkinFunction('visitWebPage', {
+        url: '/customer/signed-in'
       });
       /* new reporting */
       window.analytics.track('customer sign in', {

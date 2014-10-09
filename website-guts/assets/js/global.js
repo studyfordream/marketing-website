@@ -23,6 +23,13 @@ window.optly.mrkt.mobileJS = function(){
 			window.FastClick.attach(document.body);
 
 		});
+
+  }
+
+  var querystring = window.optly.mrkt.utils.deparam(window.location.href);
+
+  if( (querystring.site_mode && querystring.site_mode === 'mobile') ) {
+    $.cookie('optimizelySiteMode', 'mobile', { path: '/' });
   }
 
   var mobileNavBound = false;
@@ -155,6 +162,16 @@ window.Modernizr.addTest('viewportunits', function() {
 window.optly_q.push([function(){
 
 	if(typeof w.optly_q.acctData === 'object'){
+
+		window.analytics.ready(function(){
+
+			w.Munchkin.munchkinFunction('associateLead', {
+
+				Email: w.optly_q.acctData.email
+
+			}, w.optly_q.acctData.munchkin_token);
+
+		});
 
 		window.analytics.identify(w.optly_q.acctData.email, {
 
