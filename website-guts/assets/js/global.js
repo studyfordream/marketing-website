@@ -23,6 +23,13 @@ window.optly.mrkt.mobileJS = function(){
 			window.FastClick.attach(document.body);
 
 		});
+
+  }
+
+  var querystring = window.optly.mrkt.utils.deparam(window.location.href);
+
+  if( (querystring.site_mode && querystring.site_mode === 'mobile') ) {
+    $.cookie('optimizelySiteMode', 'mobile', { path: '/' });
   }
 
   var mobileNavBound = false;

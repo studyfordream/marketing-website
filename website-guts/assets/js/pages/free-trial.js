@@ -529,12 +529,14 @@ var symExpDict = {
   }
 };
 
-var queryString = window.location.search;
+var queryString = window.optly.mrkt.utils.deparam(window.location.href);
 
-if( /otm_content\=/.test(queryString) ) {
-  var param = queryString.split('=')[1];
-  var content = symExpDict[ param ];
+if( !!queryString.otm_content ) {
+  var content = symExpDict[ queryString.otm_content ];
 
-  $('.seo-form-heading').text(content.heading);
-  $('#symmetry_test').text(content.text);
+  if(content.heading && content.text) {
+    $('.seo-form-heading').text(content.heading);
+    $('#symmetry_test').text(content.text);
+  }
+
 }
