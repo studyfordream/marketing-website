@@ -31,14 +31,27 @@ body.non-profits-page {
   .panel {
     text-align: center;
     > * {
-      font-family: $gotham-large-type;
+      font-family: $body-font-family;
       text-align: center;
+    }
+    h1,
+    h2,
+    h3,
+    strong {
+      font-family: $body-font-family;
+    }
+    h3 {
+      font-weight: 100;
     }
     p {
       line-height: 2;
     }
     i {
       font-family: $sentinel-font-family;
+      font-weight: 100;
+    }
+    strong {
+      font-weight: 500;
     }
     img {
       display: inline-block;
@@ -110,6 +123,9 @@ body.non-profits-page {
   }
   #panel-3 {
     padding: 100px 0 120px 0;
+    &.bg-img {
+      background-position-x: 25%;
+    }
     .header-cont {
       width: 350px;
       margin: 0 auto 60px auto;
@@ -119,7 +135,7 @@ body.non-profits-page {
       display: inline-block;
     }
     h2 {
-      font-size: 2.7em;
+      font-size: 2.8em;
       color: #fff;
       margin: 10px 0 0;
       text-transform: uppercase;
@@ -132,7 +148,7 @@ body.non-profits-page {
     }
     p {
       margin: 0 auto 100px auto;
-      width: 500px;
+      max-width: 500px;
       line-height: 2.7;
     }
     .outline-button {
@@ -150,11 +166,15 @@ body.non-profits-page {
       height: 25px;
       display: inline-block;
       &:after {
-        content: "\25B6";
-        font-size: 0.6em;
+        content: "";
+        width: 0; 
+        height: 0; 
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 7px solid #fff;
         position: absolute;
         top: 50%;
-        left: 6px;
+        left: 8px;
         transform: translateY(-50%);
       }
     }
@@ -187,6 +207,9 @@ body.non-profits-page {
     p {
       margin-top: 0;
     }
+    h3 {
+      font-weight: 500;
+    }
   }
 }
 
@@ -201,6 +224,11 @@ body.non-profits-page {
     #panel-2 {
       img {
         max-width: 100%;
+      }
+    }
+    #panel-3 {
+      &.bg-img {
+        background-position-x: center;
       }
     }
   }
