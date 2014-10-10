@@ -29,6 +29,7 @@ body.non-profits-page {
     }
   }
   .panel {
+    padding: 60px 0;
     text-align: center;
     > * {
       font-family: $body-font-family;
@@ -66,7 +67,7 @@ body.non-profits-page {
     background-size: cover;
   }
   #panel-1 {
-    padding: 200px 0 90px 0;
+    padding-top: 100px;
     text-align: center;
     > * {
       color: #fff;
@@ -79,7 +80,7 @@ body.non-profits-page {
     p {
       font-size: 1em;
       line-height: 2.5;
-      width: 320px;
+      max-width: 320px;
       display: block;
       margin: 60px auto;
     }
@@ -93,6 +94,7 @@ body.non-profits-page {
     h2,
     h3 {
       margin: 0;
+      white-space: nowrap;
     }
     h3 {
       font-size: 2.3em;
@@ -107,7 +109,7 @@ body.non-profits-page {
     background: #fff;
   }
   #panel-2 {
-    padding: 110px 0 160px 0;
+    // padding: 110px 0 160px 0;
     img {
       border: 1px solid #00415D;
     }
@@ -120,14 +122,19 @@ body.non-profits-page {
       color: #0081BA;
       font-weight: 500;
     }
+    .header-cont {
+      &.show-mobile {
+        margin-bottom: 40px;
+      }
+    }
   }
   #panel-3 {
-    padding: 100px 0 120px 0;
+    // padding: 100px 0 120px 0;
     &.bg-img {
       background-position-x: 25%;
     }
     .header-cont {
-      width: 350px;
+      max-width: 350px;
       margin: 0 auto 60px auto;
     }
     h2,
@@ -184,7 +191,7 @@ body.non-profits-page {
     padding: 100px 0 130px 0;
   }
   #panel-5 {
-    padding: 130px 0 140px 0;
+    // padding: 130px 0 140px 0;
     > * {
       color: #fff;
     }
@@ -221,6 +228,12 @@ body.non-profits-page {
     .show-mobile {
       display: none;
     }
+    .panel {
+      padding: 120px 0;
+    }
+    #panel-1 {
+      padding-top: 200px;
+    }
     #panel-2 {
       img {
         max-width: 100%;
@@ -229,6 +242,15 @@ body.non-profits-page {
     #panel-3 {
       &.bg-img {
         background-position-x: center;
+      }
+    }
+    #panel-2,
+    #panel-3,
+    #panel-4 {
+      h2,
+      h3 {
+        margin: 0;
+        white-space: normal;
       }
     }
   }
