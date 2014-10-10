@@ -11,6 +11,9 @@ body.non-profits-page {
       }
     }
   }
+  .hide-mobile {
+    display: none;
+  }
   .outline-button {
     cursor: pointer;
     color: #fff;
@@ -37,6 +40,12 @@ body.non-profits-page {
     i {
       font-family: $sentinel-font-family;
     }
+    img {
+      display: inline-block;
+      width: 100%;
+      margin: 0 auto;
+      max-width: 500px;
+    }
   }
   .bg-img {
     background-repeat: no-repeat;
@@ -62,21 +71,14 @@ body.non-profits-page {
       margin: 60px auto;
     }
   }
-  .left-content {
-    padding-right: 20px;
-  }
-  .right-content {
-    position: relative;
-    padding-left: 20px;
-  }
-  #panel-2 {
-    padding: 110px 0 160px 0;
+  #panel-2,
+  #panel-4 {
     background: #fff;
     > * {
       color: #00415D;
     }
     .row {
-      display: flex;
+      /*display: flex;*/
     }
     h2,
     h3 {
@@ -89,19 +91,14 @@ body.non-profits-page {
       font-size: 2.6em;
       font-weight: bold;
     }
-    p {
-      text-align: left;
-    }
-    .bg-img {
-      width: 100%;
-      padding-top: 95%;
+  }
+  #panel-2 {
+    padding: 110px 0 160px 0;
+    img {
       border: 1px solid #00415D;
     }
     .btn-cont {
-      position: absolute;
       font-size: 1.4em;
-      bottom: 0;
-      left: 20px;
     }
     a,
     .caret {
@@ -161,18 +158,83 @@ body.non-profits-page {
     }
   }
   #panel-4 {
-  
+    background: #fff;
+    padding: 100px 0 130px 0;
+  }
+  #panel-5 {
+    padding: 130px 0 140px 0;
+    > * {
+      color: #fff;
+    }
+    label {
+      color: #fff;
+      font-size: 0.8em;
+    }
+    input {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 20px auto;
+    }
+    .outline-button {
+      background: transparent;
+      border-color: #00415D;
+      margin: 20px 0;
+    }
+    h2,
+    p {
+      margin-top: 0;
+    }
   }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
   body.non-profits-page {
-    
+    .hide-mobile {
+      display: block;
+    }
+    .show-mobile {
+      display: none;
+    }
+    #panel-2 {
+      img {
+        max-width: 100%;
+      }
+    }
   }
 }
 
 @media only screen and (min-width: $desktop-min-width) {
   body.non-profits-page {
-    
+    .panel {
+      .left-content {
+        padding-right: 20px;
+      }
+      .right-content {
+        position: relative;
+        padding-left: 20px;
+      }
+    }
+    #panel-2,
+    #panel-4 {
+      .row {
+        display: flex;
+      }
+      p {
+        text-align: left;
+      }
+    }
+    #panel-2 {
+      .btn-cont {
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+      }
+    }
+  }
+  #panel-5 {
+    > * {
+      text-align: left;
+    }
   }
 }
