@@ -231,10 +231,13 @@ body.non-profits-page {
         left: 20px;
       }
     }
-  }
-  #panel-5 {
-    > * {
-      text-align: left;
+    #panel-5 {
+      > * {
+        text-align: left;
+      }
+      input {
+        max-width: 100%;
+      }
     }
   }
 }
