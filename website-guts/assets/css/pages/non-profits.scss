@@ -161,6 +161,9 @@ body.non-profits-page {
     .outline-button {
       position: relative;
       padding-right: 50px;
+      &:hover {
+        background: rgba(7, 101, 131, 0.3);
+      }
     }
     .circle-arrow {
       position: absolute;
@@ -216,6 +219,14 @@ body.non-profits-page {
     }
     h3 {
       font-weight: 500;
+    }
+  }
+  #panel-1,
+  #panel-5 {
+    .outline-button {
+      &:hover {
+        background: rgba(148, 194, 215, 0.5);
+      }
     }
   }
 }
