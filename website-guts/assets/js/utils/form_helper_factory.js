@@ -22,7 +22,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
     this.bodyClass = document.body.classList;
     this.inputs = Array.prototype.slice.call( this.formElm.getElementsByTagName('input') );
-    
+
     this.inputs.push(this.formElm.querySelector('button[type="submit"]'));
   }
 

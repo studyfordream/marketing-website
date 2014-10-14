@@ -129,6 +129,6 @@ window.optly.mrkt.form.resetPassword = function(argumentsObj) {
     prototype: resetPasswordHelper
   };
 
-  return new window.optly.mrkt.form.HelperFactory(constructorArgs);
+  return window.optly.mrkt.form.HelperFactory(constructorArgs);
 
 };
