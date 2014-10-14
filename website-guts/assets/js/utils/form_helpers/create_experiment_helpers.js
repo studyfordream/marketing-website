@@ -51,6 +51,6 @@ window.optly.mrkt.form.createExp = function(argumentsObj) {
     dialogId: argumentsObj.dialogId,
     prototype: createExpHelper
   };
-  return new window.optly.mrkt.form.HelperFactory(constructorArgs);
+  return window.optly.mrkt.form.HelperFactory(constructorArgs);
 
 };

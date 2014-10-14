@@ -154,6 +154,6 @@ window.optly.mrkt.form.signin = function(argumentsObj) {
     prototype: signinHelper
   };
 
-  return new window.optly.mrkt.form.HelperFactory(constructorArgs);
+  return window.optly.mrkt.form.HelperFactory(constructorArgs);
 
 };
