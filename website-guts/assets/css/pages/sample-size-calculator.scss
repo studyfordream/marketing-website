@@ -131,7 +131,10 @@ body.sample-size-page {
       font-size: 1.4em;
       margin: 15px 0 5px 0;
       text-align: center;
-      font-variant: small-caps;
+      text-transform: uppercase;
+      span {
+        font-size: 78%;
+      }
     }
     #sample {
       color: #3385d6;
