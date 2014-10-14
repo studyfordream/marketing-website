@@ -119,15 +119,21 @@ window.optly.mrkt.modal.open = function(modalArgs) {
   var modalType = modalArgs.modalType,
     $elm = $elms[modalType],
     modalName = $elm.data('modalName'),
-    animInitiated;
+    animInitiated,
+    $focusElm = $elm.find('[autofocus]');
   // if modalState exists then close modal of the currently open modal state
   if(modalState.type !== undefined) {
     window.optly.mrkt.modal.close({ modalType: modalState.type, track: false });
   }
 
   //Hack for IE focus in
-  var focusElm = $elm.find('[autofocus]:not(:focus)').eq(0).focus();
-  console.log('focus', focusElm);
+  var intId = window.setInterval(function() {
+    if( !$focusElm.is(':focus') ) {
+      $focusElm.focus();
+    } else {
+      window.clearInterval(intId);
+    }
+  }, 10);
 
   // update the global modal state
   modalState.type = modalType;
