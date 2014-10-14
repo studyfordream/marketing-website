@@ -127,13 +127,17 @@ window.optly.mrkt.modal.open = function(modalArgs) {
   }
 
   //Hack for IE focus in
-  var intId = window.setInterval(function() {
-    if( !$focusElm.is(':focus') ) {
-      $focusElm.focus();
-    } else {
-      window.clearInterval(intId);
-    }
-  }, 10);
+  if($focusElm.length > 0) {
+
+    var intId = window.setInterval(function() {
+      if( !$focusElm.is(':focus') ) {
+        $focusElm.focus();
+      } else {
+        window.clearInterval(intId);
+      }
+    }, 10);
+
+  }
 
   // update the global modal state
   modalState.type = modalType;
