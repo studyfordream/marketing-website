@@ -51,22 +51,22 @@ var resetPasswordHelper = {
   },
 
   removeError: function(elm) {
-    if(document.body.classList.contains('error-state')) {
-      document.body.classList.remove('error-state');
-    }
+    var bodyClasses = document.body.classList;
+
+    $.each(bodyClasses, function(i, bodyClass) {
+      if(/error/.test(bodyClass)) {
+        document.body.classList.remove(bodyClass);
+      }
+    });
+    
     if( elm.classList.contains('error-show') ) {
       elm.classList.remove('error-show');
     }
   },
 
-  bindEmailValidation: function() {
-    var emailInput = this.formElm.querySelector('[name="email"]'),
-      emailErrorElm = this.formElm.querySelector('.email-related'),
-      emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+  validationLogic: function(emailInput, emailErrorElm, errorState) {
+    var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       lastErrorState;
-
-    $(emailInput).on('keyup focusout', function() {
-      var errorState;
 
       if(emailInput.value.length === 0) {
         errorState = true;
@@ -91,7 +91,28 @@ var resetPasswordHelper = {
       }
 
       lastErrorState = errorState;
+
+  },
+
+  bindEmailValidation: function() {
+    var emailInput = this.formElm.querySelector('[name="email"]'),
+      emailErrorElm = this.formElm.querySelector('.email-related');
+
+    $(emailInput).on('focusout', function() {
+      var errorState;
+
+      this.validationLogic(emailInput, emailErrorElm, errorState);
+
     }.bind(this));
+
+    $(emailInput).on('focusin', function() {
+
+      $.each([emailInput, emailErrorElm], function(i, elm) {
+        this.removeError(elm);
+      }.bind(this));
+
+    }.bind(this));
+
   },
 
   load: function(e) {
@@ -129,6 +150,6 @@ window.optly.mrkt.form.resetPassword = function(argumentsObj) {
     prototype: resetPasswordHelper
   };
 
-  return new window.optly.mrkt.form.HelperFactory(constructorArgs);
+  return window.optly.mrkt.form.HelperFactory(constructorArgs);
 
 };

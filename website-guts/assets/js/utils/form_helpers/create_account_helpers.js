@@ -152,7 +152,6 @@ var createAccountHelper = {
     var resp = JSON.parse(e.target.responseText);
 
     if(e.target.status !== 200) {
-      debugger;
       this.processingRemove({callee: 'load'});
       this.showOptionsError(resp.error);
     } else {
