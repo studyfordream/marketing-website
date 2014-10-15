@@ -1,19 +1,19 @@
-function animBtnColor(button) {
-  var btnClass = button.classList;
-  if(btnClass.contains('link-hover-color')) {
-    btnClass.remove('link-hover-color');
-  } else {
-    btnClass.add('link-hover-color');
-  }
-}
+/*function animBtnColor(button) {*/
+  //var btnClass = button.classList;
+  //if(btnClass.contains('link-hover-color')) {
+    //btnClass.remove('link-hover-color');
+  //} else {
+    //btnClass.add('link-hover-color');
+  //}
+//}
 
-function slide($button) {
-  $.each($button, function(i, button) {
-    $(button).on(window.optly.mrkt.anim.transitionend, function() {
-      animBtnColor(button.firstElementChild);
-    });
-  });
-}
+//function slide($button) {
+  //$.each($button, function(i, button) {
+    //$(button).on(window.optly.mrkt.anim.transitionend, function() {
+      //animBtnColor(button.firstElementChild);
+    //});
+  //});
+/*}*/
 
 
 $(function(){
