@@ -14,7 +14,7 @@ var oformHelper = {
 
   load: function(e) {
     var resp = JSON.parse(e.target.responseText);
-debugger;
+
     if(e.target.status !== 200) {
       this.processingRemove({callee: 'load'});
       this.showOptionsError(resp.error);
