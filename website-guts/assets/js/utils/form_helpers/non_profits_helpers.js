@@ -1,6 +1,6 @@
 window.optly.mrkt.form = window.optly.mrkt.form || {};
 
-var oformHelper = {
+var orgForm = {
   
   showOptionsError: function (message){
     if(!document.body.classList.contains('error-state')) {
@@ -17,7 +17,7 @@ var oformHelper = {
 
     if(e.target.status !== 200) {
       this.processingRemove({callee: 'load'});
-      this.showOptionsError(resp.error);
+      this.showOptionsError('Form Response Error');
       return;
     }
 
@@ -29,7 +29,7 @@ var oformHelper = {
 window.optly.mrkt.form.orgForm = function(argumentsObj) {
   var constructorArgs = {
     formId: argumentsObj.formId,
-    prototype: oformHelper
+    prototype: orgForm
   };
 
   return window.optly.mrkt.form.HelperFactory(constructorArgs);

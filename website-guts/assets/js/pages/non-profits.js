@@ -20,12 +20,18 @@ $(function(){
   if(!window.optly.mrkt.isMobile()) {
     window.skrollr.init();
   }
-  
+
   var orgFormHelperInst = window.optly.mrkt.form.orgForm({formId: 'org-form'});
-  
+
   var orgForm = new Oform({
     selector: '#org-form'
   });
+
+  orgForm.on('before', function() {
+    orgFormHelperInst.processingAdd();
+    return true;
+  });
+
 
   orgForm.on('validationerror', w.optly.mrkt.Oform.validationError);
 
@@ -37,7 +43,7 @@ $(function(){
     });
   }.bind());
 
-  orgForm.on('load', orgFormHelperInst.bind(orgFormHelperInst));
+  orgForm.on('load', orgFormHelperInst.load.bind(orgFormHelperInst));
 
   orgForm.on('done', function(){
     orgFormHelperInst.processingRemove({callee: 'done'});
