@@ -13,7 +13,8 @@ var orgForm = {
   },
 
   load: function(e) {
-    var resp = JSON.parse(e.target.responseText);
+    var resp = JSON.parse(e.target.responseText),
+      button;
 
     if(e.target.status !== 200) {
       this.processingRemove({callee: 'load'});
@@ -22,6 +23,10 @@ var orgForm = {
     }
 
     this.processingRemove({callee: 'load', retainDisabled: true});
+
+    button = this.formElm.querySelector('button');
+
+    button.classList.add('successful-submit');
 
   }
 };

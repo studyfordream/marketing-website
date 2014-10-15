@@ -6,6 +6,8 @@ external_stylesheets:
 - "//cloud.typography.com/7838232/629986/css/fonts.css"
 body_class:
 - non-profits-page
+modals:
+- nonprofits_video_modal_compiled
 page_script: non-profits.js
 script_dependencies:
 - "//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.27/skrollr.min.js"
@@ -17,7 +19,7 @@ script_dependencies:
 {{#with non_profit_data.panel_1}}
     <h1>{{{header}}}</h1>
     <p>{{text}}</p>
-    <a href="#" class="outline-button slide-button">{{button_text}}</a>
+    <a href="#panel-5" class="outline-button slide-button" smooth-scroll>{{button_text}}</a>
   </div>
 </section>
 {{/with}}
@@ -41,7 +43,7 @@ script_dependencies:
         </div>
         <p>{{text}}</p>
         <div class="btn-cont">
-          <a href="#" class="slide-button">{{button_text}}</a>
+          <a href="http://blog.optimizely.com/2013/11/21/ab-testing-technology-global-relief-efforts-typhoon-haiyan/" target="_blank">{{button_text}}</a>
           <span class="caret">&rsaquo;<span>
         </div>
       </div>
@@ -57,7 +59,9 @@ script_dependencies:
       <h2>{{main_title}}</h2>
     </div>
     <p>{{text}}</p>
-    <a href="#" class="outline-button slide-button">{{button_text}}<span class="circle-arrow"></span></a>
+    <a href="#" class="outline-button slide-button" data-modal-click="nonprofits-video">{{button_text}}
+      <span class="circle-arrow"></span>
+    </a>
   </div>
   {{/with}}
 </section>
@@ -93,28 +97,31 @@ script_dependencies:
           <label for="" class="required">Email Address</label>
             <span class="Email-related error-hide error-right">Required</span>
             <input type="email" name="Email" required>
-          <label for="" class="required">Company Website</label>
+          <label for="" class="required">Website</label>
             <span class="Website-related error-hide error-right">Required</span>
             <input type="text" name="Website" required>
-          <input type="hidden" class='mktoField mktoTextField' name='Industry' id='Industry'>
-          <input type="hidden" class='mktoField mktoTextField' name='LeadSource' id='LeadSource'>
-          <input type="hidden" class='mktoField mktoTextField' name='Lead_Source_Category__c' id='Lead_Source_Category__c'>
-          <input type="hidden" class='mktoField mktoTextField' name='Lead_Source_Subcategory__c' id='Lead_Source_Subcategory__c'>
+          <input type="hidden" name='Industry' id='Industry' value="Not For Profit">
+          <input type="hidden" name='LeadSource' id='LeadSource' value="Website">
+          <input type="hidden" name='Lead_Source_Category__c' id='Lead_Source_Category__c' value="Contact Request">
+          <input type="hidden" name='Lead_Source_Subcategory__c' id='Lead_Source_Subcategory__c' value="Optimizely.org form">
+          <input type="hidden" name="formid" value="244" />
           <input type="hidden" name="lpId" value="2298" />
           <input type="hidden" name="subId" value="56" />
-          <input type="hidden" name="lpurl" value="http://pages.optimizely.com/Optimizely.org.html?cr={creative}&kw={keyword}" />
-          <input type="hidden" name="formid" value="244" />
-          <input type="hidden" name="ret" value="" />
           <input type="hidden" name="munchkinId" value="361-GER-922"/>
-          <input type="hidden" name="kw" value=""/>
+          <input type="hidden" name="lpurl" value="http://pages.optimizely.com/Optimizely.org.html?cr={creative}&kw={keyword}" />
           <input type="hidden" name="cr" value=""/>
-          <input type="hidden" name="searchstr" value=""/>
-          <input type="hidden" name="_mkt_disp" value="return"/>
-          <input type="hidden" name="_mkt_trk" value=""/>
+          <input type="hidden" name="kw" value=""/>
+          <input type="hidden" name="q" value=""/>
+          <input type="hidden" name="_mkt_trk" value="id:361-GER-922&token:_mch-optimizely.com-1412808439161-63071"/>
+          <input type="hidden" name="formVid" value="244" />
+          <input type="hidden" name="_mkto_Referrer" value="http://pages.optimizely.com/Optimizely.org.html"/>
           <div class="options">
             <p class="error-hide">Invalid Input</p>
           </div>
-          <button type="submit" class="outline-button slide-button">{{button_text}}</button>
+          <button type="submit" class="outline-button slide-button">
+            <span class="sbmt-btn-text">{{button_text}}</span>
+            <span class="sbmt-btn-icon"></span>
+          </button>
         </form>
       </div>
       <div class="columns six right-content">
