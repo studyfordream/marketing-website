@@ -28,6 +28,37 @@ body.non-profits-page {
       text-decoration: none;
     }
   }
+  .slide-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s linear;
+    z-index: 1;
+    &:before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      background: rgba(255, 255, 255, 0.6);
+      width: 100%;
+      height: 100%;
+      transition: all 0.2s linear;
+    }
+    &:hover {
+      cursor: pointer;
+      color: red!important;
+      .circle-arrow {
+        border-color: red!important;
+        &:after {
+          border-left-color: red!important;
+        }
+      }
+      &:before {
+        transform: translateX(0);
+      }
+    }
+  }
   .panel {
     padding: 60px 0;
     text-align: center;
@@ -161,9 +192,6 @@ body.non-profits-page {
     .outline-button {
       position: relative;
       padding-right: 50px;
-      &:hover {
-        background: rgba(7, 101, 131, 0.3);
-      }
     }
     .circle-arrow {
       position: absolute;
@@ -225,7 +253,6 @@ body.non-profits-page {
   #panel-5 {
     .outline-button {
       &:hover {
-        background: rgba(148, 194, 215, 0.5);
       }
     }
   }

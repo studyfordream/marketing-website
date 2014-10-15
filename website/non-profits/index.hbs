@@ -17,7 +17,7 @@ script_dependencies:
 {{#with non_profit_data.panel_1}}
     <h1>{{{header}}}</h1>
     <p>{{text}}</p>
-    <a href="#" class="outline-button">{{button_text}}</a>
+    <a href="#" class="outline-button slide-button">{{button_text}}</a>
   </div>
 </section>
 {{/with}}
@@ -41,7 +41,7 @@ script_dependencies:
         </div>
         <p>{{text}}</p>
         <div class="btn-cont">
-          <a href="#" >{{button_text}}</a>
+          <a href="#" class="slide-button">{{button_text}}</a>
           <span class="caret">&rsaquo;<span>
         </div>
       </div>
@@ -57,7 +57,7 @@ script_dependencies:
       <h2>{{main_title}}</h2>
     </div>
     <p>{{text}}</p>
-    <a href="#" class="outline-button">{{button_text}}<span class="circle-arrow"></span></a>
+    <a href="#" class="outline-button slide-button">{{button_text}}<span class="circle-arrow"></span></a>
   </div>
   {{/with}}
 </section>
@@ -83,15 +83,35 @@ script_dependencies:
     <div class="row">
       <div class="columns six left-content">
         <h2>{{{header}}}</h2>
-        <form action="">
+        <form id="org-form" action="http://pages.optimizely.com/index.php/leadCapture/save2" novalidate>
           <label for="" class="required">First Name</label>
-          <input type="text" name="first-name">
+            <span class="FirstName-related error-hide error-right">Required</span>
+            <input type="text" name="FirstName" required>
           <label for="" class="required">Last Name</label>
-          <input type="text" name="last-name">
+            <span class="LastName-related error-hide error-right">Required</span>
+            <input type="text" name="LastName" required>
           <label for="" class="required">Email Address</label>
-          <input type="email" name="email">
+            <span class="Email-related error-hide error-right">Required</span>
+            <input type="email" name="Email" required>
           <label for="" class="required">Company Website</label>
-          <input type="text" name="website">
+            <span class="Website-related error-hide error-right">Required</span>
+            <input type="text" name="Website" required>
+          <input type="hidden" class='mktoField mktoTextField' name='Industry' id='Industry'>
+          <input type="hidden" class='mktoField mktoTextField' name='LeadSource' id='LeadSource'>
+          <input type="hidden" class='mktoField mktoTextField' name='Lead_Source_Category__c' id='Lead_Source_Category__c'>
+          <input type="hidden" class='mktoField mktoTextField' name='Lead_Source_Subcategory__c' id='Lead_Source_Subcategory__c'>
+          <input type="hidden" name="lpId" value="2298" />
+          <input type="hidden" name="subId" value="56" />
+          <input type="hidden" name="lpurl" value="http://pages.optimizely.com/Optimizely.org.html?cr={creative}&kw={keyword}" />
+          <input type="hidden" name="formid" value="244" />
+          <input type="hidden" name="ret" value="" />
+          <input type="hidden" name="munchkinId" value="361-GER-922"/>
+          <input type="hidden" name="kw" value=""/>
+          <input type="hidden" name="cr" value=""/>
+          <input type="hidden" name="searchstr" value=""/>
+          <input type="hidden" name="_mkt_disp" value="return"/>
+          <input type="hidden" name="_mkt_trk" value=""/>
+          <div class="options error-hide">Invalid Input</div>
           <button type="submit" class="outline-button">{{button_text}}</button>
         </form>
       </div>
