@@ -133,6 +133,7 @@ body.sample-size-page {
       text-align: center;
       text-transform: uppercase;
       span { font-size: 75%; }
+      span:last-child { margin-left: -2px; }
     }
     #sample {
       color: #3385d6;
