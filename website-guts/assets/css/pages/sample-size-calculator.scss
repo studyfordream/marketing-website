@@ -128,10 +128,11 @@ body.sample-size-page {
     .sample-label {
       font-weight: normal;
       color: #888;
-      font-size: 1.4em;
       margin: 15px 0 5px 0;
       text-align: center;
-      font-variant: small-caps;
+      text-transform: uppercase;
+      span { font-size: 1.4em; }
+      span:last-child { margin-right: -2px; }
     }
     #sample {
       color: #3385d6;
