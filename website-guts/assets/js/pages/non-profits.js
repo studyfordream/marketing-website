@@ -59,7 +59,6 @@ $(function(){
     return true;
   });
 
-
   orgForm.on('validationerror', w.optly.mrkt.Oform.validationError);
 
   orgForm.on('error', function() {
