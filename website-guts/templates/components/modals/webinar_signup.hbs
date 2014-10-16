@@ -19,18 +19,17 @@ negative_button_text: Cancel
               <div class="webinar-detail-info"></div>
             </div>
           </div>
-          <p class="error-message">Please correct the error(s) below.</p>
           <div class="clearfix" style="clear: both;">
-            <div class="form-label">
-              <p class="name-related error-hint">Name is required</p>
-              <label for="name">Name: </label>
-            </div>
-            <input type="text" id="name" name="name" required></input>
-            <div class="form-label">
-              <label>Email: </label>
-              <p class="email-related error-hint">Email is required</p>
-            </div>
-            <input type="email" id="email" name="Email" required></input>
+            <label>
+              <span>Name: </span>
+              <span class="name-related error-hide error-right">Name is required</span>
+              <input type="text" id="name" name="name" required></input>
+            </label>
+            <label>
+              <span>Email:</span>
+              <span class="email-related error-hide error-right">Email is required</span>
+              <input type="email" id="email" name="email" required></input>
+            </label>
             <input type="hidden" name="WebinarRegistrationDate" id="date-long" value="">
             <input type="hidden" name="lpId" value="-1">
             <input type="hidden" name="subId" value="56">

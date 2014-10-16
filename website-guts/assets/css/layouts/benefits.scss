@@ -112,7 +112,9 @@ body.benefits-layout {
 
   .attention {
     a {
-      margin: 10px 0;
+      display: block;
+      max-width: 240px;
+      margin: 30px auto;
     }
   }
 
@@ -151,6 +153,7 @@ body.benefits-layout.oform-success {
     }
     .attention {
       a {
+        display: inline-block;
         margin: 0;
       }
     }
