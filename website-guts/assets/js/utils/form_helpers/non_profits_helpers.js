@@ -13,8 +13,7 @@ var orgForm = {
   },
 
   load: function(e) {
-    var resp = JSON.parse(e.target.responseText),
-      button;
+    var button;
 
     if(e.target.status !== 200) {
       this.processingRemove({callee: 'load'});

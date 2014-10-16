@@ -1,31 +1,30 @@
 function smoothScroll(e) {
-  var scrlId, 
-    targetElmPos;
-  if(this !== window) {
-    smoothScroll.cacheElm = $(this).attr('href');
-  } 
+  var scrlId = $(this).attr('href'), 
+    targetElmPos = $(scrlId).offset().top;
 
-  scrlId = smoothScroll.cacheElm;
-  targetElmPos = $(scrlId).offset().top;
+  e.preventDefault();
 
-  if(typeof e !== 'number') {
-    e.preventDefault();
-  }
-
-  if($(window).scrollTop() <= targetElmPos && ($(window).scrollTop() + $(window).height()) < $(document).height() ) {
-    if(window.requestAnimationFrame) {
-      $(window).scrollTop( $(window).scrollTop() + 50 );
-      window.requestAnimationFrame(smoothScroll);
-    } else {
-      $('html,body').animate({
-        scrollTop: targetElmPos
-      }, 1000);
-    }
-    
-  }
+  $('html,body').animate({
+    scrollTop: targetElmPos
+  }, 1000);
 
 }
 
+var player;
+var tag = document.createElement('script');
+
+tag.src = 'https://www.youtube.com/iframe_api';
+var scriptTags = document.getElementsByTagName('script');
+var lastScriptTag = scriptTags[scriptTags.length - 1];
+lastScriptTag.parentNode.insertBefore(tag, lastScriptTag.nextSibling);
+
+window.onYouTubeIframeAPIReady = function () {
+  player = new window.YT.Player('player', {
+    height: '390',
+    width: '640',
+    videoId: 'C7WTDPksvAE'
+  });
+};
 
 $(function(){
   if(!window.optly.mrkt.isMobile()) {
@@ -33,6 +32,21 @@ $(function(){
   }
 
   $('[smooth-scroll]').on('click', smoothScroll);
+
+  $('[data-show-video]').on('click', function() {
+    window.optly.mrkt.modal.open({modalType: 'nonprofits-video'});
+    var playerInt = window.setInterval(function() {
+      if(player.getPlayerState() !== 1) {
+        player.playVideo();
+      } else {
+        window.clearInterval(playerInt);
+      }
+    }, 10);
+  });
+
+  $('[data-optly-modal="nonprofits-video"]').on('click', function() {
+    player.stopVideo();
+  });
 
   var orgFormHelperInst = window.optly.mrkt.form.orgForm({formId: 'org-form'});
 

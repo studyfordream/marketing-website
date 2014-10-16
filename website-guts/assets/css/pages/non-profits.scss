@@ -12,8 +12,28 @@ body.non-profits-page {
     }
   }
   #nonprofits-video-modal {
+    &.modal-dialog-container {
+      background: transparent;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 35%, rgba(0, 0, 0, 0.498039));
+    }
     .dialog {
       width: 100%;
+      height: auto;
+      padding: 0;
+      background: transparent;
+      margin-top: 20vh;
+    }
+    .modal-body {
+      width: 100%;
+      padding-top: 56%;
+      position: relative;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
     .modal-footer {
       display: none;
@@ -125,6 +145,11 @@ body.non-profits-page {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    &#panel-1,
+    &#panel-3,
+    &#panel-5 {
+      background-color: #fff;
+    }
   }
   #panel-1 {
     padding-top: 100px;
@@ -358,6 +383,11 @@ body.non-profits-page {
     }
     .show-mobile {
       display: none;
+    }
+    #nonprofits-video-modal {
+      .dialog {
+        width: 80%;
+      }
     }
     .panel {
       padding: 120px 0;

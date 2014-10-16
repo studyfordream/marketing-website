@@ -149,6 +149,8 @@ window.optly.mrkt.modal.open = function(modalArgs) {
 
   $('html, body').addClass('modal-open');
 
+  window.scrollTo(0,0);
+
   animInitiated = window.optly.mrkt.anim.enter( $elm );
 
   if (animInitiated) {
