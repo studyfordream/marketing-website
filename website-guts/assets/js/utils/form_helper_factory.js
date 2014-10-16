@@ -24,6 +24,21 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     this.inputs = Array.prototype.slice.call( this.formElm.getElementsByTagName('input') );
 
     this.inputs.push(this.formElm.querySelector('button[type="submit"]'));
+
+    this.focusin();
+  }
+
+  // Remove the error classes when the user focuses on an input
+  Const.prototype.focusin = function(){
+    $.each(this.inputs, function(index, value) {
+      if  (!!value && value.type !== 'submit') {
+        $(value).on('focus', function(e) {
+          $target = $(e.target);
+          $target.removeClass('error-show oform-error-show');
+          $('.' + $target.attr('name') + '-related').removeClass('oform-error-show error-show');
+        });
+      }
+    });
   }
 
   var processingHelpers = {
