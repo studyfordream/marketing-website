@@ -27,9 +27,6 @@ window.onYouTubeIframeAPIReady = function () {
 };
 
 $(function(){
-  if(!window.optly.mrkt.isMobile()) {
-    window.skrollr.init();
-  }
 
   $('[smooth-scroll]').on('click', smoothScroll);
 
