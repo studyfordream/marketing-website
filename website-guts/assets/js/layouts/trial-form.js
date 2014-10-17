@@ -36,7 +36,7 @@ new Oform({
     });
     /* end legacy reporting */
     setTimeout(function(){
-      w.location = '/edit?url=' + d.getElementById('url').value;
+      w.location = '/edit?url=' + encodeURIComponent(d.getElementById('url').value);
     }, 500);
   } else {
     if(response.error && typeof response.error === 'string'){
