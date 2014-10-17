@@ -30,10 +30,10 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
   // Remove the error classes when the user focuses on an input
   Const.prototype.focusin = function(){
-    $.each(this.inputs, function(index, value) {
-      if  (!!value && value.type !== 'submit') {
-        $(value).on('focus', function(e) {
-          $target = $(e.target);
+    $.each(this.inputs, function(index, input) {
+      if  (!!input && input.type !== 'submit') {
+        $(input).on('focus', function(e) {
+          var $target = $(e.target);
           $target.removeClass('error-show oform-error-show');
           $('.' + $target.attr('name') + '-related').removeClass('oform-error-show error-show');
         });
