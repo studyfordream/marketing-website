@@ -8,14 +8,14 @@
       {{#each experiments}}
         <span class="experiment-container hide-in-mobile">
           <li>
-            <a class="edit" 
+            <a class="edit"
               {{#if can_edit}}href="https://www.optimizely.com/edit?experiment_id={{id}}"{{/if}}
               {{#unless has_started}}style="width: auto;"{{/unless}}
               >
               <span class="experiment-description">{{description}}</span>
             </a>
-            <a class="experiment-results" 
-              {{#if can_edit}}href="https://www.optimizely.com/edit?experiment_id={{id}}"{{/if}}
+            <a class="experiment-results"
+              {{#if can_edit}}href="https://www.optimizely.com/results2?experiment_id={{id}}"{{/if}}
               {{#unless has_started}}style="display: none;"{{/unless}}
               >
               {{#if has_started}}
