@@ -10,14 +10,12 @@
           <li>
           <a class="edit{{#unless can_edit}} disabled{{/unless}}" 
               {{#if can_edit}}href="/edit?experiment_id={{id}}"{{/if}}
-              {{#unless has_started}}style="width: auto;"{{/unless}}
-              >
+              {{#unless has_started}}style="width: auto;"{{/unless}}>
               <span class="experiment-description">{{description}}</span>
             </a>
             <a class="experiment-results" 
               href="/results?experiment_id={{id}}"
-              {{#unless has_started}}style="display: none;"{{/unless}}
-              >
+              {{#unless has_started}}style="display: none;"{{/unless}}>
               {{#if has_started}}
               Results
               {{/if}}
