@@ -27,9 +27,6 @@ window.onYouTubeIframeAPIReady = function () {
 };
 
 $(function(){
-  if(!window.optly.mrkt.isMobile()) {
-    window.skrollr.init();
-  }
 
   $('[smooth-scroll]').on('click', smoothScroll);
 
@@ -63,11 +60,13 @@ $(function(){
 
   orgForm.on('error', function() {
     orgFormHelperInst.processingRemove({callee: 'error'});
+    orgFormHelperInst.showOptionsError('Form Response Error');
+
     window.analytics.track('signin xhr error', {
       category: 'account',
       label: w.location.pathname
     });
-  }.bind());
+  }.bind(orgFormHelperInst));
 
   orgForm.on('load', orgFormHelperInst.load.bind(orgFormHelperInst));
 

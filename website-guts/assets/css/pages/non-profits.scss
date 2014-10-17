@@ -17,11 +17,14 @@ body.non-profits-page {
       background-image: radial-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 35%, rgba(0, 0, 0, 0.498039));
     }
     .dialog {
+      margin: 0;
+      position: static;
       width: 100%;
-      height: auto;
       padding: 0;
       background: transparent;
-      margin-top: 20vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .modal-body {
       width: 100%;
@@ -385,8 +388,14 @@ body.non-profits-page {
       display: none;
     }
     #nonprofits-video-modal {
+      &.modal-dialog-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .dialog {
         width: 80%;
+        display: block;
       }
     }
     .panel {

@@ -8,7 +8,13 @@ document.querySelector('[name="hidden"]').value = 'touched';
 new Oform({
   selector: '#seo-form'
 })
-.on('before', w.optly.mrkt.Oform.before)
+.on('before', function(){
+  w.analytics.track('/free-trial/submit', {
+    cateogry: 'account',
+    label: w.location.pathname
+  });
+  w.optly.mrkt.Oform.before();
+})
 .on('validationerror', w.optly.mrkt.Oform.validationError)
 .on('error', function(){
   $('#seo-form .error-message').text('An unknown error occured.');
@@ -36,7 +42,7 @@ new Oform({
     });
     /* end legacy reporting */
     setTimeout(function(){
-      w.location = '/edit?url=' + d.getElementById('url').value;
+      w.location = '/edit?url=' + encodeURIComponent(d.getElementById('url').value);
     }, 500);
   } else {
     if(response.error && typeof response.error === 'string'){
