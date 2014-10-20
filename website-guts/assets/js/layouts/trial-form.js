@@ -13,7 +13,7 @@ new Oform({
     cateogry: 'account',
     label: w.location.pathname
   });
-  w.optly.mrkt.Oform.before();
+  return w.optly.mrkt.Oform.before();
 })
 .on('validationerror', w.optly.mrkt.Oform.validationError)
 .on('error', function(){
