@@ -14,6 +14,7 @@ new Oform({
     label: w.location.pathname
   });
   w.optly.mrkt.Oform.before();
+  return true;
 })
 .on('validationerror', w.optly.mrkt.Oform.validationError)
 .on('error', function(){
