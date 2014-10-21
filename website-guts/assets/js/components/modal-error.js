@@ -1,5 +1,5 @@
 var DEFAULT_ERROR_MESSAGE = 'Don\'t worry, most issues are minor - please refresh your browser and try again.';
-var errorShown;
+var errorCache = [];
 
 function showError(errorMessage, errorId) {
   var info = {
@@ -10,16 +10,18 @@ function showError(errorMessage, errorId) {
     $errorMsgElm = $('<span>').text(info.errorMessage),
     $errorIdElm = $('<span>').text(info.guid + ' | ' + info.timestamp);
 
-  //TODO if no errorId submit generated GUID to splunk
-  //https://github.com/optimizely/optimizely/blob/effa021dfcebdb49ae74ed0982ed0cb99493dbb7/src/www/js/bundle/page.js#L177
-  //https://github.com/optimizely/optimizely/blob/devel/src/www/js/bundle/common/errors.js#L90
-  $('.optimizely_error').hide();
-  $('#optimizely_error_dialog #optimizely_error_type').append($errorMsgElm);
-  $('#optimizely_error_dialog #optimizely_error_info').append($errorIdElm);
-
-  if(!errorShown) {
+  if(errorCache.length === 0) {
     window.optly.mrkt.modal.open({ modalType: 'error' });
-    errorShown = true;
+  }
+
+  if(errorCache.indexOf(info.errorMessage) === -1) {
+    $('#optimizely_error_dialog #optimizely_error_type').append($errorMsgElm);
+    $('#optimizely_error_dialog #optimizely_error_info').append($errorIdElm);
+    if(errorCache.length === 1) {
+      var $messageHeader = $('<h3>').text('Multiple Account Errors');
+      $('#error-modal .modal-body').prepend($messageHeader);
+    }
+    errorCache.push(info.errorMessage);
   }
   
   return info;
@@ -44,14 +46,14 @@ ErrorQ.prototype = window.optly.mrkt.Optly_Q.prototype;
 
 var oldErrorQ = window.optly.mrkt.errorQ;
 
-var errorQ = new ErrorQ({logError: logError});
+window.optly.mrkt.errorQ = new ErrorQ({logError: logError});
 
 $(function() {
 
   checkError();
 
   if(oldErrorQ.length !== 0) {
-    errorQ.push(oldErrorQ);
+    window.optly.mrkt.errorQ.push(oldErrorQ);
   }
   
 });
