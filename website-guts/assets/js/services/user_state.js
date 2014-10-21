@@ -2,6 +2,7 @@ window.optly                = window.optly || {};
 window.optly.mrkt           = window.optly.mrkt || {};
 window.optly.mrkt.services  = window.optly.mrkt.services || {};
 window.optly.mrkt.user      = window.optly.mrkt.user || {};
+window.optly.mrkt.errorQ    = window.optly.mrkt.errorQ || [];
 
 window.optly.mrkt.Optly_Q = function(acctData, expData){
   var objectCreateSupported = typeof Object.create === 'function';
@@ -65,12 +66,12 @@ window.optly.mrkt.Optly_Q = function(acctData, expData){
 
 window.optly.mrkt.Optly_Q.prototype = {
 
-  transformQuedArgs: function(quedArgs) {
+  transformQueuedArgs: function(queuedArgs) {
     var funcArgs = [];
-    $.each(quedArgs, function(index, arg) {
-      if (this[ arg ] !== undefined && arg !== 'object') {
+    $.each(queuedArgs, function(index, arg) {
+      if (this[ arg ] !== undefined && typeof arg !== 'object') {
         funcArgs.push(this[ arg ]);
-      } else if(arg === 'object') {
+      } else if(typeof arg === 'object') {
         funcArgs.push(arg);
       }
     }.bind(this));
@@ -78,44 +79,45 @@ window.optly.mrkt.Optly_Q.prototype = {
     return funcArgs;
   },
 
-  parseQ: function(fnQ, i) {
-    var quedArgs, transformedArgs;
-    //if not a nested array
-    if (typeof fnQ[i] === 'function') {
-      quedArgs = fnQ.slice(1);
+  parseQ: function(fnQ) {
+    var queuedArgs, 
+      transformedArgs,
+      queuedFn = fnQ[0];
 
-      //if there are no arguments call the function with the object scope
-      if(quedArgs.length === 0) {
-        fnQ[i].call(this);
-      } else {
-        transformedArgs = this.transformQuedArgs(quedArgs);
-        fnQ[i].apply( fnQ[i], transformedArgs );
-      }
+    queuedArgs = fnQ.slice(1);
 
+    //if there are no arguments call the function with the object scope
+    if(queuedArgs.length === 0) {
+      queuedFn.call(this);
+    } else {
+      transformedArgs = this.transformQueuedArgs(queuedArgs);
+      queuedFn.apply( queuedFn, transformedArgs );
     }
-    //if a nested array
-    else {
-      for(var nestedI = 0; nestedI < fnQ[i].length; nestedI += 1) {
 
-        if (typeof fnQ[i][nestedI] === 'function') {
-          quedArgs = fnQ[i].slice(1);
-
-          //if there are no arguments call the function with the object scope
-          if(quedArgs.length === 0) {
-            fnQ[i][nestedI].call(this);
-          } else {
-            transformedArgs = this.transformQuedArgs(quedArgs);
-            fnQ[i][nestedI].apply( fnQ[i][nestedI], transformedArgs );
-          }
-
-        }
-      }
-    }
   },
 
   push: function(fnQ) {
-    for (var i = 0; i < fnQ.length; i += 1) {
-      this.parseQ(fnQ, i);
+
+    switch(typeof fnQ[0]) {
+      case 'function':
+        this.parseQ(fnQ);
+      break;
+
+      case 'string':
+        fnQ[0] = this.fnCache[ fnQ[0] ];
+        this.parseQ(fnQ);
+      break;
+
+      default:
+        for (var i = 0; i < fnQ.length; i += 1) {
+          if(typeof fnQ[i][0] === 'function') {
+            this.parseQ(fnQ[i]);
+          } else if(typeof fnQ[i][0] === 'string') {
+            fnQ[i][0] = this.fnCache[ fnQ[i][0] ];
+            this.parseQ(fnQ[i]);
+          }
+        }
+      break;
     }
   }
 
@@ -159,9 +161,11 @@ window.optly.mrkt.services.xhr = {
   },
 
   logSegmentError: function(url, category, errorMessage) {
-    window.analytics.track(url, {
-      category: category,
-      label: errorMessage
+    window.analytics.ready(function() {
+      window.analytics.track(url, {
+        category: category,
+        label: errorMessage
+      });
     });
   },
 
@@ -227,13 +231,18 @@ window.optly.mrkt.services.xhr = {
 
           //parse JSON and catch any errors -- if error return immediately
           try {
-            parsedRes = $.parseJSON(jqXHR.responseText);
+            parsedRes = JSON.parse(jqXHR.responseText);
           } catch (error) {
+              window.optly.mrkt.errorQ.push([
+                'logError',
+                {
+                  error: 'Error Parsing the Response of Your Account Data',
+                }
+              ]);
+              this.logSegmentError(url, 'api error', 'response contains invalid json ' + error);
 
-            this.logSegmentError(url, 'api error', 'response contains invalid json ' + error);
-
-            // do not check validations if parse error
-            return undefined;
+              // do not check validations if parse error
+              return undefined;
           }
 
           // validate each property type
@@ -243,18 +252,33 @@ window.optly.mrkt.services.xhr = {
         // if the http request fails the jqXHR object will not be promise
         else {
           // in this case the data object is a promise so we parse it's response text
-          if ( this.isPromise(data) && data.status === 200) {
+          if ( this.isPromise(data) ) {
             try {
-              parsedRes = $.parseJSON(data.responseText);
+              parsedRes = JSON.parse(data.responseText);
             } catch (error) {
-              errorMessage = error + ', Response Text: ' + data.responseText + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
+                errorMessage = error + ', Response Text: ' + data.responseText + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
+                window.optly.mrkt.errorQ.push([
+                  'logError',
+                  {
+                    error: 'Error Parsing the Response of Your Account Data',
+                  }
+                ]);
             }
-          }
-          if (errorMessage === undefined) {
-            errorMessage = 'Response Text: ' + data.responseText + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
-          }
+          
+            if (errorMessage === undefined && data.status !== 200) {
+              errorMessage = 'Response Text: ' + data.responseText + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
+              window.optly.mrkt.errorQ.push([
+                'logError',
+                {
+                error: JSON.parse(data.responseText).error,
+                'error_id': JSON.parse(data.responseText).id
+                }
+              ]);
+            }
 
-          this.logSegmentError(url, 'api error', errorMessage);
+            this.logSegmentError(url, 'api error', errorMessage);
+
+          }
 
         }
 
@@ -285,7 +309,6 @@ window.optly.mrkt.services.xhr = {
         if (index === tranformedArgs.length - 1) {
           oldQue = window.optly_q;
 
-          // consume qued data
           window.optly_q = window.optly.mrkt.Optly_Q(responses[0], responses[1]);
           window.optly_q.push(oldQue);
         }
@@ -296,7 +319,6 @@ window.optly.mrkt.services.xhr = {
   },
 
   readCookie: function (name) {
-    // Escape regexp special characters (thanks kangax!)
     name = name.replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
 
     var regex = new RegExp('(?:^|;)\\s?' + name + '=(.*?)(?:;|$)','i'),
@@ -347,5 +369,5 @@ window.optly.mrkt.services.xhr = {
     }
   };
 
-  return window.optly.mrkt.services.xhr.getLoginStatus([acctParams, expParams]);
+  window.optly.mrkt.services.xhr.getLoginStatus([acctParams, expParams]);
 }());

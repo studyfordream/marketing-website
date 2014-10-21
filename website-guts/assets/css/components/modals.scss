@@ -141,6 +141,9 @@ body {
     }
   }
   &.error-modal {
+    span {
+      display: block;
+    }
     #optimizely_error_type {
       font-weight: bold;
       color: #242424;

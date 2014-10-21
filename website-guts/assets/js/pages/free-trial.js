@@ -85,7 +85,7 @@ var symExpDict = {
   },
 
   btt: {
-    text: 'Behavioral Tareting Tool',
+    text: 'Behavioral Targeting Tool',
     heading: '#1 Behavioral Targeting tool'
   },
 
@@ -494,8 +494,8 @@ var symExpDict = {
   },
 
   wosion: {
-    text: 'Website Optimisation Tool',
-    heading: 'The #1 Website Optimisation Tool'
+    text: 'Website Optimization Tool',
+    heading: 'The #1 Website Optimization Tool'
   },
 
   wosoft: {
@@ -515,7 +515,7 @@ var symExpDict = {
 
   wpt: {
     text: 'Website Personalization Tool',
-    heading: 'The #1 Website Personaliztion Tool'
+    heading: 'The #1 Website Personalization Tool'
   },
 
   wtt: {
