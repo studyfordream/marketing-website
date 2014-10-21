@@ -66,8 +66,25 @@ $navs-to-index: main-nav dropdown-menu-top;
   .customer-email {
     white-space: nowrap;
   }
+  .experiment-container {
+    cursor: default;
+    li {
+      cursor: default;
+    }
+    a {
+      &.disabled {
+        cursor: default;
+        color: #aaa;
+        &:hover {
+          text-decoration: none;
+          cursor: default;
+        }
+      }
+    }
+  }
   .dropdown-menu-top {
     text-align: left;
+    cursor: default;
     .hide-in-mobile { display: none; }
     &.show-dropdown { display: block; }
     li {
@@ -81,10 +98,12 @@ $navs-to-index: main-nav dropdown-menu-top;
       border-bottom: 1px solid #042142;
     }
     li:first-child { border-top: 1px solid #08448a; }
-    a { color: #fff; }
-    a:hover {
-      background: transparent;
-      cursor: pointer;
+    a { 
+      color: #fff; 
+      &:hover {
+        background: transparent;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -215,8 +234,7 @@ $navs-to-index: main-nav dropdown-menu-top;
       a {
         overflow: hidden;
         padding: 0;
-      }
-      a:first-child {
+      } a:first-child {
         max-width: 300px;
         float: left;
         width: 75%;
