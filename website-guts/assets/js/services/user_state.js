@@ -125,38 +125,38 @@ window.optly.mrkt.Optly_Q.prototype = {
 
 window.optly.mrkt.services.xhr = {
   makeRequest: function(request) {
-    var deffereds = [], defferedPromise;
+    var deferreds = [], deferredPromise;
 
     // check if multiple requests are present
     if ( Array.isArray(request) ) {
       for (var i = 0; i < request.length; i += 1) {
         if (typeof request[i] === 'object') {
-          defferedPromise = $.ajax({
+          deferredPromise = $.ajax({
             type: request[i].type,
             url: request[i].url
           });
           // parameters passed must be objects with a path and properties keys
           if (request[i].properties !== undefined) {
-            this.handleErrors( defferedPromise, request[i].url, request[i].properties );
+            this.handleErrors( deferredPromise, request[i].url, request[i].properties );
           }
 
-          deffereds.push( defferedPromise );
+          deferreds.push( deferredPromise );
 
         }
       }
-      this.resolveDeffereds(deffereds);
-      return deffereds;
+      this.resolveDeferreds(deferreds);
+      return deferreds;
     }
     // If single request, then return the promise directly
     else {
-      defferedPromise = $.ajax({
+      deferredPromise = $.ajax({
         type: request.type,
         url: request.url
       });
       if (request.properties !== undefined) {
-        this.handleErrors( defferedPromise, request.url, request.properties );
+        this.handleErrors( deferredPromise, request.url, request.properties );
       }
-      return defferedPromise;
+      return deferredPromise;
     }
   },
 
@@ -221,10 +221,10 @@ window.optly.mrkt.services.xhr = {
     }
   },
 
-  handleErrors: function(deffered, apiEndpoint, properties) {
+  handleErrors: function(deferred, apiEndpoint, properties) {
     var parsedRes, errorMessage;
 
-    deffered.always(function(data, textStatus, jqXHR) {
+    deferred.always(function(data, textStatus, jqXHR) {
 
         // check if the last argument is a promise, if so the response was successful
         if( this.isPromise(jqXHR) && jqXHR.status === 200 ) {
@@ -296,9 +296,9 @@ window.optly.mrkt.services.xhr = {
     return promiseThenSrc === valueThenSrc;
   },
 
-  resolveDeffereds: function(deffereds) {
+  resolveDeferreds: function(deferreds) {
     var responses = [], oldQue;
-    $.when.apply($, deffereds).then(function() {
+    $.when.apply($, deferreds).then(function() {
       // get all arguments returned from done
       var tranformedArgs = Array.prototype.slice.call(arguments);
       $.each(tranformedArgs, function(index, resp) {
@@ -315,7 +315,7 @@ window.optly.mrkt.services.xhr = {
       }.bind(this) );
     }.bind(this), function() {
       
-      deffereds[0].then(function(acctData) {
+      deferreds[0].then(function(acctData) {
         //if there is no error in account info instantiate the Q with no exp data
         oldQue = window.optly_q;
 
