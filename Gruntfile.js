@@ -650,6 +650,7 @@ module.exports = function(grunt) {
               '<%= config.guts %>/assets/js/utils/guid_sprintf.js',
               '<%= config.guts %>/assets/js/utils/form_helper_factory.js',
               '<%= config.guts %>/assets/js/utils/form_helpers/*.js',
+              '<%= config.guts %>/assets/js/utils/trim_url.js',
               '<%= config.guts %>/assets/js/global.js',
               '<%= config.guts %>/assets/js/components/*.js',
               '<%= config.guts %>/assets/js/services/*.js',

@@ -125,46 +125,46 @@ window.optly.mrkt.Optly_Q.prototype = {
 
 window.optly.mrkt.services.xhr = {
   makeRequest: function(request) {
-    var deffereds = [], defferedPromise;
+    var deferreds = [], deferredPromise;
 
     // check if multiple requests are present
     if ( Array.isArray(request) ) {
       for (var i = 0; i < request.length; i += 1) {
         if (typeof request[i] === 'object') {
-          defferedPromise = $.ajax({
+          deferredPromise = $.ajax({
             type: request[i].type,
             url: request[i].url
           });
           // parameters passed must be objects with a path and properties keys
           if (request[i].properties !== undefined) {
-            this.handleErrors( defferedPromise, request[i].url, request[i].properties );
+            this.handleErrors( deferredPromise, request[i].url, request[i].properties );
           }
 
-          deffereds.push( defferedPromise );
+          deferreds.push( deferredPromise );
 
         }
       }
-      this.resolveDeffereds(deffereds);
-      return deffereds;
+      this.resolveDeferreds(deferreds);
+      return deferreds;
     }
     // If single request, then return the promise directly
     else {
-      defferedPromise = $.ajax({
+      deferredPromise = $.ajax({
         type: request.type,
         url: request.url
       });
       if (request.properties !== undefined) {
-        this.handleErrors( defferedPromise, request.url, request.properties );
+        this.handleErrors( deferredPromise, request.url, request.properties );
       }
-      return defferedPromise;
+      return deferredPromise;
     }
   },
 
-  logSegmentError: function(url, category, errorMessage) {
+  logSegmentError: function(category, action, label) {
     window.analytics.ready(function() {
-      window.analytics.track(url, {
+      window.analytics.track(action, {
         category: category,
-        label: errorMessage
+        label: label
       });
     });
   },
@@ -221,10 +221,12 @@ window.optly.mrkt.services.xhr = {
     }
   },
 
-  handleErrors: function(deffered, url, properties) {
-    var parsedRes, errorMessage;
+  handleErrors: function(deferred, apiEndpoint, properties) {
+    var parsedRes, 
+      errorMessage, 
+      isExpEndpoint = /\/experiment/.test(apiEndpoint);
 
-    deffered.always(function(data, textStatus, jqXHR) {
+    deferred.always(function(data, textStatus, jqXHR) {
 
         // check if the last argument is a promise, if so the response was successful
         if( this.isPromise(jqXHR) && jqXHR.status === 200 ) {
@@ -233,20 +235,22 @@ window.optly.mrkt.services.xhr = {
           try {
             parsedRes = JSON.parse(jqXHR.responseText);
           } catch (error) {
-              window.optly.mrkt.errorQ.push([
-                'logError',
-                {
-                  error: 'Error Parsing the Response of Your Account Data',
-                }
-              ]);
-              this.logSegmentError(url, 'api error', 'response contains invalid json ' + error);
+              if(!isExpEndpoint) {
+                window.optly.mrkt.errorQ.push([
+                  'logError',
+                  {
+                    error: 'There was an error in your account data.',
+                  }
+                ]);
+              }
+              this.logSegmentError('api error', apiEndpoint, 'response contains invalid json ' + error);
 
               // do not check validations if parse error
               return undefined;
           }
 
           // validate each property type
-          this.validateTypes(parsedRes, properties, url);
+          this.validateTypes(parsedRes, properties, apiEndpoint);
 
         }
         // if the http request fails the jqXHR object will not be promise
@@ -257,26 +261,30 @@ window.optly.mrkt.services.xhr = {
               parsedRes = JSON.parse(data.responseText);
             } catch (error) {
                 errorMessage = error + ', Response Text: ' + data.responseText + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
-                window.optly.mrkt.errorQ.push([
-                  'logError',
-                  {
-                    error: 'Error Parsing the Response of Your Account Data',
-                  }
-                ]);
+                if(!isExpEndpoint) {
+                  window.optly.mrkt.errorQ.push([
+                    'logError',
+                    {
+                      error: 'There was an error in your account data.',
+                    }
+                  ]);
+                }
             }
           
             if (errorMessage === undefined && data.status !== 200) {
               errorMessage = 'Response Text: ' + data.responseText + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
-              window.optly.mrkt.errorQ.push([
-                'logError',
-                {
-                error: JSON.parse(data.responseText).error,
-                'error_id': JSON.parse(data.responseText).id
-                }
-              ]);
+              if(!isExpEndpoint) {
+                window.optly.mrkt.errorQ.push([
+                  'logError',
+                  {
+                  error: JSON.parse(data.responseText).error ? JSON.parse(data.responseText).error : 'We were unable to retrieve your account information.',
+                  'error_id': JSON.parse(data.responseText).id
+                  }
+                ]);
+              }
             }
 
-            this.logSegmentError(url, 'api error', errorMessage);
+            this.logSegmentError('api error', apiEndpoint, errorMessage);
 
           }
 
@@ -296,9 +304,9 @@ window.optly.mrkt.services.xhr = {
     return promiseThenSrc === valueThenSrc;
   },
 
-  resolveDeffereds: function(deffereds) {
+  resolveDeferreds: function(deferreds) {
     var responses = [], oldQue;
-    $.when.apply($, deffereds).done(function() {
+    $.when.apply($, deferreds).then(function() {
       // get all arguments returned from done
       var tranformedArgs = Array.prototype.slice.call(arguments);
       $.each(tranformedArgs, function(index, resp) {
@@ -313,6 +321,19 @@ window.optly.mrkt.services.xhr = {
           window.optly_q.push(oldQue);
         }
       }.bind(this) );
+    }.bind(this), function() {
+      
+      deferreds[0].then(function(acctData) {
+        //if there is no error in account info instantiate the Q with no exp data
+        oldQue = window.optly_q;
+
+        window.optly_q = window.optly.mrkt.Optly_Q(acctData);
+        window.optly_q.expDataError = true;
+        window.optly_q.push(oldQue);
+      }, function() {
+        //if acctData error instantiate the Q with no arguments
+        window.optly_q = window.optly.mrkt.Optly_Q();
+      });
     }.bind(this) );
 
     return true;
