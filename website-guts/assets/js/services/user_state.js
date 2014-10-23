@@ -222,7 +222,9 @@ window.optly.mrkt.services.xhr = {
   },
 
   handleErrors: function(deferred, apiEndpoint, properties) {
-    var parsedRes, errorMessage;
+    var parsedRes, 
+      errorMessage, 
+      isExpEndpoint = /\/experiment/.test(apiEndpoint);
 
     deferred.always(function(data, textStatus, jqXHR) {
 
@@ -233,12 +235,14 @@ window.optly.mrkt.services.xhr = {
           try {
             parsedRes = JSON.parse(jqXHR.responseText);
           } catch (error) {
-              window.optly.mrkt.errorQ.push([
-                'logError',
-                {
-                  error: 'Error Parsing the Response of Your Account Data',
-                }
-              ]);
+              if(!isExpEndpoint) {
+                window.optly.mrkt.errorQ.push([
+                  'logError',
+                  {
+                    error: 'There was an error in your account data.',
+                  }
+                ]);
+              }
               this.logSegmentError('api error', apiEndpoint, 'response contains invalid json ' + error);
 
               // do not check validations if parse error
@@ -257,23 +261,27 @@ window.optly.mrkt.services.xhr = {
               parsedRes = JSON.parse(data.responseText);
             } catch (error) {
                 errorMessage = error + ', Response Text: ' + data.responseText + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
-                window.optly.mrkt.errorQ.push([
-                  'logError',
-                  {
-                    error: 'Error Parsing the Response of Your Account Data',
-                  }
-                ]);
+                if(!isExpEndpoint) {
+                  window.optly.mrkt.errorQ.push([
+                    'logError',
+                    {
+                      error: 'There was an error in your account data.',
+                    }
+                  ]);
+                }
             }
           
             if (errorMessage === undefined && data.status !== 200) {
               errorMessage = 'Response Text: ' + data.responseText + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
-              window.optly.mrkt.errorQ.push([
-                'logError',
-                {
-                error: JSON.parse(data.responseText).error,
-                'error_id': JSON.parse(data.responseText).id
-                }
-              ]);
+              if(!isExpEndpoint) {
+                window.optly.mrkt.errorQ.push([
+                  'logError',
+                  {
+                  error: JSON.parse(data.responseText).error ? JSON.parse(data.responseText).error : 'We were unable to retrieve your account information.',
+                  'error_id': JSON.parse(data.responseText).id
+                  }
+                ]);
+              }
             }
 
             this.logSegmentError('api error', apiEndpoint, errorMessage);
