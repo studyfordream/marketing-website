@@ -160,11 +160,11 @@ window.optly.mrkt.services.xhr = {
     }
   },
 
-  logSegmentError: function(url, category, errorMessage) {
+  logSegmentError: function(category, action, label) {
     window.analytics.ready(function() {
-      window.analytics.track(url, {
+      window.analytics.track(action, {
         category: category,
-        label: errorMessage
+        label: label
       });
     });
   },
@@ -221,7 +221,7 @@ window.optly.mrkt.services.xhr = {
     }
   },
 
-  handleErrors: function(deffered, url, properties) {
+  handleErrors: function(deffered, apiEndpoint, properties) {
     var parsedRes, errorMessage;
 
     deffered.always(function(data, textStatus, jqXHR) {
@@ -239,14 +239,14 @@ window.optly.mrkt.services.xhr = {
                   error: 'Error Parsing the Response of Your Account Data',
                 }
               ]);
-              this.logSegmentError(url, 'api error', 'response contains invalid json ' + error);
+              this.logSegmentError('api error', apiEndpoint, 'response contains invalid json ' + error);
 
               // do not check validations if parse error
               return undefined;
           }
 
           // validate each property type
-          this.validateTypes(parsedRes, properties, url);
+          this.validateTypes(parsedRes, properties, apiEndpoint);
 
         }
         // if the http request fails the jqXHR object will not be promise
@@ -276,7 +276,7 @@ window.optly.mrkt.services.xhr = {
               ]);
             }
 
-            this.logSegmentError(url, 'api error', errorMessage);
+            this.logSegmentError('api error', apiEndpoint, errorMessage);
 
           }
 
@@ -298,7 +298,7 @@ window.optly.mrkt.services.xhr = {
 
   resolveDeffereds: function(deffereds) {
     var responses = [], oldQue;
-    $.when.apply($, deffereds).done(function() {
+    $.when.apply($, deffereds).then(function() {
       // get all arguments returned from done
       var tranformedArgs = Array.prototype.slice.call(arguments);
       $.each(tranformedArgs, function(index, resp) {
@@ -313,6 +313,19 @@ window.optly.mrkt.services.xhr = {
           window.optly_q.push(oldQue);
         }
       }.bind(this) );
+    }.bind(this), function() {
+      
+      deffereds[0].then(function(acctData) {
+        //if there is no error in account info instantiate the Q with no exp data
+        oldQue = window.optly_q;
+
+        window.optly_q = window.optly.mrkt.Optly_Q(acctData);
+        window.optly_q.expDataError = true;
+        window.optly_q.push(oldQue);
+      }, function() {
+        //if acctData error instantiate the Q with no arguments
+        window.optly_q = window.optly.mrkt.Optly_Q();
+      });
     }.bind(this) );
 
     return true;

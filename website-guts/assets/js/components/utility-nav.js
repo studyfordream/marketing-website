@@ -58,6 +58,7 @@ window.optly.mrkt.showUtilityNav = function (acctData, expData) {
       account_id: acctData.account_id,
       email: emailObj,
       admin: acctData.is_admin,
+      expErrorState: window.optly_q.expDataError,
       experiments: expData ? expData.experiments : undefined,
       showCreateLink: ( iosProjectCount !== projectCount )
     };
@@ -114,7 +115,7 @@ window.optly.mrkt.signOut = function(redirectPath) {
     }
   }, function(err) {
     // Report error here
-    window.analytics.track(window.location.pathname, {
+    window.analytics.track('/account/signout', {
       category: 'api error',
       label: 'error on logout request: ' + err
     });

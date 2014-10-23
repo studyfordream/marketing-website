@@ -24,7 +24,11 @@
         </span>
       {{/each}}
       {{#unless experiments}}
-      <span class="no-experiments">There Are No<br>Experiments</span>
+      {{#if expErrorState}}
+        <span class="no-experiments">Error Loading Your<br>Experiments</span>
+        {{else}}
+        <span class="no-experiments">There Are No<br>Experiments</span>
+      {{/if}}
       {{/unless}}
       <li class="view-all-experiments hide-in-mobile" data-show="dashboard-link">
         <a id="view-all-experiments-link" href="/dashboard">

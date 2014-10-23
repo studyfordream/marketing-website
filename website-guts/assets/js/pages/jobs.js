@@ -44,7 +44,7 @@ function getGreenhouseData(data) {
 var deferred = $.getJSON('https://api.greenhouse.io/v1/boards/optimizely7/embed/departments?callback=?');
 
 deferred.then(getGreenhouseData, function(err) {
-    window.analytics.track(window.optly.mrkt.utils.trimTrailingSlash(window.location.pathname), {
+    window.analytics.track('https://api.greenhouse.io/v1/boards/optimizely7/embed/departments?callback=?', {
       category: 'api error',
       label: err.responseText + ', Response Code: ' + err.status,
     });
