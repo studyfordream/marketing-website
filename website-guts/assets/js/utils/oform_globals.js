@@ -22,11 +22,11 @@
 
   w.optly.mrkt.Oform.validationError = function(element){
 
-    w.analytics.track(w.location.pathname, {
+    w.analytics.track($(element).closest('form').attr('id') + ' ' + element.getAttribute('name') + ' error', {
 
       category: 'form error',
 
-      label: element.getAttribute('name')
+      label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
 
     }, {
 
