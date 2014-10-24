@@ -11,7 +11,7 @@ new Oform({
 .on('before', function(){
   w.analytics.track('/free-trial/submit', {
     category: 'account',
-    label: w.location.pathname
+    label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   });
   return w.optly.mrkt.Oform.before();
 })
