@@ -169,7 +169,7 @@ window.optly.mrkt.services.xhr = {
     });
   },
 
-  validateTypes: function(resp, properties, url) {
+  validateTypes: function(resp, properties, apiEndpoint) {
     var errorMessage;
     $.each(properties, function(property, type) {
       // if property is not nested
@@ -177,19 +177,19 @@ window.optly.mrkt.services.xhr = {
         if (typeof resp[ property ] !== type) {
           errorMessage = 'resp.' + property + ' is not a ' + type + ': ' + typeof(resp[ property ]);
 
-          this.logSegmentError(url, 'api error', errorMessage);
+          this.logSegmentError('api error', apiEndpoint, errorMessage);
         }
       }
       // if property is nested
       else {
 
-        this.validateNestedTypes( resp[ property ], properties[ property ], property, type, url );
+        this.validateNestedTypes( resp[ property ], properties[ property ], property, type, apiEndpoint );
 
       }
     }.bind(this)); // end outer .each
   },
 
-  validateNestedTypes: function(data, nestedData, parentProperty, type, url) {
+  validateNestedTypes: function(data, nestedData, parentProperty, type, apiEndpoint) {
     var errorMessage,
       propertyType;
     // if the property maps to an array
@@ -202,7 +202,7 @@ window.optly.mrkt.services.xhr = {
           if (propertyType !== innerType) {
             errorMessage = 'resp.' + parentProperty + '.' + innerProp + ' is not a ' + innerType + ': ' + propertyType;
 
-            this.logSegmentError(url, 'api error', errorMessage);
+            this.logSegmentError('api error', apiEndpoint, errorMessage);
           }
         }.bind(this));
 
@@ -215,7 +215,7 @@ window.optly.mrkt.services.xhr = {
         if (propertyType !== innerType) {
           errorMessage = 'resp.' + parentProperty + '.' + innerProp + ' is not a ' + innerType + ': ' + propertyType;
 
-          this.logSegmentError(url, 'api error', errorMessage);
+          this.logSegmentError('api error', apiEndpoint, errorMessage);
         }
       }.bind(this));
     }
@@ -272,7 +272,13 @@ window.optly.mrkt.services.xhr = {
             }
           
             if (errorMessage === undefined && data.status !== 200) {
-              errorMessage = 'Response Text: ' + data.responseText + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
+              if(parsedRes && parsedRes.id) {
+                delete parsedRes.id;
+                parsedRes = JSON.stringify(parsedRes);
+              } else {
+                parsedRes = data.responseText;
+              }
+              errorMessage = 'Response Text: ' + parsedRes + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
               if(!isExpEndpoint) {
                 window.optly.mrkt.errorQ.push([
                   'logError',
