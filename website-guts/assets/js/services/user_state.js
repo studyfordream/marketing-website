@@ -272,7 +272,13 @@ window.optly.mrkt.services.xhr = {
             }
           
             if (errorMessage === undefined && data.status !== 200) {
-              errorMessage = 'Response Text: ' + data.responseText + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
+              if(parsedRes && parsedRes.id) {
+                delete parsedRes.id;
+                parsedRes = JSON.stringify(parsedRes);
+              } else {
+                parsedRes = data.responseText;
+              }
+              errorMessage = 'Response Text: ' + parsedRes + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
               if(!isExpEndpoint) {
                 window.optly.mrkt.errorQ.push([
                   'logError',
