@@ -10,7 +10,7 @@ new Oform({
 })
 .on('before', function(){
   w.analytics.track('/free-trial/submit', {
-    cateogry: 'account',
+    category: 'account',
     label: w.location.pathname
   });
   return w.optly.mrkt.Oform.before();
@@ -58,5 +58,11 @@ new Oform({
 .on('done', function(){
   if($('body').hasClass('oform-error')){
     $('body').removeClass('oform-processing');
+    //report that there were errors in the form
+    w.analytics.track('seo-form validation error', {
+      category: 'form error',
+      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname),
+      value: $('input.oform-error-show').length
+    });
   }
 });
