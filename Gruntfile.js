@@ -91,7 +91,7 @@ module.exports = function(grunt) {
             environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
             assetsDir: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets',
             link_path: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
-            sassImagePath: '/<%= gitinfo.local.branch.current.name %>/assets/img',
+            sassImagePath: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets/img',
             compress_js: true,
             drop_console: false,
             concat_banner: '(function($, w, d){ \n\n' +
