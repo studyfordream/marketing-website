@@ -18,13 +18,12 @@ body.non-profits-page {
     }
     .dialog {
       margin: 0;
-      position: static;
       width: 100%;
+      height: auto;
       padding: 0;
       background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      top: 50%;
+      transform: translateY(-50%);
     }
     .modal-body {
       width: 100%;
@@ -396,6 +395,11 @@ body.non-profits-page {
       .dialog {
         width: 80%;
         display: block;
+        top: 0;
+        transform: translateY(0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
     .panel {

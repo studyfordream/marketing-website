@@ -12,20 +12,62 @@ var orgForm = {
     this.optionsErrorElm.innerHTML = message;
   },
 
-  load: function(e) {
-    var button;
-
-    if(e.target.status !== 200) {
-      this.processingRemove({callee: 'load'});
-      this.showOptionsError('Form Response Error');
-      return;
+  formErrorBodyClass: function(errorState) {
+    if(errorState) {
+      document.body.classList.add('error-state');
+    } else {
+      document.body.classList.remove('error-state');
     }
+  },
 
-    this.processingRemove({callee: 'load', retainDisabled: true});
+  showFormFieldError: function(input) {
+    input.classList.add('error-show');
+    this.formElm.querySelector('.' + input.getAttribute('name') + '-related').classList.add('error-show');
+  },
 
-    button = this.formElm.querySelector('button');
+  validateForm: function() {
+    var segmentObj = {},
+    formError = false,
+    emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    this.processingAdd();
+    if(document.body.classList.contains('error-state')) {
+      this.formErrorBodyClass(formError);
+    }
+    $.each(this.inputs, function(i, input) {
+      if(input.getAttribute('type') !== 'submit' && input.hasAttribute('required')) {
+        if ( input.value === '' || ( input.getAttribute('name') === 'Email' && !emailRegEx.test(input.value) ) ) {
+          this.showFormFieldError(input);
+          if(!formError) {
+            formError = true;
+            this.formErrorBodyClass(formError);
+            this.showOptionsError('Please Enter Required Fields');
+          }
+        }
+      }
+      if(input.getAttribute('type') !== 'submit') {
+        segmentObj[input.getAttribute('name')] = input.value;
+      }
+    }.bind(this));
 
-    button.classList.add('successful-submit');
+    if(!formError) {
+      this.load(segmentObj);
+    } else {
+      this.processingRemove({callee: 'done'});
+    }
+  },
+
+  load: function(segmentObj) {
+    var button = this.formElm.querySelector('button');
+
+    w.analytics.identify(
+      segmentObj.email,
+      segmentObj,
+      { integrations: { Marketo: true }}
+    );
+    window.setTimeout(function() {
+      this.processingRemove({callee: 'load', retainDisabled: true});
+      button.classList.add('successful-submit');
+    }.bind(this), 1000);
 
   }
 };
