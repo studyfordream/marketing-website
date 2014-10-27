@@ -17,7 +17,6 @@ tag.src = 'https://www.youtube.com/iframe_api';
 var scriptTags = document.getElementsByTagName('script');
 var lastScriptTag = scriptTags[scriptTags.length - 1];
 lastScriptTag.parentNode.insertBefore(tag, lastScriptTag.nextSibling);
-var vidQ = [];
 
 window.onYouTubeIframeAPIReady = function () {
   player = new window.YT.Player('player', {
