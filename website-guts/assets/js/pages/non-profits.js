@@ -27,18 +27,25 @@ window.onYouTubeIframeAPIReady = function () {
 };
 
 $(function(){
+  var videoPlayed = false;
 
   $('[smooth-scroll]').on('click', smoothScroll);
 
   $('[data-show-video]').on('click', function() {
     window.optly.mrkt.modal.open({modalType: 'nonprofits-video'});
-    var playerInt = window.setInterval(function() {
-      if(player.getPlayerState() !== 1) {
-        player.playVideo();
-      } else {
-        window.clearInterval(playerInt);
-      }
-    }, 10);
+    //deal with the lack of autoplay upon inital open for mobile
+    if(!window.optly.mrkt.mobileJS || videoPlayed) {
+      var playerInt = window.setInterval(function() {
+        if(player.getPlayerState() !== 1) {
+          player.playVideo();
+        } else {
+          window.clearInterval(playerInt);
+        }
+      }, 10);
+    }
+    if(!videoPlayed) {
+      videoPlayed = true;
+    }
   });
 
   $('[data-optly-modal="nonprofits-video"]').on('click', function() {
