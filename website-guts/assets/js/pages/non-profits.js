@@ -17,6 +17,7 @@ tag.src = 'https://www.youtube.com/iframe_api';
 var scriptTags = document.getElementsByTagName('script');
 var lastScriptTag = scriptTags[scriptTags.length - 1];
 lastScriptTag.parentNode.insertBefore(tag, lastScriptTag.nextSibling);
+var vidQ = [];
 
 window.onYouTubeIframeAPIReady = function () {
   player = new window.YT.Player('player', {
@@ -27,21 +28,31 @@ window.onYouTubeIframeAPIReady = function () {
 };
 
 $(function(){
-  var videoPlayed = false;
+  var videoPlayed = false,
+    playerSupported = false;
 
   $('[smooth-scroll]').on('click', smoothScroll);
 
   $('[data-show-video]').on('click', function() {
     window.optly.mrkt.modal.open({modalType: 'nonprofits-video'});
-    //deal with the lack of autoplay upon inital open for mobile
-    if(!window.optly.mrkt.mobileJS || videoPlayed) {
-      var playerInt = window.setInterval(function() {
-        if(player.getPlayerState() !== 1) {
-          player.playVideo();
-        } else {
-          window.clearInterval(playerInt);
-        }
-      }, 10);
+    if(typeof player === 'object' && typeof player.getPlayerState === 'function') {
+      playerSupported = true;
+      //deal with the lack of autoplay upon inital open for mobile
+      if(!window.optly.mrkt.isMobile() || videoPlayed) {
+        var playerInt = window.setInterval(function() {
+          if(player.getPlayerState() !== 1) {
+            player.playVideo();
+          } else {
+            window.clearInterval(playerInt);
+          }
+        }, 10);
+      }
+    } else {
+      if(!videoPlayed) {
+        $('#player').css({display: 'none'});
+        $('.fallback-player').addClass('show-fallback');
+      }
+      $('.fallback-player').attr('src', '//www.youtube.com/embed/C7WTDPksvAE?autoplay=1');
     }
     if(!videoPlayed) {
       videoPlayed = true;
@@ -49,7 +60,11 @@ $(function(){
   });
 
   $('[data-optly-modal="nonprofits-video"]').on('click', function() {
-    player.stopVideo();
+    if(playerSupported) {
+      player.stopVideo();
+    } else {
+      $('.fallback-player').attr('src', '');
+    }
   });
 
   var orgFormHelperInst = window.optly.mrkt.form.orgForm({formId: 'org-form'});
