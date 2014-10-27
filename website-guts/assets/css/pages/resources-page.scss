@@ -1,0 +1,306 @@
+body.resources-page {
+
+  #page-content {
+    background: #f4f4f4;
+  }
+
+  #page-header-gradient {
+    background-color: #f4f4f4;
+  }
+
+  #page-header {
+    height: 13em;
+    background-image: image-url('resources-page/hero_bg.jpg');
+    background-position: 32% 77%;
+    background-size: 150%;
+  }
+
+  .page-subheader-cont {
+    h1 {
+      position: relative;
+      transform: translate(-59%, 30%);
+      display: block;
+    }
+
+    .sub-head {
+      transform: translate(-28%, 243%);
+    }
+  }
+
+  #page-content {
+    padding-bottom: 0;
+  }
+
+  .resource-grid-item {
+    border-bottom: 1px solid #e1e1e1;
+    padding: 20px 0;
+  }
+
+  .resource-g-item {
+    width: 250px;
+    height: 320px;
+    background-size: 300px 300px;
+    border: 2px solid gray;
+
+    .resource-image {
+      width: 100%;
+      height: 71%;
+      background-size: 109%;
+    }
+    .resource-text {
+      width: 100%;
+      height: 29%;
+      background: white;
+      text-align: center;
+      padding-top: 10px;
+
+      .resource-title {
+      }
+      .resource-type {
+        margin-top: 4px;
+        color: gray;
+      }
+    }
+  }
+
+  .resource-logo {
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    background-image: image-url('customer-logos/customer-logos-sprite-1.png');
+    height: 73px;
+    
+    &.sprite2 {
+      background-image: image-url('customer-logos/customer-logos-sprite-2.png');
+    }
+  }
+
+  .data-dna {
+    background-image: image-url('resources-page/data-dna.png');
+    background-position: 50% -24px;
+  }
+  .salesforce {
+    background-position: 50% -146px;
+  }
+  .fico {
+    background-position: 50% -292px;
+  }
+  .trulia {
+    background-position: 50% -503px;
+  }
+  .abc {
+    background-position: 50% 0;
+  }
+  .fox {
+    background-position: 50% -365px;
+  }
+  .guardian {
+    background-position: 50% -438px;
+  }
+  .cbs {
+    background-position: 50% -73px;
+  }
+  .disney {
+    background-position: 50% -219px;
+  }
+  .techcrunch {
+    background-position: 50% -657px;
+  }
+  .clorox {
+    background-position: 50% -365px;
+  }
+  .signals {
+    background-position: 50% -292px;
+  }
+  .ruelala {
+    background-position: 50% -73px;
+  }
+  .truste {
+    background-position: 50% -219px;
+  }
+  .taskrabbit {
+    background-position: 50% -511px;
+  }
+  .nymag {
+    background-position: 50% 0;
+  }
+  .cars {
+    background-position: 50% -438px;
+  }
+  .lendingtree {
+    background-position: 50% -730px;
+  }
+  .ign {
+    background-position: 50% -1022px;
+  }
+  .rocketlawyer {
+    background-position: 50% -949px;
+  }
+
+  .demand {
+    background-position: 50% -803px;
+  }
+
+  .legalzoom {
+    background-position: 50% -657px;
+  }
+
+  .ae {
+    background-position: 50% -584px;
+  }
+
+  .yelp {
+    background-position: 50% -146px;
+  }
+
+  .livestrong {
+    background-position: 50% -876px;
+  }
+  .testimonials-container {
+    margin-top: 60px;
+    overflow: hidden;
+    ul {
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+    q {
+      display: block;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: 300;
+      line-height: 1.2;
+      quotes: '\201c' '\201d' '\2018' '\2019';
+    } 
+    li {
+      //$properties: left 0 100% -100%, left 0 -100% 100%;
+      $properties: transform translateX(0) translateX(100%) translateX(-100%), transform translateX(0) translateX(-100%) translateX(100%);
+      $transition: all 0.5s linear;
+      $classes: anim-left anim-right;
+      @include optly--animate--opposite($properties, $transition, $classes);
+      -webkit-perspective: 1000;
+      -webkit-backface-visibility: hidden;
+      list-style: none;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .logo-border {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      &:before,
+      &:after, {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 50%;
+        width: 20%;
+        background: #dadada;
+        border-bottom: 1px solid #fff;
+        height: 2px;
+      }
+      &:before {
+        left: 0;
+      }
+      &:after {
+        right: 0;      
+      }
+    }
+    img {
+      width: 170px;
+      display: block;
+      margin: 0 auto;
+    }
+    
+  }
+  .button-container {
+    width: 100px;
+    text-align: center;
+    margin: 60px auto;
+  }
+  .slider-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    opacity: 0.6;
+    background-color: white;
+    border: 1px solid #888;
+    color: #888;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    .arrow {
+      width: 0;
+      height: 0;
+      position: relative;
+      top: 6px;
+    }
+    &:first-child {
+      .arrow {
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 8px solid #888;
+        left: 8px;
+      }
+    }
+    &:last-child {
+      .arrow {
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid #888;
+        left: 12px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $tablet-min-width) {
+
+  body.resources-page {
+    .resource-grid-item {
+      @include column;
+      @include columns(3.18);
+      margin: 0 0 20px 0;
+    }
+
+    .resource-logo {
+      border-right: 1px solid #e1e1e1;
+    }
+
+    #page-content {
+      padding-bottom: 35px;
+    }
+    .testimonials-container {
+      ul {
+        height: 220px; 
+      } 
+      .logo-border {
+        &:before,
+        &:after, {
+          width: 38%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-min-width) {
+
+  body.resources-page {
+    .resource-grid-item {
+      @include column;
+      @include columns(2.6);
+      margin: 0 0 20px 0;
+    }
+    .testimonials-container {
+      ul {
+        height: 180px; 
+      }
+    }
+  }
+}
