@@ -4,6 +4,8 @@ $('[name="hidden"]').val('touched');
 
 document.querySelector('[name="hidden"]').value = 'touched';
 
+var xhrInitiationTime;
+
 //form
 new Oform({
   selector: '#seo-form'
@@ -13,6 +15,7 @@ new Oform({
     category: 'account',
     label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   });
+  xhrInitiationTime = new Date();
   return w.optly.mrkt.Oform.before();
 })
 .on('validationerror', w.optly.mrkt.Oform.validationError)
@@ -21,37 +24,61 @@ new Oform({
   $('body').addClass('oform-error').removeClass('oform-processing');
 })
 .on('load', function(event){
-  var response = JSON.parse(event.target.responseText);
-  if(event.target.status === 200){
-    //remove error class from body?
-    w.optly.mrkt.Oform.trackLead({
-      email: d.getElementById('email').value,
-      url: d.getElementById('url').value,
-      name: d.getElementById('name').value,
-      phone: d.getElementById('phone').value
-    }, event);
-    /* legacy reporting - to be deprecated */
-    w.analytics.track('/free-trial/success', {
-      category: 'account',
-      label: w.location.pathname
-    }, {
-      Marketo: true
+  var xhrElapsedTime,
+      response;
+  xhrElapsedTime = new Date() - xhrInitiationTime;
+  try {
+    response = JSON.parse(event.target.responseText);
+  } catch(error){
+    w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
+      category: 'api error',
+      label: 'json parse error: ' + error,
     });
-    w.Munchkin.munchkinFunction('visitWebPage', {
-      url: '/free-trial/success'
-    });
-    /* end legacy reporting */
-    setTimeout(function(){
-      w.location = '/edit?url=' + encodeURIComponent(d.getElementById('url').value);
-    }, 500);
-  } else {
-    if(response.error && typeof response.error === 'string'){
-      //update error message, apply error class to body
-      $('#seo-form .error-message').text(response.error);
-      $('body').addClass('oform-error').removeClass('oform-processing');
+  }
+  w.analytics.track('/account/free_trial_create', {
+    category: 'api response time',
+    value: xhrElapsedTime
+  });
+  if(response){
+    if(event.target.status === 200){
+      //remove error class from body?
+      w.optly.mrkt.Oform.trackLead({
+        email: d.getElementById('email').value,
+        url: d.getElementById('url').value,
+        name: d.getElementById('name').value,
+        phone: d.getElementById('phone').value
+      }, event);
+      /* legacy reporting - to be deprecated */
+      w.analytics.track('/free-trial/success', {
+        category: 'account',
+        label: w.location.pathname
+      }, {
+        Marketo: true
+      });
+      w.Munchkin.munchkinFunction('visitWebPage', {
+        url: '/free-trial/success'
+      });
+      /* end legacy reporting */
+      setTimeout(function(){
+        w.location = '/edit?url=' + encodeURIComponent(d.getElementById('url').value);
+      }, 500);
     } else {
-      $('#seo-form .error-message').text('An unknown error occured.');
-      $('body').addClass('oform-error').removeClass('oform-processing');
+      w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
+        category: 'api error',
+        label: 'status not 200: ' + event.target.status
+      });
+      if(response.error && typeof response.error === 'string'){
+        //update error message, apply error class to body
+        $('#seo-form .error-message').text(response.error);
+        $('body').addClass('oform-error').removeClass('oform-processing');
+        w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
+          category: 'api error',
+          label: 'response.error: ' + response.error
+        });
+      } else {
+        $('#seo-form .error-message').text('An unknown error occured.');
+        $('body').addClass('oform-error').removeClass('oform-processing');
+      }
     }
   }
 })
