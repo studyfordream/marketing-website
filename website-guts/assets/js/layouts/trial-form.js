@@ -45,10 +45,18 @@ new Oform({
       w.location = '/edit?url=' + encodeURIComponent(d.getElementById('url').value);
     }, 500);
   } else {
+    w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
+      category: 'api error',
+      label: 'status not 200: ' + event.target.status
+    });
     if(response.error && typeof response.error === 'string'){
       //update error message, apply error class to body
       $('#seo-form .error-message').text(response.error);
       $('body').addClass('oform-error').removeClass('oform-processing');
+      w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
+        category: 'api error',
+        label: 'response.error: ' + response.error
+      });
     } else {
       $('#seo-form .error-message').text('An unknown error occured.');
       $('body').addClass('oform-error').removeClass('oform-processing');
