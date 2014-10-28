@@ -189,7 +189,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/services/user_state.js', '<%= config.temp %>/assets/js/**/*.js'],
-        tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'handlebars', 'concat', 'clean:postBuild']
+        tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'modernizr', 'handlebars', 'concat', 'clean:postBuild']
       },
       clientHandlebarsTemplates: {
         files: ['<%= config.guts %>/templates/client/**/*.hbs'],
@@ -514,6 +514,23 @@ module.exports = function(grunt) {
         ]
       }
     },
+    modernizr: {
+      build: {
+        devFile: '<%= config.guts %>/assets/js/libraries/modernizr.2.8.3.js',
+        outputFile: '<%= config.dist %>/assets/js/libraries/modernizr.2.8.3.min.js',
+        uglify: true,
+        tests: ['teststyles'],
+        files: {
+          src: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/libraries/*.js']
+        },
+        extensibility : {
+            addtest: true,
+            teststyles: true,
+            testprops: true,
+            testallprops: true,
+        }
+      }
+    },
     clean: {
       preBuild: ['<%= config.dist %>/'],
       postBuild: ['<%= config.temp %>']
@@ -578,7 +595,8 @@ module.exports = function(grunt) {
             $: false,
             Oform: false,
             w: false,
-            d: false
+            d: false,
+            Modernizr: true
           }
         },
         files: {
@@ -600,7 +618,8 @@ module.exports = function(grunt) {
             $: false,
             Oform: false,
             w: false,
-            d: false
+            d: false,
+            Modernizr: true
           }
         },
         files: {
@@ -621,11 +640,6 @@ module.exports = function(grunt) {
       }
     },
     concat: {
-      modernizr: {
-        files: {
-          '<%= config.dist %>/assets/js/libraries/modernizr.2.8.3.min.js': ['<%= config.guts %>/assets/js/libraries/modernizr.2.8.3.min.js']
-        }
-      },
       namespacePages: {
         options: {
           banner: '<%= grunt.config.get("concat_banner") %>',
@@ -854,6 +868,7 @@ module.exports = function(grunt) {
     'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
+    'modernizr',
     'assemble',
     'handlebars',
     'concat',
@@ -871,6 +886,7 @@ module.exports = function(grunt) {
     'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
+    'modernizr',
     'assemble',
     'handlebars',
     'concat',
@@ -887,6 +903,7 @@ module.exports = function(grunt) {
     'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
+    'modernizr',
     'assemble',
     'handlebars',
     'concat',
@@ -904,6 +921,7 @@ module.exports = function(grunt) {
     'jshint:clientProd',
     'jshint:server',
     'clean:preBuild',
+    'modernizr',
     'assemble',
     'handlebars',
     'concat',
@@ -922,6 +940,7 @@ module.exports = function(grunt) {
     'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
+    'modernizr',
     'assemble',
     'handlebars',
     'concat',
@@ -940,6 +959,7 @@ module.exports = function(grunt) {
     'jshint:clientProd',
     'jshint:server',
     'clean:preBuild',
+    'modernizr',
     'assemble',
     'handlebars',
     'concat',

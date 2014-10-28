@@ -144,10 +144,10 @@ window.optly.mrkt.formDataStringToObject = function getJsonFromUrl(string) {
 };
 
 //Test for viewport unit support
-window.Modernizr.addTest('viewportunits', function() {
+Modernizr.addTest('viewportunits', function() {
     var bool;
 
-    window.Modernizr.testStyles('#modernizr { width: 50vw; }', function(elem) {
+    Modernizr.testStyles('#modernizr { width: 50vw; }', function(elem) {
         var width = parseInt(window.innerWidth/2,10),
             compStyle = parseInt((window.getComputedStyle ?
                       getComputedStyle(elem, null) :

@@ -70,7 +70,7 @@ $.fn.responsiveEqualHeightGrid = function() {
 };
 
 $(function() {
-  if(!window.Modernizr.flexbox) {
+  if(!Modernizr.flexbox) {
     $('.customer-grid-elm').responsiveEqualHeightGrid();
   }
 });
