@@ -1,29 +1,37 @@
-resources: 
-- 
+resources:
+-
   header: "Build your Company's Data DNA"
-  image_path: '/resources-page/data-dna.png'
+  image_path: '../assets/img/resources-page/data-dna.png'
   type: "EBook"
-- 
+-
   header: "Roadmap to Building a Data-Driven Optimization Team"
-  image_path: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/code-dot-org-logo.png"
+  image_path: "../assets/img/resources-page/roadmap.png"
   type: "EBook"
-- 
+-
   header: "The Most Misleading Measure of Response Time"
-  image_path: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/code-dot-org-logo.png"
+  image_path: "../assets/img/resources-page/response-time.png"
   type: "Whitepaper"
-- 
+-
   header: "A Blueprint for Mobile App Optimization"
-  image_path: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/code-dot-org-logo.png"
+  image_path: "../assets/img/resources-page/mobile-blueprint.png"
   type: "Whitepaper"
-- 
+-
   header: "5 Steps to Your First Meaningful A/B Testing Win"
-  image_path: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/code-dot-org-logo.png"
+  image_path: "../assets/img/resources-page/testing-win.png"
   type: "Webinar"
-- 
+-
   header: "Opticon 2014 Highlights"
-  image_path: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/code-dot-org-logo.png"
+  image_path: "../assets/img/resources-page/opticon.png"
   type: "Whitepaper"
-- 
+-
   header: "Optimizing Your E-commerce Site: What Not to Do and Why"
-  image_path: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/code-dot-org-logo.png"
+  image_path: "../assets/img/resources-page/ecommerce.png"
   type: "Webinar"
+
+filter:
+  title: "Sort By"
+  no_results: "No results found"
+  sort_options:
+  - "All"
+  - "Oldest"
+  - "Newest"

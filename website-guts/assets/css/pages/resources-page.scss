@@ -34,12 +34,6 @@ body.resources-page {
     padding-bottom: 0;
   }
 
-  .resource-grid-item {
-    border-bottom: 1px solid #e1e1e1;
-    padding: 20px 0;
-  }
-
-
   .resource-g-item {
     background-size: 300px 300px;
     border: 1px solid rgb(213, 213, 213);
@@ -61,8 +55,10 @@ body.resources-page {
       .resource-title {
       }
       .resource-type {
-        margin-top: 4px;
-        color: gray;
+        margin-top: 7px;
+        margin-bottom: 10px;
+        color: rgb(185, 185, 185);
+        font-size: 0.85em;
       }
     }
   }
@@ -75,6 +71,9 @@ body.resources-page {
     }
     .page-title {
       text-align: left;
+      h1 {
+        text-align: left!important;
+      }
     }
   }
 }

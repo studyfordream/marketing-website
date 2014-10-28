@@ -9,24 +9,22 @@ body_class:
 - resources-page
 ---
 
-<div id="customer-stories-content">
-  <div class="case-studies-bg-container">
-    <div class="case-studies-container container">
-      {{#each resources-page.resources}}
-        {{#classgridstart @index 3}}
-          <div class="row stories">
-        {{/classgridstart}}
-            <div class="columns one-third resource-g-item">
-              <div class="resource-image"><img src="{{image_path}}"/></div>
-              <div class="resource-text">
-                <div class="resource-title">{{header}}</div>
-                <div class="resource-type">{{type}}</div>
-              </div> <!-- .title-container -->
-            </div> <!-- .customer-grid-elm -->
-        {{#classgridfinish @index @last 3}}
-          </div>
-        {{/classgridfinish}}
-      {{/each}}
-    </div> <!-- .case-studies-container -->
-  </div> <!-- .case-studies-bg-container -->
+<div id="resources-page-content">
+  <div class="resources-page-container container">
+    {{#each resources-page.resources}}
+      {{#classgridstart @index 3}}
+        <div class="row stories">
+      {{/classgridstart}}
+          <div class="columns one-third resource-g-item">
+            <div class="resource-image"><img src="{{image_path}}"/></div>
+            <div class="resource-text">
+              <div class="resource-title">{{header}}</div>
+              <div class="resource-type">{{type}}</div>
+            </div> <!-- .title-container -->
+          </div> <!-- .customer-grid-elm -->
+      {{#classgridfinish @index @last 3}}
+        </div>
+      {{/classgridfinish}}
+    {{/each}}
+  </div> <!-- .case-studies-container -->
 </div><!--#customer-stories-content -->

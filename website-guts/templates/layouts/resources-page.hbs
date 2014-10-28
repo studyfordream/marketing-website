@@ -15,6 +15,16 @@ layout_body_class: false
   <div id="page-header-gradient"></div>
   <div id="page-content">
     {{#unless page.no_container}}<div class="container">{{/unless}}
+      <div class="pill container">
+        <div class="heading">{{{resources-page.filter.title}}}:</div>
+        <div class="dropdown-cont dropdown-cont--region">{{{resources-page.filter.sort_options.1}}} &#9662;
+          <ul>
+            {{#each resources-page.filter.sort_options}}
+              <li class="filter-item" data-filter="{{ createClassList this }}">{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
       {{> body }}
     {{#unless page.no_container}}</div><!--/.container-->{{/unless}}
   </div><!--/#content-->
