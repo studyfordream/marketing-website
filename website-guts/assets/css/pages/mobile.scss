@@ -263,9 +263,13 @@
     }
   }
   #section-4 {
-    h2 {
+    h2,
+    p {
       text-align: center;
       color: #9b9b9b;
+    }
+    p {
+      display: none;
     }
     br {
       display: none;
@@ -362,7 +366,13 @@
     }
     #section-4 {
       .icon-cont {
-        width: 400px;
+        width: 600px;
+      }
+      .icon-wrap {
+        padding: 20px 35px;
+      }
+      p {
+        display: block;
       }
     }
   }
