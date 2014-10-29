@@ -1,5 +1,7 @@
 w.optly.mrkt.inlineFormLabels();
 
+$('#url').focus();
+
 $('[name="hidden"]').val('touched');
 
 document.querySelector('[name="hidden"]').value = 'touched';
@@ -71,10 +73,12 @@ new Oform({
       w.Munchkin.munchkinFunction('visitWebPage', {
         url: '/free-trial/success'
       });
+      w.analytics.page('/account/create/success');
+      w.analytics.page('/free-trial/success');
       /* end legacy reporting */
       setTimeout(function(){
-        w.location = '/edit?url=' + encodeURIComponent(d.getElementById('url').value);
-      }, 500);
+        w.location = 'https://www.optimizely.com/edit?url=' + encodeURIComponent(d.getElementById('url').value);
+      }, 1000);
     } else {
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
