@@ -1,6 +1,8 @@
 w.optly.mrkt.inlineFormLabels();
 
-$('#url').focus();
+if(!w.optly.mrkt.isMobile()){
+  $('#url').focus();
+}
 
 $('[name="hidden"]').val('touched');
 
