@@ -1,10 +1,24 @@
 w.optly.mrkt.inlineFormLabels();
 
+if(!w.optly.mrkt.isMobile()){
+  $('#url').focus();
+}
+
 $('[name="hidden"]').val('touched');
 
 document.querySelector('[name="hidden"]').value = 'touched';
 
 var xhrInitiationTime;
+
+//track focus on form fields
+$('#seo-form input:not([type="hidden"])').each(function(){
+  $(this).focus(function(){
+    //put all the information in the event because we'll want to use this as a goal in optimizely
+    w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus', {
+      category: 'forms'
+    });
+  });
+});
 
 //form
 new Oform({
@@ -35,9 +49,12 @@ new Oform({
       label: 'json parse error: ' + error,
     });
   }
-  w.analytics.track('/account/free_trial_create', {
-    category: 'api response time',
-    value: xhrElapsedTime
+  w.ga('send', {
+    'hitType': 'timing',
+    'timingCategory': 'api response time',
+    'timingVar': '/account/free_trial_create',
+    'timingValue': xhrElapsedTime,
+    'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   });
   if(response){
     if(event.target.status === 200){
@@ -58,10 +75,12 @@ new Oform({
       w.Munchkin.munchkinFunction('visitWebPage', {
         url: '/free-trial/success'
       });
+      w.analytics.page('/account/create/success');
+      w.analytics.page('/free-trial/success');
       /* end legacy reporting */
       setTimeout(function(){
-        w.location = '/edit?url=' + encodeURIComponent(d.getElementById('url').value);
-      }, 500);
+        w.location = 'https://www.optimizely.com/edit?url=' + encodeURIComponent(d.getElementById('url').value);
+      }, 1000);
     } else {
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
@@ -80,6 +99,9 @@ new Oform({
         $('body').addClass('oform-error').removeClass('oform-processing');
       }
     }
+  } else {
+    $('#seo-form .error-message').text('An unknown error occured.');
+    $('body').addClass('oform-error').removeClass('oform-processing');
   }
 })
 .on('done', function(){
@@ -88,8 +110,7 @@ new Oform({
     //report that there were errors in the form
     w.analytics.track('seo-form validation error', {
       category: 'form error',
-      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname),
-      value: $('input.oform-error-show').length
+      label: $('input.oform-error-show').length + ' errors',
     });
   }
 });
