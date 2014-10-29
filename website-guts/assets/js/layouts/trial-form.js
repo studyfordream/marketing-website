@@ -6,6 +6,16 @@ document.querySelector('[name="hidden"]').value = 'touched';
 
 var xhrInitiationTime;
 
+//track focus on form fields
+$('#seo-form input:not([type="hidden"])').each(function(){
+  $(this).focus(function(){
+    //put all the information in the event because we'll want to use this as a goal in optimizely
+    w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus', {
+      category: 'forms'
+    });
+  });
+});
+
 //form
 new Oform({
   selector: '#seo-form'
@@ -35,9 +45,12 @@ new Oform({
       label: 'json parse error: ' + error,
     });
   }
-  w.analytics.track('/account/free_trial_create', {
-    category: 'api response time',
-    value: xhrElapsedTime
+  w.ga('send', {
+    'hitType': 'timing',
+    'timingCategory': 'api response time',
+    'timingVar': '/account/free_trial_create',
+    'timingValue': xhrElapsedTime,
+    'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   });
   if(response){
     if(event.target.status === 200){
@@ -88,8 +101,7 @@ new Oform({
     //report that there were errors in the form
     w.analytics.track('seo-form validation error', {
       category: 'form error',
-      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname),
-      value: $('input.oform-error-show').length
+      label: $('input.oform-error-show').length + ' errors',
     });
   }
 });
