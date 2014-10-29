@@ -65,7 +65,7 @@ section_4:
  icons:
   - 
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/1.png"
-    name: "Flixter"
+    name: "Flixster"
   - 
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/2.png"
     name: "Rhapsody"
@@ -83,9 +83,9 @@ section_4:
     name: "Getaround"
   - 
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/7.png"
-    name: "Shop Mec"
+    name: "Shop MEC"
   - 
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/8.png"
-    name: "Homefinder"
+    name: "HomeFinder"
 footer:
  header: "Sign up for <br>Optimizely iOS beta"
