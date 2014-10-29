@@ -99,6 +99,9 @@ new Oform({
         $('body').addClass('oform-error').removeClass('oform-processing');
       }
     }
+  } else {
+    $('#seo-form .error-message').text('An unknown error occured.');
+    $('body').addClass('oform-error').removeClass('oform-processing');
   }
 })
 .on('done', function(){
