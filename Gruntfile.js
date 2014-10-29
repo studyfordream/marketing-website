@@ -488,13 +488,6 @@ module.exports = function(grunt) {
           }
         ]
       },
-      jquery: {
-        files: [
-          {
-            '<%= config.temp %>/assets/js/libraries/jquery-2.1.1.min.js': ['<%= config.guts %>/assets/js/libraries/jquery-2.1.1.min.js']
-          }
-        ]
-      },
       fastclick: {
         files: [
           {
@@ -652,7 +645,7 @@ module.exports = function(grunt) {
       },
       jqueryModernizr: {
         src: [
-          '<%= config.temp %>/assets/js/libraries/jquery-2.1.1.min.js',
+          '<%= config.guts %>/assets/js/libraries/jquery-2.1.1.min.js',
           '<%= config.temp %>/assets/js/libraries/modernizr.2.8.3.min.js'
         ],
         expand: false,
