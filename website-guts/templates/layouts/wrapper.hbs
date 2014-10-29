@@ -14,7 +14,7 @@ layout_modals:
         <!-- Chartbeat -->
         <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
         {{/if}}
-        <script src="{{assetsDir}}/js/libraries/jquery-2.1.1.min.js"></script>
+        <script src="{{assetsDir}}/js/libraries/jquery-modernizr.min.js"></script>
         <script>
             window.optly_q = [];
             window.optly = {
@@ -48,7 +48,6 @@ layout_modals:
         {{/if}}
         <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7838232/684744/css/fonts.css">
         <link rel="stylesheet" href="{{assetsDir}}/css/styles.css">
-        <script src="{{assetsDir}}/js/libraries/modernizr.2.8.3.min.js"></script>
         {{#if page.head_script ~}}<script src="{{page.head_script}}"></script>{{/if}}
         {{#if environmentVariables.production}}
         <script id="bizible-settings" type="text/javascript" src="//cdn.bizible.com/_biz-a.js" async data-attach-secure-forms="true"></script>
