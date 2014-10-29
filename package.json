@@ -39,7 +39,7 @@
     "grunt-contrib-watch": "0.6.1",
     "grunt-filerev": "0.2.1",
     "grunt-gitinfo": "0.1.6",
-    "grunt-modernizr": "^0.6.0",
+    "grunt-modernizr": "0.6.0",
     "grunt-resemble-cli": "0.0.8",
     "grunt-s3": "0.2.0-alpha.3",
     "grunt-sass": "0.14.0",
