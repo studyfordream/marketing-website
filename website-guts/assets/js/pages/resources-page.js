@@ -1,17 +1,3 @@
-//window.optly.mrkt.resourcesPage = {};
-
-//var $dropdownElems = $('.dropdown-cont');
-
-//window.optly.mrkt.resourcesPage.filter = function() {
-    //$dropdownElems.on('click', function(e) {
-      //e.preventDefault();
-      //var $this = $(this);
-      //$dropdownElems.not( $this ).addClass( 'active' );
-      //debugger;
-    //});
-//};
-
-//window.optly.mrkt.resourcesPage.filter();
 var $dropdownElems = $('.dropdown-cont');
 var $filterElems = $('.filter-item');
 var $isoContainer;
@@ -31,71 +17,48 @@ window.optly.mrkt.filter = {
         $this.removeClass( 'active' );
       });
       $this.toggleClass( 'active' );
-
-      // $(window).not( $dropdownElems ).on('click', function() {
-      //   $dropdownElems.removeClass( 'active' );
-      // });
     });
 
     $filterElems.bind('click', function(e) {
       e.stopPropagation();
       var $this = $(this);
-      $this.parent().find('li').not( $this ).removeClass( 'active' );
-      $this.toggleClass( 'active' );
-      self.updateIsotope();
-      // if mobile, hide menu by removing parent active
-      if ($('body').hasClass('mobile')){
-        $this.closest('.dropdown-cont').removeClass( 'active' );
+      if (!$this.hasClass('active')) {
+        $this.parent().find('li').not( $this ).removeClass( 'active' );
+        $('.selected-option').html($this.text() + ' &#9662;');
+        $this.toggleClass( 'active' );
+        self.updateIsotope();
+        // if mobile, hide menu by removing parent active
+        if ($('body').hasClass('mobile')){
+          $this.closest('.dropdown-cont').removeClass( 'active' );
+        }
+        self.updateIsotope();
       }
-      self.updateIsotope();
     });
 
   },
 
   isotope: function() {
-
-    var heights = [];
-
-    $('.partner-grid-elm').each( function() {
-      heights.push( $(this).outerHeight() );
-    });
-
-    heights = heights.sort().reverse();
-
-    $('.partner-grid-elm').each( function() {
-      $(this).height( heights[0] );
-    });
-
-    $('.integrations-container').css('min-height', heights[0]);
-
-    $isoContainer = $('.partner-grid').isotope({
-      itemSelector: '.partner-grid-elm',
+    $isoContainer = $('.resources-page-container').isotope({
+      itemSelector: '.resource-grid-item',
       layoutMode: 'fitRows'
     });
   },
 
   updateIsotope: function() {
-    var $activeItems = $filterElems.filter('.active');
-    var values = [];
+    var $activeItem = $filterElems.filter('.active').first(),
+        filterString = '.' + $activeItem.data('filter').trim();
 
-    $activeItems.each( function() {
-      var value = $(this).data( 'filter' ).trim();
-      values.push( '.' + value );
-    });
-
-    var filterValue = values.join('');
-    $isoContainer.isotope({ filter: filterValue });
-
-    // create a div#output to enable classname debugging
-    // var $output = $('#output');
-    // $output.text( filterValue );
-
-    if ( !$isoContainer.data('isotope').filteredItems.length ) {
-      $('.integrations-message').addClass('visible');
+    if (filterString === '.all') {
+      $isoContainer.isotope({ filter: '*' });
     } else {
-      $('.integrations-message').removeClass('visible');
+      $isoContainer.isotope({ filter: filterString });
     }
 
+    if ( !$isoContainer.data('isotope').filteredItems.length ) {
+      $('.empty-filter-message').show();
+    } else {
+      $('.empty-filter-message').hide();
+    }
   },
 
   init: function() {

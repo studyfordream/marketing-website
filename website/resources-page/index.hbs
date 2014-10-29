@@ -7,6 +7,8 @@ sub_head: Everything you need about Optimization
 page_script: resources-page.js
 body_class:
 - resources-page
+script_dependencies:
+- "//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"
 ---
 
 <div id="resources-page-content">
@@ -15,10 +17,10 @@ body_class:
       {{#classgridstart @index 3}}
         <div class="row stories">
       {{/classgridstart}}
-          <div class="columns one-third resource-g-item">
+      <div class="columns one-third resource-grid-item {{#toLowerCase type}}{{/toLowerCase}}">
             <div class="resource-image"><img src="{{image_path}}"/></div>
             <div class="resource-text">
-              <div class="resource-title">{{header}}</div>
+              <div class="resource-title"><a href="{{url}}">{{title}}</a></div>
               <div class="resource-type">{{type}}</div>
             </div> <!-- .title-container -->
           </div> <!-- .customer-grid-elm -->
@@ -27,4 +29,7 @@ body_class:
       {{/classgridfinish}}
     {{/each}}
   </div> <!-- .case-studies-container -->
+  <div class="container empty-filter-message">
+    <p>{{resources-page.filter.no_results}}</p>
+  </div>
 </div><!--#customer-stories-content -->

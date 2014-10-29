@@ -1,37 +1,48 @@
 resources:
 -
-  header: "Build your Company's Data DNA"
+  title: "Build your Company's Data DNA"
   image_path: '../assets/img/resources-page/data-dna.png'
-  type: "EBook"
+  url: "http://pages.optimizely.com/eBook-Data-DNA.html"
+  type: "eBook"
 -
-  header: "Roadmap to Building a Data-Driven Optimization Team"
+  title: "Roadmap to Building a Data-Driven Optimization Team"
   image_path: "../assets/img/resources-page/roadmap.png"
-  type: "EBook"
+  url: "http://pages.optimizely.com/build-a-data-driven-optimization-team-today.html"
+  type: "eBook"
 -
-  header: "The Most Misleading Measure of Response Time"
+  title: "The Most Misleading Measure of Response Time"
   image_path: "../assets/img/resources-page/response-time.png"
+  url: "http://pages.optimizely.com/CDNBalancingWhitepaper_GeneralLP.html"
   type: "Whitepaper"
 -
-  header: "A Blueprint for Mobile App Optimization"
+  title: "A Blueprint for Mobile App Optimization"
   image_path: "../assets/img/resources-page/mobile-blueprint.png"
+  url: "http://pages.optimizely.com/A-Blueprint-for-AB-Testing-and-Optimization-in-native-mobile-apps.html"
   type: "Whitepaper"
 -
-  header: "5 Steps to Your First Meaningful A/B Testing Win"
+  title: "5 Steps to Your First Meaningful A/B Testing Win"
   image_path: "../assets/img/resources-page/testing-win.png"
+  url: "http://pages.optimizely.com/Qualaroo-Optimizely-5-Steps-to-Your-First-Meaningful-AB-Testing-Win-Webinar-Recording.html"
   type: "Webinar"
 -
-  header: "Opticon 2014 Highlights"
+  title: "Opticon 2014 Highlights"
   image_path: "../assets/img/resources-page/opticon.png"
-  type: "Whitepaper"
+  url: "https://www.youtube.com/watch?v=16bCgEd0cw0&list=PLawBOHHG5xVO4JbdPJKDFJgOISaeSFWSA"
+  type: "Video"
 -
-  header: "Optimizing Your E-commerce Site: What Not to Do and Why"
+  title: "Optimizing Your E-commerce Site: What Not to Do and Why"
   image_path: "../assets/img/resources-page/ecommerce.png"
+  url: "http://pages.optimizely.com/ecommerce_webinar_2.html"
   type: "Webinar"
 
 filter:
-  title: "Sort By"
+  title: "Filter By Content"
   no_results: "No results found"
-  sort_options:
+  filter_options:
   - "All"
-  - "Oldest"
-  - "Newest"
+  - "eBook"
+  - "Whitepaper"
+  - "Webinar"
+  - "Infographic"
+  - "Video"
+
