@@ -58,5 +58,18 @@ section_3:
   header: "Enterprise scale at startup speed"
   body: "Optimizely is already trusted by more than 6,000 of the world's top companies, including CNN, Yelp, Starbucks, and many more."
   icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/enterprise.svg"
+  icons: 
+section_4:
+ body: |
+  ## We're already loved by these<br> awesome apps
+ icons:
+  - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/1.png"
+  - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/2.png"
+  - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/3.png"
+  - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/4.png"
+  - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/5.png"
+  - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/6.png"
+  - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/7.png"
+  - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/8.png"
 footer:
  header: "Sign up for <br>Optimizely iOS beta"

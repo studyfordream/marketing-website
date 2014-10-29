@@ -18,6 +18,14 @@
       text-decoration: underline;
     }
   }
+  .gray-section {
+     background: #fff;
+     background: linear-gradient(to bottom, white 0%, whitesmoke 100%);
+  }
+  .blue-section {
+    background: #003366;
+    color: #fff;
+  }
   .ios-logo-cont {
     background: none;
   }
@@ -226,15 +234,9 @@
     }
   }
   #visual-changes-features {
-    background: #fff;
-    background: linear-gradient(to bottom, white 0%, whitesmoke 100%);
     #visual-changes-demo {
       display: none;
     }
-  }
-  #flexible-powerful {
-    background: #003366;
-    color: #fff;
   }
   #trusted {
     background: #fff;
@@ -243,22 +245,57 @@
     display: none;
   }
   #signup-bottom {
-    background: #f8f8f8;
-    border-top: 1px solid #f3f3f3;
     padding-bottom: 7em;
     h2 {
       text-align: center;
-      color: #6b6b6b;
       font-family: $body-font-family;
     }
     .email-signup {
       border: 1px solid #ccc;
       border-right: 0;
     }
+    h2,
+    a {
+      color: #fff;
+    }
     p {
       text-align: center;
-      a {
-        color: #222;
+    }
+  }
+  #section-4 {
+    h2 {
+      text-align: center;
+      color: #9b9b9b;
+    }
+    br {
+      display: none;
+    }
+    .icon-cont {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      width: 90%;
+    }
+    .icon-wrap {
+      padding: 10px;
+      width: 25%;
+    }
+    .cust-icon {
+      width: 100%;
+      padding-top: 100%;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    @media only screen and (min-width: 450px) {
+      .icon-cont {
+        width: 80%;
+      }
+      br {
+        display: inline;
+      }
+      .icon-wrap {
+        padding: 20px;
       }
     }
   }
@@ -321,6 +358,11 @@
         width: 129px;
         padding: 0.53em 0;
         margin: -10px 0 0 -4px;
+      }
+    }
+    #section-4 {
+      .icon-cont {
+        width: 400px;
       }
     }
   }
