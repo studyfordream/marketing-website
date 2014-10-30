@@ -48,7 +48,8 @@
     "load-grunt-tasks": "0.6.0",
     "optimizely-marked": "0.0.4",
     "time-grunt": "0.3.2",
-    "uglify-js": "2.4.15"
+    "uglify-js": "2.4.15",
+    "chai": "^1.9.2"
   },
   "licenses": [
     {
