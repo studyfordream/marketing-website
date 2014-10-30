@@ -28,16 +28,27 @@ var checkComplexPassword = function(password) {
   }
 };
 
+var assemble = require('./grunt/assemble');
+
+console.log(assemble);
+
 module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
+  require('load-grunt-config')(grunt, {
+        // ...
+      jitGrunt: {
+          // here you can pass options to jit-grunt (or just jitGrunt: true)
+          staticMappings: {
+              // here you can specify static mappings, for example:
+              replace: 'grunt-text-replace',
+              handlebars: 'grunt-contrib-handlebars',
+              resemble: 'grunt-resemble-cli'
+          }
+      }
+  });
   //jit-grunt loads only the npm tasks required for the grunt task.
   //makes livereload much faster.
-  require('jit-grunt')(grunt, {
-    replace: 'grunt-text-replace',
-    handlebars: 'grunt-contrib-handlebars',
-    resemble: 'grunt-resemble-cli'
-  });
 
   //get configs
   var fs,
@@ -351,74 +362,6 @@ module.exports = function(grunt) {
            port: '9000',
            hostname: '0.0.0.0'
         }
-      }
-    },
-    assemble: {
-      options: {
-        layoutdir: '<%= config.guts %>/templates/layouts/',
-        assetsDir: '<%= grunt.config.get("assetsDir") %>',
-        linkPath: '<%= grunt.config.get("link_path") %>',
-        sassImagePath: '<%= grunt.config.get("sassImagePath") %>',
-        environmentIsProduction: '<%= grunt.config.get("environmentIsProduction") %>',
-        environmentIsDev: '<%= grunt.config.get("environmentIsDev") %>',
-        data: ['<%= config.content %>/**/*.json', '<%= config.content %>/**/*.yml', '<%= grunt.config.get("environmentData") %>'],
-        partials: ['<%= config.guts %>/templates/partials/*.hbs'],
-        helpers: ['<%= config.helpers %>/**/*.js'],
-      },
-      modals: {
-        options: {
-          ext: '.hbs'
-        },
-        files: [
-          {
-            src: 'templates/components/modals/**/*.hbs',
-            dest: '<%= config.guts %>/templates/partials/',
-            cwd: '<%= config.guts %>/',
-            expand: true,
-            filter: 'isFile',
-            flatten: true,
-            rename: function(dest, src) {
-              var split = src.split('.');
-              return dest + split[0] + '_compiled';
-            }
-          }
-        ]
-      },
-      partners: {
-        options: {
-          collections: [
-            {
-              name: 'integrations',
-              inflection: 'integration',
-              sortby: 'priority',
-              sortorder: 'descending'
-            },
-            {
-              name: 'solutions',
-              inflection: 'solution',
-              sortby: 'priority',
-              sortorder: 'descending'
-            }
-          ]
-        },
-        files: [
-          {
-            src: ['partners/**/*.hbs'],
-            dest: '<%= config.dist %>/',
-            cwd: '<%= config.content %>/',
-            expand: true
-          }
-        ]
-      },
-      pages: {
-        files: [
-          {
-            src: ['**/*.hbs', '!partners/**/*.hbs'],
-            dest: '<%= config.dist %>/',
-            cwd: '<%= config.content %>/',
-            expand: true
-          }
-        ]
       }
     },
     sass: {
