@@ -9,7 +9,7 @@ window.optly.mrkt.anim.transitionend = (function(transition) {
   };
 
   return transEndEventNames[transition];
-})(window.Modernizr.prefixed('transition'));
+})(Modernizr.prefixed('transition'));
 
 window.optly.mrkt.anim.bindTranEnd = function($elm) {
 

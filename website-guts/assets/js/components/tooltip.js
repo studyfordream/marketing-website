@@ -50,7 +50,7 @@ window.optly.mrkt.tooltip.init = function($targets) {
 window.optly.mrkt.tooltip.positionTip = function() {
   var $q = $({});
 
-  if ( window.Modernizr.viewportunits ) {
+  if ( Modernizr.viewportunits ) {
     $q.queue('positionTip', function(next) {
       if( $( window ).width() <= 768 ) {
         this.$tooltipElm.css({
