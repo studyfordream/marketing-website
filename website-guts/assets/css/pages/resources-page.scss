@@ -64,7 +64,7 @@ body.resources-page {
     color: rgb(129, 129, 129);
     font-weight: 600;
     margin: 20px 5px;
-    width: 32%;
+    width: 100%;
 
     .resource-type {
       margin-top: 7px;
@@ -80,9 +80,6 @@ body.resources-page {
       &:hover {
         cursor: help;
       }
-    }
-    @media (max-width: 600px) {
-      width: 100%;
     }
 
     &:nth-of-type(3n+1) {
@@ -120,8 +117,8 @@ body.resources-page {
 
 @media only screen and (min-width: 769px) {
   body.resources-page {
-    .stories {
-      display: flex;
+    .resources-grid-elm {
+      width: 32%;
     }
     .page-title {
       text-align: left;
@@ -134,7 +131,8 @@ body.resources-page {
 
 @media only screen and (min-width: $desktop-min-width) {
   body.resources-page {
-
+    .resources-grid-elm {
+      width: 32%;
+    }
   }
 }
-
