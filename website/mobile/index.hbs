@@ -130,8 +130,25 @@ page_script: mobile.js
       </div>
     </section>
     {{/if}}
+    {{#if section_4}}
+      <section id="section-4" class="gray-section">
+        <div class="container">
+          <div class="section-container">
+            {{#omarkdown}}{{{section_4.body}}}{{/omarkdown}}
+          </div>
+          <div class="icon-cont">
+            {{#each section_4.icons}}
+            <div class="icon-wrap">
+              <div class="cust-icon" style="background-image: url('{{url}}')"></div>
+              <p class="icon-name">{{name}}</p>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </section>
+    {{/if}}
     {{#if footer}}
-    <section id="signup-bottom">
+    <section id="signup-bottom" class="blue-section">
       <h2>{{{footer.header}}}</h2>
       <a href="https://www.optimizely.com/signin?signup=true&signup_platform=ios&continue_to=/dashboard?show_code=true&utm_campaign=iosplatform" class="sign-up-btn">{{{sign_up.button_text}}}</a>
       {{#omarkdown}}{{sign_up.existing_customer}}{{/omarkdown}}
