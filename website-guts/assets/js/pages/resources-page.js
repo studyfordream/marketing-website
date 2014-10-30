@@ -38,10 +38,12 @@ window.optly.mrkt.filter = {
   },
 
   isotope: function() {
-    $isoContainer = $('.resources-page-container').isotope({
-      itemSelector: '.resource-grid-item',
+    $isoContainer = $('.resources-grid').isotope({
+      itemSelector: '.resources-grid-elm',
       layoutMode: 'fitRows'
     });
+
+    $('.integrations-message').hide();
   },
 
   updateIsotope: function() {
@@ -55,9 +57,9 @@ window.optly.mrkt.filter = {
     }
 
     if ( !$isoContainer.data('isotope').filteredItems.length ) {
-      $('.empty-filter-message').show();
+      $('.integrations-message').show();
     } else {
-      $('.empty-filter-message').hide();
+      $('.integrations-message').hide();
     }
   },
 
