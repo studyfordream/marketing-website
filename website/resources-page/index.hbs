@@ -16,7 +16,9 @@ script_dependencies:
     <div class="resources-grid">
       {{#each resources-page.resources}}
         <div class="resources-grid-elm {{#toLowerCase type}}{{/toLowerCase}}">
-          <a href="{{url}}" class="resources-logos" style="background-image: url('{{image_path}}');"></a>
+          <div class="resources-image">
+            <a href="{{url}}"><img src="{{image_path}}"></a>
+          </div>
           <div class="resources-title"><a href="{{url}}">{{title}}</a></div>
           <div class="resource-type">{{type}}</div>
         </div>
