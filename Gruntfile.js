@@ -844,8 +844,19 @@ module.exports = function(grunt) {
         ]
       }
     },
-
-    gitinfo: {}
+    gitinfo: {},
+    karma: {
+      options: {
+        files: ['*.js'],
+        configFile: './configs/karma.conf.js',
+        runnerPort: 9999,
+      },
+      unit: {
+        singleRun: true,
+        browsers: ['PhantomJS'],
+        logLevel: 'ERROR'
+      }
+    }
   });
 
   grunt.registerTask('staging-deploy', [
