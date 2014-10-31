@@ -33,6 +33,7 @@ module.exports = {
   clientDev: {
     options: {
       browser: true,
+      debug: true,
       globals: {
         jQuery: false,
         console: false,

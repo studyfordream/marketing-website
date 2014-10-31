@@ -29,8 +29,8 @@ module.exports = {
     tasks: ['copy:img']
   },
   js: {
-    files: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/services/user_state.js', '<%= config.temp %>/assets/js/**/*.js'],
-    tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'handlebars', 'concat', 'clean:postBuild']
+    files: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/services/user_state.js'],
+    tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'handlebars', 'modernizr', 'concat', 'clean:postBuild']
   },
   clientHandlebarsTemplates: {
     files: ['<%= config.guts %>/templates/client/**/*.hbs'],
