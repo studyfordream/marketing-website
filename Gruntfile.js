@@ -189,7 +189,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/services/user_state.js', '<%= config.temp %>/assets/js/**/*.js'],
-        tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'handlebars', 'concat', 'clean:postBuild']
+        tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'handlebars', 'modernizr', 'concat', 'clean:postBuild']
       },
       clientHandlebarsTemplates: {
         files: ['<%= config.guts %>/templates/client/**/*.hbs'],
@@ -438,7 +438,7 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          sourceMap: false,
+          sourceMap: true,
           imagePath: '<%= grunt.config.get("sassImagePath") %>',
           precision: 3
         },
@@ -569,14 +569,7 @@ module.exports = function(grunt) {
         noempty: true,
         nonbsp: true,
         undef: true,
-        quotmark: 'single',
-        '-W087': (function() {
-          if(grunt.config.get("environment") == "dev") {
-            return true;
-          } else {
-            return false;
-          }
-        }())
+        quotmark: 'single'
       },
       clientProd: {
         options: {
@@ -603,6 +596,7 @@ module.exports = function(grunt) {
       clientDev: {
         options: {
           browser: true,
+          debug: true,
           globals: {
             jQuery: false,
             console: false,
@@ -701,7 +695,7 @@ module.exports = function(grunt) {
       },
       globalJS: {
         files: {
-          '<%= config.dist %>/assets/js/libraries/fastclick.js': ['<%= config.bowerDir %>/fastclick/lib/fastclick.js'],
+          '<%= config.dist %>/assets/js/libraries/fastclick.js': ['<%= config.dist %>/assets/js/libraries/fastclick.js'],
           '<%= config.dist %>/assets/js/bundle.js': ['<%= config.dist %>/assets/js/bundle.js']
         }
       },
@@ -875,10 +869,10 @@ module.exports = function(grunt) {
     'handlebars',
     'modernizr',
     'concat',
-    'uglify',
     'sass:prod',
     'autoprefixer',
     'copy',
+    'uglify',
     's3:staging',
     'clean:postBuild'
   ]);
@@ -893,10 +887,10 @@ module.exports = function(grunt) {
     'handlebars',
     'modernizr',
     'concat',
-    'uglify',
     'sass:prod',
     'autoprefixer',
     'copy',
+    'uglify',
     's3:smartling',
     'clean:postBuild'
   ]);
@@ -928,11 +922,10 @@ module.exports = function(grunt) {
     'handlebars',
     'modernizr',
     'concat',
+    'sass:prod',
+    'autoprefixer',
     'copy',
     'uglify',
-    'sass:prod',
-    'replace',
-    'autoprefixer',
     'filerev',
     'userevvd',
     'clean:postBuild'
@@ -940,7 +933,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'config:dev',
-    'jshint:clientDev',
+    'jshint:clientProd',
     'jshint:server',
     'clean:preBuild',
     'assemble',
@@ -955,27 +948,6 @@ module.exports = function(grunt) {
     'connect:resemble',
     'resemble'
   ]);
-
-
-  grunt.registerTask('test', [
-    'config:production',
-    'jshint:clientProd',
-    'jshint:server',
-    'clean:preBuild',
-    'modernizr',
-    'assemble',
-    'handlebars',
-    'concat',
-    'copy',
-    'uglify',
-    'sass:prod',
-    'replace',
-    'autoprefixer',
-    'clean:postBuild',
-    'connect:resemble',
-    'resemble'
-  ]);
-
 
   grunt.registerTask('default', [
     'build'
