@@ -10,11 +10,8 @@ module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
   require('load-grunt-config')(grunt, {
-        // ...
       jitGrunt: {
-          // here you can pass options to jit-grunt (or just jitGrunt: true)
           staticMappings: {
-              // here you can specify static mappings, for example:
               replace: 'grunt-text-replace',
               handlebars: 'grunt-contrib-handlebars',
               resemble: 'grunt-resemble-cli',
@@ -24,8 +21,6 @@ module.exports = function(grunt) {
       },
       init: true
   });
-  //jit-grunt loads only the npm tasks required for the grunt task.
-  //makes livereload much faster.
 
   grunt.registerTask('staging-deploy', [
     'gitinfo',
@@ -37,10 +32,10 @@ module.exports = function(grunt) {
     'handlebars',
     'modernizr',
     'concat',
-    'uglify',
     'sass:prod',
     'autoprefixer',
     'copy',
+    'uglify',
     's3:staging',
     'clean:postBuild'
   ]);
@@ -55,10 +50,10 @@ module.exports = function(grunt) {
     'handlebars',
     'modernizr',
     'concat',
-    'uglify',
     'sass:prod',
     'autoprefixer',
     'copy',
+    'uglify',
     's3:smartling',
     'clean:postBuild'
   ]);
@@ -90,11 +85,10 @@ module.exports = function(grunt) {
     'handlebars',
     'modernizr',
     'concat',
+    'sass:prod',
+    'autoprefixer',
     'copy',
     'uglify',
-    'sass:prod',
-    'replace',
-    'autoprefixer',
     'filerev',
     'userevvd',
     'clean:postBuild'
@@ -102,7 +96,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'config:dev',
-    'jshint:clientDev',
+    'jshint:clientProd',
     'jshint:server',
     'clean:preBuild',
     'assemble',

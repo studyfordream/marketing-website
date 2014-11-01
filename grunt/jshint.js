@@ -5,7 +5,9 @@ module.exports = {
     eqeqeq: true,
     indent: 4,
     latedef: true,
-    noempty: true, nonbsp: true, undef: true,
+    noempty: true,
+    nonbsp: true,
+    undef: true,
     quotmark: 'single'
   },
   clientProd: {
