@@ -258,9 +258,7 @@ module.exports = function(grunt) {
                       code = 400;
                     }
                     res.writeHead(code, {'Content-Type': 'application/json'});
-                    setTimeout(function() {
-                      res.end( grunt.file.read(readPath) );
-                    }, 2000);
+                    res.end( grunt.file.read(readPath) );
                   } else if(req.url === '/account/signin') {
                     var readPath, code;
 
@@ -273,9 +271,7 @@ module.exports = function(grunt) {
                       code = 400;
                     }
                     res.writeHead(code, {'Content-Type': 'application/json'});
-                    setTimeout(function() {
-                      res.end(grunt.file.read(readPath));
-                    }, 2000);
+                    res.end(grunt.file.read(readPath));
 
                   } else if(req.url === '/recover/request') {
                     var code, respObj;
@@ -288,11 +284,7 @@ module.exports = function(grunt) {
                       code = 400;
                     }
                     res.writeHead(code, {'Content-Type': 'application/json'});
-                    setTimeout(function() {
-                      res.end(respObj);
-                    }, 2000);
-
-
+                    res.end(respObj);
                   } else {
 
                     return next();
