@@ -162,6 +162,8 @@ module.exports = function(grunt) {
         files: [
           '<%= config.content %>/**/*.{hbs,yml}',
           '!<%= config.content %>/partners/**/*.{hbs,yml}',
+          '!<%= config.content %>/resources-page/resources-list/**/*.{hbs,yml}',
+          '!<%= config.content %>/resources-page/index.hbs',
           '<%= config.guts %>/templates/**/*.hbs',
           '!<%= config.guts %>/templates/**/*_compiled.hbs',
           '!<%= config.guts %>/templates/client/**/*.hbs',
@@ -178,6 +180,15 @@ module.exports = function(grunt) {
           '!<%= config.guts %>/templates/client/**/*.hbs'
         ],
         tasks: ['config:dev', 'assemble:partners']
+      },
+      assembleResources: {
+        files: [
+          '<%= config.content %>/resources-page/resources-list/**/*.{hbs,yml}',
+          '<%= config.guts %>/templates/**/*.hbs',
+          '!<%= config.guts %>/templates/**/*_compiled.hbs',
+          '!<%= config.guts %>/templates/client/**/*.hbs'
+        ],
+        tasks: ['config:dev', 'assemble:resources']
       },
       sass: {
         files: '<%= config.guts %>/assets/css/**/*.scss',
@@ -410,10 +421,30 @@ module.exports = function(grunt) {
           }
         ]
       },
+      resources: {
+        options: {
+          collections: [
+            {
+              name: 'resources',
+              inflection: 'resource',
+              sortby: 'priority',
+              sortorder: 'descending'
+            }
+          ]
+        },
+        files: [
+          {
+            src: ['resources-page/resources-list/**/*.hbs', 'resources-page/index.hbs'],
+            dest: '<%= config.dist %>/',
+            cwd: '<%= config.content %>/',
+            expand: true
+          }
+        ]
+      },
       pages: {
         files: [
           {
-            src: ['**/*.hbs', '!partners/**/*.hbs'],
+            src: ['**/*.hbs', '!partners/**/*.hbs', '!resources-page/resources-list/**/*.hbs', '!resources-page/index.hbs'],
             dest: '<%= config.dist %>/',
             cwd: '<%= config.content %>/',
             expand: true

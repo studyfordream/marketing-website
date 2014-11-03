@@ -14,15 +14,17 @@ script_dependencies:
 <div class="container">
   <div class="row">
     <div class="resources-grid">
-      {{#each resources-page.resources}}
-        <div class="resources-grid-elm {{#toLowerCase type}}{{/toLowerCase}}">
-          <div class="resources-image">
-            <a href="{{url}}"><img src="{{image_path}}"></a>
+      {{#resources}}
+        {{#each pages}}
+          <div class="resources-grid-elm {{#toLowerCase type}}{{/toLowerCase}}">
+            <div class="resources-image">
+              <a href="{{url}}"><img src="{{image_path}}"></a>
+            </div>
+            <div class="resources-title"><a href="{{url}}">{{title}}</a></div>
+            <div class="resource-type">{{type}}</div>
           </div>
-          <div class="resources-title"><a href="{{url}}">{{title}}</a></div>
-          <div class="resource-type">{{type}}</div>
-        </div>
-      {{/each}}
+        {{/each}}
+      {{/resources}}
     </div><!-- /.resources-grid -->
     <div class="integrations-message">
       <p>{{{resources-page.filter.no_results}}}</p>
