@@ -2,12 +2,13 @@ path = require 'path'
 Nightmare = require 'nightmare'
 should = require('chai').should()
 screenshotPath = path.join(process.cwd(), 'screenshots', '/')
+phantomPath = require('phantomjs').path
 
 describe 'testing signin, create account, and retrieve password', () ->
   @timeout 30000
   describe 'filling out the signin form', () ->
     it 'redirects to the dashboard', (done) ->
-      new Nightmare()
+      new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
         .goto('http://0.0.0.0:9000/dist')
         .click('[data-modal-click="signin"]')
@@ -30,7 +31,7 @@ describe 'testing signin, create account, and retrieve password', () ->
   
   describe 'filling out the create account form', () ->
     it 'shows the logged in utility nav', (done) ->
-      new Nightmare()
+      new Nightmare({phantomPath: phantomPath})
         .goto('http://0.0.0.0:9000/dist')
         .click('[data-modal-click="signup"]')
         .wait('#signup-dialog')
@@ -50,7 +51,7 @@ describe 'testing signin, create account, and retrieve password', () ->
   
   describe 'filling out the retrieve password form', () ->
     it 'displays the email sent success message', (done) ->
-      new Nightmare()
+      new Nightmare({phantomPath: phantomPath})
         .goto('http://0.0.0.0:9000/dist')
         .click('[data-modal-click="signin"]')
         .click('[data-modal-click="reset-password"]')

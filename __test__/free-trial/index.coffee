@@ -3,13 +3,15 @@ Nightmare = require 'nightmare'
 should = require('chai').should()
 screenshotPath = path.join(process.cwd(), 'screenshots', '/')
 freeTrialPath = 'http://0.0.0.0:9000/dist/free-trial'
+phantomPath = require('phantomjs').path
+
 
 describe 'testing form on the free trial page', () ->
   @timeout 30000
     
   describe 'submit the form with an invalid email', () ->
     it 'the email input will show an error', (done) ->
-      new Nightmare()
+      new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
         .goto(freeTrialPath)
         .type('input[name="url-input"]', 'freeTrialPath')
@@ -28,7 +30,7 @@ describe 'testing form on the free trial page', () ->
   
   describe 'submit the form without a phone number', () ->
     it 'should be successful and redirect to the /edit route', (done) ->
-      new Nightmare()
+      new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
         .goto(freeTrialPath)
         .type('input[name="url-input"]', 'freeTrialPath')
@@ -48,7 +50,7 @@ describe 'testing form on the free trial page', () ->
 
   describe 'submit the form with no info', () ->
     it 'shows an error class on the body', (done) ->
-      new Nightmare()
+      new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
         .goto(freeTrialPath)
         .wait(2000)

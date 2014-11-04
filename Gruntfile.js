@@ -861,7 +861,7 @@ module.exports = function(grunt) {
         options: {
           reporter: 'spec'
         },
-        src: ['__test__/**/*.js']
+        src: ['__test__/**/index.js']
       }
     }
   });
