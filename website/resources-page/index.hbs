@@ -16,12 +16,12 @@ script_dependencies:
     <div class="resources-grid">
       {{#resources}}
         {{#each pages}}
-          <div class="resources-grid-elm {{#toLowerCase type}}{{/toLowerCase}}">
+          <div class="resources-grid-elm {{#toLowerCase data.type}}{{/toLowerCase}}">
             <div class="resources-image">
-              <a href="{{url}}"><img src="{{image_path}}"></a>
+              <a href="{{data.url}}"><img src="{{data.photo}}"></a>
             </div>
-            <div class="resources-title"><a href="{{url}}">{{title}}</a></div>
-            <div class="resource-type">{{type}}</div>
+            <div class="resources-title"><a href="{{data.url}}">{{data.title}}</a></div>
+            <div class="resource-type">{{data.type}}</div>
           </div>
         {{/each}}
       {{/resources}}

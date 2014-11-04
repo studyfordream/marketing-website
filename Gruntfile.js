@@ -395,6 +395,26 @@ module.exports = function(grunt) {
           }
         ]
       },
+      resources: {
+        options: {
+          collections: [
+            {
+              name: 'resources',
+              inflection: 'resource',
+              sortby: 'priority',
+              sortorder: 'descending'
+            }
+          ]
+        },
+        files: [
+          {
+            src: ['resources-page/resources-list/**/*.hbs', 'resources-page/index.hbs'],
+            dest: '<%= config.dist %>/',
+            cwd: '<%= config.content %>/',
+            expand: true
+          }
+        ]
+      },
       partners: {
         options: {
           collections: [
@@ -415,26 +435,6 @@ module.exports = function(grunt) {
         files: [
           {
             src: ['partners/**/*.hbs'],
-            dest: '<%= config.dist %>/',
-            cwd: '<%= config.content %>/',
-            expand: true
-          }
-        ]
-      },
-      resources: {
-        options: {
-          collections: [
-            {
-              name: 'resources',
-              inflection: 'resource',
-              sortby: 'priority',
-              sortorder: 'descending'
-            }
-          ]
-        },
-        files: [
-          {
-            src: ['resources-page/resources-list/**/*.hbs', 'resources-page/index.hbs'],
             dest: '<%= config.dist %>/',
             cwd: '<%= config.content %>/',
             expand: true
