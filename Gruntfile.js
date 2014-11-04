@@ -162,8 +162,8 @@ module.exports = function(grunt) {
         files: [
           '<%= config.content %>/**/*.{hbs,yml}',
           '!<%= config.content %>/partners/**/*.{hbs,yml}',
-          '!<%= config.content %>/resources-page/resources-list/**/*.{hbs,yml}',
-          '!<%= config.content %>/resources-page/index.hbs',
+          '!<%= config.content %>/resources/resources-list/**/*.{hbs,yml}',
+          '!<%= config.content %>/resources/index.hbs',
           '<%= config.guts %>/templates/**/*.hbs',
           '!<%= config.guts %>/templates/**/*_compiled.hbs',
           '!<%= config.guts %>/templates/client/**/*.hbs',
@@ -183,7 +183,7 @@ module.exports = function(grunt) {
       },
       assembleResources: {
         files: [
-          '<%= config.content %>/resources-page/resources-list/**/*.{hbs,yml}',
+          '<%= config.content %>/resources/resources-list/**/*.{hbs,yml}',
           '<%= config.guts %>/templates/**/*.hbs',
           '!<%= config.guts %>/templates/**/*_compiled.hbs',
           '!<%= config.guts %>/templates/client/**/*.hbs'
@@ -408,7 +408,7 @@ module.exports = function(grunt) {
         },
         files: [
           {
-            src: ['resources-page/resources-list/**/*.hbs', 'resources-page/index.hbs'],
+            src: ['resources/resources-list/**/*.hbs', 'resources/index.hbs'],
             dest: '<%= config.dist %>/',
             cwd: '<%= config.content %>/',
             expand: true
@@ -444,7 +444,7 @@ module.exports = function(grunt) {
       pages: {
         files: [
           {
-            src: ['**/*.hbs', '!partners/**/*.hbs', '!resources-page/resources-list/**/*.hbs', '!resources-page/index.hbs'],
+            src: ['**/*.hbs', '!partners/**/*.hbs', '!resources/resources-list/**/*.hbs', '!resources/index.hbs'],
             dest: '<%= config.dist %>/',
             cwd: '<%= config.content %>/',
             expand: true
