@@ -21,152 +21,155 @@ var checkComplexPassword = function(password) {
   }
 };
 
-module.exports = {
-  options: {
-    port: 9000,
-    livereload: 35729,
-    // change this to '0.0.0.0' to access the server from outside
-    hostname: '0.0.0.0',
-    middleware: function(connect, options, middlewares){
-      return [
-          connect().use(bodyParser.urlencoded({extended: true})),
+module.exports = function(grunt, options) {
 
-          connect.static(options.base[0]),
+  return {
+    options: {
+      port: 9000,
+      livereload: 35729,
+      // change this to '0.0.0.0' to access the server from outside
+      hostname: '0.0.0.0',
+      middleware: function(connect, options, middlewares){
+        return [
+            connect().use(bodyParser.urlencoded({extended: true})),
 
-          function(req, res, next){
-            var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if(req.method === 'POST'){
+            connect.static(options.base[0]),
 
-              if(req.url === '/contact/form'){
+            function(req, res, next){
+              var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+              if(req.method === 'POST'){
 
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/contactSuccess.json') );
+                if(req.url === '/contact/form'){
 
-              } else if(req.url === '/webinar/register'){
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/contactSuccess.json') );
 
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/webinarSuccess.json') );
+                } else if(req.url === '/webinar/register'){
 
-              } else if(req.url === '/webinar/register-fail'){
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/webinarSuccess.json') );
 
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/webinarFail.json') );
+                } else if(req.url === '/webinar/register-fail'){
 
-              } else if(req.url === '/account/free_trial_create'){
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/webinarFail.json') );
 
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/formSuccess.json') );
+                } else if(req.url === '/account/free_trial_create'){
 
-              } else if(req.url === '/account/free_trial_landing/account_exists'){
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/formSuccess.json') );
 
-                res.writeHead(400, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/accountExists.json') );
+                } else if(req.url === '/account/free_trial_landing/account_exists'){
 
-              } else if(req.url === '/account/create') {
-                var readPath, code;
+                  res.writeHead(400, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/accountExists.json') );
 
-                if(req.body.email !== 'david.fox-powell@optimizely.com') {
-                  readPath = 'website-guts/endpoint-mocks/createAccount.json';
-                  code = 200;
-                  res.cookie('optimizely_signed_in', '1', {httpOnly: false});
+                } else if(req.url === '/account/create') {
+                  var readPath, code;
+
+                  if(req.body.email !== 'david.fox-powell@optimizely.com') {
+                    readPath = 'website-guts/endpoint-mocks/createAccount.json';
+                    code = 200;
+                    res.cookie('optimizely_signed_in', '1', {httpOnly: false});
+                  } else {
+                    readPath = 'website-guts/endpoint-mocks/accountExists.json';
+                    code = 400;
+                  }
+                  res.writeHead(code, {'Content-Type': 'application/json'});
+                  setTimeout(function() {
+                    res.end( grunt.file.read(readPath) );
+                  }, 2000);
+                } else if(req.url === '/account/signin') {
+                  var readPath, code;
+
+                  if(emailRegEx.test(req.body.email) && checkComplexPassword(req.body.password)) {
+                    readPath = 'website-guts/endpoint-mocks/accountInfo.json';
+                    code = 200;
+                    res.cookie('optimizely_signed_in', '1', {httpOnly: false});
+                  } else {
+                    readPath = 'website-guts/endpoint-mocks/invalidSignin.json';
+                    code = 400;
+                  }
+                  res.writeHead(code, {'Content-Type': 'application/json'});
+                  setTimeout(function() {
+                    res.end(grunt.file.read(readPath));
+                  }, 2000);
+
+                } else if(req.url === '/recover/request') {
+                  var code, respObj;
+
+                  if(req.body.email === 'david.fox-powell@optimizely.com') {
+                    respObj = '{"message":"Email sent.","succeeded":true}';
+                    code = 200;
+                  } else {
+                    respObj = '{"id":"18137fdc-1e90-45a7-bf91-50c5a69c59e6","succeeded":false,"error":"Account was not found."}';
+                    code = 400;
+                  }
+                  res.writeHead(code, {'Content-Type': 'application/json'});
+                  setTimeout(function() {
+                    res.end(respObj);
+                  }, 2000);
+
+
                 } else {
-                  readPath = 'website-guts/endpoint-mocks/accountExists.json';
-                  code = 400;
+
+                  return next();
+
                 }
-                res.writeHead(code, {'Content-Type': 'application/json'});
-                setTimeout(function() {
-                  res.end( grunt.file.read(readPath) );
-                }, 2000);
-              } else if(req.url === '/account/signin') {
-                var readPath, code;
 
-                if(emailRegEx.test(req.body.email) && checkComplexPassword(req.body.password)) {
-                  readPath = 'website-guts/endpoint-mocks/accountInfo.json';
-                  code = 200;
-                  res.cookie('optimizely_signed_in', '1', {httpOnly: false});
-                } else {
-                  readPath = 'website-guts/endpoint-mocks/invalidSignin.json';
-                  code = 400;
-                }
-                res.writeHead(code, {'Content-Type': 'application/json'});
-                setTimeout(function() {
-                  res.end(grunt.file.read(readPath));
-                }, 2000);
+              } else if(req.url === '/account/info') {
+                var paths = [
+                  'website-guts/endpoint-mocks/accountInfo.json',
+                  'website-guts/endpoint-mocks/allIosInfo.json'
+                ];
 
-              } else if(req.url === '/recover/request') {
-                var code, respObj;
+                var randIndex = Math.round(Math.random());
 
-                if(req.body.email === 'david.fox-powell@optimizely.com') {
-                  respObj = '{"message":"Email sent.","succeeded":true}';
-                  code = 200;
-                } else {
-                  respObj = '{"id":"18137fdc-1e90-45a7-bf91-50c5a69c59e6","succeeded":false,"error":"Account was not found."}';
-                  code = 400;
-                }
-                res.writeHead(code, {'Content-Type': 'application/json'});
-                setTimeout(function() {
-                  res.end(respObj);
-                }, 2000);
+                res.writeHead(200, {'Content-Type': 'application/json'});
+                res.end( grunt.file.read(paths[randIndex]) );
 
+              } else if(req.url === '/experiment/load_recent?max_experiments=5') {
 
-              } else {
+                res.writeHead(200, {'Content-Type': 'application/json'});
+                res.end( grunt.file.read('website-guts/endpoint-mocks/lastFiveExperiments.json') );
+
+              } else if(req.url === '/account/signout') {
+
+                  res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
+                  res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end('{"success": "true"}');
+
+              } else if(req.url === '/api/jobs/details.json') {
+
+                res.writeHead(200, {'Content-Type': 'application/json'});
+                res.end( grunt.file.read('website-guts/endpoint-mocks/jobscoreData.json') );
+
+              } else{
 
                 return next();
 
-              }
-
-            } else if(req.url === '/account/info') {
-              var paths = [
-                'website-guts/endpoint-mocks/accountInfo.json',
-                'website-guts/endpoint-mocks/allIosInfo.json'
-              ];
-
-              var randIndex = Math.round(Math.random());
-
-              res.writeHead(200, {'Content-Type': 'application/json'});
-              res.end( grunt.file.read(paths[randIndex]) );
-
-            } else if(req.url === '/experiment/load_recent?max_experiments=5') {
-
-              res.writeHead(200, {'Content-Type': 'application/json'});
-              res.end( grunt.file.read('website-guts/endpoint-mocks/lastFiveExperiments.json') );
-
-            } else if(req.url === '/account/signout') {
-
-                res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
-                res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end('{"success": "true"}');
-
-            } else if(req.url === '/api/jobs/details.json') {
-
-              res.writeHead(200, {'Content-Type': 'application/json'});
-              res.end( grunt.file.read('website-guts/endpoint-mocks/jobscoreData.json') );
-
-            } else{
-
-              return next();
+            }
 
           }
 
+        ]
+
+      }
+    },
+    livereload: {
+      options: {
+        open: {
+          target: 'http://0.0.0.0:9000/dist',
+          base: '.'
         }
-
-      ]
-
-    }
-  },
-  livereload: {
-    options: {
-      open: {
-        target: 'http://0.0.0.0:9000/dist',
-        base: '.'
+      }
+    },
+    resemble: {
+      options: {
+         port: '9000',
+         hostname: '0.0.0.0'
       }
     }
-  },
-  resemble: {
-    options: {
-       port: '9000',
-       hostname: '0.0.0.0'
-    }
-  }
+  };
 };
