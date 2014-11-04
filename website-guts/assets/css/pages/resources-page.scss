@@ -16,7 +16,7 @@ body.resources-page {
   .container {
     position: relative;
     &.header-cont {
-      padding-top: 24%;
+      padding-top: 13%;
     }
   }
 
@@ -27,6 +27,7 @@ body.resources-page {
     h1,
     .sub-head {
       display: block;
+      color: #004f83;
     }
   }
 
@@ -75,6 +76,7 @@ body.resources-page {
 
     .resources-image img {
       width: 100%;
+      min-height: 192px;
     }
 
     .resource-type {
@@ -132,12 +134,6 @@ body.resources-page {
     .resources-grid-elm {
       width: 32%;
     }
-    .page-title {
-      text-align: left;
-      h1 {
-        text-align: left!important;
-      }
-    }
   }
 }
 
@@ -145,6 +141,12 @@ body.resources-page {
   body.resources-page {
     .resources-grid-elm {
       width: 32%;
+    }
+    .page-title {
+      text-align: left;
+      h1 {
+        text-align: left!important;
+      }
     }
   }
 }
