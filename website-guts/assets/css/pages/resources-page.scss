@@ -9,7 +9,7 @@ body.resources-page {
   }
 
   #page-header {
-    background: image-url('resources-page/header.png') no-repeat center center;
+    background: #FFFFFF;
     background-size: cover;
     width: 100%;
   }
@@ -17,10 +17,11 @@ body.resources-page {
   .logo-cont {
     height: 79px;
   }
+
   .container {
     position: relative;
     &.header-cont {
-      padding-top: 13%;
+      padding-top: 28%;
     }
   }
 
@@ -32,6 +33,7 @@ body.resources-page {
     .sub-head {
       display: block;
       color: #004f83;
+      font-weight: 900;
     }
   }
 
@@ -129,6 +131,13 @@ body.resources-page {
     .resources-grid-elm {
       width: 49%;
     }
+
+    .container {
+      position: relative;
+      &.header-cont {
+        padding-top: 18%;
+      }
+    }
   }
 }
 
@@ -141,6 +150,13 @@ body.resources-page {
       text-align: left;
       h1 {
         text-align: left;
+      }
+    }
+
+    .container {
+      position: relative;
+      &.header-cont {
+        padding-top: 14%;
       }
     }
   }
