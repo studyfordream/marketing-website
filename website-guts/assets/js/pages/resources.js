@@ -38,6 +38,20 @@ window.optly.mrkt.filter = {
   },
 
   isotope: function() {
+    var heights = [];
+
+    $('.resources-grid-elm').each( function() {
+      heights.push( $(this).innerHeight() );
+    });
+
+    var maxHeight = Math.max.apply(Math, heights);
+
+    $('.resources-grid-elm').each( function() {
+      $(this).height(maxHeight);
+    });
+
+    $('.resources-grid').css('min-height', maxHeight);
+
     $isoContainer = $('.resources-grid').isotope({
       itemSelector: '.resources-grid-elm',
       layoutMode: 'fitRows'

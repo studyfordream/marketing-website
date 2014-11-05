@@ -4,7 +4,7 @@ seo_title: Resources
 visible_title: "Resources"
 no_container: true
 sub_head: Everything you need to learn about Optimization
-page_script: resources-page.js
+page_script: resources.js
 body_class:
 - resources-page
 script_dependencies:
@@ -16,13 +16,15 @@ script_dependencies:
     <div class="resources-grid">
       {{#resources}}
         {{#each pages}}
-          <div class="resources-grid-elm {{#toLowerCase data.type}}{{/toLowerCase}}">
-            <div class="resources-image">
-              <a href="{{data.url}}"><img src="{{data.photo}}"></a>
+          <a href="{{data.url}}">
+            <div class="resources-grid-elm {{#toLowerCase data.type}}{{/toLowerCase}}">
+              <div class="resources-image">
+                <img src="{{data.photo}}">
+              </div>
+              <div class="resources-title">{{data.title}}</div>
+              <div class="resource-type">{{data.type}}</div>
             </div>
-            <div class="resources-title"><a href="{{data.url}}">{{data.title}}</a></div>
-            <div class="resource-type">{{data.type}}</div>
-          </div>
+          </a>
         {{/each}}
       {{/resources}}
     </div><!-- /.resources-grid -->

@@ -1,5 +1,5 @@
 filter:
-  title: "Filter By Content"
+  dropdown_label: "Resource type"
   no_results: "No results found"
   filter_options:
   - "All"

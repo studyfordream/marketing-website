@@ -6,7 +6,7 @@ layout_body_class: false
 <div id="main">
   <div id="page-header">
     <div class="container header-cont">
-      <div class="page-title">
+      <div id="resources-page-title">
         <h1>{{page.visible_title}}</h1>
         <div class="sub-head">{{page.sub_head}}</div>
       </div><!---->
@@ -16,7 +16,7 @@ layout_body_class: false
   <div id="page-content">
     {{#unless page.no_container}}<div class="container">{{/unless}}
       <div class="pill container">
-        <div class="heading">{{resources-page.filter.title}}:</div>
+        <div class="heading">{{resources-page.filter.dropdown_label}}:</div>
         <div class="dropdown-cont">
           <div class="selected-option">{{resources-page.filter.filter_options.[0]}} &#9662;</div>
           <ul>
