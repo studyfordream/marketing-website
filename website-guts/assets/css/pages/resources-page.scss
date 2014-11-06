@@ -8,9 +8,8 @@ body.resources-page {
     background-color: #f4f4f4;
   }
 
-  #page-header {
+  .page-header {
     background: #FFFFFF;
-    background-size: cover;
     width: 100%;
   }
 
@@ -156,7 +155,7 @@ body.resources-page {
     .container {
       position: relative;
       &.header-cont {
-        padding-top: 14%;
+        padding-top: 9.4%;
       }
     }
   }
