@@ -1,0 +1,35 @@
+---
+layout: resources.hbs
+seo_title: Resources
+visible_title: "Resources"
+no_container: true
+sub_head: Everything you need to learn about Experience Optimization
+page_script: resources.js
+body_class:
+- resources-page
+script_dependencies:
+- "//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"
+---
+
+<div class="container">
+  <div class="row">
+    <div class="resources-grid">
+      {{#resources}}
+        {{#each pages}}
+          <a href="{{data.url}}">
+            <div class="resources-grid-elm {{#toLowerCase data.type}}{{/toLowerCase}}">
+              <div class="resources-image">
+                <img src="{{data.photo}}">
+              </div>
+              <div class="resources-title">{{data.title}}</div>
+              <div class="resource-type">{{data.type}}</div>
+            </div>
+          </a>
+        {{/each}}
+      {{/resources}}
+    </div><!-- /.resources-grid -->
+    <div class="integrations-message">
+      <p>{{{resources-page.filter.no_results}}}</p>
+    </div>
+  </div><!-- /.row-->
+</div><!-- /.container-->

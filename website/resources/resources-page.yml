@@ -1,0 +1,11 @@
+filter:
+  dropdown_label: "Resource type"
+  no_results: "No results found"
+  filter_options:
+  - "All"
+  - "eBook"
+  - "Whitepaper"
+  - "Webinar"
+  - "Infographic"
+  - "Video"
+
