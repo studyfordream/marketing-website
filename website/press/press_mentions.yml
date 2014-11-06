@@ -1,5 +1,65 @@
 items:
 -
+logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/BI.jpeg"
+link_to_story: "http://www.businessinsider.com/what-apm-graduates-are-doing-now-2014-10?op=1"
+story_date: "2014-10-28"
+story_title: "What Some of Google’s Most Elite, Entrepreneurial Employees Are Doing Now"
+-
+logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/inc.png"
+link_to_story: "http://www.inc.com/matt-ehrlichman/9-essential-tools-for-building-your-startup.html"
+story_date: "2014-10-28"
+story_title: "9 Essential Tools for Building Your Startup"
+-
+logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/digiday.jpg"
+link_to_story: "http://digiday.com/publishers/publishers-using-ab-testing/"
+story_date: "2014-10-21"
+story_title: "How A/B testing became publishers’ go-to traffic builder"
+-
+logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/inc.png"
+link_to_story: "http://www.inc.com/murray-newlands/7-content-marketing-tools-for-growth-hackers.html"
+story_date: "2014-10-16"
+story_title: "7 Tools to Hack Your Growth (That Means Get Big, Fast)"
+-
+logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/website-magazine-logo.jpeg"
+link_to_story: "http://www.websitemagazine.com/content/blogs/posts/pages/10-tools-for-better-website-testing.aspx"
+story_date: "2014-10-15"
+story_title: "10 Tools for Better Website Testing"
+-
+logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/ny%20observer%20logo%20.html"
+link_to_story: "http://observer.com/2014/10/disrupting-how-bestsellers-are-made-apply-startup-style-growth-hacking-to-publishing/"
+story_date: "2014-10-14"
+story_title: "Disrupting How Bestsellers Are Made: Apply Startup-style Growth Hacking To Publishing”
+-
+logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/forbes.svg"
+link_to_story: "http://www.forbes.com/sites/yec/2014/10/14/10-reasons-for-nonprofits-to-move-to-a-revenue-driven-model/?ss=forbeswoman"
+story_date: "2014-10-14"
+story_title: "10 Reasons For Nonprofits To Move To A Revenue-Driven Model"
+-
+logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/website-magazine-logo.jpeg"
+link_to_story: "http://www.websitemagazine.com/content/blogs/ecommerce/archive/2014/10/03/7-inexpensive-tools-to-manage-your-e-commerce-business-better.aspx"
+story_date: "2014-10-13"
+story_title: "7 Inexpensive Tools to Manage Your E-Commerce Business Better"
+-
+logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/inc.png"
+link_to_story: "http://www.inc.com/tony-dicostanzo/3-keys-to-a-successful-business-to-business-company.html"
+story_date: "2014-10-01"
+story_title: "3 Keys to a Successful Business-to-Business Company"
+-
+logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/venturebeatlogo.png"
+link_to_story: "http://venturebeat.com/2014/10/01/marketing-tech-50b-in-investment-but-top-tools-have-only-4-1-penetration/"
+story_date: "2014-10-01"
+story_title: "Marketing tech: $50B in investment but top tools have only 4.1% penetration"
+-
+logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/sfbusinesstimes.jpg"
+link_to_story: "http://www.bizjournals.com/sanfrancisco/blog/2014/09/full-circle-fund-asks-startups-pledge-1-percent.html?page=all"
+story_date: "2014-09-11"
+story_title: "Full Circle Fund asks startups to pledge 1 percent of equity, employees' time to philanthropy"
+-
+logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/fox-business-logo.jpg"
+link_to_story: "http://smallbusiness.foxbusiness.com/legal-hr/2014/09/08/3-surprising-interview-questions-should-ask-every-potential-employee/"
+story_date: "2014-09-08"
+story_title: "3 Surprising Interview Questions You Should Ask Every Potential Employee"
+-
  logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/bbc.png"
  link_to_story: "http://www.bbc.com/future/story/20140801-hidden-tricks-that-make-you-click"
  story_date: "2014-8-1"
