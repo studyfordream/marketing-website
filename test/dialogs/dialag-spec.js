@@ -1,13 +1,23 @@
 var path = require('path');
 var Nightmare = require('nightmare');
-var should = require('chai').should();
 var screenshotPath = path.join(process.cwd(), 'screenshots', '/');
 var phantomPath = require('phantomjs').path;
 
-describe('testing signin, create account, and retrieve password', function() {
-  this.timeout(30000);
+  var consoleReporter = new jasmine.ConsoleReporter({
+    showColors: true,
+    print: function() {
+      console.log.apply(console, arguments)
+    }
+  });
+
+  jasmine.getEnv().addReporter(consoleReporter);
+  jasmine.getEnv().defaultTimeoutInterval = 30000;
+
+
   describe('filling out the signin form', function() {
+
     it('redirects to the dashboard', function(done) {
+      debugger;
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
         .goto('http://0.0.0.0:9000/dist')
@@ -21,7 +31,8 @@ describe('testing signin, create account, and retrieve password', function() {
         .wait(3000)
         .screenshot(screenshotPath)
         .url(function(url) {
-          url.should.eq('http://0.0.0.0:9000/dashboard');
+          debugger;
+          expect(url).toBe('http://0.0.0.0:9000/dashboard');
           done();
         })
         .run(function(err, nightmare){
@@ -33,6 +44,20 @@ describe('testing signin, create account, and retrieve password', function() {
         });
     });
   }); //end signin test
+
+  describe('very async!!!', function() {
+
+    jasmine.getEnv().defaultTimeoutInterval = 30000;
+
+    var one = 1;
+    it('is ver asyncy but succeeds', function(done) {
+
+      setTimeout(function() {
+        expect(one).toBe(1);
+        done();
+      }, 10000);
+    });
+  });
   
   describe('filling out the create account form', function() {
     it('shows the logged in utility nav', function(done) {
@@ -46,7 +71,7 @@ describe('testing signin, create account, and retrieve password', function() {
         .click('#signup-dialog button[type="submit"]')
         .wait(3000)
         .exists('#signed-in-utility',function(navExists) {
-          navExists.should.be.true;
+          expect(navExists).toBe(true);
           done();
         })
         .run(function(err, nightmare){
@@ -72,7 +97,7 @@ describe('testing signin, create account, and retrieve password', function() {
         .evaluate(function() {
           return document.querySelector('#reset-password-dialog .options p').innerHTML;
         }, function(optionsElmText) {
-            optionsElmText.should.eq('Email sent.');
+            expect(optionsElmText).toBe('Email sent.');
             done();
         })
         .run(function(err, nightmare){
@@ -84,5 +109,3 @@ describe('testing signin, create account, and retrieve password', function() {
         });
     });
   }); //end retrieve password test
-
-});

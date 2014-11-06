@@ -37,7 +37,8 @@ module.exports = function(grunt) {
     replace: 'grunt-text-replace',
     handlebars: 'grunt-contrib-handlebars',
     resemble: 'grunt-resemble-cli',
-    mochaTest: 'grunt-mocha-test'
+    mochaTest: 'grunt-mocha-test',
+    jasmine_node: 'grunt-jasmine-node'
   });
 
   //get configs
@@ -849,6 +850,9 @@ module.exports = function(grunt) {
       }
     },
     gitinfo: {},
+    options: {
+      colors: true
+    },
     mochaTest: {
       testCoffee: {
         options: {
@@ -861,9 +865,35 @@ module.exports = function(grunt) {
         options: {
           reporter: 'spec'
         },
-        src: ['__test__/**/index.js']
+        src: ['__test__/index.js']
+      },
+      pureMocha: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['__test__/pureMocha/index.js']
+      },
+      'travis-cov': {
+        options: {
+          reporter: 'travis-cov'
+        },
+        src: ['__test__/**/*.{js, coffee}']
       }
-    }
+    },
+    jasmine_node: {
+        options: {
+          showColors: true,
+          includeStackTrace: false,
+          projectRoot:'', 
+          forceExit: false,
+          matchall: true,
+          coffee: false,
+          growl: false,
+          asyncTimeout: 30000
+        },
+        dialogs: ['test/dialogs/'],
+        test: ['test/pure/']
+      }
   });
 
   grunt.registerTask('staging-deploy', [
@@ -932,6 +962,7 @@ module.exports = function(grunt) {
     'sass:prod',
     'autoprefixer',
     'copy',
+    'jasmine_node',
     'uglify',
     'filerev',
     'userevvd',

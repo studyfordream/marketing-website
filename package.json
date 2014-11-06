@@ -51,11 +51,17 @@
     "jit-grunt": "0.7.0",
     "load-grunt-tasks": "0.6.0",
     "mocha": "2.0.1",
-    "nightmare": "^1.6.0",
+    "nightmare": "git+ssh://git@github.com:dtothefp/nightmare.git",
     "optimizely-marked": "0.0.4",
-    "phantomjs": "^1.9.12",
+    "phantomjs": "~1.9.12",
     "time-grunt": "0.3.2",
-    "uglify-js": "2.4.15"
+    "uglify-js": "2.4.15",
+    "grunt-jasmine-node": "git+ssh://git@github.com:dtothefp/grunt-jasmine-node.git"
+  },
+  "config": {
+    "travis-cov": {
+      "threshold": 100
+    }
   },
   "licenses": [
     {
