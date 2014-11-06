@@ -20,7 +20,7 @@ body.resources-page {
   .container {
     position: relative;
     &.header-cont {
-      padding-top: 28%;
+      padding-top: 38%;
     }
   }
 
@@ -32,7 +32,9 @@ body.resources-page {
     .sub-head {
       display: block;
       color: #004f83;
-      font-weight: 900;
+      font-weight: 100;
+      margin-bottom: 0;
+      margin-top: 0;
     }
   }
 
@@ -131,10 +133,20 @@ body.resources-page {
       width: 49%;
     }
 
+    #resources-page-title {
+      text-align: left;
+      h1,
+      .sub-head {
+        text-align: left;
+        color: #004f83;
+        margin-bottom: 0;
+        margin-left: 2%;
+      }
+    }
     .container {
       position: relative;
       &.header-cont {
-        padding-top: 18%;
+        padding-top: 12%;
       }
     }
   }
@@ -145,10 +157,12 @@ body.resources-page {
     .resources-grid-elm {
       width: 32%;
     }
+
     #resources-page-title {
       text-align: left;
-      h1 {
-        text-align: left;
+      h1,
+      .sub-head {
+        margin-left: 0;
       }
     }
 
