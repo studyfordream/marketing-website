@@ -11,13 +11,10 @@ var phantomPath = require('phantomjs').path;
   });
 
   jasmine.getEnv().addReporter(consoleReporter);
-  jasmine.getEnv().defaultTimeoutInterval = 30000;
-
-
+  debugger;
   describe('filling out the signin form', function() {
 
     it('redirects to the dashboard', function(done) {
-      debugger;
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
         .goto('http://0.0.0.0:9000/dist')
@@ -31,7 +28,6 @@ var phantomPath = require('phantomjs').path;
         .wait(3000)
         .screenshot(screenshotPath)
         .url(function(url) {
-          debugger;
           expect(url).toBe('http://0.0.0.0:9000/dashboard');
           done();
         })
@@ -46,8 +42,6 @@ var phantomPath = require('phantomjs').path;
   }); //end signin test
 
   describe('very async!!!', function() {
-
-    jasmine.getEnv().defaultTimeoutInterval = 30000;
 
     var one = 1;
     it('is ver asyncy but succeeds', function(done) {
