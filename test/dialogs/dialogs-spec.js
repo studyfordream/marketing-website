@@ -2,104 +2,74 @@ var path = require('path');
 var Nightmare = require('nightmare');
 var screenshotPath = path.join(process.cwd(), 'screenshots', '/');
 var phantomPath = require('phantomjs').path;
+var config = require('../config');
+var testPath = config.basePath;
 
-  var consoleReporter = new jasmine.ConsoleReporter({
-    showColors: true,
-    print: function() {
-      console.log.apply(console, arguments)
-    }
-  });
+describe('testing the signin, create account, retrieve password dialogs', function() {
 
-  jasmine.getEnv().addReporter(consoleReporter);
-  debugger;
   describe('filling out the signin form', function() {
 
     it('redirects to the dashboard', function(done) {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
-        .goto('http://0.0.0.0:9000/dist')
+        .goto(testPath)
         .click('[data-modal-click="signin"]')
         .wait('#signin-dialog')
         .screenshot(screenshotPath)
-        .type('#signin-dialog input[name="email"]', 'dfp@optimizely.com')
-        .type('#signin-dialog input[name="password"]', 'EatBurritos2013')
+        .type('#signin-dialog input[name="email"]', config.email)
+        .type('#signin-dialog input[name="password"]', config.password)
         .screenshot(screenshotPath)
         .click('#signin-dialog button[type="submit"]')
         .wait(3000)
         .screenshot(screenshotPath)
         .url(function(url) {
           expect(url).toBe('http://0.0.0.0:9000/dashboard');
-          done();
         })
-        .run(function(err, nightmare){
-          if(err) {
-            console.log('error', err);
-          } else {
-            console.log('Done.');
-          }
-        });
+        .run(done);
     });
   }); //end signin test
 
-  describe('very async!!!', function() {
-
-    var one = 1;
-    it('is ver asyncy but succeeds', function(done) {
-
-      setTimeout(function() {
-        expect(one).toBe(1);
-        done();
-      }, 10000);
-    });
-  });
-  
   describe('filling out the create account form', function() {
     it('shows the logged in utility nav', function(done) {
       new Nightmare({phantomPath: phantomPath})
-        .goto('http://0.0.0.0:9000/dist')
+        .goto(testPath)
         .click('[data-modal-click="signup"]')
         .wait('#signup-dialog')
-        .type('#signup-dialog input[name="email"]', 'dfp@optimizely.com')
-        .type('#signup-dialog input[name="password1"]', 'EatBurritos2013')
-        .type('#signup-dialog input[name="password2"]', 'EatBurritos2013')
+        .type('#signup-dialog input[name="email"]', config.email)
+        .type('#signup-dialog input[name="password1"]', config.password)
+        .type('#signup-dialog input[name="password2"]', config.password)
         .click('#signup-dialog button[type="submit"]')
         .wait(3000)
-        .exists('#signed-in-utility',function(navExists) {
-          expect(navExists).toBe(true);
-          done();
+        .evaluate(function() {
+          return {
+            signedIn: document.body.classList.contains('signed-in'),
+            navEmail: document.querySelector('#my-account-menu .customer-email').innerHTML
+          };
+        }, function(results) {
+            expect(results.signedIn).toBe(true);
+            expect(results.navEmail.match('@').length).not.toBe(0);
         })
-        .run(function(err, nightmare){
-          if(err) {
-            console.log('error', err);
-          } else {
-            console.log('Done.');
-          }
-        });
+        .run(done);
     });
   }); //end create account test
   
   describe('filling out the retrieve password form', function() {
     it('displays the email sent success message', function(done) {
       new Nightmare({phantomPath: phantomPath})
-        .goto('http://0.0.0.0:9000/dist')
+        .goto(testPath)
         .click('[data-modal-click="signin"]')
         .click('[data-modal-click="reset-password"]')
         .wait('#reset-password-dialog')
-        .type('#reset-password-dialog input[name="email"]', 'david.fox-powell@optimizely.com')
+        .type('#reset-password-dialog input[name="email"]', config.retrievePasswordEmail)
         .click('#reset-password-dialog button[type="submit"]')
         .wait(3000)
         .evaluate(function() {
           return document.querySelector('#reset-password-dialog .options p').innerHTML;
         }, function(optionsElmText) {
             expect(optionsElmText).toBe('Email sent.');
-            done();
         })
-        .run(function(err, nightmare){
-          if(err) {
-            console.log('error', err);
-          } else {
-            console.log('Done.');
-          }
-        });
+        .run(done);
     });
   }); //end retrieve password test
+
+});

@@ -345,6 +345,13 @@ module.exports = function(grunt) {
            port: '9000',
            hostname: '0.0.0.0'
         }
+      },
+      build: {
+        options: {
+           port: '9000',
+           hostname: '0.0.0.0',
+           base: 'dist'
+        }
       }
     },
     assemble: {
@@ -850,50 +857,29 @@ module.exports = function(grunt) {
       }
     },
     gitinfo: {},
-    options: {
-      colors: true
-    },
-    mochaTest: {
-      testCoffee: {
-        options: {
-          reporter: 'spec',
-          require: 'coffee-script/register'
-        },
-        src: ['__test__/**/*.coffee']
-      },
-      testJs: {
-        options: {
-          reporter: 'spec'
-        },
-        src: ['__test__/index.js']
-      },
-      pureMocha: {
-        options: {
-          reporter: 'spec'
-        },
-        src: ['__test__/pureMocha/index.js']
-      },
-      'travis-cov': {
-        options: {
-          reporter: 'travis-cov'
-        },
-        src: ['__test__/**/*.{js, coffee}']
-      }
-    },
     jasmine_node: {
-        options: {
-          showColors: true,
-          includeStackTrace: false,
-          projectRoot:'', 
-          forceExit: false,
-          matchall: true,
-          coffee: false,
-          growl: false,
-          asyncTimeout: 30000
-        },
-        dialogs: ['test/dialogs/'],
-        test: ['test/pure/']
+      options: {
+        showColors: true,
+        includeStackTrace: false,
+        projectRoot:'', 
+        forceExit: false,
+        matchall: false,
+        coffee: false,
+        growl: false,
+        asyncTimeout: 30000,
+        verbose: false,
+        consoleReporter: true,
+        globals: {
+          linkPath: '<%= grunt.config.get("link_path") %>'
+        }
+      },
+      dialogs: {
+        src: ['test/dialogs/**/*.js']
+      },
+      'free-trial': {
+        src: ['test/free-trial/**/*']
       }
+    }
   });
 
   grunt.registerTask('staging-deploy', [
@@ -962,10 +948,11 @@ module.exports = function(grunt) {
     'sass:prod',
     'autoprefixer',
     'copy',
-    'jasmine_node',
     'uglify',
     'filerev',
     'userevvd',
+    'connect:build',
+    'jasmine_node',
     'clean:postBuild'
   ]);
 
@@ -984,6 +971,7 @@ module.exports = function(grunt) {
     'copy',
     'clean:postBuild',
     'connect:resemble',
+    'jasmine_node',
     'resemble'
   ]);
 
