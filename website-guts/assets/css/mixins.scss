@@ -21,6 +21,13 @@
   height: 100%;
 }
 
+@mixin pos-hor-vrt($top: 50%, $left: 50%, $tx: -50%, $ty: -50%) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate($tx, $ty);
+}
+
 @mixin z-index-list($properties, $start: 0, $increment: 1) {
   @for $i from 1 through length($properties) {
     #{nth($properties, $i)} {

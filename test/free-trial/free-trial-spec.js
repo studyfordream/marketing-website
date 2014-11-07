@@ -27,13 +27,17 @@ describe('testing form on the free trial page', function() {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 100)
         .goto(freeTrialPath)
+        // TODO: causing phantom security warning
+        //.inject('js', path.join(process.cwd(), '/', 'test/', 'phantomGlobal.js'))
         .type('#seo-form input[name="url-input"]', 'http://google.com')
         .type('#seo-form input[name="name"]', 'DFP')
         .type('#seo-form input[name="email"]', config.email)
         .click('#seo-form button[type="submit"]')
-        .wait(3000)
-        .url(function(url) {
-          expect(/edit/.test(url)).toBe(true);
+        .wait('body.free-trial-submit-success')
+        .evaluate(function() {
+          return document.body.classList.contains('free-trial-submit-success');
+        }, function(bodySubmitSuccess) {
+          expect(bodySubmitSuccess).toBeTruthy();
         })
         .run(done)
     });

@@ -77,10 +77,14 @@ new Oform({
       });
       w.analytics.page('/account/create/success');
       w.analytics.page('/free-trial/success');
-      /* end legacy reporting */
+      
+      //for phantom tests
+      document.body.classList.add('free-trial-submit-success');
+
       setTimeout(function(){
         w.location = 'https://www.optimizely.com/edit?url=' + encodeURIComponent(d.getElementById('url').value);
       }, 1000);
+
     } else {
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
