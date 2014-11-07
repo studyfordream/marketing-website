@@ -3,7 +3,7 @@ w.optly.mrkt.index = {};
 w.optly.mrkt.index.testItOut = function(editURL){
 
   //send user to the editor
-  w.location = '/edit?url=' + encodeURIComponent(editURL);
+  w.location = window.optly.mrkt.utils.param('/edit', { url: encodeURIComponent(editURL), anonymousWall: false });
 
   w.analytics.track('homepage test it out submitted', {
 
