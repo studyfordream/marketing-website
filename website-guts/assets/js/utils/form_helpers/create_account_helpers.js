@@ -174,6 +174,10 @@ var createAccountHelper = {
     if(e.target.status !== 200) {
       this.processingRemove({callee: 'load'});
       this.showOptionsError(resp.error);
+      w.analytics.track('/account/create', {
+        category: 'api error',
+        label: 'status not 200: ' + e.target.status
+      });
     } else {
       try {
         resp = JSON.parse(e.target.responseText);
@@ -210,15 +214,18 @@ var createAccountHelper = {
         });
 
         w.analytics.page('/account/create/success');
+        w.analytics.track('/account/create/success');
         w.analytics.track('account created', {
           category: 'account',
           label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
         });
+
         w.analytics.page('/account/signin');
         w.analytics.track('account sign-in', {
           category: 'account',
           label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
         });
+
         w.analytics.page('/customer/signedin');
         w.analytics.track('customer sign in', {
           category: 'account',
