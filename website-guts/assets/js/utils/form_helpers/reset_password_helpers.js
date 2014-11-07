@@ -70,10 +70,10 @@ var resetPasswordHelper = {
 
       if(emailInput.value.length === 0) {
         errorState = true;
-        this.customErrorMessage(emailErrorElm, 'This field is required.');
+        this.customErrorMessage(emailErrorElm, window.optly.tr('This field is required.'));
       } else if( !emailRegEx.test(emailInput.value) ) {
         errorState = true;
-        this.customErrorMessage(emailErrorElm, 'Please enter a valid email address.');
+        this.customErrorMessage(emailErrorElm, window.optly.tr('Please enter a valid email address.'));
       }
 
       if(errorState !== lastErrorState) {

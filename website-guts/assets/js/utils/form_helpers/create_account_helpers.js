@@ -72,7 +72,7 @@ var createAccountHelper = {
 
     if ( password2.value.length > 0 && password1.value !== password2.value ) {
       this.addErrors([password2, password2ErrorElm]);
-      this.customErrorMessage(password2ErrorElm, 'Please enter the same value as above');
+      this.customErrorMessage(password2ErrorElm, window.optly.tr('Please enter the same value as above'));
     } 
     //remove local error classes but do not remove body error class just in case
     else {

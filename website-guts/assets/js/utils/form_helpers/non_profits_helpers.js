@@ -40,7 +40,7 @@ var orgForm = {
           if(!formError) {
             formError = true;
             this.formErrorBodyClass(formError);
-            this.showOptionsError('Please Enter Required Fields');
+            this.showOptionsError(window.optly.tr('Please Enter Required Fields'));
           }
         }
       }
