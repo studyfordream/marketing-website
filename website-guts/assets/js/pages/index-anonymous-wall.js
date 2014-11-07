@@ -39,6 +39,11 @@ $('#test-it-out-form').submit(function(e){
 
 });
 
+$('[data-modal-btn="close"]').on('click', function() {
+  var inputVal = $('#test-it-out-form input[type="text"]').val();
+  w.optly.mrkt.index.testItOut(inputVal);
+});
+
 var signupDialogHelperInst = window.optly.mrkt.form.createAccount({formId: 'anonymous-wall'});
 
 var signupForm = new Oform({
