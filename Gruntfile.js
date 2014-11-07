@@ -363,6 +363,13 @@ module.exports = function(grunt) {
            hostname: '0.0.0.0',
            base: 'dist'
         }
+      },
+      staging: {
+        options: {
+           port: '9000',
+           hostname: '0.0.0.0',
+           base: ''
+        }
       }
     },
     assemble: {
@@ -912,11 +919,6 @@ module.exports = function(grunt) {
       }
     }
   });
-
-  grunt.registerTask('j-test', [
-    'config:dev',
-    'jasmine_node:free-trial'
-  ]);
 
   grunt.registerTask('staging-deploy', [
     'gitinfo',
