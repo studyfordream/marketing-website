@@ -3,6 +3,8 @@ module.exports = {
     files: [
       '<%= config.content %>/**/*.{hbs,yml}',
       '!<%= config.content %>/partners/**/*.{hbs,yml}',
+      '!<%= config.content %>/resources/resources-list/**/*.{hbs,yml}',
+      '!<%= config.content %>/resources/index.hbs',
       '<%= config.guts %>/templates/**/*.hbs',
       '!<%= config.guts %>/templates/**/*_compiled.hbs',
       '!<%= config.guts %>/templates/client/**/*.hbs',
@@ -19,6 +21,16 @@ module.exports = {
       '!<%= config.guts %>/templates/client/**/*.hbs'
     ],
     tasks: ['config:dev', 'assemble:partners']
+  },
+  assembleResources: {
+    files: [
+      '<%= config.content %>/resources/resources-list/**/*.{hbs,yml}',
+      '<%= config.content %>/resources/*.{hbs,yml}',
+      '<%= config.guts %>/templates/**/*.hbs',
+      '!<%= config.guts %>/templates/**/*_compiled.hbs',
+      '!<%= config.guts %>/templates/client/**/*.hbs'
+    ],
+    tasks: ['config:dev', 'assemble:resources']
   },
   sass: {
     files: '<%= config.guts %>/assets/css/**/*.scss',

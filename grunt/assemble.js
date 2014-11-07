@@ -29,6 +29,26 @@ module.exports = {
       }
     ]
   },
+  resources: {
+    options: {
+      collections: [
+        {
+          name: 'resources',
+          inflection: 'resource',
+          sortby: 'priority',
+          sortorder: 'descending'
+        }
+      ]
+    },
+    files: [
+      {
+        src: ['resources/resources-list/**/*.hbs', 'resources/index.hbs'],
+        dest: '<%= config.dist %>/',
+        cwd: '<%= config.content %>/',
+        expand: true
+      }
+    ]
+  },
   partners: {
     options: {
       collections: [
@@ -58,7 +78,7 @@ module.exports = {
   pages: {
     files: [
       {
-        src: ['**/*.hbs', '!partners/**/*.hbs'],
+        src: ['**/*.hbs', '!partners/**/*.hbs', '!resources/resources-list/**/*.hbs', '!resources/index.hbs'],
         dest: '<%= config.dist %>/',
         cwd: '<%= config.content %>/',
         expand: true

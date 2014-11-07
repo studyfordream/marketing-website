@@ -64,7 +64,11 @@ $(function() {
   (function() {
     var keyupLog = 0;
     $textInput.keyup(function() {
+      var DEFAULT_BTN_TXT = 'Book it now!';
       var inputVal = $textInput.val();
+      if(!inputVal.length) {
+        inputVal = DEFAULT_BTN_TXT;
+      }
       $textDisplay.text(inputVal);
       if (keyupLog < 10) {
         logSegment('input keyup', 'Mobile landing page', 'text change', inputVal);
