@@ -196,7 +196,9 @@ var createAccountHelper = {
           LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
           ExperimentsCreated: '1',
           FirstName: resp.first_name,
-          LastName: resp.last_name
+          LastName: resp.last_name,
+          otm_Medium__c: w.optly.mrkt.source.otm.medium,
+          utm_Medium__c: w.optly.mrkt.source.utm.medium
         },
         { integrations: { Marketo: true } });
 
