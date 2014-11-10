@@ -10,6 +10,7 @@ layout_modals:
 <html class="no-js">
     <head>
         <meta charset="utf-8">
+        <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>
         {{#if environmentVariables.production}}
         <!-- Chartbeat -->
         <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
@@ -29,7 +30,6 @@ layout_modals:
             window.analytics.page();
         </script>
         <script>{{#scriptinjector '../assets/js/services/user_state.js' true}}{{/scriptinjector}}</script>
-        <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {{#if environmentVariables.staging}}<meta name="robots" content="noindex">{{/if}}
         <title>{{#if page.seo_title}}{{page.seo_title}}{{else}}Optimizely: A/B testing software you'll actually use{{/if}}</title>

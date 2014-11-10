@@ -166,6 +166,81 @@ var createAccountHelper = {
       window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
     }
 
+  },
+
+  loadAnonymousWall: function(e) {
+    var resp;
+
+    if(e.target.status !== 200) {
+      this.processingRemove({callee: 'load'});
+      this.showOptionsError(resp.error);
+      w.analytics.track('/account/create', {
+        category: 'api error',
+        label: 'status not 200: ' + e.target.status
+      });
+    } else {
+      try {
+        resp = JSON.parse(e.target.responseText);
+      } catch (err) {
+        w.analytics.track('/account/create', {
+          category: 'api error',
+          label: err
+        });
+      }
+
+      if (resp) {
+        var plan = resp.plan ? resp.plan : 'null';
+
+        w.analytics.identify(resp.email, {
+          Last_Experiment_URL__c: $('#url-input').val(),
+          LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
+          ExperimentsCreated: '1',
+          FirstName: resp.first_name,
+          LastName: resp.last_name,
+          otm_Medium__c: w.optly.mrkt.source.otm.medium,
+          utm_Medium__c: w.optly.mrkt.source.utm.medium
+        },
+        { integrations: { Marketo: true } });
+
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/account/create/success'
+        });
+        w.analytics.track('/event/account/create/success', {}, { Marketo: true });
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/customer/signedin'
+        });
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/account/signin'
+        });
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/plan/' + plan
+        });
+
+        w.analytics.page('/account/create/success');
+        w.analytics.track('/account/create/success');
+        w.analytics.track('account created', {
+          category: 'account',
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+        });
+
+        w.analytics.page('/account/signin');
+        w.analytics.track('account sign-in', {
+          category: 'account',
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+        });
+
+        w.analytics.page('/customer/signedin');
+        w.analytics.track('customer sign in', {
+          category: 'account',
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+        });
+        w.analytics.page('/plan/' + plan);
+      }
+    }
+    window.setTimeout(function() {
+      var inputVal = $('#test-it-out-form input[type="text"]').val();
+      w.optly.mrkt.index.testItOut( inputVal );
+    }, 500);
   }
 
 };
