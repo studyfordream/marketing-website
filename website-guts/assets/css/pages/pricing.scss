@@ -1,0 +1,79 @@
+.plan-box-header {
+  background: #fbfbfb;
+  text-transform: uppercase;
+  color: $dark-blue;
+  font-size: 1.1em;
+  font-weight: 500;
+  font-family: $body-font-family;
+  padding: 10px 0;
+  border-bottom: 2px solid #d7d7d7;
+  margin: 0;
+}
+.plan-box-cont {
+  background: #fff;
+  border: 2px solid #d7d7d7;
+  border-radius: 6px;
+  margin-bottom: 40px;
+  &.highlight {
+    border: 2px solid $blue;
+    h2 {
+      background: $blue;
+      color: #fff;
+      border-bottom: 2px solid $blue;
+    }
+  }
+}
+@media only screen and (min-width: $desktop-min-width){
+    .plan-box-header {text-align: center;}
+}
+
+body.pricing {
+
+  #page-header-gradient {background-color: #e6edf0;}
+  section.blue-bg {
+    background: #e6edf0;
+  }
+  .plan-box-content, .feature-overview {
+    padding: 15px 30px 15px 30px
+  }
+  .feature-category h3 {
+    @extend .plan-box-header;
+    font-weight: 100;
+    border-top: 2px solid #d7d7d7;
+    padding: 5px 0;
+    font-size: 1em;
+  }
+  div.plan-box {
+    .cta {
+      border-top: 1px solid #d7d7d7;
+      text-align: center;
+      padding: 20px 0;
+      background: #fbfbfb;
+      p {
+        margin: 0;
+      }
+      .cta-headline {
+        font-size: 2.5em;
+        margin: 0;
+        padding: 0;
+      }
+      a.button {
+        margin-top: 15px;
+      }
+    }
+  }
+  #full-feature-list-btn {
+    margin: auto;
+    display: table;
+  }
+  @media only screen and (min-width: $desktop-min-width){
+    .pricing-overview {
+      display: flex;
+      .columns {
+        align-self: flex-end;
+      }
+    }
+  }
+
+
+}
