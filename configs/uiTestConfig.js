@@ -9,6 +9,9 @@ module.exports = function(options){
     phantomPath: require('phantomjs').path,
     screenshot: function(opts) {
       return options.dirname + '/screenshots/' + opts.imgName + '.jpg'
+    },
+    formSuccessElm: function(opts) {
+      return 'body[data-form-success="' + opts.formAction + '"]';
     }
   }
 };

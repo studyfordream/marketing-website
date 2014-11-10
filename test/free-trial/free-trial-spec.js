@@ -38,11 +38,11 @@ describe('testing form on the free trial page', function() {
         .click('#seo-form button[type="submit"]')
         .wait(300)
         .screenshot(config.screenshot({ imgName: 'free-trial-success-processing' }))
-        .wait('body.free-trial-submit-success')
+        .wait(config.formSuccessElm({formAction: '/account/free_trial_create'}))
         .evaluate(function() {
-          return document.body.classList.contains('free-trial-submit-success');
+          return document.body.dataset.formSuccess;
         }, function(bodySubmitSuccess) {
-          expect(bodySubmitSuccess).toBeTruthy();
+          expect(bodySubmitSuccess).toBe('/account/free_trial_create');
         })
         .run(done)
     });

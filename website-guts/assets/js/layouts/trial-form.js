@@ -79,7 +79,7 @@ new Oform({
       w.analytics.page('/free-trial/success');
       
       //for phantom tests
-      document.body.classList.add('free-trial-submit-success');
+      document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
 
       setTimeout(function(){
         w.location = 'https://www.optimizely.com/edit?url=' + encodeURIComponent(d.getElementById('url').value);

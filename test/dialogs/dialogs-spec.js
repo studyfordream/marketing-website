@@ -20,9 +20,11 @@ describe('testing the signin, create account, retrieve password dialogs', functi
         .click('#signin-dialog button[type="submit"]')
         .wait(500)
         .screenshot(config.screenshot({ imgName: 'signin-form-submit' }))
-        .wait(3000)
-        .url(function(url) {
-          expect(/dashboard/.test(url)).toBe(true);
+        .wait(config.formSuccessElm({formAction: '/account/signin'}))
+        .evaluate(function() {
+          return document.body.dataset.formSuccess;
+        }, function(formType) {
+          expect(formType).toBe('/account/signin');
         })
         .run(done);
     });
