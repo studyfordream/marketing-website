@@ -203,16 +203,17 @@ var createAccountHelper = {
         { integrations: { Marketo: true } });
 
         w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/account/create/success'
+          url: '/event/account/create/success'
+        });
+        w.analytics.track('/event/account/create/success', {}, { Marketo: true });
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/customer/signedin'
         });
         w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/customer/signedin'
+          url: '/event/account/signin'
         });
         w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/account/signin'
-        });
-        w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/plan/' + plan
+          url: '/event/plan/' + plan
         });
 
         w.analytics.page('/account/create/success');
