@@ -1,4 +1,3 @@
-var path = require('path');
 var Nightmare = require('nightmare');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
@@ -44,7 +43,7 @@ describe('testing form on the free trial page', function() {
         }, function(bodySubmitSuccess) {
           expect(bodySubmitSuccess).toBe('/account/free_trial_create');
         })
-        .run(done)
+        .run(done);
     });
   });
 

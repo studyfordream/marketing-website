@@ -11,7 +11,7 @@ module.exports = {
     verbose: false,
     consoleReporter: true,
     globals: {
-      linkPath: '/dist'
+      linkPath: '<%= grunt.config.get("link_path") %>'
     }
   },
   dialogs: {

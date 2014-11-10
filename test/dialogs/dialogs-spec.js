@@ -1,4 +1,3 @@
-var path = require('path');
 var Nightmare = require('nightmare');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;

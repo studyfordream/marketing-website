@@ -26,11 +26,6 @@ module.exports = function(grunt) {
       init: true
   });
 
-  grunt.registerTask('j-test', [
-    'config:dev',
-    'jasmine_node'
-  ]);
-
   grunt.registerTask('staging-deploy', [
     'gitinfo',
     'config:staging',
@@ -71,6 +66,7 @@ module.exports = function(grunt) {
     'config:dev',
     'jshint:clientDev',
     'jshint:server',
+    'jshint:test',
     'clean:preBuild',
     'assemble',
     'handlebars',
@@ -98,17 +94,27 @@ module.exports = function(grunt) {
     'autoprefixer',
     'copy',
     'uglify',
-    'connect:resemble',
-    'jasmine_node',
     'filerev',
     'userevvd',
     'clean:postBuild'
   ]);
 
+  grunt.registerTask('ui-test', function(which) {
+    var task = 'jasmine_node';
+    if (which) task += ':' + which;
+
+    grunt.task.run([
+      'config:dev',
+      'jshint:test',
+      task
+    ]);
+  });
+
   grunt.registerTask('test', [
     'config:dev',
     'jshint:clientProd',
     'jshint:server',
+    'jshint:test',
     'clean:preBuild',
     'assemble',
     'handlebars',

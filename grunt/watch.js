@@ -44,6 +44,10 @@ module.exports = {
     files: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/services/user_state.js', '<%= config.temp %>/assets/js/**/*.js'],
     tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'handlebars', 'modernizr', 'concat', 'clean:postBuild']
   },
+  test: {
+    files: ['test/**/*.js'],
+    tasks: ['jshint:test']
+  },
   clientHandlebarsTemplates: {
     files: ['<%= config.guts %>/templates/client/**/*.hbs'],
     tasks: ['config:dev', 'jshint', 'handlebars', 'concat', 'clean:postBuild']
