@@ -39,20 +39,20 @@
     "grunt-contrib-watch": "0.6.1",
     "grunt-filerev": "0.2.1",
     "grunt-gitinfo": "0.1.6",
+    "grunt-jasmine-node": "git+ssh://git@github.com:dtothefp/grunt-jasmine-node.git",
     "grunt-modernizr": "0.6.0",
     "grunt-resemble-cli": "0.0.8",
     "grunt-s3": "0.2.0-alpha.3",
     "grunt-sass": "0.14.0",
     "grunt-text-replace": "0.3.12",
     "grunt-userevvd": "0.1.4",
-    "jit-grunt": "0.7.0",
+    "load-grunt-config": "^0.16.0",
     "load-grunt-tasks": "0.6.0",
     "nightmare": "git+ssh://git@github.com:dtothefp/nightmare.git",
     "optimizely-marked": "0.0.4",
     "phantomjs": "~1.9.12",
     "time-grunt": "0.3.2",
-    "uglify-js": "2.4.15",
-    "grunt-jasmine-node": "git+ssh://git@github.com:dtothefp/grunt-jasmine-node.git"
+    "uglify-js": "2.4.15"
   },
   "licenses": [
     {
