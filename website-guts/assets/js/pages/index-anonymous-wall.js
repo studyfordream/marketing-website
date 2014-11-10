@@ -22,15 +22,12 @@ $('#test-it-out-form').submit(function(e){
 
   if( inputVal ){
      w.optly.mrkt.modal.open({ modalType: 'anonymous-wall' }); 
-     w.analytics.track('dialog/show/anonymous_wall', {
+     w.analytics.track('/dialog/show/anonymous_wall', {
        category: 'modal'
      }, {
        Marketo: true
      });
-     w.analytics.track('anonymous-wall-open', {
-       category: 'modal',
-       label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-     });
+     w.analytics.page('/dialog/show/anonymous_wall');
   } else {
       $('input[type="text"]').focus();
     }
