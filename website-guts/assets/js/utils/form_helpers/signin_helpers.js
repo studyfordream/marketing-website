@@ -68,6 +68,8 @@ var signinHelper = {
     }
 
     if (path !== '/pricing') {
+      //set data attribute for UI testing purposes
+      document.body.dataset.formSuccess = this.formElm.getAttribute('action');
       // allow analytics logging before redirect
       window.setTimeout(function() {
         w.location = '/dashboard';
