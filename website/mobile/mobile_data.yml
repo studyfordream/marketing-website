@@ -56,35 +56,35 @@ section_3:
   icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/responsive.svg"
  -
   header: "Enterprise scale at startup speed"
-  body: "Optimizely is already trusted by more than 6,000 of the world's top companies, including CNN, Yelp, Starbucks, and many more."
+  body: "Optimizely is already trusted by more than 8,000 of the world's top companies, including CNN, Yelp, Starbucks, and many more."
   icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/enterprise.svg"
-  icons: 
+  icons:
 section_4:
  body: |
   ## We're already loved by these<br> awesome apps
  icons:
-  - 
+  -
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/1b.png"
     name: "Flixster"
-  - 
+  -
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/2.png"
     name: "Rhapsody"
-  - 
+  -
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/3.png"
     name: "Pose"
-  - 
+  -
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/4.png"
     name: "CheapOair"
-  - 
+  -
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/5.png"
     name: "Pact"
-  - 
+  -
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/6.png"
     name: "Getaround"
-  - 
+  -
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/7.png"
     name: "Shop MEC"
-  - 
+  -
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/8.png"
     name: "HomeFinder"
 footer:
