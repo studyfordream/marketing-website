@@ -197,6 +197,7 @@ var createAccountHelper = {
           ExperimentsCreated: '1',
           FirstName: resp.first_name,
           LastName: resp.last_name,
+          Phone: resp.phone_number,
           otm_Medium__c: w.optly.mrkt.source.otm.medium,
           utm_Medium__c: w.optly.mrkt.source.utm.medium
         },
