@@ -158,7 +158,7 @@ body.home-page {
     #cta {
       /*padding-top: 105px;*/
       min-height: 700px;
-      height: 100%;
+      height: 245px;
       overflow: hidden;
       .container {
         position: relative;
@@ -170,7 +170,8 @@ body.home-page {
       &:after {
         content: "";
         position: absolute;
-        background: radial-gradient(rgba(29,69,129,0.7),rgba(29,69,129,0.6),rgba(1,51,102,0.5),rgba(1,51,102,0));
+        background-image: image-url('homepage-hero-bg.png');
+        background-position: -320px -108px;
         height: 700px;
         display: block;
         width: 100%;
@@ -178,31 +179,6 @@ body.home-page {
         margin-top: 220px;
         top: 50%;
         transform: translateY(-75%);
-      }
-      form {
-        display: block;
-        background: linear-gradient(top, #003366 0%,#023f78 100%);
-        box-shadow: 0px -2px 55px rgba(44,89,148,0.82);
-        border: 1px solid #214e82;
-        padding: 16px;
-        width: 671px;
-        margin: 0 auto;
-        overflow: hidden;
-        box-sizing: border-box;
-        display: flex;
-      }
-      input[type=text] {
-        border: solid 1px #e3e3e3;
-        box-shadow: inset 0 0px 10px 0 rgba(0,0,0,0.2);
-        color: #006eb6;
-        flex-grow: 1;
-        font-size: 16px;
-        line-height: 22px;
-        padding: 5px 8px;
-        box-sizing: border-box;
-        height: 36px;
-        margin-right: 15px;
-        display: inline-block;
       }
       button[type=submit] {
         @extend .primary-button;
@@ -216,7 +192,7 @@ body.home-page {
         color: white;
       }
       h1 {
-        margin-top: 1%;
+        margin-top: 45%;
       }
     }
     .reasons {
@@ -225,16 +201,28 @@ body.home-page {
       .reasons-header {
         margin-top: 6%;
         margin-bottom: 4%;
+        font-size: 125%;
+        margin-bottom: 8%;
+      }
+      #first-reason {
+        margin-left: 0px;
+      }
+      .reason-item {
+        margin-bottom: 15%;
       }
       .list-title {
         margin-bottom: 12%;
       }
-      .reasons-logo {
+      ul {
+        font-size: 0.85em;
+        li { margin-bottom: 1.1%; }
+      }
+      .reason-logo {
         height: 150px;
         width: 150px;
         border: 1px solid #006eb6;
         border-radius: 50%;
-        margin-bottom: 10%;
+        margin-bottom: 18%;
         margin-left: auto;
         margin-right: auto;
       }
