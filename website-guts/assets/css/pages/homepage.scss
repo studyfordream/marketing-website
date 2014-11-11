@@ -89,24 +89,26 @@ body.homepage{
     .company-logo {
       background-position: 50% 0;
       background-repeat: no-repeat;
-      background-image: image-url('customer-logos/customer-logos-sprite-1.png');
       height: 73px;
       margin-bottom: 5%;
     }
     .cnn {
-      background-position: 50% -146px;
+      background-image: image-url('customers/cnn.svg');
+      height: 63px;
     }
     .starbucks {
-      background-position: 50% -584px;
+      background-image: image-url('customers/starbucks.svg');
     }
     .microsoft {
-      background-position: 50% -292px;
+      background-image: image-url('customers/microsoft.svg');
+      margin-top: 6%;
     }
     .salesforce {
-      background-position: 50% -503px;
+      background-image: image-url('customers/salesforce.svg');
     }
     .guardian {
-      background-position: 50% 0;
+      background-image: image-url('customers/guardian.svg');
+      margin-top: 8%;
     }
   }
   @media only screen and (min-width: $tablet-min-width){
