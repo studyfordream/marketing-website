@@ -167,6 +167,11 @@ body {
     }
     p.webinar-time { font-size: 1.2em; }
   }
+  ul.contact-sales-fields {
+    li {
+      list-style-type: none;
+    }
+  }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
@@ -214,3 +219,21 @@ body {
   }
 }
 
+@media only screen and (min-width: $desktop-min-width) {
+  #contact-sales .dialog.narrow {
+    width: 750px;
+  }
+  ul.contact-sales-fields {
+    
+    li {
+      float: left;
+      width: 45%;
+      margin-right: 30px;
+    }
+    li:nth-child(even){
+      margin-right: 0;
+    }
+    label span {font-weight: 500; font-size: 12px;}
+  }
+  .modal-footer {clear: both;}
+}
