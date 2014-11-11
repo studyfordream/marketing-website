@@ -44,6 +44,7 @@ body.home-page {
       margin-top: 6%;
       margin-bottom: 8%;
       font-size: 125%;
+      color: #00415d;
     }
     #first-reason {
       margin-left: 0px;
@@ -52,12 +53,12 @@ body.home-page {
       margin-bottom: 15%;
     }
     .list-title {
-      margin-bottom: 12%;
+      margin: 0, 16%, 12%, 16%;
     }
     ul {
       font-size: 0.85em;
-      margin-left: 40%;
-      margin-right: 30%;
+      margin-left: 15%;
+      margin-right: 10%;
       li {
         margin-bottom: 1.1%;
       }
@@ -67,7 +68,7 @@ body.home-page {
       width: 150px;
       border: 1px solid #006eb6;
       border-radius: 50%;
-      margin-bottom: 18%;
+      margin-bottom: 9%;
       margin-left: auto;
       margin-right: auto;
     }
@@ -134,11 +135,19 @@ body.home-page {
         margin: 6% 13% 6% 13%;
       }
       .list-title {
-        margin-bottom: 4%;
+        margin-bottom: 2%;
       }
       .reason-logo,
       .reason-item {
         margin-bottom: 5%;
+      }
+      ul {
+        font-size: 0.85em;
+        margin-left: 40%;
+        margin-right: 30%;
+        li {
+          margin-bottom: 1.1%;
+        }
       }
     }
   }
@@ -190,6 +199,8 @@ body.home-page {
         margin-bottom: 18%;
       }
       .list-title {
+        margin-left: 16%;
+        margin-right: 16%;
         margin-bottom: 15%;
       }
       .reason-item {
@@ -198,6 +209,7 @@ body.home-page {
       ul {
         margin-left: auto;
         margin-right: auto;
+        li { margin-left: 16% }
       }
     }
   }
