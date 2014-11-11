@@ -13,7 +13,10 @@ contactSalesForm.on('before', function(){
 
   w.optly.mrkt.Oform.before();
 
-  console.log('before running');
+  w.analytics.track('contact sales submit', {
+    category: 'forms',
+    label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+  });
 
   return true;
 
@@ -21,8 +24,28 @@ contactSalesForm.on('before', function(){
 
   w.optly.mrkt.Oform.validationError(element);
 
-}).on('load', function(event){
+}).on('success', function(inputs){
 
+  //debugger;
 
+  w.analytics.identify(inputs.data.email, {
+    FirstName: inputs.data.first_name,
+    LastName: inputs.data.last_name,
+    Company: inputs.data.company_name,
+    Title: inputs.data.title,
+    Phone: inputs.data.phone_number,
+    Website: inputs.data.website,
+    Traffic__c: inputs.data.traffic,
+    Inbound_Lead_Form_Type__c: 'Contact Sales'
+  });
+
+  w.analytics.track('contact sales succcess', {
+    category: 'forms',
+    label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+  });
+
+  w.optly.mrkt.modal.close({ modalType: 'contact-sales' });
+
+  w.optly.mrkt.modal.open({ modalType: 'contact-sales-thank-you' });
 
 });
