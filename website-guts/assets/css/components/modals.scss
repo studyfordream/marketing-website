@@ -171,6 +171,10 @@ body {
     li {
       list-style-type: none;
     }
+    .oform-error-show .error-hide {
+      display: block;
+      opacity: 1;
+    }
   }
 }
 
@@ -224,7 +228,7 @@ body {
     width: 750px;
   }
   ul.contact-sales-fields {
-    
+
     li {
       float: left;
       width: 45%;
