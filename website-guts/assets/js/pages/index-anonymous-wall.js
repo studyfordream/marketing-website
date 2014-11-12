@@ -21,18 +21,22 @@ $('#test-it-out-form').submit(function(e){
   var inputVal = $('#test-it-out-form input[type="text"]').val();
 
   if( inputVal ){
-     w.optly.mrkt.modal.open({ modalType: 'anonymous-wall' });
-     w.analytics.track('/dialog/show/anonymous_wall', {
-       category: 'modal'
-     }, {
-       Marketo: true
-     });
-     w.analytics.track('dialog/show/anonymous_wall', {
-       category: 'modal'
-     }, {
-       Marketo: true
-     });
-     w.analytics.page('/dialog/show/anonymous_wall');
+     if($.cookie('optimizely_signed_in')){
+       w.optly.mrkt.index.testItOut(inputVal);
+     } else {
+       w.optly.mrkt.modal.open({ modalType: 'anonymous-wall' });
+       w.analytics.track('/dialog/show/anonymous_wall', {
+         category: 'modal'
+       }, {
+         Marketo: true
+       });
+       w.analytics.track('dialog/show/anonymous_wall', {
+         category: 'modal'
+       }, {
+         Marketo: true
+       });
+       w.analytics.page('/dialog/show/anonymous_wall');
+     }
   } else {
       $('input[type="text"]').focus();
     }
