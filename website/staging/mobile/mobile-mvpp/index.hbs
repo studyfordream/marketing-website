@@ -2,21 +2,50 @@
 layout: mobile.hbs
 seo_title: Optimizely Mobile
 compact_header: false
-external_stylesheets:
-- 
+modals:
+- video_modal_compiled
 body_class:
 - mobile-mvpp-page
 page_script: mobile-mvpp.js
 ---
 <section id="hero" class="panel bg-img" style="background-image: url('{{mobile_page_mvpp_data.hero.bg_img}}')">
-{{#with mobile_page_mvpp_data.hero}}
-  <h1>{{{title}}}</h1>
-  <a href="#" class="outline-button slide-button"><span class="circle-arrow"></span>{{vid_btn_txt}}</a>
-  <a href="#signup-form-panel-b" class="outline-button slide-button" smooth-scroll>{{signup_btn_txt}}</a>
+  {{#with mobile_page_mvpp_data.hero}}
+    <div id="cta-variation">
+      <h1>{{{title}}}</h1>
+      <div class="flex-responsive">
+        <a href="#" class="outline-button" data-show-video><span class="circle-arrow"></span>{{vid_btn_txt}}</a>
+        <a href="#signup-form-panel-b" class="outline-button slide-button" smooth-scroll>{{signup_btn_txt}}</a>
+      </div>
+      {{#omarkdown}}{{{existing_customer}}}{{/omarkdown}}
+      <a href="#signup-form-panel-b" class="scroll-down-icon" smooth-scroll></a>
+    </div>
+  {{/with}}
+  <div id="signup-form-panel-top">
+  {{#with mobile_page_mvpp_data.form_panel}}
+  <h2>{{title}}</h2>
+  <h3>{{subtitle}}</h3>
+  <form action="/account/create" id="mobile-signup-form">
+    <div class="flex-cont form-elm-cont">
+      <label class="form-grid">
+          <!--<span class="email-related error-hide error-right">Email is required</span>-->
+          <input style="background-image: url('{{email_icon}}')" type="email" name="email" placeholder="{{email}}" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{email}}'" required>
+      </label>
+      <label class="form-grid">
+          <!--<span class="password-related error-hide error-right">Password is required</span>-->
+          <input style="background-image: url('{{password_icon}}')" type="password" name="password" placeholder="{{password}}" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{password}}'" required>
+      </label>
+      <div class="form-grid">
+        <button class="form-grid">{{submit_button}}</button>
+      </div>
+    </div>
+    <div class="options">
+        <p class="error-message error-hide">Incorrect email or password</p>
+    </div>
+  </form>
   {{#omarkdown}}{{{existing_customer}}}{{/omarkdown}}
-  <a href="#signup-form-panel-b" class="scroll-down-icon" smooth-scroll></a>
+  {{/with}}
+  </div>
 </section>
-{{/with}}
 {{#with mobile_page_mvpp_data.top_grid}}
 <section id="fast-powerful-panel"class="panel">
   <div class="container">
@@ -78,7 +107,7 @@ page_script: mobile-mvpp.js
   </div>
 </section>
 {{/with}}
-<section id="signup-form-panel-b" class="panel bg-img" style="background-image: url('{{mobile_page_mvpp_data.form_panel.bg_img}}')">
+<section id="signup-form-panel-bottom" class="panel bg-img" style="background-image: url('{{mobile_page_mvpp_data.form_panel.bg_img}}')">
 {{#with mobile_page_mvpp_data.form_panel}}
   <h2>{{title}}</h2>
   <h3>{{subtitle}}</h3>

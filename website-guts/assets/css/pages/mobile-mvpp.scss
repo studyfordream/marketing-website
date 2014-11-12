@@ -1,4 +1,8 @@
 body.mobile-mvpp-page {
+  //hidden to be exposed by Optimizely experiment
+  #signup-form-panel-top {
+    display: none;
+  }
   .circle-arrow {
     position: absolute;
     top: 50%;
@@ -23,7 +27,7 @@ body.mobile-mvpp-page {
     }
   }
   
-  #nonprofits-video-modal {
+  #video-modal {
     &.modal-dialog-container {
       background: transparent;
       background-image: radial-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 35%, rgba(0, 0, 0, 0.498039));
@@ -39,6 +43,9 @@ body.mobile-mvpp-page {
       position: absolute;
       transform: translate(-50%, -50%);
       background-color: #000;
+    }
+    .modal-header {
+      display: none;
     }
     .modal-body {
       width: 100%;
@@ -66,6 +73,8 @@ body.mobile-mvpp-page {
     display: none;
   }
   .outline-button {
+    position: relative;
+    white-space: nowrap;
     cursor: pointer;
     color: #fff;
     font-size: 1.4em;
@@ -139,6 +148,15 @@ body.mobile-mvpp-page {
     h4 {
       border-bottom-color: #fff;
     }
+    .facebook {
+      background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/facebook-white.svg');
+    }
+    .google-plus {
+      background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/google-white.svg');
+    }
+    .twitter {
+      background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/twitter-white.svg');
+    }
   }
   .panel {
     br {
@@ -193,13 +211,20 @@ body.mobile-mvpp-page {
       }
     }
   }
+  .flex-responsive {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .bg-img {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
   }
   #hero, 
-  #signup-form-panel-b {
+  #signup-form-panel-bottom,
+  #signup-form-panel-top {
     text-align: center;
     h1,
     h2,
@@ -227,17 +252,30 @@ body.mobile-mvpp-page {
       display: inline;
     }
     .outline-button {
+      transition: all 0.2s linear;
       margin: 10px 5px;
-      width: 240px;
+      width: 90%;
+      max-width: 260px;
       &:first-of-type {
         background-color: #fff;
         padding-left: 50px;
         color: #0081BA;
+        &:hover {
+          color: #00415D;
+          .circle-arrow {
+            border-color: #00415D;
+            &:after {
+              border-left-color: #00415D;
+            }
+          }
+        }
       }
     }
     .circle-arrow {
+      transition: all 0.2s linear;
       border-color: #0081BA;
       &:after {
+        transition: all 0.2s linear;
         border-left-color: #0081BA;
       }
     }
@@ -348,7 +386,8 @@ body.mobile-mvpp-page {
       }
     }
   }
-  #signup-form-panel-b {
+  #signup-form-panel-bottom,
+  #signup-form-panel-top {
     h2 {
       font-size: 2.4em;
       margin: 0;
@@ -417,7 +456,7 @@ body.mobile-mvpp-page {
         width: auto;
       }
     }
-    #nonprofits-video-modal {
+    #video-modal {
       &.modal-dialog-container {
         display: flex;
         justify-content: center;
@@ -452,6 +491,9 @@ body.mobile-mvpp-page {
       .flex-cont {
         display: flex;
       }
+    }
+    .flex-responsive {
+      flex-direction: row;
     }
     #fast-powerful-panel {
       .flex-content {
@@ -498,7 +540,8 @@ body.mobile-mvpp-page {
         margin: 0 20px 0 0;
       }
     }
-    #signup-form-panel-b {
+    #signup-form-panel-bottom,
+    #signup-form-panel-top {
       .form-elm-cont {
         width: 90%;
         margin: 0 auto;
@@ -540,7 +583,8 @@ body.mobile-mvpp-page {
         }
       }
     }
-    #signup-form-panel-b {
+    #signup-form-panel-bottom,
+    #signup-form-panel-top {
       .form-elm-cont {
         width: 940px;
       }

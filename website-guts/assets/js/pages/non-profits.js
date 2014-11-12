@@ -73,31 +73,4 @@ $(function(){
     this.validateForm();
   }.bind(orgFormHelperInst));
 
-  /*var orgForm = new Oform({*/
-    //selector: '#org-form'
-  //});
-
-  //orgForm.on('before', function() {
-    //orgFormHelperInst.processingAdd();
-    //return true;
-  //});
-
-  //orgForm.on('validationerror', w.optly.mrkt.Oform.validationError);
-
-  //orgForm.on('error', function() {
-    //orgFormHelperInst.processingRemove({callee: 'error'});
-    //orgFormHelperInst.showOptionsError('Form Response Error');
-
-    //window.analytics.track('signin xhr error', {
-      //category: 'account',
-      //label: w.location.pathname
-    //});
-  //}.bind(orgFormHelperInst));
-
-  //orgForm.on('load', orgFormHelperInst.load.bind(orgFormHelperInst));
-
-  //orgForm.on('done', function(){
-    //orgFormHelperInst.processingRemove({callee: 'done'});
-  /*}.bind(orgFormHelperInst));*/
-
 });

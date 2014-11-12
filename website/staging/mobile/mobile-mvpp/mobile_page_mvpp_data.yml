@@ -71,7 +71,7 @@ customer_logos:
     url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/8.png"
     name: "HomeFinder"
 testing_ideas: 
-  header: "Try out these <strong>testing ideas"
+  header: "Try out these <strong>testing ideas</strong>"
   ideas_grid:
   -
     icon: "http://i2.cdnds.net/12/46/618x766/tv_thomas_magnum_1.jpg"
@@ -103,7 +103,7 @@ form_panel:
   subtitle: "Your iOS App Today"
   email: "growth@marketer.com"
   email_icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/email-grey.svg"
-  password: "Password"
+  password: "Create Password"
   password_icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/lock-grey.svg"
   submit_button: "Get Started"
   existing_customer: "Optimizely for Android is coming soon. [Learn More](http://developers.optimizely.com/ios/)"
