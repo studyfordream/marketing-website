@@ -1,0 +1,106 @@
+---
+layout: mobile.hbs
+seo_title: Optimizely Mobile
+compact_header: false
+external_stylesheets:
+- 
+body_class:
+- mobile-mvpp-page
+page_script: mobile-mvpp.js
+---
+<section id="hero" class="panel bg-img" style="background-image: url('{{mobile_page_mvpp_data.hero.bg_img}}')">
+{{#with mobile_page_mvpp_data.hero}}
+  <h1>{{{title}}}</h1>
+  <a href="#" class="outline-button slide-button"><span class="circle-arrow"></span>{{vid_btn_txt}}</a>
+  <a href="#signup-form-panel-b" class="outline-button slide-button" smooth-scroll>{{signup_btn_txt}}</a>
+  {{#omarkdown}}{{{existing_customer}}}{{/omarkdown}}
+  <a href="#signup-form-panel-b" class="scroll-down-icon" smooth-scroll></a>
+</section>
+{{/with}}
+{{#with mobile_page_mvpp_data.top_grid}}
+<section id="fast-powerful-panel"class="panel">
+  <div class="container">
+    <h2>{{title}}</h2>
+    <h3>{{sub_title}}</h3>
+    <div class="flex-cont">
+      {{#each grid_content}}
+      <div class="flex-content">
+        <div class="grid-icon bg-img" style="background-image: url('{{icon}}')"></div>
+        <h5>{{title}}</h5>
+        <p>{{grid_content}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+{{/with}}
+{{#each mobile_page_mvpp_data.panels}}
+<section id="panel-{{add @index 1}}" class="panel" data-interactive-panel>
+  <div class="container flex-cont">
+    <div class="flex-img-cont{{#is_odd @index}} order-2{{/is_odd}}">
+      <img src="{{bg_img}}" data-img-index="{{@index}}" />
+    </div>
+    <div class="flex-1-content">
+      <h3>{{{title}}}</h3>
+      <p>{{text}}</p>
+    </div>
+  </div>
+</section>
+{{/each}}
+{{#with mobile_page_mvpp_data}}
+<section id="customer-logos" class="panel">
+  <div class="container">
+    <div class="section-container">
+      {{#omarkdown}}{{{customer_logos.body}}}{{/omarkdown}}
+    </div>
+    <div class="icon-cont">
+      {{#each customer_logos.icons}}
+      <div class="icon-wrap">
+        <div class="cust-icon" style="background-image: url('{{url}}')"></div>
+        <p class="icon-name">{{name}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+<section id="ideas" class="panel">
+  <h2>{{{testing_ideas.header}}}</h2>
+  <div class="ideas-cont flex-cont">
+    {{#each testing_ideas.ideas_grid}}
+    <div class="single-idea-cont flex-cont">
+      <div class="idea-icon bg-img" style="background-image: url('{{icon}}')"></div>
+      <div class="idea-content">
+        <h4>{{title}}</h4>
+        <p>{{text}}</p>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</section>
+{{/with}}
+<section id="signup-form-panel-b" class="panel bg-img" style="background-image: url('{{mobile_page_mvpp_data.form_panel.bg_img}}')">
+{{#with mobile_page_mvpp_data.form_panel}}
+  <h2>{{title}}</h2>
+  <h3>{{subtitle}}</h3>
+  <form action="/account/create" id="mobile-signup-form">
+    <div class="flex-cont form-elm-cont">
+      <label class="form-grid">
+          <!--<span class="email-related error-hide error-right">Email is required</span>-->
+          <input style="background-image: url('{{email_icon}}')" type="email" name="email" placeholder="{{email}}" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{email}}'" required>
+      </label>
+      <label class="form-grid">
+          <!--<span class="password-related error-hide error-right">Password is required</span>-->
+          <input style="background-image: url('{{password_icon}}')" type="password" name="password" placeholder="{{password}}" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{password}}'" required>
+      </label>
+      <div class="form-grid">
+        <button class="form-grid">{{submit_button}}</button>
+      </div>
+    </div>
+    <div class="options">
+        <p class="error-message error-hide">Incorrect email or password</p>
+    </div>
+  </form>
+  {{#omarkdown}}{{{existing_customer}}}{{/omarkdown}}
+{{/with}}
+</section>
+
