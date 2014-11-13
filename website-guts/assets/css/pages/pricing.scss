@@ -97,9 +97,38 @@ body.pricing {
       }
     }
   }
+  #company-list {
+    h4 {
+      text-align: center;
+      font-size: 1.1em;
+      color: #696f72;
+    }
+    .logo-container {
+      img {
+        max-width: 175px;
+        margin-bottom: 15px;
+        display: block;
+        margin: 0 auto 25px auto;
+      }
+    }
+  }
   #full-feature-list-btn {
     margin: auto;
     display: table;
+  }
+  @media only screen and (min-width: $tablet-min-width){
+    #company-list {
+      .logo-container {
+        display: flex;
+        justify-content: center;
+        img {
+          max-width: 140px;
+          max-height: 70px;
+          vertical-align: baseline;
+          padding-right: 15px
+        }
+      }
+    }
   }
   @media only screen and (min-width: $desktop-min-width){
     .pricing-overview {
