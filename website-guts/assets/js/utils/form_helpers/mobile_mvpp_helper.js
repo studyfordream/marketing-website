@@ -2,7 +2,10 @@ window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 var mobileMvppHelper = {
 
-  showOptionsError: function (){
+  showOptionsError: function (message){
+    if(message) {
+      this.optionsErrorElm.innerHTML = message;
+    }
     if(!document.body.classList.contains('error-state')) {
       document.body.classList.add('error-state');
     }
@@ -17,6 +20,15 @@ var mobileMvppHelper = {
     } else {
       elm.innerHTML = 'Required';
     }
+  },
+
+  showErrorDialog: function() {
+    window.optly.mrkt.errorQ.push([
+      'logError',
+      {
+        error: 'There was an error creating your account.',
+      }
+    ]);
   },
 
   removeErrors: function() {
@@ -34,7 +46,7 @@ var mobileMvppHelper = {
     if ( password2.value.length > 0 && password1.value !== password2.value ) {
       this.addErrors([password2, password2ErrorElm]);
       this.customErrorMessage(password2ErrorElm, 'Please enter the same value as above');
-    } 
+    }
     //remove local error classes but do not remove body error class just in case
     else {
       this.passed = true;
@@ -60,12 +72,27 @@ var mobileMvppHelper = {
   },
 
   success: function(e) {
-    var formElm = this.formElm;
-    var resp = JSON.parse(e.target.responseText);
+    var formElm = this.formElm,
+      resp;
+
+    try {
+      resp = JSON.parse(e.target.responseText);
+    } catch(err) {
+      var action = this.formElm.getAttribute('action');
+      window.analytics.track('api error', {
+        category: action,
+        label: 'Error parsing JSON: ' + err
+      });
+    }
 
     if(e.target.status !== 200) {
       this.processingRemove({callee: 'load'});
-      this.showOptionsError(resp.error);
+      if(resp && resp.error) {
+        this.showOptionsError(resp.error);
+      } else {
+        this.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
+      }
+      this.showErrorDialog();
     } else {
       w.optly.mrkt.Oform.trackLead({
         email: formElm.querySelector('[name="email"]').value
