@@ -52,7 +52,7 @@ var signupHelper = w.optly.mrkt.form.createAccount({formId: 'signup-form', dialo
 w.optly.mrkt.activeModals = w.optly.mrkt.activeModals || {};
 
 var signupForm  = new Oform({
-  selector: '#signup-form',
+  selector: '#signup-form-new',
   customValidation: {
     password1: function(elm) {
       return signupHelper.password1Validate(elm);
@@ -90,7 +90,7 @@ signupForm.on('error', function() {
   });
 }.bind(signupHelper));
 
-signupForm.on('success', function(event, data){
+signupForm.on('load', function(event, data){
   signupHelper.pricingSignupSuccess(event, data);
 }.bind(signupHelper));
 
