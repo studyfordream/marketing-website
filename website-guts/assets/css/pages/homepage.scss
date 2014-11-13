@@ -46,9 +46,9 @@ body.homepage{
     }
     background: white;
     .reasons-header{
+      margin-top: 6%;
+      margin-bottom: 8%;
       p {
-        margin-top: 6%;
-        margin-bottom: 8%;
         font-size: 125%;
         color: #00415d;
       }
@@ -102,7 +102,7 @@ body.homepage{
       margin-bottom: 10%;
     }
     .companies-header {
-      p{
+      p {
         margin: 12% 2% 8% 2%;
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -205,8 +205,8 @@ body.homepage{
     }
     #cta {
       background-position: 50% 60%;
-      min-height: 700px;
-      height: 245px;
+      height: 60vh;
+      min-height: 300px;
       overflow: hidden;
       .container {
         position: relative;
@@ -226,6 +226,12 @@ body.homepage{
       .reason-logo {
         margin-bottom: 18%;
       }
+      .reasons-header {
+        margin: 3% 13% 3% 13%;
+      }
+      .flex-cont {
+        margin-top: 3%;
+      }
       .list-title {
         margin: 0 16% 15% 16%;
       }
@@ -236,6 +242,14 @@ body.homepage{
       }
     }
     .companies {
+      .companies-header {
+        p {
+          margin: 4% 2% 4% 2%;
+        }
+      }
+      .container {
+        margin-bottom: 5%;
+      }
       .cnn {
         height: 63px;
       }
