@@ -214,3 +214,49 @@
     } //end class wrapper
   } // end for loop
 } // end @mixin
+
+
+/* 
+** mixin to create animated background icons in input placeholders
+** should be used with following hbs:
+**
+** <input
+** style="background-image: url('{{email_icon}}')" 
+** type="email" 
+** name="email" 
+** placeholder="{{email}}"  
+** required>
+*/
+
+@mixin anim-input-icons(
+  $inputs: (), // nested list -- #1 input name, #2 override background-position-y, #3 override text indent
+  $background-pos-x: 5px -25px, // list -- #1 starting background pos, #2 focusin bacground pos
+  $background-pos-y: center, // string 
+  $background-size: 25px, //string
+  $text-indent: 25px //string -- initial text indent
+  ) {
+    background-position: #{nth($background-pos-x, 1)} $background-pos-y;
+    background-repeat: no-repeat;
+    background-size: $background-size 25px;
+    text-indent: $text-indent;
+    transition: all 0.2s;
+    &:focus {
+      background-position: #{nth($background-pos-x, 2)} $background-pos-y;
+      text-indent: 0!important;
+    }
+    &.has-input-val {
+      background-image: none!important;
+      text-indent: 0!important;
+    }
+    //create the input specific positioning
+    @each $list in $inputs {
+      @if(length($list) > 0) {
+        &[name="#{nth($list, 1)}"] {
+          background-position-y: #{nth($list, 2)};
+          @if(length($list) > 2) {
+            text-indent: #{nth($list, 3)};
+          }
+        }
+      }
+    }
+}

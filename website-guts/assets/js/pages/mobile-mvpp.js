@@ -123,13 +123,7 @@ $(function() {
   $('[smooth-scroll]').on('click', smoothScroll);
 
   //deal with placeholder icons
-  $('.panel input').on('focusout', function() {
-    if(this.value.length !== 0) {
-      this.classList.add('has-input-val');
-    } else {
-      this.classList.remove('has-input-val');
-    }
-  });
+  window.optly.mrkt.anim.placeholderIcons({inputs: $('.panel input')});
 
   //inject GIF src when they are scrolled into
   var imgCache = [];
