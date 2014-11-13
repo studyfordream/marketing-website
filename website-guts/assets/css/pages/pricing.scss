@@ -1,0 +1,159 @@
+.plan-box-header {
+  background: $faint-gray-bg;
+  text-transform: uppercase;
+  color: $dark-blue;
+  font-size: 1.1em;
+  font-weight: 500;
+  font-family: $body-font-family;
+  padding: 10px 0;
+  border-bottom: 1px solid $faint-gray-border;
+  margin: 0;
+}
+.plan-box-cont {
+  background: #fff;
+  border: 2px solid $faint-gray-border;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  &.highlight {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, .3);
+    border: 2px solid $blue;
+    h2 {
+      text-shadow: rgba(0, 0, 0, .5) 2px 2px 3px;
+      background: $blue;
+      color: #fff;
+      border-bottom: 2px solid $blue;
+    }
+    .feature-category {
+      h3 {
+        background: $blue;
+        color: #fff;
+        border-color: $blue;
+        //font-size: ;
+      }
+    }
+  }
+  .feature-category .feature-overview {
+    margin: 0;
+    padding: 0 30px 0 30px!important;
+  }
+  h4 {
+    color: $super-dark-blue;
+    margin: 15px 0 15px 0;
+    font-size: 1em;
+    font-family: $body-font-family;
+    font-weight: 400;
+  }
+  color: $gray-on-white-text;
+  li {
+    margin-bottom: 20px;
+    font-size: .85em;
+  }
+  .cta {
+    padding: 10px 0 20px 0;
+  }
+  .cta-headline {
+    font-size: 3em;
+    line-height: 1.2em;
+  }
+}
+#enterprise-plan .action {margin-bottom: 10px;}
+body.plan-enterprise {
+  #enterprise-plan {
+    .current-plan {
+      display: block!important;
+      visibility: visible;
+    }
+    .action {
+      display: none;
+    }
+  }
+}
+body.plan-free-light {
+  #starter-plan {
+    .current-plan {
+      display: block!important;
+      visibility: visible;
+    }
+    .action {
+      display: none;
+    }
+  }
+}
+@media only screen and (min-width: $desktop-min-width){
+  .plan-box-header {text-align: center;}
+}
+
+body.pricing {
+  section.blue-bg, #page-header-gradient {
+    background: $light-blue-bg;
+  }
+  .plan-box-content, .feature-overview {
+    padding: 15px 30px 15px 30px;
+  }
+  .feature-category h3 {
+    @extend .plan-box-header;
+    font-weight: 100;
+    border-top: 1px solid $faint-gray-border;
+    padding: 7px 0;
+    font-size: 1em;
+  }
+  div.plan-box {
+    .cta {
+      border-top: 1px solid $faint-gray-border;
+      text-align: center;
+      background: $faint-gray-bg;
+      p {margin: 0;}
+      a.button {
+        margin-top: 15px;
+      }
+    }
+  }
+  #company-list {
+    h4 {
+      text-align: center;
+      font-size: 1.1em;
+      color: $gray-on-white-text;
+    }
+    .logo-container {
+      img {
+        max-width: 175px;
+        margin-bottom: 15px;
+        display: block;
+        margin: 0 auto 25px auto;
+      }
+    }
+  }
+  #full-feature-list-btn {
+    margin: 0 auto 40px auto;
+    display: table;
+  }
+  #full-feature-list-cont .container > h2 {
+    //margin: ;
+    margin: 1.7em 0;
+    color: $super-dark-blue;
+  }
+  @media only screen and (min-width: $tablet-min-width){
+    #company-list {
+      .logo-container {
+        display: flex;
+        justify-content: center;
+        img {
+          max-width: 140px;
+          max-height: 70px;
+          vertical-align: baseline;
+          padding-right: 15px
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: $desktop-min-width){
+    .pricing-overview {
+      display: flex;
+      .columns {
+        align-self: center;
+      }
+    }
+  }
+
+
+}

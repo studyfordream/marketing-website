@@ -100,6 +100,10 @@ body {
         line-height: 1.4;
       }
     }
+    input[type="checkbox"] {
+      width: auto;
+      margin-bottom: 15px;
+    }
     a {
       text-decoration: underline;
       cursor: pointer;
@@ -167,6 +171,15 @@ body {
     }
     p.webinar-time { font-size: 1.2em; }
   }
+  ul.contact-sales-fields {
+    li {
+      list-style-type: none;
+    }
+    .oform-error-show .error-hide {
+      display: block;
+      opacity: 1;
+    }
+  }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
@@ -186,6 +199,16 @@ body {
         br {
           display: inline;
         }
+      }
+    }
+    input[type="checkbox"] {
+      margin-bottom: auto;
+    }
+    .checkboxes {
+      margin-top: 5px;
+      display: flex;
+      div {
+        padding-right: 15px;
       }
     }
     .options {
@@ -214,3 +237,21 @@ body {
   }
 }
 
+@media only screen and (min-width: $desktop-min-width) {
+  #contact-sales .dialog.narrow {
+    width: 750px;
+  }
+  ul.contact-sales-fields {
+
+    li {
+      float: left;
+      width: 46.5%;
+      margin-right: 30px;
+    }
+    li:nth-child(even){
+      margin-right: 0;
+    }
+    label span {font-weight: 500; font-size: 12px;}
+  }
+  .modal-footer {clear: both;}
+}
