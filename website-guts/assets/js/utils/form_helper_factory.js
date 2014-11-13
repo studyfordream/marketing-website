@@ -64,10 +64,11 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
     processingAdd: function(argsObj) {
       if( !this.bodyClass.contains('processing-state') ) {
-        this.bodyClass.add('processing-state');
-        if(!argsObj || !argsObj.omitDisabled) {
-          this.handleDisable('add');
-        } 
+        this.bodyClass.add('processing-state'); 
+      }
+
+      if(!argsObj || !argsObj.omitDisabled) {
+        this.handleDisable('add');
       }
 
       return true;

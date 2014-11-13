@@ -123,13 +123,7 @@ $(function() {
   $('[smooth-scroll]').on('click', smoothScroll);
 
   //deal with placeholder icons
-  $('.panel input').on('focusout', function() {
-    if(this.value.length !== 0) {
-      this.classList.add('has-input-val');
-    } else {
-      this.classList.remove('has-input-val');
-    }
-  });
+  window.optly.mrkt.anim.placeholderIcons({inputs: $('.panel input')});
 
   //inject GIF src when they are scrolled into
   var imgCache = [];
@@ -150,7 +144,7 @@ $(function() {
     toggleSrc(imgCache[imgIndex], true, false);
   });
 
-  //Oform for signup top
+   //Oform for signup top
   var signupMobileMvppTopHelperInst = window.optly.mrkt.form.mobileMvpp({formId: 'mobile-signup-form-top'});
 
   var signupFormTop = new Oform({
@@ -170,14 +164,14 @@ $(function() {
   });
 
   signupFormTop.on('validationerror', function(elm) {
-    signupMobileMvppTopHelperInst.showOptionsError();
     w.optly.mrkt.Oform.validationError(elm);
+    signupMobileMvppTopHelperInst.showOptionsError();
   });
 
   signupFormTop.on('error', function() {
-    debugger;
     signupMobileMvppTopHelperInst.processingRemove({callee: 'error'});
     signupMobileMvppTopHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
+    signupMobileMvppTopHelperInst.showErrorDialog();
     window.analytics.track('create account xhr error', {
       category: 'account',
       label: w.location.pathname
@@ -213,11 +207,13 @@ $(function() {
 
   signupFormBottom.on('validationerror', function(elm) {
     w.optly.mrkt.Oform.validationError(elm);
+    signupMobileMvppBottomHelperInst.showOptionsError();
   });
 
   signupFormBottom.on('error', function() {
     signupMobileMvppBottomHelperInst.processingRemove({callee: 'error'});
     signupMobileMvppBottomHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
+    signupMobileMvppBottomHelperInst.showErrorDialog();
     window.analytics.track('create account xhr error', {
       category: 'account',
       label: w.location.pathname
@@ -229,7 +225,6 @@ $(function() {
   signupFormBottom.on('done', function() {
     if(document.body.classList.contains('oform-error')) {
       signupMobileMvppBottomHelperInst.processingRemove({callee: 'done'});
-      signupMobileMvppBottomHelperInst.showOptionsError();
     }
   }.bind(signupMobileMvppBottomHelperInst));
 
