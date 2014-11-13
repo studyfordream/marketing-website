@@ -103,7 +103,7 @@ signupForm.on('done', function() {
 }.bind(signupHelper));
 
 /* downgrade plan */
-var downgradeForm = new Oform({
+new Oform({
   selector: '#downgrade-plan-form'
 }).on('success', function(){
   //to do: turn this into a form helper
@@ -149,7 +149,7 @@ var downgradeForm = new Oform({
       }
 
     },
-    error: function(event){
+    error: function(){
 
       w.analytics.track('/pricing/change_plan', {
         category: 'xmlhttprequest problem',
@@ -157,7 +157,7 @@ var downgradeForm = new Oform({
       });
 
     },
-    abort: function(event){
+    abort: function(){
 
       w.analytics.track('/pricing/change_plan', {
         category: 'xmlhttprequest problem',
