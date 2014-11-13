@@ -68,112 +68,52 @@ modals:
     </div>
   </div><!--/.container-->
 </section>
-<section class="blue-bg">
+<section class="blue-bg" id="full-feature-list-cont">
   <div class="container">
     <h2>Full Feature List</h2>
     <div class="row">
       <div class="columns five offset-one">
         <div class="feature-list-box plan-box-cont">
           <h2 class="plan-box-header">Starter</h2>
-          <div class="feature-overview">
-            <h4>Core Features</h4>
-            <ul>
-              <li>Lorem ipsum dolar sit amet, consecteteur adispiscing elit, set diam nonummy nibh euismod tincidunt ut laoreet dolore</li>
-              <li>Lorem ipsum dolar sit amet, consectetuer adipiscing elit.</li>
-            </ul>
-          </div><!--/.feature-overview-->
+          {{#each pricing.full_plan_benefits.starter.feature_groups}}
           <div class="feature-category">
-            <h3>Target Experiences</h3>
-            <div class="feature-overview">
-              <h4>Number of Audiences</h4>
-              <ul>
-                <li>Lorem ipsum dolar sit amet, consecteteur adispiscing elit, set diam nonummy nibh euismod tincidunt ut laoreet dolore</li>
-                <li>Lorem ipsum dolar sit amet, consectetuer adipiscing elit.</li>
-              </ul>
-            </div><!--/.feature-overview-->
-            <div class="feature-overview">
-              <h4>Audience Conditions</h4>
-              <ul>
-                <li>Lorem ipsum dolar sit amet, consecteteur adispiscing elit, set diam nonummy nibh euismod tincidunt ut laoreet dolore</li>
-                <li>Lorem ipsum dolar sit amet, consectetuer adipiscing elit.</li>
-              </ul>
-            </div><!--/.feature-overview-->
+            {{#if category}}<h3>{{{category}}}</h3>{{/if}}
+            {{#if features}}
+              {{#each features}}
+              <div class="feature-overview">
+                {{#if title}}<h4>{{{title}}}</h4>{{/if}}
+                {{#if details}}
+                <ul>
+                  {{#each details}}<li>{{.}}</li>{{/each}}
+                </ul>
+                {{/if}}
+              </div><!--/.feature-overview-->
+              {{/each}}
+            {{/if}}
           </div><!--/.feature-category-->
-          <div class="feature-category">
-            <h3>Integrate</h3>
-            <div class="feature-overview">
-              <h4>Analytics Integrations</h4>
-              <ul>
-                <li>Lorem ipsum dolar sit amet, consecteteur adispiscing elit, set diam nonummy nibh euismod tincidunt ut laoreet dolore</li>
-                <li>Lorem ipsum dolar sit amet, consectetuer adipiscing elit.</li>
-              </ul>
-            </div><!--/.feature-overview-->
-            <div class="feature-overview">
-              <h4>API Access</h4>
-              <ul>
-                <li>Lorem ipsum dolar sit amet, consecteteur adispiscing elit, set diam nonummy nibh euismod tincidunt ut laoreet dolore</li>
-                <li>Lorem ipsum dolar sit amet, consectetuer adipiscing elit.</li>
-              </ul>
-            </div><!--/.feature-overview-->
-            <div class="feature-overview">
-              <h4>Heatmap Integration</h4>
-            </div><!--/.feature-overview-->
-          </div><!--/.feature-category-->
-          <div class="feature-category">
-            <h3>Test &amp; Analyze</h3>
-          </div><!--/.feature-category-->
+          {{/each}}
         </div><!--/.feature-list-box-->
       </div><!--/.columns-->
       <div class="columns five">
         <div class="feature-list-box plan-box-cont highlight">
-          <h2 class="plan-box-header">Starter</h3>
-          <div class="feature-overview">
-            <h4>Core Features</h4>
-            <ul>
-              <li>Lorem ipsum dolar sit amet, consecteteur adispiscing elit, set diam nonummy nibh euismod tincidunt ut laoreet dolore</li>
-              <li>Lorem ipsum dolar sit amet, consectetuer adipiscing elit.</li>
-            </ul>
-          </div><!--/.feature-overview-->
+          <h2 class="plan-box-header">Enterprise</h3>
+          {{#each pricing.full_plan_benefits.enterprise.feature_groups}}
           <div class="feature-category">
-            <h3>Target Experiences</h3>
-            <div class="feature-overview">
-              <h4>Number of Audiences</h4>
-              <ul>
-                <li>Lorem ipsum dolar sit amet, consecteteur adispiscing elit, set diam nonummy nibh euismod tincidunt ut laoreet dolore</li>
-                <li>Lorem ipsum dolar sit amet, consectetuer adipiscing elit.</li>
-              </ul>
-            </div><!--/.feature-overview-->
-            <div class="feature-overview">
-              <h4>Audience Conditions</h4>
-              <ul>
-                <li>Lorem ipsum dolar sit amet, consecteteur adispiscing elit, set diam nonummy nibh euismod tincidunt ut laoreet dolore</li>
-                <li>Lorem ipsum dolar sit amet, consectetuer adipiscing elit.</li>
-              </ul>
-            </div><!--/.feature-overview-->
+            {{#if category}}<h3>{{{category}}}</h3>{{/if}}
+            {{#if features}}
+              {{#each features}}
+              <div class="feature-overview">
+                {{#if title}}<h4>{{{title}}}</h4>{{/if}}
+                {{#if details}}
+                <ul>
+                  {{#each details}}<li>{{.}}</li>{{/each}}
+                </ul>
+                {{/if}}
+              </div><!--/.feature-overview-->
+              {{/each}}
+            {{/if}}
           </div><!--/.feature-category-->
-          <div class="feature-category">
-            <h3>Integrate</h3>
-            <div class="feature-overview">
-              <h4>Analytics Integrations</h4>
-              <ul>
-                <li>Lorem ipsum dolar sit amet, consecteteur adispiscing elit, set diam nonummy nibh euismod tincidunt ut laoreet dolore</li>
-                <li>Lorem ipsum dolar sit amet, consectetuer adipiscing elit.</li>
-              </ul>
-            </div><!--/.feature-overview-->
-            <div class="feature-overview">
-              <h4>API Access</h4>
-              <ul>
-                <li>Lorem ipsum dolar sit amet, consecteteur adispiscing elit, set diam nonummy nibh euismod tincidunt ut laoreet dolore</li>
-                <li>Lorem ipsum dolar sit amet, consectetuer adipiscing elit.</li>
-              </ul>
-            </div><!--/.feature-overview-->
-            <div class="feature-overview">
-              <h4>Heatmap Integration</h4>
-            </div><!--/.feature-overview-->
-          </div><!--/.feature-category-->
-          <div class="feature-category">
-            <h3>Test &amp; Analyze</h3>
-          </div><!--/.feature-category-->
+          {{/each}}
         </div><!--/.feature-list-box-->
       </div><!--/.columns-->
     </div><!--/.rows-->

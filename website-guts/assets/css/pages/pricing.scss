@@ -12,7 +12,7 @@
 .plan-box-cont {
   background: #fff;
   border: 2px solid $faint-gray-border;
-  border-radius: 6px;
+  border-radius: 4px;
   margin-bottom: 40px;
   &.highlight {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, .3);
@@ -23,10 +23,30 @@
       color: #fff;
       border-bottom: 2px solid $blue;
     }
+    .feature-category {
+      h3 {
+        background: $blue;
+        color: #fff;
+        border-color: $blue;
+        //font-size: ;
+      }
+    }
+  }
+  .feature-category .feature-overview {
+    margin: 0;
+    padding: 0 30px 0 30px!important;
+  }
+  h4 {
+    color: $super-dark-blue;
+    margin: 15px 0 15px 0;
+    font-size: 1em;
+    font-family: $body-font-family;
+    font-weight: 400;
   }
   color: $gray-on-white-text;
   li {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: .85em;
   }
   .cta {
     padding: 10px 0 20px 0;
@@ -73,8 +93,8 @@ body.pricing {
   .feature-category h3 {
     @extend .plan-box-header;
     font-weight: 100;
-    border-top: 2px solid $faint-gray-border;
-    padding: 5px 0;
+    border-top: 1px solid $faint-gray-border;
+    padding: 7px 0;
     font-size: 1em;
   }
   div.plan-box {
@@ -104,8 +124,13 @@ body.pricing {
     }
   }
   #full-feature-list-btn {
-    margin: auto;
+    margin: 0 auto 40px auto;
     display: table;
+  }
+  #full-feature-list-cont .container > h2 {
+    //margin: ;
+    margin: 1.7em 0;
+    color: $super-dark-blue;
   }
   @media only screen and (min-width: $tablet-min-width){
     #company-list {
