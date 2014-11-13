@@ -65,20 +65,9 @@ module.exports = function(grunt, options) {
                   res.end( grunt.file.read('website-guts/endpoint-mocks/accountExists.json') );
 
                 } else if(req.url === '/account/create') {
-                  var readPath, code;
-
-                  if(req.body.email !== 'david.fox-powell@optimizely.com') {
-                    readPath = 'website-guts/endpoint-mocks/createAccount.json';
-                    code = 200;
-                    res.cookie('optimizely_signed_in', '1', {httpOnly: false});
-                  } else {
-                    readPath = 'website-guts/endpoint-mocks/accountExists.json';
-                    code = 400;
-                  }
-                  res.writeHead(code, {'Content-Type': 'application/json'});
-                  setTimeout(function() {
-                    res.end( grunt.file.read(readPath) );
-                  }, 2000);
+                  res.cookie('optimizely_signed_in', '1', {httpOnly: false});
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/createAccount.json') );
                 } else if(req.url === '/account/signin') {
                   var readPath, code;
 

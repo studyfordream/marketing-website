@@ -170,10 +170,12 @@ $(function() {
   });
 
   signupFormTop.on('validationerror', function(elm) {
+    signupMobileMvppTopHelperInst.showOptionsError();
     w.optly.mrkt.Oform.validationError(elm);
   });
 
   signupFormTop.on('error', function() {
+    debugger;
     signupMobileMvppTopHelperInst.processingRemove({callee: 'error'});
     signupMobileMvppTopHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
     window.analytics.track('create account xhr error', {
@@ -187,7 +189,6 @@ $(function() {
   signupFormTop.on('done', function() {
     if(document.body.classList.contains('oform-error')) {
       signupMobileMvppTopHelperInst.processingRemove({callee: 'done'});
-      signupMobileMvppTopHelperInst.showOptionsError();
     }
   }.bind(signupMobileMvppTopHelperInst));
 

@@ -60,12 +60,26 @@ var mobileMvppHelper = {
   },
 
   success: function(e) {
-    var formElm = this.formElm;
-    var resp = JSON.parse(e.target.responseText);
-
+   var formElm = this.formElm,
+    resp;
+ debugger;
+    try {
+      resp = JSON.parse(e.target.responseText);
+    } catch(err) {
+      window.analytics.track('api error', {
+        category: this.formElm.getAttribute('action'),
+        label: 'response contains invalid JSON: ' + err
+      });
+    }
+        
     if(e.target.status !== 200) {
       this.processingRemove({callee: 'load'});
-      this.showOptionsError(resp.error);
+      if(resp && resp.error) {
+        this.showOptionsError(resp.error);
+      } else {
+        this.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
+      }
+
     } else {
       w.optly.mrkt.Oform.trackLead({
         email: formElm.querySelector('[name="email"]').value
