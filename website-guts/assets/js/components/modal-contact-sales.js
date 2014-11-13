@@ -26,8 +26,6 @@ contactSalesForm.on('before', function(){
 
 }).on('success', function(inputs){
 
-  //debugger;
-
   w.analytics.identify(inputs.data.email, {
     FirstName: inputs.data.first_name,
     LastName: inputs.data.last_name,

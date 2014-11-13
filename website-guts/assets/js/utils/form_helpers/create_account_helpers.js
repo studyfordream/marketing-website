@@ -246,10 +246,6 @@ var createAccountHelper = {
 
   pricingSignupSuccess: function(event, data){
 
-    console.log('data object: ', data);
-
-    w.alert('success running!');
-
     var resp, plan;
 
     if(data.event.target.status === 200){
@@ -273,7 +269,7 @@ var createAccountHelper = {
 
       if(resp){
 
-        console.log('data object: ' + data);
+        w.console.log('data object: ' + data);
 
         w.analytics.identify(resp.email, {
           Last_Experiment_URL__c: data.data['url-input'],
@@ -386,8 +382,6 @@ var createAccountHelper = {
       }
 
     } else {
-
-      w.conole.log('no 200');
 
       this.processingRemove({callee: 'load'});
       this.showOptionsError(resp.error);

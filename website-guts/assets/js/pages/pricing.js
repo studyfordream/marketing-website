@@ -94,9 +94,6 @@ signupForm.on('success', function(event, data){
   signupHelper.pricingSignupSuccess(event, data);
 }.bind(signupHelper));
 
-//signupForm.on('success', function(){w.alert('success running');});
-signupForm.on('load', function(){w.alert('load running');});
-
 signupForm.on('done', function() {
   window.setTimeout(function() {
     signupHelper.scrollTopDialog();
