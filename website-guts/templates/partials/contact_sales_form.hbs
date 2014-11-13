@@ -49,17 +49,14 @@
                   </label>
                 </li>
                 <li>
-                  <label id="website-label">
-                      <span>Monthly traffic:</span>
-                      <span class="traffic-related error-hide error-right">Required</span>
-                      <select id="traffic" name="traffic" required>
-                        <option value="0 - 20k Monthly Visitors">0 to 20k visitors</option>
-                        <option value="20k - 200k Monthly Visitors">20k to 200k visitors</option>
-                        <option value="200k - 2MM Monthly Visitors">200k to 2MM visitors</option>
-                        <option value="2m - 10MM Monthly Visitors">2MM to 10MM visitors</option>
-                        <option value="10MM - 50MM Monthly Visitors">10MM to 50MM visitors</option>
-                        <option value="50MM + Monthly Visitors">50MM+ visitors</option>
-                      </select>
+                  <label id="channels">
+                    <span>Channels You'd Like to Test:</span>
+                    <div class="checkboxes">
+                      <div><input type="checkbox" name="web" value="true"> Web</div>
+                      <div><input type="checkbox" name="mobile_web" value="true"> Mobile Web</div>
+                      <div><input type="checkbox" name="ios" value="true"> iOS</div>
+                      <div><input type="checkbox" name="android" value="true"> Android</div>
+                    </div><!--/.checkboxes-->
                   </label>
                 </li>
                 <input type="hidden" value="Contact Sales" name="Inbound_Lead_Form_Type__c">

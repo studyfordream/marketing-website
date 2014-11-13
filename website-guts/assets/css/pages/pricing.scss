@@ -1,17 +1,17 @@
 .plan-box-header {
-  background: #fbfbfb;
+  background: $faint-gray-bg;
   text-transform: uppercase;
   color: $dark-blue;
   font-size: 1.1em;
   font-weight: 500;
   font-family: $body-font-family;
   padding: 10px 0;
-  border-bottom: 1px solid #d7d7d7;
+  border-bottom: 1px solid $faint-gray-border;
   margin: 0;
 }
 .plan-box-cont {
   background: #fff;
-  border: 2px solid #d7d7d7;
+  border: 2px solid $faint-gray-border;
   border-radius: 6px;
   margin-bottom: 40px;
   &.highlight {
@@ -22,10 +22,9 @@
       background: $blue;
       color: #fff;
       border-bottom: 2px solid $blue;
-      box-shadow:
     }
   }
-  color: #696f72;
+  color: $gray-on-white-text;
   li {
     margin-bottom: 15px;
   }
@@ -61,14 +60,12 @@ body.plan-free-light {
   }
 }
 @media only screen and (min-width: $desktop-min-width){
-    .plan-box-header {text-align: center;}
+  .plan-box-header {text-align: center;}
 }
 
 body.pricing {
-
-  #page-header-gradient {background-color: #e6edf0;}
-  section.blue-bg {
-    background: #e6edf0;
+  section.blue-bg, #page-header-gradient {
+    background: $light-blue-bg;
   }
   .plan-box-content, .feature-overview {
     padding: 15px 30px 15px 30px;
@@ -76,22 +73,16 @@ body.pricing {
   .feature-category h3 {
     @extend .plan-box-header;
     font-weight: 100;
-    border-top: 2px solid #d7d7d7;
+    border-top: 2px solid $faint-gray-border;
     padding: 5px 0;
     font-size: 1em;
   }
   div.plan-box {
     .cta {
-      border-top: 1px solid #d7d7d7;
+      border-top: 1px solid $faint-gray-border;
       text-align: center;
-      background: #fbfbfb;
-      p {
-        margin: 0;
-      }
-      .cta-headline {
-        margin: 0;
-        padding: 0;
-      }
+      background: $faint-gray-bg;
+      p {margin: 0;}
       a.button {
         margin-top: 15px;
       }
@@ -101,7 +92,7 @@ body.pricing {
     h4 {
       text-align: center;
       font-size: 1.1em;
-      color: #696f72;
+      color: $gray-on-white-text;
     }
     .logo-container {
       img {
