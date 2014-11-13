@@ -51,6 +51,7 @@ javascript: (function(window, document, $) {
     $('[name="website"]').val(website);
     $('[name="url-input"]').val(website);
     //populate pword fields
+    $('[name="password"]').val(pword);
     $('[name="password1"]').val(pword);
     $('[name="password2"]').val(pword);
 })(window, document, jQuery);

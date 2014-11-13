@@ -9,14 +9,14 @@ no_container: true
 modals:
 - contact_sales_compiled
 - contact_sales_thank_you_compiled
-- downgrade_plan
-- downgrade_plan_confirm
+- downgrade_plan_compiled
+- downgrade_plan_confirm_compiled
 ---
 <section class="blue-bg">
   <div class="container">
     <div class="row pricing-overview">
       <div class="columns five offset-one">
-        <div class="plan-box plan-box-cont">
+        <div class="plan-box plan-box-cont" id="starter-plan">
           <h2 class="plan-box-header">Starter</h2>
           <div class="plan-box-content">
             <ul>
@@ -28,12 +28,13 @@ modals:
           <div class="cta">
             <p class="cta-headline">Free</p>
             <p class="cta-description">Forever. Seriously.</p>
-            <a href="#" class="button primary-button" data-modal-click="signup">Get Started</a>
+            <a href="#" class="button action" data-modal-click="signup">Get Started</a>
+            <p class="hidden current-plan">Your current plan</p>
           </div><!--/.cta-->
         </div><!--/.plan-box-->
       </div>
       <div class="columns five">
-        <div class="plan-box plan-box-cont highlight">
+        <div class="plan-box plan-box-cont highlight" id="enterprise-plan">
           <h2 class="plan-box-header">Enterprise</h2>
           <div class="plan-box-content">
             <ul>
@@ -48,7 +49,8 @@ modals:
           <div class="cta">
             <p class="cta-headline">Custom</p>
             <p class="cta-description">1-800-252-0480</p>
-            <a href="#" class="button primary-button" data-modal-click="contact-sales">Contact Sales &raquo;</a>
+            <a href="#" class="button action" data-modal-click="contact-sales">Contact Sales &raquo;</a>
+            <p class="hidden current-plan">Your current plan</p>
           </div><!--/.cta-->
         </div><!--/.plan-box-->
       </div>

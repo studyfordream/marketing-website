@@ -23,6 +23,28 @@
     }
   }
 }
+body.plan-enterprise {
+  #enterprise-plan {
+    .current-plan {
+      display: block!important;
+      visibility: visible;
+    }
+    .action {
+      display: none;
+    }
+  }
+}
+body.plan-free-light {
+  #starter-plan {
+    .current-plan {
+      display: block!important;
+      visibility: visible;
+    }
+    .action {
+      display: none;
+    }
+  }
+}
 @media only screen and (min-width: $desktop-min-width){
     .plan-box-header {text-align: center;}
 }
