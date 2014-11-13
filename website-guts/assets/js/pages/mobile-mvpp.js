@@ -15,7 +15,7 @@ function smoothScroll(e) {
 *
 */
 var imgArr = [
-  'http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-mobile.gif?r=1415238379934',
+  'https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/feature.gif',
  'http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-realtime.gif?r=1415238473568',
  'http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-feedback.gif?r=1415238504566',
  'http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-manage.gif?r=1415238530321',
@@ -35,7 +35,7 @@ function toggleSrc(tracker, scrollingDown, panelHidden) {
     tracker.playing = true;
     setTimeout(function() {
       tracker.playing = false;
-    }, 5000);
+    }, 3000);
   }
 }
 
@@ -149,5 +149,88 @@ $(function() {
     var imgIndex = this.dataset.imgIndex;
     toggleSrc(imgCache[imgIndex], true, false);
   });
+
+  //Oform for signup top
+  var signupMobileMvppTopHelperInst = window.optly.mrkt.form.mobileMvpp({formId: 'mobile-signup-form-top'});
+
+  var signupFormTop = new Oform({
+    selector: '#mobile-signup-form-top',
+    customValidation: {
+      password: function(elm) {
+        return signupMobileMvppTopHelperInst.passwordValidate(elm);
+      }
+    }
+  });
+
+  signupFormTop.on('before', function() {
+    signupMobileMvppTopHelperInst.processingAdd();
+    signupMobileMvppTopHelperInst.removeErrors();
+    signupMobileMvppTopHelperInst.optionsErrorElm.innerHTML = 'Please correct form errors.';
+    return true;
+  });
+
+  signupFormTop.on('validationerror', function(elm) {
+    w.optly.mrkt.Oform.validationError(elm);
+  });
+
+  signupFormTop.on('error', function() {
+    signupMobileMvppTopHelperInst.processingRemove({callee: 'error'});
+    signupMobileMvppTopHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
+    window.analytics.track('create account xhr error', {
+      category: 'account',
+      label: w.location.pathname
+    });
+  }.bind(signupMobileMvppTopHelperInst));
+
+  signupFormTop.on('load', signupMobileMvppTopHelperInst.success.bind(signupMobileMvppTopHelperInst));
+
+  signupFormTop.on('done', function() {
+    if(document.body.classList.contains('oform-error')) {
+      signupMobileMvppTopHelperInst.processingRemove({callee: 'done'});
+      signupMobileMvppTopHelperInst.showOptionsError();
+    }
+  }.bind(signupMobileMvppTopHelperInst));
+
+  //Oform for signup bottom
+  var signupMobileMvppBottomHelperInst = window.optly.mrkt.form.mobileMvpp({formId: 'mobile-signup-form-bottom'});
+
+  var signupFormBottom = new Oform({
+    selector: '#mobile-signup-form-bottom',
+    customValidation: {
+      password: function(elm) {
+        return signupMobileMvppBottomHelperInst.passwordValidate(elm);
+      }
+    }
+  });
+
+  signupFormBottom.on('before', function() {
+    signupMobileMvppBottomHelperInst.processingAdd();
+    signupMobileMvppBottomHelperInst.removeErrors();
+    signupMobileMvppBottomHelperInst.optionsErrorElm.innerHTML = 'Please correct form errors.';
+    return true;
+  });
+
+  signupFormBottom.on('validationerror', function(elm) {
+    w.optly.mrkt.Oform.validationError(elm);
+  });
+
+  signupFormBottom.on('error', function() {
+    signupMobileMvppBottomHelperInst.processingRemove({callee: 'error'});
+    signupMobileMvppBottomHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
+    window.analytics.track('create account xhr error', {
+      category: 'account',
+      label: w.location.pathname
+    });
+  }.bind(signupMobileMvppBottomHelperInst));
+
+  signupFormBottom.on('load', signupMobileMvppBottomHelperInst.success.bind(signupMobileMvppBottomHelperInst));
+
+  signupFormBottom.on('done', function() {
+    if(document.body.classList.contains('oform-error')) {
+      signupMobileMvppBottomHelperInst.processingRemove({callee: 'done'});
+      signupMobileMvppBottomHelperInst.showOptionsError();
+    }
+  }.bind(signupMobileMvppBottomHelperInst));
+
 
 });

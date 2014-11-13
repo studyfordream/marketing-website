@@ -3,7 +3,7 @@ hero:
   title: "Make your iOS app <br><strong>More Engaging</strong>"
   vid_btn_txt: "Watch Video"
   signup_btn_txt: "Get Started"
-  existing_customer: "Optimizely for Android is coming soon. [Learn More](http://developers.optimizely.com/ios/)"
+  existing_customer: "Optimizely's Android SDK is coming soon. [Learn More](http://developers.optimizely.com/ios/)"
 top_grid: 
   title: "Fast, powerful A/B testing"
   sub_title: "for iOS apps"
@@ -25,7 +25,7 @@ panels:
 - 
   title: "Instant <br>Rollout"
   text: "Make visual changes to your app immediately without waiting for App Store review."
-  bg_img: "http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-mobile.gif?r=1415238379934"
+  bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/feature.gif"
 - 
   title: "Visual Editor"
   text: "Change your interface on-the-fly without writing a line of code."
@@ -74,37 +74,43 @@ testing_ideas:
   header: "Try out these <strong>testing ideas</strong>"
   ideas_grid:
   -
-    icon: "http://i2.cdnds.net/12/46/618x766/tv_thomas_magnum_1.jpg"
+    icon_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/usecase-still.gif"
+    icon_dynamic: "http://media.giphy.com/media/YjnJfRcF9N3PO/giphy.gif"
     title: "Onboarding Flow"
     text: "More than 80% of apps are deleted after their first use. That’s why it’s so important to test how you onboard users and show the value of your app."
   -
-    icon: "http://i2.cdnds.net/12/46/618x766/tv_thomas_magnum_1.jpg"
+    icon_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/usecase-still.gif"
+    icon_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/usecase-infiniteloop.gif"
     title: "Requesting Permissions"
     text: "With more access, you can offer a better experience. Try testing the right way to ask your users for permissions"
   -
-    icon: "http://i2.cdnds.net/12/46/618x766/tv_thomas_magnum_1.jpg"
+    icon_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/usecase-still.gif"
+    icon_dynamic: "http://media3.giphy.com/media/L9Bgj4EMQfYpW/giphy.gif"
     title: "Feature Discovery"
     text: "Should users search? Should they use your menu? You have the opportunity to optimize your users’ flow through your app."
   -
-    icon: "http://i2.cdnds.net/12/46/618x766/tv_thomas_magnum_1.jpg"
+    icon_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/usecase-still.gif"
+    icon_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/usecase-infiniteloop.gif"
     title: "Inputs and Interactions"
     text: "Every chance for a user to interact with your app is a chance for you to optimize. Test di erent types of forms and inputs."
   -
-    icon: "http://i2.cdnds.net/12/46/618x766/tv_thomas_magnum_1.jpg"
+    icon_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/usecase-still.gif"
+    icon_dynamic: "http://media3.giphy.com/media/tQwrDePDxPCp2/giphy.gif"
     title: "Re-engagement"
     text: "Acquisition is tough. Re-acquisition is tougher. You can optimize the ways you re-engage your users to keep them active."
   -
-    icon: "http://i2.cdnds.net/12/46/618x766/tv_thomas_magnum_1.jpg"
+    icon_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/usecase-still.gif"
+    icon_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/usecase-infiniteloop.gif"
     title: "Phase Rollouts"
     text: "Mobile A/B testing gives you an easy way to test new features and quickly remove the ones that don’t work."
 form_panel:
   bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/bottom-img.jpg"
   title: "Start Optimizing"
   subtitle: "Your iOS App Today"
-  email: "growth@marketer.com"
+  email: "Email"
   email_icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/email-grey.svg"
   password: "Create Password"
   password_icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/lock-grey.svg"
   submit_button: "Get Started"
-  existing_customer: "Optimizely for Android is coming soon. [Learn More](http://developers.optimizely.com/ios/)"
+  existing_customer: "Optimizely's Android SDK is coming soon. [Learn More](http://developers.optimizely.com/ios/)"
 

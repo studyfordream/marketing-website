@@ -19,31 +19,37 @@ page_script: mobile-mvpp.js
       {{#omarkdown}}{{{existing_customer}}}{{/omarkdown}}
       <a href="#signup-form-panel-b" class="scroll-down-icon" smooth-scroll></a>
     </div>
-  {{/with}}
   <div id="signup-form-panel-top">
+  <h1>{{{title}}}</h1>
+  {{/with}}
   {{#with mobile_page_mvpp_data.form_panel}}
-  <h2>{{title}}</h2>
-  <h3>{{subtitle}}</h3>
-  <form action="/account/create" id="mobile-signup-form">
-    <div class="flex-cont form-elm-cont">
-      <label class="form-grid">
-          <!--<span class="email-related error-hide error-right">Email is required</span>-->
-          <input style="background-image: url('{{email_icon}}')" type="email" name="email" placeholder="{{email}}" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{email}}'" required>
-      </label>
-      <label class="form-grid">
-          <!--<span class="password-related error-hide error-right">Password is required</span>-->
-          <input style="background-image: url('{{password_icon}}')" type="password" name="password" placeholder="{{password}}" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{password}}'" required>
-      </label>
+  <form action="/account/create" method="POST" id="mobile-signup-form-top" novalidate>
+    <div class="flex-responsive form-elm-cont">
       <div class="form-grid">
-        <button class="form-grid">{{submit_button}}</button>
+        <label>
+            <span class="email-related error-hide error-right">Required</span>
+            <input style="background-image: url('{{email_icon}}')" type="email" name="email" placeholder="{{email}}" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{email}}'" required>
+        </label>
+      </div>
+      <div class="form-grid">
+        <label>
+            <span class="password-related error-hide error-right">Required</span>
+            <input style="background-image: url('{{password_icon}}')" type="password" name="password" placeholder="{{password}}" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{password}}'" required>
+        </label>
+      </div>
+      <div class="form-grid">
+        <button title="{{submit_button}}" type="submit" class="submit-btn"></button>
       </div>
     </div>
+    <input type="hidden" name="flow" value="nux">
+    <input type="hidden" name="platform" value="ios">
     <div class="options">
-        <p class="error-message error-hide">Incorrect email or password</p>
+        <p class="error-message error-hide">Please Correct Form Errors</p>
     </div>
   </form>
   {{#omarkdown}}{{{existing_customer}}}{{/omarkdown}}
   {{/with}}
+  <a href="#" class="video-link" data-show-video><span class="circle-arrow"></span>Watch Video</a>
   </div>
 </section>
 {{#with mobile_page_mvpp_data.top_grid}}
@@ -97,7 +103,10 @@ page_script: mobile-mvpp.js
   <div class="ideas-cont flex-cont">
     {{#each testing_ideas.ideas_grid}}
     <div class="single-idea-cont flex-cont">
-      <div class="idea-icon bg-img" style="background-image: url('{{icon}}')"></div>
+      <div class="idea-icon">
+        <div class="bg-img static" style="background-image: url('{{icon_static}}')"></div>
+        <div class="bg-img dynamic" style="background-image: url('{{icon_dynamic}}')"></div>
+      </div>
       <div class="idea-content">
         <h4>{{title}}</h4>
         <p>{{text}}</p>
@@ -111,22 +120,28 @@ page_script: mobile-mvpp.js
 {{#with mobile_page_mvpp_data.form_panel}}
   <h2>{{title}}</h2>
   <h3>{{subtitle}}</h3>
-  <form action="/account/create" id="mobile-signup-form">
-    <div class="flex-cont form-elm-cont">
-      <label class="form-grid">
-          <!--<span class="email-related error-hide error-right">Email is required</span>-->
-          <input style="background-image: url('{{email_icon}}')" type="email" name="email" placeholder="{{email}}" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{email}}'" required>
-      </label>
-      <label class="form-grid">
-          <!--<span class="password-related error-hide error-right">Password is required</span>-->
-          <input style="background-image: url('{{password_icon}}')" type="password" name="password" placeholder="{{password}}" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{password}}'" required>
-      </label>
+  <form action="/account/create" method="POST" id="mobile-signup-form-bottom" novalidate>
+    <div class="flex-responsive form-elm-cont">
       <div class="form-grid">
-        <button class="form-grid">{{submit_button}}</button>
+        <label>
+            <span class="email-related error-hide error-right">Required</span>
+            <input style="background-image: url('{{email_icon}}')" type="email" name="email" placeholder="{{email}}" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{email}}'" required>
+        </label>
+      </div>
+      <div class="form-grid">
+        <label>
+            <span class="password-related error-hide error-right">Required</span>
+            <input style="background-image: url('{{password_icon}}')" type="password" name="password" placeholder="{{password}}" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{password}}'" required>
+        </label>
+      </div>
+      <div class="form-grid">
+        <button title="{{submit_button}}" type="submit" class="submit-btn"></button>
       </div>
     </div>
+    <input type="hidden" name="flow" value="nux">
+    <input type="hidden" name="platform" value="ios">
     <div class="options">
-        <p class="error-message error-hide">Incorrect email or password</p>
+        <p class="error-message error-hide">Please Correct Form Errors</p>
     </div>
   </form>
   {{#omarkdown}}{{{existing_customer}}}{{/omarkdown}}
