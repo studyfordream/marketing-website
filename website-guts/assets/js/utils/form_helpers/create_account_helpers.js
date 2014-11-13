@@ -361,7 +361,7 @@ var createAccountHelper = {
             }
 
           },
-          error: function(event){
+          error: function(){
 
             w.analytics.track('/pricing/change_plan', {
               category: 'xmlhttprequest problem',
@@ -369,7 +369,7 @@ var createAccountHelper = {
             });
 
           },
-          abort: function(event){
+          abort: function(){
 
             w.analytics.track('/pricing/change_plan', {
               category: 'xmlhttprequest problem',
