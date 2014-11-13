@@ -2,15 +2,20 @@
 layout: wrapper.hbs
 body_class:
 - homepage
-page_script: index.js
+page_script: homepage.js
 layout_script: false
 layout_body_class: false
+modals:
+- anonymous-wall-compiled
 ---
 <section id="cta">
   <div class="container">
     <h1>Make every experience count</h1>
     <p>One optimization platform for websites and mobile apps</p>
-    <button type="submit" class="primary-button">Get Started</button>
+    <form id="test-it-out-form" action="/account/create" method="POST">
+      <input type="text" placeholder="Email" id="email-input">
+      <button type="submit" class="primary-button">Get Started &raquo;</button>
+    </form>
   </div><!--/.container-->
 </section><!--/#cta-->
 <section class="reasons">
