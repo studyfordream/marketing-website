@@ -24,12 +24,21 @@ body.homepage{
       top: 50%;
       transform: translateY(-75%);
     }
+    form {
+      margin-top: 10%;
+      input {
+        $inputs: email 11px 30px;
+        @include anim-input-icons($inputs);
+        background-image:  url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/email-grey.svg');
+        background-repeat: no-repeat;
+        width: 280px;
+      }
+    }
     button[type=submit] {
       @extend .primary-button;
       display: inline-block;
       height: 40px;
       border-radius: 4%;
-      margin-top: 9%;
     }
     p {
       color: white;

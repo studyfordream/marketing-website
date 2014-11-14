@@ -215,7 +215,6 @@
   } // end for loop
 } // end @mixin
 
-
 @mixin anim-input-icons(
   $inputs: (), // nested list -- #1 input name, #2 override background-position-y, #3 override text indent
   $background-pos-x: 5px -25px, // list -- #1 starting background pos, #2 focusin bacground pos
@@ -248,8 +247,7 @@
           }
         }
       }
-    } 
-    @else {
+    } @else {
       @if(length($inputs) > 0) {
         &[name="#{nth($inputs, 1)}"] {
           background-position-y: #{nth($inputs, 2)};

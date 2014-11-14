@@ -2,11 +2,11 @@
 $('#get-started').submit(function(e){
   e.preventDefault();
 
-  var inputVal = $('#get-started input[type="text"]').val();
+  var inputVal = $('#get-started input[type="email"]').val();
 
   if( inputVal ){
     w.optly.mrkt.modal.open({ modalType: 'anonymous-wall' });
-    $('input[type="email"').val(inputVal);
+    $('input[type="email"]').val(inputVal);
   } else {
     $('input[type="text"]').focus();
   }
@@ -18,7 +18,7 @@ $('[data-modal-btn="close"]').on('click', function() {
 });
 
 //deal with placeholder icons
-//window.optly.mrkt.anim.placeholderIcons({inputs: $('.panel input')});
+window.optly.mrkt.anim.placeholderIcons({inputs: $('#get-started input')});
 
 // Handle the anonomous wall signup
 var signupDialogHelperInst = window.optly.mrkt.form.createAccount({formId: 'anonymous-wall'});
