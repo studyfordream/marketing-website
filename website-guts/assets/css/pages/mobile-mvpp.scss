@@ -186,7 +186,6 @@ body.mobile-mvpp-page {
       display: inline-block;
       width: 100%;
       margin: 0 auto;
-      max-width: 500px;
     }
     background: #fff;
     .flex-img-cont {
@@ -207,6 +206,12 @@ body.mobile-mvpp-page {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+  }
+  .panel.editor-demo {
+    padding-top: 160px;
+  }
+  #panel-1 {
+    padding-top: 90px;
   }
   #hero, 
   #signup-form-panel-bottom,
