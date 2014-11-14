@@ -53,7 +53,7 @@ describe('testing the signin, create account, retrieve password dialogs', functi
         .run(done);
     });
   }); //end create account test
-  
+
   describe('filling out the retrieve password form', function() {
     it('displays the email sent success message', function(done) {
       new Nightmare({phantomPath: phantomPath})

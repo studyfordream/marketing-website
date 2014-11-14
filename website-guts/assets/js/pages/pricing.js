@@ -47,7 +47,7 @@ w.optly_q.push([updatePlanInfo]);
 
 w.optly.mrkt.activeModals.signup.remove();
 
-var signupHelper = w.optly.mrkt.form.createAccount({formId: 'signup-form', dialogId: 'signup-dialog'});
+var signupHelper = w.optly.mrkt.form.createAccount({formId: 'signup-form-new', dialogId: 'signup-dialog'});
 
 w.optly.mrkt.activeModals = w.optly.mrkt.activeModals || {};
 

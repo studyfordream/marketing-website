@@ -271,6 +271,8 @@ var createAccountHelper = {
 
         w.console.log('data object: ' + data);
 
+        document.body.classList.add('create-account-success');
+
         w.analytics.identify(resp.email, {
           Last_Experiment_URL__c: data.data['url-input'],
           LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
@@ -332,6 +334,8 @@ var createAccountHelper = {
 
             if(event.target.status === 200){
 
+              document.body.classList.add('change-plan-success');
+
               w.Munchkin.munchkinFunction('visitWebPage', {
                 url: '/event/plan/free-light'
               });
@@ -346,9 +350,11 @@ var createAccountHelper = {
               });
 
               //send the user to the welcome page
-              w.setTimeout(function() {
-                w.location = 'https://www.optimizely.com/welcome';
-              }, 1000);
+              // w.setTimeout(function() {
+              //   //if(!w.optly.mrkt.utils.getURLParameter('phantom')){
+              //     //w.location = 'https://www.optimizely.com/welcome';
+              //   }
+              // }, 1000);
 
             } else {
 
