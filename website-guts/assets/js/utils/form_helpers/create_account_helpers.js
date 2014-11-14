@@ -271,6 +271,8 @@ var createAccountHelper = {
 
         w.console.log('data object: ' + data);
 
+        document.body.classList.add('create-account-success');
+
         w.analytics.identify(resp.email, {
           Last_Experiment_URL__c: data.data['url-input'],
           LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
@@ -327,28 +329,32 @@ var createAccountHelper = {
 
         //change the user's plan to free to get them started
         w.optly.mrkt.changePlan({
-          plan: 'free-light',
+          plan: 'free_light',
           load: function(event){
 
             if(event.target.status === 200){
 
+              document.body.classList.add('change-plan-success');
+
               w.Munchkin.munchkinFunction('visitWebPage', {
-                url: '/event/plan/free-light'
+                url: '/event/plan/free_light'
               });
-              w.analytics.page('/plan/free-light');
+              w.analytics.page('/plan/free_light');
               w.analytics.track('change plan', {
                 category: 'account',
                 label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
               });
-              w.analytics.track('/plan/free-light', {
+              w.analytics.track('/plan/free_light', {
                 category: 'account',
                 label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
               });
 
               //send the user to the welcome page
-              w.setTimeout(function() {
-                w.location = 'https://www.optimizely.com/welcome';
-              }, 1000);
+              // w.setTimeout(function() {
+              //   //if(!w.optly.mrkt.utils.getURLParameter('phantom')){
+              //     //w.location = 'https://www.optimizely.com/welcome';
+              //   }
+              // }, 1000);
 
             } else {
 
