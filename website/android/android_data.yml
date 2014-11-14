@@ -1,0 +1,16 @@
+top_content:
+  featured_img: "/img/android/nexus5_airbnb_v3.png"
+  title: "Make Your Android App <span>More Engaging</span>"
+  sub_title: "Sign up below to learn more about the Optimizely for Android developer preview"
+
+form: 
+  button_text: "Sign Up"
+
+hidden_content:
+  title: "Thanks for your interest in <span>Optimizely for Android</span>"
+  content: "We're gradually expanding our developer preview, tell us more about your app to get early access"
+  button_text: "Get Access"
+
+ios_link:
+  text: "Have an iOS app? Try"
+  anchor: "Optimizely for iOS"

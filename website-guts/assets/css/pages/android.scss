@@ -55,24 +55,29 @@
       }
     }
     input {
-      border-radius: 4px;
-      border: none;
-      font-size: 14/16 * 1em;
-      height: 45px;
-      letter-spacing: 1.5/16 * 1em;
+      $inputs: email 11px;
+      @include anim-input-icons($inputs);
       &[type="email"] {
         position: relative;
-        $inputs: email 11px, password 9px 23px;
-        @include anim-input-icons($inputs);
-      }
-      &[type="submit"] {
-        background: $dark-button-bg;
-        width: 133px;
       }
       &.oform-error-show {
         box-shadow: inset 0 0 0 3px #911d16;
       }
     }
+  }
+  input[type="email"],
+  button[type="submit"] {
+    border-radius: 4px;
+    border: none;
+    font-size: 14/16 * 1em;
+    height: 45px;
+    letter-spacing: 1.5/16 * 1em;
+    margin: 0;
+  }
+  button[type="submit"] {
+    background: $dark-button-bg;
+    width: 133px;
+    text-transform: uppercase;
   }
   @media all and (max-width: 768px) {
     padding: 20px 40px;

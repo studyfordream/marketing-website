@@ -1,7 +1,12 @@
 // var $emailInput = $('.android input[type="email"]');
 // window.optly.mrkt.anim.placeholderIcons({
 //   inputs: $('.android input[type="email"]');
-// });
+// }); 
+
+$(function() {
+  //deal with input icon animation
+  window.optly.mrkt.anim.placeholderIcons({inputs: $('.android__content input[type="email"]')});
+});
 
 new Oform({
   selector: '.android__content form'
