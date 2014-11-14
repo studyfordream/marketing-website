@@ -3,7 +3,8 @@ hero:
   title: "Make your iOS app <br><strong>More Engaging</strong>"
   vid_btn_txt: "Watch Video"
   signup_btn_txt: "Get Started"
-  existing_customer: "Optimizely's Android SDK is coming soon. [Learn More](http://developers.optimizely.com/ios/)"
+  link_text: "Optimizely's Android SDK is coming soon."
+  link_anchor_text: "Learn More"
 top_grid: 
   title: "Fast, powerful A/B testing"
   sub_title: "for iOS apps"
@@ -25,23 +26,23 @@ panels:
 - 
   title: "Instant <br>Rollout"
   text: "Make visual changes to your app immediately without waiting for App Store review."
-  bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/feature.gif"
+  bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/01visual-editor.gif"
 - 
   title: "Visual Editor"
   text: "Change your interface on-the-fly without writing a line of code."
-  bg_img: "http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-realtime.gif?r=1415238473568"
+  bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/02developer-tools.gif"
 - 
   title: "Developer <br>Tools"
   text: "Optimize code-level variables and roll out entirely new features, no matter how custom your app."
-  bg_img: "http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-feedback.gif?r=1415238504566"
+  bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/02developer-tools.gif"
 - 
   title: "Multichannel <br>Experiences"
   text: "Deliver consistent, targeted experiences across the web and mobile apps."
-  bg_img: "http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-manage.gif?r=1415238530321"
+  bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/04multi-ex.gif"
 - 
   title: "Mobile <br>Metrics"
   text: "Track the metrics that matter to mobile developers, with out-of-the-box support for retention metrics, revenue reports, and more."
-  bg_img: "http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-sourcecontrol.gif?r=1415238571058"
+  bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/05mobile-metrics.gif"
 customer_logos:
  body: |
   ## Already loved by these<br><strong>awesome apps</strong>
@@ -112,5 +113,6 @@ form_panel:
   password: "Create Password"
   password_icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/lock-grey.svg"
   submit_button: "Get Started"
-  existing_customer: "Optimizely's Android SDK is coming soon. [Learn More](http://developers.optimizely.com/ios/)"
+  link_text: "Optimizely's Android SDK is coming soon."
+  link_anchor_text: "Learn More"
 

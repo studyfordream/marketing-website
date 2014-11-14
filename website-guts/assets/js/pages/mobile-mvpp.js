@@ -15,11 +15,11 @@ function smoothScroll(e) {
 *
 */
 var imgArr = [
-  'https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/feature.gif',
- 'http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-realtime.gif?r=1415238473568',
- 'http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-feedback.gif?r=1415238504566',
- 'http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-manage.gif?r=1415238530321',
- 'http://www.invisionapp.com/assets/img/home/animations/prototyping-mockup-sourcecontrol.gif?r=1415238571058'
+  'https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/01visual-editor.gif',
+ 'https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/02developer-tools.gif',
+ 'https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/03instant-rollout.gif',
+ 'https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/04multi-ex.gif',
+ 'https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/05mobile-metrics.gif'
 ];
 
 //preload GIF's
