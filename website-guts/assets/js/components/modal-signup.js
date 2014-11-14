@@ -41,12 +41,7 @@ w.optly.mrkt.activeModals.signup.on('error', function() {
   });
 }.bind(signupDialogHelperInst));
 
-w.optly.mrkt.activeModals.signup.on('load', signupDialogHelperInst.load.bind(signupDialogHelperInst));
-
-w.optly.mrkt.activeModals.signup.on('done', function() {
-  window.setTimeout(function() {
-    signupDialogHelperInst.scrollTopDialog();
-  }, 500);
-
-  signupDialogHelperInst.processingRemove({callee: 'done'});
+w.optly.mrkt.activeModals.signup.on('load', function() {
+  signupDialogHelperInst.load.bind(signupDialogHelperInst);
+  window.location.href = '/pricing';
 }.bind(signupDialogHelperInst));
