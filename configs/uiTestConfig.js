@@ -2,7 +2,9 @@ var path = require('path');
 
 module.exports = function(options){
   return {
-    basePath: 'http://0.0.0.0:9000' + global.linkPath,
+    basePath: function(opts) {
+      return 'http://0.0.0.0:9000' + global.linkPath + opts.path + '?phantom=true'
+    },
     email: 'david@g.com',
     retrievePasswordEmail: 'david.fox-powell@optimizely.com',
     password: '1800EatBurritos',

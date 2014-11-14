@@ -98,14 +98,17 @@ var mobileMvppHelper = {
       w.optly.mrkt.Oform.trackLead({
         email: formElm.querySelector('[name="email"]').value
       }, e);
+      
+      if(window.optly.mrkt.utils.deparam(window.location.href).phantom === 'true') {
+        document.body.dataset.formSuccess = this.formElm.getAttribute('action');
+      } else {
+        window.setTimeout(function() {
+          window.location = '/mobile/first-project';
+        }, 1000);
+      }
 
       this.formElm.querySelector('button[type="submit"').classList.add('successful-submit');
 
-      window.setTimeout(function() {
-        window.optly.mrkt.modal.close({ modalType: 'signup', track: false });
-        window.optly_q.acctData = resp;
-        window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
-      }, 1000);
     }
 
   }

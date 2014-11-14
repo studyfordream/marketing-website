@@ -1,7 +1,7 @@
 var Nightmare = require('nightmare');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
-var testPath = config.basePath;
+var testPath = config.basePath({path: '/'});
 
 describe('testing the signin, create account, retrieve password dialogs', function() {
 
