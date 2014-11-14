@@ -249,12 +249,24 @@
       text-indent: 0!important;
     }
     //create the input specific positioning
-    @each $list in $inputs {
-      @if(length($list) > 0) {
-        &[name="#{nth($list, 1)}"] {
-          background-position-y: #{nth($list, 2)};
-          @if(length($list) > 2) {
-            text-indent: #{nth($list, 3)};
+    @if(type-of( nth($inputs, 1) ) == list) {
+      @each $list in $inputs {
+        @if(length($list) > 0) {
+          &[name="#{nth($list, 1)}"] {
+            background-position-y: #{nth($list, 2)};
+            @if(length($list) > 2) {
+              text-indent: #{nth($list, 3)};
+            }
+          }
+        }
+      }
+    } 
+    @else {
+      @if(length($inputs) > 0) {
+        &[name="#{nth($inputs, 1)}"] {
+          background-position-y: #{nth($inputs, 2)};
+          @if(length($inputs) > 2) {
+            text-indent: #{nth($inputs, 3)};
           }
         }
       }
