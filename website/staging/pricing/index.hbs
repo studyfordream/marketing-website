@@ -18,65 +18,70 @@ modals:
     <div class="row pricing-overview">
       <div class="columns five offset-one">
         <div class="plan-box plan-box-cont" id="starter-plan">
-          <h2 class="plan-box-header">Starter</h2>
+          <h2 class="plan-box-header">{{pricing.starter_plan.name}}</h2>
           <div class="plan-box-content">
+            {{#if pricing.starter_plan.feature_overview}}
             <ul>
-              <li>Improve conversions, increase engagement, and drive revenue</li>
-              <li>Get started instantly</li>
-              <li>Free&mdash;no credit card required</li>
+              {{#each pricing.starter_plan.feature_overview}}
+              <li>{{{.}}}</li>
+              {{/each}}
             </ul>
+            {{/if}}
           </div><!--/.plan-box-content-->
           <div class="cta">
-            <p class="cta-headline">Free</p>
-            <p class="cta-description">Not just a trial. Seriously.</p>
-            <a href="#" class="button action secondary-button" data-modal-click="signup-new">Get Started</a>
+            {{#if pricing.starter_plan.cost}}<p class="cta-headline">{{{pricing.starter_plan.cost}}}</p>{{/if}}
+            {{#if pricing.starter_plan.description}}<p class="cta-description">{{{pricing.starter_plan.description}}}</p>{{/if}}
+            <a href="#" class="button action secondary-button">{{{pricing.starter_plan.primary_call_to_action}}}</a>
+            {{#if pricing.starter_plan.secondary_call_to_action}}<p>{{{pricing.starter_plan.secondary_call_to_action}}}</p>{{/if}}
             <p class="hidden current-plan">Your current plan</p>
           </div><!--/.cta-->
         </div><!--/.plan-box-->
       </div>
       <div class="columns five">
         <div class="plan-box plan-box-cont highlight" id="enterprise-plan">
-          <h2 class="plan-box-header">Enterprise</h2>
+          <h2 class="plan-box-header">{{pricing.enterprise_plan.name}}</h2>
           <div class="plan-box-content">
+            {{#if pricing.enterprise_plan.feature_overview}}
             <ul>
-              <li>Create and deliver multichannel, targeted experiences</li>
-              <li>Customizable to meet your needs</li>
-              <li>World-class customer support to take your optimization to the next level</li>
+              {{#each pricing.enterprise_plan.feature_overview}}
+              <li>{{{.}}}</li>
+              {{/each}}
             </ul>
+            {{/if}}
           </div><!--/.plan-box-content-->
           <div class="cta">
-            <p class="cta-headline">Custom</p>
-            <p class="cta-description">Optimized for your business.</p>
-            <a href="#" class="button action" data-modal-click="contact-sales">Contact Sales &raquo;</a>
-            <p>or call us at <a href="tel:18002529840">1-800-252-9480</a></p>
+            {{#if pricing.enterprise_plan.cost}}<p class="cta-headline">{{{pricing.enterprise_plan.cost}}}</p>{{/if}}
+            {{#if pricing.enterprise_plan.description}}<p class="cta-description">{{{pricing.enterprise_plan.description}}}</p>{{/if}}
+            <a href="#" class="button action" data-modal-click="signup-new">{{{pricing.enterprise_plan.primary_call_to_action}}}</a>
+            {{#if pricing.enterprise_plan.secondary_call_to_action}}<p>{{{pricing.enterprise_plan.secondary_call_to_action}}}</p>{{/if}}
             <p class="hidden current-plan">Your current plan</p>
           </div><!--/.cta-->
         </div><!--/.plan-box-->
       </div>
     </div><!--/.row-->
-    <a class="button" id="full-feature-list-btn">See Full List of Features</a>
+    {{#if pricing.full_feature_list_button_text}}<a class="button" id="full-feature-list-btn" href="#full-feature-list-cont"><span style="background-image: url({{assetsDir}}/img/pricing/down-arrow.svg)">{{pricing.full_feature_list_button_text}}</span></a>{{/if}}
   </div><!--/.container-->
 </section>
 <section id="company-list-cont">
   <div class="container" id="company-list">
-    <h4>Already used by the following great companies:</h4>
+    {{#if pricing.company_logos.header}}<h4>{{pricing.company_logos.header}}</h4>{{/if}}
+    {{#if pricing.company_logos.logos}}
     <div class="logo-container">
-      <img alt="TripAdvisor" src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/tripadvisor_logo.svg">
-      <img alt="Microsoft" src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_logo_and_wordmark (1).svg">
-      <img alt="Starbucks" src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/starbucks.svg">
-      <img alt="NBC Universal" src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/nbc_universal.svg">
-      <img alt="American Apparel" src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/american_apparel_logo.svg">
+      {{#each pricing.company_logos.logos}}
+      <img alt="{{name}}" src="{{svg}}">
+      {{/each}}
     </div>
+    {{/if}}
   </div><!--/.container-->
 </section>
 <section class="blue-bg" id="full-feature-list-cont">
   <div class="container">
-    <h2>Full Feature List</h2>
+    {{#if pricing.full_feature_list_header}}<h2>{{pricing.full_feature_list_header}}</h2>{{/if}}
     <div class="row">
       <div class="columns five offset-one">
         <div class="feature-list-box plan-box-cont">
-          <h2 class="plan-box-header">Starter</h2>
-          {{#each pricing.full_plan_benefits.starter.feature_groups}}
+          <h2 class="plan-box-header">{{pricing.starter_plan.name}}</h2>
+          {{#each pricing.starter_plan.full_benefits.feature_groups}}
           <div class="feature-category">
             {{#if category}}<h3>{{{category}}}</h3>{{/if}}
             {{#if features}}
@@ -97,8 +102,8 @@ modals:
       </div><!--/.columns-->
       <div class="columns five">
         <div class="feature-list-box plan-box-cont highlight">
-          <h2 class="plan-box-header">Enterprise</h2>
-          {{#each pricing.full_plan_benefits.enterprise.feature_groups}}
+          <h2 class="plan-box-header">{{pricing.enterprise_plan.name}}</h2>
+          {{#each pricing.enterprise_plan.full_benefits.feature_groups}}
           <div class="feature-category">
             {{#if category}}<h3>{{{category}}}</h3>{{/if}}
             {{#if features}}

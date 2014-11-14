@@ -1,68 +1,104 @@
----
- full_plan_benefits:
-  starter:
-   plan_name: "Starter"
-   feature_groups:
-    -
-     category: ""
-     features:
-      -
-       title: "Essential Features:"
-       details:
-        - "Optimization for the web, mobile web, iOS and soon Android native apps"
-        - "Dead simple implementation"
-        - "Easy-to-use visual editor"
-        - "Advanced mobile developer tools HTML / JS editor"
-        - "CDN-balanced architecture for scalable experience delivery"
-        - "Real-time results and reporting"
-    -
-      category: "Create &amp; launch experiments"
+full_feature_list_button_text: "See Full List of Features"
+company_logos:
+ header: "Already used by the following greate companies:"
+ logos:
+  -
+   name: "TripAdvisor"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/tripadvisor_logo.svg"
+  -
+   name: "Microsoft"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_logo_and_wordmark (1).svg"
+  -
+   name: "Starbucks"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/starbucks.svg"
+  -
+   name: "NBC Universal"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/nbc_universal.svg"
+  -
+   name: "AmericanApparel"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/american_apparel_logo.svg"
+full_feature_list_header: "Full Feature List"
+starter_plan:
+ name: "Starter"
+ cost: "Free"
+ description: "Not just a trial. Seriously."
+ primary_call_to_action: "Get Started"
+ secondary_call_to_action: ""
+ feature_overview:
+  - "Improve conversions, increase engagement, and drive revenue"
+  - "Get started instantly"
+  - "Free&mdash;no credit card required"
+ full_benefits:
+  feature_groups:
+   -
+    category: ""
+    features:
+     -
+      title: "Essential Features:"
+      details:
+       - "Optimization for the web, mobile web, iOS and soon Android native apps"
+       - "Dead simple implementation"
+       - "Easy-to-use visual editor"
+       - "Advanced mobile developer tools HTML / JS editor"
+       - "CDN-balanced architecture for scalable experience delivery"
+       - "Real-time results and reporting"
+   -
+    category: "Create &amp; launch experiments"
+    features:
+     -
+      title: "A/B and multivariate experiments"
+     -
+      category: "Discover visitor insights"
       features:
-        -
-          title: "A/B and multivariate experiments"
-    -
-     category: "Discover visitor insights"
-     features:
-      -
-       title: "Basic results segmentation to analyze visitor behavior:"
-       details:
-        - "Referral Source"
-        - "Browser"
-      -
-       title: "Mobile app goals to track business critical metrics:"
-       details:
+       -
+        title: "Basic results segmentation to analyze visitor behavior:"
+        details:
+         - "Referral Source"
+         - "Browser"
+       -
+        title: "Mobile app goals to track business critical metrics:"
+        details:
          - "Unique and total conversions"
          - "Detailed revenue report"
          - "Retention report"
          - "Mobile session metrics"
-  enterprise:
-   plan_name: "Enterprise"
-   feature_groups:
-    -
-     category: ""
-     features:
-      -
-       title: "All the same essential features as Starter"
-    -
-     category: "Create &amp; launch experiments"
-     features:
-      -
-       title: "Multi-page funnel testing"
-      -
-       title: "Cross-browser QA"
-      -
-       title: "Multichannel experiments: leverage the Universal User"
-      -
-       title: "ID to delivery connected experiences to visitors across the web and mobile apps"
-    -
-     category: "Discover visitor insights"
-     features:
-      -
-       title: "Advanced resutls segmentation to analyze visitor behavior"
-       details:
-        - "Campaign"
-        - "Device"
-        - "Targeting conditions"
-        - "Custom segments"
-      -
-       title: "Custom reports and annotations, built for teams to communicate and share"
+enterprise_plan:
+ name: "Enterprise"
+ cost: "Custom"
+ description: "Optimized for your business"
+ primary_call_to_action: "Contact sales &raquo;"
+ secondary_call_to_action: "or call us at <a href='tel:18002529840'>1-800-252-9480</a>"
+ feature_overview:
+  - "Create and delivery multichannel, targeted experiences"
+  - "Customizable to meet your needs"
+  - "World-class customer support to take your optimization to the next level"
+ full_benefits:
+  feature_groups:
+   -
+    category: ""
+    features:
+     -
+      title: "All the same essential features as Starter"
+     -
+      category: "Create &amp; launch experiments"
+      features:
+     -
+      title: "Multi-page funnel testing"
+     -
+      title: "Cross-browser QA"
+     -
+      title: "Multichannel experiments: leverage the Universal User"
+     -
+      title: "ID to delivery connected experiences to visitors across the web and mobile apps"
+   -
+    category: "Discover visitor insights"
+    features:
+     -
+      title: "Advanced resutls segmentation to analyze visitor behavior"
+      details:
+       - "Campaign"
+       - "Device"
+       - "Targeting conditions"
+       - "Custom segments"
+     -
+      title: "Custom reports and annotations, built for teams to communicate and share"

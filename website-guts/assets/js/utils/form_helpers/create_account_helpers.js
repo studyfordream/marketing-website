@@ -350,11 +350,11 @@ var createAccountHelper = {
               });
 
               //send the user to the welcome page
-              // w.setTimeout(function() {
-              //   //if(!w.optly.mrkt.utils.getURLParameter('phantom')){
-              //     //w.location = 'https://www.optimizely.com/welcome';
-              //   }
-              // }, 1000);
+               w.setTimeout(function() {
+                 if(!w.optly.automatedTest()){
+                   w.location = 'https://www.optimizely.com/welcome';
+                 }
+              }, 1000);
 
             } else {
 
