@@ -44,4 +44,10 @@ w.optly.mrkt.activeModals.signup.on('error', function() {
 w.optly.mrkt.activeModals.signup.on('load', function() {
   signupDialogHelperInst.load.bind(signupDialogHelperInst);
   window.location.href = '/pricing';
+});
+
+w.optly.mrkt.activeModals.signup.on('done', function() {
+  if (document.body.classList.contains('oform-error')) {
+    signupDialogHelperInst.processingRemove({callee: 'done'});
+  }
 }.bind(signupDialogHelperInst));
