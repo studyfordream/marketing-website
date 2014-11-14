@@ -68,7 +68,7 @@ body.plan-enterprise {
     }
   }
 }
-body.plan-free-light {
+body.plan-free_light {
   #starter-plan {
     .current-plan {
       display: block!important;
@@ -107,6 +107,17 @@ body.pricing {
         margin-top: 15px;
       }
     }
+  }
+  #full-feature-list-btn {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  #full-feature-list-btn span {
+    display: block;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position: right center;
+    padding: 0 40px;
   }
   #company-list {
     h4 {

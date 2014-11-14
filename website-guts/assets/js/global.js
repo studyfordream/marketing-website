@@ -12,6 +12,22 @@ window.optly.mrkt.isMobile = function(){
 
 };
 
+window.optly.mrkt.automatedTest = function(){
+
+	var phantom, stagingDomain;
+
+	phantom = window.optly.mrkt.utils.getURLParameter('phantom') === 'true';
+
+	stagingDomain = window.location.hostname !== 'www.optimizely.com';
+
+	if(phantom && stagingDomain){
+		return true;
+	} else {
+		return false;
+	}
+
+};
+
 window.optly.mrkt.mobileJS = function(){
 
 	if( window.optly.mrkt.isMobile() ){
@@ -288,4 +304,15 @@ window.optly.mrkt.changePlan = function(args){
 
 	}
 
+};
+
+window.optly.mrkt.utils.smoothScroll = function(event) {
+
+	var targetElmPos = $(event.currentTarget).offset().top;
+
+	event.preventDefault();
+
+	$('html,body').animate({
+		scrollTop: targetElmPos
+	}, 1000);
 };

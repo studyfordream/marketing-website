@@ -1,3 +1,5 @@
+$('#full-feature-list-btn').click(w.optly.mrkt.utils.smoothScroll);
+
 /* get the current plan */
 var updatePlanInfo = function(){
 
@@ -42,6 +44,20 @@ var updatePlanInfo = function(){
   }
 
 };
+
+// $('#starter-plan .action').click(function(){
+//
+//   if(window.optly.mrkt.user){
+//
+//     //show confirmation modal
+//
+//   } else {
+//
+//     w.optly.mrkt.modal.open({ modalType: 'signup-new' });
+//
+//   }
+//
+// });
 
 w.optly_q.push([updatePlanInfo]);
 
@@ -125,7 +141,6 @@ new Oform({
           category: 'account',
           label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
         });
-        console.log('plan downgraded from: ' + w.optly.mrkt.user.acctData.plan_id);
         w.analytics.track('plan downgraded', {
           category: 'account',
           label: w.optly.mrkt.user.acctData.plan_id + ' to free_light'
@@ -134,7 +149,6 @@ new Oform({
         //show the downgrade confirmation modal
         w.optly.mrkt.modal.open({ modalType: 'downgrade-plan-confirm' });
         $('#downgrade-plan-confirm-cont .close-btn').click(function(){
-          console.log('clicked');
           location.reload();
         });
 
