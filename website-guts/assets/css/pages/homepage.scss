@@ -204,7 +204,8 @@ body.homepage{
       @extend .vertical-center-header;
     }
     #cta {
-      background-position: 50% 60%;
+      background-position: 50% 80%;
+      background-size: contain;
       height: 60vh;
       min-height: 300px;
       overflow: hidden;
