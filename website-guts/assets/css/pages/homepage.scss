@@ -44,7 +44,7 @@ body.homepage{
     p {
       color: white;
       font-weight: 100;
-      font-size: 20px;
+      font-size: 1.25em;
     }
     h1 {
       margin-top: 20%;
@@ -61,7 +61,8 @@ body.homepage{
       margin-top: 6%;
       margin-bottom: 8%;
       p {
-        font-size: 125%;
+        font-size: 1.5em;
+        font-weight: 500;
         color: #00415d;
       }
     }
@@ -71,6 +72,20 @@ body.homepage{
       background-repeat: no-repeat;
       background-position: center top;
       margin-bottom: 15%;
+      .list-title {
+        margin-right: -2%;
+        margin-right: -1%;
+      }
+      ul {
+        margin-left: 15%;
+        margin-right: 10%;
+        li {
+          font-size: 0.9375em;
+          font-weight: 100;
+          color: #646464;
+          margin-bottom: 1.1%;
+        }
+      }
       &#first-reason {
         background-image: image-url('circle-placeholder.png');
       }
@@ -82,19 +97,12 @@ body.homepage{
       }
     }
     .list-title {
-      p{
+      p {
         margin: 0, 16%, 12%, 16%;
-        font-size: 1em;
+        font-size: 1.125em;
+        font-weight: 500;
+        color: #5F5F5F;
         line-height: 1.4;
-        font-weight: 400;
-      }
-    }
-    ul {
-      font-size: 0.85em;
-      margin-left: 15%;
-      margin-right: 10%;
-      li {
-        margin-bottom: 1.1%;
       }
     }
     .reason-logo {
@@ -118,42 +126,17 @@ body.homepage{
         margin: 12% 2% 8% 2%;
         text-transform: uppercase;
         letter-spacing: 2px;
-        text-size: 6px;
+        font-size: 6px;
         color:  #8C8C8C;
       }
     }
-    .company-logo {
-      background-position: 50% 0;
-      background-repeat: no-repeat;
-      height: 73px;
-      margin-bottom: 8%;
-    }
-    .cnn {
-      background-image: image-url('customers/cnn.svg');
-      height: 46px;
-      width: auto;
-    }
-    .starbucks {
-      background-image: image-url('customers/starbucks.svg');
-      height: 55px;
-      width: auto;
-    }
-    .microsoft {
-      background-image: image-url('customers/microsoft.svg');
-      margin-top: 6%;
-      height: 46px;
-      width: auto;
-    }
-    .salesforce {
-      background-image: image-url('customers/salesforce.svg');
-      height: 52px;
-      width: auto;
-    }
-    .guardian {
-      background-image: image-url('customers/guardian.svg');
-      margin-top: 8%;
-      height: 35px;
-      width: auto;
+    .logo-container {
+      img {
+        max-width: 175px;
+        margin-bottom: 15px;
+        display: block;
+        margin: 0 auto 25px auto;
+      }
     }
   }
   @media only screen and (min-width: $tablet-min-width){
@@ -172,13 +155,18 @@ body.homepage{
       .companies-header {
         p {
           margin-top: 6%;
-          text-size: 14px;
+          font-size: 14px;
         }
       }
-      .company-logo {
-        @include column;
-        @include columns(2.6);
-        margin: 0 0 20px 0;
+      .logo-container {
+        display: flex;
+        justify-content: center;
+        img {
+          max-width: 140px;
+          max-height: 70px;
+          vertical-align: baseline;
+          padding-right: 15px
+        }
       }
     }
     .reasons {
@@ -186,7 +174,7 @@ body.homepage{
         display: flex;
       }
       .reasons-header {
-        margin: 6% 13% 6% 13%;
+        margin: 6% 4% 6% 4%;
       }
       .list-title {
         margin: 0 9% 2% 9%;
@@ -205,7 +193,6 @@ body.homepage{
     }
   }
   @media only screen and (min-width: $desktop-min-width){
-    height: 100%;
     text-align: center;
     #outer-wrapper, #inner-wrapper, #cta {
       position: relative;
@@ -216,9 +203,10 @@ body.homepage{
       @extend .vertical-center-header;
     }
     #cta {
-      background-position: 50% 60%;
+      background-position: 50% 80%;
+      background-size: contain;
       height: 60vh;
-      min-height: 300px;
+      min-height: 450px;
       overflow: hidden;
       .container {
         position: relative;
@@ -239,31 +227,28 @@ body.homepage{
         margin-bottom: 18%;
       }
       .reasons-header {
-        margin: 3% 13% 3% 13%;
+        margin: 3% 8% 3% 8%;
       }
       .flex-cont {
         margin-top: 3%;
       }
-      .list-title {
-        margin: 0 16% 15% 16%;
-      }
       ul {
         margin-left: auto;
         margin-right: auto;
-        li { margin-left: 10% }
+        margin-top: 10%;
       }
     }
     .companies {
+      height: 300px;
       .companies-header {
         p {
           margin: 4% 2% 4% 2%;
         }
       }
-      .container {
-        margin-bottom: 5%;
-      }
-      .cnn {
-        height: 63px;
+      .logo-container {
+        img {
+          width: 20%
+        }
       }
     }
   }
