@@ -124,35 +124,18 @@ body.homepage{
     .company-logo {
       background-position: 50% 0;
       background-repeat: no-repeat;
-      height: 73px;
-      margin-bottom: 8%;
+      background-position: center;
+      background-size: contain;
+      margin-bottom: 10%;
+      padding-top: 10%;
     }
-    .nbc {
-      background-image: image-url('customers/nbc.svg');
-      height: 46px;
-      width: auto;
-    }
-    .starbucks {
-      background-image: image-url('customers/starbucks.svg');
-      height: 55px;
-      width: auto;
-    }
-    .microsoft {
-      background-image: image-url('customers/microsoft.svg');
-      margin-top: 6%;
-      height: 46px;
-      width: auto;
-    }
-    .salesforce {
-      background-image: image-url('customers/salesforce.svg');
-      height: 52px;
-      width: auto;
-    }
-    .guardian {
-      background-image: image-url('customers/guardian.svg');
-      margin-top: 8%;
-      height: 35px;
-      width: auto;
+    .logo-container {
+      img {
+        max-width: 175px;
+        margin-bottom: 15px;
+        display: block;
+        margin: 0 auto 25px auto;
+      }
     }
   }
   @media only screen and (min-width: $tablet-min-width){
@@ -174,10 +157,16 @@ body.homepage{
           text-size: 14px;
         }
       }
-      .company-logo {
-        @include column;
-        @include columns(2.6);
-        margin: 0 0 20px 0;
+      .logo-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+        img {
+          max-width: 140px;
+          max-height: 70px;
+          vertical-align: baseline;
+          padding-right: 15px
+        }
       }
     }
     .reasons {
@@ -257,10 +246,12 @@ body.homepage{
         }
       }
       .container {
-        margin-bottom: 5%;
-      }
-      .nbc {
-        height: 63px;
+        margin-bottom: 1%;
+        .logo-container {
+          img {
+            width: 20%;
+          }
+        }
       }
     }
   }
