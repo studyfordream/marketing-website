@@ -1,0 +1,31 @@
+---
+layout: "custom.hbs"
+seo_title: "Optimizely on Android"
+page_script:
+- android.js
+---
+
+<div class="page-bg android">
+  <div class="container ">
+      <div class="columns five">
+        <img src="{{assetsDir}}/img/android/nexus5_airbnb_v3.png" />
+      </div>
+      <div class="columns seven android__content is-visible">
+        <h1>Make Your Android App <span>More Engaging</span></h1>
+        <p>Sign up below to learn more about the Optimizely for Android developer preview<p>
+          <form novalidate>
+            <fieldset>
+              <input type="email" style="background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/email-grey.svg')" name="email" placeholder="email" required data-error="Please enter a valid email address">
+              <input type="submit" value="SIGN UP">
+            </fieldset>
+            <p class="android__content--smaller">Have an iOS app? Try <a href="/mobile">Optimizely for iOS</a></p>
+          </form>
+      </div>
+      <div class="columns seven android__content android__content--thanks is-hidden">
+        <h1>Thanks for your interest in <span>Optimizely for Android</span></h1>
+        <p>We're gradually expanding our developer preview, tell us more about your app to get early access</p>
+        <a class="btn" href="#">Get Access</a>
+        <p class="android__content--smaller">Have an iOS app? Try <a href="#">Optimizely for iOS</a></p>
+      </div>
+  </div>
+</div>
