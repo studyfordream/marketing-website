@@ -39,7 +39,17 @@ module.exports = function(grunt, options) {
               var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
               if(req.method === 'POST'){
 
-                if(req.url === '/contact/form'){
+                if(req.url === '/pricing/change_plan'){
+
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/general-success.json') );
+
+                } else if(req.url === '/pricing/contact_sales') {
+
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/contactSales.json') );
+
+                } else if(req.url === '/contact/form'){
 
                   res.writeHead(200, {'Content-Type': 'application/json'});
                   res.end( grunt.file.read('website-guts/endpoint-mocks/contactSuccess.json') );
@@ -112,7 +122,7 @@ module.exports = function(grunt, options) {
                   'website-guts/endpoint-mocks/allIosInfo.json'
                 ];
 
-                var randIndex = Math.round(Math.random());
+                var randIndex = 0;
 
                 res.writeHead(200, {'Content-Type': 'application/json'});
                 res.end( grunt.file.read(paths[randIndex]) );

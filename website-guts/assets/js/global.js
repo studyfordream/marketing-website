@@ -270,3 +270,58 @@ BrowserDetect.init();
 window.optly.mrkt.browser = BrowserDetect.browser;
 
 window.optly.mrkt.browserVersion = BrowserDetect.version;
+
+window.optly.mrkt.changePlan = function(args){
+
+	/*
+
+		Changes the user's plan.
+
+		arg.splan (string) = new plan code
+		arg.load (function) = when the response on the http request is received, receives the XMLHttpRequestProgressEvent as an argument
+		arg.abort (function) = when the request is aborted, receives the XMLHttpRequestProgressEvent as an argument
+		arg.error (function) = when there is an error, receives the XMLHttpRequestProgressEvent as an argument
+
+	*/
+
+	if(typeof args.plan === 'string' && args.plan){
+
+		var setPlan = new XMLHttpRequest();
+
+		setPlan.addEventListener('load', function(event){
+
+			if(typeof args.load === 'function'){
+
+				args.load(event);
+
+			}
+
+		}, false);
+
+		setPlan.addEventListener('abort', function(event){
+
+			if(typeof args.abort === 'function'){
+
+				args.abort(event);
+
+			}
+
+		}, false);
+
+		setPlan.addEventListener('error', function(event){
+
+			if(typeof args.error === 'function'){
+
+				args.error(event);
+
+			}
+
+		}, false);
+
+		setPlan.open('post', '/pricing/change_plan', true);
+		setPlan.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+		setPlan.send('plan=' + args.plan);
+
+	}
+
+};

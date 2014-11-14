@@ -38,7 +38,7 @@ var createAccountHelper = {
   scrollTopCta: function(ctaId) {
     if(document.body.classList.contains('oform-error')) {
       var target = document.getElementById(ctaId);
-      
+
       $('html,body').animate({
         scrollTop: $(target).offset().top
       }, 1000);
@@ -73,7 +73,7 @@ var createAccountHelper = {
     if ( password2.value.length > 0 && password1.value !== password2.value ) {
       this.addErrors([password2, password2ErrorElm]);
       this.customErrorMessage(password2ErrorElm, 'Please enter the same value as above');
-    } 
+    }
     //remove local error classes but do not remove body error class just in case
     else {
       this.passed = true;
@@ -94,7 +94,7 @@ var createAccountHelper = {
         this.removeErrors([password1, this.characterMessageElm]);
         this.passed = true;
       }
-      
+
       $(password1).on('focusin', function() {
         this.removeErrors([password1, this.characterMessageElm], true);
       }.bind(this));
@@ -160,7 +160,7 @@ var createAccountHelper = {
         email: formElm.querySelector('[name="email"]').value,
         phone: formElm.querySelector('[name="phone_number"]').value
       }, e);
-      
+
       window.optly.mrkt.modal.close({ modalType: 'signup', track: false });
       window.optly_q.acctData = resp;
       window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
@@ -238,10 +238,160 @@ var createAccountHelper = {
         w.analytics.page('/plan/' + plan);
       }
     }
-    window.setTimeout(function() {
+    w.setTimeout(function() {
       var inputVal = $('#test-it-out-form input[type="text"]').val();
       w.optly.mrkt.index.testItOut( inputVal );
     }, 500);
+  },
+
+  pricingSignupSuccess: function(event, data){
+
+    var resp, plan;
+
+    if(data.event.target.status === 200){
+
+      w.console.log('dadta.event.target.status === 200');
+
+      try {
+
+        resp = JSON.parse(data.event.target.responseText);
+
+      } catch (err) {
+
+        this.processingRemove({callee: 'load'});
+        this.showOptionsError('An unexpected error occured. Please refresh the page.');
+        w.analytics.track('/account/create', {
+          category: 'api error',
+          label: err
+        });
+
+      }
+
+      if(resp){
+
+        w.console.log('data object: ' + data);
+
+        w.analytics.identify(resp.email, {
+          Last_Experiment_URL__c: data.data['url-input'],
+          LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
+          ExperimentsCreated: '1',
+          FirstName: resp.first_name,
+          LastName: resp.last_name,
+          otm_Medium__c: w.optly.mrkt.source.otm.medium,
+          utm_Medium__c: w.optly.mrkt.source.utm.medium
+        }, {
+          integrations: {Marketo: true}
+        });
+
+        plan = resp.plan ? resp.plan : 'null';
+
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/account/create/success'
+        });
+        w.analytics.track('/event/account/create/success', {}, { Marketo: true });
+
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/pricing/account/create/success'
+        });
+        w.analytics.track('/event/pricing/account/create/success', {}, { Marketo: true });
+
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/customer/signedin'
+        });
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/account/signin'
+        });
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/plan/' + plan
+        });
+
+        w.analytics.page('/account/create/success');
+        w.analytics.track('/account/create/success');
+        w.analytics.track('account created', {
+          category: 'account',
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+        });
+
+        w.analytics.page('/account/signin');
+        w.analytics.track('account sign-in', {
+          category: 'account',
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+        });
+
+        w.analytics.page('/customer/signedin');
+        w.analytics.track('customer sign in', {
+          category: 'account',
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+        });
+        w.analytics.page('/plan/' + plan);
+
+        //change the user's plan to free to get them started
+        w.optly.mrkt.changePlan({
+          plan: 'free-light',
+          load: function(event){
+
+            if(event.target.status === 200){
+
+              w.Munchkin.munchkinFunction('visitWebPage', {
+                url: '/event/plan/free-light'
+              });
+              w.analytics.page('/plan/free-light');
+              w.analytics.track('change plan', {
+                category: 'account',
+                label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+              });
+              w.analytics.track('/plan/free-light', {
+                category: 'account',
+                label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+              });
+
+              //send the user to the welcome page
+              w.setTimeout(function() {
+                w.location = 'https://www.optimizely.com/welcome';
+              }, 1000);
+
+            } else {
+
+              //to do: update the ui for the error
+              w.analytics.track('/pricing/change_plan', {
+                category: 'api error',
+                label: 'pricing signup status not 200: ' + event.target.status
+              });
+
+            }
+
+          },
+          error: function(){
+
+            w.analytics.track('/pricing/change_plan', {
+              category: 'xmlhttprequest problem',
+              label: 'xmlhttprequest error'
+            });
+
+          },
+          abort: function(){
+
+            w.analytics.track('/pricing/change_plan', {
+              category: 'xmlhttprequest problem',
+              label: 'xmlhttprequest error'
+            });
+
+          }
+        });
+
+      }
+
+    } else {
+
+      this.processingRemove({callee: 'load'});
+      this.showOptionsError(resp.error);
+      w.analytics.track('/account/create', {
+        category: 'api error',
+        label: 'status not 200: ' + data.event.target.status
+      });
+
+    }
+
   }
 
 };

@@ -1,0 +1,122 @@
+---
+layout: no-sub-nav.hbs
+visible_title: Plans and Pricing
+body_class:
+- pricing
+page_script:
+- pricing.js
+no_container: true
+modals:
+- contact_sales_compiled
+- contact_sales_thank_you_compiled
+- downgrade_plan_compiled
+- downgrade_plan_confirm_compiled
+- signup_modal_new_compiled
+---
+<section class="blue-bg" id="plan-section">
+  <div class="container">
+    <div class="row pricing-overview">
+      <div class="columns five offset-one">
+        <div class="plan-box plan-box-cont" id="starter-plan">
+          <h2 class="plan-box-header">Starter</h2>
+          <div class="plan-box-content">
+            <ul>
+              <li>Improve conversions, increase engagement, and drive revenue</li>
+              <li>Get started instantly</li>
+              <li>Free&mdash;no credit card required</li>
+            </ul>
+          </div><!--/.plan-box-content-->
+          <div class="cta">
+            <p class="cta-headline">Free</p>
+            <p class="cta-description">Not just a trial. Seriously.</p>
+            <a href="#" class="button action secondary-button" data-modal-click="signup-new">Get Started</a>
+            <p class="hidden current-plan">Your current plan</p>
+          </div><!--/.cta-->
+        </div><!--/.plan-box-->
+      </div>
+      <div class="columns five">
+        <div class="plan-box plan-box-cont highlight" id="enterprise-plan">
+          <h2 class="plan-box-header">Enterprise</h2>
+          <div class="plan-box-content">
+            <ul>
+              <li>Create and deliver multichannel, targeted experiences</li>
+              <li>Customizable to meet your needs</li>
+              <li>World-class customer support to take your optimization to the next level</li>
+            </ul>
+          </div><!--/.plan-box-content-->
+          <div class="cta">
+            <p class="cta-headline">Custom</p>
+            <p class="cta-description">Optimized for your business.</p>
+            <a href="#" class="button action" data-modal-click="contact-sales">Contact Sales &raquo;</a>
+            <p>or call us at <a href="tel:18002529840">1-800-252-9480</a></p>
+            <p class="hidden current-plan">Your current plan</p>
+          </div><!--/.cta-->
+        </div><!--/.plan-box-->
+      </div>
+    </div><!--/.row-->
+    <a class="button" id="full-feature-list-btn">See Full List of Features</a>
+  </div><!--/.container-->
+</section>
+<section id="company-list-cont">
+  <div class="container" id="company-list">
+    <h4>Already used by the following great companies:</h4>
+    <div class="logo-container">
+      <img alt="TripAdvisor" src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/tripadvisor_logo.svg">
+      <img alt="Microsoft" src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_logo_and_wordmark (1).svg">
+      <img alt="Starbucks" src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/starbucks.svg">
+      <img alt="NBC Universal" src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/nbc_universal.svg">
+      <img alt="American Apparel" src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/american_apparel_logo.svg">
+    </div>
+  </div><!--/.container-->
+</section>
+<section class="blue-bg" id="full-feature-list-cont">
+  <div class="container">
+    <h2>Full Feature List</h2>
+    <div class="row">
+      <div class="columns five offset-one">
+        <div class="feature-list-box plan-box-cont">
+          <h2 class="plan-box-header">Starter</h2>
+          {{#each pricing.full_plan_benefits.starter.feature_groups}}
+          <div class="feature-category">
+            {{#if category}}<h3>{{{category}}}</h3>{{/if}}
+            {{#if features}}
+              {{#each features}}
+              <div class="feature-overview">
+                {{#if title}}<h4>{{{title}}}</h4>{{/if}}
+                {{#if details}}
+                <ul>
+                  {{#each details}}<li>{{.}}</li>{{/each}}
+                </ul>
+                {{/if}}
+              </div><!--/.feature-overview-->
+              {{/each}}
+            {{/if}}
+          </div><!--/.feature-category-->
+          {{/each}}
+        </div><!--/.feature-list-box-->
+      </div><!--/.columns-->
+      <div class="columns five">
+        <div class="feature-list-box plan-box-cont highlight">
+          <h2 class="plan-box-header">Enterprise</h3>
+          {{#each pricing.full_plan_benefits.enterprise.feature_groups}}
+          <div class="feature-category">
+            {{#if category}}<h3>{{{category}}}</h3>{{/if}}
+            {{#if features}}
+              {{#each features}}
+              <div class="feature-overview">
+                {{#if title}}<h4>{{{title}}}</h4>{{/if}}
+                {{#if details}}
+                <ul>
+                  {{#each details}}<li>{{.}}</li>{{/each}}
+                </ul>
+                {{/if}}
+              </div><!--/.feature-overview-->
+              {{/each}}
+            {{/if}}
+          </div><!--/.feature-category-->
+          {{/each}}
+        </div><!--/.feature-list-box-->
+      </div><!--/.columns-->
+    </div><!--/.rows-->
+  </div><!--/.container-->
+</section>
