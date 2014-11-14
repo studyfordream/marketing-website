@@ -47,7 +47,7 @@ w.optly_q.push([updatePlanInfo]);
 
 w.optly.mrkt.activeModals.signup.remove();
 
-var signupHelper = w.optly.mrkt.form.createAccount({formId: 'signup-form', dialogId: 'signup-dialog'});
+var signupHelper = w.optly.mrkt.form.createAccount({formId: 'signup-form-new', dialogId: 'signup-dialog'});
 
 w.optly.mrkt.activeModals = w.optly.mrkt.activeModals || {};
 
@@ -108,27 +108,27 @@ new Oform({
 }).on('success', function(){
   //to do: turn this into a form helper
   w.optly.mrkt.changePlan({
-    plan: 'free-light',
+    plan: 'free_light',
     load: function(event){
 
       if(event.target.status === 200){
 
         w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/event/plan/free-light'
+          url: '/event/plan/free_light'
         });
-        w.analytics.page('/plan/free-light');
+        w.analytics.page('/plan/free_light');
         w.analytics.track('change plan', {
           category: 'account',
           label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
         });
-        w.analytics.track('/plan/free-light', {
+        w.analytics.track('/plan/free_light', {
           category: 'account',
           label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
         });
         console.log('plan downgraded from: ' + w.optly.mrkt.user.acctData.plan_id);
         w.analytics.track('plan downgraded', {
           category: 'account',
-          label: w.optly.mrkt.user.acctData.plan_id + ' to free-light'
+          label: w.optly.mrkt.user.acctData.plan_id + ' to free_light'
         });
 
         //show the downgrade confirmation modal

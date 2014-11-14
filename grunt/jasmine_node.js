@@ -2,7 +2,7 @@ module.exports = {
   options: {
     showColors: true,
     includeStackTrace: false,
-    projectRoot:'', 
+    projectRoot:'',
     forceExit: false,
     matchall: false,
     coffee: false,
@@ -13,6 +13,9 @@ module.exports = {
     globals: {
       linkPath: '<%= grunt.config.get("link_path") %>'
     }
+  },
+  pricing: {
+    src: ['test/pricing/**/*.js']
   },
   dialogs: {
     src: ['test/dialogs/**/*.js']
