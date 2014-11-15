@@ -20,19 +20,10 @@ modals:
         <div class="plan-box plan-box-cont" id="starter-plan">
           <h2 class="plan-box-header">{{pricing.starter_plan.name}}</h2>
           <div class="plan-box-content">
-            {{#if pricing.starter_plan.feature_overview}}
-            <ul>
-              {{#each pricing.starter_plan.feature_overview}}
-              <li>{{{.}}}</li>
-              {{/each}}
-            </ul>
-            {{/if}}
+            {{#omarkdown}}{{{pricing.starter_plan.overview}}}{{/omarkdown}}
           </div><!--/.plan-box-content-->
           <div class="cta">
-            {{#if pricing.starter_plan.cost}}<p class="cta-headline">{{{pricing.starter_plan.cost}}}</p>{{/if}}
-            {{#if pricing.starter_plan.description}}<p class="cta-description">{{{pricing.starter_plan.description}}}</p>{{/if}}
-            <a href="#" class="button action secondary-button">{{{pricing.starter_plan.primary_call_to_action}}}</a>
-            {{#if pricing.starter_plan.secondary_call_to_action}}<p>{{{pricing.starter_plan.secondary_call_to_action}}}</p>{{/if}}
+            {{#omarkdown}}{{{pricing.starter_plan.cta}}}{{/omarkdown}}
             <p class="hidden current-plan">Your current plan</p>
           </div><!--/.cta-->
         </div><!--/.plan-box-->
@@ -41,19 +32,10 @@ modals:
         <div class="plan-box plan-box-cont highlight" id="enterprise-plan">
           <h2 class="plan-box-header">{{pricing.enterprise_plan.name}}</h2>
           <div class="plan-box-content">
-            {{#if pricing.enterprise_plan.feature_overview}}
-            <ul>
-              {{#each pricing.enterprise_plan.feature_overview}}
-              <li>{{{.}}}</li>
-              {{/each}}
-            </ul>
-            {{/if}}
+            {{#omarkdown}}{{{pricing.enterprise_plan.overview}}}{{/omarkdown}}
           </div><!--/.plan-box-content-->
           <div class="cta">
-            {{#if pricing.enterprise_plan.cost}}<p class="cta-headline">{{{pricing.enterprise_plan.cost}}}</p>{{/if}}
-            {{#if pricing.enterprise_plan.description}}<p class="cta-description">{{{pricing.enterprise_plan.description}}}</p>{{/if}}
-            <a href="#" class="button action" data-modal-click="contact-sales">{{{pricing.enterprise_plan.primary_call_to_action}}}</a>
-            {{#if pricing.enterprise_plan.secondary_call_to_action}}<p>{{{pricing.enterprise_plan.secondary_call_to_action}}}</p>{{/if}}
+            {{#omarkdown}}{{{pricing.enterprise_plan.cta}}}{{/omarkdown}}
             <p class="hidden current-plan">Your current plan</p>
           </div><!--/.cta-->
         </div><!--/.plan-box-->
@@ -81,21 +63,10 @@ modals:
       <div class="columns five offset-one">
         <div class="feature-list-box plan-box-cont">
           <h2 class="plan-box-header">{{pricing.starter_plan.name}}</h2>
-          {{#each pricing.starter_plan.full_benefits.feature_groups}}
+          {{#each pricing.starter_plan.full_features}}
           <div class="feature-category">
-            {{#if category}}<h3>{{{category}}}</h3>{{/if}}
-            {{#if features}}
-              {{#each features}}
-              <div class="feature-overview">
-                {{#if title}}<h4>{{{title}}}</h4>{{/if}}
-                {{#if details}}
-                <ul>
-                  {{#each details}}<li>{{.}}</li>{{/each}}
-                </ul>
-                {{/if}}
-              </div><!--/.feature-overview-->
-              {{/each}}
-            {{/if}}
+            {{#if title}}<h3>{{{title}}}</h3>{{/if}}
+            <div class="feature-overview">{{#omarkdown}}{{{description}}}{{/omarkdown}}</div>
           </div><!--/.feature-category-->
           {{/each}}
         </div><!--/.feature-list-box-->
@@ -103,21 +74,10 @@ modals:
       <div class="columns five">
         <div class="feature-list-box plan-box-cont highlight">
           <h2 class="plan-box-header">{{pricing.enterprise_plan.name}}</h2>
-          {{#each pricing.enterprise_plan.full_benefits.feature_groups}}
+          {{#each pricing.enterprise_plan.full_features}}
           <div class="feature-category">
-            {{#if category}}<h3>{{{category}}}</h3>{{/if}}
-            {{#if features}}
-              {{#each features}}
-              <div class="feature-overview">
-                {{#if title}}<h4>{{{title}}}</h4>{{/if}}
-                {{#if details}}
-                <ul>
-                  {{#each details}}<li>{{.}}</li>{{/each}}
-                </ul>
-                {{/if}}
-              </div><!--/.feature-overview-->
-              {{/each}}
-            {{/if}}
+            {{#if title}}<h3>{{{title}}}</h3>{{/if}}
+            <div class="feature-overview">{{#omarkdown}}{{{description}}}{{/omarkdown}}</div>
           </div><!--/.feature-category-->
           {{/each}}
         </div><!--/.feature-list-box-->

@@ -25,7 +25,7 @@ var updatePlanInfo = function(){
 
   }
 
-  $('#starter-plan .action').click(function(){
+  $('#starter-plan a:first').click(function(e){
 
     if(typeof w.optly.mrkt.user.acctData === 'object'){
 
@@ -106,9 +106,19 @@ var updatePlanInfo = function(){
 
     }
 
+    e.preventDefault();
+
   });
 
 };
+
+$('#enterprise-plan a:first').click(function(e){
+
+  w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
+
+  e.preventDefault();
+
+});
 
 w.optly_q.push([updatePlanInfo]);
 
