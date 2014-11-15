@@ -258,8 +258,6 @@ var createAccountHelper = {
 
     if(data.event.target.status === 200){
 
-      w.console.log('dadta.event.target.status === 200');
-
       try {
 
         resp = JSON.parse(data.event.target.responseText);
@@ -276,8 +274,6 @@ var createAccountHelper = {
       }
 
       if(resp){
-
-        w.console.log('data object: ', data);
 
         document.body.classList.add('create-account-success');
 
