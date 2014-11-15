@@ -15,31 +15,27 @@ modals:
 ---
 <section class="blue-bg" id="plan-section">
   <div class="container">
-    <div class="row pricing-overview">
-      <div class="columns five offset-one">
-        <div class="plan-box plan-box-cont" id="starter-plan">
-          <h2 class="plan-box-header">{{pricing.starter_plan.name}}</h2>
-          <div class="plan-box-content">
-            {{#omarkdown}}{{{pricing.starter_plan.overview}}}{{/omarkdown}}
-          </div><!--/.plan-box-content-->
-          <div class="cta">
-            {{#omarkdown}}{{{pricing.starter_plan.cta}}}{{/omarkdown}}
-            <p class="hidden current-plan">Your current plan</p>
-          </div><!--/.cta-->
-        </div><!--/.plan-box-->
-      </div>
-      <div class="columns five">
-        <div class="plan-box plan-box-cont highlight" id="enterprise-plan">
-          <h2 class="plan-box-header">{{pricing.enterprise_plan.name}}</h2>
-          <div class="plan-box-content">
-            {{#omarkdown}}{{{pricing.enterprise_plan.overview}}}{{/omarkdown}}
-          </div><!--/.plan-box-content-->
-          <div class="cta">
-            {{#omarkdown}}{{{pricing.enterprise_plan.cta}}}{{/omarkdown}}
-            <p class="hidden current-plan">Your current plan</p>
-          </div><!--/.cta-->
-        </div><!--/.plan-box-->
-      </div>
+    <div class="pricing-overview">
+      <div class="plan-box plan-box-cont" id="starter-plan">
+        <h2 class="plan-box-header">{{pricing.starter_plan.name}}</h2>
+        <div class="plan-box-content">
+          {{#omarkdown}}{{{pricing.starter_plan.overview}}}{{/omarkdown}}
+        </div><!--/.plan-box-content-->
+        <div class="cta">
+          {{#omarkdown}}{{{pricing.starter_plan.cta}}}{{/omarkdown}}
+          <p class="hidden current-plan">Your current plan</p>
+        </div><!--/.cta-->
+      </div><!--/.plan-box-->
+      <div class="plan-box plan-box-cont highlight" id="enterprise-plan">
+        <h2 class="plan-box-header">{{pricing.enterprise_plan.name}}</h2>
+        <div class="plan-box-content">
+          {{#omarkdown}}{{{pricing.enterprise_plan.overview}}}{{/omarkdown}}
+        </div><!--/.plan-box-content-->
+        <div class="cta">
+          {{#omarkdown}}{{{pricing.enterprise_plan.cta}}}{{/omarkdown}}
+          <p class="hidden current-plan">Your current plan</p>
+        </div><!--/.cta-->
+      </div><!--/.plan-box-->
     </div><!--/.row-->
     {{#if pricing.full_feature_list_button_text}}<a class="button" id="full-feature-list-btn" href="#full-feature-list-cont"><span style="background-image: url({{assetsDir}}/img/pricing/down-arrow.svg)">{{pricing.full_feature_list_button_text}}</span></a>{{/if}}
   </div><!--/.container-->
