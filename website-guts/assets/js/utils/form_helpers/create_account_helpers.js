@@ -158,7 +158,11 @@ var createAccountHelper = {
       w.optly.mrkt.Oform.trackLead({
         name: formElm.querySelector('[name="name"]').value,
         email: formElm.querySelector('[name="email"]').value,
-        phone: formElm.querySelector('[name="phone_number"]').value
+        phone: formElm.querySelector('[name="phone_number"]').value,
+        web__c: document.querySelector('input[type="checkbox"][name="web"]').value,
+        mobile_web__c: document.querySelector('input[type="checkbox"][name="mobile_web"]'),
+        ios__c: document.querySelector('input[type="checkbox"][name="ios"]'),
+        android__C: document.querySelector('input[type="checkbox"][name="android"]')
       }, e);
 
       window.optly.mrkt.modal.close({ modalType: 'signup', track: false });
@@ -199,7 +203,11 @@ var createAccountHelper = {
           LastName: resp.last_name,
           Phone: resp.phone_number,
           otm_Medium__c: w.optly.mrkt.source.otm.medium,
-          utm_Medium__c: w.optly.mrkt.source.utm.medium
+          utm_Medium__c: w.optly.mrkt.source.utm.medium,
+          web__c: document.querySelector('input[type="checkbox"][name="web"]').value,
+          mobile_web__c: document.querySelector('input[type="checkbox"][name="mobile_web"]'),
+          ios__c: document.querySelector('input[type="checkbox"][name="ios"]'),
+          android__C: document.querySelector('input[type="checkbox"][name="android"]')
         },
         { integrations: { Marketo: true } });
 
@@ -280,7 +288,11 @@ var createAccountHelper = {
           FirstName: resp.first_name,
           LastName: resp.last_name,
           otm_Medium__c: w.optly.mrkt.source.otm.medium,
-          utm_Medium__c: w.optly.mrkt.source.utm.medium
+          utm_Medium__c: w.optly.mrkt.source.utm.medium,
+          web__c: document.querySelector('input[type="checkbox"][name="web"]').value,
+          mobile_web__c: document.querySelector('input[type="checkbox"][name="mobile_web"]'),
+          ios__c: document.querySelector('input[type="checkbox"][name="ios"]'),
+          android__C: document.querySelector('input[type="checkbox"][name="android"]')
         }, {
           integrations: {Marketo: true}
         });
@@ -328,61 +340,13 @@ var createAccountHelper = {
         w.analytics.page('/plan/' + plan);
 
         //change the user's plan to free to get them started
-        w.optly.mrkt.changePlan({
+        w.optly.mrkt.changePlanHelper.changePlan({
           plan: 'free_light',
-          load: function(event){
-
-            if(event.target.status === 200){
-
-              document.body.classList.add('change-plan-success');
-
-              w.Munchkin.munchkinFunction('visitWebPage', {
-                url: '/event/plan/free_light'
-              });
-              w.analytics.page('/plan/free_light');
-              w.analytics.track('change plan', {
-                category: 'account',
-                label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-              });
-              w.analytics.track('/plan/free_light', {
-                category: 'account',
-                label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-              });
-
-              //send the user to the welcome page
-               w.setTimeout(function() {
-                 if(!w.optly.automatedTest()){
-                   w.location = 'https://www.optimizely.com/welcome';
-                 }
-              }, 1000);
-
-            } else {
-
-              //to do: update the ui for the error
-              w.analytics.track('/pricing/change_plan', {
-                category: 'api error',
-                label: 'pricing signup status not 200: ' + event.target.status
-              });
-
-            }
-
+          callback: function(){
+              //show confirmation
+              w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
           },
-          error: function(){
-
-            w.analytics.track('/pricing/change_plan', {
-              category: 'xmlhttprequest problem',
-              label: 'xmlhttprequest error'
-            });
-
-          },
-          abort: function(){
-
-            w.analytics.track('/pricing/change_plan', {
-              category: 'xmlhttprequest problem',
-              label: 'xmlhttprequest error'
-            });
-
-          }
+          load: w.optly.mrkt.changePlanHelper.load
         });
 
       }

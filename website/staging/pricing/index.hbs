@@ -11,7 +11,7 @@ modals:
 - contact_sales_thank_you_compiled
 - downgrade_plan_compiled
 - downgrade_plan_confirm_compiled
-- signup_modal_new_compiled
+- pricing_plan_signup_thank_you_compiled
 ---
 <section class="blue-bg" id="plan-section">
   <div class="container">
@@ -52,7 +52,7 @@ modals:
           <div class="cta">
             {{#if pricing.enterprise_plan.cost}}<p class="cta-headline">{{{pricing.enterprise_plan.cost}}}</p>{{/if}}
             {{#if pricing.enterprise_plan.description}}<p class="cta-description">{{{pricing.enterprise_plan.description}}}</p>{{/if}}
-            <a href="#" class="button action" data-modal-click="signup-new">{{{pricing.enterprise_plan.primary_call_to_action}}}</a>
+            <a href="#" class="button action" data-modal-click="contact-sales">{{{pricing.enterprise_plan.primary_call_to_action}}}</a>
             {{#if pricing.enterprise_plan.secondary_call_to_action}}<p>{{{pricing.enterprise_plan.secondary_call_to_action}}}</p>{{/if}}
             <p class="hidden current-plan">Your current plan</p>
           </div><!--/.cta-->

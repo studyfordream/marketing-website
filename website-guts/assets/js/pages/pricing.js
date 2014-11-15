@@ -1,74 +1,125 @@
 $('#full-feature-list-btn').click(w.optly.mrkt.utils.smoothScroll);
 
-/* get the current plan */
+//setup DOM for automated test
+var automatedTest = window.optly.mrkt.automatedTest();
+
+if(automatedTest){
+  w.optly.mrkt.user.acctData = {
+    plan_id: w.optly.mrkt.utils.getURLParameter('plan')
+  };
+}
+
 var updatePlanInfo = function(){
 
-  if(
-    typeof w.optly.mrkt.user === 'object' &&
-    typeof w.optly.mrkt.user.acctData === 'object'
-  ){
+  //remove starter signup if enterprise
+  if(typeof w.optly.mrkt.user.acctData === 'object'){
+    if(
+      w.optly.mrkt.user.acctData.plan_id === 'enterprise-monthly' ||
+      w.optly.mrkt.user.acctData.plan_id === 'enterprise-oneyear' ||
+      w.optly.mrkt.user.acctData.plan_id === 'enterprise-twoyear'
+    ){
 
-    //remove the sign up form if the user is signed in
-    d.querySelector('#starter-plan .action').removeAttribute('data-modal-click');
-
-    if(w.optly.mrkt.user.acctData.plan_id){
-
-        var plan = w.optly.mrkt.user.acctData.plan_id;
-
-        //plan = 'enterprise';
-
-        document.querySelector('body').classList.add('plan-' + plan);
-
-        if(
-          plan === 'bronze-monthly' ||
-          plan === 'bronze-oneyear' ||
-          plan === 'bronze-twoyear' ||
-          plan === 'silver-monthly' ||
-          plan === 'silver-oneyear' ||
-          plan === 'silver-twoyear' ||
-          plan === 'gold-monthly' ||
-          plan === 'gold-oneyear' ||
-          plan === 'gold-twoyear'
-        ){
-
-          d.querySelector('#starter-plan .action').setAttribute('data-modal-click', 'downgrade-plan');
-
-        } else {
-
-          $('#starter-plan .action').remove();
-
-        }
+      $('#starter-plan .action').remove();
 
     }
 
   }
 
-};
+  $('#starter-plan .action').click(function(){
 
-// $('#starter-plan .action').click(function(){
-//
-//   if(window.optly.mrkt.user){
-//
-//     //show confirmation modal
-//
-//   } else {
-//
-//     w.optly.mrkt.modal.open({ modalType: 'signup-new' });
-//
-//   }
-//
-// });
+    if(typeof w.optly.mrkt.user.acctData === 'object'){
+
+      //user is signed in
+
+      if(w.optly.mrkt.user.acctData.plan_id){
+
+        //user already has a plan
+
+        var plan = w.optly.mrkt.user.acctData.plan_id;
+
+        var deprecatedPlans = ['bronze-monthly', 'bronze-oneyear', 'bronze-twoyear', 'silver-monthly', 'silver-oneyear', 'silver-twoyear', 'gold-monthly', 'gold-oneyear', 'gold-twoyear'];
+
+        var isDeprecatedPlan = function(plan){
+
+          var i, isDeprecated;
+
+          for(i = 0; i < deprecatedPlans.length; i++){
+
+            if(deprecatedPlans[i] === plan){
+
+              isDeprecated = true;
+
+            }
+
+          }
+
+          return isDeprecated;
+
+        };
+
+        if( isDeprecatedPlan(plan) ){
+
+          //show downgrade dialog
+          w.optly.mrkt.modal.open({ modalType: 'downgrade-plan' });
+
+        } else if(
+
+          plan !== 'enterprise-monthly' ||
+          plan !== 'enterprise-oneyear' ||
+          plan !== 'enterprise-twoyear'
+
+        ) {
+
+          //the user can signup for starter plan
+          //change the plan
+          w.optly.mrkt.changePlanHelper.changePlan({
+            plan: 'free_light',
+            callback: function(){
+                //show confirmation
+                w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
+            },
+            load: w.optly.mrkt.changePlanHelper.load
+          });
+
+        }
+
+      } else {
+
+        //user is signed in, but no plan
+        //sign the user up for the starter plan
+        w.optly.mrkt.changePlanHelper.changePlan({
+          plan: 'free_light',
+          callback: function(){
+              //show confirmation
+              w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
+          },
+          load: w.optly.mrkt.changePlanHelper.load
+        });
+
+      }
+
+    } else {
+
+      //user is not signed in
+
+      w.optly.mrkt.modal.open({ modalType: 'signup' });
+
+    }
+
+  });
+
+};
 
 w.optly_q.push([updatePlanInfo]);
 
 w.optly.mrkt.activeModals.signup.remove();
 
-var signupHelper = w.optly.mrkt.form.createAccount({formId: 'signup-form-new', dialogId: 'signup-dialog'});
+var signupHelper = w.optly.mrkt.form.createAccount({formId: 'signup-form', dialogId: 'signup-dialog'});
 
 w.optly.mrkt.activeModals = w.optly.mrkt.activeModals || {};
 
 var signupForm  = new Oform({
-  selector: '#signup-form-new',
+  selector: '#signup-form',
   customValidation: {
     password1: function(elm) {
       return signupHelper.password1Validate(elm);
@@ -119,65 +170,26 @@ signupForm.on('done', function() {
 }.bind(signupHelper));
 
 /* downgrade plan */
-new Oform({
-  selector: '#downgrade-plan-form'
-}).on('success', function(){
-  //to do: turn this into a form helper
-  w.optly.mrkt.changePlan({
+$('#downgrade-plan-form').submit(function(e){
+  console.log('downgrade submitted');
+  d.body.classList.add('downgrade-plan-submit');
+  w.optly.mrkt.changePlanHelper.changePlan({
     plan: 'free_light',
-    load: function(event){
-
-      if(event.target.status === 200){
-
-        w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/event/plan/free_light'
-        });
-        w.analytics.page('/plan/free_light');
-        w.analytics.track('change plan', {
-          category: 'account',
-          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-        });
-        w.analytics.track('/plan/free_light', {
-          category: 'account',
-          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-        });
-        w.analytics.track('plan downgraded', {
-          category: 'account',
-          label: w.optly.mrkt.user.acctData.plan_id + ' to free_light'
-        });
-
-        //show the downgrade confirmation modal
-        w.optly.mrkt.modal.open({ modalType: 'downgrade-plan-confirm' });
-        $('#downgrade-plan-confirm-cont .close-btn').click(function(){
+    load: function(){
+      d.body.classList.add('downgrade-plan-success');
+      //show the downgrade confirmation modal
+      w.optly.mrkt.modal.open({ modalType: 'downgrade-plan-confirm' });
+      //downgrade-plan
+      $('#downgrade-plan-confirm-form').submit(function(){
+        w.console.log('submitted');
+        if(!w.optly.mrkt.automatedTest()){
+          w.console.log('is automated test');
           location.reload();
-        });
-
-      } else {
-
-        //to do: update the ui for the error
-        w.analytics.track('/pricing/change_plan', {
-          category: 'api error',
-          label: 'pricing signup status not 200: ' + event.target.status
-        });
-
-      }
-
-    },
-    error: function(){
-
-      w.analytics.track('/pricing/change_plan', {
-        category: 'xmlhttprequest problem',
-        label: 'xmlhttprequest error'
+        }
       });
-
     },
-    abort: function(){
-
-      w.analytics.track('/pricing/change_plan', {
-        category: 'xmlhttprequest problem',
-        label: 'xmlhttprequest error'
-      });
-
-    }
+    error: w.optly.mrkt.changePlanHelper.error,
+    abort: w.optly.mrkt.changePlanHelper.abort
   });
+  e.preventDefault();
 });
