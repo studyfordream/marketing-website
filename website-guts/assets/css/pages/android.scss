@@ -1,107 +1,175 @@
-.android {
-  .is-hidden {
-    display: none;
+body.android-page {
+  .oform-error-show,
+  .error-show {
+    color: #e58d88!important;
   }
-  background: #0081BA;
-  padding: 65px 0;
-  .btn {
-    background: $dark-button-bg;
-    padding: 12px 25px;
-    text-align: center;
-    height: 45px;
-    border-radius: 4px;
-    display: inline-block;
-    text-transform: uppercase;
-    &:hover {
-      text-decoration: none;
+  .android {
+    padding: 120px 40px;
+    .is-hidden {
+      display: none;
     }
-  }
-  &__content {
-    padding-top: 40px;
-    &,
-    a,
-    h1 {
-      color: #fff;
-      text-align: right;
+    background: #0081BA;
+    .btn {
+      background: $dark-button-bg;
+      padding: 12px 25px;
+      text-align: center;
+      height: 45px;
+      border-radius: 4px;
+      display: inline-block;
+      text-transform: uppercase;
+      &:hover {
+        text-decoration: none;
+      }
     }
-    h1 {
-      font-family: $body-font-family;
-      font-size: 33/16 * 1em;
-      letter-spacing: 1/16 * 1em;
-      line-height: 40px;
-      span {
+    .flex-item {
+      width: 90%;
+      margin: 0 auto;
+      position: relative;
+      label,
+      span,
+      input {
         display: block;
-        font-weight: 500;
+      }
+      span {
+        text-align: right;
+      }
+      button {
+        margin-top: 20px;
       }
     }
-    p {
-      font-size: 18/16 * 1em;
-      line-height: 24/16 * 1em;
-      letter-spacing: 0.5/16 * 1em;
-      margin-bottom: 2em;
-      a {
-        text-decoration: underline;
-      }
-      &.android__content--smaller {
-        font-size: 12/16 * 1em;
-      }
-    }
-  }
-  form {
-    p {
-      &.oform-error-message {
-        margin: 0;
-        font-size: 1/12 * 1em;
-      }
-    }
-    input {
-      $inputs: email 11px;
-      @include anim-input-icons($inputs);
-      &[type="email"] {
-        position: relative;
-      }
-      &.oform-error-show {
-        box-shadow: inset 0 0 0 3px #911d16;
-      }
-    }
-  }
-  input[type="email"],
-  button[type="submit"] {
-    border-radius: 4px;
-    border: none;
-    font-size: 14/16 * 1em;
-    height: 45px;
-    letter-spacing: 1.5/16 * 1em;
-    margin: 0;
-  }
-  button[type="submit"] {
-    background: $dark-button-bg;
-    width: 133px;
-    text-transform: uppercase;
-  }
-  @media all and (max-width: 768px) {
-    padding: 20px 40px;
     img {
       width: 100px;
     }
-    &__content {
+    .flex-cont {
+      display: flex;
+      flex-direction: column;
+    }
+    .android__content {
       padding-top: 0;
+      &--smaller {
+        margin-top: 20px;
+      }
       &,
       a,
       h1 {
+        color: #fff;
+      }
+      h1 {
+        font-family: $body-font-family;
+        font-size: 33/16 * 1em;
+        letter-spacing: 1/16 * 1em;
+        line-height: 40px;
+        span {
+          display: block;
+          font-weight: 500;
+        }
+      }
+      p {
+        font-size: 18/16 * 1em;
+        line-height: 24/16 * 1em;
+        letter-spacing: 0.5/16 * 1em;
+        margin-bottom: 2em;
+        a {
+          text-decoration: underline;
+        }
+        &.android__content--smaller {
+          font-size: 12/16 * 1em;
+        }
+      }
+      .options {
+        padding-top: 10px;
         text-align: center;
+        p {
+          display: inline-block;
+          font-size: 0.8em;
+          margin: 0;
+        }
       }
     }
-  }
-  @media all and (max-width: 768px) {
     form {
-      .input-control {
-        display: block;
-        input {
+      input {
+        margin: 0;
+        $inputs: email 11px;
+        @include anim-input-icons($inputs);
+        &[type="email"] {
+          position: relative;
+        }
+      }
+    }
+    input[type="email"],
+    button[type="submit"] {
+      border-radius: 4px;
+      border: none;
+      font-size: 14/16 * 1em;
+      height: 45px;
+      letter-spacing: 1.5/16 * 1em;
+      width: 100%;
+    }
+    button[type="submit"] {
+      background: $dark-button-bg;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+
+	body.android-page {
+    .android {
+      padding: 65px 0;
+      img {
+        width: auto;
+      }
+      .flex-cont {
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+      .flex-item {
+        margin: 0;
+        button {
+          margin: 0;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+        }
+        &:first-of-type {
+          width: auto;
+          margin-right: 10px;
+        }
+        &:last-of-type {
+          width: 140px;
+        }
+      }
+      .android__content {
+        padding-top: 40px;
+        &,
+        a,
+        h1 {
+          color: #fff;
+          text-align: right;
+        }
+        .options {
+          text-align: right;
+        }
+      }
+      form {
+        .input-control {
           display: block;
-          width: 100%;
+          input {
+            display: block;
+            width: 100%;
+          }
         }
       }
     }
   }
+
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+
+	body.android-page {
+
+  }
+
 }

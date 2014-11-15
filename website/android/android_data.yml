@@ -3,7 +3,8 @@ top_content:
   title: "Make Your Android App <span>More Engaging</span>"
   sub_title: "Sign up below to learn more about the Optimizely for Android developer preview"
 
-form: 
+form:
+  email_icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/email-grey.svg"
   button_text: "Sign Up"
 
 hidden_content:
