@@ -7,21 +7,22 @@ body_class:
 - android-page
 ---
 {{#with android_data}}
-<div class="page-bg android">
-  <div class="container ">
+<div class="page-bg android bg-img" style="background-image: url('{{main_bg_img}}')">
+  <div class="container flex-tablet">
       <div class="columns five">
-        <img src="{{../assetsDir}}{{top_content.featured_img}}" />
+        <img src="{{top_content.android_img}}" class="bg-img android-img" >
       </div>
-      <div class="columns seven android__content is-visible">
-        <h1>{{{top_content.title}}}</h1>
-        <p>{{top_content.sub_title}}</p>
+      <div class="columns seven android__content">
+        <div class="is-visible">
+          <h1>{{{top_content.title}}}</h1>
+          <p>{{top_content.sub_title}}</p>
           <form id="android-form" novalidate>
             <fieldset>
               <div class="flex-cont">
                 <div class="flex-item">
                   <label>
                     <span class="email-related error-hide">Required</span>
-                    <input type="email" style="background-image: url('{{form.email_icon}}')" name="email" placeholder="email" required>
+                    <input type="email" style="background-image: url('{{form.email_icon}}')" name="email" placeholder="EMAIL" required>
                   </label>
                   <input type="hidden" name='LeadSource' id='LeadSource' value="Website">
                   <input type="hidden" name='Lead_Source_Category__c' id='Lead_Source_Category__c' value="Content">
@@ -37,12 +38,13 @@ body_class:
             </div>
             <p class="android__content--smaller">{{ios_link.text}} <a href="/mobile">{{ios_link.anchor}}</a></p>
           </form>
-      </div>
-      <div class="columns seven android__content android__content--thanks is-hidden">
-        <h1>{{{hidden_content.title}}}</h1>
-        <p>{{hidden_content.content}}</p>
-        <a class="btn" href="#">{{hidden_content.button_text}}</a>
-        <p class="android__content--smaller">{{ios_link.text}} <a href="{{linkPath}}/mobile">{{ios_link.anchor}}</a></p>
+        </div>
+        <div class="is-hidden optly-hide">
+          <h1>{{{hidden_content.title}}}</h1>
+          <p>{{hidden_content.content}}</p>
+          <a class="btn" href="#">{{hidden_content.button_text}}</a>
+          <p class="android__content--smaller">{{ios_link.text}} <a href="{{../linkPath}}/mobile">{{ios_link.anchor}}</a></p>
+        </div>
       </div>
   </div>
 </div>

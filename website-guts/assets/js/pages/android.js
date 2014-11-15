@@ -21,7 +21,7 @@ $(function() {
     w.optly.mrkt.Oform.validationError(elm);
   })
   .on('success', function() {
-    androidFormHelperInst.success($('.android__content'));
+    androidFormHelperInst.success($('.android__content').children());
   })
   .on('done', function() {
     if(document.body.classList.contains('oform-error')) {

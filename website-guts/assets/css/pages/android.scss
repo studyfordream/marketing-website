@@ -3,12 +3,40 @@ body.android-page {
   .error-show {
     color: #e58d88!important;
   }
+  .bg-img {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
   .android {
-    padding: 120px 40px;
+    /*$animprop-hidden: transform translateX(0) translateX(-100%);*/
+    /*$animprop-visible: transform translateX(100%) translateX(0);*/
+    /*$transition-visible: all 5s linear;*/
+    /*$transition-hidden: all 5s linear;*/
+    padding: 40px 40px;
     .is-hidden {
-      display: none;
+      /*@include optly--animate($animprop-hidden, $transition-hidden);*/
+      transform: translateX(-100%);
+      &.enter {
+        transform: translateX(0);
+      }
     }
-    background: #0081BA;
+    .is-visible {
+      /*@include optly--animate($animprop-visible, $transition-visible);*/
+      &.leave {
+        transform: translateX(100%);
+      }
+    }
+    .is-visible,
+    .is-hidden {
+      transition: all 0.3s linear;
+      display: inline-block;
+      width: 48%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+    }
     .btn {
       background: $dark-button-bg;
       padding: 12px 25px;
@@ -38,14 +66,17 @@ body.android-page {
       }
     }
     img {
-      width: 100px;
+      width: 160px;
     }
     .flex-cont {
       display: flex;
       flex-direction: column;
     }
     .android__content {
+      position: relative;
+      overflow: hidden;
       padding-top: 0;
+      height: 500px;
       &--smaller {
         margin-top: 20px;
       }
@@ -108,6 +139,7 @@ body.android-page {
     button[type="submit"] {
       background: $dark-button-bg;
       text-transform: uppercase;
+      letter-spacing: 1.5px;
     }
   }
 }
@@ -115,6 +147,9 @@ body.android-page {
 @media only screen and (min-width: $tablet-min-width) {
 
 	body.android-page {
+    .flex-tablet {
+      display: flex;
+    }
     .android {
       padding: 65px 0;
       img {
@@ -133,7 +168,7 @@ body.android-page {
           bottom: 0;
         }
         &:first-of-type {
-          width: auto;
+          width: 250px;
           margin-right: 10px;
         }
         &:last-of-type {
@@ -142,6 +177,7 @@ body.android-page {
       }
       .android__content {
         padding-top: 40px;
+        height: auto;
         &,
         a,
         h1 {

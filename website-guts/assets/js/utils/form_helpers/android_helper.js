@@ -35,23 +35,25 @@ var androidHelper = {
   success: function(hideShowContent) {
     var submitButton = this.formElm.querySelector('[type="submit"]'),
       formEmail = this.formElm.querySelector('input[name="email"]').value;
-
-    $.each(hideShowContent, function(i, elm) {
-      var $elm = $(elm);
-      if ( $elm.hasClass('is-visible') ) {
-        $elm.addClass('is-hidden').removeClass('is-visible');
-      } else {
-        $elm.addClass('is-visible').removeClass('is-hidden');
-      }
-    });
-
+    
+    window.setTimeout(function() {
+      $.each(hideShowContent, function(i, elm) {
+        var $elm = $(elm);
+        if ( $elm.hasClass('is-visible') ) {
+          $elm.addClass('leave');
+        } else {
+          $elm.addClass('enter');
+        }
+      });
+    }, 1000);
+    
     //tracking code goes here
     w.analytics.identify(formEmail, {
 
       Inbound_Lead_Form_Type__c: 'Android Developer Preview',
-      LeadSource: 'Website',
-      LeadSourceCategory: 'Content',
-      LeadSourceSubcategory: 'PMM',
+      Lead_Source__c: 'Website',
+      Lead_Source_Category__c: 'Content',
+      Lead_Source_Subcategory__c: 'PMM',
       email: formEmail
     }, {
 

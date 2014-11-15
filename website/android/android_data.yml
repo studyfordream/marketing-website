@@ -1,5 +1,7 @@
+main_bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/android/nyc.jpg"
+
 top_content:
-  featured_img: "/img/android/nexus5_airbnb_v3.png"
+  android_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/android/nexus5_airbnb_v3.png"
   title: "Make Your Android App <span>More Engaging</span>"
   sub_title: "Sign up below to learn more about the Optimizely for Android developer preview"
 
