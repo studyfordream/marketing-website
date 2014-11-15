@@ -2,7 +2,7 @@ var Nightmare = require('nightmare');
 //var path = require('path');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
-var pricingPath = config.basePath + '/staging/pricing/?phantom=true';
+var pricingPath = config.basePath + '/staging/pricing/';
 
 describe('pricing page', function() {
 
@@ -10,8 +10,8 @@ describe('pricing page', function() {
     it('downgrades to starter', function(done) {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
-        .goto(pricingPath + '&plan=bronze-oneyear')
-        .click('#starter-plan .action')
+        .goto(pricingPath + '?phantom=true&plan=bronze-oneyear')
+        .click('#starter-plan p:nth-child(3) a')
         .wait(300)
         .screenshot(config.screenshot({ imgName: 'downgrade-confirm' }))
         .click('#downgrade-plan-form button[type="submit"]')
@@ -33,7 +33,7 @@ describe('pricing page', function() {
     it('cannot downgrade', function(done) {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
-        .goto(pricingPath + '&plan=enterprise-oneyear')
+        .goto(pricingPath + '?phantom=true&plan=enterprise-oneyear')
         .wait(300)
         .screenshot(config.screenshot({ imgName: 'enterprise-downgrade-option' }))
         .evaluate(function() {
@@ -49,8 +49,8 @@ describe('pricing page', function() {
     it('signs up for starter plan', function(done) {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
-        .goto(pricingPath + '&plan=')
-        .click('#starter-plan .action')
+        .goto(pricingPath + '?phantom=true&plan=')
+        .click('#starter-plan p:nth-child(3) a')
         .wait('body.change-plan-success')
         .wait(300)
         .screenshot(config.screenshot({ imgName: 'pricing-no-plan-start-new-plan' }))
@@ -69,7 +69,7 @@ describe('pricing page', function() {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
         .goto(pricingPath)
-        .click('#starter-plan .action')
+        .click('#starter-plan p:nth-child(3) a')
         .wait(300)
         .type('#signup-dialog input[name="email"]', config.email)
         .type('#signup-dialog input[name="password1"]', 'ks93+-93KLI')
@@ -98,7 +98,7 @@ describe('pricing page', function() {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
         .goto(pricingPath)
-        .click('#enterprise-plan .action')
+        .click('#enterprise-plan p:nth-child(3) a')
         .wait(300)
         .type('#contact-sales-form input[name="first_name"]', config.firstName)
         .type('#contact-sales-form input[name="last_name"]', config.lastName)

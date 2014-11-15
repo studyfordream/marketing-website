@@ -160,9 +160,9 @@ var createAccountHelper = {
         email: formElm.querySelector('[name="email"]').value,
         phone: formElm.querySelector('[name="phone_number"]').value,
         web__c: document.querySelector('input[type="checkbox"][name="web"]').value,
-        mobile_web__c: document.querySelector('input[type="checkbox"][name="mobile_web"]'),
-        ios__c: document.querySelector('input[type="checkbox"][name="ios"]'),
-        android__C: document.querySelector('input[type="checkbox"][name="android"]')
+        mobile_web__c: document.querySelector('input[type="checkbox"][name="mobile_web"]').value,
+        ios__c: document.querySelector('input[type="checkbox"][name="ios"]').value,
+        android__c: document.querySelector('input[type="checkbox"][name="android"]').value
       }, e);
 
       window.optly.mrkt.modal.close({ modalType: 'signup', track: false });
@@ -205,9 +205,9 @@ var createAccountHelper = {
           otm_Medium__c: w.optly.mrkt.source.otm.medium,
           utm_Medium__c: w.optly.mrkt.source.utm.medium,
           web__c: document.querySelector('input[type="checkbox"][name="web"]').value,
-          mobile_web__c: document.querySelector('input[type="checkbox"][name="mobile_web"]'),
-          ios__c: document.querySelector('input[type="checkbox"][name="ios"]'),
-          android__C: document.querySelector('input[type="checkbox"][name="android"]')
+          mobile_web__c: document.querySelector('input[type="checkbox"][name="mobile_web"]').value,
+          ios__c: document.querySelector('input[type="checkbox"][name="ios"]').value,
+          android__c: document.querySelector('input[type="checkbox"][name="android"]').value
         },
         { integrations: { Marketo: true } });
 
@@ -258,8 +258,6 @@ var createAccountHelper = {
 
     if(data.event.target.status === 200){
 
-      w.console.log('dadta.event.target.status === 200');
-
       try {
 
         resp = JSON.parse(data.event.target.responseText);
@@ -277,8 +275,6 @@ var createAccountHelper = {
 
       if(resp){
 
-        w.console.log('data object: ' + data);
-
         document.body.classList.add('create-account-success');
 
         w.analytics.identify(resp.email, {
@@ -290,9 +286,9 @@ var createAccountHelper = {
           otm_Medium__c: w.optly.mrkt.source.otm.medium,
           utm_Medium__c: w.optly.mrkt.source.utm.medium,
           web__c: document.querySelector('input[type="checkbox"][name="web"]').value,
-          mobile_web__c: document.querySelector('input[type="checkbox"][name="mobile_web"]'),
-          ios__c: document.querySelector('input[type="checkbox"][name="ios"]'),
-          android__C: document.querySelector('input[type="checkbox"][name="android"]')
+          mobile_web__c: document.querySelector('input[type="checkbox"][name="mobile_web"]').value,
+          ios__c: document.querySelector('input[type="checkbox"][name="ios"]').value,
+          android__c: document.querySelector('input[type="checkbox"][name="android"]').value
         }, {
           integrations: {Marketo: true}
         });

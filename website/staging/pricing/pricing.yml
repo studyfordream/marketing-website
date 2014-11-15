@@ -19,86 +19,153 @@ company_logos:
    svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/american_apparel_logo.svg"
 full_feature_list_header: "Full Feature List"
 starter_plan:
- name: "Starter"
- cost: "Free"
- description: "Not just a trial. Seriously."
- primary_call_to_action: "Get Started"
- secondary_call_to_action: ""
- feature_overview:
-  - "Improve conversions, increase engagement, and drive revenue"
-  - "Get started instantly"
-  - "Free&mdash;no credit card required"
- full_benefits:
-  feature_groups:
-   -
-    category: ""
-    features:
-     -
-      title: "Essential Features:"
-      details:
-       - "Optimization for the web, mobile web, iOS and soon Android native apps"
-       - "Dead simple implementation"
-       - "Easy-to-use visual editor"
-       - "Advanced mobile developer tools HTML / JS editor"
-       - "CDN-balanced architecture for scalable experience delivery"
-       - "Real-time results and reporting"
-   -
-    category: "Create &amp; launch experiments"
-    features:
-     -
-      title: "A/B and multivariate experiments"
-     -
-      category: "Discover visitor insights"
-      features:
-       -
-        title: "Basic results segmentation to analyze visitor behavior:"
-        details:
-         - "Referral Source"
-         - "Browser"
-       -
-        title: "Mobile app goals to track business critical metrics:"
-        details:
-         - "Unique and total conversions"
-         - "Detailed revenue report"
-         - "Retention report"
-         - "Mobile session metrics"
+  name: "Starter"
+  overview: |
+    * Improve conversions, increase engagement, and drive revenue
+    * Get started instantly
+    * Free&mdash;no credit card required
+  cta: |
+    ### Free
+
+    Not Just a Trial. Seriously.
+
+    [Get started]()
+  full_features:
+    -
+      title: ""
+      description: |
+        #### Essential features:
+
+        * Optimization for the web, mobile web, iOS and soon Android native apps
+        * Dead simple implementation
+        * Easy-to-use visual editor
+        * Advanced mobile developer tools HTML / JS editor
+        * CDN-balanced architecture for scalable experience delivery
+        * Real-time results and reporting
+    -
+      title: "Create &amp; launch experiments"
+      description: |
+        #### A/B and Multivariate Experiments
+    -
+      title: "Discover visitor insights"
+      description: |
+        #### Basic results segmentation to analyze visitor behavior:
+
+        * Referral Source
+        * Browser
+    -
+      title: "Targeted optimized experiences"
+      description: |
+        #### Basic targeting to delivery experiences by Audience conditions:
+
+        * Demographic: Device, Browser, or Language
+        * Contextual: Referral URL, Traffic Source, or Query Parameters
+    -
+      title: Inetgrate with other platforms
+      description: |
+        #### One-click integration with analytics tools you already use:
+
+        * Google Analytics
+        * KISSmetrics
+        * Mixpanel
+
+        #### Heat mapping integrations to enhance user experience optimization:
+
+        * Crazy Egg
+        * ClickTale
+    -
+      title: "Support for you &amp; your team"
+      description: |
+        #### Online-only support:
+
+        * Optiverse, Optimizely's community
+        * Knowledge Base documentation
+        * Academy training resources
+    -
+      title: "Manage your account"
+      description: |
+        #### Up to 50,000 monthly unique visitors across your website and mobile app
+
+        #### Basic account and project levels:
+
+          * 1 Web and 1 Mobile Project
+          * 3 Optimizely users
 enterprise_plan:
- name: "Enterprise"
- cost: "Custom"
- description: "Optimized for your business"
- primary_call_to_action: "Contact sales &raquo;"
- secondary_call_to_action: "or call us at <a href='tel:18002529840'>1-800-252-9480</a>"
- feature_overview:
-  - "Create and delivery multichannel, targeted experiences"
-  - "Customizable to meet your needs"
-  - "World-class customer support to take your optimization to the next level"
- full_benefits:
-  feature_groups:
-   -
-    category: ""
-    features:
-     -
-      title: "All the same essential features as Starter"
-     -
-      category: "Create &amp; launch experiments"
-      features:
-     -
-      title: "Multi-page funnel testing"
-     -
-      title: "Cross-browser QA"
-     -
-      title: "Multichannel experiments: leverage the Universal User"
-     -
-      title: "ID to delivery connected experiences to visitors across the web and mobile apps"
-   -
-    category: "Discover visitor insights"
-    features:
-     -
-      title: "Advanced resutls segmentation to analyze visitor behavior"
-      details:
-       - "Campaign"
-       - "Device"
-       - "Targeting conditions"
-       - "Custom segments"
-     -
-      title: "Custom reports and annotations, built for teams to communicate and share"
+  name: "Enterprise"
+  overview: |
+    * Create and delivery multichannel, targeted experiences
+    * Customizable to meet your needs
+    * World-class customer support to take your optimization to the next level
+  cta: |
+    ### Custom
+
+    Optimized for your business.
+
+    [Contact us &raquo;]()
+
+    or call us at [1-800-555-5555](tel:18002529840)
+  full_features:
+    -
+      title: ""
+      description: |
+        #### All of the same Essential Features as Starter
+    -
+      title: "Create &amp; launch experiments"
+      description: |
+        #### Multi-page funnel testing
+
+        #### Cross-browser QA
+
+        #### Multichannel Experiments: leverage the universal user ID to deliver connected exerpiences to visitors across the web and mobile apps
+    -
+      title: "Discover Visitor Insights"
+      description: |
+        #### Advanced results segmentation to analyze visitor behavior:
+
+        * Campaign
+        * Device
+        * Targeting conditions
+        * Custom segments
+
+        #### Custom reports and annotations, built for teams to communicate and share
+    -
+      title: "Target optimized experiences"
+      description: |
+        #### Advanced targeting to deliver experiences by Audience conditions
+
+        * _Demographic_: Location or IP Address
+        * _Contextual_: Ad Campaign or Time of Day
+        * _Behavioral_: Triggered Event or Cookies
+        * _Custom_: List Membership, or other custom solutions to fit your site or app
+    -
+      title: "Integrate with other platforms"
+      description: |
+        #### One-click integration with advanced analytics platforms:
+
+        * Adobe Analytics (SiteCatalyst)
+        * Google Analytics Premium
+        * AT Internet
+
+        #### Additional integrations with other platforms that power your experiences (see a full list [here](https://www.optimizely.com/partners/technology/))
+
+        #### Flexible access to REST API based on your needs
+    -
+      title: "Support for you &amp; your team"
+      description: |
+        #### Flexible troubleshooting options where and when you need them:
+
+        * E-Mail
+        * Phone
+        * In-person
+
+        #### Customizable packages for onboarding, training, and strategy
+
+        #### Dedicated account management and technical support options
+    -
+      title: "Manage your account"
+      description: |
+        #### Custom monthly unique visitor allocation across your website and mobile app based on your needs
+
+        #### Flexible number of pojects and Optimizely users
+
+        #### Role-base permission management
