@@ -1,15 +1,3 @@
-function smoothScroll(e) {
-  var scrlId = $(this).attr('href'), 
-    targetElmPos = $(scrlId).offset().top;
-
-  e.preventDefault();
-
-  $('html,body').animate({
-    scrollTop: targetElmPos
-  }, 1000);
-
-}
-
 var player;
 var tag = document.createElement('script');
 
@@ -30,7 +18,7 @@ $(function(){
   var videoPlayed = false,
     playerSupported = false;
 
-  $('[smooth-scroll]').on('click', smoothScroll);
+  $('[smooth-scroll]').on('click', w.optly.mrkt.utils.smoothScroll);
 
   $('[data-show-video]').on('click', function() {
     window.optly.mrkt.modal.open({modalType: 'nonprofits-video'});

@@ -11,6 +11,8 @@ var contactSalesForm = w.optly.mrkt.activeModals.contactSales;
 
 contactSalesForm.on('before', function(){
 
+  d.body.classList.add('contact-sales-submit');
+
   w.optly.mrkt.Oform.before();
 
   w.analytics.track('contact sales submit', {
@@ -25,6 +27,8 @@ contactSalesForm.on('before', function(){
   w.optly.mrkt.Oform.validationError(element);
 
 }).on('success', function(inputs){
+
+  d.body.classList.add('contact-sales-success');
 
   w.analytics.identify(inputs.data.email, {
     FirstName: inputs.data.first_name,
