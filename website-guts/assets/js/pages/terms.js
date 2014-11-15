@@ -1,0 +1,1 @@
+$('#page-header .container').append('<p>For customers subject to the previous Terms of Service (<a href="/terms/05/30/2013">available here</a>), the new terms below will be effective on November 30, 2014.</p>');
