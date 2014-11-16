@@ -55,13 +55,13 @@ page_script: mobile-mvpp.js
 {{#with mobile_page_mvpp_data.top_grid}}
 <section id="fast-powerful-panel"class="panel">
   <div class="container">
-    <h2>{{title}}</h2>
-    <h3>{{sub_title}}</h3>
+    <h2><strong>{{title}}</strong></h2>
+    <h2>{{sub_title}}</h2>
     <div class="flex-cont">
       {{#each grid_content}}
       <div class="flex-content">
         <div class="grid-icon bg-img" style="background-image: url('{{icon}}')"></div>
-        <h5>{{title}}</h5>
+        <h5><strong>{{title}}</strong></h5>
         <p>{{grid_content}}</p>
       </div>
       {{/each}}
@@ -118,8 +118,8 @@ page_script: mobile-mvpp.js
 {{/with}}
 <section id="signup-form-panel-bottom" class="panel bg-img" style="background-image: url('{{mobile_page_mvpp_data.form_panel.bg_img}}')">
 {{#with mobile_page_mvpp_data.form_panel}}
-  <h2>{{title}}</h2>
-  <h3>{{subtitle}}</h3>
+  <h2><strong>{{title}}</strong></h2>
+  <h2>{{subtitle}}</h2>
   <form action="/account/create" method="POST" id="mobile-signup-form-bottom" novalidate>
     <div class="flex-responsive form-elm-cont">
       <div class="form-grid">
