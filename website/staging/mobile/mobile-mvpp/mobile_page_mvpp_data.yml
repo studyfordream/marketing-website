@@ -113,6 +113,7 @@ form_panel:
   password: "Create Password"
   password_icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/lock-grey.svg"
   submit_button: "Get Started"
+  submit_success: "Success"
   link_text: "Optimizely's Android SDK is coming soon."
   link_anchor_text: "Learn More"
 

@@ -1,15 +1,5 @@
 body.mobile-mvpp-page {
   //hidden to be exposed by Optimizely experiment
-  .oform-error-show,
-  .error-show {
-    color: #e58d88!important;
-  }
-  .options {
-    text-align: center;
-    p {
-      display: inline-block;
-    }
-  }
   .circle-arrow {
     position: absolute;
     top: 50%;
@@ -145,6 +135,19 @@ body.mobile-mvpp-page {
     /*}*/
   }
   .panel {
+    form {
+      margin-top: 60px;
+    }
+    .oform-error-show,
+    .error-show {
+      color: #e58d88!important;
+    }
+    .options {
+      text-align: center;
+      p {
+        display: inline-block;
+      }
+    }
     br {
       display: none;
     }
@@ -216,9 +219,6 @@ body.mobile-mvpp-page {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-  }
-  form {
-    margin-top: 60px;
   }
   #hero, 
   #signup-form-panel-bottom,
@@ -456,21 +456,17 @@ body.mobile-mvpp-page {
       }
       &:after {
         content: attr(title);
-        /*transform: translate(-50%, -50%);*/
         left: 50%;
       }
       &:before {
-        content: "Success!!";
-        /*transform: translate(-400%, -50%);*/
+        content: attr(data-success);
         left: -200%;
       }
       &.successful-submit {
         &:after {
-          /*transform: translate(400%, -50%);*/
           left: 200%;
         }
         &:before {
-          /*transform: translate(-50%, -50%);*/
           left: 50%;
         }
       }
