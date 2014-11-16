@@ -39,7 +39,48 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         });
       }
     });
-  }
+  };
+
+  var defaultHelpers = {
+    showOptionsError: function (message){
+      if(message) {
+        this.optionsErrorElm.innerHTML = message;
+      }
+      if(!document.body.classList.contains('error-state')) {
+        document.body.classList.add('error-state');
+      }
+      if( !this.optionsErrorElm.classList.contains('error-show') ) {
+        this.optionsErrorElm.classList.add('error-show');
+      }
+    },
+    
+    customErrorMessage: function (elm, message) {
+      if(message) {
+        elm.innerHTML = message;
+      } else {
+        elm.innerHTML = 'Required';
+      }
+    },
+
+    showErrorDialog: function(message) {
+      window.optly.mrkt.errorQ.push([
+        'logError',
+        {
+          error: message,
+        }
+      ]);
+    },
+
+    removeErrors: function() {
+      if(document.body.classList.contains('error-state')) {
+        document.body.classList.remove('error-state');
+      }
+      if( this.optionsErrorElm.classList.contains('error-show') ) {
+        this.optionsErrorElm.classList.remove('error-show');
+      }
+    }
+  
+  };
 
   var processingHelpers = {
 
@@ -87,7 +128,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     }
   };
 
-  $.extend(Const.prototype, scopeObj.prototype, processingHelpers);
+  $.extend(Const.prototype, processingHelpers, defaultHelpers, scopeObj.prototype);
 
   return new Const();
 

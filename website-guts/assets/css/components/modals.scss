@@ -180,6 +180,18 @@ body {
       opacity: 1;
     }
   }
+  #channels {
+    text-align: center;
+  }
+  .checkboxes {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    div {
+      text-align: center;
+      width: 50%;
+    }
+  }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
@@ -204,11 +216,15 @@ body {
     input[type="checkbox"] {
       margin-bottom: auto;
     }
+    #channels {
+      text-align: left;
+    }
     .checkboxes {
-      margin-top: 5px;
-      display: flex;
+      text-align: left;
+      flex-wrap: nowrap;
       div {
         padding-right: 15px;
+        width: auto;
       }
     }
     .options {
