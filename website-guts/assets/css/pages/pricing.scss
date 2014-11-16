@@ -14,6 +14,18 @@
   border: 2px solid $faint-gray-border;
   border-radius: 4px;
   margin-bottom: 40px;
+  .cta {
+    padding: 10px 0 20px 0;
+    h3 {
+      font-size: 3em;
+      line-height: .8em;
+      margin: 10px 0 15px 0;
+    }
+    p:nth-child(3) a {
+      @extend .secondary-button;
+      margin: 15px 0;
+    }
+  }
   &.highlight {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, .3);
     border: 2px solid $blue;
@@ -22,6 +34,12 @@
       background: $blue;
       color: #fff;
       border-bottom: 2px solid $blue;
+    }
+    .cta {
+      p:nth-child(3) a {
+        @extend .button;
+        text-shadow: none;
+      }
     }
     .feature-category {
       h3 {
@@ -48,13 +66,6 @@
     margin-bottom: 20px;
     font-size: .85em;
   }
-  .cta {
-    padding: 10px 0 20px 0;
-  }
-  .cta-headline {
-    font-size: 3em;
-    line-height: 1.2em;
-  }
 }
 #enterprise-plan .action {margin-bottom: 10px;}
 body.plan-enterprise {
@@ -68,7 +79,7 @@ body.plan-enterprise {
     }
   }
 }
-body.plan-free-light {
+body.plan-free_light {
   #starter-plan {
     .current-plan {
       display: block!important;
@@ -108,6 +119,17 @@ body.pricing {
       }
     }
   }
+  #full-feature-list-btn {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  #full-feature-list-btn span {
+    display: block;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position: right center;
+    padding: 0 40px;
+  }
   #company-list {
     h4 {
       text-align: center;
@@ -133,6 +155,9 @@ body.pricing {
     color: $super-dark-blue;
   }
   @media only screen and (min-width: $tablet-min-width){
+    .cta {
+      h3 {text-align: center;}
+    }
     #company-list {
       .logo-container {
         display: flex;
