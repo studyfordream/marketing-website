@@ -84,11 +84,6 @@ $(function() {
    var videoPlayed = false,
     playerSupported = false; 
 
-
-  $('.panel h1').on('click', function() {
-    $('#hero button').toggleClass('successful-submit');
-  });
-
   //video player open and autoplay
   $('[data-show-video]').on('click', function() {
     window.optly.mrkt.modal.open({modalType: 'video-modal'});

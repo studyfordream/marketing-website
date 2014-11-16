@@ -103,7 +103,7 @@ var mobileMvppHelper = {
         document.body.dataset.formSuccess = this.formElm.getAttribute('action');
       } else {
         window.setTimeout(function() {
-          //window.location = '/mobile/first-project';
+          window.location = '/mobile/first-project';
         }, 1000);
       }
 
