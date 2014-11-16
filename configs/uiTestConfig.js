@@ -1,8 +1,27 @@
 var path = require('path');
+var createQueryString = function(params) {
+  debugger;
+  var queryString = '';
+  if(params) {
+    for(key in params) {
+      queryString += ('&' + key + '=' + params[key]);
+    }
+  }
+  return queryString;
+};
 
 module.exports = function(options){
+  var cachedPath;
+
   return {
-    basePath: 'http://0.0.0.0:9000' + global.linkPath,
+    basePath: function(opts) {
+      var queryString = createQueryString(opts.queryParams);
+      if(!cachedPath) {
+        cachedPath = 'http://0.0.0.0:9000' + global.linkPath + opts.path + '?phantom=true';
+      }
+            debugger;
+      return  cachedPath + queryString;
+    },
     firstName: 'David',
     lastName: 'Fox test',
     company: 'Optimizely',
