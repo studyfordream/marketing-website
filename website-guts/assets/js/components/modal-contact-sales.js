@@ -31,11 +31,6 @@ contactSalesForm.on('before', function(){
 
   w.optly.mrkt.Oform.validationError(element);
 
-}).on('error', function() {
-  var message = 'There was in processing your contact request.';
-  contactSalesHelperInst.showErrorDialog(message);
-  contactSalesHelperInst.showOptionsError();
-
 }).on('success', function(inputs){
 
   contactSalesHelperInst.success(inputs);

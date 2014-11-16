@@ -1,9 +1,7 @@
-var path = require('path');
 var createQueryString = function(params) {
-  debugger;
   var queryString = '';
   if(params) {
-    for(key in params) {
+    for(var key in params) {
       queryString += ('&' + key + '=' + params[key]);
     }
   }
@@ -19,7 +17,6 @@ module.exports = function(options){
       if(!cachedPath) {
         cachedPath = 'http://0.0.0.0:9000' + global.linkPath + opts.path + '?phantom=true';
       }
-            debugger;
       return  cachedPath + queryString;
     },
     firstName: 'David',
@@ -33,10 +30,10 @@ module.exports = function(options){
     password: '1800EatBurritos',
     phantomPath: require('phantomjs').path,
     screenshot: function(opts) {
-      return options.dirname + '/screenshots/' + opts.imgName + '.jpg'
+      return options.dirname + '/screenshots/' + opts.imgName + '.jpg';
     },
     formSuccessElm: function(opts) {
       return 'body[data-form-success="' + opts.formAction + '"]';
     }
-  }
+  };
 };
