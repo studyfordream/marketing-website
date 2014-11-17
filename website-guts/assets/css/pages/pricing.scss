@@ -16,6 +16,7 @@
   margin-bottom: 40px;
   .plan-box-content {
     background: #fff;
+    min-height: 200px;
   }
   .cta {
     padding: 10px 0 20px 0;
@@ -103,6 +104,7 @@ body.plan-free_light {
 
 body.pricing {
   section.blue-bg, #page-header-gradient {
+    background: $light-blue-bg;
   }
   .plan-box-content, .feature-overview {
     padding: 15px 30px 15px 30px;
