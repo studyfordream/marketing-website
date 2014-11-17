@@ -71,9 +71,13 @@ var signinHelper = {
       //set data attribute for UI testing purposes
       document.body.dataset.formSuccess = this.formElm.getAttribute('action');
       // allow analytics logging before redirect
-      window.setTimeout(function() {
-        w.location = '/dashboard';
-      }, 500);
+      if(w.optly.mrkt.automatedTest()){
+        d.body.classList.add('signed-in');
+      } else {
+        window.setTimeout(function() {
+          w.location = '/dashboard';
+        }, 500);
+      }
     }
     else {
       window.optly.mrkt.modal.close({ modalType: 'signin', trace: false });
