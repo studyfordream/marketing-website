@@ -1,6 +1,6 @@
 full_feature_list_button_text: "See Full List of Features"
 company_logos:
- header: "Already used by the following greate companies:"
+ header: "Already used by the following great companies:"
  logos:
   -
    name: "TripAdvisor"
@@ -39,8 +39,8 @@ starter_plan:
         * Optimization for the web, mobile web, iOS and soon Android native apps
         * Dead simple implementation
         * Easy-to-use visual editor
-        * Advanced mobile developer tools HTML / JS editor
-        * CDN-balanced architecture for scalable experience delivery
+        * Advanced web and mobile developer tools
+        * CDN-balanced architecture
         * Real-time results and reporting
     -
       title: "Create &amp; launch experiments"
@@ -49,58 +49,62 @@ starter_plan:
     -
       title: "Discover visitor insights"
       description: |
-        #### Basic results segmentation to analyze visitor behavior:
+        #### Basic results segmentation:
 
         * Referral Source
         * Browser
 
-        #### Mobile app goals to track business critical metrics: 
-        * Unique and Total Conversions
-        * Detailed Revenue Report
-        * Retention Report
-        * Mobile Session Metrics
+        #### Mobile app goals: 
+        * Unique and total conversions
+        * Revenue reports
+        * Retention reports
+        * Mobile session setrics
     -
       title: "Targeted optimized experiences"
       description: |
-        #### Basic targeting to deliver experiences by Audience conditions:
+        #### Basic targeting by Audience conditions:
 
-        * Demographic: Device, Browser, or Language
-        * Contextual: Referral URL, Traffic Source, or Query Parameters
+        * _Demographic_: Device, Browser, or Language
+        * _Contextual_: Referral URL, Traffic Source, or Query Parameters
 
-        #### Target mobile app users by app version, device type, and more
+        #### Mobile targeting:
+
+        * App Version
+        * Device Ttype
+        * iOS Version
     -
       title: Integrate with other platforms
       description: |
-        #### One-click integration with analytics tools you already use:
+        #### Analytics integrations:
 
         * Google Analytics
         * KISSmetrics
         * Mixpanel
 
-        #### Heat mapping integrations to enhance user experience optimization:
+        #### Heat mapping integrations:
 
         * Crazy Egg
         * ClickTale
 
-        #### Limited access to Optimizely's REST API:
+        #### Limited Optimizely REST API access:
 
         * Up to 1,000 calls per month
     -
       title: "Support for you &amp; your team"
       description: |
-        #### Online-only support:
+        #### Online-only aupport:
 
         * Optiverse, Optimizely's community
         * Knowledge Base documentation
-        * Academy training resources
+        * Academy Training resources
     -
       title: "Manage your account"
       description: |
-        #### Up to 50,000 monthly unique visitors across your website and mobile app
+        #### Up to 50,000 Monthly Unique Visitors across your website and mobile app
 
         #### Basic account and project levels:
 
-          * 1 Web and 1 Mobile Project
+          * 1 web and 1 mobile project
           * 3 Optimizely users
 enterprise_plan:
   name: "Enterprise"
@@ -120,30 +124,32 @@ enterprise_plan:
     -
       title: ""
       description: |
-        #### All of the same essential features as Starter
+        #### All of the Starter plan features 
+        
+        +
     -
       title: "Create &amp; launch experiments"
       description: |
-        #### Multi-page funnel testing
+        #### Multi-page funnel experiments
 
         #### Cross-browser QA
 
-        #### Multichannel Experiments: leverage the universal user ID to deliver connected exerpiences to visitors across the web and mobile apps
+        #### Multichannel Experiments: deliver connected experiences to visitors across the web and mobile apps
     -
       title: "Discover Visitor Insights"
       description: |
-        #### Advanced results segmentation to analyze visitor behavior:
+        #### Advanced results segmentation:
 
         * Campaign
         * Device
-        * Targeting conditions
-        * Custom segments
+        * Targeting Conditions
+        * Custom Segments
 
-        #### Custom reports and annotations, built for teams to communicate and share
+        #### Custom reports and annotations
     -
       title: "Target optimized experiences"
       description: |
-        #### Advanced targeting to deliver experiences by Audience conditions
+        #### Advanced targeting by Audience conditions:
 
         * _Demographic_: Location or IP Address
         * _Contextual_: Ad Campaign or Time of Day
@@ -152,19 +158,19 @@ enterprise_plan:
     -
       title: "Integrate with other platforms"
       description: |
-        #### One-click integration with advanced analytics platforms:
+        #### Analytics integrations:
 
         * Adobe Analytics (SiteCatalyst)
         * Google Analytics Premium
         * AT Internet
 
-        #### Additional integrations with other platforms that power your experiences (see a full list [here](https://www.optimizely.com/partners/technology/))
+        #### Additional enterprise integrations (see a full list [here](https://www.optimizely.com/partners/technology/))
 
-        #### Flexible access to REST API based on your needs
+        #### Flexible access to Optimizely's REST API
     -
       title: "Support for you &amp; your team"
       description: |
-        #### Flexible troubleshooting options where and when you need them:
+        #### Flexible troubleshooting options:
 
         * E-Mail
         * Phone
@@ -176,8 +182,8 @@ enterprise_plan:
     -
       title: "Manage your account"
       description: |
-        #### Custom monthly unique visitor allocation across your websites and mobile apps based on your needs
+        #### Custom monthly unique visitor allocation across your websites and mobile apps
 
-        #### Flexible number of pojects and Optimizely users
+        #### Flexible number of projects and Optimizely users
 
-        #### Role-base permission management
+        #### Role-based permission management
