@@ -1,7 +1,7 @@
 var Nightmare = require('nightmare');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
-var freeTrialPath = config.basePath + '/free-trial';
+var freeTrialPath = config.basePath({path: '/free-trial'});
 
 describe('testing form on the free trial page', function() {
 

@@ -62,7 +62,7 @@ starter_plan:
     -
       title: "Targeted optimized experiences"
       description: |
-        #### Basic targeting to delivery experiences by Audience conditions:
+        #### Basic targeting to deliver experiences by Audience conditions:
 
         * Demographic: Device, Browser, or Language
         * Contextual: Referral URL, Traffic Source, or Query Parameters
