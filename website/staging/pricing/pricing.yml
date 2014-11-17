@@ -27,9 +27,9 @@ starter_plan:
   cta: |
     ### Free
 
-    Not Just a Trial. Seriously.
+    Not just a trial. Seriously.
 
-    [Get started]()
+    [Get Started]()
   full_features:
     -
       title: ""
@@ -53,6 +53,12 @@ starter_plan:
 
         * Referral Source
         * Browser
+
+        #### Mobile app goals to track business critical metrics: 
+        * Unique and Total Conversions
+        * Detailed Revenue Report
+        * Retention Report
+        * Mobile Session Metrics
     -
       title: "Targeted optimized experiences"
       description: |
@@ -60,8 +66,10 @@ starter_plan:
 
         * Demographic: Device, Browser, or Language
         * Contextual: Referral URL, Traffic Source, or Query Parameters
+
+        #### Target mobile app users by app version, device type, and more
     -
-      title: Inetgrate with other platforms
+      title: Integrate with other platforms
       description: |
         #### One-click integration with analytics tools you already use:
 
@@ -73,6 +81,10 @@ starter_plan:
 
         * Crazy Egg
         * ClickTale
+
+        #### Limited access to Optimizely's REST API:
+
+        * Up to 1,000 calls per month
     -
       title: "Support for you &amp; your team"
       description: |
@@ -93,7 +105,7 @@ starter_plan:
 enterprise_plan:
   name: "Enterprise"
   overview: |
-    * Create and delivery multichannel, targeted experiences
+    * Create and deliver connected and targeted experiences for your websites and mobile apps
     * Customizable to meet your needs
     * World-class customer support to take your optimization to the next level
   cta: |
@@ -101,9 +113,9 @@ enterprise_plan:
 
     Optimized for your business.
 
-    [Contact us &raquo;]()
+    [Contact Us &raquo;]()
 
-    or call us at [1-800-555-5555](tel:18002529840)
+    [1-800-555-5555](tel:18002529840)
   full_features:
     -
       title: ""
@@ -164,7 +176,7 @@ enterprise_plan:
     -
       title: "Manage your account"
       description: |
-        #### Custom monthly unique visitor allocation across your website and mobile app based on your needs
+        #### Custom monthly unique visitor allocation across your websites and mobile apps based on your needs
 
         #### Flexible number of pojects and Optimizely users
 
