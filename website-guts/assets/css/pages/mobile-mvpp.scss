@@ -1,5 +1,6 @@
 body.mobile-mvpp-page {
   //hidden to be exposed by Optimizely experiment
+  background: #fff;
   .circle-arrow {
     position: absolute;
     top: 50%;
@@ -112,27 +113,6 @@ body.mobile-mvpp-page {
         transform: translateX(0);
       }
     }
-  }
-  footer {
-    background: #EDEEEE;
-    > * {
-      color: #0081BA;
-    }
-    a {
-      color: #0081BA;
-    }
-    h4 {
-      border-bottom-color: #0081BA;
-    }
-    /*.facebook {*/
-      /*background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/facebook-white.svg');*/
-    /*}*/
-    /*.google-plus {*/
-      /*background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/google-white.svg');*/
-    /*}*/
-    /*.twitter {*/
-      /*background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/twitter-white.svg');*/
-    /*}*/
   }
   .panel {
     form {
@@ -350,6 +330,9 @@ body.mobile-mvpp-page {
     }
   }
   #customer-logos {
+    padding: 40px 0 20px 0;
+    margin-top: 90px;
+    background: #EDEEEE;
     h2 {
       margin-top: 0;
     }
@@ -375,12 +358,12 @@ body.mobile-mvpp-page {
     p {
       display: none;
     }
+    br {
+      display: inline;
+    }
     @media only screen and (min-width: 450px) {
       .icon-cont {
         width: 80%;
-      }
-      br {
-        display: inline;
       }
       .icon-wrap {
         padding: 20px;
@@ -401,6 +384,16 @@ body.mobile-mvpp-page {
         height: 100%;
         border-radius: 50%;
       }
+      .dynamic {
+        display: none;
+      }
+    }
+    .single-idea-cont {
+      cursor: pointer;
+      margin-top: 60px;
+      &:flex-cont {
+        display: flex;
+      }
       &:hover {
         .static {
           display: none;
@@ -408,15 +401,6 @@ body.mobile-mvpp-page {
         .dynamic {
           display: block;
         }
-      }
-      .dynamic {
-        display: none;
-      }
-    }
-    .single-idea-cont {
-      margin-top: 60px;
-      &:flex-cont {
-        display: flex;
       }
     }
   }
@@ -434,12 +418,13 @@ body.mobile-mvpp-page {
       font-size: 0.9em;
     }
     button {
+      box-shadow: 1px 1px 2px 0px #719508;
       width: 100%;
       margin: 20px 0;
       color: #fff;
       padding: 15px 20px;
       font-size: 1em;
-      background-color: #67B4D6;
+      background-color: #97c70a;
       text-decoration: none;
       cursor: pointer;
       border:none;
@@ -448,6 +433,9 @@ body.mobile-mvpp-page {
       position: relative;
       overflow: hidden;
       white-space: nowrap;
+      &:hover {
+        box-shadow: 2px 2px 2px 0px #719508;
+      }
       &:before,
       &:after {
         transition: all 0.5s linear;
@@ -522,6 +510,7 @@ body.mobile-mvpp-page {
       }
       padding: 90px 0;
       .flex-img-cont {
+        cursor: pointer;
         width: 70%;
         padding: 0 40px 0 0;
         &.order-2 {

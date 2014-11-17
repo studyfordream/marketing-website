@@ -31,7 +31,7 @@ for(var i = 0; i < imgArr.length; i+=1) {
 //keep track of what GIF is currently playing
 var lastPlayed = {};
 function toggleSrc(tracker, overRide) {
-  if(lastPlayed.elm !== tracker.elm || overRide) {
+  if(lastPlayed.index !== tracker.index || ( overRide && !tracker.playing )) {
     if(lastPlayed.elm) {
       lastPlayed.elm.src = lastPlayed.static;
       lastPlayed.playing = false;
@@ -43,7 +43,7 @@ function toggleSrc(tracker, overRide) {
       tracker.playing = true;
       setTimeout(function() {
         tracker.playing = false;
-      }, 3000);
+      }, 4000);
 
       lastPlayed = tracker;
     }
@@ -96,7 +96,7 @@ window.onYouTubeIframeAPIReady = function () {
   player = new window.YT.Player('player', {
     height: '390',
     width: '640',
-    videoId: 'C7WTDPksvAE'
+    videoId: 'pjnHonrJykg'
   });
 };
 
@@ -125,7 +125,7 @@ $(function() {
         $('#player').css({display: 'none'});
         $('.fallback-player').addClass('show-fallback');
       }
-      $('.fallback-player').attr('src', '//www.youtube.com/embed/C7WTDPksvAE?autoplay=1');
+      $('.fallback-player').attr('src', '//www.youtube.com/embed/pjnHonrJykg?autoplay=1');
     }
     if(!videoPlayed) {
       videoPlayed = true;
@@ -153,6 +153,7 @@ $(function() {
   $.each($images, function(i, elm) {
     var elmCache = {};
     elmCache.elm = elm;
+    elmCache.index = elm.dataset.imgIndex;
     elmCache.playing = false;
     elmCache.static = elm.dataset.static;
     elmCache.dynamic = elm.dataset.dynamic;
