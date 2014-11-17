@@ -36,7 +36,22 @@ body.home-page {
     label, .password-req {
       margin-bottom: 5px;
     }
-
+    #channels {
+      text-align: center;
+      display: block;
+      margin: 10px 0;
+    }
+    .checkboxes {
+      margin-top: 5px;
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      div {
+        position: relative;
+        text-align: center;
+        width: 50%;
+      }
+    }
     .password-req {
       margin-top: 0;
       text-align: left;
@@ -44,7 +59,6 @@ body.home-page {
 
     label span:first-of-type {
       display: block;
-      float: left;
     }
 
     .password-req {
@@ -124,11 +138,22 @@ body.home-page {
         width: 100%;
         text-align: center;
       }
-      .logo-img-cont {
+     .logo-img-cont {
         width: 23%;
         &:nth-child(even), 
         &:nth-child(odd) {
           text-align: center;
+        }
+      }
+    }
+    #touch-cta {
+      #channels {
+        maring: 20px 0;
+      }
+      .checkboxes {
+        flex-wrap: nowrap;
+        div {
+          font-size: 0.8em;
         }
       }
     }

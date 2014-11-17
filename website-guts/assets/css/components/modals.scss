@@ -223,8 +223,9 @@ body {
       text-align: left;
       flex-wrap: nowrap;
       div {
-        padding-right: 15px;
+        padding-right: 12px;
         width: auto;
+        white-space: nowrap;
       }
     }
     .options {
