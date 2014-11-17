@@ -32,6 +32,7 @@ module.exports = {
     files: {
       src: [
         'test/**/*.js',
+        'configs/uiTestConfig.js'
       ]
     }
   },
