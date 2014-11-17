@@ -41,14 +41,20 @@ body.homepage{
         border: none;
         background-image:  url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/email-grey.svg');
         background-repeat: no-repeat;
+        background-position: 14px center;
+        text-indent: 45px;
         width: 280px;
+        height: 45px;
+        border-radius: 4.5px;
+        margin-right: 0.3%;
       }
     }
     button[type=submit] {
       @extend .primary-button;
+      background: #8EB349;
       display: inline-block;
-      height: 38px;
-      border-radius: 4%;
+      height: 45px;
+      border-radius: 4.5px;
     }
     p {
       color: white;
