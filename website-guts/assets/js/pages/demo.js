@@ -1,2 +1,2 @@
 $('[name="hidden"]').val('touched');
-w.optly.mrkt.Oform.initContactForm({selector: '#contact-form'});
+w.optly.mrkt.Oform.initContactForm({selector: 'form#contact-form'});
