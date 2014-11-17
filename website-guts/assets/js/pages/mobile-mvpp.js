@@ -28,33 +28,54 @@ for(var i = 0; i < imgArr.length; i+=1) {
   img.src= imgArr[i];
 }
 
-function toggleSrc(tracker, scrollingDown, panelHidden) {
-  if(!tracker.playing && scrollingDown && !panelHidden) {
-    var savedSrc = tracker.elm.src;
-    tracker.elm.src = savedSrc;
-    tracker.playing = true;
-    setTimeout(function() {
-      tracker.playing = false;
-    }, 3000);
+//keep track of what GIF is currently playing
+var lastPlayed = {};
+function toggleSrc(tracker, overRide) {
+  if(lastPlayed.elm !== tracker.elm || overRide) {
+    if(lastPlayed.elm) {
+      lastPlayed.elm.src = lastPlayed.static;
+      lastPlayed.playing = false;
+    }
+
+    //inject the moving GIF
+    if(!tracker.playing) {
+      tracker.elm.src = tracker.dynamic;
+      tracker.playing = true;
+      setTimeout(function() {
+        tracker.playing = false;
+      }, 3000);
+
+      lastPlayed = tracker;
+    }
   }
 }
 
 function initiateScrollListener(imgCache) {
   var lastWindowPos = 0;
-  $(window).on('load scroll', function() {
+  $(window).on('scroll', function() {
+    var visiblePanels = [];
     var windowBottom = $(window).scrollTop() + window.innerHeight;
     var scrollingDown = windowBottom > lastWindowPos;
-    $.each(imgCache, function(i, tracker) {
-      var $parentPanel = $(tracker.elm).closest('.panel');
-      var parentTop = $parentPanel.offset().top;
-      var parentBottom = $parentPanel.outerHeight() + parentTop;
-      var panelHidden = parentBottom < $(window).scrollTop() || parentTop > windowBottom;
-      
-      if(windowBottom >= $(tracker.elm).offset().top) {
-        toggleSrc(tracker, scrollingDown, panelHidden);
-      }
-      
-    });
+    var windowMiddle = $(window).scrollTop() + ( window.innerHeight / 2 );
+
+    if(scrollingDown) {
+      $.each(imgCache, function(i, tracker) {
+        var panelHidden = tracker.bottom < $(window).scrollTop() || tracker.top > windowBottom;
+        var trackerTop = $(tracker.elm).offset().top;
+        var trackerBottom = trackerTop + $(tracker.elm).outerHeight();
+        var trackerMiddle = trackerTop + ( Math.abs(trackerTop - trackerBottom) / 2 );
+        
+        if(windowBottom >= trackerTop && scrollingDown) {
+          visiblePanels.push(Math.abs(windowMiddle - trackerMiddle));
+        }
+        
+      });
+    }
+    
+    if(visiblePanels.length > 0) {
+      var closestToMiddle = imgCache[ visiblePanels.indexOf( Math.min.apply(Math, visiblePanels) ) ];
+      toggleSrc(closestToMiddle);
+    }
     lastWindowPos = windowBottom;
   });
 }
@@ -128,12 +149,13 @@ $(function() {
   //inject GIF src when they are scrolled into
   var imgCache = [];
   var $images = $('[data-interactive-panel] img');
-
+  
   $.each($images, function(i, elm) {
     var elmCache = {};
     elmCache.elm = elm;
     elmCache.playing = false;
-    elm.src = imgArr[i];
+    elmCache.static = elm.dataset.static;
+    elmCache.dynamic = elm.dataset.dynamic;
     imgCache.push(elmCache);
   });
 
@@ -141,7 +163,7 @@ $(function() {
 
   $images.on('click mouseover', function() {
     var imgIndex = this.dataset.imgIndex;
-    toggleSrc(imgCache[imgIndex], true, false);
+    toggleSrc(imgCache[imgIndex], true);
   });
 
    //Oform for signup top

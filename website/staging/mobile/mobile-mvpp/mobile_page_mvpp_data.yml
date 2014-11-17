@@ -10,39 +10,44 @@ top_grid:
   sub_title: "for iOS apps"
   grid_content:
   -
-    icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/1b.png"
+    icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/01.svg"
     title: "Optimize Everything"
     grid_content: "Test and roll out entire features, no matter how custom your app is built. Deliver consistent experiences across web and mobile apps."
   -
-    icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/1b.png"
+    icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/02.svg"
     title: "Iterate Faster"
     grid_content: "Make visual changes to your app in real time. No App Store review required."
 
   -
-    icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/1b.png"
+    icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/03.svg"
     title: "Reliable and Trusted"
     grid_content: "Optimize your app on the #1 experience optimization platform, already delivering billions of experiences globally."
 panels:
 - 
   title: "Instant <br>Rollout"
   text: "Make visual changes to your app immediately without waiting for App Store review."
-  bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/01visual-editor.gif"
+  bg_img_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/01visual-editor-static.gif"
+  bg_img_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/01visual-editor.gif"
 - 
   title: "Visual Editor"
   text: "Change your interface on-the-fly without writing a line of code."
-  bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/02developer-tools.gif"
+  bg_img_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/02developer-tools-static.gif"
+  bg_img_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/01visual-editor.gif"
 - 
   title: "Developer <br>Tools"
   text: "Optimize code-level variables and roll out entirely new features, no matter how custom your app."
-  bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/02developer-tools.gif"
+  bg_img_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/03instant-rollout-static.gif"
+  bg_img_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/03instant-rollout.gif"
 - 
   title: "Multichannel <br>Experiences"
   text: "Deliver consistent, targeted experiences across the web and mobile apps."
-  bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/04multi-ex.gif"
+  bg_img_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/04multi-ex-static.gif"
+  bg_img_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/04multi-ex.gif"
 - 
   title: "Mobile <br>Metrics"
   text: "Track the metrics that matter to mobile developers, with out-of-the-box support for retention metrics, revenue reports, and more."
-  bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/05mobile-metrics.gif"
+  bg_img_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/05mobile-metrics-static.gif"
+  bg_img_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/05mobile-metrics.gif"
 customer_logos:
  body: |
   ## Already loved by these<br><strong>awesome apps</strong>
@@ -75,13 +80,13 @@ testing_ideas:
   header: "Try out these <strong>testing ideas</strong>"
   ideas_grid:
   -
-    icon_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/usecase-still.gif"
-    icon_dynamic: "http://media.giphy.com/media/YjnJfRcF9N3PO/giphy.gif"
+    icon_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/onboard-static.gif"
+    icon_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/onboard.gif"
     title: "Onboarding Flow"
     text: "More than 80% of apps are deleted after their first use. That’s why it’s so important to test how you onboard users and show the value of your app."
   -
-    icon_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/usecase-still.gif"
-    icon_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/usecase-infiniteloop.gif"
+    icon_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/permission-static.gif"
+    icon_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/permission.gif"
     title: "Requesting Permissions"
     text: "With more access, you can offer a better experience. Try testing the right way to ask your users for permissions."
   -
