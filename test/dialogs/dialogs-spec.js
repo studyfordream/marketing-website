@@ -7,10 +7,10 @@ describe('testing the signin, create account, retrieve password dialogs', functi
 
   describe('filling out the signin form', function() {
 
-    it('redirects to the dashboard', function(done) {
+    it('signs the user in', function(done) {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
-        .goto(testPath)
+        .goto(testPath + '?phantom=true')
         .click('[data-modal-click="signin"]')
         .wait(300)
         .type('#signin-dialog input[name="email"]', config.email)
@@ -19,11 +19,12 @@ describe('testing the signin, create account, retrieve password dialogs', functi
         .click('#signin-dialog button[type="submit"]')
         .wait(500)
         .screenshot(config.screenshot({ imgName: 'signin-form-submit' }))
-        .wait(config.formSuccessElm({formAction: '/account/signin'}))
+        .wait('body.signed-in')
         .evaluate(function() {
-          return document.body.dataset.formSuccess;
-        }, function(formType) {
-          expect(formType).toBe('/account/signin');
+          return document.body.getAttribute('class');
+        }, function(result) {
+          var signedIn = /signed\-in/;
+          expect(signedIn.test(result)).toBe(true);
         })
         .run(done);
     });
