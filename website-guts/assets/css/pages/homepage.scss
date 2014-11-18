@@ -1,4 +1,4 @@
-body.homepage{
+body.home-page{
   #signed-in-mobile {
     display: none;
     margin: 1em 0 8em 0;
@@ -25,23 +25,27 @@ body.homepage{
       transform: translateY(-75%);
     }
     #get-started {
-      margin-top: 10%;
+      margin: 10% auto 0 auto;
+      width: 80%;
       input {
         $inputs: email 11px 30px;
         @include anim-input-icons($inputs);
         border: none;
-        width: 280px;
-        height: 45px;
         border-radius: 4.5px;
         margin-right: 0.3%;
+      }
+      input,
+      button {
+        width: 100%;
+        height: 45px;
       }
     }
     button[type=submit] {
       @extend .primary-button;
       background: #97c70a;
       display: inline-block;
-      height: 45px;
       border-radius: 4.5px;
+      margin-top: 10px;
     }
     p {
       color: white;
@@ -167,6 +171,15 @@ body.homepage{
       h1 {
         font-size: 2.5em;
         margin-top: 5%;
+      }
+      #get-started {
+      input {
+        width: 280px;
+        }
+        button {
+          width: auto;
+          margin: 0;
+        }
       }
     }
     .companies {
