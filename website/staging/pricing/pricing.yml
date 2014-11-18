@@ -182,8 +182,14 @@ enterprise_plan:
 
         #### Role-base permission management
 faq:
-  header: "FAQ"
+  header: "FAQs"
   entries:
     -
-      headline: ""
-      body: ""
+      title: "What will I need to install on my website or in my mobile app?"
+      description: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that’s required to start running experiments."
+    -
+      title: "What will I need to install on my website or in my mobile app?"
+      description: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that’s required to start running experiments."
+    -
+      title: "What will I need to install on my website or in my mobile app?"
+      description: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that’s required to start running experiments."

@@ -52,8 +52,12 @@ modals:
   </div><!--/.container-->
 </section>
 <section class="blue-bg" id="full-feature-list-cont">
-  <div class="container">
-    {{#if pricing.full_feature_list_header}}<h2>{{pricing.full_feature_list_header}}</h2>{{/if}}
+  <div class="pricing-section__feature-list container">
+    {{#if pricing.full_feature_list_header}}
+      <h2 class="pricing-section__heading pricing-section__heading--dark">
+        {{pricing.full_feature_list_header}}
+      </h2>
+    {{/if}}
     <div class="row">
       <div class="columns five offset-one">
         <div class="feature-list-box plan-box-cont">
@@ -79,12 +83,28 @@ modals:
       </div><!--/.columns-->
     </div><!--/.row-->
     <div class="row">
-      <h3><strong>Still have a question?</strong> Call us at <a href="tel:18002529480">1-800-252-9480</a></h3>
+      <h3 class="pricing-section__feature-list__question"><strong>Still have a question?</strong> Call us at <a href="tel:18002529480">1-800-252-9480</a></h3>
     </div><!--/.row-->
   </div><!--/.container-->
 </section>
 <section>
-  <div class="row">
-    <h2>{{pricing.faq.header}}</h2>
-  </div><!--/.row-->
+  <div class="container">
+    <div class="row">
+      {{#if pricing.faq.header}}
+        <h2 class="pricing-section__heading pricing-section__heading--light">{{pricing.faq.header}}</h2>
+      {{/if}}
+      <div class="pricing-faq">
+        {{#each pricing.faq.entries}}
+          <div class="pricing-faq__item">
+            <span class="pricing-faq__item__title">
+              {{#if title}}{{{title}}}{{/if}}
+            </span><!--/.pricing-faq__item__title-->
+            <p class="pricing-faq__item__description">
+              {{#if description}}{{{description}}}{{/if}}
+            </p><!--/.pricing-faq__item__description-->
+          </div><!--/.pricing-faq__item-->
+        {{/each}}
+      </div><!--/.pricing-faq-->
+    </div><!--/.row-->
+  </div><!--/.container-->
 </section>
