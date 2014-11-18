@@ -249,6 +249,8 @@
               background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/email.svg');
             } @else if (nth($list, 1) == password) {
               background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg');
+            } @else if (nth($list, 1) == password1) {
+              background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg');
             }
             background-position-y: #{nth($list, 2)};
             @if(length($list) > 2) {
@@ -272,6 +274,8 @@
           @if (nth($inputs, 1) == email) {
             background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/email.svg');
           } @else if (nth($inputs, 1) == password) {
+            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg');
+          } @else if (nth($inputs, 1) == password1) {
             background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg');
           }
           background-position-y: #{nth($inputs, 2)};

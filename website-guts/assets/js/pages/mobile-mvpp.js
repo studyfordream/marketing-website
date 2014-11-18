@@ -181,7 +181,7 @@ $(function() {
   var signupFormTop = new Oform({
     selector: '#mobile-signup-form-top',
     customValidation: {
-      password: function(elm) {
+      password1: function(elm) {
         return signupMobileMvppTopHelperInst.passwordValidate(elm);
       }
     }
@@ -223,7 +223,7 @@ $(function() {
   var signupFormBottom = new Oform({
     selector: '#mobile-signup-form-bottom',
     customValidation: {
-      password: function(elm) {
+      password1: function(elm) {
         return signupMobileMvppBottomHelperInst.passwordValidate(elm);
       }
     }
