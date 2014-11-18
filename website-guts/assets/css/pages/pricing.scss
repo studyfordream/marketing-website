@@ -1,3 +1,21 @@
+.pricing-section__heading {
+  margin: 1.7em 0;
+}
+.pricing-section__heading--light {
+  color: $gray-on-white-text;
+}
+.pricing-section__heading--dark {
+  color: $super-dark-blue;
+}
+.pricing-section__feature-list {
+  padding-bottom: 20px;
+}
+.pricing-section__feature-list__question {
+  color: $gray-on-white-text;
+  font-family: $gotham-small-type;
+  font-weight: normal;
+  text-align: center;
+}
 .plan-box-header {
   background: $faint-gray-bg;
   text-transform: uppercase;
@@ -16,7 +34,7 @@
   margin-bottom: 40px;
   .plan-box-content {
     background: #fff;
-    min-height: 200px;
+    min-height: 220px;
   }
   .cta {
     padding: 10px 0 20px 0;
@@ -126,6 +144,7 @@ body.pricing {
     width: 100%;
     background-position: right center;
     padding: 0 40px;
+    background-image: image-url('pricing/down-arrow.svg');
   }
   #company-list {
     h4 {
@@ -145,11 +164,6 @@ body.pricing {
   #full-feature-list-btn {
     margin: 0 auto 40px auto;
     display: table;
-  }
-  #full-feature-list-cont .container > h2 {
-    //margin: ;
-    margin: 1.7em 0;
-    color: $super-dark-blue;
   }
   @media only screen and (min-width: $tablet-min-width){
     .pricing-overview {
@@ -185,6 +199,14 @@ body.pricing {
       }
     }
   }
+}
+.pricing-faq__item {
+  margin: 2em 0;
 
-
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.pricing-faq__item__title {
+  color: $blue;
 }
