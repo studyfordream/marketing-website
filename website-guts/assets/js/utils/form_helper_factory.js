@@ -66,7 +66,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       window.optly.mrkt.errorQ.push([
         'logError',
         {
-          error: message,
+          error: message ? message : 'We\'ve encoutered an unexpected error.'
         }
       ]);
     },

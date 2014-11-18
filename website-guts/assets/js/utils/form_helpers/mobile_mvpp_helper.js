@@ -2,55 +2,12 @@ window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 var mobileMvppHelper = {
 
-  showOptionsError: function (message){
-    if(message) {
-      this.optionsErrorElm.innerHTML = message;
-    }
-    if(!document.body.classList.contains('error-state')) {
-      document.body.classList.add('error-state');
-    }
-    if( !this.optionsErrorElm.classList.contains('error-show') ) {
-      this.optionsErrorElm.classList.add('error-show');
-    }
-  },
-
-  customErrorMessage: function (elm, message) {
-    if(message) {
-      elm.innerHTML = message;
-    } else {
-      elm.innerHTML = 'Required';
-    }
-  },
-
-  showErrorDialog: function() {
-    window.optly.mrkt.errorQ.push([
-      'logError',
-      {
-        error: 'There was an error creating your account.',
-      }
-    ]);
-  },
-
   removeErrors: function() {
     if(document.body.classList.contains('error-state')) {
       document.body.classList.remove('error-state');
     }
     if( this.optionsErrorElm.classList.contains('error-show') ) {
       this.optionsErrorElm.classList.remove('error-show');
-    }
-  },
-
-  passwordConfirm: function(password1, password2){
-    var password2ErrorElm = this.formElm.querySelector('.password2-related');
-
-    if ( password2.value.length > 0 && password1.value !== password2.value ) {
-      this.addErrors([password2, password2ErrorElm]);
-      this.customErrorMessage(password2ErrorElm, 'Please enter the same value as above');
-    }
-    //remove local error classes but do not remove body error class just in case
-    else {
-      this.passed = true;
-      this.removeErrors([password2, password2ErrorElm]);
     }
   },
 
@@ -62,12 +19,6 @@ var mobileMvppHelper = {
     }
 
     return validationPassed;
-  },
-  
-  scrollTop: function() {
-    $('html,body').animate({
-      scrollTop: 0
-    }, 1000);
   },
 
   success: function(e) {
@@ -97,7 +48,6 @@ var mobileMvppHelper = {
         label: 'status not 200: ' + e.target.status
       });
 
-      this.showErrorDialog();
     } else {
       w.optly.mrkt.Oform.trackLead({
         email: formElm.querySelector('[name="email"]').value
