@@ -80,8 +80,8 @@ body.android-page {
       }
       h1 {
         font-family: $body-font-family;
-        font-size: 33/16 * 1em;
-        letter-spacing: 1/16 * 1em;
+        font-size: 2.2em;
+        letter-spacing: 1.5px;
         line-height: 40px;
         span {
           display: block;
@@ -89,15 +89,13 @@ body.android-page {
         }
       }
       p {
-        font-size: 18/16 * 1em;
-        line-height: 24/16 * 1em;
-        letter-spacing: 0.5/16 * 1em;
+        letter-spacing: 0.5px;
         margin-bottom: 2em;
         a {
           text-decoration: underline;
         }
         &.android__content--smaller {
-          font-size: 12/16 * 1em;
+          font-size: 0.75em;
         }
       }
       .options {
@@ -190,13 +188,5 @@ body.android-page {
       }
     }
   }
-
 }
 
-@media only screen and (min-width: $desktop-min-width) {
-
-	body.android-page {
-
-  }
-
-}
