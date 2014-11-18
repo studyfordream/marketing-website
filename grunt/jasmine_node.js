@@ -26,4 +26,7 @@ module.exports = {
   'mobile-mvpp': {
     src: ['test/mobile-mvpp/**/*.js']
   },
+  'homepage': {
+    src: ['test/homepage/**/*']
+  }
 };

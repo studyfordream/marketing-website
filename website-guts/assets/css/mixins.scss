@@ -1,9 +1,9 @@
 @mixin shadow($position) {
-	background: url(/assets/img/bg-shadow.png) no-repeat center $position;
-	content: " ";
-	display: block;
-	height: 25px;
-	margin: 0 -15px;
+  background: url(/assets/img/bg-shadow.png) no-repeat center $position;
+  content: " ";
+  display: block;
+  height: 25px;
+  margin: 0 -15px;
 }
 
 @mixin responsive-vid-container($width: 16, $height: 9) {

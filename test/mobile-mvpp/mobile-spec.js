@@ -1,7 +1,7 @@
 var Nightmare = require('nightmare');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
-var testPath = config.basePath({path: '/staging/mobile/mobile-mvpp'});
+var testPath = config.basePath({path: '/mobile'});
 
 describe('testing the signup forms on the top of the mobile mvpp page', function() {
 

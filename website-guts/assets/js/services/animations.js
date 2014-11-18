@@ -204,5 +204,3 @@ window.optly.mrkt.anim.placeholderIcons = function(options) {
         this.setAttribute('placeholder', placeholderCache[inputName]);
     });
 };
-
-
