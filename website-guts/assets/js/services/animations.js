@@ -172,7 +172,7 @@ window.optly.mrkt.anim.placeholderIcons = function(options) {
     $.each($inputs, function(i, input) {
         var inputName = input.getAttribute('name');
 
-        if(input.value) {
+        if($(input).val().length > 0) {
           input.classList.add('has-input-val');
         }
 
