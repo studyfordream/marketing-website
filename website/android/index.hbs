@@ -10,10 +10,10 @@ footer_style: grey
 {{#with android_data}}
 <div class="page-bg android bg-img" style="background-image: url('{{main_bg_img}}')">
   <div class="container flex-tablet">
-      <div class="columns five">
+      <div class="columns four">
         <img src="{{top_content.android_img}}" class="bg-img android-img" >
       </div>
-      <div class="columns seven android__content">
+      <div class="columns eight android__content">
         <div class="is-visible">
           <h1>{{{top_content.title}}}</h1>
           <p>{{top_content.sub_title}}</p>
@@ -25,7 +25,6 @@ footer_style: grey
                     <span class="email-related error-hide">Required</span>
                     <input type="email" name="email" placeholder="{{form.email_placeholder}}" required>
                   </label>
-                  <input type="hidden" name='LeadSource' id='LeadSource' value="Website">
                 </div>
                 <div class="flex-item">
                   <button type="submit">{{form.button_text}}</button>
