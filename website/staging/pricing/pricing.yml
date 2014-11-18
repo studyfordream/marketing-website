@@ -59,7 +59,7 @@ starter_plan:
         * Unique and total conversions
         * Revenue reports
         * Retention reports
-        * Mobile session setrics
+        * Mobile session metrics
     -
       title: "Targeted optimized experiences"
       description: |
@@ -71,7 +71,7 @@ starter_plan:
         #### Mobile targeting:
 
         * App Version
-        * Device Ttype
+        * Device Type
         * iOS Version
     -
       title: Integrate with other platforms
@@ -93,7 +93,7 @@ starter_plan:
     -
       title: "Support for you &amp; your team"
       description: |
-        #### Online-only aupport:
+        #### Online-only support:
 
         * Optiverse, Optimizely's community
         * Knowledge Base documentation
@@ -101,7 +101,7 @@ starter_plan:
     -
       title: "Manage your account"
       description: |
-        #### Up to 50,000 Monthly Unique Visitors across your website and mobile app
+        #### Up to 50,000 monthly unique visitors across your website and mobile app
 
         #### Basic account and project levels:
 
@@ -125,7 +125,14 @@ enterprise_plan:
     -
       title: ""
       description: |
-        #### All of the Starter plan features
+        #### Essential features:
+
+        * Optimization for the web, mobile web, iOS and soon Android native apps
+        * Dead simple implementation
+        * Easy-to-use visual editor
+        * Advanced web and mobile developer tools
+        * CDN-balanced architecture
+        * Real-time results and reporting
 
         <center>+</center>
     -
