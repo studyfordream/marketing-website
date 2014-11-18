@@ -13,7 +13,7 @@
     "trusted_tester": false,
     "beta_customer": false,
     "has_seen_first_notice": false,
-    "plan_id": "bronze-monthly",
+    "plan_id": null,
     "projects": {
         "226905633": {
             "preview_js_file_name": "91045b968556097a07bd699dbc08466e",

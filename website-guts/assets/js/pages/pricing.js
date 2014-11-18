@@ -19,10 +19,10 @@ var updatePlanInfo = function(){
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-monthly' ||
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-oneyear' ||
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-twoyear' ||
-      startsWithC.test(w.optly.mrkt.user.accdData.plan_id)
+      startsWithC.test(w.optly.mrkt.user.acctData.plan_id)
     ){
 
-      $('#starter-plan .action').remove();
+      $('#starter-plan a:first-child').remove();
 
     }
 
