@@ -153,11 +153,16 @@ body.pricing {
       color: $gray-on-white-text;
     }
     .logo-container {
-      img {
-        max-width: 175px;
-        margin-bottom: 15px;
-        display: block;
-        margin: 0 auto 25px auto;
+      margin-bottom: 4%;
+      .bg-img-cont {
+        padding: 0 70px;
+        .bg-img {
+          width: 100%;
+          padding-top: 50%;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: contain;
+        }
       }
     }
   }
@@ -182,11 +187,9 @@ body.pricing {
       .logo-container {
         display: flex;
         justify-content: center;
-        img {
-          max-width: 140px;
-          max-height: 70px;
-          vertical-align: baseline;
-          padding-right: 15px
+        .bg-img-cont {
+          width: 20%;
+          padding: 0 20px;
         }
       }
     }
