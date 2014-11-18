@@ -311,7 +311,7 @@ window.optly.mrkt.changePlanHelper = {
 
 			setPlan.open('post', '/pricing/change_plan', true);
 			setPlan.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-			setPlan.send('plan=' + args.plan);
+			setPlan.send('plan_id=' + args.plan);
 
 		}
 
