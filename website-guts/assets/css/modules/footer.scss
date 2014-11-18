@@ -102,6 +102,9 @@ footer {
         left: -5px;
         width: 135px;
         height: 35px;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                src='https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/logo-gray-drk.svg',
+                sizingMethod='scale');
       }
       #footer-nav-cont {
         margin-top: 15px;
