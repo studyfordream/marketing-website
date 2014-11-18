@@ -173,7 +173,7 @@ window.optly.mrkt.anim.placeholderIcons = function(options) {
         var inputName = input.getAttribute('name');
 
         if(input.value) {
-          input.value = '';
+          input.classList.add('has-input-val');
         }
 
         if(browser !== 'Explorer' || browserVersion > 10) {
