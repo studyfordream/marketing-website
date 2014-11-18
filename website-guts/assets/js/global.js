@@ -207,40 +207,6 @@ window.optly_q.push([function(){
 
 }]);
 
-/*
-** @param {object} inputs: $(jQuery inputs array)
-**
-*/
-
-window.optly.mrkt.anim.placeholderIcons = function(options) {
-    var $inputs = options.inputs;
-    var placeholderCache = {};
-
-    $.each($inputs, function(i, input) {
-        var inputName = input.getAttribute('name');
-
-        placeholderCache[inputName] = input.getAttribute('placeholder');
-    });
-
-    $inputs.on('focusout', function() {
-        if(this.value.length !== 0) {
-          this.classList.add('has-input-val');
-        } else {
-          this.classList.remove('has-input-val');
-        }
-    });
-
-    $inputs.on('focus', function() {
-        this.setAttribute('placeholder', '');
-    });
-
-    $inputs.on('blur', function() {
-        var inputName = this.getAttribute('name');
-
-        this.setAttribute('placeholder', placeholderCache[inputName]);
-    });
-};
-
 var BrowserDetect = {
     init: function () {
         this.browser = this.searchString(this.dataBrowser) || 'Other';
