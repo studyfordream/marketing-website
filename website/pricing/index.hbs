@@ -45,7 +45,9 @@ modals:
     {{#if pricing.company_logos.logos}}
     <div class="logo-container">
       {{#each pricing.company_logos.logos}}
-      <img alt="{{name}}" src="{{svg}}">
+        <div class="bg-img-cont">
+          <div class="bg-img" style="background-image: url('{{svg}}')"></div>
+        </div>
       {{/each}}
     </div>
     {{/if}}
