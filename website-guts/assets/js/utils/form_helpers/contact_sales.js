@@ -1,7 +1,7 @@
 window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 var contactSalesHelpers = {
-  success: function(inputs) {
+  success: function() {
 
     d.body.classList.add('contact-sales-success');
 
