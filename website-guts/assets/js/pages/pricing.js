@@ -11,12 +11,15 @@ if(automatedTest){
 
 var updatePlanInfo = function(){
 
+  var startsWithC = /^c/;
+
   //remove starter signup if enterprise
   if(typeof w.optly.mrkt.user.acctData === 'object'){
     if(
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-monthly' ||
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-oneyear' ||
-      w.optly.mrkt.user.acctData.plan_id === 'enterprise-twoyear'
+      w.optly.mrkt.user.acctData.plan_id === 'enterprise-twoyear' ||
+      startsWithC.test(w.optly.mrkt.user.accdData.plan_id)
     ){
 
       $('#starter-plan .action').remove();

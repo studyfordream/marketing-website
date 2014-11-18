@@ -22,5 +22,11 @@ module.exports = {
   },
   'free-trial': {
     src: ['test/free-trial/**/*']
+  },
+  'mobile-mvpp': {
+    src: ['test/mobile-mvpp/**/*.js']
+  },
+  'homepage': {
+    src: ['test/homepage/**/*']
   }
 };

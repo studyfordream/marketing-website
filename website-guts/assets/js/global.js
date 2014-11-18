@@ -1,3 +1,5 @@
+window.optly.mrkt.anim= window.optly.mrkt.anim || {};
+
 window.optly.mrkt.isMobile = function(){
 
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {

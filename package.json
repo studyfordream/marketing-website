@@ -48,7 +48,6 @@
     "grunt-userevvd": "0.1.4",
     "load-grunt-config": "0.16.0",
     "nightmare": "git+ssh://git@github.com:dtothefp/nightmare.git",
-    "load-grunt-config": "0.16.0",
     "optimizely-marked": "0.0.4",
     "phantomjs": "~1.9.12",
     "time-grunt": "0.3.2",

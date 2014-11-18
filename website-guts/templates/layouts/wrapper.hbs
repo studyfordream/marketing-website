@@ -19,11 +19,7 @@ layout_modals:
         <script src="{{assetsDir}}/js/libraries/jquery-modernizr.min.js"></script>
         <script>
             window.optly_q = [];
-            window.optly = {
-              PRELOAD: {
-                token: null
-              }
-            };
+            window.optly = {};
         </script>
         <script type="text/javascript">
             window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
@@ -33,7 +29,7 @@ layout_modals:
         <script>{{#scriptinjector '../assets/js/services/user_state.js' true}}{{/scriptinjector}}</script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {{#if environmentVariables.staging}}<meta name="robots" content="noindex">{{/if}}
-        <title>{{#if page.seo_title}}{{page.seo_title}}{{else}}Optimizely: A/B testing software you'll actually use{{/if}}</title>
+        <title>{{#if page.seo_title}}{{page.seo_title}}{{else}}Optimizely: Make every experience count{{/if}}</title>
         {{!-- Standard meta tags --}}
         <meta name="description" content="{{#if page.description}}{{page.description}}{{else}}Improve conversions through A/B Testing, Split Testing and Multivariate Testing with Optimizely!{{/if}}">
         <meta name="keywords" content="AB test, split test, multivariate testing, conversion rate">
@@ -132,7 +128,7 @@ layout_modals:
                     </div><!--/#main-nav-cont-->
                 </header>
                 {{> body }}
-                <footer>
+                <footer {{#if page.footer_style}}class="{{page.footer_style}}"{{/if}}>
                     <div class="container footer-wrapper">
                         <p><a class="logo" href="{{linkPath}}/">Optimizely</a></p>
                         <div id="footer-nav-cont">
@@ -156,7 +152,7 @@ layout_modals:
                                             <ul>
                                                 <li><a href="/pricing">Plans and Pricing</a></li>
                                                 <li><a href="{{linkPath}}/benefits/">Benefits</a></li>
-                                                <li><a href="{{linkPath}}/mobile/">iOS Beta</a></li>
+                                                <li><a href="{{linkPath}}/mobile/">iOS</a></li>
                                                 <li><a href="{{linkPath}}/partners/">Optimizely for Agencies</a></li>
                                                 <li><a href="http://developers.optimizely.com">Optimizely for Developers</a></li>
                                                 <li><a href="{{linkPath}}/ecommerce/">Optimizely for E-commerce</a></li>

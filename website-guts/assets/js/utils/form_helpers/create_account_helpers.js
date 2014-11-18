@@ -155,14 +155,15 @@ var createAccountHelper = {
       this.processingRemove({callee: 'load'});
       this.showOptionsError(resp.error);
     } else {
+      document.body.classList.add('create-account-success');
       w.optly.mrkt.Oform.trackLead({
         name: formElm.querySelector('[name="name"]').value,
         email: formElm.querySelector('[name="email"]').value,
         phone: formElm.querySelector('[name="phone_number"]').value,
-        web__c: document.querySelector('input[type="checkbox"][name="web"]').value,
-        mobile_web__c: document.querySelector('input[type="checkbox"][name="mobile_web"]').value,
-        ios__c: document.querySelector('input[type="checkbox"][name="ios"]').value,
-        android__c: document.querySelector('input[type="checkbox"][name="android"]').value
+        Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+        Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+        iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+        Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
       }, e);
 
       window.optly.mrkt.modal.close({ modalType: 'signup', track: false });
@@ -204,10 +205,10 @@ var createAccountHelper = {
           Phone: resp.phone_number,
           otm_Medium__c: w.optly.mrkt.source.otm.medium,
           utm_Medium__c: w.optly.mrkt.source.utm.medium,
-          web__c: document.querySelector('input[type="checkbox"][name="web"]').value,
-          mobile_web__c: document.querySelector('input[type="checkbox"][name="mobile_web"]').value,
-          ios__c: document.querySelector('input[type="checkbox"][name="ios"]').value,
-          android__c: document.querySelector('input[type="checkbox"][name="android"]').value
+          Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+          Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+          iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+          Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
         },
         { integrations: { Marketo: true } });
 
@@ -285,10 +286,10 @@ var createAccountHelper = {
           LastName: resp.last_name,
           otm_Medium__c: w.optly.mrkt.source.otm.medium,
           utm_Medium__c: w.optly.mrkt.source.utm.medium,
-          web__c: document.querySelector('input[type="checkbox"][name="web"]').value,
-          mobile_web__c: document.querySelector('input[type="checkbox"][name="mobile_web"]').value,
-          ios__c: document.querySelector('input[type="checkbox"][name="ios"]').value,
-          android__c: document.querySelector('input[type="checkbox"][name="android"]').value
+          Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+          Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+          iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+          Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
         }, {
           integrations: {Marketo: true}
         });

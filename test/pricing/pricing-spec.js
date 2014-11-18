@@ -2,7 +2,7 @@ var Nightmare = require('nightmare');
 //var path = require('path');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
-var pricingPath = config.basePath({path: '/staging/pricing/'});
+var pricingPath = config.basePath({path: '/pricing/'});
 
 describe('pricing page', function() {
 
