@@ -13,7 +13,11 @@ var contactSalesHelpers = {
       Phone: inputs.data.phone_number,
       Website: inputs.data.website,
       Traffic__c: inputs.data.traffic,
-      Inbound_Lead_Form_Type__c: 'Contact Sales'
+      Inbound_Lead_Form_Type__c: 'Contact Sales',
+      Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+      Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+      iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+      Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
     });
 
     w.analytics.track('contact sales succcess', {
