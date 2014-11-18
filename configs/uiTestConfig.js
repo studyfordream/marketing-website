@@ -25,7 +25,7 @@ module.exports = function(options){
     title: 'Frontend engineer',
     phone: '5555555555',
     website: 'https://www.optimizely.com',
-    email: 'david@optimizely.com',
+    email: 'testing@optimizely.com',
     retrievePasswordEmail: 'david.fox-powell@optimizely.com',
     password: '1800EatBurritos',
     phantomPath: require('phantomjs').path,

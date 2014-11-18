@@ -1,4 +1,5 @@
 // Listen for the 'get started' button press
+  w.console.log('ASDASD');
 $('#get-started').submit(function(e){
   e.preventDefault();
 
@@ -6,6 +7,7 @@ $('#get-started').submit(function(e){
 
   if( inputVal ){
     w.optly.mrkt.modal.open({ modalType: 'signup' });
+    w.body.classList.add('test-it-out-success');
     $('input[type="email"]').val(inputVal);
   } else {
     $('input[type="email"]').focus();

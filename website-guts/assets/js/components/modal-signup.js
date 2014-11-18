@@ -41,12 +41,12 @@ w.optly.mrkt.activeModals.signup.on('error', function() {
   });
 }.bind(signupDialogHelperInst));
 
-w.optly.mrkt.activeModals.signup.on('load', function() {
-  signupDialogHelperInst.load.bind(signupDialogHelperInst);
+w.optly.mrkt.activeModals.signup.on('load', function(e) {
+  signupDialogHelperInst.load(e);
   if (!w.optly.mrkt.automatedTest()) {
     window.location.href = '/pricing';
   }
-});
+}.bind(signupDialogHelperInst));
 
 w.optly.mrkt.activeModals.signup.on('done', function() {
   if (document.body.classList.contains('oform-error')) {
