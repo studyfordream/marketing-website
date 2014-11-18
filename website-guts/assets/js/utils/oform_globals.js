@@ -91,7 +91,11 @@
       Email: response.email,
       FirstName: response.first_name,
       LastName: response.last_name,
-      Phone: response.phone_number
+      Phone: response.phone_number,
+      web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+      mobile_web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+      ios__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+      android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
 
     };
 
