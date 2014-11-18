@@ -347,7 +347,7 @@ window.optly.mrkt.changePlanHelper = {
 
 			setPlan.open('post', '/pricing/change_plan', true);
 			setPlan.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-			setPlan.send('plan=' + args.plan);
+			setPlan.send('plan_id=' + args.plan);
 
 		}
 
@@ -470,7 +470,8 @@ w.optly_q.push([function(){
 				$('[name="name"]').val(w.optly.mrkt.user.acctData.first_name + ' ' + w.optly.mrkt.user.acctData.last_name);
 		}
 		if(typeof w.optly.mrkt.user.acctData.email === 'string'){
-			$('[name="last_name"]').val(w.optly.mrkt.user.acctData.email);
+			$('[name="email"]').val(w.optly.mrkt.user.acctData.email);
+			$('[name="email_address"]').val(w.optly.mrkt.user.acctData.email);
 		}
 	}
 }]);
