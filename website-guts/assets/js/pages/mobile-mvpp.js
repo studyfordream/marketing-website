@@ -157,18 +157,19 @@ $(function() {
   
   $.each($images, function(i, elm) {
     var elmCache = {};
+    var dataSet = $(elm).data();
     elmCache.elm = elm;
-    elmCache.index = elm.dataset.imgIndex;
+    elmCache.index = dataSet.imgIndex;
     elmCache.playing = false;
-    elmCache.static = elm.dataset.static;
-    elmCache.dynamic = elm.dataset.dynamic;
+    elmCache.static = dataSet.static;
+    elmCache.dynamic = dataSet.dynamic;
     imgCache.push(elmCache);
   });
 
   initiateScrollListener(imgCache);
 
   $images.on('click mouseover', function() {
-    var imgIndex = this.dataset.imgIndex;
+    var imgIndex = $(this).data('imgIndex');
     toggleSrc(imgCache[imgIndex], true);
   });
 

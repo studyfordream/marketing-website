@@ -78,8 +78,8 @@ var mobileMvppHelper = {
       resp = JSON.parse(e.target.responseText);
     } catch(err) {
       var action = this.formElm.getAttribute('action');
-      window.analytics.track('api error', {
-        category: action,
+      window.analytics.track(action, {
+        category: 'api error',
         label: 'response contains invalid JSON: ' + err
       });
     }
@@ -92,13 +92,20 @@ var mobileMvppHelper = {
         this.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
       }
 
+      w.analytics.track(this.formElm.getAttribute('action'), {
+        category: 'api error',
+        label: 'status not 200: ' + e.target.status
+      });
+
       this.showErrorDialog();
     } else {
       w.optly.mrkt.Oform.trackLead({
         email: formElm.querySelector('[name="email"]').value
       }, e);
+
+      w.Munchkin.munchkinFunction('visitWebPage', {url: '/event/ios-form-signup'});
       
-      if(window.optly.mrkt.utils.deparam(window.location.href).phantom === 'true') {
+      if(w.optly.mrkt.automatedTest()) {
         document.body.dataset.formSuccess = this.formElm.getAttribute('action');
       } else {
         window.setTimeout(function() {
