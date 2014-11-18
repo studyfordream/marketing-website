@@ -9,8 +9,8 @@ company_logos:
    name: "Microsoft"
    svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_logo_and_wordmark (1).svg"
   -
-   name: "Starbucks"
-   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/starbucks.svg"
+   name: "Bleacher Report"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing/bleacher_report_logo.svg"
   -
    name: "NBC Universal"
    svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/nbc_universal.svg"
@@ -54,7 +54,7 @@ starter_plan:
         * Referral Source
         * Browser
 
-        #### Mobile app goals: 
+        #### Mobile app goals:
         * Unique and total conversions
         * Revenue reports
         * Retention reports
@@ -124,8 +124,8 @@ enterprise_plan:
     -
       title: ""
       description: |
-        #### All of the Starter plan features 
-        
+        #### All of the Starter plan features
+
         <center>+</center>
     -
       title: "Create &amp; launch experiments"
