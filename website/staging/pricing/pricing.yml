@@ -54,7 +54,7 @@ starter_plan:
         * Referral Source
         * Browser
 
-        #### Mobile app goals to track business critical metrics: 
+        #### Mobile app goals to track business critical metrics:
         * Unique and Total Conversions
         * Detailed Revenue Report
         * Retention Report
@@ -181,3 +181,9 @@ enterprise_plan:
         #### Flexible number of pojects and Optimizely users
 
         #### Role-base permission management
+faq:
+  header: "FAQ"
+  entries:
+    -
+      headline: ""
+      body: ""
