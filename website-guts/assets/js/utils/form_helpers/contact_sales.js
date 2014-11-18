@@ -24,6 +24,10 @@ var contactSalesHelpers = {
       label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     });
 
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/event/contact-sales/success'
+    });
+
     w.setTimeout(function() {
 
       w.optly.mrkt.modal.open({ modalType: 'contact-sales-thank-you' });
