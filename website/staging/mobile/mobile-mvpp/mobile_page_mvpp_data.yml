@@ -21,11 +21,11 @@ top_grid:
   -
     icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/03.svg"
     title: "Reliable and Trusted"
-    grid_content: "Optimize your app on the #1 experience optimization platform, already delivering billions of experiences globally."
+    grid_content: "Optimize your app on the #1 experience optimization platform that is already delivering billions of experiences globally."
 panels:
 - 
   title: "Visual Editor"
-  text: "Change your interface on-the-fly without writing a line of code."
+  text: "Change your interface on the fly without writing a line of code."
   bg_img_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/01visual-editor-static.gif"
   bg_img_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/visual-editor-1.gif"
 - 
