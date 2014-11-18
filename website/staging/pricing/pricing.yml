@@ -185,11 +185,20 @@ faq:
   header: "FAQs"
   entries:
     -
-      title: "What will I need to install on my website or in my mobile app?"
-      description: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that’s required to start running experiments."
+      title: "How are \"monthly unique visitors\" counted?"
+      description: "\"Monthly unique visitors\" are counted by adding the number of unique visitors in an experiment on the web to the number of unique visitors in an experiment in a mobile app.  You can distribute the unique visitor allocation however you like."
     -
       title: "What will I need to install on my website or in my mobile app?"
       description: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that’s required to start running experiments."
     -
-      title: "What will I need to install on my website or in my mobile app?"
-      description: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that’s required to start running experiments."
+      title: "What amount of coding knowledge is required to use Optimizely?"
+      description: |
+        As a current customer, you are grandfathered into the original plan you selected. You can continue to use this plan, or select a new plan if you feel Starter or Enterprise better meets your needs. You can find more answers in this FAQ.
+    -
+      title: "Does Optimizely offer nonprofit pricing?"
+      description: |
+        Yes, visit [Optimizely.org](http://optimizely.org/) for more information.
+    -
+      title: "I have more questions. Where can I find answers?"
+      description: |
+        Check out our [Knowledge Base](https://help.optimizely.com/hc/en-us) for questions about how Optimizely works on your website or mobile app. If you have questions about an enterprise plan, please get in touch by calling or filling out a form. We’ll get back to you!

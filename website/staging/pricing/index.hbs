@@ -100,7 +100,9 @@ modals:
               {{#if title}}{{{title}}}{{/if}}
             </span><!--/.pricing-faq__item__title-->
             <p class="pricing-faq__item__description">
-              {{#if description}}{{{description}}}{{/if}}
+              {{#if description}}
+                {{#omarkdown}}{{{description}}}{{/omarkdown}}
+              {{/if}}
             </p><!--/.pricing-faq__item__description-->
           </div><!--/.pricing-faq__item-->
         {{/each}}
