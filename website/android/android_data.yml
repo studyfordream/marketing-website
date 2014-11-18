@@ -6,7 +6,7 @@ top_content:
   sub_title: "Sign up below to learn more about the developer preview for Optimizely’s Android SDK"
 
 form:
-  email_icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/email-grey.svg"
+  email_icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/email.svg"
   email_placeholder: "Email Address"
   button_text: "Sign Up"
 

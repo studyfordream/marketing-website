@@ -24,18 +24,18 @@ footer_style: grey
   <h1>{{{title}}}</h1>
   {{/with}}
   {{#with mobile_page_mvpp_data.form_panel}}
-  <form action="/account/create" method="POST" id="mobile-signup-form-top" novalidate>
-    <div class="flex-responsive form-elm-cont">
+  <form action="/account/create" method="POST" id="mobile-signup-form-top" class="container"novalidate>
+    <div class="row grid-cont">
       <div class="form-grid">
         <label>
             <span class="email-related error-hide error-right">Required</span>
-            <input style="background-image: url('{{email_icon}}')" type="email" name="email" placeholder="{{email}}" required>
+            <input type="email" name="email" placeholder="{{email}}" required>
         </label>
       </div>
       <div class="form-grid">
         <label>
             <span class="password-related error-hide error-right">Required</span>
-            <input style="background-image: url('{{password_icon}}')" type="password" name="password" placeholder="{{password}}" required>
+            <input type="password" name="password" placeholder="{{password}}" required>
         </label>
       </div>
       <div class="form-grid">
@@ -126,18 +126,18 @@ footer_style: grey
 {{#with mobile_page_mvpp_data.form_panel}}
   <h2><strong>{{title}}</strong></h2>
   <h2>{{subtitle}}</h2>
-  <form action="/account/create" method="POST" id="mobile-signup-form-bottom" novalidate>
-    <div class="flex-responsive form-elm-cont">
+  <form action="/account/create" method="POST" id="mobile-signup-form-bottom" class="container"novalidate>
+    <div class="row grid-cont">
       <div class="form-grid">
         <label>
             <span class="email-related error-hide error-right">Required</span>
-            <input style="background-image: url('{{email_icon}}')" type="email" name="email" placeholder="{{email}}" required>
+            <input type="email" name="email" placeholder="{{email}}" required>
         </label>
       </div>
       <div class="form-grid">
         <label>
             <span class="password-related error-hide error-right">Required</span>
-            <input style="background-image: url('{{password_icon}}')" type="password" name="password" placeholder="{{password}}" required>
+            <input type="password" name="password" placeholder="{{password}}" required>
         </label>
       </div>
       <div class="form-grid">

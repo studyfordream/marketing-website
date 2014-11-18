@@ -113,7 +113,7 @@ body.android-page {
     form {
       input {
         margin: 0;
-        $inputs: email 11px 27px;
+        $inputs: email 12px 30px;
         @include anim-input-icons($inputs);
         &[type="email"] {
           position: relative;

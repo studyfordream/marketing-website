@@ -166,11 +166,18 @@ window.optly.mrkt.anim.leave = function ($elm, transClass) {
 window.optly.mrkt.anim.placeholderIcons = function(options) {
     var $inputs = options.inputs;
     var placeholderCache = {};
+    var browser = window.optly.mrkt.browser;
+    var browserVersion = window.optly.mrkt.browserVersion;
 
     $.each($inputs, function(i, input) {
         var inputName = input.getAttribute('name');
 
-        placeholderCache[inputName] = input.getAttribute('placeholder');
+        if(browser !== 'Explorer' || browserVersion > 10) {
+          placeholderCache[inputName] = input.getAttribute('placeholder');
+        } else {
+          placeholderCache[inputName] = '';
+          $(input).css('padding-left', '4px');
+        }
     });
 
     $inputs.on('focusout', function() {

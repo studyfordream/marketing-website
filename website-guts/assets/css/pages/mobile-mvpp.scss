@@ -461,11 +461,12 @@ body.mobile-mvpp-page {
     }
     input {
       width: 100%;
-      $inputs: email 11px 27px, password 9px;
+      $inputs: email 13px 30px, password 11px 30px;
       @include anim-input-icons($inputs);
     }
     .form-grid {
       width: 90%;
+      margin: 0 auto;
     }
   }
 }
@@ -586,7 +587,11 @@ body.mobile-mvpp-page {
       label {
         display: block;
       }
+      .grid-cont {
+        display: flex;
+      }
       .form-grid {
+        position: relative;
         width: 33.333%;
         input,
         button {
@@ -596,8 +601,10 @@ body.mobile-mvpp-page {
         }
       }
       button {
-        position: relative;
-        top: 7px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
   }
