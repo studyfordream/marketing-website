@@ -156,7 +156,13 @@
     });
 
     w.Munchkin.munchkinFunction('visitWebPage', {
-      url: '/account/signin'
+      url: '/event/account/signin'
+    });
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/event/customer/signedin'
+    });
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/event/plan/' + plan
     });
 
     /* new reporting */
