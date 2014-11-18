@@ -458,7 +458,7 @@ body.mobile-mvpp-page {
     }
     input {
       width: 100%;
-      $inputs: email 13px 33px, password 11px 30px;
+      $inputs: email 13px 33px, password1 11px 30px;
       @include anim-input-icons($inputs);
     }
     .form-grid {

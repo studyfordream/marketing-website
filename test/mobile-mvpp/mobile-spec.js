@@ -12,13 +12,13 @@ describe('testing the signup forms on the top of the mobile mvpp page', function
         .viewport(1024, 1000)
         .goto(testPath)
         .type('#mobile-signup-form-top input[name="email"]', config.email)
-        .type('#mobile-signup-form-top input[name="password"]', 'bad-password')
+        .type('#mobile-signup-form-top input[name="password1"]', 'bad-password')
         .screenshot(config.screenshot({ imgName: 'signup-form-filled' }))
         .click('#mobile-signup-form-top button[type="submit"]')
         .wait(500)
         .screenshot(config.screenshot({ imgName: 'signin-form-submit' }))
         .evaluate(function() {
-          return document.getElementById('mobile-signup-form-top').querySelector('.password-related').classList.contains('oform-error-show');
+          return document.getElementById('mobile-signup-form-top').querySelector('.password1-related').classList.contains('oform-error-show');
         }, function(passwordError) {
           expect(passwordError).toBeTruthy();
         })
@@ -33,13 +33,13 @@ describe('testing the signup forms on the top of the mobile mvpp page', function
         .viewport(1024, 1000)
         .goto(testPath)
         .type('#mobile-signup-form-top input[name="email"]', '')
-        .type('#mobile-signup-form-top input[name="password"]', '')
+        .type('#mobile-signup-form-top input[name="password1"]', '')
         .screenshot(config.screenshot({ imgName: 'signup-form-filled' }))
         .click('#mobile-signup-form-top button[type="submit"]')
         .wait(500)
         .screenshot(config.screenshot({ imgName: 'signin-form-submit' }))
         .evaluate(function() {
-          var passwordError = document.getElementById('mobile-signup-form-top').querySelector('.password-related').classList.contains('oform-error-show');
+          var passwordError = document.getElementById('mobile-signup-form-top').querySelector('.password1-related').classList.contains('oform-error-show');
           var emailError = document.getElementById('mobile-signup-form-top').querySelector('.email-related').classList.contains('oform-error-show');
           return passwordError && emailError;
         }, function(formErrorsShown) {
@@ -56,7 +56,7 @@ describe('testing the signup forms on the top of the mobile mvpp page', function
         .viewport(1024, 1000)
         .goto(testPath)
         .type('#mobile-signup-form-top input[name="email"]', config.email)
-        .type('#mobile-signup-form-top input[name="password"]', config.password)
+        .type('#mobile-signup-form-top input[name="password1"]', config.password)
         .screenshot(config.screenshot({ imgName: 'signup-form-filled' }))
         .click('#mobile-signup-form-top button[type="submit"]')
         .wait(config.formSuccessElm({formAction: '/account/create'}))

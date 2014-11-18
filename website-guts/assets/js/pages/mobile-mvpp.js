@@ -181,13 +181,16 @@ $(function() {
   var signupFormTop = new Oform({
     selector: '#mobile-signup-form-top',
     customValidation: {
-      password: function(elm) {
+      password1: function(elm) {
         return signupMobileMvppTopHelperInst.passwordValidate(elm);
       }
     }
   });
 
   signupFormTop.on('before', function() {
+    signupMobileMvppTopHelperInst.formElm.querySelector('input[name="hidden"]').value = 'touched';
+    signupMobileMvppTopHelperInst.formElm.querySelector('input[name="flow"]').value = 'nux';
+    signupMobileMvppTopHelperInst.formElm.querySelector('input[name="platform"]').value = 'ios';
     signupMobileMvppTopHelperInst.processingAdd();
     signupMobileMvppTopHelperInst.removeErrors();
     signupMobileMvppTopHelperInst.optionsErrorElm.innerHTML = 'Please correct form errors.';
@@ -223,13 +226,16 @@ $(function() {
   var signupFormBottom = new Oform({
     selector: '#mobile-signup-form-bottom',
     customValidation: {
-      password: function(elm) {
+      password1: function(elm) {
         return signupMobileMvppBottomHelperInst.passwordValidate(elm);
       }
     }
   });
 
   signupFormBottom.on('before', function() {
+    signupMobileMvppBottomHelperInst.formElm.querySelector('input[name="hidden"]').value = 'touched';
+    signupMobileMvppBottomHelperInst.formElm.querySelector('input[name="flow"]').value = 'nux';
+    signupMobileMvppBottomHelperInst.formElm.querySelector('input[name="platform"]').value = 'ios';
     signupMobileMvppBottomHelperInst.processingAdd();
     signupMobileMvppBottomHelperInst.removeErrors();
     signupMobileMvppBottomHelperInst.optionsErrorElm.innerHTML = 'Please correct form errors.';
