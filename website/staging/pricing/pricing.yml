@@ -126,7 +126,7 @@ enterprise_plan:
       description: |
         #### All of the Starter plan features 
         
-        +
+        <center>+</center>
     -
       title: "Create &amp; launch experiments"
       description: |
