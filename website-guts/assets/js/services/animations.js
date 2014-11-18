@@ -181,6 +181,9 @@ window.optly.mrkt.anim.placeholderIcons = function(options) {
         } else {
           placeholderCache[inputName] = '';
           $(input).css('padding-left', '4px');
+          if(document.body.classList.contains('signed-in') && input.getAttribute('type') === 'email') {
+            input.classList.add('has-input-val');
+          }
         }
     });
 
