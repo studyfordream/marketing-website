@@ -55,7 +55,7 @@ starter_plan:
         * Browser
 
         #### Mobile app goals:
-        
+
         * Unique and total conversions
         * Revenue reports
         * Retention reports
@@ -187,6 +187,7 @@ enterprise_plan:
 
         #### Flexible number of projects and Optimizely users
 
+<<<<<<< HEAD
         #### Role-base permission management
 faq:
   header: "FAQs"
@@ -209,3 +210,6 @@ faq:
       title: "I have more questions. Where can I find answers?"
       description: |
         Check out our [Knowledge Base](https://help.optimizely.com/hc/en-us) for questions about how Optimizely works on your website or mobile app. If you have questions about an enterprise plan, please get in touch by calling or filling out a form. We’ll get back to you!
+=======
+        #### Role-based permission management
+>>>>>>> 2233f5545e6ea6384c87034a7e80a95965098381
