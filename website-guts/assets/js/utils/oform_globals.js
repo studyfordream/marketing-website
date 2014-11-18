@@ -144,6 +144,10 @@
       url: '/account/create/success'
     });
 
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/event/account/create/success'
+    });
+
     w.analytics.track('/account/signin', {
       category: 'account',
       lable: w.location.pathname
