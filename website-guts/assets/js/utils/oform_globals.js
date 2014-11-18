@@ -162,7 +162,7 @@
       url: '/event/customer/signedin'
     });
     w.Munchkin.munchkinFunction('visitWebPage', {
-      url: '/event/plan/' + plan
+      url: '/event/plan/null'
     });
 
     /* new reporting */
