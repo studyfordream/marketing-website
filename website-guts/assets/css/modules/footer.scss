@@ -71,30 +71,40 @@ footer {
     &.grey {
       background: #EDEEEE;
       > * {
-        color: #444B4F;
+        color: #696f72;
       }
       a {
-        color: #707475;
+        color: #b4b7b9;
         &:hover {
           color: #707475;
         }
       }
+      .social-links {
+        a {
+          width: 26px;
+        }
+      }
       h4 {
-        border-bottom-color: #444B4F;
+        border-bottom-color: #b4b7b9;
       }
       .facebook {
-        background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/facebook.svg');
+        background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/facebook-lght.svg');
       }
       .google-plus {
-        background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/google.svg');
+        background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/google-lght.svg');
       }
       .twitter {
-        background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/twitter.svg');
+        background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/twitter-lght.svg');
       }
       .logo {
-        background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/logo-gray.svg');
+        background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/logo-gray-drk.svg');
         position: relative;
         left: -5px;
+        width: 135px;
+        height: 35px;
+      }
+      #footer-nav-cont {
+        margin-top: 15px;
       }
       .facebook,
       .google-plus,

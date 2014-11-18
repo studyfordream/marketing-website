@@ -2,10 +2,7 @@ var Nightmare = require('nightmare');
 //var path = require('path');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
-var pricingPath = config.basePath({
-  path: '/staging/pricing/',
-  queryParams: 'plan=bronze-oneyear'
-});
+var pricingPath = config.basePath({path: '/staging/pricing/'});
 
 describe('pricing page', function() {
 
@@ -13,7 +10,11 @@ describe('pricing page', function() {
     it('downgrades to starter', function(done) {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
-        .goto(pricingPath)
+        .goto(config.basePath({
+          queryParams: {
+            plan: 'bronze-oneyear'
+          }
+        }))
         .click('#starter-plan p:nth-child(3) a')
         .wait(300)
         .screenshot(config.screenshot({ imgName: 'downgrade-confirm' }))
@@ -36,7 +37,11 @@ describe('pricing page', function() {
     it('cannot downgrade', function(done) {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
-        .goto(pricingPath + '?phantom=true&plan=enterprise-oneyear')
+        .goto(config.basePath({
+          queryParams: {
+            plan: 'enterprise-oneyear'
+          }
+        }))
         .wait(300)
         .screenshot(config.screenshot({ imgName: 'enterprise-downgrade-option' }))
         .evaluate(function() {
@@ -52,7 +57,11 @@ describe('pricing page', function() {
     it('signs up for starter plan', function(done) {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
-        .goto(pricingPath + '?phantom=true&plan=')
+        .goto(config.basePath({
+          queryParams: {
+            plan: ''
+          }
+        }))
         .click('#starter-plan p:nth-child(3) a')
         .wait('body.change-plan-success')
         .wait(300)

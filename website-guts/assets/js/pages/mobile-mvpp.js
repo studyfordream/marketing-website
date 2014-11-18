@@ -60,18 +60,17 @@ function initiateScrollListener(imgCache) {
 
     if(scrollingDown) {
       $.each(imgCache, function(i, tracker) {
-        var panelHidden = tracker.bottom < $(window).scrollTop() || tracker.top > windowBottom;
         var trackerTop = $(tracker.elm).offset().top;
         var trackerBottom = trackerTop + $(tracker.elm).outerHeight();
         var trackerMiddle = trackerTop + ( Math.abs(trackerTop - trackerBottom) / 2 );
-        
+
         if(windowBottom >= trackerTop && scrollingDown) {
           visiblePanels.push(Math.abs(windowMiddle - trackerMiddle));
         }
-        
+
       });
     }
-    
+
     if(visiblePanels.length > 0) {
       var closestToMiddle = imgCache[ visiblePanels.indexOf( Math.min.apply(Math, visiblePanels) ) ];
       toggleSrc(closestToMiddle);

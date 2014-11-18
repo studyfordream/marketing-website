@@ -13,7 +13,7 @@ var androidHelper = {
       this.optionsErrorElm.classList.add('error-show');
     }
   },
-  
+
   showErrorDialog: function() {
     window.optly.mrkt.errorQ.push([
       'logError',
@@ -33,9 +33,8 @@ var androidHelper = {
   },
 
   success: function(hideShowContent) {
-    var submitButton = this.formElm.querySelector('[type="submit"]'),
-      formEmail = this.formElm.querySelector('input[name="email"]').value;
-    
+    var formEmail = this.formElm.querySelector('input[name="email"]').value;
+
     window.setTimeout(function() {
       $.each(hideShowContent, function(i, elm) {
         var $elm = $(elm);
@@ -46,7 +45,7 @@ var androidHelper = {
         }
       });
     }, 1000);
-    
+
     //tracking code goes here
     w.analytics.identify(formEmail, {
 

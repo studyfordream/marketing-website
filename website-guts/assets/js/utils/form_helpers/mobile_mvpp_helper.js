@@ -13,7 +13,7 @@ var mobileMvppHelper = {
       this.optionsErrorElm.classList.add('error-show');
     }
   },
-  
+
   customErrorMessage: function (elm, message) {
     if(message) {
       elm.innerHTML = message;
@@ -55,8 +55,7 @@ var mobileMvppHelper = {
   },
 
   passwordValidate: function(elm) {
-    var validationPassed = w.optly.mrkt.utils.checkComplexPassword(elm.value),
-      message;
+    var validationPassed = w.optly.mrkt.utils.checkComplexPassword(elm.value);
 
     if(!validationPassed) {
       this.optionsErrorElm.innerHTML = 'Password Minimum 8 characters, mix of upper/lowercase letters, numbers or symbols';
