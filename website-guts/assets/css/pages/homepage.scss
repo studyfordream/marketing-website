@@ -142,12 +142,32 @@ body.homepage{
       }
     }
     .logo-container {
-      img {
-        max-width: 175px;
-        margin-bottom: 15px;
-        display: block;
-        margin: 0 auto 25px auto;
-      }
+        padding-top: 3%;
+        .bg-img-cont {
+          padding: 0 50px;
+          .bg-img {
+            width: 100%;
+            padding-top: 50%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+          }
+          .trip-advisor {
+            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/tripadvisor_logo_gray.svg');
+          }
+          .microsoft {
+            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_gray.svg');
+          }
+          .bleacher-report {
+            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/bleacher_report_logo_gray.svg');
+          }
+          .nbc {
+            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/nbc_universal_gray.svg');
+          }
+          .american-apparel {
+            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/american_apparel_logo_gray.svg');
+          }
+        }
     }
   }
   @media only screen and (min-width: $tablet-min-width){
@@ -172,11 +192,9 @@ body.homepage{
       .logo-container {
         display: flex;
         justify-content: center;
-        img {
-          max-width: 140px;
-          max-height: 70px;
-          vertical-align: baseline;
-          padding-right: 15px
+        .bg-img-cont {
+          width: 20%;
+          padding: 0 20px;
         }
       }
     }
@@ -258,7 +276,7 @@ body.homepage{
       }
       .logo-container {
         img {
-          width: 20%
+          width: 20%;
         }
       }
     }
