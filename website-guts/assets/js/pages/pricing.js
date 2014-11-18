@@ -94,7 +94,8 @@ var updatePlanInfo = function(){
           plan: 'free_light',
           callback: function(){
               //show confirmation
-              w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
+              //w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
+              w.location = 'https://www.optimizely.com/welcome';
           },
           load: w.optly.mrkt.changePlanHelper.load
         });
