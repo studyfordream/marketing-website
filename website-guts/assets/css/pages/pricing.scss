@@ -10,10 +10,30 @@
   margin: 0;
 }
 .plan-box-cont {
-  background: #fff;
+  background: $faint-gray-bg;
   border: 2px solid $faint-gray-border;
   border-radius: 4px;
   margin-bottom: 40px;
+  .plan-box-content {
+    background: #fff;
+    min-height: 200px;
+  }
+  .cta {
+    padding: 10px 0 20px 0;
+    border-top: 1px solid $faint-gray-border;
+    text-align: center;
+    background: $faint-gray-bg;
+    p {margin: 0;}
+    h3 {
+      font-size: 3em;
+      line-height: .8em;
+      margin: 10px 0 15px 0;
+    }
+    p:nth-child(3) a {
+      @extend .secondary-button;
+      margin: 15px 0;
+    }
+  }
   &.highlight {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, .3);
     border: 2px solid $blue;
@@ -22,6 +42,12 @@
       background: $blue;
       color: #fff;
       border-bottom: 2px solid $blue;
+    }
+    .cta {
+      p:nth-child(3) a {
+        @extend .button;
+        text-shadow: none;
+      }
     }
     .feature-category {
       h3 {
@@ -47,13 +73,6 @@
   li {
     margin-bottom: 20px;
     font-size: .85em;
-  }
-  .cta {
-    padding: 10px 0 20px 0;
-  }
-  .cta-headline {
-    font-size: 3em;
-    line-height: 1.2em;
   }
 }
 #enterprise-plan .action {margin-bottom: 10px;}
@@ -97,17 +116,6 @@ body.pricing {
     padding: 7px 0;
     font-size: 1em;
   }
-  div.plan-box {
-    .cta {
-      border-top: 1px solid $faint-gray-border;
-      text-align: center;
-      background: $faint-gray-bg;
-      p {margin: 0;}
-      a.button {
-        margin-top: 15px;
-      }
-    }
-  }
   #full-feature-list-btn {
     padding-left: 1em;
     padding-right: 1em;
@@ -144,6 +152,18 @@ body.pricing {
     color: $super-dark-blue;
   }
   @media only screen and (min-width: $tablet-min-width){
+    .pricing-overview {
+      display: flex;
+      justify-content: center;
+      .plan-box-cont {
+        //flex-grow: 1;
+        max-width: 380px;
+        margin-right: 25px;
+      }
+    }
+    .cta {
+      h3 {text-align: center;}
+    }
     #company-list {
       .logo-container {
         display: flex;
