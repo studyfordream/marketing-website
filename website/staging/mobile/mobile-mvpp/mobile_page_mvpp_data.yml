@@ -41,6 +41,7 @@ panels:
 - 
   title: "Multichannel <br>Experiences"
   text: "Deliver connected, targeted experiences across the web and mobile apps."
+  beta_text: "Currently in beta"
   bg_img_static: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/04multi-ex-static.gif"
   bg_img_dynamic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/04multi-ex.gif"
 - 

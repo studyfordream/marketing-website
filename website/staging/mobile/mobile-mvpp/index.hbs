@@ -78,7 +78,12 @@ footer_style: grey
     </div>
     <div class="flex-1-content">
       <h3>{{{title}}}</h3>
-      <p>{{text}}</p>
+      <p>
+        {{text}}
+        {{#if beta_text}}
+          <span class="beta">{{beta_text}}</span>
+        {{/if}}
+      </p>
     </div>
   </div>
 </section>

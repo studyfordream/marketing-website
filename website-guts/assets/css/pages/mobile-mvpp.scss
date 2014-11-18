@@ -143,6 +143,7 @@ body.mobile-mvpp-page {
     h5,
     strong {
       font-family: $body-font-family;
+      /*-webkit-font-smoothing: antialiased;*/
     }
     h1,
     h2,
@@ -329,6 +330,19 @@ body.mobile-mvpp-page {
       background-size: contain;
     }
   }
+  .beta {
+    font-style: italic;
+    font-size: 0.9em;
+    display: block;
+    padding-left: 5px;
+    margin-top: 5px;
+    opacity: 0.8;
+    &:before {
+      content: '*';
+      position: relative;
+      left: -3px;
+    }
+  }
   #customer-logos {
     padding: 40px 0 20px 0;
     margin-top: 90px;
@@ -418,24 +432,9 @@ body.mobile-mvpp-page {
       font-size: 0.9em;
     }
     button {
-      box-shadow: 1px 1px 2px 0px #719508;
       width: 100%;
       margin: 20px 0;
-      color: #fff;
-      padding: 15px 20px;
-      font-size: 1em;
-      background-color: #97c70a;
-      text-decoration: none;
-      cursor: pointer;
-      border:none;
-      font-family: $body-font-family;
-      font-weight: 100;
-      position: relative;
-      overflow: hidden;
-      white-space: nowrap;
-      &:hover {
-        box-shadow: 2px 2px 2px 0px #719508;
-      }
+      @extend .new-primary-button;
       &:before,
       &:after {
         transition: all 0.5s linear;
@@ -462,7 +461,7 @@ body.mobile-mvpp-page {
     }
     input {
       width: 100%;
-      $inputs: email 11px, password 9px 23px;
+      $inputs: email 11px 27px, password 9px;
       @include anim-input-icons($inputs);
     }
     .form-grid {

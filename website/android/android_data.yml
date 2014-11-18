@@ -1,18 +1,20 @@
-main_bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/android/nyc.jpg"
+main_bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/android/background_v2-android.png"
 
 top_content:
   android_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/android/nexus5_airbnb_v3.png"
-  title: "Make Your Android App <span>More Engaging</span>"
+  title: "Make your Android app <span>more engaging</span>"
   sub_title: "Sign up below to learn more about the Optimizely for Android developer preview"
 
 form:
   email_icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/email-grey.svg"
+  email_placeholder: "Email Address"
   button_text: "Sign Up"
 
 hidden_content:
   title: "Thanks for your interest in <span>Optimizely for Android</span>"
   content: "We're gradually expanding our developer preview, tell us more about your app to get early access"
   button_text: "Get Access"
+  access_link: "https://optimizely.getfeedback.com/r/7QG8nsb6"
 
 ios_link:
   text: "Have an iOS app? Try"
