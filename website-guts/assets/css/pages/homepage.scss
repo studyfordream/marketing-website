@@ -1,13 +1,4 @@
 body.homepage{
-  #top-nav-cont {
-    background: #00415d;
-  }
-  #main-nav-cont {
-    background: #00415d;
-  }
-  footer {
-    background: #0081ba;
-  }
   #signed-in-mobile {
     display: none;
     margin: 1em 0 8em 0;
@@ -39,10 +30,6 @@ body.homepage{
         $inputs: email 11px 30px;
         @include anim-input-icons($inputs);
         border: none;
-        background-image:  url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/email-grey.svg');
-        background-repeat: no-repeat;
-        background-position: 14px center;
-        text-indent: 45px;
         width: 280px;
         height: 45px;
         border-radius: 4.5px;
