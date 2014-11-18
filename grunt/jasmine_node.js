@@ -22,5 +22,8 @@ module.exports = {
   },
   'free-trial': {
     src: ['test/free-trial/**/*']
+  },
+  'homepage': {
+    src: ['test/homepage/**/*']
   }
 };
