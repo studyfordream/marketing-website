@@ -45,13 +45,13 @@ starter_plan:
     -
       title: "Create &amp; launch experiments"
       description: |
-        #### A/B and Multivariate Experiments
+        #### A/B and multivariate experiments
     -
       title: "Discover visitor insights"
       description: |
         #### Basic results segmentation:
 
-        * Referral Source
+        * Referral source
         * Browser
 
         #### Mobile app goals:
@@ -59,9 +59,9 @@ starter_plan:
         * Unique and total conversions
         * Revenue reports
         * Retention reports
-        * Mobile session setrics
+        * Mobile session metrics
     -
-      title: "Targeted optimized experiences"
+      title: "Target optimized experiences"
       description: |
         #### Basic targeting by Audience conditions:
 
@@ -70,9 +70,9 @@ starter_plan:
 
         #### Mobile targeting:
 
-        * App Version
-        * Device Ttype
-        * iOS Version
+        * App version
+        * Device type
+        * iOS version
     -
       title: Integrate with other platforms
       description: |
@@ -93,15 +93,15 @@ starter_plan:
     -
       title: "Support for you &amp; your team"
       description: |
-        #### Online-only aupport:
+        #### Online-only support:
 
         * Optiverse, Optimizely's community
         * Knowledge Base documentation
-        * Academy Training resources
+        * Academy training resources
     -
       title: "Manage your account"
       description: |
-        #### Up to 50,000 Monthly Unique Visitors across your website and mobile app
+        #### Up to 50,000 monthly unique visitors across your website and mobile app
 
         #### Basic account and project levels:
 
@@ -120,37 +120,46 @@ enterprise_plan:
 
     [Contact Us &raquo;]()
 
-    [1-800-555-5555](tel:18002529840)
+    [1-800-252-9480](tel:18002529480)
   full_features:
     -
       title: ""
       description: |
-        #### All of the Starter plan features
+        #### Essential features:
 
-        <center>+</center>
+        * Optimization for the web, mobile web, iOS and soon Android native apps
+        * Dead simple implementation
+        * Easy-to-use visual editor
+        * Advanced web and mobile developer tools
+        * CDN-balanced architecture
+        * Real-time results and reporting
+
     -
       title: "Create &amp; launch experiments"
       description: |
+        #### All Starter plan features plus:
         #### Multi-page funnel experiments
 
         #### Cross-browser QA
 
         #### Multichannel Experiments: deliver connected experiences to visitors across the web and mobile apps
     -
-      title: "Discover Visitor Insights"
+      title: "Discover visitor insights"
       description: |
+        #### All Starter plan features plus:
         #### Advanced results segmentation:
 
         * Campaign
         * Device
-        * Targeting Conditions
-        * Custom Segments
+        * Targeting conditions
+        * Custom segments
 
         #### Custom reports and annotations
     -
       title: "Target optimized experiences"
       description: |
-        #### Advanced targeting by Audience conditions:
+        #### All Starter plan features plus:
+        #### Advanced targeting by audience condition:
 
         * _Demographic_: Location or IP Address
         * _Contextual_: Ad Campaign or Time of Day
@@ -159,6 +168,7 @@ enterprise_plan:
     -
       title: "Integrate with other platforms"
       description: |
+        #### All Starter plan features plus:
         #### Analytics integrations:
 
         * Adobe Analytics (SiteCatalyst)
@@ -171,6 +181,7 @@ enterprise_plan:
     -
       title: "Support for you &amp; your team"
       description: |
+        #### All Starter plan features plus:
         #### Flexible troubleshooting options:
 
         * E-Mail
@@ -192,15 +203,19 @@ faq:
   header: "FAQs"
   entries:
     -
-      title: "How are \"monthly unique visitors\" counted?"
-      description: "\"Monthly unique visitors\" are counted by adding the number of unique visitors in an experiment on the web to the number of unique visitors in an experiment in a mobile app.  You can distribute the unique visitor allocation however you like."
+      title: "How are monthly unique visitors counted?"
+      description: "Monthly unique visitors are counted by adding the number of unique visitors in an experiment on the web to the number of unique visitors in an experiment in a mobile app.  You can distribute the unique visitor allocation however you like."
     -
       title: "What will I need to install on my website or in my mobile app?"
       description: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that’s required to start running experiments."
     -
       title: "What amount of coding knowledge is required to use Optimizely?"
       description: |
-        As a current customer, you are grandfathered into the original plan you selected. You can continue to use this plan, or select a new plan if you feel Starter or Enterprise better meets your needs. You can find [more answers in this FAQ](https://help.optimizely.com/hc/en-us/articles/200040055).
+        Once the Optimizely Snippet or SDK is installed, you can get started optimizing without technical expertise using a visual editor for both websites and mobile apps. Optimizely is also very developer-friendly, with features that enable custom experiments and advanced targeting for a range of use cases.
+    -
+      title: "I signed up for Optimizely's Bronze, Silver, or Gold plan. What do these new plans mean for me?"
+      description: |
+        As a current customer, you are grandfathered into the original plan you selected. You can continue to use this plan, or select a new plan if you feel Starter or Enterprise better meets your needs. You can find more answers in this [FAQ](https://help.optimizely.com/hc/en-us/articles/200040055).
     -
       title: "Does Optimizely offer nonprofit pricing?"
       description: |
