@@ -91,7 +91,11 @@
       Email: response.email,
       FirstName: response.first_name,
       LastName: response.last_name,
-      Phone: response.phone_number
+      Phone: response.phone_number,
+      web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+      mobile_web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+      ios__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+      android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
 
     };
 
@@ -111,7 +115,7 @@
 
     for(propertyName in data){
 
-      reportingObject['propertyName'] = data['propertyName']; //jshint ignore:line
+      reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
 
     }
 
@@ -140,6 +144,10 @@
       url: '/account/create/success'
     });
 
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/event/account/create/success'
+    });
+
     w.analytics.track('/account/signin', {
       category: 'account',
       lable: w.location.pathname
@@ -148,7 +156,13 @@
     });
 
     w.Munchkin.munchkinFunction('visitWebPage', {
-      url: '/account/signin'
+      url: '/event/account/signin'
+    });
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/event/customer/signedin'
+    });
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/event/plan/null'
     });
 
     /* new reporting */
