@@ -2,7 +2,7 @@ var Nightmare = require('nightmare');
 //var path = require('path');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
-var homepagePath = config.basePath({path: '/staging/homepage/mobile_mvp/'});
+var homepagePath = config.basePath({path: '/'});
 
 describe('test homepage', function() {
 

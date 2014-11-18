@@ -44,7 +44,7 @@ w.optly.mrkt.activeModals.signup.on('error', function() {
 w.optly.mrkt.activeModals.signup.on('load', function(e) {
   signupDialogHelperInst.load(e);
   if (!w.optly.mrkt.automatedTest()) {
-    window.location.href = '/pricing';
+    window.location.href = '/welcome';
   }
 }.bind(signupDialogHelperInst));
 
