@@ -160,10 +160,10 @@ var createAccountHelper = {
         name: formElm.querySelector('[name="name"]').value,
         email: formElm.querySelector('[name="email"]').value,
         phone: formElm.querySelector('[name="phone_number"]').value,
-        web__c: $('input[type="checkbox"][name="web"]').is(':checked'),
-        mobile_web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked'),
-        ios__c: $('input[type="checkbox"][name="ios"]').is(':checked'),
-        android__c: $('input[type="checkbox"][name="android"]').is(':checked')
+        web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+        mobile_web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+        ios__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+        android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
       }, e);
 
       window.optly.mrkt.modal.close({ modalType: 'signup', track: false });
@@ -205,10 +205,10 @@ var createAccountHelper = {
           Phone: resp.phone_number,
           otm_Medium__c: w.optly.mrkt.source.otm.medium,
           utm_Medium__c: w.optly.mrkt.source.utm.medium,
-          web__c: $('input[type="checkbox"][name="web"]').is(':checked'),
-          mobile_web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked'),
-          ios__c: $('input[type="checkbox"][name="ios"]').is(':checked'),
-          android__c: $('input[type="checkbox"][name="android"]').is(':checked')
+          web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+          mobile_web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+          ios__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+          android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
         },
         { integrations: { Marketo: true } });
 
@@ -286,10 +286,10 @@ var createAccountHelper = {
           LastName: resp.last_name,
           otm_Medium__c: w.optly.mrkt.source.otm.medium,
           utm_Medium__c: w.optly.mrkt.source.utm.medium,
-          web__c: $('input[type="checkbox"][name="web"]').is(':checked'),
-          mobile_web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked'),
-          ios__c: $('input[type="checkbox"][name="ios"]').is(':checked'),
-          android__c: $('input[type="checkbox"][name="android"]').is(':checked')
+          web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+          mobile_web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+          ios__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+          android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
         }, {
           integrations: {Marketo: true}
         });

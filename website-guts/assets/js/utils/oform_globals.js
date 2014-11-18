@@ -115,7 +115,7 @@
 
     for(propertyName in data){
 
-      reportingObject['propertyName'] = data['propertyName']; //jshint ignore:line
+      reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
 
     }
 
