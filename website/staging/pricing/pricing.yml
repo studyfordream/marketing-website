@@ -54,19 +54,12 @@ starter_plan:
         * Referral Source
         * Browser
 
-<<<<<<< HEAD
-        #### Mobile app goals to track business critical metrics:
-        * Unique and Total Conversions
-        * Detailed Revenue Report
-        * Retention Report
-        * Mobile Session Metrics
-=======
         #### Mobile app goals:
+        
         * Unique and total conversions
         * Revenue reports
         * Retention reports
         * Mobile session setrics
->>>>>>> 2233f5545e6ea6384c87034a7e80a95965098381
     -
       title: "Targeted optimized experiences"
       description: |
