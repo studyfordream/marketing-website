@@ -155,6 +155,7 @@ var createAccountHelper = {
       this.processingRemove({callee: 'load'});
       this.showOptionsError(resp.error);
     } else {
+      document.body.classList.add('create-account-success');
       w.optly.mrkt.Oform.trackLead({
         name: formElm.querySelector('[name="name"]').value,
         email: formElm.querySelector('[name="email"]').value,
