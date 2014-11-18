@@ -172,6 +172,10 @@ window.optly.mrkt.anim.placeholderIcons = function(options) {
     $.each($inputs, function(i, input) {
         var inputName = input.getAttribute('name');
 
+        if(input.value) {
+          input.value = '';
+        }
+
         if(browser !== 'Explorer' || browserVersion > 10) {
           placeholderCache[inputName] = input.getAttribute('placeholder');
         } else {
@@ -180,9 +184,11 @@ window.optly.mrkt.anim.placeholderIcons = function(options) {
         }
     });
 
-    $inputs.on('focusout', function() {
+    $inputs.on('keyup', function() {
         if(this.value.length !== 0) {
-          this.classList.add('has-input-val');
+          if(!this.classList.contains('has-input-val')) {
+            this.classList.add('has-input-val');
+          }
         } else {
           this.classList.remove('has-input-val');
         }
@@ -192,7 +198,7 @@ window.optly.mrkt.anim.placeholderIcons = function(options) {
         this.setAttribute('placeholder', '');
     });
 
-    $inputs.on('blur', function() {
+    $inputs.on('focusout', function() {
         var inputName = this.getAttribute('name');
 
         this.setAttribute('placeholder', placeholderCache[inputName]);

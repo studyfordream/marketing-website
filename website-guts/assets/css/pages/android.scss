@@ -3,10 +3,6 @@ body.android-page {
   #outer-wrapper {
     min-height: 100vh;
   }
-  .oform-error-show,
-  .error-show {
-    color: #e58d88!important;
-  }
   .bg-img {
     background-repeat: no-repeat;
     background-position: center center;
@@ -116,6 +112,10 @@ body.android-page {
         &[type="email"] {
           position: relative;
         }
+      }
+      .oform-error-show,
+      .error-show {
+        color: #e58d88;
       }
     }
     input[type="email"] {
