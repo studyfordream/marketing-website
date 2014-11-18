@@ -36,7 +36,7 @@ starter_plan:
       description: |
         #### Essential features:
 
-        * Optimization for the web, mobile web, iOS and soon Android native apps
+        * Optimization for the web, mobile web, iOS, and soon Android native apps
         * Dead simple implementation
         * Easy-to-use visual editor
         * Advanced web and mobile developer tools
@@ -127,7 +127,7 @@ enterprise_plan:
       description: |
         #### Essential features:
 
-        * Optimization for the web, mobile web, iOS and soon Android native apps
+        * Optimization for the web, mobile web, iOS, and soon Android native apps
         * Dead simple implementation
         * Easy-to-use visual editor
         * Advanced web and mobile developer tools
@@ -219,7 +219,7 @@ faq:
     -
       title: "Does Optimizely offer nonprofit pricing?"
       description: |
-        Yes, visit [Optimizely.org](http://optimizely.org/) for more information.
+        Yes. Visit [Optimizely.org](http://optimizely.org/) for more information.
     -
       title: "I have more questions. Where can I find answers?"
       description: |
