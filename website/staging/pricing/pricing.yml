@@ -134,10 +134,10 @@ enterprise_plan:
         * CDN-balanced architecture
         * Real-time results and reporting
 
-        #### Plus all other Starter plan features
     -
       title: "Create &amp; launch experiments"
       description: |
+        #### All Starter plan features plus:
         #### Multi-page funnel experiments
 
         #### Cross-browser QA
@@ -146,6 +146,7 @@ enterprise_plan:
     -
       title: "Discover Visitor Insights"
       description: |
+        #### All Starter plan features plus:
         #### Advanced results segmentation:
 
         * Campaign
@@ -157,7 +158,7 @@ enterprise_plan:
     -
       title: "Target optimized experiences"
       description: |
-        #### Advanced targeting by Audience conditions:
+        #### All Starter plan features plus:
 
         * _Demographic_: Location or IP Address
         * _Contextual_: Ad Campaign or Time of Day
@@ -166,6 +167,7 @@ enterprise_plan:
     -
       title: "Integrate with other platforms"
       description: |
+        #### All Starter plan features plus:
         #### Analytics integrations:
 
         * Adobe Analytics (SiteCatalyst)
@@ -178,6 +180,7 @@ enterprise_plan:
     -
       title: "Support for you &amp; your team"
       description: |
+        #### All Starter plan features plus:
         #### Flexible troubleshooting options:
 
         * E-Mail
@@ -199,15 +202,19 @@ faq:
   header: "FAQs"
   entries:
     -
-      title: "How are \"monthly unique visitors\" counted?"
-      description: "\"Monthly unique visitors\" are counted by adding the number of unique visitors in an experiment on the web to the number of unique visitors in an experiment in a mobile app.  You can distribute the unique visitor allocation however you like."
+      title: "How are \monthly unique visitors\ counted?"
+      description: "\Monthly unique visitors\ are counted by adding the number of unique visitors in an experiment on the web to the number of unique visitors in an experiment in a mobile app.  You can distribute the unique visitor allocation however you like."
     -
       title: "What will I need to install on my website or in my mobile app?"
       description: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that’s required to start running experiments."
     -
       title: "What amount of coding knowledge is required to use Optimizely?"
       description: |
-        As a current customer, you are grandfathered into the original plan you selected. You can continue to use this plan, or select a new plan if you feel Starter or Enterprise better meets your needs. You can find [more answers in this FAQ](https://help.optimizely.com/hc/en-us/articles/200040055).
+        Once the Optimizely Snippet or SDK is installed, you can get started optimizing without technical expertise using a visual editor for both websites and mobile apps. Optimizely is also very developer-friendly, with features that enable custom experiments and advanced targeting for a range of use cases.
+    -
+      title: "I signed up for Optimizely's Bronze, Silver, or Gold plan. What do these new plans mean for me?"
+      description: |
+As a current customer, you are grandfathered into the original plan you selected. You can continue to use this plan, or select a new plan if you feel Starter or Enterprise better meets your needs. You can find more answers in this [FAQ](https://help.optimizely.com/hc/en-us/articles/200040055). 
     -
       title: "Does Optimizely offer nonprofit pricing?"
       description: |
