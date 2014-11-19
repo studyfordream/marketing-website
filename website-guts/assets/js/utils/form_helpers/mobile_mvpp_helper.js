@@ -50,6 +50,7 @@ var mobileMvppHelper = {
 
     } else {
       w.optly.mrkt.Oform.trackLead({
+        Signup_Platform__c: 'ios',
         email: formElm.querySelector('[name="email"]').value
       }, e);
 
