@@ -93,8 +93,6 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
           category: 'api error',
           label: 'response contains invalid JSON: ' + err
         });
-
-        responseSuccess = false;
       }
 
       if(e.target && e.target.status !== 200) {
@@ -112,7 +110,9 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       }
 
       if(responseSuccess) {
-        return resp;
+        // accounts for if there is a parse error we still want to continue with success logic
+        // use an empty object for boolean logic and in case subsequent logic calls methods on the response
+        return resp || {};
       } else {
         this.showOptionsError(message);
         this.processingRemove({callee: 'load'});
