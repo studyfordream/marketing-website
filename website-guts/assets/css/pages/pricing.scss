@@ -37,7 +37,7 @@
     min-height: 220px;
   }
   .cta {
-    padding: 10px 0 20px 0;
+    padding: 10px 25px 20px 25px;
     border-top: 1px solid $faint-gray-border;
     text-align: center;
     background: $faint-gray-bg;
@@ -110,16 +110,39 @@ body.plan-free_light {
     .current-plan {
       display: block!important;
       visibility: visible;
+      margin: 1em 0;
+      font-weight: 500;
     }
-    .action {
+    a:last-child {
       display: none;
     }
+  }
+}
+body.plan-enterprise {
+  #enterprise-plan {
+    .current-plan {
+      display: block!important;
+      visibility: visible;
+      margin: 1em 0;
+      font-weight: 500;
+    }
+    a:last-child {
+      display: none;
+    }
+  }
+}
+body.processing-free-light {
+  #starter-plan a:last-child {display: none;}
+  p.processing {
+    font-weight: 500;
+    margin: 1em 0;
+    display: block!important;
+    visibility: visible;
   }
 }
 @media only screen and (min-width: $desktop-min-width){
   .plan-box-header {text-align: center;}
 }
-
 body.pricing {
   section.blue-bg, #page-header-gradient {
     background: $light-blue-bg;
@@ -175,13 +198,26 @@ body.pricing {
       display: flex;
       justify-content: center;
       .plan-box-cont {
-        //flex-grow: 1;
         max-width: 380px;
         margin-right: 25px;
+      }
+      div:last-child {
+        margin-right: 0;
       }
     }
     .cta {
       h3 {text-align: center;}
+    }
+    .pricing-feature-detail-cont {
+      display: flex;
+      justify-content: center;
+      .feature-list-box {
+        margin-right: 25px;
+        max-width: 380px;
+      }
+      div:last-child {
+        margin-right: 0;
+      }
     }
     #company-list {
       .logo-container {

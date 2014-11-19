@@ -1,4 +1,5 @@
 full_feature_list_button_text: "See Full List of Features"
+processing_message: "Processing your subscription.<br>This may take a minute."
 company_logos:
  header: "Already used by the following great companies:"
  logos:
@@ -219,7 +220,7 @@ faq:
     -
       title: "Does Optimizely offer nonprofit pricing?"
       description: |
-        Yes. Visit [Optimizely.org](http://optimizely.org/) for more information.
+        Yes. Visit [Optimizely for non-profits](/nonprofits) for more information.
     -
       title: "I have more questions. Where can I find answers?"
       description: |

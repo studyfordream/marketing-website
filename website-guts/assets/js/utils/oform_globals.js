@@ -79,28 +79,26 @@
     }
 
     reportingObject = {
-
-      utm_Campaign__c: source.utm.campaign,
-      utm_Content__c: source.utm.content,
-      utm_Medium__c: source.utm.medium,
-      utm_Source__c: source.utm.source,
-      utm_Keyword__c: source.utm.keyword,
-      otm_Campaign__c: source.otm.campaign,
-      otm_Content__c: source.otm.content,
-      otm_Medium__c: source.otm.medium,
-      otm_Source__c: source.otm.source,
-      otm_Keyword__c: source.otm.keyword,
-      GCLID__c: source.gclid,
-      Signup_Platform__c: source.signupPlatform,
+      utm_Campaign__c: source.utm.campaign || '',
+      utm_Content__c: source.utm.content || '',
+      utm_Medium__c: source.utm.medium || '',
+      utm_Source__c: source.utm.source || '',
+      utm_Keyword__c: source.utm.keyword || '',
+      otm_Campaign__c: source.otm.campaign || '',
+      otm_Content__c: source.otm.content || '',
+      otm_Medium__c: source.otm.medium || '',
+      otm_Source__c: source.otm.source || '',
+      otm_Keyword__c: source.otm.keyword || '',
+      GCLID__c: source.gclid || '',
+      Signup_Platform__c: source.signupPlatform || '',
       Email: response.email ? response.email : '',
-      FirstName: response.first_name ? response.first_name : '',
-      LastName: response.last_name ? response.last_name : '',
-      Phone: response.phone_number ? response.phone_number : '',
+      FirstName: response.first_name || '',
+      LastName: response.last_name || '',
+      Phone: response.phone_number || '',
       Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
       Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
       iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
       Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
-
     };
 
     $.cookie('sourceCookie',

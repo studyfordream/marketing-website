@@ -23,6 +23,7 @@ modals:
         <div class="cta">
           {{#omarkdown}}{{{pricing.starter_plan.cta}}}{{/omarkdown}}
           <p class="hidden current-plan">Your current plan</p>
+          <p class="processing hidden">{{{pricing.processing_message}}}</p>
         </div><!--/.cta-->
       </div><!--/.plan-box-->
       <div class="plan-box plan-box-cont highlight" id="enterprise-plan">
@@ -60,30 +61,26 @@ modals:
         {{pricing.full_feature_list_header}}
       </h2>
     {{/if}}
-    <div class="row">
-      <div class="columns five offset-one">
-        <div class="feature-list-box plan-box-cont">
-          <h2 class="plan-box-header">{{pricing.starter_plan.name}}</h2>
-          {{#each pricing.starter_plan.full_features}}
-          <div class="feature-category">
-            {{#if title}}<h3>{{{title}}}</h3>{{/if}}
-            <div class="feature-overview">{{#omarkdown}}{{{description}}}{{/omarkdown}}</div>
-          </div><!--/.feature-category-->
-          {{/each}}
-        </div><!--/.feature-list-box-->
-      </div><!--/.columns-->
-      <div class="columns five">
-        <div class="feature-list-box plan-box-cont highlight">
-          <h2 class="plan-box-header">{{pricing.enterprise_plan.name}}</h2>
-          {{#each pricing.enterprise_plan.full_features}}
-          <div class="feature-category">
-            {{#if title}}<h3>{{{title}}}</h3>{{/if}}
-            <div class="feature-overview">{{#omarkdown}}{{{description}}}{{/omarkdown}}</div>
-          </div><!--/.feature-category-->
-          {{/each}}
-        </div><!--/.feature-list-box-->
-      </div><!--/.columns-->
-    </div><!--/.row-->
+    <div class="pricing-feature-detail-cont">
+      <div class="feature-list-box plan-box-cont">
+        <h2 class="plan-box-header">{{pricing.starter_plan.name}}</h2>
+        {{#each pricing.starter_plan.full_features}}
+        <div class="feature-category">
+          {{#if title}}<h3>{{{title}}}</h3>{{/if}}
+          <div class="feature-overview">{{#omarkdown}}{{{description}}}{{/omarkdown}}</div>
+        </div><!--/.feature-category-->
+        {{/each}}
+      </div><!--/.feature-list-box-->
+      <div class="feature-list-box plan-box-cont highlight">
+        <h2 class="plan-box-header">{{pricing.enterprise_plan.name}}</h2>
+        {{#each pricing.enterprise_plan.full_features}}
+        <div class="feature-category">
+          {{#if title}}<h3>{{{title}}}</h3>{{/if}}
+          <div class="feature-overview">{{#omarkdown}}{{{description}}}{{/omarkdown}}</div>
+        </div><!--/.feature-category-->
+        {{/each}}
+      </div><!--/.feature-list-box-->
+    </div><!--/.pricing-feature-detail-cont-->
     <div class="row">
       <h3 class="pricing-section__feature-list__question"><strong>Still have a question?</strong> Call us at <a href="tel:18002529480">1-800-252-9480</a></h3>
     </div><!--/.row-->

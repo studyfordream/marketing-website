@@ -15,6 +15,14 @@ var updatePlanInfo = function(){
 
   //remove starter signup if enterprise
   if(typeof w.optly.mrkt.user.acctData === 'object'){
+    if(w.optly.mrkt.user.acctData.plan_id){
+      var enterpriseRegex = /^enterprise|c/;
+      if(enterpriseRegex.test(w.optly.mrkt.user.acctData.plan_id)){
+        d.body.classList.add('plan-enterprise');
+      } else {
+        d.body.classList.add('plan-' + w.optly.mrkt.user.acctData.plan_id);
+      }
+    }
     if(
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-monthly' ||
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-oneyear' ||
@@ -90,6 +98,7 @@ var updatePlanInfo = function(){
 
         //user is signed in, but no plan
         //sign the user up for the starter plan
+        document.body.classList.add('processing-free-light');
         w.optly.mrkt.changePlanHelper.changePlan({
           plan: 'free_light',
           callback: function(){
