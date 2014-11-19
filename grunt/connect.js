@@ -39,7 +39,17 @@ module.exports = function(grunt, options) {
               var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
               if(req.method === 'POST'){
 
-                if(req.url === '/contact/form'){
+                if(req.url === '/pricing/change_plan'){
+
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/general-success.json') );
+
+                } else if(req.url === '/pricing/contact_sales') {
+
+                  res.writeHead(200, {'Content-Type': 'application/json'});
+                  res.end( grunt.file.read('website-guts/endpoint-mocks/contactSales.json') );
+
+                } else if(req.url === '/contact/form'){
 
                   res.writeHead(200, {'Content-Type': 'application/json'});
                   res.end( grunt.file.read('website-guts/endpoint-mocks/contactSuccess.json') );
@@ -65,20 +75,15 @@ module.exports = function(grunt, options) {
                   res.end( grunt.file.read('website-guts/endpoint-mocks/accountExists.json') );
 
                 } else if(req.url === '/account/create') {
-                  var readPath, code;
-
-                  if(req.body.email !== 'david.fox-powell@optimizely.com') {
-                    readPath = 'website-guts/endpoint-mocks/createAccount.json';
-                    code = 200;
                     res.cookie('optimizely_signed_in', '1', {httpOnly: false});
-                  } else {
-                    readPath = 'website-guts/endpoint-mocks/accountExists.json';
-                    code = 400;
-                  }
-                  res.writeHead(code, {'Content-Type': 'application/json'});
-                  setTimeout(function() {
-                    res.end( grunt.file.read(readPath) );
-                  }, 2000);
+
+                    if(req.body.email !== 'david.fox-powell@optimizely.com') {
+                      res.writeHead(200, {'Content-Type': 'application/json'});
+                      res.end( grunt.file.read('website-guts/endpoint-mocks/createAccount.json') );
+                    } else {
+                      res.writeHead(400, {'Content-Type': 'application/json'});
+                      res.end( grunt.file.read('website-guts/endpoint-mocks/accountExists.json') );
+                    }
                 } else if(req.url === '/account/signin') {
                   var readPath, code;
 
@@ -123,7 +128,7 @@ module.exports = function(grunt, options) {
                   'website-guts/endpoint-mocks/allIosInfo.json'
                 ];
 
-                var randIndex = Math.round(Math.random());
+                var randIndex = 0;
 
                 res.writeHead(200, {'Content-Type': 'application/json'});
                 res.end( grunt.file.read(paths[randIndex]) );

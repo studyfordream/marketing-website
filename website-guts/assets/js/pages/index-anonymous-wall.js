@@ -3,7 +3,8 @@ w.optly.mrkt.index = {};
 w.optly.mrkt.index.testItOut = function(editURL){
 
   //send user to the editor
-  w.location = window.optly.mrkt.utils.param('/edit', { url: encodeURIComponent(editURL), anonymousWall: false });
+  //w.location = window.optly.mrkt.utils.param('/edit', { url: encodeURIComponent(editURL), anonymousWall: false });
+  w.location = '/edit?url=' + encodeURIComponent(editURL) + '&anonymousWall=false';
 
   w.analytics.track('homepage test it out submitted', {
 
@@ -21,16 +22,22 @@ $('#test-it-out-form').submit(function(e){
   var inputVal = $('#test-it-out-form input[type="text"]').val();
 
   if( inputVal ){
-     w.optly.mrkt.modal.open({ modalType: 'anonymous-wall' }); 
-     w.analytics.track('dialog/show/anonymous_wall', {
-       category: 'modal'
-     }, {
-       Marketo: true
-     });
-     w.analytics.track('anonymous-wall-open', {
-       category: 'modal',
-       label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-     });
+     if($.cookie('optimizely_signed_in')){
+       w.optly.mrkt.index.testItOut(inputVal);
+     } else {
+       w.optly.mrkt.modal.open({ modalType: 'anonymous-wall' });
+       w.analytics.track('/dialog/show/anonymous_wall', {
+         category: 'modal'
+       }, {
+         Marketo: true
+       });
+       w.analytics.track('dialog/show/anonymous_wall', {
+         category: 'modal'
+       }, {
+         Marketo: true
+       });
+       w.analytics.page('/dialog/show/anonymous_wall');
+     }
   } else {
       $('input[type="text"]').focus();
     }

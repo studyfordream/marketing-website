@@ -156,3 +156,54 @@ window.optly.mrkt.anim.leave = function ($elm, transClass) {
 
   return false;
 };
+
+
+/*
+** @param {object} inputs: $(jQuery inputs array)
+**
+*/
+
+window.optly.mrkt.anim.placeholderIcons = function(options) {
+    var $inputs = options.inputs;
+    var placeholderCache = {};
+    var browser = window.optly.mrkt.browser;
+    var browserVersion = window.optly.mrkt.browserVersion;
+
+    $.each($inputs, function(i, input) {
+        var inputName = input.getAttribute('name');
+
+        if($(input).val().length > 0) {
+          input.classList.add('has-input-val');
+        }
+
+        if(browser !== 'Explorer' || browserVersion > 10) {
+          placeholderCache[inputName] = input.getAttribute('placeholder');
+        } else {
+          placeholderCache[inputName] = '';
+          $(input).css('padding-left', '4px');
+          if(document.body.classList.contains('signed-in') && input.getAttribute('type') === 'email') {
+            input.classList.add('has-input-val');
+          }
+        }
+    });
+
+    $inputs.on('keyup', function() {
+        if(this.value.length !== 0) {
+          if(!this.classList.contains('has-input-val')) {
+            this.classList.add('has-input-val');
+          }
+        } else {
+          this.classList.remove('has-input-val');
+        }
+    });
+
+    $inputs.on('focus', function() {
+        this.setAttribute('placeholder', '');
+    });
+
+    $inputs.on('focusout', function() {
+        var inputName = this.getAttribute('name');
+
+        this.setAttribute('placeholder', placeholderCache[inputName]);
+    });
+};

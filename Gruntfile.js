@@ -9,6 +9,9 @@
 module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
+ 
+  //jit-grunt loads only the npm tasks required for the grunt task.
+  //makes livereload much faster.
   require('load-grunt-config')(grunt, {
       jitGrunt: {
           staticMappings: {
@@ -16,7 +19,8 @@ module.exports = function(grunt) {
               handlebars: 'grunt-contrib-handlebars',
               resemble: 'grunt-resemble-cli',
               sass: 'grunt-sass',
-              connect: 'grunt-contrib-connect'
+              connect: 'grunt-contrib-connect',
+              jasmine_node: 'grunt-jasmine-node'
           }
       },
       init: true
@@ -62,6 +66,7 @@ module.exports = function(grunt) {
     'config:dev',
     'jshint:clientDev',
     'jshint:server',
+    'jshint:test',
     'clean:preBuild',
     'assemble',
     'handlebars',
@@ -94,10 +99,22 @@ module.exports = function(grunt) {
     'clean:postBuild'
   ]);
 
+  grunt.registerTask('ui-test', function(which) {
+    var task = 'jasmine_node';
+    if (which) task += ':' + which;
+
+    grunt.task.run([
+      'config:dev',
+      'jshint:test',
+      task
+    ]);
+  });
+
   grunt.registerTask('test', [
     'config:dev',
     'jshint:clientProd',
     'jshint:server',
+    'jshint:test',
     'clean:preBuild',
     'assemble',
     'handlebars',
@@ -109,6 +126,7 @@ module.exports = function(grunt) {
     'copy',
     'clean:postBuild',
     'connect:resemble',
+    'jasmine_node',
     'resemble'
   ]);
 

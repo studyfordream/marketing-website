@@ -30,15 +30,15 @@ layout_body_class:
               {{/if}}
             </div>
 
-            <div class="partners-logo" style="background-image: url('{{logo}}');"></div>
+            <div class="partners-logo notranslate" style="background-image: url('{{logo}}');"></div>
 
-            <div class="partners-link">
+            <div class="partners-link notranslate">
               <p><a href="{{website_link}}">{{website_display}}</a></p>
             </div>
 
             <div class="partners-contact">
               {{#each page.data.locations}}
-                <div class="partners-location">
+                <div class="partners-location notranslate">
                   <p>
                     {{#if this.location.phone}}{{this.location.phone}} <br />{{/if}}
                     {{#if this.location.email}}<a href="mailto:{{this.location.email}}">{{this.location.email}}</a> <br />{{/if}}
@@ -64,7 +64,7 @@ layout_body_class:
             {{/if}}
           </div>
           <div class="columns eight">
-            <h4>{{title}}</h4>
+            <h4 class="notranslate">{{title}}</h4>
 
             <div class="level">
               {{#if page.data.solutions }}
@@ -75,12 +75,14 @@ layout_body_class:
               {{/if}}
             </div>
 
-            {{#omarkdown path=linkPath}}
-              {{> body}}
-            {{/omarkdown}}
+            <div class="notranslate">
+              {{#omarkdown path=linkPath}}
+                {{> body}}
+              {{/omarkdown}}
+            </div>
 
             {{#if page.tags}}
-            <div class="partners-tags">
+            <div class="partners-tags notranslate">
               <p>{{#eachNoTrailing page.tags ", </span>"}}<span>{{this}}, </span>{{/eachNoTrailing}}</p>
             </div>
             {{/if}}
