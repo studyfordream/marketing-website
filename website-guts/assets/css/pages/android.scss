@@ -1,7 +1,10 @@
 body.android-page {
-  background: #EDEEEE;
   #outer-wrapper {
-    min-height: 100vh;
+    height: 100vh;
+  }
+  #inner-wrapper {
+    background: #EDEEEE;
+    height: 100%;
   }
   .bg-img {
     background-repeat: no-repeat;
