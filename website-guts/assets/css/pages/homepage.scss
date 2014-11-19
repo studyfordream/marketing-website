@@ -31,6 +31,7 @@ body.home-page{
         $inputs: email 13px 33px;
         @include anim-input-icons($inputs);
         @extend .rounded-input;
+        margin-right: 0.3%;
       }
     }
     button[type=submit] {
