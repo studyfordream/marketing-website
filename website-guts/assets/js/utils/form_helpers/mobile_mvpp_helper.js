@@ -31,14 +31,13 @@ var mobileMvppHelper = {
       }, e);
 
       w.Munchkin.munchkinFunction('visitWebPage', {url: '/event/ios-form-signup'});
-      
-      if(w.optly.mrkt.automatedTest()) {
-        document.body.dataset.formSuccess = this.formElm.getAttribute('action');
-      } else {
-        window.setTimeout(function() {
-          window.location = '/mobile/first-project';
-        }, 1000);
-      }
+
+      this.redirectHelper({
+        redirectPath: '/mobile/first-project',
+        bodyData: {
+          formSuccess: this.formElm.getAttribute('action')
+        }
+      });
 
       $(this.formElm).find('button[type="submit"]').addClass('successful-submit');
     }

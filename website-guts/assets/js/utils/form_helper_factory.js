@@ -124,7 +124,15 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
     redirectHelper: function(options) {
       if(window.optly.mrkt.automatedTest()) {
-        document.body.classList.add(options.bodyClass);
+        if(options.bodyClass) {
+          document.body.classList.add(options.bodyClass);
+        }
+        // iterate through data attributes and apply them to the body
+        if(options.bodyData) {
+          for(var dataAttr in options.bodyData) {
+            document.body.dataset[dataAttr] = options.bodyData[dataAttr];
+          }
+        }
       } else {
         window.setTimeout(function() {
           window.location = options.redirectPath;
