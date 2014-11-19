@@ -10,7 +10,7 @@
 @import 'helper-classes';
 
 /* pages */
-@import 'pages/index';
+@import 'pages/homepage';
 @import 'pages/events';
 @import 'pages/about';
 @import 'pages/press';
@@ -33,6 +33,10 @@
 @import 'pages/testing-tool';
 @import 'pages/demo';
 @import 'pages/non-profits';
+@import 'pages/resources-page';
+@import 'pages/mobile-mvpp';
+@import 'pages/pricing';
+@import 'pages/android';
 
 /* layouts */
 @import 'layouts/benefits';

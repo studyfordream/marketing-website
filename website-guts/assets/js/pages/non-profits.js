@@ -1,15 +1,3 @@
-function smoothScroll(e) {
-  var scrlId = $(this).attr('href'), 
-    targetElmPos = $(scrlId).offset().top;
-
-  e.preventDefault();
-
-  $('html,body').animate({
-    scrollTop: targetElmPos
-  }, 1000);
-
-}
-
 var player;
 var tag = document.createElement('script');
 
@@ -30,7 +18,7 @@ $(function(){
   var videoPlayed = false,
     playerSupported = false;
 
-  $('[smooth-scroll]').on('click', smoothScroll);
+  $('[smooth-scroll]').on('click', w.optly.mrkt.utils.smoothScroll);
 
   $('[data-show-video]').on('click', function() {
     window.optly.mrkt.modal.open({modalType: 'nonprofits-video'});
@@ -72,32 +60,5 @@ $(function(){
     e.preventDefault();
     this.validateForm();
   }.bind(orgFormHelperInst));
-
-  /*var orgForm = new Oform({*/
-    //selector: '#org-form'
-  //});
-
-  //orgForm.on('before', function() {
-    //orgFormHelperInst.processingAdd();
-    //return true;
-  //});
-
-  //orgForm.on('validationerror', w.optly.mrkt.Oform.validationError);
-
-  //orgForm.on('error', function() {
-    //orgFormHelperInst.processingRemove({callee: 'error'});
-    //orgFormHelperInst.showOptionsError('Form Response Error');
-
-    //window.analytics.track('signin xhr error', {
-      //category: 'account',
-      //label: w.location.pathname
-    //});
-  //}.bind(orgFormHelperInst));
-
-  //orgForm.on('load', orgFormHelperInst.load.bind(orgFormHelperInst));
-
-  //orgForm.on('done', function(){
-    //orgFormHelperInst.processingRemove({callee: 'done'});
-  /*}.bind(orgFormHelperInst));*/
 
 });

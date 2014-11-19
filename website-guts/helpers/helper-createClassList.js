@@ -1,5 +1,5 @@
 /**
- * Creates a lowercase, concatednated list of classes from a comma separated string or just a string
+ * Creates a lowercase, concatenated list of classes from a comma separated string or just a string
  * "Foo Bar, Bar Baz, Baz Quz" => "foobar barbaz bazquz "
  * "North / Central America" => "northcentralamerica "
  *
