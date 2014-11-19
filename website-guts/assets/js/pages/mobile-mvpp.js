@@ -205,7 +205,7 @@ $(function() {
   signupFormTop.on('error', function() {
     signupMobileMvppTopHelperInst.processingRemove({callee: 'error'});
     signupMobileMvppTopHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
-    signupMobileMvppTopHelperInst.showErrorDialog();
+    signupMobileMvppTopHelperInst.showErrorDialog('There was an error creating your account.');
     window.analytics.track('create account xhr error', {
       category: 'account',
       label: w.location.pathname
@@ -250,7 +250,7 @@ $(function() {
   signupFormBottom.on('error', function() {
     signupMobileMvppBottomHelperInst.processingRemove({callee: 'error'});
     signupMobileMvppBottomHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
-    signupMobileMvppBottomHelperInst.showErrorDialog();
+    signupMobileMvppBottomHelperInst.showErrorDialog('There was an error creating your account.');
     window.analytics.track('create account xhr error', {
       category: 'account',
       label: w.location.pathname

@@ -28,24 +28,16 @@ body.home-page{
       margin: 10% auto 0 auto;
       width: 80%;
       input {
-        $inputs: email 11px 30px;
+        $inputs: email 13px 33px;
         @include anim-input-icons($inputs);
-        border: none;
-        border-radius: 4.5px;
+        @extend .rounded-input;
         margin-right: 0.3%;
-      }
-      input,
-      button {
-        width: 100%;
-        height: 45px;
       }
     }
     button[type=submit] {
-      @extend .primary-button;
-      background: #97c70a;
-      display: inline-block;
-      border-radius: 4.5px;
-      margin-top: 10px;
+      @extend .new-primary-button;
+      width: 100%;
+      margin-top: 20px;
     }
     p {
       color: white;
