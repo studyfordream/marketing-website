@@ -104,7 +104,9 @@ var updatePlanInfo = function(){
           callback: function(){
               //show confirmation
               //w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
-              w.location = 'https://www.optimizely.com/welcome';
+              if(!w.optly.mrkt.automatedTest()){
+                w.location = 'https://www.optimizely.com/welcome';
+              }
           },
           load: w.optly.mrkt.changePlanHelper.load
         });
@@ -204,9 +206,7 @@ $('#downgrade-plan-form').submit(function(e){
       w.optly.mrkt.modal.open({ modalType: 'downgrade-plan-confirm' });
       //downgrade-plan
       $('#downgrade-plan-confirm-form').submit(function(){
-        w.console.log('submitted');
         if(!w.optly.mrkt.automatedTest()){
-          w.console.log('is automated test');
           location.reload();
         }
       });
