@@ -1,8 +1,4 @@
 body.android-page {
-  background: #EDEEEE;
-  #outer-wrapper {
-    min-height: 100vh;
-  }
   .bg-img {
     background-repeat: no-repeat;
     background-position: center center;
@@ -131,6 +127,9 @@ body.android-page {
 @media only screen and (min-width: $tablet-min-width) {
 
 	body.android-page {
+    footer {
+      height: 700px;
+    }
     .flex-tablet {
       display: flex;
     }
