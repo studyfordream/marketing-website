@@ -16,7 +16,7 @@ body_class:
 			<div class="press-feed-item{{#compare @index '>=' 20}} optly-hide{{/compare}}">
 				<img src="{{logo_url}}">
 				<time datetime="{{formatDate story_date "%Y-%m-%d"}}">{{formatDate story_date "%b. %Y"}}</time>
-				<h4 class="press-article-headline"><a href="{{link_to_story}}" target="_blank">{{story_title}}</a></h4>
+				<h4 class="press-article-headline notranslate"><a href="{{link_to_story}}" target="_blank">{{story_title}}</a></h4>
 	    </div><!--/.press-feed-item-->
 	    {{/each}}
 	    <div class="show-more secondary-button">Show More</div>
@@ -36,7 +36,7 @@ body_class:
 			{{#if press.press_releases}}
 			<div id="press-releases">
 				<h3>{{press.press_releases.header}}</h3>
-				<ul>
+				<ul class="notranslate">
 					{{#each press_releases.items}}
 					<li>
 						<time datetime="{{formatDate release_date "%Y-%m-%d"}}">{{formatDate release_date "%b %Y"}}</time>

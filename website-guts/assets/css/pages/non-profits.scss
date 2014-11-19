@@ -28,6 +28,9 @@ body.non-profits-page {
       transform: translate(-50%, -50%);
       background-color: #000;
     }
+    .modal-header {
+      display: none;
+    }
     .modal-body {
       width: 100%;
       padding-top: 56%;
