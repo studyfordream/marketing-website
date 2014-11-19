@@ -1,0 +1,35 @@
+---
+layout: partners.hbs
+title: "AGConsult"
+solutions: true
+priority: 25
+summary:
+logo: "//optimizely-marketer-assets.s3.amazonaws.com/partners/logos/agconsult.png"
+website_link: "http://www.agconsult.com/en/usability-conversion-optimization/ab-testing-more-conversion"
+website_display: "agconsult.com"
+kb_article:
+stars: 1
+industry: "Executive Consulting, Strategic Consulting, Custom Implementation, Test Development, Execution, & Management"
+locations:
+- location:
+    phone: "+32(0)93352273"
+    email: "karl.gilis@agconsult.com"
+    region: "EMEA - Other"
+    city: "Gent"
+    state: 
+    address1: "Voorhavenlaan 31 / 3"
+    address2:
+    zip: "2850"
+    country: "Belgium"
+contact:
+languages:
+- "Dutch"
+- "French"
+- "English"
+tags:
+- "E-Commerce / Retail"
+- "Finance"
+- "B2B / SaaS"
+- "Travel"
+---
+AGConsult are a team of usability experts and information architects. We optimize websites through fact based research and testing. Our goal: to turn more of your visitors into customers, and increase the average spend per customer. Our clients include Daikin Europe, Suzuki, Kipling and the Belgian Yellow Pages.
