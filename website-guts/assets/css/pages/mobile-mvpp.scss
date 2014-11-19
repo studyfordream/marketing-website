@@ -420,13 +420,17 @@ body.mobile-mvpp-page {
     h2 {
       margin: 0;
     }
+    /*input,*/
+    /*button {*/
+      /*letter-spacing: 1.5px;*/
+      /*border-radius: 5px;*/
+      /*height: 50px;*/
+      /*margin: 0;*/
+      /*font-size: 0.9em;*/
+    /*}*/
     input,
     button {
-      letter-spacing: 1.5px;
-      border-radius: 5px;
-      height: 50px;
-      margin: 0;
-      font-size: 0.9em;
+      height: 49px;
     }
     button {
       width: 100%;
@@ -458,6 +462,7 @@ body.mobile-mvpp-page {
     }
     input {
       width: 100%;
+      @extend .rounded-input;
       $inputs: email 13px 33px, password1 11px 30px;
       @include anim-input-icons($inputs);
     }
@@ -593,11 +598,10 @@ body.mobile-mvpp-page {
         input,
         button {
           width: 98%;
-          height: 50px;
-          margin: 0;
         }
       }
       button {
+        margin: 0;
         position: absolute;
         bottom: 0;
         left: 50%;

@@ -11,6 +11,9 @@ body.android-page {
   .android {
     padding: 40px 40px;
     .is-hidden {
+      position: absolute;
+      top: 0;
+      right: 0;
       transform: translateX(-150%);
       &.enter {
         transform: translateX(0);
@@ -18,6 +21,7 @@ body.android-page {
     }
     .is-visible {
       &.leave {
+        position: relative;
         transform: translateX(150%);
       }
     }
@@ -25,10 +29,6 @@ body.android-page {
     .is-hidden {
       transition: all 0.3s linear;
       display: inline-block;
-      width: 48%;
-      position: absolute;
-      top: 0;
-      right: 0;
       width: 100%;
     }
     .btn {
@@ -65,7 +65,7 @@ body.android-page {
       position: relative;
       overflow: hidden;
       padding-top: 0;
-      height: 500px;
+      /*height: 500px;*/
       &--smaller {
         margin-top: 20px;
       }
@@ -106,7 +106,7 @@ body.android-page {
     }
     form {
       input {
-        margin: 0;
+        @extend .rounded-input;
         $inputs: email 12px 30px;
         @include anim-input-icons($inputs);
         &[type="email"] {
@@ -119,11 +119,6 @@ body.android-page {
       }
     }
     input[type="email"] {
-      border-radius: 5px;
-      border: none;
-      font-size: 0.9em;
-      padding: 15px 4px;
-      letter-spacing: 1.5px;
       width: 100%;
     }
     button[type="submit"] {
