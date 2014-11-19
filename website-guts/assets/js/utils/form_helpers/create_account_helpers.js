@@ -148,13 +148,10 @@ var createAccountHelper = {
   },
 
   load: function(e) {
-    var formElm = this.formElm;
-    var resp = JSON.parse(e.target.responseText);
+    var resp = this.parseResponse(e),
+      formElm = this.formElm;
 
-    if(e.target.status !== 200) {
-      this.processingRemove({callee: 'load'});
-      this.showOptionsError(resp.error);
-    } else {
+    if(resp) {
       document.body.classList.add('create-account-success');
       w.optly.mrkt.Oform.trackLead({
         name: formElm.querySelector('[name="name"]').value,
@@ -166,9 +163,10 @@ var createAccountHelper = {
         Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
       }, e);
 
-      window.optly.mrkt.modal.close({ modalType: 'signup', track: false });
-      window.optly_q.acctData = resp;
-      window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
+      this.redirectHelper({
+        redirectPath: '/welcome',
+        bodyClass: 'signed-in'
+      });
     }
 
   },

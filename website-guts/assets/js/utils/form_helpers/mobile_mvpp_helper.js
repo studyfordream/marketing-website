@@ -22,36 +22,12 @@ var mobileMvppHelper = {
   },
 
   success: function(e) {
-    var formElm = this.formElm,
-      resp;
+    var resp = this.parseResponse(e);
 
-    try {
-      resp = JSON.parse(e.target.responseText);
-    } catch(err) {
-      var action = this.formElm.getAttribute('action');
-      window.analytics.track(action, {
-        category: 'api error',
-        label: 'response contains invalid JSON: ' + err
-      });
-    }
-
-    if(e.target.status !== 200) {
-      this.processingRemove({callee: 'load'});
-      if(resp && resp.error) {
-        this.showOptionsError(resp.error);
-      } else {
-        this.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
-      }
-
-      w.analytics.track(this.formElm.getAttribute('action'), {
-        category: 'api error',
-        label: 'status not 200: ' + e.target.status
-      });
-
-    } else {
+    if(resp) {
       w.optly.mrkt.Oform.trackLead({
         Signup_Platform__c: 'ios',
-        email: formElm.querySelector('[name="email"]').value
+        email: this.formElm.querySelector('[name="email"]').value
       }, e);
 
       w.Munchkin.munchkinFunction('visitWebPage', {url: '/event/ios-form-signup'});
