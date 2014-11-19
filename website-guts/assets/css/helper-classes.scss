@@ -83,10 +83,18 @@
   position: relative;
   overflow: hidden;
   white-space: nowrap;
+  margin: 0;
   border-radius: 5px;
   &:hover {
     box-shadow: 2px 2px 2px 0px #719508;
   }
+}
+
+.rounded-input {
+  margin: 0;
+  padding: 15px 4px;
+  border: none;
+  border-radius: 4.5px;
 }
 
 .primary-button {
