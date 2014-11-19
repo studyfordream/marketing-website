@@ -2,22 +2,6 @@ window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 var createAccountHelper = {
 
-  customErrorMessage: function (elm, message) {
-    if(message) {
-      elm.innerHTML = message;
-    }
-  },
-
-  showOptionsError: function (message){
-    if(!document.body.classList.contains('error-state')) {
-      document.body.classList.add('error-state');
-    }
-    if( !this.optionsErrorElm.classList.contains('error-show') ) {
-      this.optionsErrorElm.classList.add('error-show');
-    }
-    this.optionsErrorElm.innerHTML = message;
-  },
-
   scrollTopDialog: function() {
     if(document.body.classList.contains('oform-error')) {
       var dialog = this.dialogElm.querySelector('.dialog'),
@@ -38,33 +22,11 @@ var createAccountHelper = {
   scrollTopCta: function(ctaId) {
     if(document.body.classList.contains('oform-error')) {
       var target = document.getElementById(ctaId);
-      
+
       $('html,body').animate({
         scrollTop: $(target).offset().top
       }, 1000);
     }
-  },
-
-  addErrors: function(elmArr) {
-    if(!document.body.classList.contains('error-state')) {
-      document.body.classList.add('error-state');
-    }
-    $.each(elmArr, function(i, elm) {
-      if( !elm.classList.contains('error-show') ) {
-        elm.classList.add('error-show');
-      }
-    });
-  },
-
-  removeErrors: function(elmArr, retainBodyClass) {
-    if(!retainBodyClass && document.body.classList.contains('error-state')) {
-      document.body.classList.remove('error-state');
-    }
-    $.each(elmArr, function(i, elm) {
-      if( elm.classList.contains('error-show') ) {
-        elm.classList.remove('error-show');
-      }
-    });
   },
 
   passwordConfirm: function(password1, password2){
@@ -72,7 +34,7 @@ var createAccountHelper = {
 
     if ( password2.value.length > 0 && password1.value !== password2.value ) {
       this.addErrors([password2, password2ErrorElm]);
-      this.customErrorMessage(password2ErrorElm, window.optly.tr('Please enter the same value as above'));
+      this.customErrorMessage(password2ErrorElm, 'Please enter the same value as above');
     } 
     //remove local error classes but do not remove body error class just in case
     else {
@@ -94,7 +56,7 @@ var createAccountHelper = {
         this.removeErrors([password1, this.characterMessageElm]);
         this.passed = true;
       }
-      
+
       $(password1).on('focusin', function() {
         this.removeErrors([password1, this.characterMessageElm], true);
       }.bind(this));
@@ -155,15 +117,209 @@ var createAccountHelper = {
       this.processingRemove({callee: 'load'});
       this.showOptionsError(resp.error);
     } else {
+      document.body.classList.add('create-account-success');
       w.optly.mrkt.Oform.trackLead({
         name: formElm.querySelector('[name="name"]').value,
         email: formElm.querySelector('[name="email"]').value,
-        phone: formElm.querySelector('[name="phone_number"]').value
+        phone: formElm.querySelector('[name="phone_number"]').value,
+        Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+        Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+        iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+        Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
       }, e);
-      
+
       window.optly.mrkt.modal.close({ modalType: 'signup', track: false });
       window.optly_q.acctData = resp;
       window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
+    }
+
+  },
+
+  loadAnonymousWall: function(e) {
+    var resp;
+
+    if(e.target.status !== 200) {
+      this.processingRemove({callee: 'load'});
+      this.showOptionsError(resp.error);
+      w.analytics.track('/account/create', {
+        category: 'api error',
+        label: 'status not 200: ' + e.target.status
+      });
+    } else {
+      try {
+        resp = JSON.parse(e.target.responseText);
+      } catch (err) {
+        w.analytics.track('/account/create', {
+          category: 'api error',
+          label: err
+        });
+      }
+
+      if (resp) {
+        var plan = resp.plan ? resp.plan : 'null';
+
+        w.analytics.identify(resp.email, {
+          Last_Experiment_URL__c: $('#url-input').val(),
+          LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
+          ExperimentsCreated: '1',
+          FirstName: resp.first_name,
+          LastName: resp.last_name,
+          Phone: resp.phone_number,
+          otm_Medium__c: w.optly.mrkt.source.otm.medium,
+          utm_Medium__c: w.optly.mrkt.source.utm.medium,
+          Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+          Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+          iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+          Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
+        },
+        { integrations: { Marketo: true } });
+
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/account/create/success'
+        });
+        w.analytics.track('/event/account/create/success', {}, { Marketo: true });
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/customer/signedin'
+        });
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/account/signin'
+        });
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/plan/' + plan
+        });
+
+        w.analytics.page('/account/create/success');
+        w.analytics.track('/account/create/success');
+        w.analytics.track('account created', {
+          category: 'account',
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+        });
+
+        w.analytics.page('/account/signin');
+        w.analytics.track('account sign-in', {
+          category: 'account',
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+        });
+
+        w.analytics.page('/customer/signedin');
+        w.analytics.track('customer sign in', {
+          category: 'account',
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+        });
+        w.analytics.page('/plan/' + plan);
+      }
+    }
+    w.setTimeout(function() {
+      var inputVal = $('#test-it-out-form input[type="text"]').val();
+      w.optly.mrkt.index.testItOut( inputVal );
+    }, 500);
+  },
+
+  pricingSignupSuccess: function(event, data){
+
+    var resp, plan;
+
+    if(data.event.target.status === 200){
+
+      try {
+
+        resp = JSON.parse(data.event.target.responseText);
+
+      } catch (err) {
+
+        this.processingRemove({callee: 'load'});
+        this.showOptionsError('An unexpected error occured. Please refresh the page.');
+        w.analytics.track('/account/create', {
+          category: 'api error',
+          label: err
+        });
+
+      }
+
+      if(resp){
+
+        document.body.classList.add('create-account-success');
+
+        w.analytics.identify(resp.email, {
+          Last_Experiment_URL__c: data.data['url-input'],
+          LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
+          ExperimentsCreated: '1',
+          FirstName: resp.first_name,
+          LastName: resp.last_name,
+          otm_Medium__c: w.optly.mrkt.source.otm.medium,
+          utm_Medium__c: w.optly.mrkt.source.utm.medium,
+          Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+          Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+          iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+          Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
+        }, {
+          integrations: {Marketo: true}
+        });
+
+        plan = resp.plan ? resp.plan : 'null';
+
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/account/create/success'
+        });
+        w.analytics.track('/event/account/create/success', {}, { Marketo: true });
+
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/pricing/account/create/success'
+        });
+        w.analytics.track('/event/pricing/account/create/success', {}, { Marketo: true });
+
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/customer/signedin'
+        });
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/account/signin'
+        });
+        w.Munchkin.munchkinFunction('visitWebPage', {
+          url: '/event/plan/' + plan
+        });
+
+        w.analytics.page('/account/create/success');
+        w.analytics.track('/account/create/success');
+        w.analytics.track('account created', {
+          category: 'account',
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+        });
+
+        w.analytics.page('/account/signin');
+        w.analytics.track('account sign-in', {
+          category: 'account',
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+        });
+
+        w.analytics.page('/customer/signedin');
+        w.analytics.track('customer sign in', {
+          category: 'account',
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+        });
+        w.analytics.page('/plan/' + plan);
+
+        //change the user's plan to free to get them started
+        w.optly.mrkt.changePlanHelper.changePlan({
+          plan: 'free_light',
+          callback: function(){
+              //show confirmation
+              //w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
+              w.location = 'https://www.optimizely.com/welcome';
+          },
+          load: w.optly.mrkt.changePlanHelper.load
+        });
+
+      }
+
+    } else {
+
+      this.processingRemove({callee: 'load'});
+      this.showOptionsError(resp.error);
+      w.analytics.track('/account/create', {
+        category: 'api error',
+        label: 'status not 200: ' + data.event.target.status
+      });
+
     }
 
   }

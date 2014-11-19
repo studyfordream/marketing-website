@@ -1,6 +1,8 @@
 var signupDialogHelperInst = window.optly.mrkt.form.createAccount({formId: 'signup-form', dialogId: 'signup-dialog'});
 
-var signupForm = new Oform({
+w.optly.mrkt.activeModals = {};
+
+w.optly.mrkt.activeModals.signup = new Oform({
   selector: '#signup-form',
   customValidation: {
     password1: function(elm) {
@@ -12,7 +14,7 @@ var signupForm = new Oform({
   }
 });
 
-signupForm.on('before', function() {
+w.optly.mrkt.activeModals.signup.on('before', function() {
   //set the hidden input value
   signupDialogHelperInst.formElm.querySelector('[name="hidden"]').value = 'touched';
   signupDialogHelperInst.processingAdd();
@@ -22,7 +24,7 @@ signupForm.on('before', function() {
   return true;
 });
 
-signupForm.on('validationerror', function(elm) {
+w.optly.mrkt.activeModals.signup.on('validationerror', function(elm) {
   w.optly.mrkt.Oform.validationError(elm);
   signupDialogHelperInst.showOptionsError('Please Correct Form Errors');
   if(!signupDialogHelperInst.characterMessageElm.classList.contains('oform-error-show')) {
@@ -30,7 +32,7 @@ signupForm.on('validationerror', function(elm) {
   }
 });
 
-signupForm.on('error', function() {
+w.optly.mrkt.activeModals.signup.on('error', function() {
   signupDialogHelperInst.processingRemove({callee: 'error'});
   signupDialogHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
   window.analytics.track('create account xhr error', {
@@ -39,14 +41,15 @@ signupForm.on('error', function() {
   });
 }.bind(signupDialogHelperInst));
 
-signupForm.on('load', signupDialogHelperInst.load.bind(signupDialogHelperInst));
-
-signupForm.on('done', function() {
-  window.setTimeout(function() {
-    signupDialogHelperInst.scrollTopDialog();
-  }, 500);
-
-  signupDialogHelperInst.processingRemove({callee: 'done'});
+w.optly.mrkt.activeModals.signup.on('load', function(e) {
+  signupDialogHelperInst.load(e);
+  if (!w.optly.mrkt.automatedTest()) {
+    window.location.href = '/welcome';
+  }
 }.bind(signupDialogHelperInst));
 
-
+w.optly.mrkt.activeModals.signup.on('done', function() {
+  if (document.body.classList.contains('oform-error')) {
+    signupDialogHelperInst.processingRemove({callee: 'done'});
+  }
+}.bind(signupDialogHelperInst));

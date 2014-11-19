@@ -1,5 +1,5 @@
 header {
-    background: #052f60;
+    background: #00415d;
     .utility-nav {
       margin: 0;
       li {
@@ -27,7 +27,7 @@ header {
 }
 @media only screen and (max-width: 59.99em) {
     body {
-        background: #052f60;
+        background: #00415d;
     }
     header {
         position: relative;
@@ -41,7 +41,7 @@ header {
             height: 100%;
             top: 0;
             width: 0;
-            background: #052f60;
+            background: #00415d;
         }
         nav:after {
             content: "";
@@ -96,7 +96,7 @@ header {
         border-radius: 3px;
     }
     #main-nav > li {
-        border-bottom: 1px solid #042142;
+        border-bottom: 1px solid $mobile-nav-border;
         border-top: 1px solid #08448a;
         overflow: hidden;
     }
@@ -224,11 +224,10 @@ header {
       }
   }
   #top-nav-cont {
-    background: image-url('bg-top-header.png') repeat;
-    border-bottom: 1px solid #104682;
+    background: #00415d;
   }
   #main-nav-cont {
-    background: image-url('bg-header.png') repeat;
+    background: #00415d;
   }
   .logo-cont {
       position: absolute;

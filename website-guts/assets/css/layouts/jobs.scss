@@ -1,7 +1,7 @@
 body.jobs-layout {
 
     h2 {
-        font-family: "Sentinel A","Sentinel B",Georgia,serif;
+     font-family: $sentinel-medium-font-family;
     }
 
     #jobs-icons {
@@ -30,8 +30,8 @@ body.jobs-layout {
             color: #036;
             font-size: 48px;
             margin: 0;
-            font-family: "Sentinel A","Sentinel B",Georgia,serif;
-            font-weight: 600;
+            font-family: $sentinel-medium-font-family;
+            font-weight: 500;
         }
 
         img {
@@ -83,7 +83,7 @@ body.jobs-layout {
 
     .department-title {
         color: #004776;
-        font-family: "Gotham SSm A","Gotham SSm B",sans-serif;
+        font-family: $gotham-small-type;
         font-size: 1em;
         font-weight: 500;
         margin: 1.5em 23px .5em 23px;
@@ -236,18 +236,21 @@ body.jobs-layout {
 
         .benefits {padding: 40px 10% 0 10%;}
 
-        .jobs-list {
-            li {
-                a {
-                    text-align: left;
-                }
+        #job-list-cont {
+          width: 90%;
+          margin: 0 auto 60px auto;
+          a {
+            @extend .clearfix;
+            span:first-child {
+              float: left;
             }
+            span:last-child {
+              float: right;
+            }
+          }
         }
-
-        .job-location {
-            float: right;
-        }
-    }
+        
+      }
 }
 
 @media only screen and(min-width: $desktop-min-width) {
@@ -270,6 +273,10 @@ body.jobs-layout {
         }
         .benefits {
             padding: 40px 0;
+        }
+        
+        #job-list-cont {
+          width: 760px;
         }
     }
 }

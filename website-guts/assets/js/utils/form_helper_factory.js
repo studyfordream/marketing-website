@@ -39,7 +39,61 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         });
       }
     });
-  }
+  };
+
+  var defaultHelpers = {
+    showOptionsError: function (message){
+      if(message) {
+        this.optionsErrorElm.innerHTML = message;
+      }
+      if(!document.body.classList.contains('error-state')) {
+        document.body.classList.add('error-state');
+      }
+      if( !this.optionsErrorElm.classList.contains('error-show') ) {
+        this.optionsErrorElm.classList.add('error-show');
+      }
+    },
+    
+    customErrorMessage: function (elm, message) {
+      if(message) {
+        elm.innerHTML = message;
+      } else {
+        elm.innerHTML = 'Required';
+      }
+    },
+
+    showErrorDialog: function(message) {
+      window.optly.mrkt.errorQ.push([
+        'logError',
+        {
+          error: message ? message : 'We\'ve encoutered an unexpected error.'
+        }
+      ]);
+    },
+
+    addErrors: function(elmArr) {
+      if(!document.body.classList.contains('error-state')) {
+        document.body.classList.add('error-state');
+      }
+      $.each(elmArr, function(i, elm) {
+        if( !elm.classList.contains('error-show') ) {
+          elm.classList.add('error-show');
+        }
+      });
+    },
+
+    removeErrors: function(elmArr, retainBodyClass) {
+      if( arguments.length === 0 || (!retainBodyClass && document.body.classList.contains('error-state')) ) {
+        document.body.classList.remove('error-state');
+      }
+      $.each(elmArr, function(i, elm) {
+        if( elm.classList.contains('error-show') ) {
+          elm.classList.remove('error-show');
+        }
+      });
+    },
+  
+  };
 
   var processingHelpers = {
 
@@ -64,10 +118,11 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
     processingAdd: function(argsObj) {
       if( !this.bodyClass.contains('processing-state') ) {
-        this.bodyClass.add('processing-state');
-        if(!argsObj || !argsObj.omitDisabled) {
-          this.handleDisable('add');
-        } 
+        this.bodyClass.add('processing-state'); 
+      }
+
+      if(!argsObj || !argsObj.omitDisabled) {
+        this.handleDisable('add');
       }
 
       return true;
@@ -87,7 +142,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     }
   };
 
-  $.extend(Const.prototype, scopeObj.prototype, processingHelpers);
+  $.extend(Const.prototype, processingHelpers, defaultHelpers, scopeObj.prototype);
 
   return new Const();
 
