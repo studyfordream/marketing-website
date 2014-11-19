@@ -96,7 +96,7 @@ header {
         border-radius: 3px;
     }
     #main-nav > li {
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid $mobile-nav-border;
         border-top: 1px solid #08448a;
         overflow: hidden;
     }

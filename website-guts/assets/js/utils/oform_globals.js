@@ -74,6 +74,10 @@
 
     }
 
+    if(window.debugger) {
+      debugger; //jshint ignore:line
+    }
+
     reportingObject = {
 
       utm_Campaign__c: source.utm.campaign,
@@ -88,10 +92,10 @@
       otm_Keyword__c: source.otm.keyword,
       GCLID__c: source.gclid,
       Signup_Platform__c: source.signupPlatform,
-      Email: response.email,
-      FirstName: response.first_name,
-      LastName: response.last_name,
-      Phone: response.phone_number,
+      Email: response.email ? response.email : '',
+      FirstName: response.first_name ? response.first_name : '',
+      LastName: response.last_name ? response.last_name : '',
+      Phone: response.phone_number ? response.phone_number : '',
       Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
       Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
       iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
@@ -114,13 +118,7 @@
     );
 
     for(propertyName in data){
-
       reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
-
-    }
-
-    if(window.debug){
-      window.debugger;
     }
 
     w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
