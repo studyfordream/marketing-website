@@ -118,9 +118,7 @@
     );
 
     for(propertyName in data){
-      if(propertyName === 'Signup_Platform__c' && ( reportingObject.Signup_Platform__c !== '' || typeof reportingObject.Signup_Platform__c !== 'undefined' )) {
-        reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
-      }
+      reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
     }
 
     w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
