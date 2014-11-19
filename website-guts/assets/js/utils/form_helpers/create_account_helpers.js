@@ -154,9 +154,9 @@ var createAccountHelper = {
     if(resp) {
       document.body.classList.add('create-account-success');
       w.optly.mrkt.Oform.trackLead({
-        name: formElm.querySelector('[name="name"]').value,
+        name: formElm.querySelector('[name="name"]').value || '',
         email: formElm.querySelector('[name="email"]').value,
-        phone: formElm.querySelector('[name="phone_number"]').value,
+        phone: formElm.querySelector('[name="phone_number"]').value || '',
         Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
         Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
         iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',

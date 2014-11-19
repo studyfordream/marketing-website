@@ -54,32 +54,19 @@ var signinHelper = {
   },
 
   load: function(e) {
-    var resp = JSON.parse(e.target.responseText);
-    var path = w.location.pathname;
+    var resp = this.parseResponse(e),
+      path = window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname);
 
-    if(e.target.status !== 200) {
-      this.processingRemove({callee: 'load'});
-      this.showOptionsError(resp.error);
-      return;
+    if (resp && path !== '/pricing') {
+      this.redirectHelper({
+        redirectPath: '/dashboard',
+        bodyClass: 'signed-in',
+        bodyData: {
+          formSuccess: this.formElm.getAttribute('action')
+        }
+      });
     }
-
-    if(path.substr(-1) === '/') {
-      path = path.substr(0, path.length - 1);
-    }
-
-    if (path !== '/pricing') {
-      //set data attribute for UI testing purposes
-      document.body.dataset.formSuccess = this.formElm.getAttribute('action');
-      // allow analytics logging before redirect
-      if(w.optly.mrkt.automatedTest()){
-        d.body.classList.add('signed-in');
-      } else {
-        window.setTimeout(function() {
-          w.location = '/dashboard';
-        }, 500);
-      }
-    }
-    else {
+    else if(resp) {
       window.optly.mrkt.modal.close({ modalType: 'signin', trace: false });
 
       var expParams = {
