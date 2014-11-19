@@ -3,20 +3,20 @@ company_logos:
  header: "Already used by the following great companies:"
  logos:
   -
-   name: "TripAdvisor"
-   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/tripadvisor_logo.svg"
+   name: "Travelzoo"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/travelzoo_gray.svg"
   -
    name: "Microsoft"
-   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_logo_and_wordmark (1).svg"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_gray.svg"
   -
    name: "Bleacher Report"
-   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing/bleacher_report_logo.svg"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/bleacher_report_logo_gray.svg"
   -
    name: "NBC Universal"
-   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/nbc_universal.svg"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/nbc_universal_gray.svg"
   -
    name: "AmericanApparel"
-   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/american_apparel_logo.svg"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/american_apparel_logo_gray.svg"
 full_feature_list_header: "Full Feature List"
 starter_plan:
   name: "Starter"
