@@ -8,7 +8,33 @@ module.exports = {
     noempty: true,
     nonbsp: true,
     undef: true,
-    quotmark: 'single'
+    quotmark: 'single',
+    node: true
+  },
+  test: {
+    options: {
+      browser: true,
+      unused: true,
+      node: true,
+      globals: {
+        jasmine: false,
+        spyOn: false,
+        it: false,
+        console: false,
+        describe: false,
+        expect: false,
+        beforeEach: false,
+        waits: false,
+        waitsFor: false,
+        runs: false
+      }
+    },
+    files: {
+      src: [
+        'test/**/*.js',
+        'configs/uiTestConfig.js'
+      ]
+    }
   },
   clientProd: {
     options: {

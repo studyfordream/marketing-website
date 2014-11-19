@@ -68,6 +68,35 @@
 	}
 }
 
+.new-primary-button {
+  box-shadow: 1px 1px 2px 0px #719508;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 0.9em;
+  letter-spacing: 1.5px;
+  background-color: #97c70a;
+  text-decoration: none;
+  cursor: pointer;
+  border:none;
+  font-family: $body-font-family;
+  font-weight: 100;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  border-radius: 5px;
+  &:hover {
+    box-shadow: 2px 2px 2px 0px #719508;
+  }
+}
+
+.rounded-input {
+  margin: 0;
+  padding: 15px 4px;
+  border: none;
+  border-radius: 4.5px;
+}
+
 .primary-button {
 	background: linear-gradient(to bottom, #90b71c 0%, #7fa119 100%);
 	border: 1px solid #7e9339;

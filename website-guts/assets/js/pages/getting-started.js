@@ -1,20 +1,26 @@
 window.optly.mrkt.gettingStarted = {};
 
-window.optly.mrkt.gettingStarted.init = function() {
-    $('.controls').find('a[data-slide=one]').addClass('active');
+w.optly.mrkt.gettingStarted.testItOut = function(editURL){
+
+  //send user to the editor
+  w.location = 'https://www.optimizely.com/edit?url=' + encodeURIComponent(editURL);
+
+  w.analytics.track('getting started test it out submitted', {
+    category: 'forms',
+    label: w.location.pathname
+  });
+
 };
 
-window.optly.mrkt.gettingStarted.changeSlide = function(input) {
-    $('.slider ul').attr('class', '').addClass(input);
-    $('.controls a').removeClass('active').parent().find('[data-slide="' + input + '"]').addClass('active');
-};
+$('#test-it-out input[type="text"]').focus();
 
-window.optly.mrkt.gettingStarted.handleClick = function(event) {
-    event.preventDefault();
-    
-    var nextSlide = $(this).attr('data-slide');
-    window.optly.mrkt.gettingStarted.changeSlide(nextSlide);
-};
+$('#test-it-out').submit(function(e){
+  e.preventDefault();
 
-window.optly.mrkt.gettingStarted.init();
-$('[data-slide]').click(window.optly.mrkt.gettingStarted.handleClick);
+  var inputVal = $('#test-it-out input[type="text"]').val();
+  if( inputVal ){
+      w.optly.mrkt.gettingStarted.testItOut(inputVal);
+  } else {
+    $('input[type="text"]').focus();
+  }
+});

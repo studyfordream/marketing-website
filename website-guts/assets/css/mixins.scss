@@ -1,9 +1,9 @@
 @mixin shadow($position) {
-	background: url(/assets/img/bg-shadow.png) no-repeat center $position;
-	content: " ";
-	display: block;
-	height: 25px;
-	margin: 0 -15px;
+  background: url(/assets/img/bg-shadow.png) no-repeat center $position;
+  content: " ";
+  display: block;
+  height: 25px;
+  margin: 0 -15px;
 }
 
 @mixin responsive-vid-container($width: 16, $height: 9) {
@@ -214,3 +214,83 @@
     } //end class wrapper
   } // end for loop
 } // end @mixin
+
+
+/* 
+** mixin to create animated background icons in input placeholders
+** should be used with following hbs:
+**
+** <input
+** style="background-image: url('{{email_icon}}')" 
+** type="email" 
+** name="email" 
+** placeholder="{{email}}"  
+** required>
+*/
+
+@mixin anim-input-icons(
+  $inputs: (), // nested list -- #1 input name, #2 override background-position-y, #3 override text indent
+  $background-pos-x: 5px -25px, // list -- #1 starting background pos, #2 focusin bacground pos
+  $background-pos-y: center, // string 
+  $background-size: 22px 22px, //string
+  $text-indent: 28px //string -- initial text indent
+  ) {
+    background-position: #{nth($background-pos-x, 1)} $background-pos-y;
+    background-repeat: no-repeat;
+    background-size: $background-size;
+    padding-left: $text-indent;
+    transition: all 0.2s;
+    //create the input specific positioning
+    @if(type-of( nth($inputs, 1) ) == list) {
+      @each $list in $inputs {
+        @if(length($list) > 0) {
+          &[name="#{nth($list, 1)}"] {
+            @if (nth($list, 1) == email) {
+              background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/email.svg');
+            } @else if (nth($list, 1) == password) {
+              background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg');
+            } @else if (nth($list, 1) == password1) {
+              background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg');
+            }
+            background-position-y: #{nth($list, 2)};
+            @if(length($list) > 2) {
+              padding-left: #{nth($list, 3)};
+            }
+            &:focus {
+              background-position: #{nth($background-pos-x, 2)} $background-pos-y;
+              padding-left: 3px;
+            }
+            &.has-input-val {
+              background-image: none;
+              padding-left: 3px;
+            }
+          }
+        }
+      }
+    } 
+    @else {
+      @if(length($inputs) > 0) {
+        &[name="#{nth($inputs, 1)}"] {
+          @if (nth($inputs, 1) == email) {
+            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/email.svg');
+          } @else if (nth($inputs, 1) == password) {
+            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg');
+          } @else if (nth($inputs, 1) == password1) {
+            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg');
+          }
+          background-position-y: #{nth($inputs, 2)};
+          @if(length($inputs) > 2) {
+            padding-left: #{nth($inputs, 3)};
+          }
+          &:focus {
+            background-position: #{nth($background-pos-x, 2)} $background-pos-y;
+            padding-left: 3px;
+          }
+          &.has-input-val {
+            background-image: none;
+            padding-left: 3px;
+          }
+        }
+      }
+    }
+}
