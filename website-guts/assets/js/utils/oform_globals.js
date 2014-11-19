@@ -133,7 +133,7 @@
 
     w.analytics.track('/account/create/success', {
       category: 'account',
-      label: w.location.pathname
+      label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
       Marketo: true
     });
@@ -148,7 +148,7 @@
 
     w.analytics.track('/account/signin', {
       category: 'account',
-      lable: w.location.pathname
+      lable: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
       Marketo: true
     });
@@ -167,13 +167,13 @@
 
     w.analytics.track('account created', {
       category: 'account',
-      label: w.location.pathname
+      label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
       Marketo: true
     });
     w.analytics.track('account signin', {
       category: 'account',
-      lable: w.location.pathname
+      lable: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
       Marketo: true
     });
@@ -212,7 +212,7 @@
         //track the event
         w.analytics.track('demo requested', {
           category: 'contact form',
-          label: w.location.pathname
+          label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
         }, {
           Marketo: true
         });
