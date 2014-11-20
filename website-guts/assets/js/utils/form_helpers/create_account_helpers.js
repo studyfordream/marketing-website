@@ -154,7 +154,7 @@ var createAccountHelper = {
     if(resp) {
       w.optly.mrkt.Oform.trackLead({
         name: formElm.querySelector('[name="name"]').value || '',
-        email: formElm.querySelector('[name="email"]').value,
+        email: formElm.querySelector('[name="email"]').value || '',
         phone: formElm.querySelector('[name="phone_number"]').value || '',
         Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
         Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
@@ -279,10 +279,10 @@ var createAccountHelper = {
           Last_Experiment_URL__c: data.data['url-input'],
           LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
           ExperimentsCreated: '1',
-          FirstName: resp.first_name,
-          LastName: resp.last_name,
-          otm_Medium__c: w.optly.mrkt.source.otm.medium,
-          utm_Medium__c: w.optly.mrkt.source.utm.medium,
+          FirstName: resp.first_name || '',
+          LastName: resp.last_name || '',
+          otm_Medium__c: w.optly.mrkt.source.otm.medium || '',
+          utm_Medium__c: w.optly.mrkt.source.utm.medium || '',
           Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
           Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
           iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
