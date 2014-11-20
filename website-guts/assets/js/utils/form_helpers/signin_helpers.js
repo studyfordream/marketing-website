@@ -55,9 +55,9 @@ var signinHelper = {
 
   load: function(e) {
     var resp = this.parseResponse(e),
-      path = window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname);
+      pricingPath = /pricing\-page/.test(document.body.getAttribute('class'));
 
-    if (resp && path !== '/pricing') {
+    if (resp && !pricingPath) {
       this.redirectHelper({
         redirectPath: '/dashboard',
         bodyClass: 'signed-in',

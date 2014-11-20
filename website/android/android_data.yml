@@ -7,7 +7,7 @@ top_content:
 
 form:
   email_icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/email.svg"
-  email_placeholder: "Email Address"
+  email_placeholder: "Work Email"
   button_text: "Sign Up"
 
 hidden_content:

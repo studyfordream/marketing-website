@@ -114,7 +114,7 @@ form_panel:
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/bottom-img-comp.jpg"
   title: "Start optimizing"
   subtitle: "your iOS app today"
-  email: "Email Address"
+  email: "Work Email"
   email_icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/email.svg"
   password: "Create Password"
   password_icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg"
