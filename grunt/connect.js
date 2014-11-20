@@ -1,5 +1,3 @@
-var bodyParser = require('body-parser');
-
 var checkComplexPassword = function(password) {
   var CHAR_LOWERS = /[a-z]/,
     CHAR_UPPERS   = /[A-Z]/,
@@ -22,6 +20,12 @@ var checkComplexPassword = function(password) {
 };
 
 module.exports = function(grunt, options) {
+
+  if(grunt.option('env') !== 'production'){
+
+    var bodyParser = require('body-parser');
+
+  }
 
   return {
     options: {
