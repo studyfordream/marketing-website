@@ -43,6 +43,7 @@
 }
 
 .button {
+	background-color: #126fb0;
 	background: linear-gradient(to bottom, #147ec7 0%,#126fb0 100%);
 	color: #fff!important;
 	border: 1px solid #22599a;
@@ -453,10 +454,10 @@ body.error-state {
 }
 
 body {
-  input[type="text"], 
-  input[type="url"], 
-  input[type="email"], 
-  input[type="tel"],  
+  input[type="text"],
+  input[type="url"],
+  input[type="email"],
+  input[type="tel"],
   input[type="password"]
   button[type="submit"] {
     transition: all 0.1s linear;
@@ -469,17 +470,17 @@ body {
     opacity: 0.65
   }
   .processing-state {
-    input[type="text"], 
-    input[type="url"], 
-    input[type="email"], 
-    input[type="tel"],  
+    input[type="text"],
+    input[type="url"],
+    input[type="email"],
+    input[type="tel"],
     input[type="password"] {
       background-color: #eee;
     }
-    input[type="text"], 
-    input[type="url"], 
-    input[type="email"], 
-    input[type="tel"],  
+    input[type="text"],
+    input[type="url"],
+    input[type="email"],
+    input[type="tel"],
     input[type="password"]
     button[type="submit"] {
       opacity: 0.65;
