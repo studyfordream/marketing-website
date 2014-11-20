@@ -16,7 +16,7 @@ body.home-page{
     height: 245px;
     min-height: 500px;
     overflow: hidden;
-    background: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/homepage_graph.svg') no-repeat 100% 150%,
+    background: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/homepage/homepage_graph.svg') no-repeat 100% 150%,
                 radial-gradient(circle, rgb(10,82,112), rgb(8, 77, 106), rgb(0,65,93) 50%);
     .container {
       position: relative;
@@ -81,13 +81,13 @@ body.home-page{
         }
       }
       &#first-reason {
-        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/info_box_1.png');
+        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/homepage/info_box_1.svg');
       }
       &#second-reason {
-        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/homepage_box_2.png');
+        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/homepage/info_box_2.svg');
       }
       &#third-reason {
-        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/homepage_box_3.png');
+        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/homepage/info_box_3.svg');
       }
     }
     .list-title {
