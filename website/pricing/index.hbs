@@ -1,0 +1,111 @@
+---
+layout: no-sub-nav.hbs
+visible_title: Plans and Pricing
+body_class:
+- pricing-page
+page_script:
+- pricing.js
+no_container: true
+modals:
+- contact_sales_thank_you_compiled
+- downgrade_plan_compiled
+- downgrade_plan_confirm_compiled
+- pricing_plan_signup_thank_you_compiled
+---
+<section class="blue-bg" id="plan-section">
+  <div class="container">
+    <div class="pricing-overview">
+      <div class="plan-box plan-box-cont" id="starter-plan">
+        <h2 class="plan-box-header">{{pricing.starter_plan.name}}</h2>
+        <div class="plan-box-content">
+          {{#omarkdown}}{{{pricing.starter_plan.overview}}}{{/omarkdown}}
+        </div><!--/.plan-box-content-->
+        <div class="cta">
+          {{#omarkdown}}{{{pricing.starter_plan.cta}}}{{/omarkdown}}
+          <p class="hidden current-plan">Your current plan</p>
+          <p class="processing hidden">{{{pricing.processing_message}}}</p>
+        </div><!--/.cta-->
+      </div><!--/.plan-box-->
+      <div class="plan-box plan-box-cont highlight" id="enterprise-plan">
+        <h2 class="plan-box-header">{{pricing.enterprise_plan.name}}</h2>
+        <div class="plan-box-content">
+          {{#omarkdown}}{{{pricing.enterprise_plan.overview}}}{{/omarkdown}}
+        </div><!--/.plan-box-content-->
+        <div class="cta">
+          {{#omarkdown}}{{{pricing.enterprise_plan.cta}}}{{/omarkdown}}
+          <p class="hidden current-plan">Your current plan</p>
+        </div><!--/.cta-->
+      </div><!--/.plan-box-->
+    </div><!--/.row-->
+    {{#if pricing.full_feature_list_button_text}}<a class="button" id="full-feature-list-btn" href="#full-feature-list-cont"><span>{{pricing.full_feature_list_button_text}}</span></a>{{/if}}
+  </div><!--/.container-->
+</section>
+<section id="company-list-cont">
+  <div class="container" id="company-list">
+    {{#if pricing.company_logos.header}}<h4>{{pricing.company_logos.header}}</h4>{{/if}}
+    {{#if pricing.company_logos.logos}}
+    <div class="logo-container">
+      {{#each pricing.company_logos.logos}}
+        <div class="bg-img-cont">
+          <div class="bg-img" style="background-image: url('{{svg}}')"></div>
+        </div>
+      {{/each}}
+    </div>
+    {{/if}}
+  </div><!--/.container-->
+</section>
+<section class="blue-bg" id="full-feature-list-cont">
+  <div class="pricing-section__feature-list container">
+    {{#if pricing.full_feature_list_header}}
+      <h2 class="pricing-section__heading pricing-section__heading--dark">
+        {{pricing.full_feature_list_header}}
+      </h2>
+    {{/if}}
+    <div class="pricing-feature-detail-cont">
+      <div class="feature-list-box plan-box-cont">
+        <h2 class="plan-box-header">{{pricing.starter_plan.name}}</h2>
+        {{#each pricing.starter_plan.full_features}}
+        <div class="feature-category">
+          {{#if title}}<h3>{{{title}}}</h3>{{/if}}
+          <div class="feature-overview">{{#omarkdown}}{{{description}}}{{/omarkdown}}</div>
+        </div><!--/.feature-category-->
+        {{/each}}
+      </div><!--/.feature-list-box-->
+      <div class="feature-list-box plan-box-cont highlight">
+        <h2 class="plan-box-header">{{pricing.enterprise_plan.name}}</h2>
+        {{#each pricing.enterprise_plan.full_features}}
+        <div class="feature-category">
+          {{#if title}}<h3>{{{title}}}</h3>{{/if}}
+          <div class="feature-overview">{{#omarkdown}}{{{description}}}{{/omarkdown}}</div>
+        </div><!--/.feature-category-->
+        {{/each}}
+      </div><!--/.feature-list-box-->
+    </div><!--/.pricing-feature-detail-cont-->
+    <div class="row">
+      <h3 class="pricing-section__feature-list__question"><strong>Still have a question?</strong> Call us at <a href="tel:18002529480">1-800-252-9480</a></h3>
+    </div><!--/.row-->
+  </div><!--/.container-->
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      {{#if pricing.faq.header}}
+        <h2 class="pricing-section__heading pricing-section__heading--light">{{pricing.faq.header}}</h2>
+      {{/if}}
+      <div class="pricing-faq">
+        {{#each pricing.faq.entries}}
+          <div class="pricing-faq__item">
+            <span class="pricing-faq__item__title">
+              {{#if title}}{{{title}}}{{/if}}
+            </span><!--/.pricing-faq__item__title-->
+            <p class="pricing-faq__item__description">
+              {{#if description}}
+                {{#omarkdown}}{{{description}}}{{/omarkdown}}
+              {{/if}}
+            </p><!--/.pricing-faq__item__description-->
+          </div><!--/.pricing-faq__item-->
+        {{/each}}
+      </div><!--/.pricing-faq-->
+    </div><!--/.row-->
+  </div><!--/.container-->
+</section>

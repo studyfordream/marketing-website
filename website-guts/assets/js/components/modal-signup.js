@@ -44,9 +44,7 @@ w.optly.mrkt.activeModals.signup.on('error', function() {
 w.optly.mrkt.activeModals.signup.on('load', signupDialogHelperInst.load.bind(signupDialogHelperInst));
 
 w.optly.mrkt.activeModals.signup.on('done', function() {
-  window.setTimeout(function() {
-    signupDialogHelperInst.scrollTopDialog();
-  }, 500);
-
-  signupDialogHelperInst.processingRemove({callee: 'done'});
+  if (document.body.classList.contains('oform-error')) {
+    signupDialogHelperInst.processingRemove({callee: 'done'});
+  }
 }.bind(signupDialogHelperInst));

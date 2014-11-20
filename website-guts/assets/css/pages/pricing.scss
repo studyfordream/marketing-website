@@ -1,3 +1,21 @@
+.pricing-section__heading {
+  margin: 1.7em 0;
+}
+.pricing-section__heading--light {
+  color: $gray-on-white-text;
+}
+.pricing-section__heading--dark {
+  color: $super-dark-blue;
+}
+.pricing-section__feature-list {
+  padding-bottom: 20px;
+}
+.pricing-section__feature-list__question {
+  color: $gray-on-white-text;
+  font-family: $gotham-small-type;
+  font-weight: normal;
+  text-align: center;
+}
 .plan-box-header {
   background: $faint-gray-bg;
   text-transform: uppercase;
@@ -16,10 +34,10 @@
   margin-bottom: 40px;
   .plan-box-content {
     background: #fff;
-    min-height: 200px;
+    min-height: 220px;
   }
   .cta {
-    padding: 10px 0 20px 0;
+    padding: 10px 25px 20px 25px;
     border-top: 1px solid $faint-gray-border;
     text-align: center;
     background: $faint-gray-bg;
@@ -92,17 +110,40 @@ body.plan-free_light {
     .current-plan {
       display: block!important;
       visibility: visible;
+      margin: 1em 0;
+      font-weight: 500;
     }
-    .action {
+    a:last-child {
       display: none;
     }
+  }
+}
+body.plan-enterprise {
+  #enterprise-plan {
+    .current-plan {
+      display: block!important;
+      visibility: visible;
+      margin: 1em 0;
+      font-weight: 500;
+    }
+    a:last-child {
+      display: none;
+    }
+  }
+}
+body.processing-free-light {
+  #starter-plan a:last-child {display: none;}
+  p.processing {
+    font-weight: 500;
+    margin: 1em 0;
+    display: block!important;
+    visibility: visible;
   }
 }
 @media only screen and (min-width: $desktop-min-width){
   .plan-box-header {text-align: center;}
 }
-
-body.pricing {
+body.pricing-page {
   section.blue-bg, #page-header-gradient {
     background: $light-blue-bg;
   }
@@ -126,6 +167,7 @@ body.pricing {
     width: 100%;
     background-position: right center;
     padding: 0 40px;
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/down-arrow.svg');
   }
   #company-list {
     h4 {
@@ -134,11 +176,16 @@ body.pricing {
       color: $gray-on-white-text;
     }
     .logo-container {
-      img {
-        max-width: 175px;
-        margin-bottom: 15px;
-        display: block;
-        margin: 0 auto 25px auto;
+      margin-bottom: 4%;
+      .bg-img-cont {
+        padding: 0 70px;
+        .bg-img {
+          width: 100%;
+          padding-top: 50%;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: contain;
+        }
       }
     }
   }
@@ -146,33 +193,39 @@ body.pricing {
     margin: 0 auto 40px auto;
     display: table;
   }
-  #full-feature-list-cont .container > h2 {
-    //margin: ;
-    margin: 1.7em 0;
-    color: $super-dark-blue;
-  }
   @media only screen and (min-width: $tablet-min-width){
     .pricing-overview {
       display: flex;
       justify-content: center;
       .plan-box-cont {
-        //flex-grow: 1;
         max-width: 380px;
         margin-right: 25px;
+      }
+      div:last-child {
+        margin-right: 0;
       }
     }
     .cta {
       h3 {text-align: center;}
     }
+    .pricing-feature-detail-cont {
+      display: flex;
+      justify-content: center;
+      .feature-list-box {
+        margin-right: 25px;
+        max-width: 380px;
+      }
+      div:last-child {
+        margin-right: 0;
+      }
+    }
     #company-list {
       .logo-container {
         display: flex;
         justify-content: center;
-        img {
-          max-width: 140px;
-          max-height: 70px;
-          vertical-align: baseline;
-          padding-right: 15px
+        .bg-img-cont {
+          width: 20%;
+          padding: 0 20px;
         }
       }
     }
@@ -185,6 +238,14 @@ body.pricing {
       }
     }
   }
+}
+.pricing-faq__item {
+  margin: 2em 0;
 
-
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.pricing-faq__item__title {
+  color: $blue;
 }

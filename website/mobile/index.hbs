@@ -1,162 +1,158 @@
 ---
 layout: mobile.hbs
-seo_title: Optimizely for iOS
-visible_title: Optimizely Solutions Partners
-sub_head: World-class service providers. Empowered customers. Lasting results.
+seo_title: Make your iOS app more engaging
+compact_header: false
+modals:
+- video_modal_compiled
 body_class:
-- ios
+- mobile-page
 page_script: mobile.js
+footer_style: grey
 ---
-
-<div id="top">
-  <div class="container">
-    <header class="clearfix ios-logo-cont">
-      <p class="logo"><a href="{{linkPath}}/">Optimizely</a></p>
-    </header>
+<section id="hero" class="panel bg-img" style="background-image: url('{{mobile_page_mvpp_data.hero.bg_img}}')">
+  {{#with mobile_page_mvpp_data.hero}}
+    <div id="cta-variation">
+      <h1>{{{title}}}</h1>
+      <div class="flex-responsive">
+        <a href="#" class="outline-button" data-show-video><span class="circle-arrow"></span>{{vid_btn_txt}}</a>
+        <a href="#signup-form-panel-b" class="outline-button slide-button" smooth-scroll>{{signup_btn_txt}}</a>
+      </div>
+      <p>{{link_text}} <a href="{{../linkPath}}/android">{{link_anchor_text}}</a></p>
+      <a href="#signup-form-panel-b" class="scroll-down-icon" smooth-scroll></a>
+    </div>
+  <div id="signup-form-panel-top">
+  <h1>{{{title}}}</h1>
+  {{/with}}
+  {{#with mobile_page_mvpp_data.form_panel}}
+  <form action="/account/create" method="POST" id="mobile-signup-form-top" class="container" novalidate autocomplete="off">
+    <div class="row grid-cont">
+      <div class="form-grid">
+        <label>
+            <span class="email-related error-hide error-right">Required</span>
+            <input type="email" name="email" placeholder="{{email}}" required>
+        </label>
+      </div>
+      <div class="form-grid">
+        <label>
+            <span class="password1-related error-hide error-right">Required</span>
+            <input type="password" name="password1" placeholder="{{password}}" required>
+        </label>
+      </div>
+      <div class="form-grid">
+        <button title="{{submit_button}}" data-success="{{submit_success}}" type="submit" class="submit-btn"></button>
+      </div>
+    </div>
+    <input type="hidden" name="hidden" value="" />
+    <input type="hidden" name="flow" value="nux">
+    <input type="hidden" name="platform" value="ios">
+    <div class="options">
+        <p class="error-message error-hide">Please Correct Form Errors</p>
+    </div>
+  </form>
+  <p>{{link_text}} <a href="{{../linkPath}}/android">{{link_anchor_text}}</a></p>
+  {{/with}}
+  <a href="#" class="video-link" data-show-video><span class="circle-arrow"></span>Watch Video</a>
   </div>
-{{#with mobile_data}}
-  <section id="hero">
-    <h1>{{hero.header}}</h1>
-    <h2>{{hero.sub_header}}</h2>
-    <a href="https://www.optimizely.com/signin?flow=nux&signup=true&signup_platform=ios&continue_to=/mobile/first-project" class="sign-up-btn">{{{sign_up.button_text}}}</a>
-    {{#omarkdown}}{{{sign_up.existing_customer}}}{{/omarkdown}}
-    <div id="down"></div>
-  </section>
-</div>
-<div role="main">
-  <main>
-    {{#if section_1}}
-    <section id="visual-changes-features" class="gray-section light">
-      <div class="container">
-        <div class="float-cont">
-          <div class="section-container">
-            {{#omarkdown}}{{section_1.body}}{{/omarkdown}}
-          </div>
-        </div>
-        <div class="flex-cont">
-          <div class="phone-img-wrapper">
-            <div id="visual-changes-demo">
-              <span id="visual-change-photo" class="a"></span>
-              <span id="visual-change-button">Book it now!</span>
-            </div>
-          </div>
-          <div class="visual-options-cont">
-            <div id="visual-change-options">
-              <div id="visual-change-image" class="change-option">
-                <p>Image</p>
-                <div class="visual-slider-cont a" id="visual-change-slider">
-                  <span class="left-label">a</span>
-                  <span class="right-label">b</span>
-                  <span class="slider"></span>
-                </div>
-                <span id="visual-change-image-slider"></span>
-              </div>
-              <div id="visual-change-button-text" class="change-option">
-                <p>Button text</p>
-                <input id="visual-change-input" type="text" placeholder="Book it now!">
-              </div>
-              <div id="visual-change-button-color" class="change-option">
-                <p>Button color</p>
-                <div id="visual-change-color">
-                  <a href="#" id="visual-change-blue" class="color-btn"></a>
-                  <a href="#" id="visual-change-green" class="color-btn"></a>
-                  <a href="#" id="visual-change-orange" class="color-btn"></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="visual-changes-icons" class="feature-container">
-            {{#each section_1.subsections}}
-            <div id="visual-changes" class="row tablet-columns feature">
-              <div class="bg-container">
-                <div class="feature-bg" style="background-image: url({{icon}})"></div>
-              </div>
-              <div class="content-container">
-                <h3>{{header}}</h3>
-                <p>{{body}}</p>
-              </div>
-            </div>
-            {{/each}}
-          </div>
-        </div>
+</section>
+{{#with mobile_page_mvpp_data.top_grid}}
+<section id="fast-powerful-panel"class="panel">
+  <div class="container">
+    <h2><strong>{{title}}</strong></h2>
+    <h2>{{sub_title}}</h2>
+    <div class="flex-cont">
+      {{#each grid_content}}
+      <div class="flex-content">
+        <div class="grid-icon bg-img" style="background-image: url('{{icon}}')"></div>
+        <h5><strong>{{title}}</strong></h5>
+        <p>{{grid_content}}</p>
       </div>
-    </section>
-    {{/if}}
-    {{#if section_2}}
-    <section id="flexible-powerful" class="blue-section">
-      <div class="container a">
-        <div class="section-container">
-          {{#omarkdown}}{{section_2.body}}{{/omarkdown}}
-        </div>
-        <div id="flexible-powerful-image"></div>
-        <div class="visual-slider-cont a" id="flexible-powerful-slider">
-          <span class="left-label">a</span>
-          <span class="right-label">b</span>
-          <span class="slider"></span>
-        </div>
-        <div class="feature-container row">
-          {{#each section_2.subsections}}
-          <div id="live-variables" class="feature columns one-third">
-            <div style="background-image: url({{icon}})" class="feature-bg"></div>
-            <h3>{{{header}}}</h3>
-            <p>{{body}}</p> 
-          </div>
-          {{/each}}
-        </div>
-      </div>
-    </section>
-    {{/if}}
-    {{#if section_3}}
-    <section id="trusted" class="light">
-      <div class="container">
-        <div class="section-container">
-          {{#omarkdown}}{{section_3.body}}{{/omarkdown}}
-        </div>
-        <div id="deploy-cont">
-          <div id="deploy-graphic-cont">
-            <div id="deployed-graphic"></div>
-          </div>
-          <a href="#" id="deploy-btn">Deploy winning variation</a>
-        </div>
-        <div class="feature-container row">
-          {{#each section_3.subsections}}
-          <div class="feature columns one-third" id="world-class">
-            <div style="background-image: url({{icon}})" class="feature-bg"></div>
-            <h3>{{{header}}}</h3>
-            <p>{{body}}</p>
-          </div>
-          {{/each}}
-        </div>
-      </div>
-    </section>
-    {{/if}}
-    {{#if section_4}}
-      <section id="section-4" class="gray-section">
-        <div class="container">
-          <div class="section-container">
-            {{#omarkdown}}{{{section_4.body}}}{{/omarkdown}}
-          </div>
-          <div class="icon-cont notranslate">
-            {{#each section_4.icons}}
-            <div class="icon-wrap">
-              <div class="cust-icon" style="background-image: url('{{url}}')"></div>
-              <p class="icon-name">{{name}}</p>
-            </div>
-            {{/each}}
-          </div>
-        </div>
-      </section>
-    {{/if}}
-    {{#if footer}}
-    <section id="signup-bottom" class="blue-section">
-      <h2>{{{footer.header}}}</h2>
-      <a href="https://www.optimizely.com/signin?flow=nux&signup=true&signup_platform=ios&continue_to=/mobile/first-project" class="sign-up-btn">{{{sign_up.button_text}}}</a>
-      {{#omarkdown}}{{sign_up.existing_customer}}{{/omarkdown}}
-    </section>
-    {{/if}}
-  </main>
-</div>
-<div id="preload-airbnb-img" class="preload"></div>
-<div id="preload-hipmunk-img" class="preload"></div>
-<div id="preload-deploy-img" class="preload"></div>
+      {{/each}}
+    </div>
+  </div>
+</section>
 {{/with}}
+{{#each mobile_page_mvpp_data.panels}}
+<section id="panel-{{add @index 1}}" class="panel editor-demo" data-interactive-panel>
+  <div class="container flex-cont">
+    <div class="flex-img-cont{{#is_odd @index}} order-2{{/is_odd}}">
+      <img src="{{bg_img_static}}" data-img-index="{{@index}}" data-static="{{bg_img_static}}" data-dynamic="{{bg_img_dynamic}}"/>
+    </div>
+    <div class="flex-1-content">
+      <h3>{{{title}}}</h3>
+      <p>
+        {{text}}
+        {{#if beta_text}}
+          <span class="beta">{{beta_text}}</span>
+        {{/if}}
+      </p>
+    </div>
+  </div>
+</section>
+{{/each}}
+{{#with mobile_page_mvpp_data}}
+<section id="customer-logos" class="panel">
+  <div class="container">
+    <div class="section-container">
+      {{#omarkdown}}{{{customer_logos.body}}}{{/omarkdown}}
+    </div>
+    <div class="icon-cont">
+      {{#each customer_logos.icons}}
+      <div class="icon-wrap">
+        <div class="cust-icon" style="background-image: url('{{url}}')"></div>
+        <p class="icon-name">{{name}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+<section id="ideas" class="panel">
+  <h2>{{{testing_ideas.header}}}</h2>
+  <div class="ideas-cont flex-cont">
+    {{#each testing_ideas.ideas_grid}}
+    <div class="single-idea-cont flex-cont">
+      <div class="idea-icon">
+        <div class="bg-img static" style="background-image: url('{{icon_static}}')"></div>
+        <div class="bg-img dynamic" style="background-image: url('{{icon_dynamic}}')"></div>
+      </div>
+      <div class="idea-content">
+        <h4>{{title}}</h4>
+        <p>{{text}}</p>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</section>
+{{/with}}
+<section id="signup-form-panel-bottom" class="panel bg-img" style="background-image: url('{{mobile_page_mvpp_data.form_panel.bg_img}}')">
+{{#with mobile_page_mvpp_data.form_panel}}
+  <h2><strong>{{title}}</strong></h2>
+  <h2>{{subtitle}}</h2>
+  <form action="/account/create" method="POST" id="mobile-signup-form-bottom" class="container" novalidate autocomplete="off">
+    <div class="row grid-cont">
+      <div class="form-grid">
+        <label>
+            <span class="email-related error-hide error-right">Required</span>
+            <input type="email" name="email" placeholder="{{email}}" required>
+        </label>
+      </div>
+      <div class="form-grid">
+        <label>
+            <span class="password1-related error-hide error-right">Required</span>
+            <input type="password" name="password1" placeholder="{{password}}" required>
+        </label>
+      </div>
+      <div class="form-grid">
+        <button title="{{submit_button}}" data-success="{{submit_success}}" type="submit" class="submit-btn"></button>
+      </div>
+    </div>
+    <input type="hidden" name="hidden" value="" />
+    <input type="hidden" name="flow" value="nux">
+    <input type="hidden" name="platform" value="ios">
+    <div class="options">
+        <p class="error-message error-hide">Please Correct Form Errors</p>
+    </div>
+  </form>
+  <p>{{link_text}} <a href="{{../linkPath}}/android">{{link_anchor_text}}</a></p>
+{{/with}}
+</section>
+

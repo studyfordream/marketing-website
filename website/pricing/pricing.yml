@@ -1,0 +1,227 @@
+full_feature_list_button_text: "See Full List of Features"
+processing_message: "Processing your subscription.<br>This may take a minute."
+company_logos:
+ header: "Already used by the following great companies:"
+ logos:
+  -
+   name: "Travelzoo"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/travelzoo_gray.svg"
+  -
+   name: "Microsoft"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_gray.svg"
+  -
+   name: "Bleacher Report"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/bleacher_report_logo_gray.svg"
+  -
+   name: "NBC Universal"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/nbc_universal_gray.svg"
+  -
+   name: "AmericanApparel"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/american_apparel_logo_gray.svg"
+full_feature_list_header: "Full Feature List"
+starter_plan:
+  name: "Starter"
+  overview: |
+    * Improve conversions, increase engagement, and drive revenue
+    * Get started instantly
+    * Free&mdash;no credit card required
+  cta: |
+    ### Free
+
+    Not just a trial. Seriously.
+
+    [Get Started]()
+  full_features:
+    -
+      title: ""
+      description: |
+        #### Essential features:
+
+        * Optimization for the web, mobile web, iOS, and soon Android native apps
+        * Dead simple implementation
+        * Easy-to-use visual editor
+        * Advanced web and mobile developer tools
+        * CDN-balanced architecture
+        * Real-time results and reporting
+    -
+      title: "Create &amp; launch experiments"
+      description: |
+        #### A/B and multivariate experiments
+    -
+      title: "Discover visitor insights"
+      description: |
+        #### Basic results segmentation:
+
+        * Referral source
+        * Browser
+
+        #### Mobile app goals:
+
+        * Unique and total conversions
+        * Revenue reports
+        * Retention reports
+        * Mobile session metrics
+    -
+      title: "Target optimized experiences"
+      description: |
+        #### Basic targeting by Audience conditions:
+
+        * _Demographic_: Device, Browser, or Language
+        * _Contextual_: Referral URL, Traffic Source, or Query Parameters
+
+        #### Mobile targeting:
+
+        * App version
+        * Device type
+        * iOS version
+    -
+      title: Integrate with other platforms
+      description: |
+        #### Analytics integrations:
+
+        * Google Analytics
+        * KISSmetrics
+        * Mixpanel
+
+        #### Heat mapping integrations:
+
+        * Crazy Egg
+        * ClickTale
+
+        #### Limited Optimizely REST API access:
+
+        * Up to 1,000 calls per month
+    -
+      title: "Support for you &amp; your team"
+      description: |
+        #### Online-only support:
+
+        * Optiverse, Optimizely's community
+        * Knowledge Base documentation
+        * Academy training resources
+    -
+      title: "Manage your account"
+      description: |
+        #### Up to 50,000 monthly unique visitors across your website and mobile app
+
+        #### Basic account and project levels:
+
+          * 1 web and 1 mobile project
+          * 3 Optimizely users
+enterprise_plan:
+  name: "Enterprise"
+  overview: |
+    * Create and deliver connected and targeted experiences for your websites and mobile apps
+    * Customizable to meet your needs
+    * World-class customer support to take your optimization to the next level
+  cta: |
+    ### Custom
+
+    Optimized for your business.
+
+    [Contact Us &raquo;]()
+
+    [1-800-252-9480](tel:18002529480)
+  full_features:
+    -
+      title: ""
+      description: |
+        #### Essential features:
+
+        * Optimization for the web, mobile web, iOS, and soon Android native apps
+        * Dead simple implementation
+        * Easy-to-use visual editor
+        * Advanced web and mobile developer tools
+        * CDN-balanced architecture
+        * Real-time results and reporting
+
+    -
+      title: "Create &amp; launch experiments"
+      description: |
+        #### All Starter plan features plus:
+        #### Multi-page funnel experiments
+
+        #### Cross-browser QA
+
+        #### Multichannel Experiments: deliver connected experiences to visitors across the web and mobile apps
+    -
+      title: "Discover visitor insights"
+      description: |
+        #### All Starter plan features plus:
+        #### Advanced results segmentation:
+
+        * Campaign
+        * Device
+        * Targeting conditions
+        * Custom segments
+
+        #### Custom reports and annotations
+    -
+      title: "Target optimized experiences"
+      description: |
+        #### All Starter plan features plus:
+        #### Advanced targeting by audience condition:
+
+        * _Demographic_: Location or IP Address
+        * _Contextual_: Ad Campaign or Time of Day
+        * _Behavioral_: Triggered Event or Cookies
+        * _Custom_: List Membership, or other custom solutions to fit your site or app
+    -
+      title: "Integrate with other platforms"
+      description: |
+        #### All Starter plan features plus:
+        #### Analytics integrations:
+
+        * Adobe Analytics (SiteCatalyst)
+        * Google Analytics Premium
+        * AT Internet
+
+        #### Additional enterprise integrations (see a full list [here](https://www.optimizely.com/partners/technology/))
+
+        #### Flexible access to Optimizely's REST API
+    -
+      title: "Support for you &amp; your team"
+      description: |
+        #### All Starter plan features plus:
+        #### Flexible troubleshooting options:
+
+        * E-Mail
+        * Phone
+        * In-person
+
+        #### Customizable packages for onboarding, training, and strategy
+
+        #### Dedicated account management and technical support options
+    -
+      title: "Manage your account"
+      description: |
+        #### Custom monthly unique visitor allocation across your websites and mobile apps
+
+        #### Flexible number of projects and Optimizely users
+
+        #### Role-based permission management
+faq:
+  header: "FAQs"
+  entries:
+    -
+      title: "How are monthly unique visitors counted?"
+      description: "Monthly unique visitors are counted by adding the number of unique visitors in an experiment on the web to the number of unique visitors in an experiment in a mobile app.  You can distribute the unique visitor allocation however you like."
+    -
+      title: "What will I need to install on my website or in my mobile app?"
+      description: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that’s required to start running experiments."
+    -
+      title: "What amount of coding knowledge is required to use Optimizely?"
+      description: |
+        Once the Optimizely Snippet or SDK is installed, you can get started optimizing without technical expertise using a visual editor for both websites and mobile apps. Optimizely is also very developer-friendly, with features that enable custom experiments and advanced targeting for a range of use cases.
+    -
+      title: "I signed up for Optimizely's Bronze, Silver, or Gold plan. What do these new plans mean for me?"
+      description: |
+        As a current customer, you are grandfathered into the original plan you selected. You can continue to use this plan, or select a new plan if you feel Starter or Enterprise better meets your needs. You can find more answers in this [FAQ](https://help.optimizely.com/hc/en-us/articles/200040055).
+    -
+      title: "Does Optimizely offer nonprofit pricing?"
+      description: |
+        Yes. Visit [Optimizely for non-profits](/nonprofits) for more information.
+    -
+      title: "I have more questions. Where can I find answers?"
+      description: |
+        Check out our [Knowledge Base](https://help.optimizely.com/hc/en-us) for questions about how Optimizely works on your website or mobile app. If you have questions about an enterprise plan, please get in touch by calling or filling out a form. We’ll get back to you!

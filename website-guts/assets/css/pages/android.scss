@@ -1,0 +1,186 @@
+body.android-page {
+  .bg-img {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  .android {
+    padding: 40px 40px;
+    .is-hidden {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateX(-150%);
+      &.enter {
+        transform: translateX(0);
+      }
+    }
+    .is-visible {
+      &.leave {
+        position: relative;
+        transform: translateX(150%);
+      }
+    }
+    .is-visible,
+    .is-hidden {
+      transition: all 0.3s linear;
+      display: inline-block;
+      width: 100%;
+    }
+    .btn {
+      @extend .new-primary-button;
+      display: inline-block;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    .flex-item {
+      width: 90%;
+      margin: 0 auto;
+      position: relative;
+      label,
+      span,
+      input {
+        display: block;
+      }
+      span {
+        text-align: right;
+      }
+      button {
+        margin-top: 20px;
+      }
+    }
+    img {
+      width: 160px;
+    }
+    .flex-cont {
+      display: flex;
+      flex-direction: column;
+    }
+    .android__content {
+      position: relative;
+      overflow: hidden;
+      padding-top: 0;
+      /*height: 500px;*/
+      &--smaller {
+        margin-top: 20px;
+      }
+      &,
+      a,
+      h1 {
+        color: #fff;
+      }
+      h1 {
+        font-family: $body-font-family;
+        font-size: 2.2em;
+        letter-spacing: 1.5px;
+        line-height: 40px;
+        span {
+          display: block;
+          font-weight: 500;
+        }
+      }
+      p {
+        letter-spacing: 0.5px;
+        margin-bottom: 2em;
+        a {
+          text-decoration: underline;
+        }
+        &.android__content--smaller {
+          font-size: 0.75em;
+        }
+      }
+      .options {
+        padding-top: 10px;
+        text-align: center;
+        p {
+          display: inline-block;
+          font-size: 0.8em;
+          margin: 0;
+        }
+      }
+    }
+    form {
+      input {
+        @extend .rounded-input;
+        $inputs: email 12px 30px;
+        @include anim-input-icons($inputs);
+        &[type="email"] {
+          position: relative;
+        }
+      }
+      .oform-error-show,
+      .error-show {
+        color: #e58d88;
+      }
+    }
+    input[type="email"] {
+      width: 100%;
+    }
+    button[type="submit"] {
+      width: 100%;
+      @extend .new-primary-button;
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+
+	body.android-page {
+    footer {
+      height: 700px;
+    }
+    .flex-tablet {
+      display: flex;
+    }
+    .android {
+      padding: 65px 0;
+      img {
+        width: auto;
+      }
+      .flex-cont {
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+      .flex-item {
+        margin: 0;
+        button {
+          margin: 0;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+        }
+        &:first-of-type {
+          width: 250px;
+          margin-right: 10px;
+        }
+        &:last-of-type {
+          width: 140px;
+        }
+      }
+      .android__content {
+        padding-top: 40px;
+        height: auto;
+        &,
+        a,
+        h1 {
+          color: #fff;
+          text-align: right;
+        }
+        .options {
+          text-align: right;
+        }
+      }
+      form {
+        .input-control {
+          display: block;
+          input {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+

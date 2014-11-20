@@ -43,6 +43,7 @@
 }
 
 .button {
+	background-color: #126fb0;
 	background: linear-gradient(to bottom, #147ec7 0%,#126fb0 100%);
 	color: #fff!important;
 	border: 1px solid #22599a;
@@ -66,6 +67,35 @@
 		border-color: #1c487d;
 		text-decoration: none;
 	}
+}
+
+.new-primary-button {
+  box-shadow: 1px 1px 2px 0px #719508;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 0.9em;
+  letter-spacing: 1.5px;
+  background-color: #97c70a;
+  text-decoration: none;
+  cursor: pointer;
+  border:none;
+  font-family: $body-font-family;
+  font-weight: 100;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  border-radius: 5px;
+  &:hover {
+    box-shadow: 2px 2px 2px 0px #719508;
+  }
+}
+
+.rounded-input {
+  margin: 0;
+  padding: 15px 4px;
+  border: none;
+  border-radius: 4.5px;
 }
 
 .primary-button {
@@ -424,10 +454,10 @@ body.error-state {
 }
 
 body {
-  input[type="text"], 
-  input[type="url"], 
-  input[type="email"], 
-  input[type="tel"],  
+  input[type="text"],
+  input[type="url"],
+  input[type="email"],
+  input[type="tel"],
   input[type="password"]
   button[type="submit"] {
     transition: all 0.1s linear;
@@ -440,17 +470,17 @@ body {
     opacity: 0.65
   }
   .processing-state {
-    input[type="text"], 
-    input[type="url"], 
-    input[type="email"], 
-    input[type="tel"],  
+    input[type="text"],
+    input[type="url"],
+    input[type="email"],
+    input[type="tel"],
     input[type="password"] {
       background-color: #eee;
     }
-    input[type="text"], 
-    input[type="url"], 
-    input[type="email"], 
-    input[type="tel"],  
+    input[type="text"],
+    input[type="url"],
+    input[type="email"],
+    input[type="tel"],
     input[type="password"]
     button[type="submit"] {
       opacity: 0.65;

@@ -66,7 +66,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       window.optly.mrkt.errorQ.push([
         'logError',
         {
-          error: message,
+          error: message ? message : 'We\'ve encoutered an unexpected error.'
         }
       ]);
     },
@@ -77,6 +77,66 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       }
       if( this.optionsErrorElm.classList.contains('error-show') ) {
         this.optionsErrorElm.classList.remove('error-show');
+      }
+    },
+
+    parseResponse: function(e) {
+      var resp,
+        responseSuccess = true,
+        message = 'An unexpected error occurred. Please contact us if the problem persists.';
+
+      try {
+        resp = JSON.parse(e.target.responseText);
+      } catch(err) {
+        var action = this.formElm.getAttribute('action');
+        window.analytics.track(action, {
+          category: 'api error',
+          label: 'response contains invalid JSON: ' + err
+        });
+      }
+
+      if(e.target && e.target.status !== 200) {
+        if(resp && resp.error) {
+          message = resp.error;
+        } 
+
+        w.analytics.track(this.formElm.getAttribute('action'), {
+          category: 'api error',
+          label: 'status not 200: ' + e.target.status
+        });
+
+        responseSuccess = false;
+
+      }
+
+      if(responseSuccess) {
+        // accounts for if there is a parse error we still want to continue with success logic
+        // use an empty object for boolean logic and in case subsequent logic calls methods on the response
+        return resp || {};
+      } else {
+        this.showOptionsError(message);
+        this.processingRemove({callee: 'load'});
+
+        return responseSuccess;
+      }
+
+    },
+
+    redirectHelper: function(options) {
+      if(window.optly.mrkt.automatedTest()) {
+        if(options.bodyClass) {
+          document.body.classList.add(options.bodyClass);
+        }
+        // iterate through data attributes and apply them to the body
+        if(options.bodyData) {
+          for(var dataAttr in options.bodyData) {
+            document.body.dataset[dataAttr] = options.bodyData[dataAttr];
+          }
+        }
+      } else {
+        window.setTimeout(function() {
+          window.location = options.redirectPath;
+        }, 500);
       }
     }
   
@@ -105,10 +165,11 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
     processingAdd: function(argsObj) {
       if( !this.bodyClass.contains('processing-state') ) {
-        this.bodyClass.add('processing-state');
-        if(!argsObj || !argsObj.omitDisabled) {
-          this.handleDisable('add');
-        } 
+        this.bodyClass.add('processing-state'); 
+      }
+
+      if(!argsObj || !argsObj.omitDisabled) {
+        this.handleDisable('add');
       }
 
       return true;
