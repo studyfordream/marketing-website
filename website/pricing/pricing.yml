@@ -199,7 +199,7 @@ enterprise_plan:
 
         #### Flexible number of projects and Optimizely users
 
-        #### Role-base permission management
+        #### Role-based permission management
 faq:
   header: "FAQs"
   entries:
