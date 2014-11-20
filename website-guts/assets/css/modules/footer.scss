@@ -88,16 +88,16 @@ footer {
         border-bottom-color: #b4b7b9;
       }
       .facebook {
-        background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/facebook.svg');
+        background: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/facebook.svg');
       }
       .google-plus {
-        background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/google.svg');
+        background: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/google.svg');
       }
       .twitter {
-        background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/twitter.svg');
+        background: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/twitter.svg');
       }
       .logo {
-        background: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/logo-gray 2.svg');
+        background: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/logo-gray 2.svg');
         position: relative;
         left: -5px;
         width: 135px;
@@ -111,11 +111,8 @@ footer {
       .twitter,
       .logo {
         background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-      }
-      .logo {
         background-size: contain;
+        background-position: center center;
       }
     }
 }
