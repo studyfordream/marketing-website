@@ -25,7 +25,7 @@ describe('test homepage', function() {
         .evaluate(function() {
           return document.body.getAttribute('class');
         }, function(result) {
-            var createAccount = /create\-account\-success/;
+            var createAccount = /signed\-in/;
             var testItOut = /test\-it\-out\-success/;
             expect(createAccount.test(result)).toBe(true);
             expect(testItOut.test(result)).toBe(true);
