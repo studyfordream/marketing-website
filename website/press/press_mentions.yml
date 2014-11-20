@@ -1,5 +1,15 @@
 items:
 -
+  logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/usa-today.svg"
+  link_to_story: "http://www.usatoday.com/story/tech/columnist/shinal/2014/11/18/optimizely-wants-to-fine-tune-the-mobile-web/19237439/"
+  story_date: "2014-11-18"
+  story_title: "Optimizely wants to fine-tune the mobile web"
+-
+  logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/forbes.svg"
+  link_to_story: "http://www.forbes.com/sites/benkepes/2014/11/18/optimizely-brings-ab-testing-to-mobile/"
+  story_date: "2014-11-18"
+  story_title: "Optimizely Brings A/B Testing to Mobile"
+-
   logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/BI.jpeg"
   link_to_story: "http://www.businessinsider.com/what-apm-graduates-are-doing-now-2014-10?op=1"
   story_date: "2014-10-28"
