@@ -148,27 +148,24 @@ var createAccountHelper = {
   },
 
   load: function(e) {
-    var formElm = this.formElm;
-    var resp = JSON.parse(e.target.responseText);
+    var resp = this.parseResponse(e),
+      formElm = this.formElm;
 
-    if(e.target.status !== 200) {
-      this.processingRemove({callee: 'load'});
-      this.showOptionsError(resp.error);
-    } else {
-      document.body.classList.add('create-account-success');
+    if(resp) {
       w.optly.mrkt.Oform.trackLead({
-        name: formElm.querySelector('[name="name"]').value,
+        name: formElm.querySelector('[name="name"]').value || '',
         email: formElm.querySelector('[name="email"]').value,
-        phone: formElm.querySelector('[name="phone_number"]').value,
+        phone: formElm.querySelector('[name="phone_number"]').value || '',
         Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
         Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
         iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
         Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
       }, e);
 
-      window.optly.mrkt.modal.close({ modalType: 'signup', track: false });
-      window.optly_q.acctData = resp;
-      window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
+      this.redirectHelper({
+        redirectPath: '/welcome',
+        bodyClass: 'signed-in'
+      });
     }
 
   },

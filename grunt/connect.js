@@ -75,9 +75,8 @@ module.exports = function(grunt, options) {
                   res.end( grunt.file.read('website-guts/endpoint-mocks/accountExists.json') );
 
                 } else if(req.url === '/account/create') {
-                    res.cookie('optimizely_signed_in', '1', {httpOnly: false});
-
                     if(req.body.email !== 'david.fox-powell@optimizely.com') {
+                      res.cookie('optimizely_signed_in', '1', {httpOnly: false});
                       res.writeHead(200, {'Content-Type': 'application/json'});
                       res.end( grunt.file.read('website-guts/endpoint-mocks/createAccount.json') );
                     } else {
