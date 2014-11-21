@@ -31,12 +31,7 @@ var config = {
                        '  window.optly = window.optly || {}; \n\n' +
                        '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
                        '  window.linkPath = "" \n\n' +
-                       '  try { \n\n',
-        concat_footer: '  } catch(error){ \n\n' +
-                       '  //report errors to GA \n\n' +
-                       '  window.console.log("js error: " + error);' +
-                       '  } \n' +
-                       '})(jQuery, window, document);'
+                       '  try { \n\n'
       }
     }
   },
@@ -55,12 +50,7 @@ var config = {
                        '  window.optly = window.optly || {}; \n\n' +
                        '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
                        '  window.linkPath = "<%= gitinfo.local.branch.current.name %>" \n\n' +
-                       '  try { \n\n',
-        concat_footer: '  } catch(error){ \n\n' +
-                       '  //report errors to GA \n\n' +
-                       '  window.console.log("js error: " + error);' +
-                       '  } \n' +
-                       '})(jQuery, window, document);'
+                       '  try { \n\n'
       }
     }
   },
@@ -79,12 +69,7 @@ var config = {
                        '  window.optly = window.optly || {}; \n\n' +
                        '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
                        '  window.linkPath = "<%= gitinfo.local.branch.current.name %>" \n\n' +
-                       '  try { \n\n',
-        concat_footer: '  } catch(error){ \n\n' +
-                       '  //report errors to GA \n\n' +
-                       '  window.console.log("js error: " + error);' +
-                       '  } \n' +
-                       '})(jQuery, window, document);'
+                       '  try { \n\n'
       }
     }
   },
@@ -102,8 +87,8 @@ var config = {
         concat_banner: '(function($, w, d){ \n\n' +
                        '  window.optly = window.optly || {}; \n\n' +
                        '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-                       '  window.linkPath = "/dist" \n\n',
-        concat_footer: '})(jQuery, window, document);'
+                       '  window.linkPath = "/dist" \n\n' +
+                       '  try { \n\n'
       }
     }
   },

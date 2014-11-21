@@ -63,6 +63,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('server', [
+    'gitinfo',
     'config:dev',
     'jshint:clientDev',
     'jshint:server',

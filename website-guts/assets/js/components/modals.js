@@ -125,7 +125,7 @@ window.optly.mrkt.modal.open = function(modalArgs) {
   if(modalState.type !== undefined) {
     window.optly.mrkt.modal.close({ modalType: modalState.type, track: false });
   }
-
+  
   //Hack for IE focus in
   if($focusElm.length > 0) {
 
