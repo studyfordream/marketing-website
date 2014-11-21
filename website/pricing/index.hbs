@@ -33,6 +33,9 @@ modals:
         </div><!--/.plan-box-content-->
         <div class="cta">
           {{#omarkdown}}{{{pricing.enterprise_plan.cta}}}{{/omarkdown}}
+          <p id="SL-phone-number-pricing" class="SL_swap">
+            <a href="tel:{{pricing.enterprise_plan.phone}}">{{pricing.enterprise_plan.phone}}</a>
+          </p>
           <p class="hidden current-plan">Your current plan</p>
         </div><!--/.cta-->
       </div><!--/.plan-box-->
@@ -82,7 +85,7 @@ modals:
       </div><!--/.feature-list-box-->
     </div><!--/.pricing-feature-detail-cont-->
     <div class="row">
-      <h3 class="pricing-section__feature-list__question"><strong>Still have a question?</strong> Call us at <a href="tel:18002529480">1-800-252-9480</a></h3>
+      <h3 class="pricing-section__feature-list__question"><strong>Still have a question?</strong> Call us at <span id="SL-phone-number-pricing" class="SL_swap"><a href="tel:{{pricing.enterprise_plan.phone}}">{{pricing.enterprise_plan.phone}}</a></span></h3>
     </div><!--/.row-->
   </div><!--/.container-->
 </section>
