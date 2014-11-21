@@ -34,6 +34,14 @@ showIncrementValues = function() {
 showIncrementValues();
 
 var symExpDict = {
+  brand: {
+    heading: 'Experience Optimization by Optimizely'
+  },
+  
+  eo: {
+    heading: 'Experience Optimization by Optimizely'
+  },
+
   abew: {
     text: 'A/B Experiments Tool',
     heading: 'Easy Website A/B Experiments'
@@ -534,8 +542,11 @@ var queryString = window.optly.mrkt.utils.deparam(window.location.href);
 if( !!queryString.otm_content ) {
   var content = symExpDict[ queryString.otm_content ];
 
-  if(content.heading && content.text) {
+  if(content.heading) {
     $('.seo-form-heading').text(content.heading);
+  }
+
+  if(content.text) {
     $('#symmetry_test').text(content.text);
   }
 
