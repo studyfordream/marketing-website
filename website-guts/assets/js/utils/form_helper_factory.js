@@ -42,9 +42,26 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
   };
 
   var defaultHelpers = {
+    errorMessages: {
+      DEFAULT: window.optly.tr('Please Correct Form Errors'),
+      UNEXPECTED: window.optly.tr('An unexpected error occurred. Please contact us if the problem persists.'),
+      REQUIRED_FIELD: window.optly.tr('This field is required'),
+      INVALID_PASSWORD: window.optly.tr('Password is Invalid'),
+      PASSWORD_CHAR: window.optly.tr('Password Minimum 8 characters, mix of upper/lowercase letters, numbers or symbols'),
+      ENTER_SAME_VAL: window.optly.tr('Please enter the same value as above'),
+      DIALOG_DEFAULT: window.optly.tr('We\'ve encoutered an unexpected error.'),
+      DIALOG_ACCOUNT: window.optly.tr('There was an error creating your account.')
+    },
+
     showOptionsError: function (message){
+      var errorElmText = this.optionsErrorElm.innerHTML;
+      if(typeof message === 'object') {
+        message = this.errorMessages[message.error];
+      }
       if(message) {
         this.optionsErrorElm.innerHTML = message;
+      } else if (errorElmText.length === 0) {
+        this.optionsErrorElm.innerHTML = this.errorMessages.DEFAULT;
       }
       if(!document.body.classList.contains('error-state')) {
         document.body.classList.add('error-state');
@@ -63,10 +80,13 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     },
 
     showErrorDialog: function(message) {
+      if(typeof message === 'object') {
+        message = this.errorMessages[message.error];
+      } 
       window.optly.mrkt.errorQ.push([
         'logError',
         {
-          error: message ? message : 'We\'ve encoutered an unexpected error.'
+          error: message ? message : this.errorMessages.DIALOG_DEFAULT
         }
       ]);
     },
@@ -75,32 +95,35 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       if(!document.body.classList.contains('error-state')) {
         document.body.classList.add('error-state');
       }
-      $.each(elmArr, function(i, elm) {
-        if( !elm.classList.contains('error-show') ) {
-          elm.classList.add('error-show');
-        }
-      });
+
+      if(elmArr) {
+        $.each(elmArr, function(i, elm) {
+          if( !elm.classList.contains('error-show') ) {
+            elm.classList.add('error-show');
+          }
+        });
+      }
     },
 
     removeErrors: function(elmArr, retainBodyClass) {
       if( arguments.length === 0 || (!retainBodyClass && document.body.classList.contains('error-state')) ) {
         document.body.classList.remove('error-state');
       }
-<<<<<<< HEAD
-      $.each(elmArr, function(i, elm) {
-        if( elm.classList.contains('error-show') ) {
-          elm.classList.remove('error-show');
-        }
-      });
-    },
-=======
+
+      if(elmArr) {
+        $.each(elmArr, function(i, elm) {
+          if( elm.classList.contains('error-show') ) {
+            elm.classList.remove('error-show');
+          }
+        });
+      }
     },
 
     parseResponse: function(e) {
       var resp,
         responseSuccess = true,
-        message = 'An unexpected error occurred. Please contact us if the problem persists.';
-
+        message = this.errorMessages.UNEXPECTED;
+debugger;
       try {
         resp = JSON.parse(e.target.responseText);
       } catch(err) {
@@ -113,7 +136,8 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
       if(e.target && e.target.status !== 200) {
         if(resp && resp.error) {
-          message = resp.error;
+          // translate error message from server for localization
+          message = window.optly.tr(resp.error);
         } 
 
         w.analytics.track(this.formElm.getAttribute('action'), {
@@ -155,8 +179,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         }, 500);
       }
     }
->>>>>>> 125343ff64303bfc50204d39a70332046b59b43b
-  
+
   };
 
   var processingHelpers = {

@@ -25,7 +25,9 @@ $(createExpHelperInst.formElm).on('submit', function(e) {
       window.location.href = uri;
     }, 500);
 
-  } 
+  } else {
+    createExpHelperInst.showOptionsError();
+  }
   
 
 });

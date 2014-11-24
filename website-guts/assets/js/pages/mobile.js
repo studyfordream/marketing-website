@@ -193,7 +193,7 @@ $(function() {
     signupMobileMvppTopHelperInst.formElm.querySelector('input[name="platform"]').value = 'ios';
     signupMobileMvppTopHelperInst.processingAdd();
     signupMobileMvppTopHelperInst.removeErrors();
-    signupMobileMvppTopHelperInst.optionsErrorElm.innerHTML = 'Please correct form errors.';
+    signupMobileMvppTopHelperInst.optionsErrorElm.innerHTML = signupMobileMvppTopHelperInst.errorMessages.DEFAULT;
     return true;
   });
 
@@ -204,8 +204,8 @@ $(function() {
 
   signupFormTop.on('error', function() {
     signupMobileMvppTopHelperInst.processingRemove({callee: 'error'});
-    signupMobileMvppTopHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
-    signupMobileMvppTopHelperInst.showErrorDialog('There was an error creating your account.');
+    signupMobileMvppTopHelperInst.showOptionsError({error: 'UNEXPECTED'});
+    signupMobileMvppTopHelperInst.showErrorDialog({error: 'DIALOG_ACCOUNT'});
     window.analytics.track('create account xhr error', {
       category: 'account',
       label: w.location.pathname
@@ -238,7 +238,7 @@ $(function() {
     signupMobileMvppBottomHelperInst.formElm.querySelector('input[name="platform"]').value = 'ios';
     signupMobileMvppBottomHelperInst.processingAdd();
     signupMobileMvppBottomHelperInst.removeErrors();
-    signupMobileMvppBottomHelperInst.optionsErrorElm.innerHTML = 'Please correct form errors.';
+    signupMobileMvppBottomHelperInst.optionsErrorElm.innerHTML = signupMobileMvppBottomHelperInst.errorMessages.DEFAULT;
     return true;
   });
 
@@ -249,8 +249,8 @@ $(function() {
 
   signupFormBottom.on('error', function() {
     signupMobileMvppBottomHelperInst.processingRemove({callee: 'error'});
-    signupMobileMvppBottomHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
-    signupMobileMvppBottomHelperInst.showErrorDialog('There was an error creating your account.');
+    signupMobileMvppBottomHelperInst.showOptionsError({error: 'DEFAULT'});
+    signupMobileMvppBottomHelperInst.showErrorDialog({error: 'DIALOG_ACCOUNT'});
     window.analytics.track('create account xhr error', {
       category: 'account',
       label: w.location.pathname

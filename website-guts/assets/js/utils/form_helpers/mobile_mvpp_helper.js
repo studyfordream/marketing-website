@@ -2,20 +2,11 @@ window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 var mobileMvppHelper = {
 
-  removeErrors: function() {
-    if(document.body.classList.contains('error-state')) {
-      document.body.classList.remove('error-state');
-    }
-    if( this.optionsErrorElm.classList.contains('error-show') ) {
-      this.optionsErrorElm.classList.remove('error-show');
-    }
-  },
-
   passwordValidate: function(elm) {
     var validationPassed = w.optly.mrkt.utils.checkComplexPassword(elm.value);
 
     if(!validationPassed) {
-      this.optionsErrorElm.innerHTML = 'Password Minimum 8 characters, mix of upper/lowercase letters, numbers or symbols';
+      this.optionsErrorElm.innerHTML = this.errorMessages.PASSWORD_CHAR;
     }
 
     return validationPassed;

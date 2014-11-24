@@ -26,7 +26,7 @@ w.optly.mrkt.activeModals.signup.on('before', function() {
 
 w.optly.mrkt.activeModals.signup.on('validationerror', function(elm) {
   w.optly.mrkt.Oform.validationError(elm);
-  signupDialogHelperInst.showOptionsError('Please Correct Form Errors');
+  signupDialogHelperInst.showOptionsError({error: 'DEFAULT'});
   if(!signupDialogHelperInst.characterMessageElm.classList.contains('oform-error-show')) {
     signupDialogHelperInst.characterMessageElm.classList.add('oform-error-show');
   }
