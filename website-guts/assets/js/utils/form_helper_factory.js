@@ -86,12 +86,76 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       if( arguments.length === 0 || (!retainBodyClass && document.body.classList.contains('error-state')) ) {
         document.body.classList.remove('error-state');
       }
+<<<<<<< HEAD
       $.each(elmArr, function(i, elm) {
         if( elm.classList.contains('error-show') ) {
           elm.classList.remove('error-show');
         }
       });
     },
+=======
+    },
+
+    parseResponse: function(e) {
+      var resp,
+        responseSuccess = true,
+        message = 'An unexpected error occurred. Please contact us if the problem persists.';
+
+      try {
+        resp = JSON.parse(e.target.responseText);
+      } catch(err) {
+        var action = this.formElm.getAttribute('action');
+        window.analytics.track(action, {
+          category: 'api error',
+          label: 'response contains invalid JSON: ' + err
+        });
+      }
+
+      if(e.target && e.target.status !== 200) {
+        if(resp && resp.error) {
+          message = resp.error;
+        } 
+
+        w.analytics.track(this.formElm.getAttribute('action'), {
+          category: 'api error',
+          label: 'status not 200: ' + e.target.status
+        });
+
+        responseSuccess = false;
+
+      }
+
+      if(responseSuccess) {
+        // accounts for if there is a parse error we still want to continue with success logic
+        // use an empty object for boolean logic and in case subsequent logic calls methods on the response
+        return resp || {};
+      } else {
+        this.showOptionsError(message);
+        this.processingRemove({callee: 'load'});
+
+        return responseSuccess;
+      }
+
+    },
+
+    redirectHelper: function(options) {
+      if(window.optly.mrkt.automatedTest()) {
+        if(options.bodyClass) {
+          document.body.classList.add(options.bodyClass);
+        }
+        // iterate through data attributes and apply them to the body
+        if(options.bodyData) {
+          for(var dataAttr in options.bodyData) {
+            document.body.dataset[dataAttr] = options.bodyData[dataAttr];
+          }
+        }
+      } else {
+        window.setTimeout(function() {
+          window.location = options.redirectPath;
+        }, 500);
+      }
+    }
+>>>>>>> 125343ff64303bfc50204d39a70332046b59b43b
   
   };
 

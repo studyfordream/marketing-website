@@ -16,15 +16,9 @@ module.exports = {
       expand: true,
       src: [
         'free-trial/**/*.html',
-        'customers/**/*.html',
-        'enterprises/**/*.html',
-        'events/**/*.html','faq/**/*.html',
-        'partners/technology/{,bizible/}*.html',
         'mobile/**/*.html',
-        'partners/solutions/{,blue-acorn/}*.html',
-        'press/**/*.html',
-        'resources/{live-demo-webinar,sample-size-calculator}/*.html',
-        'terms/**/*.html'
+        'android/**/*.html',
+        'pricing/**/*.html'
       ],
       dest: 'desktop'
       }
@@ -41,15 +35,9 @@ module.exports = {
       expand: true,
       src: [
         'free-trial/**/*.html',
-        'customers/**/*.html',
-        'enterprises/**/*.html',
-        'events/**/*.html','faq/**/*.html',
-        'partners/technology/{,bizible/}*.html',
         'mobile/**/*.html',
-        'partners/solutions/{,blue-acorn/}*.html',
-        'press/**/*.html',
-        'resources/{live-demo-webinar,sample-size-calculator}/*.html',
-        'terms/**/*.html'
+        'android/**/*.html',
+        'pricing/**/*.html'
       ],
       dest: 'tablet'
       }
@@ -66,15 +54,9 @@ module.exports = {
       expand: true,
       src: [
         'free-trial/**/*.html',
-        'customers/**/*.html',
-        'enterprises/**/*.html',
-        'events/**/*.html','faq/**/*.html',
-        'partners/technology/{,bizible/}*.html',
         'mobile/**/*.html',
-        'partners/solutions/{,blue-acorn/}*.html',
-        'press/**/*.html',
-        'resources/{live-demo-webinar,sample-size-calculator}/*.html',
-        'terms/**/*.html'
+        'android/**/*.html',
+        'pricing/**/*.html'
       ],
       dest: 'mobile'
       }

@@ -45,11 +45,10 @@ describe('testing the signin, create account, retrieve password dialogs', functi
         .wait('body.signed-in')
         .screenshot(config.screenshot({ imgName: 'signup-complete' }))
         .evaluate(function() {
-          return {
-            signedIn: document.body.classList.contains('signed-in')
-          };
-        }, function(results) {
-            expect(results.signedIn).toBe(true);
+          return document.body.getAttribute('class');
+        }, function(result) {
+          var signedIn = /signed\-in/;
+          expect(signedIn.test(result)).toBe(true);
         })
         .run(done);
     });

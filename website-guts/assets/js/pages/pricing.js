@@ -15,6 +15,14 @@ var updatePlanInfo = function(){
 
   //remove starter signup if enterprise
   if(typeof w.optly.mrkt.user.acctData === 'object'){
+    if(w.optly.mrkt.user.acctData.plan_id){
+      var enterpriseRegex = /^enterprise|c/;
+      if(enterpriseRegex.test(w.optly.mrkt.user.acctData.plan_id)){
+        d.body.classList.add('plan-enterprise');
+      } else {
+        d.body.classList.add('plan-' + w.optly.mrkt.user.acctData.plan_id);
+      }
+    }
     if(
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-monthly' ||
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-oneyear' ||
@@ -90,12 +98,15 @@ var updatePlanInfo = function(){
 
         //user is signed in, but no plan
         //sign the user up for the starter plan
+        document.body.classList.add('processing-free-light');
         w.optly.mrkt.changePlanHelper.changePlan({
           plan: 'free_light',
           callback: function(){
               //show confirmation
               //w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
-              w.location = 'https://www.optimizely.com/welcome';
+              if(!w.optly.mrkt.automatedTest()){
+                w.location = 'https://www.optimizely.com/welcome';
+              }
           },
           load: w.optly.mrkt.changePlanHelper.load
         });
@@ -195,9 +206,7 @@ $('#downgrade-plan-form').submit(function(e){
       w.optly.mrkt.modal.open({ modalType: 'downgrade-plan-confirm' });
       //downgrade-plan
       $('#downgrade-plan-confirm-form').submit(function(){
-        w.console.log('submitted');
         if(!w.optly.mrkt.automatedTest()){
-          w.console.log('is automated test');
           location.reload();
         }
       });

@@ -1,4 +1,11 @@
 body.trial-form-layout {
+  &.ppc-page {
+    #ppc-form {
+      p:first-of-type {
+        display: none;
+      }
+    }
+  }
   #ppc-form {
     h4 {
       text-align: center;
