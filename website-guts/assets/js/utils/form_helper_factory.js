@@ -46,11 +46,16 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       DEFAULT: window.optly.tr('Please Correct Form Errors'),
       UNEXPECTED: window.optly.tr('An unexpected error occurred. Please contact us if the problem persists.'),
       REQUIRED_FIELD: window.optly.tr('This field is required'),
+      VALID_EMAIL: window.optly.tr('Please enter a valid email address.'),
       INVALID_PASSWORD: window.optly.tr('Password is Invalid'),
       PASSWORD_CHAR: window.optly.tr('Password Minimum 8 characters, mix of upper/lowercase letters, numbers or symbols'),
       ENTER_SAME_VAL: window.optly.tr('Please enter the same value as above'),
       DIALOG_DEFAULT: window.optly.tr('We\'ve encoutered an unexpected error.'),
       DIALOG_ACCOUNT: window.optly.tr('There was an error creating your account.')
+    },
+
+    successMessages: {
+      DEFAULT: window.optly.tr('Submitted Successfully')
     },
 
     showOptionsError: function (message){
@@ -70,8 +75,35 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         this.optionsErrorElm.classList.add('error-show');
       }
     },
+
+    showOptionsSuccess: function (message){
+      if(typeof message === 'object') {
+        if(message.serverMessage) {
+          message = window.optly.tr(message.serverMessage);
+        } else {
+          message = this.successMessages[message.success];
+        }
+        this.optionsErrorElm.innerHTML = message;
+      }
+      
+      if(document.body.classList.contains('error-state')) {
+        document.body.classList.remove('error-state');
+      }
+
+      if( this.optionsErrorElm.classList.contains('error-show') ) {
+        this.optionsErrorElm.classList.remove('error-show');
+      } 
+
+      if ( !this.optionsErrorElm.classList.contains('success-show') ) {
+        this.optionsErrorElm.classList.add('success-show');
+      }
+
+    },
     
     customErrorMessage: function (elm, message) {
+      if(typeof message === 'object') {
+        message = this.errorMessages[message.error];
+      }
       if(message) {
         elm.innerHTML = message;
       } else {
@@ -123,7 +155,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       var resp,
         responseSuccess = true,
         message = this.errorMessages.UNEXPECTED;
-debugger;
+
       try {
         resp = JSON.parse(e.target.responseText);
       } catch(err) {
