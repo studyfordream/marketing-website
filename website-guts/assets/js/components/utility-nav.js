@@ -29,8 +29,10 @@ function bindDropdownClick($dropdownMenus) {
 }
 
 window.optly.mrkt.showUtilityNav = function (acctData, expData) {
-
-  if(acctData) {
+  // problem exists that sometimes signed in cookie is present when user is not signed it
+  // /account/info endpoint can still be hit but returns null data
+  // check below to not throw a bundle error
+  if(acctData && acctDat.account_id) {
     var iosProjectCount = 0,
       projectCount = Object.keys(acctData.projects).length,
       email = acctData.email,
