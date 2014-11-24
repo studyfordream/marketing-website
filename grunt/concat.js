@@ -1,18 +1,30 @@
 module.exports = function(grunt, options) {
-  var footerBanner = '  } catch(error){ \n\n' +
-                       '    if("<%= grunt.config.get(\'environment\') %>" !== "dev") {\n\n' +
-                       '      var path = window.location.pathname;\n\n' +
-                       '      var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' + 
-                       '      window.ga("send", "event", "<%= grunt.task.current.target %>" + " JavaScript Error", trimpath, error);\n\n' + 
-                       '    } else {console.log("JavaScript Error in: \'<%= grunt.task.current.target %>\'")}\n\n' +
-                     '  }//end catch \n\n' +
+  debugger;
+  var headerBanner = '(function($, w, d){ \n\n' +
+                     '  window.optly = window.optly || {}; \n\n' +
+                     '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
+                     '  window.linkPath = "<%= grunt.config.get("link_path") %>" \n\n' +
+                     '  var bundleInit = function () { \n\n';
+
+  var footerBanner = '  }; //end bundleInit \n\n' +
+                     '  if ("<%= grunt.config.get(\'environment\') %>" !== "dev") {\n\n' +
+                     '    try {\n\n' +
+                     '      bundleInit();\n\n' +
+                     '    } catch(error){ \n\n' +
+                     '      var path = window.location.pathname;\n\n' +
+                     '      var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' + 
+                     '      window.ga("send", "event", "<%= grunt.task.current.target %>" + " JavaScript Error", trimpath, error);\n\n' + 
+                     '    }\n\n' +
+                     '  } else {\n\n' +
+                     '    bundleInit();\n\n' +
+                     '  }\n\n' +
                      '})(jQuery, window, document);';
 
 
   return {
     namespacePages: {
       options: {
-        banner: '<%= grunt.config.get("concat_banner") %>',
+        banner: headerBanner,
         footer: footerBanner
       },
       src: ['pages/*.js', 'layouts/*.js'],
@@ -32,7 +44,7 @@ module.exports = function(grunt, options) {
     },
     namespaceGlobal: {
       options: {
-        banner: '<%= grunt.config.get("concat_banner") %>',
+        banner: headerBanner,
         footer: footerBanner
       },
       files: {
