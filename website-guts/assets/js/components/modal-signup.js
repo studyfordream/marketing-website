@@ -34,7 +34,7 @@ w.optly.mrkt.activeModals.signup.on('validationerror', function(elm) {
 
 w.optly.mrkt.activeModals.signup.on('error', function() {
   signupDialogHelperInst.processingRemove({callee: 'error'});
-  signupDialogHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
+  signupDialogHelperInst.showOptionsError({error: 'UNEXPECTED'});
   window.analytics.track('create account xhr error', {
     category: 'account',
     label: w.location.pathname

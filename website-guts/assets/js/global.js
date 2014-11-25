@@ -449,7 +449,7 @@ window.optly.mrkt.changePlanHelper = {
 
 window.optly.mrkt.utils.smoothScroll = function(event) {
 
-	var targetElmPos = $(event.currentTarget).offset().top;
+	var targetElmPos = $(this.getAttribute('href')).offset().top;
 
 	event.preventDefault();
 

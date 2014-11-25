@@ -45,6 +45,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     errorMessages: {
       DEFAULT: window.optly.tr('Please Correct Form Errors'),
       UNEXPECTED: window.optly.tr('An unexpected error occurred. Please contact us if the problem persists.'),
+      REQUIRED: window.optly.tr('Required'),
       REQUIRED_FIELD: window.optly.tr('This field is required'),
       VALID_EMAIL: window.optly.tr('Please enter a valid email address.'),
       INVALID_PASSWORD: window.optly.tr('Password is Invalid'),
@@ -59,15 +60,20 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     },
 
     showOptionsError: function (message){
-      var errorElmText = this.optionsErrorElm.innerHTML;
       if(typeof message === 'object') {
-        message = this.errorMessages[message.error];
-      }
-      if(message) {
+        if(message.serverMessage) {
+          // translate the message if it is from the server response
+          message = window.optly.tr(message.serverMessage);
+        } else {
+          // get the success message translate from the constant dictionary
+          message = this.successMessages[message.success];
+        }
         this.optionsErrorElm.innerHTML = message;
-      } else if (errorElmText.length === 0) {
+      } else if (this.optionsErrorElm.innerHTML.length === 0) {
+        // if the error display element has no content enter the default message
         this.optionsErrorElm.innerHTML = this.errorMessages.DEFAULT;
       }
+
       if(!document.body.classList.contains('error-state')) {
         document.body.classList.add('error-state');
       }
@@ -79,11 +85,16 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     showOptionsSuccess: function (message){
       if(typeof message === 'object') {
         if(message.serverMessage) {
+          // translate the message if it is from the server response
           message = window.optly.tr(message.serverMessage);
         } else {
+          // get the success message translate from the constant dictionary
           message = this.successMessages[message.success];
         }
         this.optionsErrorElm.innerHTML = message;
+      } else if (this.optionsErrorElm.innerHTML.length === 0) {
+        // if the error display element has no content enter the default message
+        this.optionsErrorElm.innerHTML = this.errorMessages.DEFAULT;
       }
       
       if(document.body.classList.contains('error-state')) {
@@ -103,11 +114,9 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     customErrorMessage: function (elm, message) {
       if(typeof message === 'object') {
         message = this.errorMessages[message.error];
-      }
-      if(message) {
         elm.innerHTML = message;
       } else {
-        elm.innerHTML = 'Required';
+        elm.innerHTML = this.errorMessages.REQUIRED;
       }
     },
 
@@ -153,8 +162,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
     parseResponse: function(e) {
       var resp,
-        responseSuccess = true,
-        message = this.errorMessages.UNEXPECTED;
+        responseSuccess = true;
 
       try {
         resp = JSON.parse(e.target.responseText);
@@ -167,11 +175,6 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       }
 
       if(e.target && e.target.status !== 200) {
-        if(resp && resp.error) {
-          // translate error message from server for localization
-          message = window.optly.tr(resp.error);
-        } 
-
         w.analytics.track(this.formElm.getAttribute('action'), {
           category: 'api error',
           label: 'status not 200: ' + e.target.status
@@ -186,7 +189,12 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         // use an empty object for boolean logic and in case subsequent logic calls methods on the response
         return resp || {};
       } else {
-        this.showOptionsError(message);
+        if(resp && resp.error) {
+          // if the server response has an error property
+          this.showOptionsError({serverMessage: resp.error});
+        } else {
+          this.showOptionsError({error: 'UNEXPECTED'});
+        }
         this.processingRemove({callee: 'load'});
 
         return responseSuccess;
@@ -249,7 +257,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
     processingRemove: function(argsObj) {
       if( this.bodyClass.contains('processing-state') ) {
-        if(( argsObj && argsObj.callee === 'done' && ( this.bodyClass.contains('oform-error') || this.bodyClass.contains('error-state') ) ) || argsObj.callee == 'load' || argsObj.callee == 'error') {
+        if(( argsObj && argsObj.callee === 'done' && ( this.bodyClass.contains('oform-error') || this.bodyClass.contains('error-state') ) ) || argsObj.callee === 'load' || argsObj.callee === 'error') {
           this.bodyClass.remove('processing-state');
           if(!argsObj || !argsObj.retainDisabled) {
             this.handleDisable('remove');
