@@ -1,9 +1,7 @@
 body.trial-form-layout {
   &.ppc-page {
-    #ppc-form {
-      p:first-of-type {
-        display: none;
-      }
+    .seo-form-subheader {
+      display: none;
     }
   }
   #ppc-form {

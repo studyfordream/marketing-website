@@ -26,7 +26,7 @@ w.optly.mrkt.activeModals.signup.on('before', function() {
 
 w.optly.mrkt.activeModals.signup.on('validationerror', function(elm) {
   w.optly.mrkt.Oform.validationError(elm);
-  signupDialogHelperInst.showOptionsError('Please Correct Form Errors');
+  signupDialogHelperInst.showOptionsError({error: 'DEFAULT'});
   if(!signupDialogHelperInst.characterMessageElm.classList.contains('oform-error-show')) {
     signupDialogHelperInst.characterMessageElm.classList.add('oform-error-show');
   }
@@ -34,7 +34,7 @@ w.optly.mrkt.activeModals.signup.on('validationerror', function(elm) {
 
 w.optly.mrkt.activeModals.signup.on('error', function() {
   signupDialogHelperInst.processingRemove({callee: 'error'});
-  signupDialogHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
+  signupDialogHelperInst.showOptionsError({error: 'UNEXPECTED'});
   window.analytics.track('create account xhr error', {
     category: 'account',
     label: w.location.pathname

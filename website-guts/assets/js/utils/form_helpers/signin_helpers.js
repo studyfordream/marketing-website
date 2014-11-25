@@ -2,16 +2,6 @@ window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 var signinHelper = {
 
-  showOptionsError: function (message){
-    if(!document.body.classList.contains('error-state')) {
-      document.body.classList.add('error-state');
-    }
-    if( !this.optionsErrorElm.classList.contains('error-show') ) {
-      this.optionsErrorElm.classList.add('error-show');
-    }
-    this.optionsErrorElm.innerHTML = message;
-  },
-
   passwordValidation: function(elm) {
     this.beforeValidateEmail();
     if(elm.value.length > 0) {
@@ -21,35 +11,16 @@ var signinHelper = {
     }
   },
 
-  addError: function(elm) {
-    if(!document.body.classList.contains('error-state')) {
-      document.body.classList.add('error-state');
-    }
-    if( !elm.classList.contains('error-show') ) {
-      elm.classList.add('error-show');
-    }
-  },
-
-  removeError: function(elm) {
-    if(document.body.classList.contains('error-state')) {
-      document.body.classList.remove('error-state');
-    }
-    if( elm.classList.contains('error-show') ) {
-      elm.classList.remove('error-show');
-    }
-  },
-
   beforeValidateEmail: function() {
     var emailInput = this.formElm.querySelector('[name="email"]');
     var emailErrorElm = this.formElm.querySelector('.email-related');
+    // these custom validations are present because email is no validate because of legacy clients
+    // still want to use input type=email for mobile keyboard reasons but don't want oform to validate as email
     if(emailInput.value.length === 0) {
-      $.each([emailInput, emailErrorElm], function(i, elm) {
-        this.addError(elm);
-      }.bind(this));
+      this.addErrors([emailInput, emailErrorElm]);
+      this.showOptionsError();
     } else {
-      $.each([emailInput, emailErrorElm], function(i, elm) {
-        this.removeError(elm);
-      }.bind(this));
+      this.removeErrors([emailInput, emailErrorElm]);
     }
   },
 

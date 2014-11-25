@@ -1,47 +1,26 @@
 window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 var orgForm = {
-  
-  showOptionsError: function (message){
-    if(!document.body.classList.contains('error-state')) {
-      document.body.classList.add('error-state');
-    }
-    if( !this.optionsErrorElm.classList.contains('error-show') ) {
-      this.optionsErrorElm.classList.add('error-show');
-    }
-    this.optionsErrorElm.innerHTML = message;
-  },
 
-  formErrorBodyClass: function(errorState) {
-    if(errorState) {
-      document.body.classList.add('error-state');
-    } else {
-      document.body.classList.remove('error-state');
-    }
-  },
-
-  showFormFieldError: function(input) {
-    input.classList.add('error-show');
-    this.formElm.querySelector('.' + input.getAttribute('name') + '-related').classList.add('error-show');
+  getRelatedElm: function(input) {
+    return this.formElm.querySelector('.' + input.getAttribute('name') + '-related');
   },
 
   validateForm: function() {
     var segmentObj = {},
     formError = false,
+    errorInputs = [],
     emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     this.processingAdd();
-    if(document.body.classList.contains('error-state')) {
-      this.formErrorBodyClass(formError);
-    }
+    this.removeErrors();
     $.each(this.inputs, function(i, input) {
       if(input.getAttribute('type') !== 'submit' && input.hasAttribute('required')) {
+        // check if there is a form error
         if ( input.value === '' || ( input.getAttribute('name') === 'Email' && !emailRegEx.test(input.value) ) ) {
-          this.showFormFieldError(input);
           if(!formError) {
             formError = true;
-            this.formErrorBodyClass(formError);
-            this.showOptionsError('Please Enter Required Fields');
           }
+          errorInputs.push(input, this.getRelatedElm(input));
         }
       }
       if(input.getAttribute('type') !== 'submit') {
@@ -52,7 +31,10 @@ var orgForm = {
     if(!formError) {
       this.load(segmentObj);
     } else {
+      // order is important here, must add errors before removing processing of inputs will stay disabled
+      this.addErrors(errorInputs);
       this.processingRemove({callee: 'done'});
+      this.showOptionsError({error: 'DEFAULT'});
     }
   },
 

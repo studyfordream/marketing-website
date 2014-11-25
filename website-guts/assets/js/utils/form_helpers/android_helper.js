@@ -2,36 +2,6 @@ window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 var androidHelper = {
 
-  showOptionsError: function (message){
-    if(message) {
-      this.optionsErrorElm.innerHTML = message;
-    }
-    if(!document.body.classList.contains('error-state')) {
-      document.body.classList.add('error-state');
-    }
-    if( !this.optionsErrorElm.classList.contains('error-show') ) {
-      this.optionsErrorElm.classList.add('error-show');
-    }
-  },
-
-  showErrorDialog: function() {
-    window.optly.mrkt.errorQ.push([
-      'logError',
-      {
-        error: 'There was an error creating your account.',
-      }
-    ]);
-  },
-
-  removeErrors: function() {
-    if(document.body.classList.contains('error-state')) {
-      document.body.classList.remove('error-state');
-    }
-    if( this.optionsErrorElm.classList.contains('error-show') ) {
-      this.optionsErrorElm.classList.remove('error-show');
-    }
-  },
-
   success: function(hideShowContent) {
     var formEmail = this.formElm.querySelector('input[name="email"]').value,
       source = window.optly.mrkt.source;
@@ -46,8 +16,6 @@ var androidHelper = {
         }
       });
     }, 1000);
-
-
 
     //tracking code goes here
     w.analytics.identify(formEmail, {
@@ -80,9 +48,7 @@ var androidHelper = {
     });
 
     w.analytics.track('android preview success', {
-
       category: 'forms'
-
     });
   }
 

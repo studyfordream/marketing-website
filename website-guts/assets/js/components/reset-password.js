@@ -12,13 +12,16 @@ var resetPassForm = new Oform({
   }
 });
 
-resetPassForm.on('before', resetPassDialogHelperInst.processingAdd.bind(resetPassDialogHelperInst));
+resetPassForm.on('before', function() {
+  resetPassDialogHelperInst.removeErrors();
+  resetPassDialogHelperInst.processingAdd();
+}.bind(resetPassDialogHelperInst));
 
 resetPassForm.on('validationerror', w.optly.mrkt.Oform.validationError);
 
 resetPassForm.on('error', function() {
   resetPassDialogHelperInst.processingRemove({callee: 'error'});
-  resetPassDialogHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
+  resetPassDialogHelperInst.showOptionsError({error: 'UNEXPECTED'});
   window.analytics.track('reset password xhr error', {
     category: 'account',
     label: w.location.pathname

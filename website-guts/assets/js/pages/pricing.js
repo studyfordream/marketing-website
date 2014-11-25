@@ -159,6 +159,7 @@ signupForm.on('before', function() {
   //set the hidden input value
   signupHelper.formElm.querySelector('[name="hidden"]').value = 'touched';
   signupHelper.processingAdd();
+  signupHelper.removeErrors();
   if(signupHelper.characterMessageElm.classList.contains('oform-error-show')) {
     signupHelper.characterMessageElm.classList.remove('oform-error-show');
   }
@@ -167,7 +168,7 @@ signupForm.on('before', function() {
 
 signupForm.on('validationerror', function(elm) {
   w.optly.mrkt.Oform.validationError(elm);
-  signupHelper.showOptionsError('Please Correct Form Errors');
+  signupHelper.showOptionsError({error: 'DEFAULT'});
   if(!signupHelper.characterMessageElm.classList.contains('oform-error-show')) {
     signupHelper.characterMessageElm.classList.add('oform-error-show');
   }
@@ -175,7 +176,7 @@ signupForm.on('validationerror', function(elm) {
 
 signupForm.on('error', function() {
   signupHelper.processingRemove({callee: 'error'});
-  signupHelper.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
+  signupHelper.showOptionsError({error: 'UNEXPECTED'});
   window.analytics.track('create account xhr error', {
     category: 'account',
     label: w.location.pathname
@@ -196,7 +197,6 @@ signupForm.on('done', function() {
 
 /* downgrade plan */
 $('#downgrade-plan-form').submit(function(e){
-  console.log('downgrade submitted');
   d.body.classList.add('downgrade-plan-submit');
   w.optly.mrkt.changePlanHelper.changePlan({
     plan: 'free_light',
