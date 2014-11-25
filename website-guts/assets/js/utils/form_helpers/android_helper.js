@@ -4,7 +4,9 @@ var androidHelper = {
 
   success: function(hideShowContent) {
     var formEmail = this.formElm.querySelector('input[name="email"]').value,
-      source = window.optly.mrkt.source;
+        source = window.optly.mrkt.source,
+        randomString = window.optly.mrkt.utils.randomString();
+
 
     window.setTimeout(function() {
       $.each(hideShowContent, function(i, elm) {
@@ -18,7 +20,7 @@ var androidHelper = {
     }, 1000);
 
     //tracking code goes here
-    w.analytics.identify(formEmail, {
+    w.analytics.identify(randomString, {
       utm_Campaign__c: source.utm.campaign,
       utm_Content__c: source.utm.content,
       utm_Medium__c: source.utm.medium,

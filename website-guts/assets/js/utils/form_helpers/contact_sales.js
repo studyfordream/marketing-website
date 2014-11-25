@@ -5,7 +5,8 @@ var contactSalesHelpers = {
 
     d.body.classList.add('contact-sales-success');
 
-    w.analytics.identify($('#contact-sales-form [name="email_address"]').val(), {
+    var randomString = window.optly.mrkt.utils.randomString();
+    w.analytics.identify(randomString, {
       FirstName: $('#contact-sales-form [name="first_name"]').val(),
       LastName: $('#contact-sales-form [name="last_name"]').val(),
       Company: $('#contact-sales-form [name="company_name"]').val(),

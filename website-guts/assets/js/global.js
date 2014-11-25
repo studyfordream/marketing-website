@@ -181,6 +181,22 @@ Modernizr.addTest('viewportunits', function() {
     return bool;
 });
 
+/*  Random string function for analytics.identify
+  * take from here:
+  * http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript
+  */
+window.optly.mrkt.utils.randomString = function() {
+
+  var text = '';
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  for( var i=0; i < 8; i++ ) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+
+  return text;
+};
+
 window.optly_q.push([function(){
 
 	if(typeof w.optly_q.acctData === 'object'){
@@ -195,7 +211,8 @@ window.optly_q.push([function(){
 
 		});
 
-		window.analytics.identify(w.optly_q.acctData.email, {
+    var randomString = window.optly.mrkt.utils.randomString();
+		window.analytics.identify(randomString, {
 
 			name: w.optly_q.acctData.name,
 
