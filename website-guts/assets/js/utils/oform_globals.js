@@ -117,7 +117,7 @@
 
     w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
 
-    w.analytics.identify(data.email, reportingObject, {
+    w.analytics.identify(response.unique_user_id, reportingObject, {
       integrations: {
         Marketo: true
       }
@@ -187,7 +187,7 @@
         var response = JSON.parse(event.target.responseText),
             email = d.querySelector('[name="email"]').value,
             traffic = d.querySelector('#traffic');
-        w.analytics.identify(email, {
+        w.analytics.identify(response.unique_user_id, {
           name: d.querySelector('[name="name"]').value,
           email: email,
           phone: d.querySelector('[name="phone"]').value || '',

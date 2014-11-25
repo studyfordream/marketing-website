@@ -62,7 +62,7 @@ var signinHelper = {
       });
     }
 
-    w.analytics.identify(resp.email, {
+    w.analytics.identify(resp.unique_user_id, {
       email: resp.email
     }, {
       integrations: {
