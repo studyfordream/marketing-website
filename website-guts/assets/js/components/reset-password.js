@@ -12,7 +12,10 @@ var resetPassForm = new Oform({
   }
 });
 
-resetPassForm.on('before', resetPassDialogHelperInst.processingAdd.bind(resetPassDialogHelperInst));
+resetPassForm.on('before', function() {
+  resetPassDialogHelperInst.removeErrors();
+  resetPassDialogHelperInst.processingAdd();
+}.bind(resetPassDialogHelperInst));
 
 resetPassForm.on('validationerror', w.optly.mrkt.Oform.validationError);
 

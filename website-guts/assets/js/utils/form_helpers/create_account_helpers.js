@@ -85,11 +85,10 @@ var createAccountHelper = {
         message = 'INVALID_PASSWORD';
       }
       this.characterMessageElm.classList.add('error-show');
+      this.customErrorMessage(errorElm, {error: message});
     } else if (validationPassed && this.characterMessageElm.classList.contains('error-show')) {
       this.characterMessageElm.className = this.characterMessageElm.classList.remove('error-show');
     }
-
-    this.customErrorMessage(errorElm, {error: message});
 
     return validationPassed;
   },
@@ -97,17 +96,18 @@ var createAccountHelper = {
   password2Validate: function(elm) {
     var password1 = this.formElm.querySelector('[name="password1"]'),
       errorElm = this.formElm.getElementsByClassName('password2-related')[0],
+      validationPassed = elm.value === password1.value && w.optly.mrkt.utils.checkComplexPassword(password1.value),
       message;
-
-    if(elm.value.length === 0) {
-      message = 'REQUIRED_FIELD';
-    } else if (elm.value !== password1.value) {
-      message = 'ENTER_SAME_VAL';
+    if (!validationPassed) {
+      if (elm.value.length === 0) {
+        message = 'REQUIRED_FIELD';
+      } else if (elm.value !== password1.value) {
+        message = 'ENTER_SAME_VAL';
+      }
+      this.customErrorMessage(errorElm, {error: message});
     }
 
-    this.customErrorMessage(errorElm, {error: message});
-
-    return elm.value === password1.value && w.optly.mrkt.utils.checkComplexPassword(password1.value);
+    return validationPassed;
   },
 
   load: function(e) {
