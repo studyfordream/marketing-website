@@ -31,11 +31,11 @@ var createAccountHelper = {
 
   passwordConfirm: function(password1, password2){
     var password2ErrorElm = this.formElm.querySelector('.password2-related'),
-      message = this.errorMessages.ENTER_SAME_VAL;
+      message = 'ENTER_SAME_VAL';
 
     if ( password2.value.length > 0 && password1.value !== password2.value ) {
       this.addErrors([password2, password2ErrorElm]);
-      this.customErrorMessage(password2ErrorElm, message);
+      this.customErrorMessage(password2ErrorElm, {error: message});
     } 
     //remove local error classes but do not remove body error class just in case
     else {
@@ -80,16 +80,16 @@ var createAccountHelper = {
 
     if(!validationPassed) {
       if(elm.value.length === 0) {
-        message = this.errorMessages.REQUIRED_FIELD;
+        message = 'REQUIRED_FIELD';
       } else {
-        message = this.errorMessages.INVALID_PASSWORD;
+        message = 'INVALID_PASSWORD';
       }
       this.characterMessageElm.classList.add('error-show');
     } else if (validationPassed && this.characterMessageElm.classList.contains('error-show')) {
       this.characterMessageElm.className = this.characterMessageElm.classList.remove('error-show');
     }
 
-    this.customErrorMessage(errorElm, message);
+    this.customErrorMessage(errorElm, {error: message});
 
     return validationPassed;
   },
@@ -100,12 +100,12 @@ var createAccountHelper = {
       message;
 
     if(elm.value.length === 0) {
-      message = this.errorMessages.REQUIRED_FIELD;
+      message = 'REQUIRED_FIELD';
     } else if (elm.value !== password1.value) {
-      message = this.errorMessages.ENTER_SAME_VAL;
+      message = 'ENTER_SAME_VAL';
     }
 
-    this.customErrorMessage(errorElm, message);
+    this.customErrorMessage(errorElm, {error: message});
 
     return elm.value === password1.value && w.optly.mrkt.utils.checkComplexPassword(password1.value);
   },

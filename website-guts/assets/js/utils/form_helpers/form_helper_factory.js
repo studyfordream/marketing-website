@@ -66,7 +66,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
           message = window.optly.tr(message.serverMessage);
         } else {
           // get the success message translate from the constant dictionary
-          message = this.successMessages[message.success];
+          message = this.errorMessages[message.error];
         }
         this.optionsErrorElm.innerHTML = message;
       } else if (this.optionsErrorElm.innerHTML.length === 0) {
