@@ -216,3 +216,8 @@ $('#downgrade-plan-form').submit(function(e){
   });
   e.preventDefault();
 });
+
+$('.plan-box-content').each(function(i, e) {
+  console.log($(e).css('height'));
+});
+$('.plan-box-content').first().css('height', '263px');
