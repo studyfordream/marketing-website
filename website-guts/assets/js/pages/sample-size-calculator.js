@@ -19,6 +19,9 @@ if($.isEmptyObject(samplesize_urlparams)) {
   boundModels = defaultVals;
 } else {
   boundModels = $.extend(defaultVals, samplesize_urlparams);
+  if(boundModels.tails) {
+    $('[value="' + boundModels.tails + '"]').attr('checked', true);
+  }
 }
 
 function formatCommas(number) {
@@ -116,11 +119,11 @@ $(function(){
         updatedModels[key] = cachedVal;
 
       }
+      // update the query string params
+      updatedPath = window.optly.mrkt.utils.param(window.location.origin + window.location.pathname, updatedModels, samplesizeFields);
+      history.replaceState({}, '', updatedPath);
     }
 
-    // update the query string params
-    updatedPath = window.optly.mrkt.utils.param(window.location.origin + window.location.pathname, updatedModels, samplesizeFields);
-    history.replaceState({}, '', updatedPath);
   });
 
   $('button[data-slider]').one('click', function(e) {
