@@ -62,8 +62,9 @@ var signinHelper = {
       });
     }
 
-    w.analytics.identify(resp.email, {
-      email: resp.email
+    w.analytics.identify(resp.unique_user_id, {
+      email: resp.email,
+      Email: resp.email
     }, {
       integrations: {
         Marketo: true

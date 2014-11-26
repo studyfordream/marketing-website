@@ -139,7 +139,8 @@ var createAccountHelper = {
     if (resp) {
       var plan = resp.plan ? resp.plan : 'null';
 
-      w.analytics.identify(resp.email, {
+      w.analytics.identify(resp.unique_user_id, {
+        Email: resp.email,
         Last_Experiment_URL__c: $('#url-input').val(),
         LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
         ExperimentsCreated: '1',
@@ -204,7 +205,8 @@ var createAccountHelper = {
 
       document.body.classList.add('create-account-success');
 
-      w.analytics.identify(resp.email, {
+      w.analytics.identify(resp.unique_user_id, {
+        Email: resp.email,
         Last_Experiment_URL__c: data.data['url-input'],
         LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
         ExperimentsCreated: '1',
