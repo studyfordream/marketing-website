@@ -4,7 +4,8 @@ var androidHelper = {
 
   success: function(hideShowContent) {
     var formEmail = this.formElm.querySelector('input[name="email"]').value,
-      source = window.optly.mrkt.source;
+        source = window.optly.mrkt.source,
+        anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
 
     window.setTimeout(function() {
       $.each(hideShowContent, function(i, elm) {
@@ -18,7 +19,7 @@ var androidHelper = {
     }, 1000);
 
     //tracking code goes here
-    w.analytics.identify(formEmail, {
+    w.analytics.identify(anonymousVisitorIdentifier, {
       utm_Campaign__c: source.utm.campaign,
       utm_Content__c: source.utm.content,
       utm_Medium__c: source.utm.medium,
@@ -34,7 +35,8 @@ var androidHelper = {
       Lead_Source__c: 'Website',
       Lead_Source_Category__c: 'Content',
       Lead_Source_Subcategory__c: 'PMM',
-      email: formEmail
+      email: formEmail,
+      Email: formEmail
     }, {
 
       Integrations: {
