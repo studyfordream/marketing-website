@@ -182,7 +182,7 @@ Modernizr.addTest('viewportunits', function() {
 });
 
 /*  Random string function for analytics.identify
-  * take from here:
+  * taken from here:
   * http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript
   */
 window.optly.mrkt.utils.randomString = function() {
@@ -211,7 +211,7 @@ window.optly_q.push([function(){
 
 		});
 
-    var randomString = window.optly.mrkt.utils.randomString();
+        var randomString = window.optly.mrkt.utils.randomString();
 		window.analytics.identify(randomString, {
 
 			name: w.optly_q.acctData.name,

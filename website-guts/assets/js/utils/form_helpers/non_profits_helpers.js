@@ -41,10 +41,9 @@ var orgForm = {
   load: function(segmentObj) {
     var button = this.formElm.querySelector('button');
 
-    w.analytics.identify(
-      segmentObj.email,
-      segmentObj,
-      { integrations: { Marketo: true }}
+    var randomString = window.optly.mrkt.utils.randomString();
+    w.analytics.identify(randomString, segmentObj,
+      { integrations: { Marketo: true } }
     );
 
     w.analytics.track('form/submit/optimizely.org', {}, { Marketo: true });
