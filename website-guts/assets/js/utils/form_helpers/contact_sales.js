@@ -7,6 +7,7 @@ var contactSalesHelpers = {
 
     var anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
     w.analytics.identify(anonymousVisitorIdentifier, {
+      Email: $('#contact-sales-form [name="email_address"]').val(),
       FirstName: $('#contact-sales-form [name="first_name"]').val(),
       LastName: $('#contact-sales-form [name="last_name"]').val(),
       Company: $('#contact-sales-form [name="company_name"]').val(),

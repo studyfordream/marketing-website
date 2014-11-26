@@ -190,6 +190,7 @@
         w.analytics.identify(response.unique_user_id, {
           name: d.querySelector('[name="name"]').value,
           email: email,
+          Email: email,
           phone: d.querySelector('[name="phone"]').value || '',
           company: d.querySelector('[name="company"]').value || '',
           website: d.querySelector('[name="website"]').value || '',

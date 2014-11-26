@@ -63,7 +63,8 @@ var signinHelper = {
     }
 
     w.analytics.identify(resp.unique_user_id, {
-      email: resp.email
+      email: resp.email,
+      Email: resp.email
     }, {
       integrations: {
         Marketo: true

@@ -213,11 +213,9 @@ window.optly_q.push([function(){
 
               var anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
 		window.analytics.identify(anonymousVisitorIdentifier, {
-
 			name: w.optly_q.acctData.name,
-
-			email: w.optly_q.acctData.email
-
+			email: w.optly_q.acctData.email,
+      Email: w.optly_q.acctData.email
 		});
 
 	}

@@ -35,7 +35,8 @@ var androidHelper = {
       Lead_Source__c: 'Website',
       Lead_Source_Category__c: 'Content',
       Lead_Source_Subcategory__c: 'PMM',
-      email: formEmail
+      email: formEmail,
+      Email: formEmail
     }, {
 
       Integrations: {
