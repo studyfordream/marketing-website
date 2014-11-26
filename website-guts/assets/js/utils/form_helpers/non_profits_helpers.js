@@ -41,8 +41,8 @@ var orgForm = {
   load: function(segmentObj) {
     var button = this.formElm.querySelector('button');
 
-    var randomString = window.optly.mrkt.utils.randomString();
-    w.analytics.identify(randomString, segmentObj,
+    var anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
+    w.analytics.identify(anonymousVisitorIdentifier, segmentObj,
       { integrations: { Marketo: true } }
     );
 

@@ -211,8 +211,8 @@ window.optly_q.push([function(){
 
 		});
 
-              var randomString = window.optly.mrkt.utils.randomString();
-		window.analytics.identify(randomString, {
+              var anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
+		window.analytics.identify(anonymousVisitorIdentifier, {
 
 			name: w.optly_q.acctData.name,
 
