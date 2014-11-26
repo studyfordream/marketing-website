@@ -7,7 +7,6 @@ var androidHelper = {
         source = window.optly.mrkt.source,
         randomString = window.optly.mrkt.utils.randomString();
 
-
     window.setTimeout(function() {
       $.each(hideShowContent, function(i, elm) {
         var $elm = $(elm);

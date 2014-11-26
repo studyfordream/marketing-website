@@ -190,7 +190,7 @@ window.optly.mrkt.utils.randomString = function() {
   var text = '';
   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-  for( var i=0; i < 8; i++ ) {
+  for(var i=0; i < 8; i++) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
 
@@ -211,7 +211,7 @@ window.optly_q.push([function(){
 
 		});
 
-        var randomString = window.optly.mrkt.utils.randomString();
+              var randomString = window.optly.mrkt.utils.randomString();
 		window.analytics.identify(randomString, {
 
 			name: w.optly_q.acctData.name,
