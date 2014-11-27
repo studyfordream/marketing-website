@@ -14,6 +14,38 @@ var boundModels = {},
     tails: 1
   };
 
+// this is only necessary because JS multiplying by 100 sometimes calculated a decimal
+// and to guard against ridiculously low params
+// limits params to 4 decimal places
+function checkDecPlaces(num) {
+  // sometimes JS gives you an exponent
+  var str = /e\-/.test( num.toString() ) ? '0.0001' : num.toString(),
+    splitNum = str.split('.'),
+    intSplit = splitNum[0] === '' ? '0' : splitNum[0],
+    decSplit = splitNum[1],
+    processedNum;
+
+  if(splitNum.length === 2) {
+    if( Number(intSplit) === 0) {
+      // round the number to nearest 3 decimal places
+      if(decSplit.length > 3) {
+        var pow = Math.pow(10, 4);
+        // move the decimal places enough to round the number
+        var rounded = Math.round( Number( '0.' + decSplit ) * pow );
+        // move the decimal places back
+        processedNum = rounded / pow;
+      } else {
+        processedNum = str;
+      }
+    } else {
+      processedNum = splitNum[0];
+    }
+    return processedNum;
+  } else {
+    return num;
+  }
+}
+
 function validateQueryParam(name, value) {
   var defaultVal = defaultVals[name],
     isValid = !isNaN(value);
@@ -23,11 +55,15 @@ function validateQueryParam(name, value) {
       case 'conversion':
         if(value <= 0) {
           value = defaultVal;
+        } else if (value > 0 && value < 1) {
+          value = checkDecPlaces(value);
         }
         break;
       case 'effect':
         if(value <= 0) {
           value = defaultVal;
+        } else if (value > 0 && value < 1) {
+          value = checkDecPlaces(value);
         }
         break;
       case 'power':
@@ -57,6 +93,7 @@ function validateQueryParam(name, value) {
 if($.isEmptyObject(samplesizeUrlparams)) {
   boundModels = defaultVals;
 } else {
+  // validate all the params
   $.each(samplesizeUrlparams, function(key, val) {
     val = validateQueryParam(key, Number(val));
 
@@ -162,7 +199,7 @@ $(function(){
       for(var key in processModels.modelCache) {
 
         if(key === 'conversion' || key === 'effect') {
-          cachedVal = Math.round( Number(processModels.modelCache[key]) * 100 );
+          cachedVal = checkDecPlaces( Number(processModels.modelCache[key]) * 100 );
         } else if (key === 'delta' || key === 'lastSample') {
           continue;
         } else {
