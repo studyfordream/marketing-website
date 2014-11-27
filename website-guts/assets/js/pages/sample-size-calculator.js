@@ -26,20 +26,20 @@ function checkDecPlaces(num) {
     processedNum;
 
   if(splitNum.length === 2) {
-    if( Number(intSplit) === 0) {
+    //if( Number(intSplit) === 0) {
       // round the number to nearest 3 decimal places
       if(decSplit.length > 3) {
         var pow = Math.pow(10, 4);
         // move the decimal places enough to round the number
-        var rounded = Math.round( Number( '0.' + decSplit ) * pow );
+        var rounded = Math.round( Number( intSplit + '.' + decSplit ) * pow );
         // move the decimal places back
         processedNum = rounded / pow;
       } else {
         processedNum = str;
       }
-    } else {
-      processedNum = splitNum[0];
-    }
+    /*} else {*/
+      //processedNum = splitNum[0];
+    /*}*/
     return processedNum;
   } else {
     return num;
