@@ -37,9 +37,7 @@ function checkDecPlaces(num) {
       } else {
         processedNum = str;
       }
-    /*} else {*/
-      //processedNum = splitNum[0];
-    /*}*/
+
     return processedNum;
   } else {
     return num;
@@ -110,7 +108,7 @@ if($.isEmptyObject(samplesizeUrlparams)) {
   
   // set default for tails if it doesn't exist
   if(!samplesizeUrlparams.tails) {
-    samplesizeUrlparams.tails = 1;
+    boundModels.tails = 1;
   }
 }
 
