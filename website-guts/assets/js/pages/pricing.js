@@ -217,7 +217,12 @@ $('#downgrade-plan-form').submit(function(e){
   e.preventDefault();
 });
 
-$('.plan-box-content').each(function(i, e) {
-  console.log($(e).css('height'));
-});
-$('.plan-box-content').first().css('height', '263px');
+var planBoxes = $('.plan-box-content'),
+    starter = planBoxes.first(),
+    enterprise = planBoxes.last();
+
+if (parseInt(starter.css('height')) > parseInt(enterprise.css('height'))) {
+  enterprise.css('height', starter.css('height'));
+} else {
+  starter.css('height', enterprise.css('height'));
+}
