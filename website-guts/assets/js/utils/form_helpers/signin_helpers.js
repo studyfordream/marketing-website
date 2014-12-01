@@ -80,7 +80,9 @@ var signinHelper = {
       category: 'account',
       label: window.location.pathname
     }, {
-      Marketo: true
+      integrations: {
+        Marketo: false
+      }
     });
 
     w.Munchkin.munchkinFunction('visitWebPage', {
@@ -94,7 +96,9 @@ var signinHelper = {
         category: 'account',
         label: w.location.pathname
       }, {
-        Marketo: true
+        integrations: {
+          Marketo: false
+        }
       });
       w.Munchkin.munchkinFunction('visitWebPage', {
         url: '/customer/signed-in'
@@ -104,7 +108,9 @@ var signinHelper = {
         category: 'account',
         label: w.location.pathname
       }, {
-        Marketo: true
+        integrations: {
+          Marketo: false
+        }
       });
     }
 

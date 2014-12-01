@@ -36,7 +36,11 @@
 
     }, {
 
-      Marketo: true
+      integrations: {
+
+        Marketo: false
+
+      }
 
     });
 
@@ -129,7 +133,9 @@
       category: 'account',
       label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
-      Marketo: true
+      integrations: {
+        Marketo: false
+      }
     });
 
     w.Munchkin.munchkinFunction('visitWebPage', {
@@ -144,15 +150,19 @@
       category: 'account',
       lable: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
-      Marketo: true
+      integrations: {
+        Marketo: false
+      }
     });
-
+    /*
+    temporarily commented out to decrease marketo queue
     w.Munchkin.munchkinFunction('visitWebPage', {
       url: '/event/account/signin'
     });
     w.Munchkin.munchkinFunction('visitWebPage', {
       url: '/event/customer/signedin'
     });
+    */
     w.Munchkin.munchkinFunction('visitWebPage', {
       url: '/event/plan/null'
     });
@@ -163,13 +173,17 @@
       category: 'account',
       label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
-      Marketo: true
+      integrations: {
+        Marketo: false
+      }
     });
     w.analytics.track('account signin', {
       category: 'account',
       lable: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
-      Marketo: true
+      integrations: {
+        Marketo: false
+      }
     });
 
   };
@@ -209,7 +223,9 @@
           category: 'contact form',
           label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
         }, {
-          Marketo: true
+          integrations: {
+            Marketo: true
+          }
         });
       }
     });

@@ -22,6 +22,10 @@ signinForm.on('error', function() {
   window.analytics.track('signin xhr error', {
     category: 'account',
     label: w.location.pathname
+  }, {
+    integrations: {
+      Marketo: false
+    }
   });
 }.bind(signinDialogHelperInst));
 

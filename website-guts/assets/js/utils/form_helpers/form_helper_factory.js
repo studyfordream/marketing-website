@@ -7,11 +7,11 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     if(scopeObj.dialogId) {
       this.dialogElm = document.getElementById(scopeObj.dialogId);
     }
-    
+
     if(this.formElm.getElementsByClassName('options').length > 0) {
       this.optionsErrorElm = this.formElm.getElementsByClassName('options')[0].querySelector('p:last-child');
     }
-    
+
     if(scopeObj.characterMessageSelector) {
       this.characterMessageElm = this.formElm.querySelector( scopeObj.characterMessageSelector );
     }
@@ -96,21 +96,21 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         // if the error display element has no content enter the default message
         this.optionsErrorElm.innerHTML = this.errorMessages.DEFAULT;
       }
-      
+
       if(document.body.classList.contains('error-state')) {
         document.body.classList.remove('error-state');
       }
 
       if( this.optionsErrorElm.classList.contains('error-show') ) {
         this.optionsErrorElm.classList.remove('error-show');
-      } 
+      }
 
       if ( !this.optionsErrorElm.classList.contains('success-show') ) {
         this.optionsErrorElm.classList.add('success-show');
       }
 
     },
-    
+
     customErrorMessage: function (elm, message) {
       if(typeof message === 'object') {
         message = this.errorMessages[message.error];
@@ -123,7 +123,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     showErrorDialog: function(message) {
       if(typeof message === 'object') {
         message = this.errorMessages[message.error];
-      } 
+      }
       window.optly.mrkt.errorQ.push([
         'logError',
         {
@@ -171,6 +171,10 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         window.analytics.track(action, {
           category: 'api error',
           label: 'response contains invalid JSON: ' + err
+        }, {
+          integrations: {
+            Marketo: false
+          }
         });
       }
 
@@ -178,6 +182,10 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         w.analytics.track(this.formElm.getAttribute('action'), {
           category: 'api error',
           label: 'status not 200: ' + e.target.status
+        }, {
+          integrations: {
+            Marketo: false
+          }
         });
 
         responseSuccess = false;
@@ -230,7 +238,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       if(inputs.indexOf(null) !== -1) {
         inputs.splice(inputs.indexOf(null), 1);
       }
-      
+
       if(disableState === 'add') {
         $.each(inputs, function(i, input) {
           input.setAttribute('disabled', '');
@@ -240,12 +248,12 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
           input.removeAttribute('disabled');
         });
       }
-      
+
     },
 
     processingAdd: function(argsObj) {
       if( !this.bodyClass.contains('processing-state') ) {
-        this.bodyClass.add('processing-state'); 
+        this.bodyClass.add('processing-state');
       }
 
       if(!argsObj || !argsObj.omitDisabled) {

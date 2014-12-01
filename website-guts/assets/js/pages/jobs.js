@@ -36,7 +36,7 @@ function getGreenhouseData(data) {
             delete data.departments[i];
           }
         }
-        
+
         $('#job-list-cont').append( window.optly.mrkt.templates.jobList(data) );
       }
 }
@@ -47,5 +47,9 @@ deferred.then(getGreenhouseData, function(err) {
     window.analytics.track('https://api.greenhouse.io/v1/boards/optimizely7/embed/departments?callback=?', {
       category: 'api error',
       label: err.responseText + ', Response Code: ' + err.status,
+    }, {
+      integrations: {
+        Marketo: false
+      }
     });
 });

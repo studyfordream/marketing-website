@@ -11,6 +11,10 @@ w.optly.mrkt.index.testItOut = function(editURL){
     category: 'forms',
     label: w.location.pathname
 
+  }, {
+    integrations: {
+      Marketo: false
+    }
   });
 
 };
@@ -29,12 +33,16 @@ $('#test-it-out-form').submit(function(e){
        w.analytics.track('/dialog/show/anonymous_wall', {
          category: 'modal'
        }, {
-         Marketo: true
+         integrations: {
+           Marketo: false
+         }
        });
        w.analytics.track('dialog/show/anonymous_wall', {
          category: 'modal'
        }, {
-         Marketo: true
+         integrations: {
+           Marketo: false
+         }
        });
        w.analytics.page('/dialog/show/anonymous_wall');
      }
@@ -89,6 +97,10 @@ signupForm.on('error', function() {
   window.analytics.track('create account xhr error', {
     category: 'account',
     label: w.location.pathname
+  }, {
+    integrations: {
+      Marketo: false
+    }
   });
 }.bind(signupDialogHelperInst));
 

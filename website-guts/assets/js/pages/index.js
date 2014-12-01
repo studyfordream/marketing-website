@@ -10,6 +10,10 @@ w.optly.mrkt.index.testItOut = function(editURL){
     category: 'forms',
     label: w.location.pathname
 
+  }, {
+    integrations: {
+      Marketo: false
+    }
   });
 
 };

@@ -5,7 +5,7 @@ $(createExpHelperInst.formElm).on('submit', function(e) {
     validationError = false;
 
   e.preventDefault();
-  
+
   validationError = createExpHelperInst.validateInputs();
 
   if(!validationError) {
@@ -17,8 +17,6 @@ $(createExpHelperInst.formElm).on('submit', function(e) {
     w.analytics.track('create experiment submit', {
       category: 'experiment',
       label: w.location.pathname
-    }, {
-      Marketo: true
     });
 
     w.setTimeout(function() {
@@ -28,6 +26,6 @@ $(createExpHelperInst.formElm).on('submit', function(e) {
   } else {
     createExpHelperInst.showOptionsError();
   }
-  
+
 
 });

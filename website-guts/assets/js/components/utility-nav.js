@@ -1,12 +1,12 @@
 var lastDropdown;
 
 function bindDropdownClick($dropdownMenus) {
-  
+
   $('[data-dropdown]').on('click', function(e) {
     e.preventDefault();
     // Get the type of dropdown anchor that was clicked
     var clickedData = $(this).data('dropdown');
-    
+
     // Iterate through cached dropdown containers looking for the clicked type
     $.each($dropdownMenus, function(index, elm) {
       var $elm = $(elm);
@@ -14,7 +14,7 @@ function bindDropdownClick($dropdownMenus) {
       if (clickedData !== lastDropdown && lastDropdown !== undefined) {
         $('[data-show-dropdown="' + lastDropdown + '"]').removeClass('show-dropdown');
       }
-      
+
       // Logic to open the dropdown and cache the last opened dropdown
       if ( $elm.data('show-dropdown') ===  clickedData ) {
         // force synchornous behavior so dropdown doesn't cloase as soon as it opens
@@ -40,7 +40,7 @@ window.optly.mrkt.showUtilityNav = function (acctData, expData) {
         desktop: email,
         mobile: email
       };
-    
+
     if(email.length > 24) {
       emailObj.desktop = email.substr(0, 24) + '...';
     }
@@ -82,7 +82,7 @@ window.optly.mrkt.closeDropdown = function(e) {
     if ( ( !$(e.target).closest('[data-show-dropdown]').length && !$(e.target).is('[data-dropdown]') ) || $(e.target).closest('[data-modal-click]').length > 0 ) {
       $('[data-show-dropdown]').removeClass('show-dropdown');
       $(document).unbind('click', window.optly.mrkt.closeDropdown);
-    } 
+    }
 
   }
   // If we want to manually close the dropdown there will be no event
@@ -120,6 +120,10 @@ window.optly.mrkt.signOut = function(redirectPath) {
     window.analytics.track('/account/signout', {
       category: 'api error',
       label: 'error on logout request: ' + err
+    }, {
+      integrations: {
+        Marketo: false
+      }
     });
   });
 };
