@@ -217,12 +217,4 @@ $('#downgrade-plan-form').submit(function(e){
   e.preventDefault();
 });
 
-var planBoxes = $('.plan-box-content'),
-    starter = planBoxes.first(),
-    enterprise = planBoxes.last();
-
-if (parseInt(starter.css('height')) > parseInt(enterprise.css('height'))) {
-  enterprise.css('height', starter.css('height'));
-} else {
-  starter.css('height', enterprise.css('height'));
-}
+window.optly.mrkt.utils.setToLargestHeight($('.plan-box-content'));
