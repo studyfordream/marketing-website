@@ -17,10 +17,6 @@ $(createExpHelperInst.formElm).on('submit', function(e) {
     w.analytics.track('create experiment submit', {
       category: 'experiment',
       label: w.location.pathname
-    }, {
-      integrations: {
-        Marketo: false
-      }
     });
 
     w.setTimeout(function() {
