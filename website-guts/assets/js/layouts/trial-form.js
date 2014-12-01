@@ -28,6 +28,10 @@ new Oform({
   w.analytics.track('/free-trial/submit', {
     category: 'account',
     label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+  }, {
+    integrations: {
+      Marketo: false
+    }
   });
   xhrInitiationTime = new Date();
   return w.optly.mrkt.Oform.before();
@@ -47,6 +51,10 @@ new Oform({
     w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
       category: 'api error',
       label: 'json parse error: ' + error,
+    }, {
+      integrations: {
+        Marketo: false
+      }
     });
   }
   w.ga('send', {
@@ -77,7 +85,7 @@ new Oform({
       });
       w.analytics.page('/account/create/success');
       w.analytics.page('/free-trial/success');
-      
+
       //for phantom tests
       document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
 
@@ -89,6 +97,10 @@ new Oform({
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
         label: 'status not 200: ' + event.target.status
+      }, {
+        integrations: {
+          Marketo: false
+        }
       });
       if(response.error && typeof response.error === 'string'){
         //update error message, apply error class to body
@@ -97,6 +109,10 @@ new Oform({
         w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
           category: 'api error',
           label: 'response.error: ' + response.error
+        }, {
+          integrations: {
+            Marketo: false
+          }
         });
       } else {
         $('#seo-form .error-message').text('An unknown error occured.');
@@ -115,6 +131,10 @@ new Oform({
     w.analytics.track('seo-form validation error', {
       category: 'form error',
       label: $('input.oform-error-show').length + ' errors',
+    }, {
+      integrations: {
+        Marketo: false
+      }
     });
   }
 });

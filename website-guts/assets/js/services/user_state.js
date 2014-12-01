@@ -165,6 +165,10 @@ window.optly.mrkt.services.xhr = {
       window.analytics.track(action, {
         category: category,
         label: label
+      }, {
+        integrations: {
+          Marketo: false
+        }
       });
     });
   },

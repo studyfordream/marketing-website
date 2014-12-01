@@ -1,5 +1,5 @@
 function smoothScroll(e) {
-  var scrlId = $(this).attr('href'), 
+  var scrlId = $(this).attr('href'),
     targetElmPos = $(scrlId).offset().top;
 
   e.preventDefault();
@@ -108,7 +108,7 @@ window.onYouTubeIframeAPIReady = function () {
 
 $(function() {
    var videoPlayed = false,
-    playerSupported = false; 
+    playerSupported = false;
 
   //video player open and autoplay
   $('[data-show-video]').on('click', function(e) {
@@ -156,7 +156,7 @@ $(function() {
   //inject GIF src when they are scrolled into
   var imgCache = [];
   var $images = $('[data-interactive-panel] img');
-  
+
   $.each($images, function(i, elm) {
     var elmCache = {};
     var dataSet = $(elm).data();
@@ -209,6 +209,10 @@ $(function() {
     window.analytics.track('create account xhr error', {
       category: 'account',
       label: w.location.pathname
+    }, {
+      integrations: {
+        Marketo: false
+      }
     });
   }.bind(signupMobileMvppTopHelperInst));
 
@@ -254,6 +258,10 @@ $(function() {
     window.analytics.track('create account xhr error', {
       category: 'account',
       label: w.location.pathname
+    }, {
+      integrations: {
+        Marketo: false
+      }
     });
   }.bind(signupMobileMvppBottomHelperInst));
 

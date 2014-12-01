@@ -6,6 +6,10 @@ var resetPassForm = new Oform({
     window.analytics.track('password reset submit', {
       category: 'account',
       label: w.location.pathname
+    }, {
+      integrations: {
+        Marketo: false
+      }
     });
 
     return data;
@@ -25,6 +29,10 @@ resetPassForm.on('error', function() {
   window.analytics.track('reset password xhr error', {
     category: 'account',
     label: w.location.pathname
+  }, {
+    integrations: {
+      Marketo: false
+    }
   });
 }.bind(resetPassDialogHelperInst));
 
@@ -36,6 +44,3 @@ resetPassForm.on('load', function(e) {
 resetPassForm.on('done', function() {
   resetPassDialogHelperInst.processingRemove({callee: 'done'});
 }.bind(resetPassDialogHelperInst));
-
-
-

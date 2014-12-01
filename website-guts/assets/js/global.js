@@ -390,10 +390,18 @@ window.optly.mrkt.changePlanHelper = {
 			w.analytics.track('change plan', {
 				category: 'account',
 				label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+			}, {
+				integrations: {
+					Marketo: false
+				}
 			});
 			w.analytics.track('/plan/free_light', {
 				category: 'account',
 				label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+			}, {
+				integrations: {
+					Marketo: false
+				}
 			});
 			var oldPlan = 'nothing';
 			if(
@@ -405,6 +413,10 @@ window.optly.mrkt.changePlanHelper = {
 			w.analytics.track('plan downgraded', {
 				category: 'account',
 				label: oldPlan + ' to free_light'
+			}, {
+				integrations: {
+					Marketo: false
+				}
 			});
 
 			if(typeof callback === 'function'){
@@ -423,6 +435,10 @@ window.optly.mrkt.changePlanHelper = {
 			w.analytics.track('/pricing/change_plan', {
 				category: 'api error',
 				label: 'pricing change plan status not 200: ' + event.target.status
+			}, {
+				integrations: {
+					Marketo: false
+				}
 			});
 
 		}
@@ -448,6 +464,10 @@ window.optly.mrkt.changePlanHelper = {
 		w.analytics.track('/pricing/change_plan', {
 			category: 'xmlhttprequest problem',
 			label: 'xmlhttprequest error'
+		}, {
+			integrations: {
+				Marketo: false
+			}
 		});
 
 	},
@@ -456,6 +476,10 @@ window.optly.mrkt.changePlanHelper = {
 		w.analytics.track('/pricing/change_plan', {
 			category: 'xmlhttprequest problem',
 			label: 'xmlhttprequest abort'
+		}, {
+			integrations: {
+				Marketo: false
+			}
 		});
 
 	}

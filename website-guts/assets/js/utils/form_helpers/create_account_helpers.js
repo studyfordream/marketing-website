@@ -36,7 +36,7 @@ var createAccountHelper = {
     if ( password2.value.length > 0 && password1.value !== password2.value ) {
       this.addErrors([password2, password2ErrorElm]);
       this.customErrorMessage(password2ErrorElm, {error: message});
-    } 
+    }
     //remove local error classes but do not remove body error class just in case
     else {
       this.passed = true;
@@ -175,18 +175,30 @@ var createAccountHelper = {
       w.analytics.track('account created', {
         category: 'account',
         label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      }, {
+        integrations: {
+          Marketo: false
+        }
       });
 
       w.analytics.page('/account/signin');
       w.analytics.track('account sign-in', {
         category: 'account',
         label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      }, {
+        integrations: {
+          Marketo: false
+        }
       });
 
       w.analytics.page('/customer/signedin');
       w.analytics.track('customer sign in', {
         category: 'account',
         label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      }, {
+        integrations: {
+          Marketo: false
+        }
       });
       w.analytics.page('/plan/' + plan);
     }
