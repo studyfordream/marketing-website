@@ -28,7 +28,6 @@ module.exports = {
         '<%= config.temp %>/assets/js/global.js': [
           '<%= config.guts %>/assets/js/utils/oform_globals.js',
           '<%= config.guts %>/assets/js/utils/check_complex_password.js',
-          '<%= config.guts %>/assets/js/utils/set_to_largest_height.js',
           '<%= config.guts %>/assets/js/utils/get_url_parameter.js',
           '<%= config.guts %>/assets/js/utils/uri.js',
           '<%= config.guts %>/assets/js/utils/guid_sprintf.js',
