@@ -220,5 +220,3 @@ $('#downgrade-plan-form').submit(function(e){
   });
   e.preventDefault();
 });
-
-window.optly.mrkt.utils.setToLargestHeight($('.plan-box-content'));
