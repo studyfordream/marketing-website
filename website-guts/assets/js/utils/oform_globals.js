@@ -119,8 +119,6 @@
       reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
     }
 
-    //w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
-
     w.analytics.identify(response.unique_user_id, reportingObject, {
       integrations: {
         Marketo: true
