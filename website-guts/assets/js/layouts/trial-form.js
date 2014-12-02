@@ -87,8 +87,16 @@ new Oform({
       w.Munchkin.munchkinFunction('visitWebPage', {
         url: '/free-trial/success'
       });
-      w.analytics.page('/account/create/success');
-      w.analytics.page('/free-trial/success');
+      w.analytics.page('/account/create/success', {
+        integrations: {
+          'Marketo': false
+        }
+      });
+      w.analytics.page('/free-trial/success', {
+        integrations: {
+          'Marketo': false
+        }
+      });
 
       //for phantom tests
       document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
