@@ -157,10 +157,6 @@ var createAccountHelper = {
       { integrations: { Marketo: true } });
 
       w.Munchkin.munchkinFunction('visitWebPage', {
-        url: '/event/account/create/success'
-      });
-      w.analytics.track('/event/account/create/success', {}, { Marketo: true });
-      w.Munchkin.munchkinFunction('visitWebPage', {
         url: '/event/customer/signedin'
       });
       w.Munchkin.munchkinFunction('visitWebPage', {
@@ -235,11 +231,6 @@ var createAccountHelper = {
       });
 
       plan = resp.plan ? resp.plan : 'null';
-
-      w.Munchkin.munchkinFunction('visitWebPage', {
-        url: '/event/account/create/success'
-      });
-      w.analytics.track('/event/account/create/success', {}, { Marketo: true });
 
       w.Munchkin.munchkinFunction('visitWebPage', {
         url: '/event/pricing/account/create/success'
