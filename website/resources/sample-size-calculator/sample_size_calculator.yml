@@ -14,6 +14,7 @@ calculator_content:
     description: "80% is an accepted standard for statistical power."
     link: "https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#statistical_power"
     button_text: "edit"
+    hide: true
   -
     demo: "Statistical Significance"
     description: "95% is an accepted standard for statistical significance."
@@ -25,6 +26,7 @@ calculator_content:
       - "2-tailed"
     description: "1-tailed tests will identify a winner faster than 2-tailed tests. Note: The Optimizely product uses a 1-tailed test to enable you to make faster decisions."
     link: "https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#calculating_significance"
+    hide: true
   bottom_title: "<span>S</span>ample <span>S</span>ize per <span>V</span>ariation"
 
 faq_content:

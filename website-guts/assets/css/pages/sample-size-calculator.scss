@@ -2,6 +2,11 @@ $animprop: opacity 1 0;
 $transition: opacity 0.3s linear;
 
 body.sample-size-page {
+  &.new-formula {
+    .hide-content {
+      display: none;
+    }
+  }
   .callout {
     border: 1px solid #eee;
     box-shadow: none;

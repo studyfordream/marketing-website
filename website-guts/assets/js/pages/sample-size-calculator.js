@@ -6,6 +6,7 @@ window.quantiles = {1: [-2.326347874,0.01253346952], 2: [-2.053748909,0.02506890
 
 var boundModels = {},
   samplesizeUrlparams = window.optly.mrkt.utils.deparam(window.location.search),
+  newFormula = samplesizeUrlparams.new && samplesizeUrlparams.new === 'true',
   defaultVals = {
     conversion: 3,
     effect: 20,
@@ -87,13 +88,13 @@ function validateQueryParam(name, value) {
   }
 }
 
-// check if query params are present and update the initial model
-if($.isEmptyObject(samplesizeUrlparams)) {
+// check if query params are present or if the only query param is the new formula identifier and update the initial model
+if($.isEmptyObject(samplesizeUrlparams) || (newFormula && Object.keys(samplesizeUrlparams).length === 1) ) {
   boundModels = defaultVals;
 } else {
   // validate all the params
   $.each(samplesizeUrlparams, function(key, val) {
-    val = validateQueryParam(key, Number(val));
+    val = key === 'new' ? val === 'true' : validateQueryParam(key, Number(val));
 
     if(key === 'conversion' || key === 'effect') {
       $('input[data-calc-model="' + key + '"]').val( val );
@@ -116,6 +117,36 @@ function formatCommas(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
+/**
+ *
+ * New Formula
+ *
+ *
+**/
+
+function sampleSizeEstimate(processedModels){
+  var relativeMDE=processedModels.effect,
+    significance = processedModels.significance / 100,
+    baselineConversionRate = processedModels.conversion,
+    absoluteMDE = baselineConversionRate * relativeMDE,
+    c1 = baselineConversionRate,
+    c2 = baselineConversionRate - absoluteMDE,
+    theta = Math.abs(absoluteMDE),
+    variance,
+    sampleEstimate;
+
+  // Note: This is the variance estimate for conversion events. If you want to have a sample size calculation for revenue, customers should provide variance
+  variance = c1 * (1 - c1) + c2 * (1 - c2);
+
+  sampleEstimate = 2 * (1 - significance) * variance * Math.log(1/theta) / (theta * theta);
+
+  if (!$.isNumeric(sampleEstimate) || !isFinite(sampleEstimate) || sampleEstimate < 0) {
+    return '---';
+  }
+
+  return Math.round(sampleEstimate);
+}
+
 function calculateSample(processedModels) {
   if (!window.quantiles) {
     return '---';
@@ -127,7 +158,7 @@ function calculateSample(processedModels) {
     sd_2 = Math.sqrt(processedModels.conversion * (1 - processedModels.conversion) + (processedModels.conversion + processedModels.delta) * (1 - processedModels.conversion - processedModels.delta)),
     numerator = t_alpha * sd_1 + t_beta * sd_2,
     sample = Math.pow(numerator, 2);
-    
+
     sample = sample / Math.pow(processedModels.delta, 2);
 
     if (!$.isNumeric(sample) || !isFinite(sample) || sample < 0) {
@@ -164,9 +195,13 @@ function processModels(models) {
     }
   }
 
-  self.modelCache.delta = self.modelCache.effect * self.modelCache.conversion;
-
-  self.modelCache.lastSample = formatCommas( calculateSample(self.modelCache) );
+  if(newFormula) {
+    self.modelCache.new = 'true';
+    self.modelCache.lastSample = formatCommas( sampleSizeEstimate(self.modelCache) );
+  } else {
+    self.modelCache.delta = self.modelCache.effect * self.modelCache.conversion;
+    self.modelCache.lastSample = formatCommas( calculateSample(self.modelCache) );
+  }
 
   return self.modelCache.lastSample;
 }
@@ -177,24 +212,37 @@ processModels.modelCache = {};
 $(function(){
   var sample = $('#sample'),
     updatedModels = {},
-    samplesizeFields = ['conversion', 'effect', 'power', 'significance', 'tails'],
+    samplesizeFields = ['conversion', 'effect', 'power', 'significance', 'tails', 'new'],
     updatedPath,
     cachedVal;
-    
+
+  if(newFormula) {
+    document.body.classList.add('new-formula');
+    $.each(samplesizeFields, function(i, field) {
+      if(field === 'power' || field === 'tails') {
+        samplesizeFields.splice(i, 1);
+      }
+    });
+  }
+
   // set the sample text and the model cache
   sample.text( processModels(boundModels) );
 
   $('input[data-calc-model]').on('change input', function() {
     var changedModel = {};
-    
+
     //convert value to number for validation purposes
     changedModel[ $(this).data('calc-model') ] = Number( $(this).val() ) || 1;
 
     sample.text( processModels(changedModel) );
-    
+
     // if we can use HTML5 history then iterate through the updated model
     if (typeof history.replaceState !== 'undefined') {
       for(var key in processModels.modelCache) {
+
+        if(newFormula && samplesizeFields.indexOf(key) === -1) {
+          continue;
+        }
 
         if(key === 'conversion' || key === 'effect') {
           cachedVal = checkDecPlaces( Number(processModels.modelCache[key]) * 100 );

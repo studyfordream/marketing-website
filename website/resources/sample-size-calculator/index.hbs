@@ -31,7 +31,7 @@ page_script: sample-size-calculator.js
   {{/each}}
 
   {{#each statistics}}
-  <div class="row">
+  <div class="row{{#if hide}} hide-content{{/if}}">
     <div class="columns one-third">
       <label for="" class="calc-demo-title">{{demo}}</label>
       {{#if @first}}
@@ -56,7 +56,7 @@ page_script: sample-size-calculator.js
   {{/each}}
 
   {{#with tailed}}
-  <div class="row">
+  <div class="row{{#if hide}} hide-content{{/if}}">
     <div class="columns one-third">
       {{#each demo}}
       <div class="tails">
