@@ -16,6 +16,10 @@ $('#seo-form input:not([type="hidden"])').each(function(){
     //put all the information in the event because we'll want to use this as a goal in optimizely
     w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus', {
       category: 'forms'
+    }, {
+      integrations: {
+        'Marketo': false
+      }
     });
   });
 });
