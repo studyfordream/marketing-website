@@ -125,7 +125,7 @@ function formatCommas(number) {
 **/
 
 function sampleSizeEstimate(processedModels){
-  var relativeMDE=processedModels.effect,
+  var relativeMDE = processedModels.effect,
     significance = processedModels.significance / 100,
     baselineConversionRate = processedModels.conversion,
     absoluteMDE = baselineConversionRate * relativeMDE,
@@ -223,6 +223,8 @@ $(function(){
         samplesizeFields.splice(i, 1);
       }
     });
+  } else {
+    samplesizeFields.pop();
   }
 
   // set the sample text and the model cache
