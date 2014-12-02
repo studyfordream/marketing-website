@@ -30,7 +30,7 @@ new Oform({
     label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   }, {
     integrations: {
-      Marketo: false
+      'Marketo': false
     }
   });
   xhrInitiationTime = new Date();
@@ -53,7 +53,7 @@ new Oform({
       label: 'json parse error: ' + error,
     }, {
       integrations: {
-        Marketo: false
+        'Marketo': false
       }
     });
   }
@@ -78,7 +78,7 @@ new Oform({
         category: 'account',
         label: w.location.pathname
       }, {
-        Marketo: true
+        'Marketo': false
       });
       w.Munchkin.munchkinFunction('visitWebPage', {
         url: '/free-trial/success'
@@ -99,7 +99,7 @@ new Oform({
         label: 'status not 200: ' + event.target.status
       }, {
         integrations: {
-          Marketo: false
+          'Marketo': false
         }
       });
       if(response.error && typeof response.error === 'string'){
@@ -111,7 +111,7 @@ new Oform({
           label: 'response.error: ' + response.error
         }, {
           integrations: {
-            Marketo: false
+            'Marketo': false
           }
         });
       } else {
@@ -133,7 +133,7 @@ new Oform({
       label: $('input.oform-error-show').length + ' errors',
     }, {
       integrations: {
-        Marketo: false
+        'Marketo': false
       }
     });
   }

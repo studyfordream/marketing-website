@@ -142,16 +142,12 @@
       url: '/account/create/success'
     });
 
-    w.Munchkin.munchkinFunction('visitWebPage', {
-      url: '/event/account/create/success'
-    });
-
     w.analytics.track('/account/signin', {
       category: 'account',
       lable: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
       integrations: {
-        Marketo: false
+        'Marketo': false
       }
     });
     /*
