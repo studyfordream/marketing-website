@@ -105,11 +105,8 @@ if($.isEmptyObject(samplesizeUrlparams)) {
 
     boundModels[key] = val;
   });
-  
-  // set default for tails if it doesn't exist
-  if(!samplesizeUrlparams.tails) {
-    boundModels.tails = 1;
-  }
+
+  boundModels = $.extend(defaultVals, boundModels);
 }
 
 function formatCommas(number) {
