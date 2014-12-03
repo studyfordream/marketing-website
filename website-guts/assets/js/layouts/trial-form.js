@@ -16,6 +16,10 @@ $('#seo-form input:not([type="hidden"])').each(function(){
     //put all the information in the event because we'll want to use this as a goal in optimizely
     w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus', {
       category: 'forms'
+    }, {
+      integrations: {
+        'Marketo': false
+      }
     });
   });
 });
@@ -30,7 +34,7 @@ new Oform({
     label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   }, {
     integrations: {
-      Marketo: false
+      'Marketo': false
     }
   });
   xhrInitiationTime = new Date();
@@ -53,7 +57,7 @@ new Oform({
       label: 'json parse error: ' + error,
     }, {
       integrations: {
-        Marketo: false
+        'Marketo': false
       }
     });
   }
@@ -78,13 +82,21 @@ new Oform({
         category: 'account',
         label: w.location.pathname
       }, {
-        Marketo: true
+        'Marketo': false
       });
       w.Munchkin.munchkinFunction('visitWebPage', {
         url: '/free-trial/success'
       });
-      w.analytics.page('/account/create/success');
-      w.analytics.page('/free-trial/success');
+      w.analytics.page('/account/create/success', {
+        integrations: {
+          'Marketo': false
+        }
+      });
+      w.analytics.page('/free-trial/success', {
+        integrations: {
+          'Marketo': false
+        }
+      });
 
       //for phantom tests
       document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
@@ -99,7 +111,7 @@ new Oform({
         label: 'status not 200: ' + event.target.status
       }, {
         integrations: {
-          Marketo: false
+          'Marketo': false
         }
       });
       if(response.error && typeof response.error === 'string'){
@@ -111,7 +123,7 @@ new Oform({
           label: 'response.error: ' + response.error
         }, {
           integrations: {
-            Marketo: false
+            'Marketo': false
           }
         });
       } else {
@@ -133,7 +145,7 @@ new Oform({
       label: $('input.oform-error-show').length + ' errors',
     }, {
       integrations: {
-        Marketo: false
+        'Marketo': false
       }
     });
   }

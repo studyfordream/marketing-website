@@ -119,8 +119,6 @@
       reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
     }
 
-    w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
-
     w.analytics.identify(response.unique_user_id, reportingObject, {
       integrations: {
         Marketo: true
@@ -142,16 +140,12 @@
       url: '/account/create/success'
     });
 
-    w.Munchkin.munchkinFunction('visitWebPage', {
-      url: '/event/account/create/success'
-    });
-
     w.analytics.track('/account/signin', {
       category: 'account',
       lable: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
       integrations: {
-        Marketo: false
+        'Marketo': false
       }
     });
     /*
