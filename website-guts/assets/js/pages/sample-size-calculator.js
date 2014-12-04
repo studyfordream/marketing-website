@@ -123,7 +123,7 @@ function formatCommas(number) {
 
 function sampleSizeEstimate(processedModels){
   var relativeMDE = processedModels.effect,
-    significance = processedModels.significance / 100,
+    significance = 1 - ( processedModels.significance / 100 ),
     baselineConversionRate = processedModels.conversion,
     absoluteMDE = baselineConversionRate * relativeMDE,
     c1 = baselineConversionRate,
@@ -140,7 +140,7 @@ function sampleSizeEstimate(processedModels){
   if (!$.isNumeric(sampleEstimate) || !isFinite(sampleEstimate) || sampleEstimate < 0) {
     return '---';
   }
-
+debugger;
   return Math.round(sampleEstimate);
 }
 
