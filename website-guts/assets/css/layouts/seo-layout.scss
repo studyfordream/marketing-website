@@ -5,7 +5,9 @@ body.seo-layout {
     }
   }
   &.oform-processing {
-    .oform-processing-show {display: block;}
-    .oform-processing-hide {display: none;}
+    #seo-form {
+      .oform-processing-show {display: block;}
+      .oform-processing-hide {display: none;}
+    }
   }
 }
