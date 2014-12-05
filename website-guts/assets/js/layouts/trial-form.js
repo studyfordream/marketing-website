@@ -16,6 +16,10 @@ $('#seo-form input:not([type="hidden"])').each(function(){
     //put all the information in the event because we'll want to use this as a goal in optimizely
     w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus', {
       category: 'forms'
+    }, {
+      integrations: {
+        'Marketo': false
+      }
     });
   });
 });
@@ -28,6 +32,10 @@ new Oform({
   w.analytics.track('/free-trial/submit', {
     category: 'account',
     label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+  }, {
+    integrations: {
+      'Marketo': false
+    }
   });
   xhrInitiationTime = new Date();
   return w.optly.mrkt.Oform.before();
@@ -47,6 +55,10 @@ new Oform({
     w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
       category: 'api error',
       label: 'json parse error: ' + error,
+    }, {
+      integrations: {
+        'Marketo': false
+      }
     });
   }
   w.ga('send', {
@@ -70,21 +82,37 @@ new Oform({
         category: 'account',
         label: w.location.pathname
       }, {
-        Marketo: true
+        'Marketo': false
       });
       w.Munchkin.munchkinFunction('visitWebPage', {
         url: '/free-trial/success'
       });
-      w.analytics.page('/account/create/success');
-      w.analytics.page('/free-trial/success');
-      /* end legacy reporting */
+      w.analytics.page('/account/create/success', {
+        integrations: {
+          'Marketo': false
+        }
+      });
+      w.analytics.page('/free-trial/success', {
+        integrations: {
+          'Marketo': false
+        }
+      });
+
+      //for phantom tests
+      document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
+
       setTimeout(function(){
         w.location = 'https://www.optimizely.com/edit?url=' + encodeURIComponent(d.getElementById('url').value);
       }, 1000);
+
     } else {
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
         label: 'status not 200: ' + event.target.status
+      }, {
+        integrations: {
+          'Marketo': false
+        }
       });
       if(response.error && typeof response.error === 'string'){
         //update error message, apply error class to body
@@ -93,6 +121,10 @@ new Oform({
         w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
           category: 'api error',
           label: 'response.error: ' + response.error
+        }, {
+          integrations: {
+            'Marketo': false
+          }
         });
       } else {
         $('#seo-form .error-message').text('An unknown error occured.');
@@ -111,6 +143,10 @@ new Oform({
     w.analytics.track('seo-form validation error', {
       category: 'form error',
       label: $('input.oform-error-show').length + ' errors',
+    }, {
+      integrations: {
+        'Marketo': false
+      }
     });
   }
 });

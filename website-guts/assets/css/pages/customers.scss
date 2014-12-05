@@ -20,15 +20,15 @@ body.customers-page {
   .customer-logo {
     background-position: 50% 0;
     background-repeat: no-repeat;
-    background-image: image-url('customer-logos/customer-logos-sprite-1.png');
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-logos/sprite-1.png');
     height: 73px;
-    
+
     &.sprite2 {
-      background-image: image-url('customer-logos/customer-logos-sprite-2.png');
+      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-logos/sprite-2.png');
     }
   }
 
-  .starbucks {
+  .sony {
     background-position: 50% -584px;
   }
   .salesforce {

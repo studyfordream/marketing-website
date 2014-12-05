@@ -2,16 +2,6 @@ window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 var signinHelper = {
 
-  showOptionsError: function (message){
-    if(!document.body.classList.contains('error-state')) {
-      document.body.classList.add('error-state');
-    }
-    if( !this.optionsErrorElm.classList.contains('error-show') ) {
-      this.optionsErrorElm.classList.add('error-show');
-    }
-    this.optionsErrorElm.innerHTML = message;
-  },
-
   passwordValidation: function(elm) {
     this.beforeValidateEmail();
     if(elm.value.length > 0) {
@@ -21,59 +11,33 @@ var signinHelper = {
     }
   },
 
-  addError: function(elm) {
-    if(!document.body.classList.contains('error-state')) {
-      document.body.classList.add('error-state');
-    }
-    if( !elm.classList.contains('error-show') ) {
-      elm.classList.add('error-show');
-    }
-  },
-
-  removeError: function(elm) {
-    if(document.body.classList.contains('error-state')) {
-      document.body.classList.remove('error-state');
-    }
-    if( elm.classList.contains('error-show') ) {
-      elm.classList.remove('error-show');
-    }
-  },
-
   beforeValidateEmail: function() {
     var emailInput = this.formElm.querySelector('[name="email"]');
     var emailErrorElm = this.formElm.querySelector('.email-related');
+    // these custom validations are present because email is no validate because of legacy clients
+    // still want to use input type=email for mobile keyboard reasons but don't want oform to validate as email
     if(emailInput.value.length === 0) {
-      $.each([emailInput, emailErrorElm], function(i, elm) {
-        this.addError(elm);
-      }.bind(this));
+      this.addErrors([emailInput, emailErrorElm]);
+      this.showOptionsError();
     } else {
-      $.each([emailInput, emailErrorElm], function(i, elm) {
-        this.removeError(elm);
-      }.bind(this));
+      this.removeErrors([emailInput, emailErrorElm]);
     }
   },
 
   load: function(e) {
-    var resp = JSON.parse(e.target.responseText);
-    var path = w.location.pathname;
+    var resp = this.parseResponse(e),
+      pricingPath = /pricing\-page/.test(document.body.getAttribute('class'));
 
-    if(e.target.status !== 200) {
-      this.processingRemove({callee: 'load'});
-      this.showOptionsError(resp.error);
-      return;
+    if (resp && !pricingPath) {
+      this.redirectHelper({
+        redirectPath: '/dashboard',
+        bodyClass: 'signed-in',
+        bodyData: {
+          formSuccess: this.formElm.getAttribute('action')
+        }
+      });
     }
-
-    if(path.substr(-1) === '/') {
-      path = path.substr(0, path.length - 1);
-    }
-
-    if (path !== '/pricing') {
-      // allow analytics logging before redirect
-      window.setTimeout(function() {
-        w.location = '/dashboard';
-      }, 500);
-    }
-    else {
+    else if(resp) {
       window.optly.mrkt.modal.close({ modalType: 'signin', trace: false });
 
       var expParams = {
@@ -98,8 +62,9 @@ var signinHelper = {
       });
     }
 
-    w.analytics.identify(resp.email, {
-      email: resp.email
+    w.analytics.identify(resp.unique_user_id, {
+      email: resp.email,
+      Email: resp.email
     }, {
       integrations: {
         Marketo: true
@@ -115,7 +80,9 @@ var signinHelper = {
       category: 'account',
       label: window.location.pathname
     }, {
-      Marketo: true
+      integrations: {
+        Marketo: false
+      }
     });
 
     w.Munchkin.munchkinFunction('visitWebPage', {
@@ -129,7 +96,9 @@ var signinHelper = {
         category: 'account',
         label: w.location.pathname
       }, {
-        Marketo: true
+        integrations: {
+          Marketo: false
+        }
       });
       w.Munchkin.munchkinFunction('visitWebPage', {
         url: '/customer/signed-in'
@@ -139,7 +108,9 @@ var signinHelper = {
         category: 'account',
         label: w.location.pathname
       }, {
-        Marketo: true
+        integrations: {
+          Marketo: false
+        }
       });
     }
 

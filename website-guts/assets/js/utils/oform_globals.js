@@ -36,7 +36,11 @@
 
     }, {
 
-      Marketo: true
+      integrations: {
+
+        Marketo: false
+
+      }
 
     });
 
@@ -75,24 +79,26 @@
     }
 
     reportingObject = {
-
-      utm_Campaign__c: source.utm.campaign,
-      utm_Content__c: source.utm.content,
-      utm_Medium__c: source.utm.medium,
-      utm_Source__c: source.utm.source,
-      utm_Keyword__c: source.utm.keyword,
-      otm_Campaign__c: source.otm.campaign,
-      otm_Content__c: source.otm.content,
-      otm_Medium__c: source.otm.medium,
-      otm_Source__c: source.otm.source,
-      otm_Keyword__c: source.otm.keyword,
-      GCLID__c: source.gclid,
-      Signup_Platform__c: source.signupPlatform,
-      Email: response.email,
-      FirstName: response.first_name,
-      LastName: response.last_name,
-      Phone: response.phone_number
-
+      utm_Campaign__c: source.utm.campaign || '',
+      utm_Content__c: source.utm.content || '',
+      utm_Medium__c: source.utm.medium || '',
+      utm_Source__c: source.utm.source || '',
+      utm_Keyword__c: source.utm.keyword || '',
+      otm_Campaign__c: source.otm.campaign || '',
+      otm_Content__c: source.otm.content || '',
+      otm_Medium__c: source.otm.medium || '',
+      otm_Source__c: source.otm.source || '',
+      otm_Keyword__c: source.otm.keyword || '',
+      GCLID__c: source.gclid || '',
+      Signup_Platform__c: source.signupPlatform || '',
+      Email: response.email ? response.email : '',
+      FirstName: response.first_name || '',
+      LastName: response.last_name || '',
+      Phone: response.phone_number || '',
+      Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+      Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+      iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+      Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
     };
 
     $.cookie('sourceCookie',
@@ -110,18 +116,10 @@
     );
 
     for(propertyName in data){
-
-      reportingObject['propertyName'] = data['propertyName']; //jshint ignore:line
-
+      reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
     }
 
-    if(window.debug){
-      window.debugger;
-    }
-
-    w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
-
-    w.analytics.identify(data.email, reportingObject, {
+    w.analytics.identify(response.unique_user_id, reportingObject, {
       integrations: {
         Marketo: true
       }
@@ -131,9 +129,11 @@
 
     w.analytics.track('/account/create/success', {
       category: 'account',
-      label: w.location.pathname
+      label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
-      Marketo: true
+      integrations: {
+        Marketo: false
+      }
     });
 
     w.Munchkin.munchkinFunction('visitWebPage', {
@@ -142,28 +142,42 @@
 
     w.analytics.track('/account/signin', {
       category: 'account',
-      lable: w.location.pathname
+      lable: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
-      Marketo: true
+      integrations: {
+        'Marketo': false
+      }
     });
-
+    /*
+    temporarily commented out to decrease marketo queue
     w.Munchkin.munchkinFunction('visitWebPage', {
-      url: '/account/signin'
+      url: '/event/account/signin'
+    });
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/event/customer/signedin'
+    });
+    */
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/event/plan/null'
     });
 
     /* new reporting */
 
     w.analytics.track('account created', {
       category: 'account',
-      label: w.location.pathname
+      label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
-      Marketo: true
+      integrations: {
+        Marketo: false
+      }
     });
     w.analytics.track('account signin', {
       category: 'account',
-      lable: w.location.pathname
+      lable: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
-      Marketo: true
+      integrations: {
+        Marketo: false
+      }
     });
 
   };
@@ -181,9 +195,10 @@
         var response = JSON.parse(event.target.responseText),
             email = d.querySelector('[name="email"]').value,
             traffic = d.querySelector('#traffic');
-        w.analytics.identify(email, {
+        w.analytics.identify(response.unique_user_id, {
           name: d.querySelector('[name="name"]').value,
           email: email,
+          Email: email,
           phone: d.querySelector('[name="phone"]').value || '',
           company: d.querySelector('[name="company"]').value || '',
           website: d.querySelector('[name="website"]').value || '',
@@ -200,9 +215,11 @@
         //track the event
         w.analytics.track('demo requested', {
           category: 'contact form',
-          label: w.location.pathname
+          label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
         }, {
-          Marketo: true
+          integrations: {
+            Marketo: true
+          }
         });
       }
     });

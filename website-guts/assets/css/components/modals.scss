@@ -100,6 +100,10 @@ body {
         line-height: 1.4;
       }
     }
+    input[type="checkbox"] {
+      width: auto;
+      margin-bottom: 15px;
+    }
     a {
       text-decoration: underline;
       cursor: pointer;
@@ -159,6 +163,10 @@ body {
       padding-left: 40px;
       padding-bottom: 10px;
     }
+    .privacy-policy {
+      text-align: center;
+      margin-top: 30px;
+    }
     h4 {margin: 0; text-align: left;}
     p { margin: 0; }
     p.webinar-date {
@@ -166,6 +174,32 @@ body {
       font-size: 1.3em;
     }
     p.webinar-time { font-size: 1.2em; }
+  }
+  ul.contact-sales-fields {
+    li {
+      list-style-type: none;
+    }
+    .oform-error-show .error-hide {
+      display: block;
+      opacity: 1;
+    }
+  }
+  #channels {
+    text-align: center;
+    label {
+      display: block;
+      margin-right: 15px;
+      font-size: 1em;
+    }
+  }
+  .checkboxes {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    div {
+      text-align: center;
+      width: 50%;
+    }
   }
 }
 
@@ -186,6 +220,21 @@ body {
         br {
           display: inline;
         }
+      }
+    }
+    input[type="checkbox"] {
+      margin-bottom: auto;
+    }
+    #channels {
+      text-align: left;
+    }
+    .checkboxes {
+      text-align: left;
+      flex-wrap: nowrap;
+      div {
+        padding-right: 12px;
+        width: auto;
+        white-space: nowrap;
       }
     }
     .options {
@@ -214,3 +263,21 @@ body {
   }
 }
 
+@media only screen and (min-width: $desktop-min-width) {
+  #contact-sales .dialog.narrow {
+    width: 750px;
+  }
+  ul.contact-sales-fields {
+
+    li {
+      float: left;
+      width: 46.5%;
+      margin-right: 30px;
+    }
+    li:nth-child(even){
+      margin-right: 0;
+    }
+    label span {font-weight: 500; font-size: 12px;}
+  }
+  .modal-footer {clear: both;}
+}

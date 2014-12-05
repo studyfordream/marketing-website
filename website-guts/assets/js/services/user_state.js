@@ -14,7 +14,7 @@ window.optly.mrkt.Optly_Q = function(acctData, expData){
       this.acctData = a;
       this.expData = e;
 
-      window.optly.PRELOAD.token = this.acctData.csrf_token;
+      //window.optly.PRELOAD.token = this.acctData.csrf_token;
     };
 
     ThrowAway.prototype = window.optly.mrkt.Optly_Q.prototype;
@@ -27,7 +27,7 @@ window.optly.mrkt.Optly_Q = function(acctData, expData){
   }
 
   if(arguments.length > 0 ){
-    window.optly.PRELOAD.token = acctData.csrf_token;
+    //window.optly.PRELOAD.token = acctData.csrf_token;
 
     return Object.create(window.optly.mrkt.Optly_Q.prototype, {
       acctData: {
@@ -45,7 +45,7 @@ window.optly.mrkt.Optly_Q = function(acctData, expData){
         get: function(){return acctCache;},
         set: function(val){
           if(!acctCache){
-            window.optly.PRELOAD.token = val.csrf_token;
+            //window.optly.PRELOAD.token = val.csrf_token;
             window.optly.mrkt.user.acctData = val;
             acctCache = val;
           }
@@ -80,7 +80,7 @@ window.optly.mrkt.Optly_Q.prototype = {
   },
 
   parseQ: function(fnQ) {
-    var queuedArgs, 
+    var queuedArgs,
       transformedArgs,
       queuedFn = fnQ[0];
 
@@ -165,6 +165,10 @@ window.optly.mrkt.services.xhr = {
       window.analytics.track(action, {
         category: category,
         label: label
+      }, {
+        integrations: {
+          Marketo: false
+        }
       });
     });
   },
@@ -222,8 +226,8 @@ window.optly.mrkt.services.xhr = {
   },
 
   handleErrors: function(deferred, apiEndpoint, properties) {
-    var parsedRes, 
-      errorMessage, 
+    var parsedRes,
+      errorMessage,
       isExpEndpoint = /\/experiment/.test(apiEndpoint);
 
     deferred.always(function(data, textStatus, jqXHR) {
@@ -270,7 +274,7 @@ window.optly.mrkt.services.xhr = {
                   ]);
                 }
             }
-          
+
             if (errorMessage === undefined && data.status !== 200) {
               if(parsedRes && parsedRes.id) {
                 delete parsedRes.id;
@@ -328,7 +332,7 @@ window.optly.mrkt.services.xhr = {
         }
       }.bind(this) );
     }.bind(this), function() {
-      
+
       deferreds[0].then(function(acctData) {
         //if there is no error in account info instantiate the Q with no exp data
         oldQue = window.optly_q;

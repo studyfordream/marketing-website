@@ -23,4 +23,5 @@ node_modules/*
 .DS_Store
 temp/*
 configs/s3Config.json
+test/**/screenshots/*
 *.map

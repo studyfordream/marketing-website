@@ -83,7 +83,7 @@ function closeModalHandler(e) {
         track: trackClose
       });
     }
-  } 
+  }
   //specifying cancel button functionality
   else if( $clickedElm.data().modalBtn !== undefined ) {
     window.optly.mrkt.modal.open({
@@ -164,7 +164,9 @@ window.optly.mrkt.modal.open = function(modalArgs) {
     category: 'modal',
     label: window.location.pathname
   }, {
-    Marketo: true
+    integrations: {
+      Marketo: false
+    }
   });
 
 };
@@ -203,7 +205,9 @@ window.optly.mrkt.modal.close = function(modalArgs) {
         category: 'modal',
         label: window.location.pathname
       }, {
-        Marketo: true
+        integrations: {
+          Marketo: false
+        }
       });
     }
 

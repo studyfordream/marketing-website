@@ -1,4 +1,9 @@
 body.trial-form-layout {
+  &.ppc-page {
+    .seo-form-subheader {
+      display: none;
+    }
+  }
   #ppc-form {
     h4 {
       text-align: center;

@@ -3,13 +3,18 @@ w.optly.mrkt.index = {};
 w.optly.mrkt.index.testItOut = function(editURL){
 
   //send user to the editor
-  w.location = window.optly.mrkt.utils.param('/edit', { url: encodeURIComponent(editURL), anonymousWall: false });
+  //w.location = window.optly.mrkt.utils.param('/edit', { url: encodeURIComponent(editURL), anonymousWall: false });
+  w.location = '/edit?url=' + encodeURIComponent(editURL) + '&anonymousWall=false';
 
   w.analytics.track('homepage test it out submitted', {
 
     category: 'forms',
     label: w.location.pathname
 
+  }, {
+    integrations: {
+      Marketo: false
+    }
   });
 
 };
@@ -21,13 +26,26 @@ $('#test-it-out-form').submit(function(e){
   var inputVal = $('#test-it-out-form input[type="text"]').val();
 
   if( inputVal ){
-     w.optly.mrkt.modal.open({ modalType: 'anonymous-wall' }); 
-     w.analytics.track('/dialog/show/anonymous_wall', {
-       category: 'modal'
-     }, {
-       Marketo: true
-     });
-     w.analytics.page('/dialog/show/anonymous_wall');
+     if($.cookie('optimizely_signed_in')){
+       w.optly.mrkt.index.testItOut(inputVal);
+     } else {
+       w.optly.mrkt.modal.open({ modalType: 'anonymous-wall' });
+       w.analytics.track('/dialog/show/anonymous_wall', {
+         category: 'modal'
+       }, {
+         integrations: {
+           Marketo: false
+         }
+       });
+       w.analytics.track('dialog/show/anonymous_wall', {
+         category: 'modal'
+       }, {
+         integrations: {
+           Marketo: false
+         }
+       });
+       w.analytics.page('/dialog/show/anonymous_wall');
+     }
   } else {
       $('input[type="text"]').focus();
     }
@@ -79,6 +97,10 @@ signupForm.on('error', function() {
   window.analytics.track('create account xhr error', {
     category: 'account',
     label: w.location.pathname
+  }, {
+    integrations: {
+      Marketo: false
+    }
   });
 }.bind(signupDialogHelperInst));
 
