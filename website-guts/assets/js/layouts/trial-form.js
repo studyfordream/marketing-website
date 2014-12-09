@@ -25,7 +25,7 @@ $('#seo-form input:not([type="hidden"])').each(function(){
 });
 
 //form
-new Oform({
+w.optly.mrkt.trialForm = new Oform({
   selector: '#seo-form'
 })
 .on('before', function(){
@@ -149,4 +149,12 @@ new Oform({
       }
     });
   }
+});
+
+$('#seo-form [name="name"], #seo-form [name="url-input"]').blur(function(){
+  w.optly.mrkt.trialForm.options.adjustClasses(this, w.optly.mrkt.trialForm.options.validate.text(this) );
+});
+
+$('#seo-form [name="email"]').blur(function(){
+  w.optly.mrkt.trialForm.options.adjustClasses(this, w.optly.mrkt.trialForm.options.validate.email( $(this).val() ) );
 });
