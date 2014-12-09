@@ -519,4 +519,4 @@ w.optly_q.push([function(){
 	}
 }]);
 
-w.optly.mrkt.numberOfErrorsBeforeSuccess = 0;
+w.optly.mrkt.formHadError = false;
