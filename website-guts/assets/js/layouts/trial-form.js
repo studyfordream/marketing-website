@@ -1,4 +1,4 @@
-//w.optly.mrkt.inlineFormLabels();
+w.optly.mrkt.inlineFormLabels();
 
 if(!w.optly.mrkt.isMobile()){
   $('#url').focus();
