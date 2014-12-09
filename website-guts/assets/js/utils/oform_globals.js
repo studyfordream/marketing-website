@@ -22,11 +22,13 @@
 
   w.optly.mrkt.Oform.validationError = function(element){
 
+    w.optly.mrkt.formHadError = true;
+
     var elementValue = $(element).val();
 
     var elementHasValue = elementValue ? 'has value' : 'no value';
 
-    w.analytics.track($(element).closest('form').attr('id') + ' ' + element.getAttribute('name') + ' error', {
+    w.analytics.track($(element).closest('form').attr('id') + ' ' + element.getAttribute('name') + ' error submit', {
 
       category: 'form error',
 
