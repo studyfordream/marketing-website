@@ -501,31 +501,49 @@ window.optly.mrkt.utils.smoothScroll = function(event) {
 w.optly_q.push([function(){
 	if(typeof w.optly.mrkt.user.acctData === 'object'){
 		if(
+				$('[name="first_name"]').val() === '' &&
 				typeof w.optly.mrkt.user.acctData.first_name === 'string' &&
 				w.optly.mrkt.user.acctData.first_name
+
 			){
 			$('[name="first_name"]').val(w.optly.mrkt.user.acctData.first_name);
 		}
 		if(
+				$('[name="last_name"]').val() === '' &&
 				typeof w.optly.mrkt.user.acctData.last_name === 'string' &&
 				w.optly.mrkt.user.acctData.last_name
+
 			){
 			$('[name="last_name"]').val(w.optly.mrkt.user.acctData.last_name);
 		}
-		if(
-				typeof w.optly.mrkt.user.acctData.first_name === 'string' &&
-				w.optly.mrkt.user.acctData.first_name &&
-				typeof w.optly.mrkt.user.acctData.last_name === 'string' &&
-				w.optly.mrkt.user.acctData.last_name
-			){
-				$('[name="name"]').val(w.optly.mrkt.user.acctData.first_name + ' ' + w.optly.mrkt.user.acctData.last_name);
+		if($('[name="name"]').val() === ''){
+			if(
+					typeof w.optly.mrkt.user.acctData.first_name === 'string' &&
+					w.optly.mrkt.user.acctData.first_name
+				){
+				$('[name="name"]').val(w.optly.mrkt.user.acctData.first_name);
+			}
+			if(
+					typeof w.optly.mrkt.user.acctData.last_name === 'string' &&
+					w.optly.mrkt.user.acctData.last_name
+				){
+				if( $('[name="name"]').val() ){
+					$('[name="name"]').val($('[name="name"]').val() + ' ' + w.optly.mrkt.user.acctData.last_name);
+				} else {
+					$('[name="name"]').val(w.optly.mrkt.user.acctData.last_name);
+				}
+			}
 		}
 		if(
 				typeof w.optly.mrkt.user.acctData.email === 'string' &&
 				w.optly.mrkt.user.acctData.email
 			){
-			$('[name="email"]').val(w.optly.mrkt.user.acctData.email);
-			$('[name="email_address"]').val(w.optly.mrkt.user.acctData.email);
+				if($('[name="email"]').val() === ''){
+					$('[name="email"]').val(w.optly.mrkt.user.acctData.email);
+				}
+				if($('[name="email_address"]').val() === ''){
+					$('[name="email_address"]').val(w.optly.mrkt.user.acctData.email);
+				}
 		}
 	}
 }]);
