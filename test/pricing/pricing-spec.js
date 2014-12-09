@@ -91,7 +91,7 @@ describe('pricing page', function() {
         //.wait(3000)
         //.wait(config.formSuccessElm({formAction: '/account/create'}))
         .wait('body.create-account-success')
-        .wait(1300)
+        .wait(300)
         .screenshot(config.screenshot({ imgName: 'pricing-signup-complete' }))
         .evaluate(function() {
           return document.body.getAttribute('class');
@@ -122,7 +122,7 @@ describe('pricing page', function() {
         .screenshot(config.screenshot({ imgName: 'contact-form-filled' }))
         .click('#contact-sales-form button[type="submit"]')
         .wait('body.contact-sales-success')
-        .wait(1300)
+        .wait(300)
         .screenshot(config.screenshot({ imgName: 'contact-sales-complete' }))
         .evaluate(function() {
           return document.body.getAttribute('class');
