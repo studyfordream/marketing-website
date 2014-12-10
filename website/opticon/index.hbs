@@ -1,0 +1,33 @@
+---
+layout: page.hbs
+seo_title: Opticon
+no_container: true
+compact_header: true
+page_script: resources.js
+body_class:
+- opticon
+---
+
+<div class="row">
+  <section class="welcome-continer">
+    <div class="opticon-logo center"></div>
+    <div class="a-center">
+      <h1 class="headline a-center">
+        {{opticon_data.tagline}}
+      </h1>
+      <h2 class="date a-center">
+        {{opticon_data.date}} | {{opticon_data.location}}
+      </h2>
+      <div class="a-center">
+      </div>
+      <h4 class="description">{{opticon_data.description}}</h4>
+
+  </section><!-- /.welcome-container -->
+
+  <section class="call-for-speakers">
+    Be a part of Opticon's amazing speaker line up. The call for speakers is now open!
+  </section><!-- /.call-for-speakers -->
+
+  <section class="call-for-sponsors">
+  </section><!-- /.call-for-sponsors -->
+</div><!-- /.row-->
