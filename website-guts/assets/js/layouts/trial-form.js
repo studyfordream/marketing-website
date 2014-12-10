@@ -12,19 +12,17 @@ var xhrInitiationTime;
 
 //track focus on form fields
 $('#seo-form input:not([type="hidden"])').each(function(){
-  $(this).focus(function(){
+  $(this).one('blur', function(){
     //put all the information in the event because we'll want to use this as a goal in optimizely
-    if(!$(this).hasClass('focus-tracked')){
-      w.optly.mrkt.formHadError = true;
-      $(this).addClass('focus-tracked');
-      w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus', {
-        category: 'forms'
-      }, {
-        integrations: {
-          'Marketo': false
-        }
-      });
-    }
+    w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus',
+    {
+      category: 'forms'
+    },
+    {
+      integrations: {
+        'Marketo': false
+      }
+    });
   });
 });
 
