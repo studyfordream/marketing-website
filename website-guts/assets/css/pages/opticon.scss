@@ -1,0 +1,43 @@
+body.opticon {
+  #page-content {
+    background-color: white;
+  }
+  .opticon-logo {
+    background-size: 600px 188px;
+    background-image: image-url('opticon_logo_old.gif');
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 188px;
+    margin: 35px auto 35px auto;
+  }
+  .tagline {
+    text-align: center;
+    font-size: 2.3em;
+  }
+  .event-details {
+    margin-bottom: 60px;
+  }
+  .description {
+    line-height: 1.9;
+  }
+  .panel {
+    padding: 60px 0;
+    box-shadow: inset 0 8px 15px -15px #000;
+    text-align: center;
+    > * {
+      text-align: center;
+    }
+    .panel-header {
+      font-size: 1.8em;
+    }
+    h2 {
+      font-size: $body-font-family;
+    }
+    p {
+      line-height: 2;
+    }
+  }
+  #call-for-speakers {
+    background: #f4f4f4;
+  }
+}

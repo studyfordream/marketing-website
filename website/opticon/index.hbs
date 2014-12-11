@@ -9,25 +9,30 @@ body_class:
 ---
 
 <div class="row">
-  <section class="welcome-continer">
+
+  <section class="welcome-container">
     <div class="opticon-logo center"></div>
     <div class="a-center">
-      <h1 class="headline a-center">
+      <h1 class="tagline">
         {{opticon_data.tagline}}
       </h1>
-      <h2 class="date a-center">
+      <h4 class="event-details">
         {{opticon_data.date}} | {{opticon_data.location}}
-      </h2>
+      </h4>
       <div class="a-center">
       </div>
       <h4 class="description">{{opticon_data.description}}</h4>
-
   </section><!-- /.welcome-container -->
 
-  <section class="call-for-speakers">
-    Be a part of Opticon's amazing speaker line up. The call for speakers is now open!
+  <section id="call-for-speakers" class="panel">
+    <h2 class="panel-header">{{opticon_data.call_for_speakers.title}}</h2>
+    <p>{{opticon_data.call_for_speakers.body}}</p>
+    <a href="#">{{opticon_data.call_for_speakers.cta}}</a>
   </section><!-- /.call-for-speakers -->
 
-  <section class="call-for-sponsors">
+  <section id="call-for-sponsors" class="panel">
+    <h2 class="panel-header">{{opticon_data.call_for_sponsors.title}}</h2>
+    <p>{{opticon_data.call_for_sponsors.body}}</p>
+    <a href="#">{{opticon_data.call_for_sponsors.cta}}</a>
   </section><!-- /.call-for-sponsors -->
 </div><!-- /.row-->
