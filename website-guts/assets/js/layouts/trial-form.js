@@ -28,7 +28,14 @@ $('#seo-form input:not([type="hidden"])').each(function(){
 
 //form
 w.optly.mrkt.trialForm = new Oform({
-  selector: '#seo-form'
+  selector: '#seo-form',
+  customValidation: {
+    'url-input': function(element){
+      console.log('value: ' + element.value);
+      var urlRegex = /.+\..+/;
+      return urlRegex.test(element.value);
+    }
+  }
 })
 .on('before', function(){
   w.analytics.track('/free-trial/submit', {
@@ -178,8 +185,12 @@ var validateOnBlur = function(isValid, element){
   }
 };
 
-$('#seo-form [name="name"], #seo-form [name="url-input"]').blur(function(){
+$('#seo-form [name="name"]').blur(function(){
   validateOnBlur(w.optly.mrkt.trialForm.options.validate.text(this), this);
+});
+
+$('#seo-form [name="url-input"]').blur(function(){
+  validateOnBlur(w.optly.mrkt.trialForm.options.customValidation['url-input'](this), this);
 });
 
 $('#seo-form [name="email"]').blur(function(){
