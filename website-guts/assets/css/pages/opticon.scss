@@ -3,22 +3,31 @@ body.opticon {
     background-color: white;
   }
   .opticon-logo {
-    background-size: 600px 188px;
     background-image: image-url('opticon_logo_old.gif');
+    background-size: 600px 188px;
     background-repeat: no-repeat;
     width: 600px;
     height: 188px;
     margin: 35px auto 35px auto;
   }
-  .tagline {
-    text-align: center;
-    font-size: 2.3em;
-  }
-  .event-details {
-    margin-bottom: 60px;
-  }
-  .description {
-    line-height: 1.9;
+  .welcome-container {
+    /*background-image: image-url('opticon_venue.jpg');*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+    * {
+      text-align: center;
+    }
+    .tagline {
+      font-size: 2.3em;
+    }
+    .event-details {
+      margin-bottom: 60px;
+      text-transform: uppercase;
+      color: gray;
+    }
+    .description {
+      line-height: 1.9;
+    }
   }
   .panel {
     padding: 60px 0;
