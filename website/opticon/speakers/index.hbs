@@ -1,0 +1,41 @@
+---
+layout: page.hbs
+seo_title: Opticon
+no_container: true
+compact_header: true
+page_script: opticon.js
+body_class:
+- opticon-speakers
+---
+
+<div class="row">
+
+  <section class="title-container">
+    <h1 class="tagline">
+      Call for Speakers
+    </h1>
+    <h4 class="event-details">
+      {{opticon_data.date}} | {{opticon_data.location}}
+    </h4>
+  </section><!-- /.title-container -->
+
+  <section class="details panel">
+    <div class="container">
+      <h2 class="details-header">The Call for Speakers is officially open for Opticon 2015!</h2>
+      <p class="details-description">{{speakers_data.speaker_description}}</p>
+      <div class="tracks">
+        {{#each speakers_data.tracks}}
+          <div class="track-item">
+            <h3 class="track-title">{{track_title}}</h3>
+            <p class="class-description">{{track_description}}</p>
+          </div>
+        {{/each}}
+      </div><!-- /.tracks -->
+    </div><!-- /.container -->
+  </section><!-- /.details -->
+
+  <section class="apply panel">
+    <h2 class="apply-header">Apply to speak at Opticon 2015</h2>
+    <p class="apply-subheader">Submit and entry for each session you'd like to apply for by January 31, 2015</p>
+  </section><!-- /.call-for-sponsors -->
+</div><!-- /.row-->

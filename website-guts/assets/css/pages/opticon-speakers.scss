@@ -1,0 +1,74 @@
+body.opticon-speakers {
+  #page-content {
+    background-color: white;
+  }
+  .title-container {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers_header_bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center -60px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    * {
+      text-align: center;
+      color: white;
+    }
+    .tagline {
+      font-size: 5em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+  }
+
+  .details {
+    .details-header {
+      text-align: center;
+      margin: 100px auto 20px auto;
+      max-width: 663px;
+      font-size: 36px;
+      font-weight: 100;
+      line-height: 48px;
+      color: #0081ba;
+    }
+    .details-description {
+      text-align: center;
+      max-width: 655px;
+      margin: 20px auto 50px auto;
+      font-size: 18px;
+      font-weight: 100;
+      line-height: 27px;
+      color: #888;
+    }
+    .tracks {
+      display: flex;
+      margin-top: 100px;
+      margin-bottom: 100px;
+      .track-item {
+        text-align: left;
+        width: 200px;
+        height: 150px;
+        font-size: 14px;
+        line-height: 20px;
+        margin: auto;
+        color: #888;
+        .track-title {
+          text-transform: uppercase;
+          color: #0081ba;
+        }
+      }
+    }
+  }
+
+  .apply {
+    .apply-header {
+      font-size: 36px;
+      color: #00415d;
+      text-align: center;
+    }
+    .apply-subheader {
+      text-align: center;
+    }
+  }
+}

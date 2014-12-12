@@ -3,7 +3,6 @@ layout: page.hbs
 seo_title: Opticon
 no_container: true
 compact_header: true
-page_script: resources.js
 body_class:
 - opticon
 ---
@@ -24,7 +23,7 @@ body_class:
   <section id="call-for-speakers" class="panel">
     <h2 class="panel-header">{{opticon_data.call_for_speakers.title}}</h2>
     <p>{{opticon_data.call_for_speakers.body}}</p>
-    <a href="#">{{opticon_data.call_for_speakers.cta}}</a>
+    <a href="{{linkPath}}/opticon/speakers">{{opticon_data.call_for_speakers.cta}}</a>
   </section><!-- /.call-for-speakers -->
 
   <section id="call-for-sponsors" class="panel">
