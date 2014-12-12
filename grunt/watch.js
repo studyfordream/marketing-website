@@ -39,16 +39,24 @@ module.exports = {
     ],
     tasks: ['config:dev', 'assemble:ppc']
   },
+  sassPPC: {
+    files: '<%= config.guts %>/assets/css/ppc/**/*.{css,scss}',
+    tasks: ['config:dev', 'sass:dev', 'replace', 'autoprefixer', 'clean:postBuild']
+  },
+  jsPPC: {
+    files: ['<%= config.guts %>/assets/js/ppc/**/*.js'],
+    tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'modernizr', 'concat:ppc', 'concat:jqueryModernizrPPC', 'clean:postBuild']
+  },
   sass: {
-    files: '<%= config.guts %>/assets/css/**/*.scss',
-    tasks: ['config:dev', 'sass', 'replace', 'autoprefixer', 'clean:postBuild']
+    files: ['<%= config.guts %>/assets/css/**/*.scss', '!<%= config.guts %>/assets/css/ppc/**/*.{css,scss}'],
+    tasks: ['config:dev', 'sass:dev', 'replace', 'autoprefixer', 'clean:postBuild']
   },
   img: {
     files: ['<%= config.guts %>/assets/img/*.{png,jpg,svg}'],
     tasks: ['copy:img']
   },
   js: {
-    files: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/services/user_state.js', '<%= config.temp %>/assets/js/**/*.js'],
+    files: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/services/user_state.js', '!<%= config.guts %>/assets/js/ppc/**/*.js', '<%= config.temp %>/assets/js/**/*.js'],
     tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'handlebars', 'modernizr', 'concat', 'clean:postBuild']
   },
   test: {

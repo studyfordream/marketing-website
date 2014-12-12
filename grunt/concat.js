@@ -19,6 +19,26 @@ module.exports = {
     isFile: true,
     dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr.min.js'
   },
+  ppc: {
+    options: {
+      banner: '<%= grunt.config.get("concat_banner") %>',
+      footer: '<%= grunt.config.get("concat_footer") %>'
+    },
+    src: ['ppc/*.js'],
+    expand: true,
+    cwd: '<%= config.guts %>/assets/js/',
+    dest: '<%= config.dist %>/assets/js/'
+  },
+  jqueryModernizrPPC: {
+    src: [
+      '<%= config.guts %>/assets/js/libraries/jquery-1.6.4.min.js',
+      '<%= config.temp %>/assets/js/libraries/modernizr.2.8.3.min.js'
+    ],
+    expand: false,
+    flatten: true,
+    isFile: true,
+    dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr-ppc.min.js'
+  },
   namespaceGlobal: {
     options: {
       banner: '<%= grunt.config.get("concat_banner") %>',

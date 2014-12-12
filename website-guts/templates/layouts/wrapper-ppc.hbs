@@ -7,7 +7,7 @@
         <!-- Chartbeat -->
         <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
         {{/if}}
-        <script src="{{assetsDir}}/js/libraries/jquery-1.11.1.min.js"></script>
+        <script src="{{assetsDir}}/js/libraries/jquery-modernizr-ppc.min.js"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {{#if environmentVariables.staging}}<meta name="robots" content="noindex">{{/if}}
         <title>{{#if page.seo_title}}{{page.seo_title}}{{else}}Optimizely: Make every experience count{{/if}}</title>
@@ -139,17 +139,13 @@
           optly.mrkt = optly.mrkt || {};
           optly.mrkt.assetsDir = '{{assetsDir}}';
         </script>
-        <script src="{{assetsDir}}/js/bundle.js" defer></script>
         {{#if page.script_dependencies}}
         {{#each page.script_dependencies}}
         <script src="{{.}}" defer></script>
         {{/each}}
         {{/if}}
-        {{#if layout_script}}
-        <script src="{{assetsDir}}/js/layouts/{{layout_script}}" defer></script>
-        {{~/if}}
         {{#if page.page_script}}
-        <script src="{{assetsDir}}/js/pages/{{page.page_script}}" defer></script>
+        <script src="{{assetsDir}}/js/ppc/{{page.page_script}}" defer></script>
         {{/if}}
     </body>
 </html>
