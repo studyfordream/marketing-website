@@ -2,6 +2,22 @@ body.opticon-speakers {
   #page-content {
     background-color: white;
   }
+  .opticon-logo {
+    height: 35px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 45px;
+  }
+  .nav-options {
+    list-style: none;
+    float: right;
+    li {
+      display: inline;
+      font-size: 0.9375em;
+      color: #888;
+      margin-right: 10px;
+    }
+  }
   .title-container {
     background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers_header_bg.jpg');
     background-size: cover;
@@ -62,12 +78,22 @@ body.opticon-speakers {
   }
 
   .apply {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers_form_bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center -60px;
+    padding-top: 100px;
+    padding-bottom: 300px;
     .apply-header {
-      font-size: 36px;
+      font-size: 2.25em;
+      text-transform: uppercase;
       color: #00415d;
       text-align: center;
+      margin-bottom: 20px;
     }
     .apply-subheader {
+      margin-top: 20px;
+      margin-bottom: 80px;
       text-align: center;
     }
   }
