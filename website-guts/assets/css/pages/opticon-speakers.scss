@@ -6,7 +6,7 @@ body.opticon-speakers {
     height: 35px;
     margin-top: 15px;
     margin-bottom: 15px;
-    margin-left: 45px;
+    margin-left: 215px;
   }
   .nav-options {
     list-style: none;
@@ -95,6 +95,30 @@ body.opticon-speakers {
       margin-top: 20px;
       margin-bottom: 80px;
       text-align: center;
+    }
+    .flex-container {
+      display: flex;
+    }
+    label {
+      font-weight: 500;
+      color: #00415d;
+    }
+    input {
+      width: 300px;
+      min-height: 42px;
+      border-radius: 5px;
+      border: 1px #CCC;
+      display: block;
+      margin-bottom: 25px;
+    }
+    .button-container {
+      text-align: center;
+      .next {
+        padding: 10px 59px;
+        background-color: #00415d;
+        color: white;
+        border-radius: 4px;
+      }
     }
   }
 }

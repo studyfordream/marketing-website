@@ -48,30 +48,43 @@ body_class:
     <h2 class="apply-header">Apply to speak at Opticon 2015</h2>
     <p class="apply-subheader">Submit and entry for each session you'd like to apply for by January 31, 2015</p>
 
-    <form id="speaker-form" action="" novalidate>
-      <label for="" class="required">Name</label>
-      <span class="FirstName-related error-hide error-right">Required</span>
-      <input type="text" name="FirstName" required>
+    <form id="speaker-form" class="container" action="" novalidate>
+      <div class="flex-container">
+        <div class="columns five offset-one">
+          <label for="" class="required">Name</label>
+          <span class="Name-related error-hide error-right">Required</span>
+          <input type="text" name="Name" required>
 
-      <label for="" class="required">Last Name</label>
-      <span class="LastName-related error-hide error-right">Required</span>
-      <input type="text" name="LastName" required>
+          <label for="" class="required">Job Title</label>
+          <span class="JobTitle-related error-hide error-right">Required</span>
+          <input type="text" name="JobTitle" required>
 
-      <label for="" class="required">Email Address</label>
-      <span class="Email-related error-hide error-right">Required</span>
-      <input type="email" name="Email" required>
+          <label for="" class="required">Company</label>
+          <span class="Company-related error-hide error-right">Required</span>
+          <input type="company" name="Company" required>
+        </div>
 
-      <label for="" class="required">Website</label>
-      <span class="Website-related error-hide error-right">Required</span>
-      <input type="text" name="Website" required>
+        <div class="columns five offset-one">
+          <label for="" class="required">Email</label>
+          <span class="Email-related error-hide error-right">Required</span>
+          <input type="text" name="Email" required>
+
+          <label for="" class="required">Phone number</label>
+          <span class="PhoneNumber-related error-hide error-right">Required</span>
+          <input type="text" name="PhoneNumber" required>
+        </div>
+      </div>
 
       <div class="options">
         <p class="error-hide">Invalid Input</p>
       </div>
-      <button type="submit" class="outline-button slide-button">
-        <span class="sbmt-btn-text">Next</span>
-        <span class="sbmt-btn-icon"></span>
-      </button>
+      <div class="button-container">
+        <a class="next" href="#">Next</a>
+      </div>
+      <!--<button type="submit" class="outline-button">-->
+        <!--<span class="sbmt-btn-text">Next</span>-->
+        <!--<span class="sbmt-btn-icon"></span>-->
+      <!--</button>-->
     </form>
   </section><!-- /.call-for-sponsors -->
 </div><!-- /.row-->
