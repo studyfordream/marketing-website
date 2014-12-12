@@ -78,7 +78,17 @@ module.exports = {
   pages: {
     files: [
       {
-        src: ['**/*.hbs', '!partners/**/*.hbs', '!resources/resources-list/**/*.hbs', '!resources/index.hbs'],
+        src: ['**/*.hbs', '!partners/**/*.hbs', '!resources/resources-list/**/*.hbs', '!resources/index.hbs', '!free-trial-n/**/*.hbs'],
+        dest: '<%= config.dist %>/',
+        cwd: '<%= config.content %>/',
+        expand: true
+      }
+    ]
+  },
+  ppc: {
+    files: [
+      {
+        src: ['free-trial-n/index.hbs'],
         dest: '<%= config.dist %>/',
         cwd: '<%= config.content %>/',
         expand: true

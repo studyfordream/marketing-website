@@ -5,6 +5,7 @@ module.exports = {
       '!<%= config.content %>/partners/**/*.{hbs,yml}',
       '!<%= config.content %>/resources/resources-list/**/*.{hbs,yml}',
       '!<%= config.content %>/resources/index.hbs',
+      '!<%= config.content %>/free-trial-n/**/*.hbs',
       '<%= config.guts %>/templates/**/*.hbs',
       '!<%= config.guts %>/templates/**/*_compiled.hbs',
       '!<%= config.guts %>/templates/client/**/*.hbs',
@@ -31,6 +32,12 @@ module.exports = {
       '!<%= config.guts %>/templates/client/**/*.hbs'
     ],
     tasks: ['config:dev', 'assemble:resources']
+  },
+  assemblePPC: {
+    files: [
+      '<%= config.content %>/free-trial-n/**/*.{hbs,yml}'
+    ],
+    tasks: ['config:dev', 'assemble:ppc']
   },
   sass: {
     files: '<%= config.guts %>/assets/css/**/*.scss',

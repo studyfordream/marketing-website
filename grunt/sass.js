@@ -10,6 +10,10 @@ module.exports = {
       {
         src: '<%= config.guts %>/assets/css/styles.scss',
         dest: '<%= config.temp %>/css/styles.css'
+      },
+      {
+        src: '<%= config.guts %>/assets/css/ppc/styles.scss',
+        dest: '<%= config.temp %>/css/ppc-styles.css'
       }
     ]
   },
@@ -23,6 +27,10 @@ module.exports = {
       {
         src: '<%= config.guts %>/assets/css/styles.scss',
         dest: '<%= config.temp %>/css/styles.css'
+      },
+      {
+        src: '<%= config.guts %>/assets/css/ppc/styles.scss',
+        dest: '<%= config.temp %>/css/ppc-styles.css'
       }
     ]
   }

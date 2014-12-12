@@ -5,7 +5,8 @@ module.exports = {
   },
   files: {
     flatten: true,
-    src: '<%= config.temp %>/css/styles.css',
-    dest: '<%= config.dist %>/assets/css/styles.css'
+    expand: true,
+    src: '<%= config.temp %>/css/*.css',
+    dest: '<%= config.dist %>/assets/css/'
   }
 };
