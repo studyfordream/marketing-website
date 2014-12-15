@@ -35,8 +35,8 @@ body_class:
   </section><!-- /.details -->
 
   <section class="apply panel">
-    <h2 class="apply-header">Apply to speak at Opticon 2015</h2>
-    <p class="apply-subheader">Submit and entry for each session you'd like to apply for by January 31, 2015</p>
+    <h2 class="apply-header">{{speakers_data.form_section.title}}</h2>
+    <p class="apply-subheader">{{speakers_data.form_section.instructions}}</p>
 
     <form id="speaker-form" class="container" action="" novalidate>
       <div class="flex-container">
@@ -51,7 +51,7 @@ body_class:
 
           <label for="" class="required">Company</label>
           <span class="Company-related error-hide error-right">Required</span>
-          <input type="company" name="Company" required>
+          <input type="text" name="Company" required>
         </div>
 
         <div class="columns five offset-one">
@@ -65,16 +65,76 @@ body_class:
         </div>
       </div>
 
+      <div class="flex-container">
+        <div class="columns five offset-one">
+          <label for="" class="required">Session Title</label>
+          <span class="SessionTitle-related error-hide error-right">Required</span>
+          <input type="text" name="SessionTitle" required>
+
+          <label class="required" for="">Session Type</label>
+          <select class="required" name="SessionType">
+            <option selected disabled hidden value=''></option>
+            <option value="Solo Speaking Spot">Solo Speaking Spot</option>
+            <option value="Panel Presentation">Panel Presentation</option>
+            <option value="Fireside">Fireside</option>
+          </select>
+
+          <label for="">Additional Speakers</label>
+          <input type="text" name="AdditionalSpeakers">
+        </div>
+
+        <div class="columns five offset-one">
+          <label class="required" for="">Track</label>
+          <select  name="Track" required>
+            <option selected disabled hidden value=''></option>
+            <option value="Strategy">Strategy</option>
+            <option value="Culture">Culture</option>
+            <option value="Action">Action</option>
+            <option value="Develop">Develop</option>
+          </select>
+
+          <label class="required" for="">Audience</label>
+          <select name="Audience">
+            <option selected disabled hidden value=''></option>
+            <option value="value1">Marketers</option>
+            <option value="value2">Developers</option>
+            <option value="value3">Product</option>
+            <option value="value3">Everyone</option>
+          </select>
+
+          <label class="required" for="">Level</label>
+          <select name="Level">
+            <option selected disabled hidden value=''></option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+            <option value="Everyone">Everyone</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="big-text-area">
+        <label class="required" for="">Session Abstract</label>
+        <textarea name="SessionAbstract"></textarea>
+      </div>
+
+      <div class="big-text-area">
+        <label class="required" for="">Examples of previous speaking engagement(s)</label>
+        <textarea name="PreviousTalks"></textarea>
+      </div>
+
       <div class="options">
         <p class="error-hide">Invalid Input</p>
       </div>
+      <!--<div class="button-container">-->
+        <!--<a class="next" href="#">Next</a>-->
+      <!--</div>-->
       <div class="button-container">
-        <a class="next" href="#">Next</a>
+        <button type="submit" class="submit-button">
+          <span class="sbmt-btn-text">Submit</span>
+          <span class="sbmt-btn-icon"></span>
+        </button>
       </div>
-      <!--<button type="submit" class="outline-button">-->
-        <!--<span class="sbmt-btn-text">Next</span>-->
-        <!--<span class="sbmt-btn-icon"></span>-->
-      <!--</button>-->
     </form>
   </section><!-- /.call-for-sponsors -->
 </div><!-- /.row-->

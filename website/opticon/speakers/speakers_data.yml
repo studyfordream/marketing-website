@@ -3,13 +3,17 @@ speaker_description: "Opticon is the annual conference that brings together the 
 tracks:
   -
     track_title: "Strategy"
-    track_description: "This is perhaps the most important non-obvious thing to learn about UI design: light comes from the sky."
+    track_description: "Tips and best practices for incorporating experience optimization into your business strategy."
   -
-    track_title: "Optimization"
-    track_description: "When light comes from the sky, it illuminates the tops of things and casts shadows below them."
+    track_title: "Culture"
+    track_description: "How to create a culture that values and practices experience optimization every day."
   -
-    track_title: "Developers"
-    track_description: "You wouldn’t think of people’s lower eyelids as being particularly shaded, but shine some light on those suckers."
+    track_title: "Action"
+    track_description: "How to use Optimizely to create the best experiences for your users and customers."
   -
-    track_title: "Marketers"
-    track_description: "Well, the same is true for UI. Just as we have little shadows on all the undersides of all our facial features."
+    track_title: "Develop"
+    track_description: "For developers; how to build on top of Optimizely."
+
+form_section:
+  title: "Apply to speak at Opticon 2015"
+  instructions: "Submit an entry for each session you'd like to apply for by January 31, 2015"

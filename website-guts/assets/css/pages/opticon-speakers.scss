@@ -83,7 +83,7 @@ body.opticon-speakers {
     background-repeat: no-repeat;
     background-position: center -60px;
     padding-top: 100px;
-    padding-bottom: 300px;
+    padding-bottom: 200px;
     .apply-header {
       font-size: 2.25em;
       text-transform: uppercase;
@@ -98,14 +98,30 @@ body.opticon-speakers {
     }
     .flex-container {
       display: flex;
+      margin-bottom: 40px;
     }
     label {
       font-weight: 500;
       color: #00415d;
     }
+    .big-text-area {
+      text-align: center;
+      margin-bottom: 50px;
+      label {
+        display: block;
+      }
+      textarea {
+        resize: none;
+        border-radius: 5px;
+        border: 1px #CCC;
+        width: 550px;
+        height: 200px;
+      }
+    }
+    select,
     input {
       width: 300px;
-      min-height: 42px;
+      height: 42px;
       border-radius: 5px;
       border: 1px #CCC;
       display: block;
@@ -119,6 +135,11 @@ body.opticon-speakers {
         color: white;
         border-radius: 4px;
       }
+    }
+    .submit-button {
+      @extend .new-primary-button;
+      background-color: #00415d;
+      box-shadow: none;
     }
   }
 }
