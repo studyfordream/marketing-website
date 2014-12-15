@@ -3,32 +3,41 @@ layout: page.hbs
 seo_title: Opticon
 no_container: true
 compact_header: true
+page_script: opticon.js
 body_class:
 - opticon
 ---
 
 <div class="row">
+  {{#with opticon_data}}
 
   <section class="welcome-container">
-    <div class="opticon-logo"></div>
-    <h1 class="tagline">
-      {{opticon_data.tagline}}
-    </h1>
-    <h4 class="event-details">
-      {{opticon_data.date}} | {{opticon_data.location}}
-    </h4>
-    <h4 class="description">{{opticon_data.description}}</h4>
-  </section><!-- /.welcome-container -->
+    <h1 class="title">{{title}}</h1>
+    <h4 class="event-details">{{date}} | {{location}}</h4>
+  </section>
 
-  <section id="call-for-speakers" class="panel">
-    <h2 class="panel-header">{{opticon_data.call_for_speakers.title}}</h2>
-    <p>{{opticon_data.call_for_speakers.body}}</p>
-    <a href="{{linkPath}}/opticon/speakers">{{opticon_data.call_for_speakers.cta}}</a>
-  </section><!-- /.call-for-speakers -->
+  <section class="description-panel container">
+    <h1 class="tagline">{{tagline}}</h1>
+    <p class="description">{{description}}</p>
+  </section>
 
-  <section id="call-for-sponsors" class="panel">
-    <h2 class="panel-header">{{opticon_data.call_for_sponsors.title}}</h2>
-    <p>{{opticon_data.call_for_sponsors.body}}</p>
-    <a href="#">{{opticon_data.call_for_sponsors.cta}}</a>
+  <section class="call-for-speakers-panel">
+    <h1 class="title">{{call_for_speakers.title}}</h2>
+    <p class="body">{{{call_for_speakers.body}}}</p>
+  {{/with}}
+  <div class="button-container">
+    <a class="cta" href="{{linkPath}}/opticon/speakers">{{opticon_data.call_for_speakers.cta}}</a>
+  </div>
+  {{#with opticon_data}}
+  </section>
+
+  <section class="call-for-sponsors-panel container">
+    <h1 class="title">{{call_for_sponsors.title}}</h1>
+    <p class="body">{{call_for_sponsors.body}}</p>
+    <div class="button-container">
+      <a class="cta" href="#">{{call_for_sponsors.cta}}</a>
+    </div>
   </section><!-- /.call-for-sponsors -->
+
+  {{/with}}
 </div><!-- /.row-->

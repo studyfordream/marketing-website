@@ -11,39 +11,93 @@ body.opticon {
     margin: 35px auto 35px auto;
   }
   .welcome-container {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/opticon-header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 25% 25%;
     * {
       text-align: center;
     }
-    .tagline {
-      font-size: 2.3em;
+    .title {
+      margin: 0;
+      padding-top: 150px;
+      font-size: 3.5em;
+      text-transform: uppercase;
+      color: white;
     }
     .event-details {
-      margin-bottom: 60px;
+      padding-bottom: 120px;
       text-transform: uppercase;
-      color: gray;
+      color: white;
+      margin-top: 7px;
+    }
+  }
+  .description-panel {
+    .tagline {
+      text-align: center;
+      text-transform: uppercase;
+      margin-top: 100px;
+      margin-bottom: 50px;
+      color: #0081ba;
     }
     .description {
-      line-height: 1.9;
+      margin-bottom: 90px;
+      color: #888;
     }
   }
-  .panel {
-    padding: 60px 0;
-    box-shadow: inset 0 8px 15px -15px #000;
-    text-align: center;
-    > * {
+
+  .call-for-speakers-panel {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/call-for-speakers.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 25% 25%;
+    * {
       text-align: center;
     }
-    .panel-header {
-      font-size: 1.8em;
+    .title {
+      padding-top: 100px;
+      margin-bottom: 50px;
+      color: white;
+      text-transform: uppercase;
     }
-    h2 {
-      font-size: $body-font-family;
+    .body {
+      color: #00415d;
+      margin-bottom: 50px;
     }
-    p {
-      line-height: 2;
+    .button-container {
+      text-align: center;
+      padding-bottom: 100px;
+      a {
+        padding: 10px 59px;
+        background-color: #00415d;
+        color: white;
+        border-radius: 4px;
+      }
     }
   }
-  #call-for-speakers {
-    background: #f4f4f4;
+
+  .call-for-sponsors-panel {
+    .title {
+      padding-top: 100px;
+      margin-bottom: 50px;
+      color: #0081ba;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .body {
+      color: #888;
+      margin-bottom: 50px;
+      text-align: left;
+    }
+    .button-container {
+      text-align: center;
+      padding-bottom: 100px;
+      a {
+        padding: 10px 59px;
+        background-color: #0081ba;
+        color: white;
+        border-radius: 4px;
+      }
+    }
   }
 }
