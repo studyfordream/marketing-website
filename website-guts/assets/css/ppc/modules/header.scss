@@ -1,3 +1,16 @@
 header {
-  background: #0081ba;
+  background: #006eb6;
+  p.logo {
+    margin: 8px 0;
+    padding: 0;
+  }
+}
+
+p.logo a {
+  background-image: image-url('ppc/logo.png');
+  background-repeat: no-repeat;
+  display: block;
+  text-indent: -900em;
+  height: 49px;
+  width: 173px;
 }

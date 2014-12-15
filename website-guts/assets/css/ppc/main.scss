@@ -1,0 +1,116 @@
+header {
+  margin-bottom: 30px;
+}
+
+.social-numbers {
+  background: image-url('ppc/free-trial-sprite-adjusted-2.png') no-repeat;
+  padding-left: 80px;
+  margin: 30px auto 0 auto;
+  width: 220px;
+  .social-number {
+    font-family: $condensed-sans-serif;
+    font-size: 2.6em;
+    font-style: normal;
+    font-weight: 400;
+    color: #036;
+    text-align: center;
+    margin: 0;
+  }
+  .description {
+    margin: 0;
+    font-family: $body-font-family;
+    font-size: .8em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #036;
+  }
+}
+.experiments-run-cont {
+  background-position: -735px 13px;
+}
+
+h4.seo-form-heading {
+  font-size: 1.4em;
+  font-weight: 100;
+  text-align: center;
+}
+
+#seo-form {
+  ul {padding: 0;}
+  li {
+    list-style-type: none;
+    margin: 0;
+    &.terms {
+      text-align: center;
+    }
+  }
+  input {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  button {
+    width: 100%;
+  }
+  .oform-error-message, .oform-processing-show {
+    display: none;
+  }
+}
+
+
+@mixin desktop {
+  header {
+    margin-bottom: 60px;
+  }
+  .social-proof {
+    float: left;
+    width: 448px;
+  }
+  .form-cont {
+    float: right;
+    width: 402px;
+    margin: auto auto 100px;
+  }
+  #ppc-form {
+    h4 {
+      text-align: center;
+    }
+  }
+  .social-numbers {
+    float: left;
+    width: 50%;
+    .social-number {
+      margin-bottom: 7px;
+      font-size: 2.1em;
+      text-align: left;
+    }
+  }
+  #seo-form {
+    #phone-email-cont div {width: 50%;}
+    #phone-email-cont .right {
+      padding-left: 10px;
+    }
+    #phone-email-cont .left {
+      padding-right: 10px;
+    }
+    li.terms {
+      text-align: left;
+    }
+    button {
+      width: 200px;
+      margin: 10px auto 0 auto;
+      display: block;
+    }
+  }
+
+}
+
+@media screen and (min-width: $desktop-min-width){
+
+  @include desktop;
+
+}
+
+.oldie {
+  @include desktop;
+}

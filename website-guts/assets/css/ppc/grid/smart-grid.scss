@@ -22,9 +22,9 @@ $flexbox_support: false;
     @include column-set;
 }
 
-// uncomment this section for IE support
-// html.oldie,
-// html.lt-ie9,
-// html.no-mq {
-//     @include column-set;
-// }
+//uncomment this section for IE support
+html.oldie,
+html.lt-ie9,
+html.no-mq {
+    @include column-set;
+}

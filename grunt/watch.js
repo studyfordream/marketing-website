@@ -7,6 +7,7 @@ module.exports = {
       '!<%= config.content %>/resources/index.hbs',
       '!<%= config.content %>/free-trial-n/**/*.hbs',
       '<%= config.guts %>/templates/**/*.hbs',
+      '!<%= config.guts %>/templates/ppc/**/*.hbs',
       '!<%= config.guts %>/templates/**/*_compiled.hbs',
       '!<%= config.guts %>/templates/client/**/*.hbs',
       '<%= config.guts %>/assets/js/services/user_state.js',
@@ -18,6 +19,7 @@ module.exports = {
     files: [
       '<%= config.content %>/partners/**/*.{hbs,yml}',
       '<%= config.guts %>/templates/**/*.hbs',
+      '!<%= config.guts %>/templates/ppc/**/*.hbs',
       '!<%= config.guts %>/templates/**/*_compiled.hbs',
       '!<%= config.guts %>/templates/client/**/*.hbs'
     ],
@@ -28,6 +30,7 @@ module.exports = {
       '<%= config.content %>/resources/resources-list/**/*.{hbs,yml}',
       '<%= config.content %>/resources/*.{hbs,yml}',
       '<%= config.guts %>/templates/**/*.hbs',
+      '!<%= config.guts %>/templates/ppc/**/*.hbs',
       '!<%= config.guts %>/templates/**/*_compiled.hbs',
       '!<%= config.guts %>/templates/client/**/*.hbs'
     ],
@@ -35,7 +38,8 @@ module.exports = {
   },
   assemblePPC: {
     files: [
-      '<%= config.content %>/free-trial-n/**/*.{hbs,yml}'
+      '<%= config.content %>/free-trial-n/**/*.{hbs,yml}',
+      '<%= config.guts %>/templates/ppc/**/*.hbs'
     ],
     tasks: ['config:dev', 'assemble:ppc']
   },

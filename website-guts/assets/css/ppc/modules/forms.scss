@@ -1,0 +1,22 @@
+@mixin desktop {
+  input[type=text], input[type=url], input[type=tel], input[type=email] {
+    width: auto;
+  }
+}
+
+input[type=text], input[type=url], input[type=tel], input[type=email], input[type=password] {
+  border: 1px solid #c9c9c9;
+  font-weight: 400;
+  padding: 4px;
+  color: #242424;
+  font-size: 16px;
+  min-height: 38px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+@media only screen and (min-width: $desktop-min-width){
+  @include desktop;
+}
+
+.oldie {@include desktop;}

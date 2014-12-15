@@ -30,5 +30,15 @@ module.exports = {
       },
       {src: ['<%= config.guts %>/assets/img/favicon.ico'], dest: '<%= config.dist %>/favicon.ico'},
     ]
+  },
+  js: {
+    files: [
+      {
+        cwd: '<%= config.guts %>/assets/js/ppc/libraries',
+        src: '**',
+        dest: '<%= config.dist %>/assets/js/ppc/libraries/',
+        expand: true
+      }
+    ]
   }
 };

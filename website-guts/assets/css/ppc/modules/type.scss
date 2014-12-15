@@ -1,0 +1,22 @@
+@mixin desktop {
+  p, li {
+    font-size: .95em;
+    line-height: 1.6em;
+    font-weight: 100;
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width){
+  @include desktop;
+}
+
+.oldie {@include desktop;}
+
+body {
+  font-family: $gotham-small-type;
+  color: #242424;
+}
+p {
+  font-size: 1.1em;
+  font-weight: 100;
+}

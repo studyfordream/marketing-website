@@ -86,6 +86,9 @@ module.exports = {
     ]
   },
   ppc: {
+    options: {
+      layoutdir: '<%= config.guts %>/templates/ppc/layouts/'
+    },
     files: [
       {
         src: ['free-trial-n/index.hbs'],
