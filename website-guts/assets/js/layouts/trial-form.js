@@ -1,4 +1,4 @@
-//w.optly.mrkt.inlineFormLabels();
+w.optly.mrkt.inlineFormLabels();
 
 if(!w.optly.mrkt.isMobile()){
   $('#url').focus();
@@ -12,11 +12,13 @@ var xhrInitiationTime;
 
 //track focus on form fields
 $('#seo-form input:not([type="hidden"])').each(function(){
-  $(this).focus(function(){
+  $(this).one('blur', function(){
     //put all the information in the event because we'll want to use this as a goal in optimizely
-    w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus', {
+    w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus',
+    {
       category: 'forms'
-    }, {
+    },
+    {
       integrations: {
         'Marketo': false
       }
@@ -25,8 +27,15 @@ $('#seo-form input:not([type="hidden"])').each(function(){
 });
 
 //form
-new Oform({
-  selector: '#seo-form'
+w.optly.mrkt.trialForm = new Oform({
+  selector: '#seo-form',
+  customValidation: {
+    'url-input': function(element){
+      console.log('value: ' + element.value);
+      var urlRegex = /.+\..+/;
+      return urlRegex.test(element.value);
+    }
+  }
 })
 .on('before', function(){
   w.analytics.track('/free-trial/submit', {
@@ -77,6 +86,13 @@ new Oform({
         name: d.getElementById('name').value,
         phone: d.getElementById('phone').value
       }, event);
+      w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
+        category: 'form'
+      }, {
+        integrations: {
+          Marketo: false
+        }
+      });
       /* legacy reporting - to be deprecated */
       w.analytics.track('/free-trial/success', {
         category: 'account',
@@ -149,4 +165,34 @@ new Oform({
       }
     });
   }
+});
+
+var validateOnBlur = function(isValid, element){
+  w.optly.mrkt.trialForm.options.adjustClasses(element, isValid);
+  var elementValue = $(element).val();
+  var elementHasValue = elementValue ? 'has value' : 'no value';
+  if(!isValid){
+    w.optly.mrkt.formHadError = true;
+    w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' error blur', {
+      category: 'form error',
+      label: elementHasValue,
+      value: elementValue.length
+    }, {
+      integrations: {
+        Marketo: false
+      }
+    });
+  }
+};
+
+$('#seo-form [name="name"]').blur(function(){
+  validateOnBlur(w.optly.mrkt.trialForm.options.validate.text(this), this);
+});
+
+$('#seo-form [name="url-input"]').blur(function(){
+  validateOnBlur(w.optly.mrkt.trialForm.options.customValidation['url-input'](this), this);
+});
+
+$('#seo-form [name="email"]').blur(function(){
+  validateOnBlur(w.optly.mrkt.trialForm.options.validate.email( $(this).val() ), this);
 });

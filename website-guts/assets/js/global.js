@@ -518,3 +518,5 @@ w.optly_q.push([function(){
 		}
 	}
 }]);
+
+w.optly.mrkt.formHadError = false;
