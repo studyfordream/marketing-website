@@ -1,14 +1,6 @@
 body.opticon {
-  #page-content {
+  #outer-wrapper {
     background-color: white;
-  }
-  .opticon-logo {
-    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/opticon_logo.svg');
-    background-size: 600px 188px;
-    background-repeat: no-repeat;
-    width: 600px;
-    height: 188px;
-    margin: 35px auto 35px auto;
   }
   .welcome-container {
     background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/opticon-header.jpg');
@@ -72,6 +64,10 @@ body.opticon {
         background-color: #00415d;
         color: white;
         border-radius: 4px;
+        &:hover {
+          text-decoration: none;
+          background-color: #005377;
+        }
       }
     }
   }
@@ -97,6 +93,10 @@ body.opticon {
         background-color: #0081ba;
         color: white;
         border-radius: 4px;
+        &:hover {
+          text-decoration: none;
+          background-color: #0298DA;
+        }
       }
     }
   }
