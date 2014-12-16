@@ -30,7 +30,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
   // Remove the error classes when the user focuses on an input
   Const.prototype.focusin = function(){
-    $.each(this.inputs, function(index, input) {
+    $.each(this.formElm, function(index, input) {
       if  (!!input && input.type !== 'submit') {
         $(input).on('focus', function(e) {
           var $target = $(e.target);
@@ -233,9 +233,9 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
   var processingHelpers = {
 
     handleDisable: function(disableState) {
-      var inputs = this.inputs;
+      var inputs = this.formElm;
 
-      if(inputs.indexOf(null) !== -1) {
+      if(Array.prototype.indexOf.call(inputs, null) !== -1) {
         inputs.splice(inputs.indexOf(null), 1);
       }
 

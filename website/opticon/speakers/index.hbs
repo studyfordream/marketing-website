@@ -3,7 +3,7 @@ layout: opticon.hbs
 seo_title: Opticon
 no_container: true
 compact_header: true
-page_script: opticon.js
+page_script: opticon-speakers.js
 footer_style: grey
 body_class:
 - opticon-speakers
@@ -38,7 +38,7 @@ body_class:
     <h2 class="apply-header">{{speakers_data.form_section.title}}</h2>
     <p class="apply-subheader">{{speakers_data.form_section.instructions}}</p>
 
-    <form id="speaker-form" class="container" action="" novalidate>
+    <form id="speaker-form" class="container" action="http://www.mocky.io/v2/54908f0a0b9c751f1843787b" method="post" novalidate>
       <div class="flex-container">
         <div class="columns five offset-one">
           <label for="" class="required">Name</label>
@@ -72,7 +72,8 @@ body_class:
           <input type="text" name="SessionTitle" required>
 
           <label class="required" for="">Session Type</label>
-          <select class="required" name="SessionType">
+          <span class="SessionType-related error-hide error-right">Required</span>
+          <select class="required" name="SessionType" required>
             <option selected disabled hidden value=''></option>
             <option value="Solo Speaking Spot">Solo Speaking Spot</option>
             <option value="Panel Presentation">Panel Presentation</option>
@@ -85,6 +86,7 @@ body_class:
 
         <div class="columns five offset-one">
           <label class="required" for="">Track</label>
+          <span class="Track-related error-hide error-right">Required</span>
           <select  name="Track" required>
             <option selected disabled hidden value=''></option>
             <option value="Strategy">Strategy</option>
@@ -94,16 +96,18 @@ body_class:
           </select>
 
           <label class="required" for="">Audience</label>
-          <select name="Audience">
+          <span class="Audience-related error-hide error-right">Required</span>
+          <select name="Audience" required>
             <option selected disabled hidden value=''></option>
-            <option value="value1">Marketers</option>
-            <option value="value2">Developers</option>
-            <option value="value3">Product</option>
-            <option value="value3">Everyone</option>
+            <option value="Marketers">Marketers</option>
+            <option value="Developers">Developers</option>
+            <option value="Product">Product</option>
+            <option value="Everyone">Everyone</option>
           </select>
 
           <label class="required" for="">Level</label>
-          <select name="Level">
+          <span class="Level-related error-hide error-right">Required</span>
+          <select name="Level" required>
             <option selected disabled hidden value=''></option>
             <option value="Beginner">Beginner</option>
             <option value="Intermediate">Intermediate</option>
@@ -115,12 +119,14 @@ body_class:
 
       <div class="big-text-area">
         <label class="required" for="">Session Abstract</label>
-        <textarea name="SessionAbstract"></textarea>
+        <span class="SessionAbstract-related error-hide error-right">Required</span>
+        <textarea name="SessionAbstract" required></textarea>
       </div>
 
       <div class="big-text-area">
         <label class="required" for="">Examples of previous speaking engagement(s)</label>
-        <textarea name="PreviousTalks"></textarea>
+        <span class="PreviousTalks-related error-hide error-right">Required</span>
+        <textarea name="PreviousTalks" required></textarea>
       </div>
 
       <div class="options">
@@ -134,6 +140,9 @@ body_class:
           <span class="sbmt-btn-text">Submit</span>
           <span class="sbmt-btn-icon"></span>
         </button>
+      </div>
+      <div class="form-success">
+        <h3 class="form-success">{{speakers_data.form_section.form_success}}</h3>
       </div>
     </form>
   </section><!-- /.call-for-sponsors -->

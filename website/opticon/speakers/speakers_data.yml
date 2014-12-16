@@ -17,3 +17,4 @@ tracks:
 form_section:
   title: "Apply to speak at Opticon 2015"
   instructions: "Submit an entry for each session you'd like to apply for by January 31, 2015"
+  form_success: "Thank you for applying to speak at Opticon! You'll hear back from us in early March."
