@@ -7,6 +7,8 @@ page_script: opticon.js
 footer_style: grey
 body_class:
 - opticon
+external_stylesheets:
+- //cloud.typography.com/7838232/736966/css/fonts.css
 ---
 
 <div class="row">
@@ -19,7 +21,10 @@ body_class:
 
   <section class="description-panel container">
     <h1 class="tagline">{{tagline}}</h1>
-    <p class="description">{{description}}</p>
+    <div class="flex-container">
+      <p class="description">{{description}}</p>
+      <div class="pier"></div>
+    </div>
   </section>
 
   <section class="call-for-speakers-panel">
@@ -34,9 +39,11 @@ body_class:
 
   <section class="register container">
     <h1 class="title">{{register.title}}</h2>
-    <p class="blurb">{{{register.blurb}}}</p>
-    <div class="eventbrite-widget">
-      <iframe src="http://www.eventbrite.com/tickets-external?eid=4653432542&ref=etckt&v=2" frameborder="0" height="256" width="100%" vspace="0" hspace="0" marginheight="0" marginwidth="5"  allowtransparency="true"></iframe>
+    <div class="flex-container">
+      <p class="blurb">{{{register.blurb}}}</p>
+      <div class="eventbrite-widget">
+        <iframe src="http://www.eventbrite.com/tickets-external?eid=4653432542&ref=etckt&v=2" frameborder="0" height="256" width="100%" vspace="0" hspace="0" marginheight="0" marginwidth="5"  allowtransparency="true"></iframe>
+      </div>
     </div>
   </section>
 
