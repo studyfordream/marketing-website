@@ -10,10 +10,14 @@ tagline: "It's all about the experience."
 
 call_for_speakers:
   title: "Call for Speakers"
-  body: "Be a part of Opticon's amazing speaker line up.<br /> The call for speakers is now open!"
+  blurb: "Be a part of Opticon's amazing speaker line up.<br /> The call for speakers is now open!"
   cta: "Apply"
+
+register:
+  title: "Registration"
+  blurb: "We'll have the agenda and list of speakers up shortly, but if you're as pumped about Opticon as we are, feel free to register now and snag a ticket at early bird prices!"
 
 call_for_sponsors:
   title: "Sponsorship Opportunities"
-  body: "Sponsor Opticon and gain exposure to over 1,000 leaders in the optimization community. Sponsors of the event have a unique opportunity to grow their business, help lead the conversation in optimization, and set the tone for what will be accomplished in the emergent space of experience optimization in the coming year."
+  blurb: "Sponsor Opticon and gain exposure to over 1,000 leaders in the optimization community. Sponsors of the event have a unique opportunity to grow their business, help lead the conversation in optimization, and set the tone for what will be accomplished in the emergent space of experience optimization in the coming year."
   cta: "Download PDF"

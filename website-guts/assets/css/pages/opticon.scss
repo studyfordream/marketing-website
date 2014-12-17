@@ -52,7 +52,7 @@ body.opticon {
       color: white;
       text-transform: uppercase;
     }
-    .body {
+    .blurb {
       color: #00415d;
       margin-bottom: 50px;
     }
@@ -72,16 +72,35 @@ body.opticon {
     }
   }
 
+  .register {
+    .title {
+      color: #0081Ba;
+      text-align: center;
+      margin-top: 75px;
+    }
+    .blurb {
+      margin-bottom: 75px;
+    }
+    .eventbrite-widget {
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      margin-right: auto;
+      margin-left: auto;
+      margin-bottom: 75px;
+    }
+  }
+
   .call-for-sponsors-panel {
+    background: #A2CBDC;
     .title {
       padding-top: 100px;
       margin-bottom: 50px;
-      color: #0081ba;
+      color: white;
       text-transform: uppercase;
       text-align: center;
     }
-    .body {
-      color: #888;
+    .blurb {
       margin-bottom: 50px;
       text-align: left;
     }

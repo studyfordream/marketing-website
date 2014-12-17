@@ -24,7 +24,7 @@ body_class:
 
   <section class="call-for-speakers-panel">
     <h1 class="title">{{call_for_speakers.title}}</h2>
-    <p class="body">{{{call_for_speakers.body}}}</p>
+    <p class="blurb">{{{call_for_speakers.blurb}}}</p>
   {{/with}}
   <div class="button-container">
     <a class="cta" href="{{linkPath}}/opticon/speakers">{{opticon_data.call_for_speakers.cta}}</a>
@@ -32,13 +32,21 @@ body_class:
   {{#with opticon_data}}
   </section>
 
-  <section class="call-for-sponsors-panel container">
-    <h1 class="title">{{call_for_sponsors.title}}</h1>
-    <p class="body">{{call_for_sponsors.body}}</p>
+  <section class="register container">
+    <h1 class="title">{{register.title}}</h2>
+    <p class="blurb">{{{register.blurb}}}</p>
+    <div class="eventbrite-widget">
+      <iframe src="http://www.eventbrite.com/tickets-external?eid=4653432542&ref=etckt&v=2" frameborder="0" height="256" width="100%" vspace="0" hspace="0" marginheight="0" marginwidth="5"  allowtransparency="true"></iframe>
+    </div>
+  </section>
+
+  <section class="call-for-sponsors-panel">
+    <h1 class="title container">{{call_for_sponsors.title}}</h1>
+    <p class="blurb container">{{call_for_sponsors.blurb}}</p>
     <div class="button-container">
       <a class="cta" href="#">{{call_for_sponsors.cta}}</a>
     </div>
-  </section><!-- /.call-for-sponsors -->
+  </section>
 
   {{/with}}
 </div><!-- /.row-->
