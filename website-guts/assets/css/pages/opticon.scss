@@ -117,7 +117,10 @@ body.opticon {
   }
 
   .call-for-sponsors-panel {
-    background: #A2CBDC;
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/call_for_sponsors.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 25% 25%;
     .title {
       padding-top: 100px;
       margin-bottom: 50px;
@@ -126,15 +129,17 @@ body.opticon {
       text-align: center;
     }
     .blurb {
+      max-width: 640px;
       margin-bottom: 50px;
-      text-align: left;
+      text-align: center;
+      color: white;
     }
     .button-container {
       text-align: center;
       padding-bottom: 100px;
       a {
         padding: 10px 59px;
-        background-color: #0081ba;
+        background-color: #a4cde3;
         color: white;
         border-radius: 4px;
         text-transform: uppercase;
