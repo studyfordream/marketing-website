@@ -4,8 +4,8 @@ company_logos:
  header: "Already used by the following great companies:"
  logos:
   -
-   name: "Travelzoo"
-   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/travelzoo_gray.svg"
+   name: "Sony"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_logo.svg"
   -
    name: "Microsoft"
    svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_gray.svg"
