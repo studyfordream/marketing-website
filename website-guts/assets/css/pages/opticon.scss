@@ -17,7 +17,7 @@ body.opticon {
     .title {
       margin: 0;
       padding-top: 150px;
-      font-size: 3.5em;
+      font-size: 2.5em;
       text-transform: uppercase;
       color: white;
     }
@@ -26,6 +26,7 @@ body.opticon {
       text-transform: uppercase;
       color: white;
       margin-top: 7px;
+      font-size: 0.9em;
     }
   }
 
@@ -38,7 +39,6 @@ body.opticon {
       color: #0081ba;
     }
     .description {
-      margin: 0 50px 90px 0;
       color: #888;
       width: 550px;
     }
@@ -46,6 +46,7 @@ body.opticon {
       display: flex;
     }
     .pier {
+      display: none;
       width: 300px;
       height: 170px;
       background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pier.jpg');
@@ -93,26 +94,20 @@ body.opticon {
 
   .register {
     .title {
+      text-transform: uppercase;
       color: #0081Ba;
       text-align: center;
       margin-top: 75px;
       margin-bottom: 50px;
     }
-    .flex-container {
-      display: flex;
-    }
     .blurb {
-      width: 280px;
       color: #888;
-      margin-right: 50px;
     }
-    .eventbrite-widget {
-      width: 100%;
-      max-width: 600px;
-      text-align: center;
-      margin-right: auto;
-      margin-left: auto;
-      margin-bottom: 75px;
+    .eventbrite-mobile img{
+      margin-bottom: 50px;
+    }
+    .eventbrite-desktop {
+      display: none;
     }
   }
 
@@ -149,5 +144,52 @@ body.opticon {
         }
       }
     }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  body.opticon {
+    .welcome-container {
+      .title {
+        font-size: 3.5em;
+      }
+      .event-details {
+        font-size: 1.15em;
+      }
+    }
+    .description-panel {
+      .blurb {
+        margin: 0 50px 90px 0;
+      }
+      .pier {
+        display: block;
+      }
+    }
+    .register {
+      .flex-container {
+        display: flex;
+      }
+      .blurb {
+        width: 280px;
+        margin-right: 50px;
+      }
+      .eventbrite-mobile {
+        display: none;
+      }
+      .eventbrite-desktop {
+        display: block;
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 75px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.opticon {
   }
 }
