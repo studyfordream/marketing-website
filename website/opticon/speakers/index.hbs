@@ -39,7 +39,7 @@ body_class:
     <p class="apply-subheader">{{speakers_data.form_section.instructions}}</p>
 
     <form id="speaker-form" class="container" action="http://www.mocky.io/v2/54908f0a0b9c751f1843787b" method="post" novalidate>
-      <div class="flex-container">
+      <div class="application-section shared-line">
         <div class="columns five offset-one">
           <label for="" class="required">Name</label>
           <span class="Name-related error-hide error-right">Required</span>
@@ -65,25 +65,7 @@ body_class:
         </div>
       </div>
 
-      <div class="flex-container">
-        <div class="columns five offset-one">
-          <label for="" class="required">Session Title</label>
-          <span class="SessionTitle-related error-hide error-right">Required</span>
-          <input type="text" name="SessionTitle" required>
-
-          <label class="required" for="">Session Type</label>
-          <span class="SessionType-related error-hide error-right">Required</span>
-          <select class="required" name="SessionType" required>
-            <option selected disabled hidden value=''></option>
-            <option value="Solo Speaking Spot">Solo Speaking Spot</option>
-            <option value="Panel Presentation">Panel Presentation</option>
-            <option value="Fireside">Fireside</option>
-          </select>
-
-          <label for="">Additional Speakers</label>
-          <input type="text" name="AdditionalSpeakers">
-        </div>
-
+      <div class="application-section shared-line">
         <div class="columns five offset-one">
           <label class="required" for="">Track</label>
           <span class="Track-related error-hide error-right">Required</span>
@@ -95,38 +77,67 @@ body_class:
             <option value="Develop">Develop</option>
           </select>
 
-          <label class="required" for="">Audience</label>
-          <span class="Audience-related error-hide error-right">Required</span>
-          <select name="Audience" required>
+          <label class="required" for="">Session Type</label>
+          <span class="SessionType-related error-hide error-right">Required</span>
+          <select class="required" name="SessionType" required>
             <option selected disabled hidden value=''></option>
-            <option value="Marketers">Marketers</option>
-            <option value="Developers">Developers</option>
-            <option value="Product">Product</option>
-            <option value="Everyone">Everyone</option>
+            <option value="Solo Speaking Spot">Solo Speaking Spot</option>
+            <option value="Panel Presentation">Panel Presentation</option>
+            <option value="Fireside">Fireside</option>
           </select>
 
-          <label class="required" for="">Level</label>
-          <span class="Level-related error-hide error-right">Required</span>
-          <select name="Level" required>
-            <option selected disabled hidden value=''></option>
-            <option value="Beginner">Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-            <option value="Everyone">Everyone</option>
-          </select>
+          <label for="" class="required">Session Title</label>
+          <span class="SessionTitle-related error-hide error-right">Required</span>
+          <input type="text" name="SessionTitle" required>
+        </div>
+
+        <div class="columns five offset-one">
+          <label for="">Additional Speakers</label>
+          <input type="text" name="AdditionalSpeakers">
         </div>
       </div>
 
-      <div class="big-text-area">
-        <label class="required" for="">Session Abstract</label>
-        <span class="SessionAbstract-related error-hide">Required</span>
-        <textarea name="SessionAbstract" required></textarea>
+
+      <div class="application-section">
+        <div class="textarea-container columns ten offset-one">
+          <label class="required" for="">Session Abstract</label>
+          <span class="SessionAbstract-related error-hide">Required</span>
+          <textarea name="SessionAbstract" required></textarea>
+        </div>
+
+        <div class="shared-line">
+          <div class="select-container columns five offset-one">
+            <label class="required" for="">Audience</label>
+            <span class="Audience-related error-hide error-right">Required</span>
+            <select name="Audience" required>
+              <option selected disabled hidden value=''></option>
+              <option value="Marketers">Marketers</option>
+              <option value="Developers">Developers</option>
+              <option value="Product">Product</option>
+              <option value="Everyone">Everyone</option>
+            </select>
+          </div>
+
+          <div class="select-container columns five offset-one">
+            <label class="required" for="">Level</label>
+            <span class="Level-related error-hide error-right">Required</span>
+            <select name="Level" required>
+              <option selected disabled hidden value=''></option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+              <option value="Everyone">Everyone</option>
+            </select>
+          </div>
+        </div>
       </div>
 
-      <div class="big-text-area">
-        <label class="required" for="">Examples of previous speaking engagement(s)</label>
-        <span class="PreviousTalks-related error-hide">Required</span>
-        <textarea name="PreviousTalks" required></textarea>
+      <div class="application-section">
+        <div class="textarea-container columns ten offset-one">
+          <label class="required" for="">Examples of previous speaking engagement(s)</label>
+          <span class="PreviousTalks-related error-hide">Required</span>
+          <textarea name="PreviousTalks" required></textarea>
+        </div>
       </div>
 
       <div class="options">

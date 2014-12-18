@@ -2,6 +2,9 @@ body.opticon-speakers {
   #outer-wrapper {
     background-color: white;
   }
+  p {
+    line-height: 2em;
+  }
   .opticon-logo {
     height: 35px;
     margin-top: 15px;
@@ -23,18 +26,21 @@ body.opticon-speakers {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center -60px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-
+    height: 450px;
     * {
       text-align: center;
       color: white;
     }
     .tagline {
-      font-size: 5em;
+      font-size: 3.5em;
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 25px;
+      margin-top: 0;
+      padding-top: 150px;
+    }
+    .event-details {
+      text-transform: uppercase;
     }
   }
 
@@ -95,10 +101,25 @@ body.opticon-speakers {
       margin-top: 20px;
       margin-bottom: 80px;
       text-align: center;
+      color: #00415d;
     }
-    .flex-container {
-      display: flex;
+    .application-section {
+      .shared-line {
+        display: inline;
+      }
       margin-bottom: 40px;
+      padding-bottom: 25px;
+      overflow: hidden;
+      border-bottom: 1px solid #b8cede;
+      textarea[name="SessionAbstract"],
+      textarea[name="PreviousTalks"],
+      input[name="AdditionalSpeakers"] {
+        height: 131px;
+      }
+      textarea[name="SessionAbstract"],
+      textarea[name="PreviousTalks"] {
+        width: 100%;
+      }
     }
     label {
       font-weight: 500;
@@ -119,6 +140,7 @@ body.opticon-speakers {
       }
     }
     select,
+    textarea,
     input {
       width: 300px;
       height: 42px;
@@ -140,6 +162,7 @@ body.opticon-speakers {
       @extend .new-primary-button;
       background-color: #00415d;
       box-shadow: 1px 1px 2px 0px #00415d;
+      text-transform: uppercase;
       &:hover {
         box-shadow: 2px 2px 2px 0px #00415d;
       }
