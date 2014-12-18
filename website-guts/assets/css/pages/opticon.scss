@@ -5,6 +5,14 @@ body.opticon {
   p {
     line-height: 2em;
   }
+  .section-title {
+    font-family: 'Tungsten A', 'Tungsten B';
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    color: white;
+    font-size: 3em;
+  }
   .welcome-container {
     background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/opticon-header.jpg');
     background-size: cover;
@@ -17,9 +25,8 @@ body.opticon {
     .title {
       margin: 0;
       padding-top: 150px;
-      font-size: 2.5em;
-      text-transform: uppercase;
-      color: white;
+      font-size: 5em;
+      letter-spacing: 2px;
     }
     .event-details {
       padding-bottom: 120px;
@@ -31,9 +38,8 @@ body.opticon {
   }
 
   .description-panel {
-    .tagline {
+    .section-title {
       text-align: center;
-      text-transform: uppercase;
       margin-top: 100px;
       margin-bottom: 50px;
       color: #0081ba;
@@ -65,11 +71,9 @@ body.opticon {
     * {
       text-align: center;
     }
-    .title {
+    .section-title {
       padding-top: 100px;
       margin-bottom: 50px;
-      color: white;
-      text-transform: uppercase;
     }
     .blurb {
       color: #00415d;
@@ -92,9 +96,8 @@ body.opticon {
     }
   }
 
-  .register {
-    .title {
-      text-transform: uppercase;
+  .register-panel {
+    .section-title {
       color: #0081Ba;
       text-align: center;
       margin-top: 75px;
@@ -116,11 +119,9 @@ body.opticon {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 25% 25%;
-    .title {
+    .section-title {
       padding-top: 100px;
       margin-bottom: 50px;
-      color: white;
-      text-transform: uppercase;
       text-align: center;
     }
     .blurb {
@@ -149,9 +150,12 @@ body.opticon {
 
 @media only screen and (min-width: 768px) {
   body.opticon {
+    .section-title {
+      font-size: 3.8em;
+    }
     .welcome-container {
       .title {
-        font-size: 3.5em;
+        font-size: 6.25em;
       }
       .event-details {
         font-size: 1.15em;
@@ -165,7 +169,7 @@ body.opticon {
         display: block;
       }
     }
-    .register {
+    .register-panel {
       .flex-container {
         display: flex;
       }

@@ -15,20 +15,20 @@ external_stylesheets:
   {{#with opticon_data}}
 
   <section class="welcome-container">
-    <h1 class="title">{{title}}</h1>
+    <h1 class="title section-title">{{title}}</h1>
     <h4 class="event-details">{{date}} | {{location}}</h4>
   </section>
 
   <section class="description-panel container">
-    <h1 class="tagline">{{tagline}}</h1>
+    <h1 class="section-title">{{description.title}}</h1>
     <div class="flex-container">
-      <p class="description">{{description}}</p>
+      <p class="description">{{description.blurb}}</p>
       <div class="pier"></div>
     </div>
   </section>
 
   <section class="call-for-speakers-panel">
-    <h1 class="title">{{call_for_speakers.title}}</h2>
+    <h1 class="section-title">{{call_for_speakers.title}}</h2>
     <p class="blurb">{{{call_for_speakers.blurb}}}</p>
   {{/with}}
   <div class="button-container">
@@ -37,8 +37,8 @@ external_stylesheets:
   {{#with opticon_data}}
   </section>
 
-  <section class="register container">
-    <h1 class="title">{{register.title}}</h2>
+  <section class="register-panel container">
+    <h1 class="section-title">{{register.title}}</h2>
     <div class="flex-container">
       <p class="blurb">{{{register.blurb}}}</p>
       <div class="eventbrite-desktop">
@@ -51,7 +51,7 @@ external_stylesheets:
   </section>
 
   <section class="call-for-sponsors-panel">
-    <h1 class="title container">{{call_for_sponsors.title}}</h1>
+    <h1 class="section-title container">{{call_for_sponsors.title}}</h1>
     <p class="blurb container">{{call_for_sponsors.blurb}}</p>
     <div class="button-container">
       <a class="cta" href="#">{{call_for_sponsors.cta}}</a>
