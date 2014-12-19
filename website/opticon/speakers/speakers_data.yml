@@ -1,20 +1,23 @@
-speaker_description: "Opticon is the annual conference that brings together the best growth marketers from around the world to learn, showcase and share best practices in experience optimization. We welcome you to submit your application for any of the following tracks:"
+page_title: "Call for Speakers"
 
-tracks:
-  -
-    track_title: "Strategy"
-    track_description: "Tips and best practices for incorporating experience optimization into your business strategy."
-  -
-    track_title: "Culture"
-    track_description: "How to create a culture that values and practices experience optimization every day."
-  -
-    track_title: "Action"
-    track_description: "How to use Optimizely to create the best experiences for your users and customers."
-  -
-    track_title: "Develop"
-    track_description: "For developers; how to build on top of Optimizely."
+details:
+  title: "The Call for Speakers is officially open for Opticon 2015!"
+  speaker_description: "Opticon is the annual conference that brings together the best growth marketers from around the world to learn, showcase and share best practices in experience optimization. We welcome you to submit your application for any of the following tracks:"
+  tracks:
+    -
+      track_title: "Strategy"
+      track_description: "Tips and best practices for incorporating experience optimization into your business strategy."
+    -
+      track_title: "Culture"
+      track_description: "How to create a culture that values and practices experience optimization every day."
+    -
+      track_title: "Action"
+      track_description: "How to use Optimizely to create the best experiences for your users and customers."
+    -
+      track_title: "Develop"
+      track_description: "For developers; how to build on top of Optimizely."
 
-form_section:
+apply_section:
   title: "Apply to speak at Opticon 2015"
   instructions: "Submit an entry for each session you'd like to apply for by January 31, 2015"
   form_success: "Thank you for applying to speak at Opticon! You'll hear back from us in early March."

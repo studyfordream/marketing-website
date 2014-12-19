@@ -7,24 +7,26 @@ page_script: opticon-speakers.js
 footer_style: grey
 body_class:
 - opticon-speakers
+external_stylesheets:
+- //cloud.typography.com/7838232/736966/css/fonts.css
 ---
 
 <div class="row">
   <section class="title-container">
-    <h1 class="tagline">
-      Call for Speakers
+    <h1 class="title section-title">
+      {{speakers_data.page_title}}
     </h1>
     <h4 class="event-details">
       {{opticon_data.date}} | {{opticon_data.location}}
     </h4>
   </section><!-- /.title-container -->
 
-  <section class="details panel">
+  <section class="details">
     <div class="container">
-      <h2 class="details-header">The Call for Speakers is officially open for Opticon 2015!</h2>
-      <p class="details-description">{{speakers_data.speaker_description}}</p>
+      <h2 class="section-title">{{speakers_data.details.title}}</h2>
+      <p class="details-description">{{speakers_data.details.speaker_description}}</p>
       <div class="tracks">
-        {{#each speakers_data.tracks}}
+        {{#each speakers_data.details.tracks}}
           <div class="track-item">
             <h3 class="track-title">{{track_title}}</h3>
             <p class="class-description">{{track_description}}</p>
@@ -35,8 +37,8 @@ body_class:
   </section><!-- /.details -->
 
   <section class="apply panel">
-    <h2 class="apply-header">{{speakers_data.form_section.title}}</h2>
-    <p class="apply-subheader">{{speakers_data.form_section.instructions}}</p>
+    <h2 class="section-title">{{speakers_data.apply_section.title}}</h2>
+    <p class="apply-subheader">{{speakers_data.apply_section.instructions}}</p>
 
     <form id="speaker-form" class="container" action="http://www.mocky.io/v2/54908f0a0b9c751f1843787b" method="post" novalidate>
       <div class="application-section shared-line">
@@ -150,7 +152,7 @@ body_class:
         </button>
       </div>
       <div class="form-success">
-        <h3 class="form-success">{{speakers_data.form_section.form_success}}</h3>
+        <h3 class="form-success">{{speakers_data.apply_section.form_success}}</h3>
       </div>
     </form>
   </section><!-- /.call-for-sponsors -->

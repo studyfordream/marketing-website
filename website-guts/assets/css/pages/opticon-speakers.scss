@@ -5,6 +5,15 @@ body.opticon-speakers {
   p {
     line-height: 2em;
   }
+  .section-title {
+    font-family: $condensed-sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    color: white;
+    font-size: 3em;
+    text-align: center;
+  }
   .opticon-logo {
     height: 35px;
     margin-top: 15px;
@@ -27,12 +36,10 @@ body.opticon-speakers {
     background-repeat: no-repeat;
     background-position: center -60px;
     height: 450px;
-    * {
       text-align: center;
       color: white;
-    }
-    .tagline {
-      font-size: 1.8em;
+    .title {
+      font-size: 4em;
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 25px;
@@ -42,23 +49,26 @@ body.opticon-speakers {
     .event-details {
       text-transform: uppercase;
       font-size: 0.9em;
+      text-align: center;
+      color: white;
     }
   }
 
   .details {
-    .details-header {
-      text-align: center;
-      margin: 30px auto 20px auto;
+    .section-title {
+      text-transform: none;
+      margin: 30px auto 0 auto;
       max-width: 663px;
       font-size: 1.5em;
       font-weight: 100;
+      font-family: $gotham-font-family;
       line-height: 48px;
       color: #0081ba;
     }
     .details-description {
       text-align: center;
       max-width: 655px;
-      margin: 20px auto 50px auto;
+      margin: 40px auto 50px auto;
       font-size: 18px;
       font-weight: 100;
       line-height: 27px;
@@ -92,9 +102,8 @@ body.opticon-speakers {
     background-position: center -60px;
     padding-top: 100px;
     padding-bottom: 200px;
-    .apply-header {
+    .section-title {
       font-size: 2.25em;
-      text-transform: uppercase;
       color: #00415d;
       text-align: center;
       margin-bottom: 20px;
@@ -106,13 +115,13 @@ body.opticon-speakers {
       color: #00415d;
     }
     .application-section {
-      .shared-line {
-        display: inline;
-      }
       margin-bottom: 40px;
       padding-bottom: 25px;
       overflow: hidden;
       border-bottom: 1px solid #b8cede;
+      .shared-line {
+        display: inline;
+      }
       textarea[name="SessionAbstract"],
       textarea[name="PreviousTalks"],
       input[name="AdditionalSpeakers"] {
@@ -187,15 +196,15 @@ body.opticon-speakers {
 @media only screen and (min-width: 768px) {
   body.opticon-speakers {
     .title-container {
-      .tagline {
-        font-size: 3.5em;
+      .section-title {
+        font-size: 5em;
       }
       .event-details {
         font-size: 1.15em;
       }
     }
     .details {
-      .details-header {
+      .section-title {
         margin: 100px auto 20px auto;
         font-size: 2.25em;
       }
