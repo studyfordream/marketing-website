@@ -54,7 +54,7 @@ var config = {
         concat_banner: '(function($, w, d){ \n\n' +
                        '  window.optly = window.optly || {}; \n\n' +
                        '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-                       '  window.linkPath = "<%= gitinfo.local.branch.current.name %>" \n\n' +
+                       '  window.linkPath = "<%= gitinfo.local.branch.current.name %>"; \n\n' +
                        '  try { \n\n',
         concat_footer: '  } catch(error){ \n\n' +
                        '  //report errors to GA \n\n' +
@@ -102,7 +102,7 @@ var config = {
         concat_banner: '(function($, w, d){ \n\n' +
                        '  window.optly = window.optly || {}; \n\n' +
                        '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-                       '  window.linkPath = "/dist" \n\n',
+                       '  window.linkPath = "/dist"; \n\n',
         concat_footer: '})(jQuery, window, document);'
       }
     }
@@ -116,5 +116,3 @@ var config = {
 };
 
 module.exports = config;
-
-

@@ -16,6 +16,10 @@ body {
   font-family: $gotham-small-type;
   color: #242424;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: $gotham-large-type;
+  text-align: center;
+}
 p {
   font-size: 1.1em;
   font-weight: 100;

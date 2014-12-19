@@ -24,10 +24,13 @@ module.exports = {
       banner: '<%= grunt.config.get("concat_banner") %>',
       footer: '<%= grunt.config.get("concat_footer") %>'
     },
-    src: ['ppc/*.js'],
-    expand: true,
-    cwd: '<%= config.guts %>/assets/js/',
-    dest: '<%= config.dist %>/assets/js/'
+    files: {
+      '<%= config.dist %>/assets/js/ppc/bundle.js': [
+        '<%= config.guts %>/assets/js/ppc/libraries/oform.min.js',
+        '<%= config.guts %>/assets/js/ppc/global.js',
+        '<%= config.guts %>/assets/js/ppc/ppc.js'
+      ]
+    }
   },
   jqueryModernizrPPC: {
     src: [

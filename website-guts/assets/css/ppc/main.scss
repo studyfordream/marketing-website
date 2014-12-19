@@ -2,33 +2,6 @@ header {
   margin-bottom: 30px;
 }
 
-.social-numbers {
-  background: image-url('ppc/free-trial-sprite-adjusted-2.png') no-repeat;
-  padding-left: 80px;
-  margin: 30px auto 0 auto;
-  width: 220px;
-  .social-number {
-    font-family: $condensed-sans-serif;
-    font-size: 2.6em;
-    font-style: normal;
-    font-weight: 400;
-    color: #036;
-    text-align: center;
-    margin: 0;
-  }
-  .description {
-    margin: 0;
-    font-family: $body-font-family;
-    font-size: .8em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: #036;
-  }
-}
-.experiments-run-cont {
-  background-position: -735px 13px;
-}
-
 h4.seo-form-heading {
   font-size: 1.4em;
   font-weight: 100;
@@ -47,7 +20,6 @@ h4.seo-form-heading {
   input {
     margin-bottom: 10px;
     width: 100%;
-    text-align: center;
   }
   button {
     width: 100%;
@@ -60,16 +32,11 @@ h4.seo-form-heading {
 
 @mixin desktop {
   header {
-    margin-bottom: 60px;
-  }
-  .social-proof {
-    float: left;
-    width: 448px;
+    margin-bottom: 40px;
   }
   .form-cont {
-    float: right;
     width: 402px;
-    margin: auto auto 100px;
+    margin: auto auto 100px auto;
   }
   #ppc-form {
     h4 {
@@ -84,6 +51,12 @@ h4.seo-form-heading {
       font-size: 2.1em;
       text-align: left;
     }
+  }
+  h4.seo-form-heading {
+    font-size: 1.2em;
+  }
+  p.seo-form-subheader {
+    font-size: 0.95em;
   }
   #seo-form {
     #phone-email-cont div {width: 50%;}
