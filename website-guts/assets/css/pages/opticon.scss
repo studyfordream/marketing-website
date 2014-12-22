@@ -97,14 +97,18 @@ body.opticon {
   }
 
   .register-panel {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/call_for_sponsors.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 25% 25%;
     .section-title {
-      color: #0081Ba;
+      padding-top: 100px;
       text-align: center;
-      margin-top: 75px;
       margin-bottom: 50px;
+      color: white;
     }
     .blurb {
-      color: #888;
+      color: white;
     }
     .eventbrite-mobile img{
       margin-bottom: 50px;
@@ -115,33 +119,31 @@ body.opticon {
   }
 
   .call-for-sponsors-panel {
-    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/call_for_sponsors.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 25% 25%;
     .section-title {
-      padding-top: 100px;
+      margin-top: 50px;
       margin-bottom: 50px;
       text-align: center;
+      color: #0081Ba;
     }
     .blurb {
       max-width: 640px;
       margin-bottom: 50px;
       text-align: center;
-      color: white;
+      color: #0081Ba;
+      color: #00415d;
     }
     .button-container {
       text-align: center;
-      padding-bottom: 100px;
+      padding-bottom: 50px;
       a {
         padding: 10px 59px;
-        background-color: #a4cde3;
+        background-color: #0081Ba;
         color: white;
         border-radius: 4px;
         text-transform: uppercase;
         &:hover {
           text-decoration: none;
-          background-color: #0298DA;
+          background-color: #a4cde3;
         }
       }
     }

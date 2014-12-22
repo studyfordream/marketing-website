@@ -7,10 +7,16 @@ var opticonSpeakerForm = {
   },
 
   validateForm: function() {
-    var segmentObj = {},
-        formError = false,
+    var formError = false,
         errorInputs = [],
-        emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        segmentObj = {
+          Status: 'Holding Queue',
+          Source: 'Opticon',
+          Category: 'Events',
+          Subcategory: 'Opticon call for speakers',
+          LeadFormType: 'Opticon call for speakers LP'
+        };
 
     this.processingAdd();
     this.removeErrors();
@@ -43,8 +49,6 @@ var opticonSpeakerForm = {
     //w.analytics.identify(anonymousVisitorIdentifier, segmentObj,
       //{ integrations: { Marketo: true } }
     //);
-
-    //w.analytics.track('form/submit/opticon_speaker_application', {}, { Marketo: true });
 
     window.setTimeout(function() {
       $('.form-success').show();
