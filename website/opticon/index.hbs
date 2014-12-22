@@ -27,7 +27,7 @@ external_stylesheets:
     </div>
   </section>
 
-  <section class="call-for-speakers-panel">
+  <section id="call-for-speakers" class="call-for-speakers-panel">
     <h1 class="section-title">{{call_for_speakers.title}}</h2>
     <p class="blurb">{{{call_for_speakers.blurb}}}</p>
   {{/with}}
@@ -37,7 +37,7 @@ external_stylesheets:
   {{#with opticon_data}}
   </section>
 
-  <section class="call-for-sponsors-panel">
+  <section id="call-for-sponsors" class="call-for-sponsors-panel">
     <h1 class="section-title container">{{call_for_sponsors.title}}</h1>
     <p class="blurb container">{{call_for_sponsors.blurb}}</p>
     <div class="button-container">
@@ -45,7 +45,7 @@ external_stylesheets:
     </div>
   </section>
 
-  <section class="register-panel">
+  <section id="register" class="register-panel">
     <h1 class="section-title">{{register.title}}</h2>
     <div class="flex-container container">
       <p class="blurb">{{{register.blurb}}}</p>
