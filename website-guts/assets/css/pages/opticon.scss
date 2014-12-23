@@ -42,12 +42,12 @@ body.opticon {
       text-align: center;
       margin-top: 100px;
       margin-bottom: 50px;
-      color: #0081ba;
+      color: $brand-blue;
     }
     .description {
       margin-left: auto;
       margin-right: auto;
-      color: #888;
+      color: $light-text-color;
       width: 550px;
     }
     .flex-container {
@@ -78,7 +78,7 @@ body.opticon {
       margin-bottom: 50px;
     }
     .blurb {
-      color: #00415d;
+      color: $super-dark-blue;
       margin-bottom: 50px;
     }
     .button-container {
@@ -86,7 +86,7 @@ body.opticon {
       padding-bottom: 100px;
       a {
         padding: 10px 59px;
-        background-color: #00415d;
+        background-color: $super-dark-blue;
         color: white;
         border-radius: 4px;
         text-transform: uppercase;
@@ -125,21 +125,21 @@ body.opticon {
       margin-top: 50px;
       margin-bottom: 50px;
       text-align: center;
-      color: #0081Ba;
+      color: $brand-blue;
     }
     .blurb {
       max-width: 640px;
       margin-bottom: 50px;
       text-align: center;
-      color: #0081Ba;
-      color: #00415d;
+      color: $brand-blue;
+      color: $super-dark-blue;
     }
     .button-container {
       text-align: center;
       padding-bottom: 50px;
       a {
         padding: 10px 59px;
-        background-color: #0081Ba;
+        background-color: $brand-blue;
         color: white;
         border-radius: 4px;
         text-transform: uppercase;

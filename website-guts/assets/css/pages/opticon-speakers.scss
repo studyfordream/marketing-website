@@ -20,9 +20,8 @@ body.opticon-speakers {
     background-repeat: no-repeat;
     background-position: center -60px;
     height: 450px;
-      text-align: center;
-      color: white;
-    .title {
+    text-align: center;
+    .section-title {
       font-size: 4em;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -31,10 +30,10 @@ body.opticon-speakers {
       padding-top: 150px;
     }
     .event-details {
+      color: white;
       text-transform: uppercase;
       font-size: 0.9em;
       text-align: center;
-      color: white;
     }
   }
 
@@ -47,7 +46,7 @@ body.opticon-speakers {
       font-weight: 100;
       font-family: $gotham-font-family;
       line-height: 48px;
-      color: #0081ba;
+      color: $brand-blue;
     }
     .details-description {
       text-align: center;
@@ -56,7 +55,7 @@ body.opticon-speakers {
       font-size: 18px;
       font-weight: 100;
       line-height: 27px;
-      color: #888;
+      color: $light-text-color;
     }
     .tracks {
       display: flex;
@@ -70,10 +69,10 @@ body.opticon-speakers {
         font-size: 14px;
         line-height: 20px;
         margin: auto;
-        color: #888;
+        color: $light-text-color;
         .track-title {
           text-transform: uppercase;
-          color: #0081ba;
+          color: $brand-blue;
         }
       }
     }
@@ -88,7 +87,7 @@ body.opticon-speakers {
     padding-bottom: 200px;
     .section-title {
       font-size: 2.25em;
-      color: #00415d;
+      color: $super-dark-blue;
       text-align: center;
       margin-bottom: 20px;
     }
@@ -96,7 +95,7 @@ body.opticon-speakers {
       margin-top: 20px;
       margin-bottom: 80px;
       text-align: center;
-      color: #00415d;
+      color: $super-dark-blue;
     }
     .application-section {
       margin-bottom: 40px;
@@ -118,7 +117,7 @@ body.opticon-speakers {
     }
     label {
       font-weight: 500;
-      color: #00415d;
+      color: $super-dark-blue;
     }
     .big-text-area {
       text-align: center;
@@ -150,18 +149,18 @@ body.opticon-speakers {
       text-align: center;
       .next {
         padding: 10px 59px;
-        background-color: #00415d;
+        background-color: $super-dark-blue;
         color: white;
         border-radius: 4px;
       }
     }
     .submit-button {
       @extend .new-primary-button;
-      background-color: #00415d;
-      box-shadow: 1px 1px 2px 0px #00415d;
+      background-color: $super-dark-blue;
+      box-shadow: 1px 1px 2px 0px $super-dark-blue;
       text-transform: uppercase;
       &:hover {
-        box-shadow: 2px 2px 2px 0px #00415d;
+        box-shadow: 2px 2px 2px 0px $super-dark-blue;
       }
     }
     .form-success {
