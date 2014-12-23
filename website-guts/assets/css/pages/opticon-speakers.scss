@@ -105,14 +105,12 @@ body.opticon-speakers {
       .shared-line {
         display: inline;
       }
-      textarea[name="SessionAbstract"],
-      textarea[name="PreviousTalks"],
-      input[name="AdditionalSpeakers"] {
+      textarea {
         height: 131px;
-      }
-      textarea[name="SessionAbstract"],
-      textarea[name="PreviousTalks"] {
-        width: 100%;
+        &[name="SessionAbstract"],
+        &[name="PreviousTalks"] {
+          width: 100%;
+        }
       }
     }
     label {
