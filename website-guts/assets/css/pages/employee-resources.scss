@@ -1,13 +1,13 @@
 body.employee-resources-page {
   .row {
-    img {
+    .group-pic {
       width: 48%;
       margin: 0 1.5em;
     }
-    &:nth-child(odd) img {
+    &:nth-child(odd) .group-pic {
       float: left;
     }
-    &:nth-child(even) img {
+    &:nth-child(even) .group-pic {
       float: right;
     }
   }

@@ -5,28 +5,10 @@ visible_title: Employee Resources
 body_class:
 - employee-resources-page
 ---
+{{#each employee-resources.groups}}
 <div class="row">
-  <h2>
-    OptimizeLadies
-  </h2>
-  <img src="/dist/assets/img/jobs/optiladies.jpg" />
-  <p>
-    OptimizeLadies is committed to making Optimizely a great place to work for women. This group of ladies (and some gentlemen) discuss current events related to women in professional careers. We attend events, watch films, ask questions, and talk about topics that affect women. What are the implications of the new advertising campaign around “bossy”? What do you think of Apple’s new health care policy for women? How do you find a mentor?
-  </p>
-  <p>
-    Our email group acts as a forum for anyone to start conversations.  We strive to create a comfortable space for women to share, connect with mentors and be more informed. There is no criteria to join, and no rules of operation. Email <a target="_blank" href="mailto:ladies-info@optimizely.com">ladies-info@optimizely.com</a> if you’d like more information about our group.
-  </p>
+  <h2>{{group_name}}</h2>
+  <img class="group-pic" src="{{image}}" />
+  {{#omarkdown}}{{{text_content}}}{{/omarkdown}}
 </div>
-<div class="row">
-  <h2>
-    Out @ Optimizely
-  </h2>
-  <img src="/dist/assets/img/jobs/Out@_wide_cropped.png" />
-  <p>
-    Out at Optimizely is a group for employees who identify all across the sexuality and gender spectrums. We are a tight-knit group of queer folks supporting one another, maintaining an  atmosphere of inclusion and visibility in our larger company, and staying connected and involved with the issues facing the greater community. As tech becomes a leading industry in SF, we make sure our historically queer city is included in this blossoming opportunity via recruiting, networking, and professional development efforts.
-  </p>
-  <p>
-    But more than anything, we have fun. We go out to dinners (on the company’s dime) and get to know and learn from each other. We’ve even thrown some great parties that have been the talk of the town. We’d love to have you join our crew - email <a target="_blank" href="mailto:out@optimizely.com">out@optimizely.com</a> if you’d like to learn more. Join the group and the conversation.
-  </p>
-  </div>
-</div>
+{{/each}}
