@@ -1,0 +1,22 @@
+body.employee-resources-page {
+  .row {
+    img {
+      width: 48%;
+      margin: 0 1.5em;
+    }
+    &:nth-child(odd) img {
+      float: left;
+    }
+    &:nth-child(even) img {
+      float: right;
+    }
+  }
+}
+
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.employee-resources-page {
+    h4 {
+    }
+  }
+}
