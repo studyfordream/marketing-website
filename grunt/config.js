@@ -60,7 +60,7 @@ var config = {
         concat_footer: '  } catch(error){ \n\n' +
                        '    var path = window.location.pathname;\n\n' +
                        '    var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' + 
-                       '    debugger;window.ga("send", "event", targetName + " JavaScript Error", trimpath, error);\n\n' + 
+                       '    window.ga("send", "event", targetName + " JavaScript Error", trimpath, error);\n\n' + 
                        '  }\n\n' +
                        '})(jQuery, window, document);'
       }

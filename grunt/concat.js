@@ -28,7 +28,7 @@ module.exports = function(grunt, options){
         banner: '<%= grunt.config.get("concat_banner") %>',
         footer: '<%= grunt.config.get("concat_footer") %>',
         process: function(src, filepath) {
-          return 'var targetName = "' + grunt.task.current.target + '";\n\n' + src + 'console.log(hello)';
+          return 'var targetName = "' + grunt.task.current.target + '";\n\n' + src;
         }
       },
       files: {
