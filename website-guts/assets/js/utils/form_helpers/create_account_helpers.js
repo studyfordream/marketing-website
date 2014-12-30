@@ -2,22 +2,6 @@ window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 var createAccountHelper = {
 
-  customErrorMessage: function (elm, message) {
-    if(message) {
-      elm.innerHTML = message;
-    }
-  },
-
-  showOptionsError: function (message){
-    if(!document.body.classList.contains('error-state')) {
-      document.body.classList.add('error-state');
-    }
-    if( !this.optionsErrorElm.classList.contains('error-show') ) {
-      this.optionsErrorElm.classList.add('error-show');
-    }
-    this.optionsErrorElm.innerHTML = message;
-  },
-
   scrollTopDialog: function() {
     if(document.body.classList.contains('oform-error')) {
       var dialog = this.dialogElm.querySelector('.dialog'),
@@ -45,34 +29,13 @@ var createAccountHelper = {
     }
   },
 
-  addErrors: function(elmArr) {
-    if(!document.body.classList.contains('error-state')) {
-      document.body.classList.add('error-state');
-    }
-    $.each(elmArr, function(i, elm) {
-      if( !elm.classList.contains('error-show') ) {
-        elm.classList.add('error-show');
-      }
-    });
-  },
-
-  removeErrors: function(elmArr, retainBodyClass) {
-    if(!retainBodyClass && document.body.classList.contains('error-state')) {
-      document.body.classList.remove('error-state');
-    }
-    $.each(elmArr, function(i, elm) {
-      if( elm.classList.contains('error-show') ) {
-        elm.classList.remove('error-show');
-      }
-    });
-  },
-
   passwordConfirm: function(password1, password2){
-    var password2ErrorElm = this.formElm.querySelector('.password2-related');
+    var password2ErrorElm = this.formElm.querySelector('.password2-related'),
+      message = 'ENTER_SAME_VAL';
 
     if ( password2.value.length > 0 && password1.value !== password2.value ) {
       this.addErrors([password2, password2ErrorElm]);
-      this.customErrorMessage(password2ErrorElm, 'Please enter the same value as above');
+      this.customErrorMessage(password2ErrorElm, {error: message});
     }
     //remove local error classes but do not remove body error class just in case
     else {
@@ -117,16 +80,15 @@ var createAccountHelper = {
 
     if(!validationPassed) {
       if(elm.value.length === 0) {
-        message = 'This field is required';
+        message = 'REQUIRED_FIELD';
       } else {
-        message = 'Password is Invalid';
+        message = 'INVALID_PASSWORD';
       }
       this.characterMessageElm.classList.add('error-show');
+      this.customErrorMessage(errorElm, {error: message});
     } else if (validationPassed && this.characterMessageElm.classList.contains('error-show')) {
       this.characterMessageElm.className = this.characterMessageElm.classList.remove('error-show');
     }
-
-    this.customErrorMessage(errorElm, message);
 
     return validationPassed;
   },
@@ -134,17 +96,18 @@ var createAccountHelper = {
   password2Validate: function(elm) {
     var password1 = this.formElm.querySelector('[name="password1"]'),
       errorElm = this.formElm.getElementsByClassName('password2-related')[0],
+      validationPassed = elm.value === password1.value && w.optly.mrkt.utils.checkComplexPassword(password1.value),
       message;
-
-    if(elm.value.length === 0) {
-      message = 'This field is required';
-    } else if (elm.value !== password1.value) {
-      message = 'Please enter the same value as above';
+    if (!validationPassed) {
+      if (elm.value.length === 0) {
+        message = 'REQUIRED_FIELD';
+      } else if (elm.value !== password1.value) {
+        message = 'ENTER_SAME_VAL';
+      }
+      this.customErrorMessage(errorElm, {error: message});
     }
 
-    this.customErrorMessage(errorElm, message);
-
-    return elm.value === password1.value && w.optly.mrkt.utils.checkComplexPassword(password1.value);
+    return validationPassed;
   },
 
   load: function(e) {
@@ -171,79 +134,71 @@ var createAccountHelper = {
   },
 
   loadAnonymousWall: function(e) {
-    var resp;
+    var resp = this.parseResponse(e);
 
-    if(e.target.status !== 200) {
-      this.processingRemove({callee: 'load'});
-      this.showOptionsError(resp.error);
-      w.analytics.track('/account/create', {
-        category: 'api error',
-        label: 'status not 200: ' + e.target.status
+    if (resp) {
+      var plan = resp.plan ? resp.plan : 'null';
+
+      w.analytics.identify(resp.unique_user_id, {
+        Email: resp.email,
+        Last_Experiment_URL__c: $('#url-input').val(),
+        LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
+        ExperimentsCreated: '1',
+        FirstName: resp.first_name,
+        LastName: resp.last_name,
+        Phone: resp.phone_number,
+        otm_Medium__c: w.optly.mrkt.source.otm.medium,
+        utm_Medium__c: w.optly.mrkt.source.utm.medium,
+        Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+        Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+        iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+        Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
+      },
+      { integrations: { Marketo: true } });
+
+      w.Munchkin.munchkinFunction('visitWebPage', {
+        url: '/event/customer/signedin'
       });
-    } else {
-      try {
-        resp = JSON.parse(e.target.responseText);
-      } catch (err) {
-        w.analytics.track('/account/create', {
-          category: 'api error',
-          label: err
-        });
-      }
+      w.Munchkin.munchkinFunction('visitWebPage', {
+        url: '/event/account/signin'
+      });
+      w.Munchkin.munchkinFunction('visitWebPage', {
+        url: '/event/plan/' + plan
+      });
 
-      if (resp) {
-        var plan = resp.plan ? resp.plan : 'null';
+      w.analytics.page('/account/create/success');
+      w.analytics.track('/account/create/success');
+      w.analytics.track('account created', {
+        category: 'account',
+        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      }, {
+        integrations: {
+          Marketo: false
+        }
+      });
 
-        w.analytics.identify(resp.email, {
-          Last_Experiment_URL__c: $('#url-input').val(),
-          LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
-          ExperimentsCreated: '1',
-          FirstName: resp.first_name,
-          LastName: resp.last_name,
-          Phone: resp.phone_number,
-          otm_Medium__c: w.optly.mrkt.source.otm.medium,
-          utm_Medium__c: w.optly.mrkt.source.utm.medium,
-          Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
-          Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
-          iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
-          Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
-        },
-        { integrations: { Marketo: true } });
+      w.analytics.page('/account/signin');
+      w.analytics.track('account sign-in', {
+        category: 'account',
+        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      }, {
+        integrations: {
+          Marketo: false
+        }
+      });
 
-        w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/event/account/create/success'
-        });
-        w.analytics.track('/event/account/create/success', {}, { Marketo: true });
-        w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/event/customer/signedin'
-        });
-        w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/event/account/signin'
-        });
-        w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/event/plan/' + plan
-        });
-
-        w.analytics.page('/account/create/success');
-        w.analytics.track('/account/create/success');
-        w.analytics.track('account created', {
-          category: 'account',
-          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-        });
-
-        w.analytics.page('/account/signin');
-        w.analytics.track('account sign-in', {
-          category: 'account',
-          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-        });
-
-        w.analytics.page('/customer/signedin');
-        w.analytics.track('customer sign in', {
-          category: 'account',
-          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-        });
-        w.analytics.page('/plan/' + plan);
-      }
+      w.analytics.page('/customer/signedin');
+      w.analytics.track('customer sign in', {
+        category: 'account',
+        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      }, {
+        integrations: {
+          Marketo: false
+        }
+      });
+      w.analytics.page('/plan/' + plan);
     }
+
     w.setTimeout(function() {
       var inputVal = $('#test-it-out-form input[type="text"]').val();
       w.optly.mrkt.index.testItOut( inputVal );
@@ -251,112 +206,79 @@ var createAccountHelper = {
   },
 
   pricingSignupSuccess: function(event, data){
+    var resp = this.parseResponse(data.event),
+      plan;
 
-    var resp, plan;
+    if(resp){
 
-    if(data.event.target.status === 200){
+      document.body.classList.add('create-account-success');
 
-      try {
+      w.analytics.identify(resp.unique_user_id, {
+        Email: resp.email,
+        Last_Experiment_URL__c: data.data['url-input'],
+        LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
+        ExperimentsCreated: '1',
+        FirstName: resp.first_name || '',
+        LastName: resp.last_name || '',
+        otm_Medium__c: w.optly.mrkt.source.otm.medium || '',
+        utm_Medium__c: w.optly.mrkt.source.utm.medium || '',
+        Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
+        Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+        iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+        Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
+      }, {
+        integrations: {Marketo: true}
+      });
 
-        resp = JSON.parse(data.event.target.responseText);
+      plan = resp.plan ? resp.plan : 'null';
 
-      } catch (err) {
+      w.Munchkin.munchkinFunction('visitWebPage', {
+        url: '/event/pricing/account/create/success'
+      });
+      w.analytics.track('/event/pricing/account/create/success', {}, { Marketo: true });
 
-        this.processingRemove({callee: 'load'});
-        this.showOptionsError('An unexpected error occured. Please refresh the page.');
-        w.analytics.track('/account/create', {
-          category: 'api error',
-          label: err
-        });
+      w.Munchkin.munchkinFunction('visitWebPage', {
+        url: '/event/customer/signedin'
+      });
+      w.Munchkin.munchkinFunction('visitWebPage', {
+        url: '/event/account/signin'
+      });
+      w.Munchkin.munchkinFunction('visitWebPage', {
+        url: '/event/plan/' + plan
+      });
 
-      }
+      w.analytics.page('/account/create/success');
+      w.analytics.track('/account/create/success');
+      w.analytics.track('account created', {
+        category: 'account',
+        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      });
 
-      if(resp){
+      w.analytics.page('/account/signin');
+      w.analytics.track('account sign-in', {
+        category: 'account',
+        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      });
 
-        document.body.classList.add('create-account-success');
+      w.analytics.page('/customer/signedin');
+      w.analytics.track('customer sign in', {
+        category: 'account',
+        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      });
+      w.analytics.page('/plan/' + plan);
 
-        w.analytics.identify(resp.email, {
-          Last_Experiment_URL__c: data.data['url-input'],
-          LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
-          ExperimentsCreated: '1',
-          FirstName: resp.first_name || '',
-          LastName: resp.last_name || '',
-          otm_Medium__c: w.optly.mrkt.source.otm.medium || '',
-          utm_Medium__c: w.optly.mrkt.source.utm.medium || '',
-          Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
-          Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
-          iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
-          Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
-        }, {
-          integrations: {Marketo: true}
-        });
-
-        plan = resp.plan ? resp.plan : 'null';
-
-        w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/event/account/create/success'
-        });
-        w.analytics.track('/event/account/create/success', {}, { Marketo: true });
-
-        w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/event/pricing/account/create/success'
-        });
-        w.analytics.track('/event/pricing/account/create/success', {}, { Marketo: true });
-
-        w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/event/customer/signedin'
-        });
-        w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/event/account/signin'
-        });
-        w.Munchkin.munchkinFunction('visitWebPage', {
-          url: '/event/plan/' + plan
-        });
-
-        w.analytics.page('/account/create/success');
-        w.analytics.track('/account/create/success');
-        w.analytics.track('account created', {
-          category: 'account',
-          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-        });
-
-        w.analytics.page('/account/signin');
-        w.analytics.track('account sign-in', {
-          category: 'account',
-          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-        });
-
-        w.analytics.page('/customer/signedin');
-        w.analytics.track('customer sign in', {
-          category: 'account',
-          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-        });
-        w.analytics.page('/plan/' + plan);
-
-        //change the user's plan to free to get them started
-        w.optly.mrkt.changePlanHelper.changePlan({
-          plan: 'free_light',
-          callback: function(){
-              //show confirmation
-              //w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
-              w.location = 'https://www.optimizely.com/welcome';
-          },
-          load: w.optly.mrkt.changePlanHelper.load
-        });
-
-      }
-
-    } else {
-
-      this.processingRemove({callee: 'load'});
-      this.showOptionsError(resp.error);
-      w.analytics.track('/account/create', {
-        category: 'api error',
-        label: 'status not 200: ' + data.event.target.status
+      //change the user's plan to free to get them started
+      w.optly.mrkt.changePlanHelper.changePlan({
+        plan: 'free_light',
+        callback: function(){
+            //show confirmation
+            //w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
+            w.location = 'https://www.optimizely.com/welcome';
+        },
+        load: w.optly.mrkt.changePlanHelper.load
       });
 
     }
-
   }
 
 };

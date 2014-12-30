@@ -1,5 +1,5 @@
 function smoothScroll(e) {
-  var scrlId = $(this).attr('href'), 
+  var scrlId = $(this).attr('href'),
     targetElmPos = $(scrlId).offset().top;
 
   e.preventDefault();
@@ -108,7 +108,7 @@ window.onYouTubeIframeAPIReady = function () {
 
 $(function() {
    var videoPlayed = false,
-    playerSupported = false; 
+    playerSupported = false;
 
   //video player open and autoplay
   $('[data-show-video]').on('click', function(e) {
@@ -156,7 +156,7 @@ $(function() {
   //inject GIF src when they are scrolled into
   var imgCache = [];
   var $images = $('[data-interactive-panel] img');
-  
+
   $.each($images, function(i, elm) {
     var elmCache = {};
     var dataSet = $(elm).data();
@@ -193,7 +193,7 @@ $(function() {
     signupMobileMvppTopHelperInst.formElm.querySelector('input[name="platform"]').value = 'ios';
     signupMobileMvppTopHelperInst.processingAdd();
     signupMobileMvppTopHelperInst.removeErrors();
-    signupMobileMvppTopHelperInst.optionsErrorElm.innerHTML = 'Please correct form errors.';
+    signupMobileMvppTopHelperInst.optionsErrorElm.innerHTML = signupMobileMvppTopHelperInst.errorMessages.DEFAULT;
     return true;
   });
 
@@ -204,11 +204,15 @@ $(function() {
 
   signupFormTop.on('error', function() {
     signupMobileMvppTopHelperInst.processingRemove({callee: 'error'});
-    signupMobileMvppTopHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
-    signupMobileMvppTopHelperInst.showErrorDialog('There was an error creating your account.');
+    signupMobileMvppTopHelperInst.showOptionsError({error: 'UNEXPECTED'});
+    signupMobileMvppTopHelperInst.showErrorDialog({error: 'DIALOG_ACCOUNT'});
     window.analytics.track('create account xhr error', {
       category: 'account',
       label: w.location.pathname
+    }, {
+      integrations: {
+        Marketo: false
+      }
     });
   }.bind(signupMobileMvppTopHelperInst));
 
@@ -238,7 +242,7 @@ $(function() {
     signupMobileMvppBottomHelperInst.formElm.querySelector('input[name="platform"]').value = 'ios';
     signupMobileMvppBottomHelperInst.processingAdd();
     signupMobileMvppBottomHelperInst.removeErrors();
-    signupMobileMvppBottomHelperInst.optionsErrorElm.innerHTML = 'Please correct form errors.';
+    signupMobileMvppBottomHelperInst.optionsErrorElm.innerHTML = signupMobileMvppBottomHelperInst.errorMessages.DEFAULT;
     return true;
   });
 
@@ -249,11 +253,15 @@ $(function() {
 
   signupFormBottom.on('error', function() {
     signupMobileMvppBottomHelperInst.processingRemove({callee: 'error'});
-    signupMobileMvppBottomHelperInst.showOptionsError('An unexpected error occurred. Please contact us if the problem persists.');
-    signupMobileMvppBottomHelperInst.showErrorDialog('There was an error creating your account.');
+    signupMobileMvppBottomHelperInst.showOptionsError({error: 'DEFAULT'});
+    signupMobileMvppBottomHelperInst.showErrorDialog({error: 'DIALOG_ACCOUNT'});
     window.analytics.track('create account xhr error', {
       category: 'account',
       label: w.location.pathname
+    }, {
+      integrations: {
+        Marketo: false
+      }
     });
   }.bind(signupMobileMvppBottomHelperInst));
 

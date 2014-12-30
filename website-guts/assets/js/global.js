@@ -181,6 +181,22 @@ Modernizr.addTest('viewportunits', function() {
     return bool;
 });
 
+/*  Random string function for analytics.identify
+  * taken from here:
+  * http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript
+  */
+window.optly.mrkt.utils.randomString = function() {
+
+  var text = '';
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  for(var i=0; i < 8; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+
+  return text;
+};
+
 window.optly_q.push([function(){
 
 	if(typeof w.optly_q.acctData === 'object'){
@@ -195,12 +211,11 @@ window.optly_q.push([function(){
 
 		});
 
-		window.analytics.identify(w.optly_q.acctData.email, {
-
+              var anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
+		window.analytics.identify(anonymousVisitorIdentifier, {
 			name: w.optly_q.acctData.name,
-
-			email: w.optly_q.acctData.email
-
+			email: w.optly_q.acctData.email,
+      Email: w.optly_q.acctData.email
 		});
 
 	}
@@ -252,6 +267,44 @@ BrowserDetect.init();
 window.optly.mrkt.browser = BrowserDetect.browser;
 
 window.optly.mrkt.browserVersion = BrowserDetect.version;
+
+/*
+  Helper function to mark messages that should be localized.
+  Later it may be changed to retrieve actual translations from somewhere.
+  It allows to substitute messages - for example tr("Hi {0}, this is {1}", "Bob", "Jerry"); will return "Hi Bob, this is Jerry"
+ */
+/**
+ * Returns localized version of a string with parameters substituted.
+ * Everything after first argument is considered as substitutions.
+ * @param {String} str -  String to localize
+ * @param {...*} substitutions - Substitution parameters
+ * @returns {String} Localized string
+ */
+window.optly.tr = function(str) {
+  // If window.optlyDict is present - use it for dictionary lookup.
+  // Need to have a global variable here because it must be declared *before* app load because app may need to localize
+  // message during initialize.
+  if(typeof window.optlyDict !== 'undefined' && window.optlyDict[str] !== null) {
+    str = window.optlyDict[str];
+  }
+
+  var subs = [].slice.call(arguments, 1);
+  if(subs.length > 0){
+    // Convert message resource to string if we need to make a substitutions
+    return str.toString().replace(/\\*{(\d+)}/g, function(match, number) {
+      var slashes = match.substring(0, match.indexOf('{'));
+      if(slashes.length === 1) {
+        // single slash used to escape curly bracket
+        return match.substr(1);
+      }
+      else if(typeof subs[number] === 'undefined') {
+        return match;
+      }
+      return slashes + subs[number];
+    });
+  }
+  return str;
+};
 
 window.optly.mrkt.changePlanHelper = {
 
@@ -337,10 +390,18 @@ window.optly.mrkt.changePlanHelper = {
 			w.analytics.track('change plan', {
 				category: 'account',
 				label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+			}, {
+				integrations: {
+					Marketo: false
+				}
 			});
 			w.analytics.track('/plan/free_light', {
 				category: 'account',
 				label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+			}, {
+				integrations: {
+					Marketo: false
+				}
 			});
 			var oldPlan = 'nothing';
 			if(
@@ -352,6 +413,10 @@ window.optly.mrkt.changePlanHelper = {
 			w.analytics.track('plan downgraded', {
 				category: 'account',
 				label: oldPlan + ' to free_light'
+			}, {
+				integrations: {
+					Marketo: false
+				}
 			});
 
 			if(typeof callback === 'function'){
@@ -370,6 +435,10 @@ window.optly.mrkt.changePlanHelper = {
 			w.analytics.track('/pricing/change_plan', {
 				category: 'api error',
 				label: 'pricing change plan status not 200: ' + event.target.status
+			}, {
+				integrations: {
+					Marketo: false
+				}
 			});
 
 		}
@@ -395,6 +464,10 @@ window.optly.mrkt.changePlanHelper = {
 		w.analytics.track('/pricing/change_plan', {
 			category: 'xmlhttprequest problem',
 			label: 'xmlhttprequest error'
+		}, {
+			integrations: {
+				Marketo: false
+			}
 		});
 
 	},
@@ -403,6 +476,10 @@ window.optly.mrkt.changePlanHelper = {
 		w.analytics.track('/pricing/change_plan', {
 			category: 'xmlhttprequest problem',
 			label: 'xmlhttprequest abort'
+		}, {
+			integrations: {
+				Marketo: false
+			}
 		});
 
 	}
@@ -411,7 +488,7 @@ window.optly.mrkt.changePlanHelper = {
 
 window.optly.mrkt.utils.smoothScroll = function(event) {
 
-	var targetElmPos = $(event.currentTarget).offset().top;
+	var targetElmPos = $(this.getAttribute('href')).offset().top;
 
 	event.preventDefault();
 
@@ -441,3 +518,5 @@ w.optly_q.push([function(){
 		}
 	}
 }]);
+
+w.optly.mrkt.formHadError = false;

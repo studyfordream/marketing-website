@@ -22,11 +22,13 @@
 
   w.optly.mrkt.Oform.validationError = function(element){
 
+    w.optly.mrkt.formHadError = true;
+
     var elementValue = $(element).val();
 
     var elementHasValue = elementValue ? 'has value' : 'no value';
 
-    w.analytics.track($(element).closest('form').attr('id') + ' ' + element.getAttribute('name') + ' error', {
+    w.analytics.track($(element).closest('form').attr('id') + ' ' + element.getAttribute('name') + ' error submit', {
 
       category: 'form error',
 
@@ -36,7 +38,11 @@
 
     }, {
 
-      Marketo: true
+      integrations: {
+
+        Marketo: false
+
+      }
 
     });
 
@@ -115,9 +121,7 @@
       reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
     }
 
-    w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
-
-    w.analytics.identify(data.email, reportingObject, {
+    w.analytics.identify(response.unique_user_id, reportingObject, {
       integrations: {
         Marketo: true
       }
@@ -129,30 +133,32 @@
       category: 'account',
       label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
-      Marketo: true
+      integrations: {
+        Marketo: false
+      }
     });
 
     w.Munchkin.munchkinFunction('visitWebPage', {
       url: '/account/create/success'
     });
 
-    w.Munchkin.munchkinFunction('visitWebPage', {
-      url: '/event/account/create/success'
-    });
-
     w.analytics.track('/account/signin', {
       category: 'account',
-      lable: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
-      Marketo: true
+      integrations: {
+        'Marketo': false
+      }
     });
-
+    /*
+    temporarily commented out to decrease marketo queue
     w.Munchkin.munchkinFunction('visitWebPage', {
       url: '/event/account/signin'
     });
     w.Munchkin.munchkinFunction('visitWebPage', {
       url: '/event/customer/signedin'
     });
+    */
     w.Munchkin.munchkinFunction('visitWebPage', {
       url: '/event/plan/null'
     });
@@ -163,13 +169,17 @@
       category: 'account',
       label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
-      Marketo: true
+      integrations: {
+        Marketo: false
+      }
     });
     w.analytics.track('account signin', {
       category: 'account',
-      lable: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
-      Marketo: true
+      integrations: {
+        Marketo: false
+      }
     });
 
   };
@@ -187,9 +197,10 @@
         var response = JSON.parse(event.target.responseText),
             email = d.querySelector('[name="email"]').value,
             traffic = d.querySelector('#traffic');
-        w.analytics.identify(email, {
+        w.analytics.identify(response.unique_user_id, {
           name: d.querySelector('[name="name"]').value,
           email: email,
+          Email: email,
           phone: d.querySelector('[name="phone"]').value || '',
           company: d.querySelector('[name="company"]').value || '',
           website: d.querySelector('[name="website"]').value || '',
@@ -208,7 +219,9 @@
           category: 'contact form',
           label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
         }, {
-          Marketo: true
+          integrations: {
+            Marketo: true
+          }
         });
       }
     });

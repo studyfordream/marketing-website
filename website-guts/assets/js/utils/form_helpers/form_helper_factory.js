@@ -7,11 +7,11 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
     if(scopeObj.dialogId) {
       this.dialogElm = document.getElementById(scopeObj.dialogId);
     }
-    
+
     if(this.formElm.getElementsByClassName('options').length > 0) {
       this.optionsErrorElm = this.formElm.getElementsByClassName('options')[0].querySelector('p:last-child');
     }
-    
+
     if(scopeObj.characterMessageSelector) {
       this.characterMessageElm = this.formElm.querySelector( scopeObj.characterMessageSelector );
     }
@@ -42,10 +42,38 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
   };
 
   var defaultHelpers = {
+    errorMessages: {
+      DEFAULT: window.optly.tr('Please Correct Form Errors'),
+      UNEXPECTED: window.optly.tr('An unexpected error occurred. Please contact us if the problem persists.'),
+      REQUIRED: window.optly.tr('Required'),
+      REQUIRED_FIELD: window.optly.tr('This field is required'),
+      VALID_EMAIL: window.optly.tr('Please enter a valid email address.'),
+      INVALID_PASSWORD: window.optly.tr('Password is Invalid'),
+      PASSWORD_CHAR: window.optly.tr('Password Minimum 8 characters, mix of upper/lowercase letters, numbers or symbols'),
+      ENTER_SAME_VAL: window.optly.tr('Please enter the same value as above'),
+      DIALOG_DEFAULT: window.optly.tr('We\'ve encoutered an unexpected error.'),
+      DIALOG_ACCOUNT: window.optly.tr('There was an error creating your account.')
+    },
+
+    successMessages: {
+      DEFAULT: window.optly.tr('Submitted Successfully')
+    },
+
     showOptionsError: function (message){
-      if(message) {
+      if(typeof message === 'object') {
+        if(message.serverMessage) {
+          // translate the message if it is from the server response
+          message = window.optly.tr(message.serverMessage);
+        } else {
+          // get the success message translate from the constant dictionary
+          message = this.errorMessages[message.error];
+        }
         this.optionsErrorElm.innerHTML = message;
+      } else if (this.optionsErrorElm.innerHTML.length === 0) {
+        // if the error display element has no content enter the default message
+        this.optionsErrorElm.innerHTML = this.errorMessages.DEFAULT;
       }
+
       if(!document.body.classList.contains('error-state')) {
         document.body.classList.add('error-state');
       }
@@ -53,37 +81,88 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         this.optionsErrorElm.classList.add('error-show');
       }
     },
-    
+
+    showOptionsSuccess: function (message){
+      if(typeof message === 'object') {
+        if(message.serverMessage) {
+          // translate the message if it is from the server response
+          message = window.optly.tr(message.serverMessage);
+        } else {
+          // get the success message translate from the constant dictionary
+          message = this.successMessages[message.success];
+        }
+        this.optionsErrorElm.innerHTML = message;
+      } else if (this.optionsErrorElm.innerHTML.length === 0) {
+        // if the error display element has no content enter the default message
+        this.optionsErrorElm.innerHTML = this.errorMessages.DEFAULT;
+      }
+
+      if(document.body.classList.contains('error-state')) {
+        document.body.classList.remove('error-state');
+      }
+
+      if( this.optionsErrorElm.classList.contains('error-show') ) {
+        this.optionsErrorElm.classList.remove('error-show');
+      }
+
+      if ( !this.optionsErrorElm.classList.contains('success-show') ) {
+        this.optionsErrorElm.classList.add('success-show');
+      }
+
+    },
+
     customErrorMessage: function (elm, message) {
-      if(message) {
+      if(typeof message === 'object') {
+        message = this.errorMessages[message.error];
         elm.innerHTML = message;
       } else {
-        elm.innerHTML = 'Required';
+        elm.innerHTML = this.errorMessages.REQUIRED;
       }
     },
 
     showErrorDialog: function(message) {
+      if(typeof message === 'object') {
+        message = this.errorMessages[message.error];
+      }
       window.optly.mrkt.errorQ.push([
         'logError',
         {
-          error: message ? message : 'We\'ve encoutered an unexpected error.'
+          error: message ? message : this.errorMessages.DIALOG_DEFAULT
         }
       ]);
     },
 
-    removeErrors: function() {
-      if(document.body.classList.contains('error-state')) {
+    addErrors: function(elmArr) {
+      if(!document.body.classList.contains('error-state')) {
+        document.body.classList.add('error-state');
+      }
+
+      if(elmArr) {
+        $.each(elmArr, function(i, elm) {
+          if( !elm.classList.contains('error-show') ) {
+            elm.classList.add('error-show');
+          }
+        });
+      }
+    },
+
+    removeErrors: function(elmArr, retainBodyClass) {
+      if( arguments.length === 0 || (!retainBodyClass && document.body.classList.contains('error-state')) ) {
         document.body.classList.remove('error-state');
       }
-      if( this.optionsErrorElm.classList.contains('error-show') ) {
-        this.optionsErrorElm.classList.remove('error-show');
+
+      if(elmArr) {
+        $.each(elmArr, function(i, elm) {
+          if( elm.classList.contains('error-show') ) {
+            elm.classList.remove('error-show');
+          }
+        });
       }
     },
 
     parseResponse: function(e) {
       var resp,
-        responseSuccess = true,
-        message = 'An unexpected error occurred. Please contact us if the problem persists.';
+        responseSuccess = true;
 
       try {
         resp = JSON.parse(e.target.responseText);
@@ -92,17 +171,21 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         window.analytics.track(action, {
           category: 'api error',
           label: 'response contains invalid JSON: ' + err
+        }, {
+          integrations: {
+            Marketo: false
+          }
         });
       }
 
       if(e.target && e.target.status !== 200) {
-        if(resp && resp.error) {
-          message = resp.error;
-        } 
-
         w.analytics.track(this.formElm.getAttribute('action'), {
           category: 'api error',
           label: 'status not 200: ' + e.target.status
+        }, {
+          integrations: {
+            Marketo: false
+          }
         });
 
         responseSuccess = false;
@@ -114,7 +197,12 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         // use an empty object for boolean logic and in case subsequent logic calls methods on the response
         return resp || {};
       } else {
-        this.showOptionsError(message);
+        if(resp && resp.error) {
+          // if the server response has an error property
+          this.showOptionsError({serverMessage: resp.error});
+        } else {
+          this.showOptionsError({error: 'UNEXPECTED'});
+        }
         this.processingRemove({callee: 'load'});
 
         return responseSuccess;
@@ -139,7 +227,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         }, 500);
       }
     }
-  
+
   };
 
   var processingHelpers = {
@@ -150,7 +238,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       if(inputs.indexOf(null) !== -1) {
         inputs.splice(inputs.indexOf(null), 1);
       }
-      
+
       if(disableState === 'add') {
         $.each(inputs, function(i, input) {
           input.setAttribute('disabled', '');
@@ -160,12 +248,12 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
           input.removeAttribute('disabled');
         });
       }
-      
+
     },
 
     processingAdd: function(argsObj) {
       if( !this.bodyClass.contains('processing-state') ) {
-        this.bodyClass.add('processing-state'); 
+        this.bodyClass.add('processing-state');
       }
 
       if(!argsObj || !argsObj.omitDisabled) {
@@ -177,7 +265,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
     processingRemove: function(argsObj) {
       if( this.bodyClass.contains('processing-state') ) {
-        if(( argsObj && argsObj.callee === 'done' && ( this.bodyClass.contains('oform-error') || this.bodyClass.contains('error-state') ) ) || argsObj.callee == 'load' || argsObj.callee == 'error') {
+        if(( argsObj && argsObj.callee === 'done' && ( this.bodyClass.contains('oform-error') || this.bodyClass.contains('error-state') ) ) || argsObj.callee === 'load' || argsObj.callee === 'error') {
           this.bodyClass.remove('processing-state');
           if(!argsObj || !argsObj.retainDisabled) {
             this.handleDisable('remove');

@@ -4,8 +4,8 @@ company_logos:
  header: "Already used by the following great companies:"
  logos:
   -
-   name: "Travelzoo"
-   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/travelzoo_gray.svg"
+   name: "Sony"
+   svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
   -
    name: "Microsoft"
    svg: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_gray.svg"
@@ -120,8 +120,8 @@ enterprise_plan:
     Optimized for your business.
 
     [Contact Us &raquo;]()
-
-    [1-800-252-9480](tel:18002529480)
+  phone_us: "1-800-252-9480"
+  phone_uk: "+44 (0)203 6956190"
   full_features:
     -
       title: ""

@@ -85,6 +85,10 @@ window.optly.mrkt.events.showEvents = function(url, div){
           window.analytics.track(window.location.pathname, {
             category: 'api error',
             label: 'google cal api data.feed.entry not array: ' + typeof(data.feed.entry)
+          }, {
+            integrations: {
+              Marketo: false
+            }
           });
 
         }
@@ -95,6 +99,10 @@ window.optly.mrkt.events.showEvents = function(url, div){
         window.analytics.track(window.location.pathname, {
           category: 'api error',
           label: 'google cal reponse contains invalid json'
+        }, {
+          integrations: {
+            Marketo: false
+          }
         });
 
       }
@@ -105,6 +113,10 @@ window.optly.mrkt.events.showEvents = function(url, div){
       window.analytics.track(window.location.pathname, {
         category: 'api error',
         label: 'google cal reponse not 200: ' + jqXHR.status
+      }, {
+        integrations: {
+          Marketo: false
+        }
       });
 
     }

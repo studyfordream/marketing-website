@@ -1,5 +1,3 @@
-var bodyParser = require('body-parser');
-
 var checkComplexPassword = function(password) {
   var CHAR_LOWERS = /[a-z]/,
     CHAR_UPPERS   = /[A-Z]/,
@@ -22,6 +20,12 @@ var checkComplexPassword = function(password) {
 };
 
 module.exports = function(grunt, options) {
+
+  if(grunt.option('env') !== 'production'){
+
+    var bodyParser = require('body-parser');
+
+  }
 
   return {
     options: {
@@ -124,13 +128,11 @@ module.exports = function(grunt, options) {
               } else if(req.url === '/account/info') {
                 var paths = [
                   'website-guts/endpoint-mocks/accountInfo.json',
-                  'website-guts/endpoint-mocks/allIosInfo.json'
+                  'website-guts/endpoint-mocks/nullAccountInfo.json'
                 ];
 
-                var randIndex = 0;
-
                 res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read(paths[randIndex]) );
+                res.end( grunt.file.read(paths[0]) );
 
               } else if(req.url === '/experiment/load_recent?max_experiments=5') {
 

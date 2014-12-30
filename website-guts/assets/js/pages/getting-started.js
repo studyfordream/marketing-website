@@ -8,6 +8,10 @@ w.optly.mrkt.gettingStarted.testItOut = function(editURL){
   w.analytics.track('getting started test it out submitted', {
     category: 'forms',
     label: w.location.pathname
+  }, {
+    integrations: {
+      Marketo: false
+    }
   });
 
 };

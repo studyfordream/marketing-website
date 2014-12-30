@@ -11,6 +11,11 @@ modals:
 - downgrade_plan_compiled
 - downgrade_plan_confirm_compiled
 - pricing_plan_signup_thank_you_compiled
+seo_title: Pricing
+og_title:
+- "Plans and Pricing"
+og_description:
+- "Get started optimizing instantly, or build a custom plan for your business."
 ---
 <section class="blue-bg" id="plan-section">
   <div class="container">
@@ -33,6 +38,10 @@ modals:
         </div><!--/.plan-box-content-->
         <div class="cta">
           {{#omarkdown}}{{{pricing.enterprise_plan.cta}}}{{/omarkdown}}
+          <p id="SL-phone-number" class="SL_swap">
+            US: <a href="tel:{{pricing.enterprise_plan.phone_us}}">{{pricing.enterprise_plan.phone_us}}</a><br/>
+            UK: <a href="tel:{{pricing.enterprise_plan.phone_uk}}">{{pricing.enterprise_plan.phone_uk}}</a>
+          </p>
           <p class="hidden current-plan">Your current plan</p>
         </div><!--/.cta-->
       </div><!--/.plan-box-->
@@ -82,7 +91,7 @@ modals:
       </div><!--/.feature-list-box-->
     </div><!--/.pricing-feature-detail-cont-->
     <div class="row">
-      <h3 class="pricing-section__feature-list__question"><strong>Still have a question?</strong> Call us at <a href="tel:18002529480">1-800-252-9480</a></h3>
+      <h3 class="pricing-section__feature-list__question"><strong>Still have a question?</strong><br/>Call us at <span id="SL-phone-number" class="SL_swap"><a href="tel:{{pricing.enterprise_plan.phone_us}}">{{pricing.enterprise_plan.phone_us}}</a> (US) or <a href="tel:{{pricing.enterprise_plan.phone_uk}}">{{pricing.enterprise_plan.phone_uk}}</a> (UK)</span></h3>
     </div><!--/.row-->
   </div><!--/.container-->
 </section>

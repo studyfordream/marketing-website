@@ -1,31 +1,12 @@
-module.exports = function(grunt, options) {
-  debugger;
-  var headerBanner = '(function($, w, d){ \n\n' +
-                     '  window.optly = window.optly || {}; \n\n' +
-                     '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-                     '  window.linkPath = "<%= grunt.config.get("link_path") %>" \n\n' +
-                     '  var bundleInit = function () { \n\n';
-
-  var footerBanner = '  }; //end bundleInit \n\n' +
-                     '  if ("<%= grunt.config.get(\'environment\') %>" !== "dev") {\n\n' +
-                     '    try {\n\n' +
-                     '      bundleInit();\n\n' +
-                     '    } catch(error){ \n\n' +
-                     '      var path = window.location.pathname;\n\n' +
-                     '      var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' + 
-                     '      window.ga("send", "event", "<%= grunt.task.current.target %>" + " JavaScript Error", trimpath, error);\n\n' + 
-                     '    }\n\n' +
-                     '  } else {\n\n' +
-                     '    bundleInit();\n\n' +
-                     '  }\n\n' +
-                     '})(jQuery, window, document);';
-
-
+module.exports = function(grunt, options){
   return {
     namespacePages: {
       options: {
-        banner: headerBanner,
-        footer: footerBanner
+        banner: '<%= grunt.config.get("concat_banner") %>',
+        footer: '<%= grunt.config.get("concat_footer") %>',
+        process: function(src, filepath) {
+          return 'var targetName = "' + grunt.task.current.target + '";\n\n' + src;
+        }
       },
       src: ['pages/*.js', 'layouts/*.js'],
       expand: true,
@@ -44,13 +25,17 @@ module.exports = function(grunt, options) {
     },
     namespaceGlobal: {
       options: {
-        banner: headerBanner,
-        footer: footerBanner
+        banner: '<%= grunt.config.get("concat_banner") %>',
+        footer: '<%= grunt.config.get("concat_footer") %>',
+        process: function(src, filepath) {
+          return 'var targetName = "' + grunt.task.current.target + '";\n\n' + src + 'console.log(hello)';
+        }
       },
       files: {
           '<%= config.temp %>/assets/js/global.js': [
             '<%= config.guts %>/assets/js/utils/oform_globals.js',
             '<%= config.guts %>/assets/js/utils/check_complex_password.js',
+            '<%= config.guts %>/assets/js/utils/equal_height_grid.js',
             '<%= config.guts %>/assets/js/utils/get_url_parameter.js',
             '<%= config.guts %>/assets/js/utils/uri.js',
             '<%= config.guts %>/assets/js/utils/guid_sprintf.js',
@@ -79,5 +64,5 @@ module.exports = function(grunt, options) {
         ]
       }
     }
-  };
+  }
 };
