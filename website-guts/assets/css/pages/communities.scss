@@ -1,5 +1,8 @@
 body.communities-page {
   .row {
+    .group-pic {
+      max-width: 90%;
+    }
     &:last-child {
       margin-top: 1.5em;
     }
