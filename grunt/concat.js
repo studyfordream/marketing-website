@@ -1,3 +1,8 @@
+var secondLastSlash = function(path) {
+  var split = path.split('/');
+
+  return split.splice(split.length - 2).join('/');
+};
 module.exports = function(grunt, options){
   return {
     namespacePages: {
@@ -5,7 +10,7 @@ module.exports = function(grunt, options){
         banner: '<%= grunt.config.get("concat_banner") %>',
         footer: '<%= grunt.config.get("concat_footer") %>',
         process: function(src, filepath) {
-          return 'var targetName = "' + grunt.task.current.target + '";\n\n' + src;
+          return 'var targetName = "' + grunt.task.current.target + '" + "--" +  "' + secondLastSlash(filepath) + '";\n\n' + src;
         }
       },
       src: ['pages/*.js', 'layouts/*.js'],
