@@ -1,20 +1,41 @@
 body.communities-page {
   .row {
-    .group-pic {
-      width: 48%;
-      margin: 0 1.5em;
+    &:last-child {
+      margin-top: 1.5em;
     }
-    &:nth-child(odd) .group-pic {
-      float: left;
-    }
-    &:nth-child(even) .group-pic {
-      float: right;
-    }
+  }
+  .desktop-img {
+    display: none;
   }
 }
 
 
-@media only screen and (min-width: $desktop-min-width) {
+@media only screen and (min-width: $tablet-min-width) {
   body.communities-page {
+    .row {
+      .group-pic {
+        width: 48%;
+        margin: 0 1.5em;
+      }
+      &:first-child {
+        .group-pic {
+          float: left;
+          margin-left: 0;
+        }
+      }
+      &:last-child {
+        margin-top: 0;
+        .group-pic {
+          float: right;
+          margin-right: 0;
+        }
+      }
+    }
+    .mobile-img {
+      display: none;
+    }
+    .desktop-img {
+      display: block;
+    }
   }
 }

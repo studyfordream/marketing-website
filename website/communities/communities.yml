@@ -2,7 +2,7 @@
 groups:
 -
     group_name: "OptimizeLadies"
-    image: "/dist/assets/img/jobs/optiladies.jpg"
+    image: "/img/jobs/optiladies.jpg"
     text_content: 
       "
       OptimizeLadies is committed to making Optimizely a great place to work for women.
@@ -21,7 +21,7 @@ groups:
       "
 -
     group_name: "Out @ Optimizely"
-    image: "/dist/assets/img/jobs/Out@_wide_cropped.png"
+    image: "/img/jobs/Out@_wide_cropped.png"
     text_content: 
       "
       Out at Optimizely is a group for employees who identify all across the sexuality and gender spectrums.
