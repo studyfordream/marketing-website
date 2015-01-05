@@ -1,22 +1,11 @@
 body.communities-page {
   .row {
     .group-pic {
-      max-width: 90%;
+      max-width: 80%;
+      margin: 0 auto;
     }
     &:last-child {
       margin-top: 1.5em;
-    }
-    &:nth-child(odd) {
-      .group-pic {
-        float: left;
-        margin-left: 0;
-      }
-    }
-    &:nth-child(even) {
-      .group-pic {
-        float: right;
-        margin-right: 0;
-      }
     }
   }
 }
@@ -28,6 +17,17 @@ body.communities-page {
       .group-pic {
         width: 48%;
         margin: 0 1.5em;
+      }
+      &:nth-child(odd) {
+        .group-pic {
+          margin-left: 0;
+        }
+      }
+      &:nth-child(even) {
+        .group-pic {
+          float: right;
+          margin-right: 0;
+        }
       }
     }
   }
