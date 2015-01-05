@@ -3,9 +3,18 @@ body.communities-page {
     &:last-child {
       margin-top: 1.5em;
     }
-  }
-  .desktop-img {
-    display: none;
+    &:nth-child(odd) {
+      .group-pic {
+        float: left;
+        margin-left: 0;
+      }
+    }
+    &:nth-child(even) {
+      .group-pic {
+        float: right;
+        margin-right: 0;
+      }
+    }
   }
 }
 
@@ -17,25 +26,6 @@ body.communities-page {
         width: 48%;
         margin: 0 1.5em;
       }
-      &:nth-child(odd) {
-        .group-pic {
-          float: left;
-          margin-left: 0;
-        }
-      }
-      &:nth-child(even) {
-        margin-top: 0;
-        .group-pic {
-          float: right;
-          margin-right: 0;
-        }
-      }
-    }
-    .mobile-img {
-      display: none;
-    }
-    .desktop-img {
-      display: block;
     }
   }
 }
