@@ -17,13 +17,13 @@ body.communities-page {
         width: 48%;
         margin: 0 1.5em;
       }
-      &:first-child {
+      &:nth-child(odd) {
         .group-pic {
           float: left;
           margin-left: 0;
         }
       }
-      &:last-child {
+      &:nth-child(even) {
         margin-top: 0;
         .group-pic {
           float: right;
