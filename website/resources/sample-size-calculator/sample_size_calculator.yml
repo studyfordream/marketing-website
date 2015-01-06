@@ -10,23 +10,10 @@ calculator_content:
     link: "https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#minimum"
   statistics:
   -
-    demo: "Statistical Power"
-    description: "80% is an accepted standard for statistical power."
-    link: "https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#statistical_power"
-    button_text: "edit"
-    hide: true
-  -
     demo: "Statistical Significance"
     description: "95% is an accepted standard for statistical significance."
     link: "https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#statistical_significance"
     button_text: "edit"
-  tailed:
-    demo:
-      - "1-tailed"
-      - "2-tailed"
-    description: "1-tailed tests will identify a winner faster than 2-tailed tests. Note: The Optimizely product uses a 1-tailed test to enable you to make faster decisions."
-    link: "https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#calculating_significance"
-    hide: true
   bottom_title: "<span>S</span>ample <span>S</span>ize per <span>V</span>ariation"
 
 faq_content:
@@ -34,16 +21,34 @@ faq_content:
   sections:
   -
     sub_title: "How many visitors do I need for my A/B test?"
-    description: "This calculator allows you to calculate the sample size you will need in each variation of your A/B test in order to measure a change in conversion rate."
+    description: "This calculator allows you to calculate the sample size you will most likely need in each variation of your A/B test in order to measure the desired change in conversion rate. In many cases, if Optimizely detects an effect larger than the one you are looking for, you will be able to end your test early."
+  -
+    sub_title: "Why is your calculator different from other sample size calculators?"
+    description: 
+      "
+      Our sample size calculator is powered by the formula behind our new stats engine, which uses a two-tailed sequential t-test with false discovery rate controls to calculate statistical significance. With this methodology, you no longer need to use the sample size calculator to ensure the validity of your results.
+
+
+      Instead, the calculator is best used as a tool for planning out your testing program to find out how long you may need to wait before Optimizely can determine whether your results are significant, depending on the effect you want to observe.
+      "
   -
     sub_title: "How do I determine the baseline conversion rate?"
-    description: "You can look at historical data on how this page has typically performed in the past, from a tool like Google Analytics or other website analytics you use. [Learn more](https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#baseline)."
+    description: "You can look at historical data on how this page has typically performed in the past, from a tool like Google Analytics or other website analytics you use. [Learn more](https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#baseline)"
   -
     sub_title: "What is Minimum Detectable Effect (MDE)?"
-    description: "This is essentially the sensitivity of your test, or its ability to detect a change in conversion rate. For example, if your baseline conversion rate is 20%, and you set an MDE of 10%, then you will be able to detect changes in your conversion rate of at least 10% * 20% = 2%. This means you would be able to detect any changes that take your conversion rate outside the range of 18% – 22%. [Learn more](https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#minimum)."
+    description: "In traditional hypothesis testing, the MDE is essentially the sensitivity of your test. In other words, it is the smallest relative change in conversion rate you are interested in detecting. For example, if your baseline conversion rate is 20%, and you set an MDE of 10%, you would be able to detect any changes that move your conversion rate outside the absolute range of 18% to 22% (a 10% relative effect is a 2% absolute change in conversion rate in this example). [Learn more](https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#minimum)"
   -
-    sub_title: "How do I choose a value for minimum detectable effect (MDE)?"
-    description: "Decide how willing you are to trade off sensitivity of your test versus how long you might need to run your test for. The smaller the MDE, the more sensitive you are asking your test to be, and the larger sample size you will need. For example, if you are satisfied with a 10% MDE, which will only detect changes in conversion rate of 10% or more, you will need a smaller sample size than if you are asking for a very sensitive test with 1% MDE. [Learn more](https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#minimum)."
+    sub_title: "How do I estimate a value for minimum detectable effect (MDE)?"
+    description:
+      "
+      Decide how willing you are to trade off sensitivity of your test versus how long you might need to run your test for. The smaller the MDE, the more sensitive you are asking your test to be, and the larger sample size you will need. [Learn more](https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#minimum)
+
+
+      Keep in mind that if the effect that our stats engine observes is larger than the minimum detectable effect you are looking for, your test can declare a winner or loser up to twice as fast as if you had to wait for your pre-set sample size.
+      "
+  -
+    sub_title: "Where is statistical power in your sample size calculator?"
+    description: "Statistical power is essentially a measure of whether your test has adequate data to reach a conclusive result. Optimizely’s new stats engine runs tests that are always at a power of one, meaning that the test always has adequate data to show you results that are valid at that moment. This means that you can make a decision as soon as your results reach significance without worrying about power. [Learn more](http://giphy.com/gifs/magnum-pi-tom-selleck-sexy-eyebrows-amirite-L9Bgj4EMQfYpW)"
 
 cta:
   title: "Learn more about Optimizely"
