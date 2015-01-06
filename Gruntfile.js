@@ -92,8 +92,8 @@ module.exports = function(grunt) {
     'concat',
     'sass:prod',
     'autoprefixer',
-    'copy',
-    'uglify',
+    // 'copy',
+    // 'uglify',
     'filerev',
     'userevvd',
     // // 'clean:postBuild'
