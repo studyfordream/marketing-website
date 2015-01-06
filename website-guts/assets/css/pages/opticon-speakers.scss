@@ -191,7 +191,8 @@ body.opticon-speakers {
       }
       .tracks {
         .track-item {
-          min-width: 50%;
+         flex-basis: 50%;
+         max-width: 200px;
         }
       }
     }
@@ -205,9 +206,10 @@ body.opticon-speakers {
         }
         textarea {
           height: 300px;
+          &[name="AdditionalSpeakers"],
           &[name="SessionAbstract"],
           &[name="PreviousTalks"] {
-            width: 50%;
+            width: 80%;
           }
         }
       }
@@ -220,18 +222,25 @@ body.opticon-speakers {
      .details {
       .tracks {
         .track-item {
-          min-width: 200px;
-          width: 200px;
           margin-right: 15px;
         }
       }
      }
     .apply {
-      select,
-      textarea,
-      input {
-        margin-right: 0;
-        margin-left: 0;
+      .application-section {
+        select,
+        textarea,
+        input {
+          margin-right: 0;
+          margin-left: 0;
+        }
+        textarea {
+          height: 131px;
+          &[name="SessionAbstract"],
+          &[name="PreviousTalks"] {
+            width: 100%;
+          }
+        }
       }
     }
   }
