@@ -22,7 +22,7 @@ var config = {
       variables: {
         environment: 'production',
         environmentData: 'website-guts/data/environments/production/environmentVariables.json',
-        assetsDir: '/dist/assets',
+        assetsDir: '//du7782fucwe1l.cloudfront.net',
         link_path: '',
         sassImagePath: '/img',
         compress_js: true,
@@ -116,5 +116,3 @@ var config = {
 };
 
 module.exports = config;
-
-

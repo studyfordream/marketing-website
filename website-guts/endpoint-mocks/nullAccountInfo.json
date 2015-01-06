@@ -1,0 +1,50 @@
+{
+   "project_count":0,
+   "last_name":null,
+   "plan_display_name":null,
+   "unique_user_id":null,
+   "beta_customer":false,
+   "experiments_total":0,
+   "use_project_goals":false,
+   "first_name":null,
+   "include_whitelist_feature":null,
+   "user_accounts":[  
+
+   ],
+   "subscribed":false,
+   "has_seen_editor_guiders":false,
+   "project_ids":[  
+
+   ],
+   "source":null,
+   "projects":{  
+
+   },
+   "plan_id":null,
+   "subscription":null,
+   "has_seen_results2_guiders":false,
+   "email":null,
+   "company_name":null,
+   "account_id":null,
+   "has_seen_audience_guiders":false,
+   "munchkin_token":"",
+   "backend_api_token":null,
+   "has_installed_snippet":false,
+   "is_admin":false,
+   "is_entitled_to_platinum":false,
+   "trusted_tester":false,
+   "has_seen_first_notice":false,
+   "preview_script_url":null,
+   "permissions":{  
+      "userPermissions":[  
+
+      ],
+      "accountPermissions":[  
+
+      ]
+   },
+   "succeeded":true,
+   "max_projects":-2,
+   "must_change_password":null,
+   "is_master_account":null
+}

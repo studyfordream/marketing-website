@@ -13,13 +13,13 @@ window.optly.mrkt.Optly_Q = function(acctData, expData){
     var ThrowAway = function (a, e) {
       this.acctData = a;
       this.expData = e;
-
-      //window.optly.PRELOAD.token = this.acctData.csrf_token;
     };
 
     ThrowAway.prototype = window.optly.mrkt.Optly_Q.prototype;
 
     if(arguments.length > 0) {
+      window.optly.mrkt.user.acctData = acctData;
+      window.optly.mrkt.user.expData = expData;
       return new ThrowAway(acctData, expData);
     } else{
       return new ThrowAway();
@@ -179,7 +179,8 @@ window.optly.mrkt.services.xhr = {
       // if property is not nested
       if(typeof type !== 'object') {
         if (typeof resp[ property ] !== type) {
-          errorMessage = 'resp.' + property + ' is not a ' + type + ': ' + typeof(resp[ property ]);
+          // acctData often comes back as null, but JS will report typeof null to be an object
+          errorMessage = 'resp.' + property + ' is not a ' + type + ': ' + ( resp[property] === null ? 'null' : typeof(resp[property]) );
 
           this.logSegmentError('api error', apiEndpoint, errorMessage);
         }
@@ -334,13 +335,20 @@ window.optly.mrkt.services.xhr = {
     }.bind(this), function() {
 
       deferreds[0].then(function(acctData) {
-        //if there is no error in account info instantiate the Q with no exp data
-        oldQue = window.optly_q;
+        // check if acctData properties are not null
+        if(!!acctData.account_id && !!acctData.email) {
+          //if there is no error in account info instantiate the Q with no exp data
+          oldQue = window.optly_q;
 
-        window.optly_q = window.optly.mrkt.Optly_Q(acctData);
-        window.optly_q.expDataError = true;
-        window.optly_q.push(oldQue);
-      }, function() {
+          window.optly_q = window.optly.mrkt.Optly_Q(acctData);
+          window.optly_q.expDataError = true;
+          window.optly_q.push(oldQue);
+        } else {
+          //TODO dfox-powell find way to delete the signed in cookie, potentially load jQuery cookie first Fri Dec  5 16:03:20 2014
+          //if acctData is null instantiate the Q with no arguments and remove optimizely signed in cookie
+          window.optly_q = window.optly.mrkt.Optly_Q();
+        }
+      }.bind(this), function() {
         //if acctData error instantiate the Q with no arguments
         window.optly_q = window.optly.mrkt.Optly_Q();
       });

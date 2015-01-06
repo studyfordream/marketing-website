@@ -37,7 +37,7 @@ var symExpDict = {
   brand: {
     heading: 'Experience Optimization by Optimizely'
   },
-  
+
   eo: {
     heading: 'Experience Optimization by Optimizely'
   },
@@ -548,6 +548,10 @@ if( !!queryString.otm_content ) {
 
   if(content.text) {
     $('#symmetry_test').text(content.text);
+  }
+
+  if(queryString.otm_content === 'eo' || queryString.otm_content === 'brand'){
+    $('.seo-form-subheader').hide();
   }
 
 }

@@ -15,7 +15,7 @@
     "url": "https://github.com/kylerush/marketing-website/issues"
   },
   "engines": {
-    "node": ">=0.8"
+    "node": "0.10.26"
   },
   "scripts": {
     "test": "grunt assemble"
