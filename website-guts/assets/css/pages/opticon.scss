@@ -170,9 +170,6 @@ body.opticon {
       .blurb {
         margin: 0 50px 90px 0;
       }
-      .pier {
-        display: block;
-      }
     }
     .register-panel {
       .flex-container {
@@ -200,5 +197,10 @@ body.opticon {
 
 @media only screen and (min-width: $desktop-min-width) {
   body.opticon {
+    .description-panel {
+      .pier {
+        display: block;
+      }
+    }
   }
 }

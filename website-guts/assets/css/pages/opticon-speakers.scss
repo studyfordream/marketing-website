@@ -191,10 +191,41 @@ body.opticon-speakers {
       }
       .tracks {
         .track-item {
-          width: 200px;
+          min-width: 50%;
         }
       }
     }
+    .apply {
+      .application-section {
+        select,
+        textarea,
+        input {
+          margin-right: auto;
+          margin-left: auto;
+        }
+        textarea {
+          height: 300px;
+          &[name="SessionAbstract"],
+          &[name="PreviousTalks"] {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+ @media only screen and (min-width: $desktop-min-width) {
+   body.opticon-speakers {
+     .details {
+      .tracks {
+        .track-item {
+          min-width: 200px;
+          width: 200px;
+          margin-right: 15px;
+        }
+      }
+     }
     .apply {
       select,
       textarea,
@@ -204,9 +235,4 @@ body.opticon-speakers {
       }
     }
   }
-}
-
- @media only screen and (min-width: $desktop-min-width) {
-   body.opticon-speakers {
-   }
  }

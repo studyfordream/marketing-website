@@ -45,10 +45,10 @@ var opticonSpeakerForm = {
 
   load: function(segmentObj) {
 
-    //var anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
-    //w.analytics.identify(anonymousVisitorIdentifier, segmentObj,
-      //{ integrations: { Marketo: true } }
-    //);
+    var anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
+    w.analytics.identify(anonymousVisitorIdentifier, segmentObj,
+      { integrations: { Marketo: true } }
+    );
 
     window.setTimeout(function() {
       $('.form-success').show();
