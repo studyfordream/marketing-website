@@ -5,8 +5,7 @@ nav {
   }
 
   .nav-options {
-    -webkit-flex-flow: column wrap;
-    flex-flow: column wrap;
+    flex-flow: column-wrap;
     padding: 0;
     li {
       text-align: center;
@@ -28,7 +27,7 @@ nav {
     .nav-options {
       list-style: none;
       float: right;
-      margin: 10px 100px 0 0;
+      margin: 10px 50px 0 0;
 
       display: -webkit-box;
       display: -moz-box;
@@ -47,14 +46,8 @@ nav {
         color: $light-text-color;
       }
     }
-
     .opticon-logo {
       margin: 15px 0 15px 50px;
     }
-    .nav-options {
-      margin: 10px 50px 0 0;
-    }
   }
-}
-@media only screen and (min-width: $desktop-min-width) {
 }
