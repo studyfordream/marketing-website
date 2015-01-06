@@ -41,7 +41,7 @@ module.exports = function(grunt) {
     'copy',
     'uglify',
     's3:staging',
-    // 'clean:postBuild'
+    'clean:postBuild'
   ]);
 
   grunt.registerTask('smartling-staging-deploy', [
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     'copy',
     'uglify',
     's3:smartling',
-    // 'clean:postBuild'
+    'clean:postBuild'
   ]);
 
   grunt.registerTask('server', [
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
     'replace',
     'autoprefixer',
     'copy',
-    // 'clean:postBuild',
+    'clean:postBuild',
     'connect:livereload',
     'watch'
   ]);
@@ -92,11 +92,11 @@ module.exports = function(grunt) {
     'concat',
     'sass:prod',
     'autoprefixer',
-    // 'copy',
-    // 'uglify',
+    'copy',
+    'uglify',
     'filerev',
     'userevvd',
-    // // 'clean:postBuild'
+    'clean:postBuild'
   ]);
 
   grunt.registerTask('ui-test', function(which) {
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
     'replace',
     'autoprefixer',
     'copy',
-    // 'clean:postBuild',
+    'clean:postBuild',
     'connect:resemble',
     'jasmine_node',
     'resemble'
