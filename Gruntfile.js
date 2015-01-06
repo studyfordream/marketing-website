@@ -94,8 +94,6 @@ module.exports = function(grunt) {
     'autoprefixer',
     'copy',
     'uglify',
-    'filerev',
-    'userevvd',
     'clean:postBuild'
   ]);
 
