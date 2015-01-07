@@ -130,14 +130,8 @@ body.jobs-layout {
     }
 
     .communities {
-      text-align: center;
-      width: 37%;
-      margin: 0 auto;
-
-      h6,
-      p {
-        text-align: center;
-      }
+      margin-bottom: 20px;
+      margin-left: 50px;
     }
 
     #apple {
@@ -246,7 +240,19 @@ body.jobs-layout {
             }
         }
 
-        .benefits {padding: 40px 10% 0 10%;}
+        .benefits,
+        .communities {padding: 40px 10% 0 10%;}
+
+        .communities {
+          text-align: center;
+          margin: 0 auto;
+          width: 65%;
+
+          h6,
+          p {
+            text-align: center;
+          }
+        }
 
         #job-list-cont {
           width: 90%;
@@ -283,8 +289,13 @@ body.jobs-layout {
             position: relative;
             z-index: 2;
         }
-        .benefits {
+        .benefits,
+        .communities {
             padding: 40px 0;
+        }
+
+        .communities {
+          width: 37%;
         }
 
         #job-list-cont {
