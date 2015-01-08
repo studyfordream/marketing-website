@@ -1,7 +1,7 @@
 nav {
   .opticon-logo {
     width: 155px;
-    margin: 15px auto 15px auto;
+    margin: 15px auto;
   }
 
   .nav-options {
@@ -22,20 +22,15 @@ nav {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: $tablet-min-width) {
   nav{
     .nav-options {
       list-style: none;
       float: right;
       margin: 10px 50px 0 0;
-
-      display: -webkit-box;
-      display: -moz-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
       display: inline-flex;
 
-      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
       justify-content: flex-end;
       li {
         border-top: none;

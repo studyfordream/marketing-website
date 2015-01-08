@@ -174,7 +174,7 @@ body.opticon-speakers {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: $tablet-min-width) {
   body.opticon-speakers {
     .title-container {
       .section-title {

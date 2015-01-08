@@ -152,7 +152,7 @@ body.opticon {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: $tablet-min-width) {
   body.opticon {
     .section-title {
       font-size: 3.8em;

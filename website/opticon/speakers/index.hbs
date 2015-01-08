@@ -73,19 +73,11 @@ external_stylesheets:
           <span class="Track-related error-hide error-right">Required</span>
           <select  name="Track" required>
             <option selected disabled hidden value=''></option>
+            <option value="NotSure">I'm not sure</option>
             <option value="Strategy">Strategy</option>
             <option value="Culture">Culture</option>
             <option value="Action">Action</option>
             <option value="Develop">Develop</option>
-          </select>
-
-          <label class="required" for="">Session Type</label>
-          <span class="SessionType-related error-hide error-right">Required</span>
-          <select class="required" name="SessionType" required>
-            <option selected disabled hidden value=''></option>
-            <option value="Solo Speaking Spot">Solo Speaking Spot</option>
-            <option value="Panel Presentation">Panel Presentation</option>
-            <option value="Fireside">Fireside</option>
           </select>
 
           <label for="" class="required">Session Title</label>
@@ -109,7 +101,7 @@ external_stylesheets:
 
         <div class="shared-line">
           <div class="select-container columns five offset-one">
-            <label class="required" for="">Audience</label>
+            <label class="required" for="">Audience Type (e.g. Marketer)</label>
             <span class="Audience-related error-hide error-right">Required</span>
             <select name="Audience" required>
               <option selected disabled hidden value=''></option>
@@ -137,8 +129,7 @@ external_stylesheets:
       <div class="application-section">
         <div class="textarea-container columns ten offset-one">
           <label class="required" for="">Examples of previous speaking engagement(s)</label>
-          <span class="PreviousTalks-related error-hide">Required</span>
-          <textarea name="PreviousTalks" required></textarea>
+          <textarea name="PreviousTalks"></textarea>
         </div>
       </div>
 
@@ -152,7 +143,8 @@ external_stylesheets:
         </button>
       </div>
       <div class="form-success">
-        <h3 class="form-success">{{speakers_data.apply_section.form_success}}</h3>
+        <h3 class="form-success">Thank you for applying to speak at Opticon! If you would like to submit a second application, <a href="{{linkPath}}/opticon/speakers">click here</a>."
+        </h3>
       </div>
     </form>
   </section><!-- /.call-for-sponsors -->

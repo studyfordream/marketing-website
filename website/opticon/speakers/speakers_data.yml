@@ -2,7 +2,7 @@ page_title: "Call for Speakers"
 
 details:
   title: "The Call for Speakers is officially open for Opticon 2015!"
-  speaker_description: "Opticon is the annual conference that brings together the best growth marketers from around the world to learn, showcase and share best practices in experience optimization. We welcome you to submit your application for any of the following tracks:"
+  speaker_description: "Join the ranks of industry experts who share their knowledge and insights at Opticon.We welcome you to submit your session ideas for the following tracks:"
   tracks:
     -
       track_title: "Strategy"
@@ -15,9 +15,8 @@ details:
       track_description: "How to use Optimizely to create the best experiences for your users and customers."
     -
       track_title: "Develop"
-      track_description: "For developers; how to build on top of Optimizely."
+      track_description: "How to integrate Optimizely with the products you already use as well as find new ways to enhance your current workflow."
 
 apply_section:
   title: "Apply to speak at Opticon 2015"
-  instructions: "Submit an entry for each session you'd like to apply for by January 31, 2015"
-  form_success: "Thank you for applying to speak at Opticon! You'll hear back from us in early March."
+  instructions: "Please submit your speaker application(s) by February 24, 2015."
