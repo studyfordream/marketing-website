@@ -35,7 +35,7 @@ var config = {
         concat_footer: '  } catch(error){ \n\n' +
                        '    var path = window.location.pathname;\n\n' +
                        '    var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
-                       '    window.ga("send", "event", targetName + " JavaScript Error", trimpath, error);\n\n' +
+                       '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
                        '  } \n' +
                        '})(jQuery, window, document);'
       }
@@ -60,7 +60,7 @@ var config = {
         concat_footer: '  throw "Big Fat Error!!!" } catch(error){ \n\n' +
                        '    debugger;var path = window.location.pathname;\n\n' +
                        '    var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
-                       '    console.log(error);window.ga("send", "event", targetName + " JavaScript Error", trimpath, error);\n\n' +
+                       '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
                        '  } \n' +
                        '})(jQuery, window, document);'
       }
