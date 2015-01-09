@@ -31,10 +31,7 @@ module.exports = function(grunt, options){
     namespaceGlobal: {
       options: {
         banner: '<%= grunt.config.get("concat_banner") %>',
-        footer: '<%= grunt.config.get("concat_footer") %>',
-        process: function(src, filepath) {
-          return 'var targetName = "' + grunt.task.current.target + '";\n\n' + src;
-        }
+        footer: '<%= grunt.config.get("concat_footer") %>'
       },
       files: {
           '<%= config.temp %>/assets/js/global.js': [
