@@ -58,7 +58,7 @@ var config = {
                        '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
                        '  window.linkPath = "<%= gitinfo.local.branch.current.name %>" \n\n' +
                        '  try { \n\n',
-        concat_footer: '  throw "Big Fat Error!!!" } catch(error){ \n\n' +
+        concat_footer: '  ;throw "Big Fat Error!!!"; } catch(error){ \n\n' +
                        '    if (typeof targetName === "undefined") { var targetName= "namespaceGlobal" }; \n\n' +
                        '    var path = window.location.pathname;\n\n' +
                        '    var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
