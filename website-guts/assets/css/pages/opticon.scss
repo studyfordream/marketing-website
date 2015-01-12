@@ -45,8 +45,7 @@ body.opticon {
       color: $brand-blue;
     }
     .description {
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0px auto 10px auto;
       color: $light-text-color;
       width: 550px;
     }
@@ -57,7 +56,7 @@ body.opticon {
       display: none;
       width: 300px;
       height: 170px;
-      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pier.jpg');
+      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pier27.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: 25% 25%;
@@ -85,7 +84,7 @@ body.opticon {
       text-align: center;
       padding-bottom: 100px;
       a {
-        padding: 10px 59px;
+        padding: 15px 59px;
         background-color: $super-dark-blue;
         color: white;
         border-radius: 4px;
@@ -138,7 +137,7 @@ body.opticon {
       text-align: center;
       padding-bottom: 50px;
       a {
-        padding: 10px 59px;
+        padding: 15px 59px;
         background-color: $brand-blue;
         color: white;
         border-radius: 4px;
