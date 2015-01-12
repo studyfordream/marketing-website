@@ -83,10 +83,10 @@ body.opticon-speakers {
     background-color: #a2cbe1;
     background-repeat: no-repeat;
     background-position: center -60px;
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 200px;
     .section-title {
-      font-size: 2.25em;
+      font-size: 4.25em;
       color: $super-dark-blue;
       text-align: center;
       margin-bottom: 20px;
@@ -107,8 +107,8 @@ body.opticon-speakers {
       }
       textarea {
         height: 131px;
-        &[name="SessionAbstract"],
-        &[name="PreviousTalks"] {
+        &[name="Field22"],
+        &[name="Field28"] {
           width: 100%;
         }
       }
@@ -160,10 +160,6 @@ body.opticon-speakers {
       &:hover {
         box-shadow: 2px 2px 2px 0px $super-dark-blue;
       }
-    }
-    .form-success {
-      text-align: center;
-      margin-top: 100px;
     }
     .options {
       text-align: center;
