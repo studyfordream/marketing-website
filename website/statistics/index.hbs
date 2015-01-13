@@ -1,0 +1,135 @@
+---
+layout: mobile.hbs
+seo_title: Make your iOS app more engaging
+compact_header: false
+modals:
+- video_modal_compiled
+body_class:
+- mobile-page
+page_script: mobile.js
+footer_style: grey
+og_title:
+- "Make your app more engaging"
+og_description:
+- "Learn how to optimize your app for acquisition, engagement and retention."
+---
+<style>
+  section { border: 1px solid #ccc; }
+  .flex-content { border: 1px solid #ccc; }
+</style>
+<section id="hero" class="panel bg-img" style="background-image: url('{{statistics_data.hero.bg_img}}')">
+  {{#with statistics_data.hero}}
+  <div id="signup-form-panel-top">
+    <h1>{{{title}}}</h1>
+    <h1>{{{subtitle}}}</h1>
+    <a href="#" class="video-link" data-show-video><span class="circle-arrow"></span>{{{link_anchor_text}}}</a>
+  </div>
+  {{/with}}
+</section>
+{{#with statistics_data.lets_talk}}
+<section id="" class="panel">
+  <div class="container">
+    <h3>{{{title}}}</h3>
+    <h2>{{{subtitle}}}</h2>
+    <div class="flex-cont">
+      <div class="flex-content">
+        {{#omarkdown}}{{{text}}}{{/omarkdown}}
+      </div>
+      <div class="flex-content">
+        <img src="{{img}}">
+      </div>
+    </div>
+    <a href="{{{cta_link}}}">{{{cta_text}}}</a>
+  </div>
+</section>
+{{/with}}
+{{#with statistics_data.better_way}}
+<section id="" class="panel">
+  <div class="container">
+    <h3>{{{title}}}</h3>
+    <h2>{{{subtitle}}}</h2>
+    <div class="flex-cont">
+      <div class="flex-content">
+        {{#omarkdown}}{{{text}}}{{/omarkdown}}
+      </div>
+      <div class="flex-content">
+        <img src="{{img}}">
+      </div>
+    </div>
+    <a href="{{{cta_link}}}">{{{cta_text}}}</a>
+  </div>
+</section>
+{{/with}}
+{{#with statistics_data.confidence}}
+<section id="confidence" class="panel">
+  <div class="container">
+    <h3>{{{title}}}</h3>
+    <h2>{{{subtitle}}}</h2>
+    <div class="flex-cont">
+      <div class="flex-content">
+        {{#omarkdown}}{{{text}}}{{/omarkdown}}
+      </div>
+    </div>
+    <div class="flex-cont">
+      <div class="flex-content">
+        <img src="{{{img}}}">
+      </div>
+    </div>
+    <div class="flex-cont">
+      <div class="flex-content">
+        {{#omarkdown}}{{{text_2}}}{{/omarkdown}}
+      </div>
+    </div>
+    <a href="{{{cta_link}}}">{{{cta_text}}}</a>
+  </div>
+</section>
+{{/with}}
+{{#with statistics_data.compare}}
+<section id="" class="panel">
+  <div class="container">
+    <h2>{{{title}}}</h2>
+    <div class="flex-cont">
+      {{#each panels}}
+      <div class="flex-content">
+        <p>{{{title}}}</p>
+        <p>{{{pre}}}</p>
+        <p>{{{percentage}}}</p>
+        <p>{{{post}}}</p>
+      </div>
+      {{/each}}
+    </div>
+    <p class="footnote"{{{footnote}}}</p>
+    <h4>{{{cta_title}}}</h4>
+    <a href="{{{cta_link}}}">{{{cta_text}}}</a>
+  </div>
+</section>
+{{/with}}
+{{#with statistics_data.worry}}
+<section id="" class="panel">
+  <div class="container">
+    <h2>{{{title}}}</h2>
+    <div class="flex-cont">
+      {{#each panels}}
+      <div class="flex-content">
+        <p>{{{title}}}</p>
+        <hr>
+        <p>{{{text}}}</p>
+      </div>
+      {{/each}}
+    </div>
+    <h4>{{{cta_title}}}</h4>
+    <a href="{{{cta_link}}}">{{{cta_text}}}</a>
+  </div>
+</section>
+{{/with}}
+{{#with statistics_data.decisions}}
+<section id="" class="panel">
+  <div class="container">
+    <h2>{{{title}}}</h2>
+    <a href="{{{cta_link}}}">{{{cta_text}}}</a>
+  </div>
+</section>
+{{/with}}
+
+
+
