@@ -83,6 +83,9 @@ body.opticon {
     .button-container {
       text-align: center;
       padding-bottom: 100px;
+      &.desktop {
+        display: none;
+      }
       a {
         padding: 15px 59px;
         background-color: $super-dark-blue;
@@ -91,7 +94,7 @@ body.opticon {
         text-transform: uppercase;
         &:hover {
           text-decoration: none;
-          background-color: #005377;
+          background-color: $super-dark-blue-hover;
         }
       }
     }
@@ -144,7 +147,7 @@ body.opticon {
         text-transform: uppercase;
         &:hover {
           text-decoration: none;
-          background-color: #0F8EC7;
+          background-color: $brand-blue-hover;
         }
       }
     }
@@ -168,6 +171,14 @@ body.opticon {
     .description-panel {
       .blurb {
         margin: 0 50px 90px 0;
+      }
+    }
+    .call-for-speakers-panel {
+      .button-container.desktop {
+        display: block;
+      }
+      .button-container.mobile {
+        display: none;
       }
     }
     .register-panel {

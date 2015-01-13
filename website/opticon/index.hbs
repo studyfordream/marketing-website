@@ -31,8 +31,11 @@ external_stylesheets:
     <h1 class="section-title">{{call_for_speakers.title}}</h2>
     <p class="blurb">{{{call_for_speakers.blurb}}}</p>
   {{/with}}
-  <div class="button-container">
-    <a class="cta" href="{{linkPath}}/opticon/speakers">{{opticon_data.call_for_speakers.cta}}</a>
+  <div class="button-container desktop">
+    <a class="cta" href="{{linkPath}}/opticon/speakers">{{opticon_data.call_for_speakers.cta.desktop}}</a>
+  </div>
+  <div class="button-container mobile">
+    <a class="cta" href="{{linkPath}}/opticon/speakers">{{opticon_data.call_for_speakers.cta.mobile}}</a>
   </div>
   {{#with opticon_data}}
   </section>

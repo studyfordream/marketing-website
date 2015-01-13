@@ -11,7 +11,9 @@ description:
 call_for_speakers:
   title: "Call for Speakers"
   blurb: "Showcase your optimization expertise. The call for speakers is now open!"
-  cta: "Share your expertise"
+  cta:
+    desktop: "Share your expertise"
+    mobile: "Apply"
 
 register:
   title: "Registration"
