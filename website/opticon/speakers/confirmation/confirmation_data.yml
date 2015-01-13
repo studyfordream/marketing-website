@@ -1,0 +1,2 @@
+confirmation_message: "Thank you for applying to speak at Opticon! If you would
+  like to submit a second application, <a href=\"{{linkPath}}/opticon/speakers\">click here</a>."
