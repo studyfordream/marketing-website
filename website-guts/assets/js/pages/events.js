@@ -1,5 +1,5 @@
 window.optly.mrkt.events = {};
-
+var eventDisplay = require('eventDisplay');
 window.optly.mrkt.events.showEvents = function(url, div){
 
   var templateContext, htmlDecode;
@@ -77,7 +77,7 @@ window.optly.mrkt.events.showEvents = function(url, div){
 
           //console.log(window.optly.mrkt.templates.eventDisplay(templateContext));
 
-          $(div).html(window.optly.mrkt.templates.eventDisplay(templateContext));
+          $(div).html(eventDisplay(templateContext));
 
         } else {
 

@@ -1,5 +1,5 @@
 var lastDropdown;
-var loggedInUtilityNav = require('../../../templates/client/loggedInUtilityNav');
+var loggedInUtilityNav = require('loggedInUtilityNav');
 
 function bindDropdownClick($dropdownMenus) {
 

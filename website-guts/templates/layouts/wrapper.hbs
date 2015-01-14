@@ -11,12 +11,12 @@ layout_modals:
 <html class="no-js">
     <head>
         <meta charset="utf-8">
+        <script src="{{assetsDir}}/js/libraries/jquery-modernizr.min.js"></script>
         <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>
         {{#if environmentVariables.production}}
         <!-- Chartbeat -->
         <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
         {{/if}}
-        <script src="{{assetsDir}}/js/libraries/jquery-modernizr.min.js"></script>
         <script>
             window.optly_q = [];
             window.optly = {};
@@ -230,6 +230,7 @@ layout_modals:
           optly.mrkt = optly.mrkt || {};
           optly.mrkt.assetsDir = '{{assetsDir}}';
         </script>
+        <script src="{{assetsDir}}/js/vendor.js" defer></script>
         <script src="{{assetsDir}}/js/bundle.js" defer></script>
         {{#if page.script_dependencies}}
         {{#each page.script_dependencies}}

@@ -102,8 +102,8 @@ var config = {
         concat_banner: '(function($, w, d){ \n\n' +
                        '  window.optly = window.optly || {}; \n\n' +
                        '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-                       '  window.linkPath = "/dist" \n\n',
-        concat_footer: '})(jQuery, window, document);'
+                       '  window.linkPath = "/dist"; \n\n',
+        concat_footer: '\n\n})(jQuery, window, document);'
       }
     }
   },
