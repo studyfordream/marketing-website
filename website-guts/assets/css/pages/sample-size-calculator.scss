@@ -136,8 +136,8 @@ body.sample-size-page {
       margin: 15px 0 5px 0;
       text-align: center;
       text-transform: uppercase;
-      span { font-size: 1.4em; }
-      span:last-child { margin-right: -2px; }
+      span::first-letter { font-size: 1.4em; }
+      //span:last-child { margin-right: -2px; }
     }
     #sample {
       color: #3385d6;

@@ -14,7 +14,7 @@ calculator_content:
     description: "95% is an accepted standard for statistical significance, although Optimizely allows you to set your own threshold for significance based on your risk tolerance."
     link: "https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#statistical_significance"
     button_text: "edit"
-  bottom_title: "<span>S</span>ample <span>S</span>ize per <span>V</span>ariation"
+  bottom_title: "Sample Size per Variation"
 
 faq_content:
   title: "FAQ"
