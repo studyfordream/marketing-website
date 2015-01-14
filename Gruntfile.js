@@ -69,7 +69,6 @@ module.exports = function(grunt) {
     'jshint:test',
     'clean:preBuild',
     'assemble',
-    'handlebars',
     'modernizr',
     'webpack',
     'concat',
