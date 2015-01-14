@@ -21,7 +21,7 @@ faq_content:
   sections:
   -
     sub_title: "What is Optimizely's Stats Engine?"
-    description: "Optimizely’s sample size calculator is different from other calculators. It is based on the formula used in [Optimizely’s Stats Engine](http://www.optimizely.com/statistics/). Stats Engine calculates statistical significance using sequential testing and false discovery rate controls. When combined, these two techniques mean you no longer need to wait for a pre-set sample size to ensure the validity of your results. If Optimizely tells you that a result is 95% significant, you can make a decision with 95% confidence. Learn more about Stats Engine."
+    description: "Optimizely’s sample size calculator is different from other calculators. It is based on the formula used in [Optimizely’s Stats Engine](http://www.optimizely.com/statistics/). Stats Engine calculates statistical significance using sequential testing and false discovery rate controls. When combined, these two techniques mean you no longer need to wait for a pre-set sample size to ensure the validity of your results. If Optimizely tells you that a result is 95% significant, you can make a decision with 95% confidence. [Learn more](http://optimizely.com/statistics)"
 
   -
     sub_title: "How many visitors do I need for my A/B test?"
@@ -44,14 +44,14 @@ faq_content:
     sub_title: "How do I estimate a value for minimum detectable effect (MDE)?"
     description:
       "
-      Decide how willing you are to trade off sensitivity of your test versus how long you might need to run your test for. The smaller the MDE, the more sensitive you are asking your test to be, and the larger sample size you will need. [Learn more](https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#minimum)
+      Decide how willing you are to trade off sensitivity of your test versus how long you might need to run your test for. The smaller the MDE, the more sensitive you are asking your test to be, and the larger sample size you will need.
       
       
-      Keep in mind that statistical significance in Optimizely’s Stats Engine shows you the chance that your results will ever be significant, while the experiment is running. If the effect that our Stats Engine observes is larger than the minimum detectable effect you are looking for, your test may declare a winner or loser up to twice as fast as if you had to wait for your pre-set sample size. Given more time, Stats Engine may also find a smaller MDE than the one you expect. [Learn more about how Stats Engine calculates statistical significance](https://help.optimizely.com/hc/en-us/articles/200039895).
+      Keep in mind that statistical significance in Optimizely’s Stats Engine shows you the chance that your results will ever be significant, while the experiment is running. If the effect that our Stats Engine observes is larger than the minimum detectable effect you are looking for, your test may declare a winner or loser up to twice as fast as if you had to wait for your pre-set sample size. Given more time, Stats Engine may also find a smaller MDE than the one you expect. [Learn more](https://help.optimizely.com/hc/en-us/articles/200039895)
       "
   -
     sub_title: "Where is statistical power in your sample size calculator?"
-    description: "Statistical power is essentially a measure of whether your test has adequate data to reach a conclusive result. Optimizely’s new Stats Engine runs tests that are always at a power of one, meaning that the test always has adequate data to show you results that are valid at that moment. This means that you can make a decision as soon as your results reach significance without worrying about power. [Learn more](http://giphy.com/gifs/magnum-pi-tom-selleck-sexy-eyebrows-amirite-L9Bgj4EMQfYpW)"
+    description: "Statistical power is essentially a measure of whether your test has adequate data to reach a conclusive result. Optimizely’s new Stats Engine runs tests that are always at a power of one, meaning that the test always has adequate data to show you results that are valid at that moment. This means that you can make a decision as soon as your results reach significance without worrying about power."
 
 cta:
   title: "Learn more about Optimizely"
