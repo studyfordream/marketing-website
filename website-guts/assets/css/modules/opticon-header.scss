@@ -1,0 +1,49 @@
+#opticon-nav {
+  background-color: white;
+  .opticon-logo {
+    width: 155px;
+    margin: 15px auto;
+  }
+
+  .nav-options {
+    flex-flow: column-wrap;
+    padding: 0;
+    li {
+      text-align: center;
+      padding: 10px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      &:last-of-type {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+      }
+      a {
+        display: block;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  #opticon-nav {
+    .nav-options {
+      list-style: none;
+      float: right;
+      margin: 10px 50px 0 0;
+      display: inline-flex;
+
+      flex-flow: row wrap;
+      justify-content: flex-end;
+      li {
+        border-top: none;
+        padding: 0;
+      }
+      a {
+        padding: 1em;
+        color: $light-text-color;
+      }
+    }
+    .opticon-logo {
+      margin: 15px 0 15px 50px;
+    }
+  }
+}
