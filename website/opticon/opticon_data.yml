@@ -18,6 +18,7 @@ call_for_speakers:
 register:
   title: "Registration"
   blurb: "The agenda and speaker list will be updated shortly. If you want to get a jump on things and take advantage of early bird pricing be sure to register today."
+  cta: "Register Now"
 
 call_for_sponsors:
   title: "Sponsorship Opportunities"
