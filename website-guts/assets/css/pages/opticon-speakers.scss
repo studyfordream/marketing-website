@@ -126,7 +126,7 @@ body.opticon-speakers {
       textarea {
         resize: none;
         border-radius: 5px;
-        border: 1px #CCC;
+        border: 1px $dark-gray-color;
         width: 550px;
         height: 200px;
       }
@@ -137,7 +137,7 @@ body.opticon-speakers {
       width: 300px;
       height: 42px;
       border-radius: 5px;
-      border: 1px #CCC;
+      border: 1px $dark-gray-color;
       display: block;
       margin-bottom: 25px;
       margin-left: auto;
