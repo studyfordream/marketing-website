@@ -421,18 +421,12 @@ body .small-note, body p.small-note {
 	display: none;
 }
 
-input[type="text"],
-input[type="url"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-select,
-textarea {
+input[type="text"], input[type="url"], input[type="email"], input[type="tel"],  input[type="password"]{
   &.oform-error-show,
   &.error-show {
-		background-color: $input-error-background-red;
-		border-color: $input-error-border-red;
-		color: $text-color;
+		background-color: #fef3f3;
+		border-color: #f3b6b3;
+		color: #242424;
 	}
 }
 
@@ -465,13 +459,9 @@ body {
   button[type="submit"] {
     transition: all 0.1s linear;
   }
-  textarea[disabled],
-  select[disabled],
   input[disabled] {
     background-color: #eee;
   }
-  textarea[disabled],
-  select[disabled],
   input[disabled],
   button[disabled] {
     opacity: 0.65

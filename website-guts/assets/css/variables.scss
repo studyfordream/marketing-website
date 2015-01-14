@@ -16,7 +16,7 @@ $body-font-family: "Gotham SSm A","Gotham SSm B",sans-serif;
 $gotham-font-family: "Gotham A","Gotham B",Helvetica,Arial,sans-serif;
 $gotham-large-type: "Gotham A","Gotham B",Helvetica,Arial,sans-serif;
 $gotham-small-type: "Gotham SSm A","Gotham SSm B",sans-serif;
-$condensed-sans-serif: "Tungsten A", "Tungsten B", sans-serif;
+$condensed-sans-serif: 'Tungsten A', 'Tungsten B', sans-serif;
 $sentinel-font-family: "Sentinel SSm A", "Sentinel SSm B", sans-serif;
 $sentinel-medium-font-family: "Sentinel A", "Sentinel B", Georgia, sans-serif;
 
@@ -39,21 +39,13 @@ $footer-desktop-font-size: .65em;
 //blues
 $light-blue-bg: #e6edf0;
 $blue: #006EB6;
-$brand-blue: #0081ba;
-$brand-blue-hover: #0f8ec7;
 $dark-blue: #0053a7;
 $super-dark-blue: #00415d;
-$super-dark-blue-hover: #005377;
-$dark-blue-hover: #00415d;
-$baby-blue-bg: #a2cbe1;
-//reds
-$input-error-background-red: #fef3f3;
-$input-error-border-red: #f3b6b3;
+$dark-blue-hover: #00415D;
 //greens
 $medium-green: #90b71c;
 /* grays */
 $light-text-color: #888;
-$dark-gray-color: #ccc;
 $faint-gray-bg: #fbfbfb;
 $faint-gray-border: #d7d7d7;
 $gray-on-white-text: #696f72;
