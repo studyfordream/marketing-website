@@ -1,21 +1,46 @@
 body.statistics-page {
   // Layout
-  .hero {
+  #hero {
     border: 0;
-    background-position: top center;
+    background-position: top left;
+
+    .video-link {
+      display: table;
+      height: 60px;
+      margin: 30px auto;
+      width: auto;
+    }
+
+    .learn-more {
+      color: #FFFFFF;
+      font-size: 14px;
+      margin-top: 60px;
+      opacity: .6;
+
+      h1 {
+        margin-top: 0;
+        font-weight: bold;
+      }
+
+      a {
+        color: $light-text-color;
+      }
+    }
+  }
+
+  .panel .flex-img-cont {
+    width: 40%;
   }
 
   section {
     &.blue-bg {
       background: $light-blue-bg;
 
-      h2, h3, p {
-        color: $super-dark-blue;
-      }
     }
 
     &.darkblue-bg {
       background: $super-dark-blue;
+      color: #FFFFFF;
     }
   }
 
@@ -24,19 +49,168 @@ body.statistics-page {
     letter-spacing: 0;
   }
 
-  h4 {
-    border-bottom: 2px solid $dark-blue;
-    color: $super-dark-blue;
-    display: table;
-    font-weight: 500;
-    font-size: 14px;
-    padding-bottom: 10px;
-    text-transform: uppercase;
+  p {
+    max-width: 500px;
   }
 
-  h3 {
-    font-size: 2em;
-    font-weight: 100;
-    margin: 50px 0 15px 0;
+  .stats-button {
+    border: 1px solid $blue;
+    border-radius: 5px;
+    color: $blue;
+    display: table;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 7px 21px;
+  }
+
+  .text-center {
+    &, * {
+      text-align: center;
+    }
+
+    p, h3, h4, .secondary-cta {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  #section-worry {
+    .points {
+      padding: 60px 0;
+    }
+
+    .point {
+      padding: 0 30px;
+    }
+  }
+
+  .panel {
+    h1.white {
+      font-family: $gotham-large-type;
+      font-size: 36px;
+      color: #FFFFFF;
+      letter-spacing: 1px;
+      line-height: 44px;
+    }
+
+    h1.light {
+      opacity: 0.33;
+      font-family: $gotham-large-type;
+      font-size: 36px;
+      color: #FFFFFF;
+      letter-spacing: 1px;
+      line-height: 44px;
+    }
+
+    h1.dark {
+      font-family: $gotham-large-type;
+      font-size: 36px;
+      color: #00415d;
+      letter-spacing: 1px;
+      line-height: 44px;
+    }
+
+    h2 {
+      font-family: $gotham-large-type;
+      font-size: 30px;
+      font-weight: 400;
+      color: #00415D;
+      letter-spacing: 1px;
+      line-height: 38px;
+    }
+
+    h2.white {
+      font-family: $gotham-large-type;
+      font-size: 30px;
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: 1px;
+      line-height: 38px;
+    }
+
+    h3 {
+      font-family: $gotham-small-type;
+      font-size: 14px;
+      font-weight: 500;
+      border-bottom: 2px solid $blue;
+      color: #00415D;
+      display: table;
+      letter-spacing: 1px;
+      line-height: 20px;
+      padding-bottom: 7px;
+      text-transform: uppercase;
+    }
+
+    h3.white {
+      font-family: $gotham-small-type;
+      font-size: 14px;
+      font-weight: 500;
+      border-bottom: 2px solid $blue;
+      color: #ffffff;
+      letter-spacing: 1px;
+      line-height: 20px;
+      padding-bottom: 7px;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-family: $gotham-small-type;
+      font-weight: 400;
+      font-size: 16px;
+      font-weight: 100;
+      color: #00415D;
+      letter-spacing: 0.5px;
+      line-height: 30px;
+    }
+
+    p.white {
+      font-family: $gotham-small-type;
+      font-weight: 400;
+      font-size: 16px;
+      font-weight: 100;
+      color: #FFFFFF;
+      letter-spacing: 0.5px;
+      line-height: 30px;
+    }
+
+    a.text {
+      font-family: $gotham-small-type;
+      font-size: 16px;
+      color: #0081ba;
+      letter-spacing: 0.5px;
+      line-height: 26px;
+      text-decoration: underline;
+    }
+
+    .primary-cta {
+      /* maintain a button max-height 40px*/
+      border-radius: 4px;
+      background: #0081BA;
+      border: 1px solid #00415D;
+      padding: 10px 20px;
+      font-family: $gotham-small-type;
+      font-size: 18px;
+      color: #FFFFFF;
+      line-height: 22px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .secondary-cta {
+      /* maintain a button max-height 40px*/
+      border-radius: 4px;
+      border: 1px solid $blue;
+      color: #00415D;
+      padding: 10px 20px;
+      font-family: $gotham-small-type;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: 0.5px;
+
+      &.white {
+        color: #FFFFFF;
+      }
+    }
   }
 }

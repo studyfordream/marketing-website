@@ -6,7 +6,7 @@ hero:
 lets_talk:
   title: "LET'S TALK STATS"
   subtitle: "Data has changed<br>Statistics should too"
-  img: "//placehold.it/400x400"
+  img: "/dist/assets/img/statistics/analog-01.svg"
   text: |
     Traditional statistics were developed over 100 years ago, for an offline world. These methods are no longer up to the task of helping businesses make decisions with real-time data. If you look at results in real time, as most optimization platforms allow you to do, you’ll see winning results where no winner actually exists. In fact, your error rate can skyrocket to over 30% if you don't take precautions.
 
@@ -16,7 +16,7 @@ lets_talk:
 better_way:
   title: "THERE'S A BETTER WAY"
   subtitle: "We believe statistics<br>should work the way you do"
-  img: "//placehold.it/400x400"
+  img: "/dist/assets/img/statistics/digital-01.svg"
   text: |
     Our new Stats Engine supports experimentation and decision-making on your terms--no precautions needed. We partnered with Stanford statisticians to develop a revolutionary new approach to statistics for experience optimization. The approach builds on everything we’ve learned from helping over 8,000 Optimizely customers optimize more than 7 billion experiences.
   cta_text: "Download the ebook"
@@ -25,13 +25,12 @@ confidence:
   title: "DECIDE WITH CONFIDENCE"
   subtitle: "Introducing always-valid results"
   text: |
-    ### Results are valid whenever you check
-
-    With traditional statistics, peeking at your results any time other than your set sample size increases the chance you’ll find a winner when there isn’t one. With Stats Engine, check whenever you want. With a method called sequential testing, you’ll see your statistical significance increase with more time and data—no more waiting.
-  img: "//placehold.it/400x400"
+    <h3 class="white">Results are valid whenever you check</h3>
+    <p class="white">With traditional statistics, peeking at your results any time other than your set sample size increases the chance you’ll find a winner when there isn’t one. With Stats Engine, check whenever you won't. With a method called sequential testing, you’ll see your statistical significance increase with more time and data—no more waiting.</p>
+  img: "/dist/assets/img/statistics/sequential-testing-graphic.png"
   text_2: |
-    ### Test as many variations and goals as you want
-    Adding many goals or variations to an experiment also increases your chance of finding a winning result that isn’t real. Optimizely’s Stats Engine corrects for multiple goals and variations with false discovery rate control. Now you can add as many as you want without sacrificing accuracy.
+    <h3 class="white">Test as many variations and goals as you want</h3>
+    <p class="white">Adding many goals or variations to an experiment also increases your chance of finding a winning result that isn’t real. Optimizely’s Stats Engine corrects for multiple goals and variations with false discovery rate control. Now you can add as many as you want without sacrificing accuracy.</p>
   cta_text: "Learn the math"
   cta_link: "/math"
 compare:
