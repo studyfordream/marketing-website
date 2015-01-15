@@ -1,0 +1,42 @@
+body.statistics-page {
+  // Layout
+  .hero {
+    border: 0;
+    background-position: top center;
+  }
+
+  section {
+    &.blue-bg {
+      background: $light-blue-bg;
+
+      h2, h3, p {
+        color: $super-dark-blue;
+      }
+    }
+
+    &.darkblue-bg {
+      background: $super-dark-blue;
+    }
+  }
+
+  // Typography
+  .panel h1, .panel h2, .panel h3 {
+    letter-spacing: 0;
+  }
+
+  h4 {
+    border-bottom: 2px solid $dark-blue;
+    color: $super-dark-blue;
+    display: table;
+    font-weight: 500;
+    font-size: 14px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 2em;
+    font-weight: 100;
+    margin: 50px 0 15px 0;
+  }
+}

@@ -5,7 +5,7 @@ compact_header: false
 modals:
 - video_modal_compiled
 body_class:
-- mobile-page
+- mobile-page statistics-page
 page_script: mobile.js
 footer_style: grey
 og_title:
@@ -14,10 +14,9 @@ og_description:
 - "Learn how to optimize your app for acquisition, engagement and retention."
 ---
 <style>
-  section { border: 1px solid #ccc; }
-  .flex-content { border: 1px solid #ccc; }
+
 </style>
-<section id="hero" class="panel bg-img" style="background-image: url('{{statistics_data.hero.bg_img}}')">
+<section id="hero" class="panel bg-img" style="background-image: url('{{ statistics_data.hero.bg_img }}')">
   {{#with statistics_data.hero}}
   <div id="signup-form-panel-top">
     <h1>{{{title}}}</h1>
@@ -27,9 +26,9 @@ og_description:
   {{/with}}
 </section>
 {{#with statistics_data.lets_talk}}
-<section id="" class="panel">
+<section id="" class="panel blue-bg">
   <div class="container">
-    <h3>{{{title}}}</h3>
+    <h4>{{{title}}}</h4>
     <h2>{{{subtitle}}}</h2>
     <div class="flex-cont">
       <div class="flex-content">
@@ -46,7 +45,7 @@ og_description:
 {{#with statistics_data.better_way}}
 <section id="" class="panel">
   <div class="container">
-    <h3>{{{title}}}</h3>
+    <h4>{{{title}}}</h4>
     <h2>{{{subtitle}}}</h2>
     <div class="flex-cont">
       <div class="flex-content">
@@ -61,9 +60,9 @@ og_description:
 </section>
 {{/with}}
 {{#with statistics_data.confidence}}
-<section id="confidence" class="panel">
+<section id="confidence" class="panel darkblue-bg">
   <div class="container">
-    <h3>{{{title}}}</h3>
+    <h4>{{{title}}}</h4>
     <h2>{{{subtitle}}}</h2>
     <div class="flex-cont">
       <div class="flex-content">
@@ -105,7 +104,7 @@ og_description:
 </section>
 {{/with}}
 {{#with statistics_data.worry}}
-<section id="" class="panel">
+<section id="" class="panel blue-bg">
   <div class="container">
     <h2>{{{title}}}</h2>
     <div class="flex-cont">
@@ -130,6 +129,3 @@ og_description:
   </div>
 </section>
 {{/with}}
-
-
-

@@ -1,5 +1,5 @@
 hero:
-  bg_img: "//placehold.it/1600x800"
+  bg_img: "/dist/assets/img/statistics/hero.jpg"
   title: "Goodbye traditional statistics"
   subtitle: "Statistics for the internet age is here"
   link_anchor_text: "Learn More"
