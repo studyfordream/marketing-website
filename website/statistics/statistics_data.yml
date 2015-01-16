@@ -25,11 +25,11 @@ confidence:
   title: "DECIDE WITH CONFIDENCE"
   subtitle: "Introducing always-valid results"
   text: |
-    <h3 class="white">Results are valid whenever you check</h3>
+    <h3 class="white no-underline">Results are valid whenever you check</h3>
     <p class="white">With traditional statistics, peeking at your results any time other than your set sample size increases the chance you’ll find a winner when there isn’t one. With Stats Engine, check whenever you won't. With a method called sequential testing, you’ll see your statistical significance increase with more time and data—no more waiting.</p>
   img: "/dist/assets/img/statistics/sequential-testing-graphic.png"
   text_2: |
-    <h3 class="white">Test as many variations and goals as you want</h3>
+    <h3 class="white no-underline">Test as many variations and goals as you want</h3>
     <p class="white">Adding many goals or variations to an experiment also increases your chance of finding a winning result that isn’t real. Optimizely’s Stats Engine corrects for multiple goals and variations with false discovery rate control. Now you can add as many as you want without sacrificing accuracy.</p>
   cta_text: "Learn the math"
   cta_link: "/math"
@@ -37,11 +37,13 @@ compare:
   title: "Optimizely's Stats Engine increases confidence"
   panels:
   -
+    id: 1
     title: "With Stats Engine"
     pre: "setting a 95% significance<br>level results in a"
     percentage: "95%"
     post: "chance you'll make the right decision"
   -
+    id: 2
     title: "With traditional statistics"
     pre: "setting a 95% significance<br>level can result in a"
     percentage: "30%"

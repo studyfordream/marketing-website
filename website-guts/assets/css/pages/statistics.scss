@@ -19,7 +19,7 @@ body.statistics-page {
 
       h1 {
         margin-top: 0;
-        font-weight: bold;
+        font-weight: 500;
       }
 
       a {
@@ -74,6 +74,41 @@ body.statistics-page {
     }
   }
 
+  #section-confidence {
+    background-image: url('../img/statistics/stats-wave.png');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  #section-compare {
+    .comparison {
+      border-radius: 5px;
+      margin: 15px;
+      padding: 15px;
+      width: 460px;
+
+      .percent {
+        color: $blue;
+        font-size: 80px;
+        font-weight: 400;
+      }
+    }
+
+    .comparison-1 {
+      border: 1px solid $blue;
+    }
+
+    .comparison-2 {
+      background-color: $light-blue-bg;
+
+      .percent {
+        color: $light-text-color;
+        font-weight: 200;
+      }
+    }
+  }
+
   #section-worry {
     .points {
       padding: 60px 0;
@@ -84,30 +119,44 @@ body.statistics-page {
     }
   }
 
+  #section-decisions {
+    background-image: url('../img/statistics/stats-wave-white.png');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    h2 {
+      font-weight: 900;
+      margin-bottom: 60px;
+    }
+  }
+
   .panel {
-    h1.white {
-      font-family: $gotham-large-type;
-      font-size: 36px;
-      color: #FFFFFF;
-      letter-spacing: 1px;
-      line-height: 44px;
-    }
+    h1 {
+      &.white {
+        font-family: $gotham-large-type;
+        font-size: 36px;
+        color: #FFFFFF;
+        letter-spacing: 1px;
+        line-height: 44px;
+      }
 
-    h1.light {
-      opacity: 0.33;
-      font-family: $gotham-large-type;
-      font-size: 36px;
-      color: #FFFFFF;
-      letter-spacing: 1px;
-      line-height: 44px;
-    }
+      &.light {
+        opacity: 0.33;
+        font-family: $gotham-large-type;
+        font-size: 36px;
+        color: #FFFFFF;
+        letter-spacing: 1px;
+        line-height: 44px;
+      }
 
-    h1.dark {
-      font-family: $gotham-large-type;
-      font-size: 36px;
-      color: #00415d;
-      letter-spacing: 1px;
-      line-height: 44px;
+      &.dark {
+        font-family: $gotham-large-type;
+        font-size: 36px;
+        color: #00415d;
+        letter-spacing: 1px;
+        line-height: 44px;
+      }
     }
 
     h2 {
@@ -117,15 +166,16 @@ body.statistics-page {
       color: #00415D;
       letter-spacing: 1px;
       line-height: 38px;
-    }
 
-    h2.white {
-      font-family: $gotham-large-type;
-      font-size: 30px;
-      font-weight: 400;
-      color: #ffffff;
-      letter-spacing: 1px;
-      line-height: 38px;
+
+      &.white {
+        font-family: $gotham-large-type;
+        font-size: 30px;
+        font-weight: 400;
+        color: #ffffff;
+        letter-spacing: 1px;
+        line-height: 38px;
+      }
     }
 
     h3 {
@@ -139,18 +189,22 @@ body.statistics-page {
       line-height: 20px;
       padding-bottom: 7px;
       text-transform: uppercase;
-    }
 
-    h3.white {
-      font-family: $gotham-small-type;
-      font-size: 14px;
-      font-weight: 500;
-      border-bottom: 2px solid $blue;
-      color: #ffffff;
-      letter-spacing: 1px;
-      line-height: 20px;
-      padding-bottom: 7px;
-      text-transform: uppercase;
+      &.white {
+        font-family: $gotham-small-type;
+        font-size: 14px;
+        font-weight: 500;
+        border-bottom: 2px solid $blue;
+        color: #ffffff;
+        letter-spacing: 1px;
+        line-height: 20px;
+        padding-bottom: 7px;
+        text-transform: uppercase;
+      }
+
+      &.no-underline {
+        border-bottom: 0;
+      }
     }
 
     p {

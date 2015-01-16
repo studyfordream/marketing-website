@@ -50,9 +50,9 @@ og_description:
 <section id="" class="panel">
   <div class="container">
     <h3>{{{title}}}</h3>
-    <h2>{{{subtitle}}}</h2>
     <div class="flex-cont">
       <div class="flex-1-content">
+        <h2>{{{subtitle}}}</h2>
         {{#omarkdown}}{{{text}}}{{/omarkdown}}
         <a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a>
       </div>
@@ -64,7 +64,7 @@ og_description:
 </section>
 {{/with}}
 {{#with statistics_data.confidence}}
-<section id="confidence" class="panel darkblue-bg">
+<section id="section-confidence" class="panel darkblue-bg">
   <div class="container text-center">
     <h3 class="white">{{{title}}}</h3>
     <h2 class="white">{{{subtitle}}}</h2>
@@ -77,20 +77,20 @@ og_description:
 {{/with}}
 {{#with statistics_data.compare}}
 <section id="section-compare" class="panel">
-  <div class="container">
+  <div class="container text-center">
     <h2>{{{title}}}</h2>
     <div class="flex-cont">
       {{#each panels}}
-      <div class="flex-content">
-        <p>{{{title}}}</p>
+      <div class="flex-content comparison comparison-{{{id}}}">
+        <h3 class="no-underline">{{{title}}}</h3>
         <p>{{{pre}}}</p>
-        <p>{{{percentage}}}</p>
+        <div class="percent">{{{percentage}}}</div>
         <p>{{{post}}}</p>
       </div>
       {{/each}}
     </div>
     <p class="footnote"{{{footnote}}}</p>
-    <h3>{{{cta_title}}}</h3>
+    <p>{{{cta_title}}}</p>
     <a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a>
   </div>
 </section>
