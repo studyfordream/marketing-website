@@ -16,7 +16,7 @@ og_description:
 <style>
 
 </style>
-<section id="hero" class="panel bg-img" style="background-image: url('{{assetsDir}}/{{statistics_data.hero.bg_img}}')">
+<section id="hero" class="panel bg-img" style="background-image: url('{{assetsDir}}{{statistics_data.hero.bg_img}}')">
   {{#with statistics_data.hero}}
   <div id="signup-form-panel-top">
     <h1 class="light">{{{title}}}</h1>
@@ -38,7 +38,7 @@ og_description:
         {{#omarkdown}}{{{text}}}{{/omarkdown}}
       </div>
       <div class="flex-img-cont">
-        <img src="{{../assetsDir}}/{{img}}">
+        <img src="{{../assetsDir}}{{img}}">
       </div>
     </div>
     <a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a>
@@ -56,7 +56,7 @@ og_description:
         <a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a>
       </div>
       <div class="flex-img-cont">
-        <img src="{{../assetsDir}}/{{img}}">
+        <img src="{{../assetsDir}}{{img}}">
       </div>
     </div>
   </div>
@@ -68,7 +68,7 @@ og_description:
     <h3 class="white">{{{title}}}</h3>
     <h2 class="white">{{{subtitle}}}</h2>
     {{#omarkdown}}{{{text}}}{{/omarkdown}}
-    <img src="{{../assetsDir}}/{{{img}}}">
+    <img src="{{../assetsDir}}{{{img}}}">
     {{#omarkdown}}{{{text_2}}}{{/omarkdown}}
     <a href="{{{cta_link}}}" class="secondary-cta white">{{{cta_text}}}</a>
   </div>
