@@ -1,43 +1,15 @@
 body.statistics-page {
-  // Layout
-  #hero {
-    border: 0;
-    background-position: top left;
 
-    .video-link {
-      display: table;
-      height: 60px;
-      margin: 30px auto;
-      width: auto;
+  // General Panel Styles
+  .panel {
+
+    background: #fff;
+    padding: 60px 0;
+
+    br {
+      display: inline;
     }
 
-    .learn-more {
-      color: #fff;
-      font-size: 14px;
-      margin-top: 60px;
-      //opacity: .6;
-
-      h1 {
-        margin-top: 0;
-        font-weight: 500;
-      }
-
-      a {
-        color: #fff;
-        img {
-          display: block;
-          padding-top: 10px;
-          width: 24px;
-        }
-      }
-    }
-  }
-
-  .panel .flex-img-cont {
-    width: 40%;
-  }
-
-  section {
     &.blue-bg {
       background: $light-blue-bg;
 
@@ -47,120 +19,40 @@ body.statistics-page {
       background: $super-dark-blue;
       color: #FFFFFF;
     }
-  }
 
-  // Typography
-  .panel h1, .panel h2, .panel h3 {
-    letter-spacing: 0;
-  }
-
-  p {
-    max-width: 500px;
-  }
-
-  .stats-button {
-    border: 1px solid $blue;
-    border-radius: 5px;
-    color: $blue;
-    display: table;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 7px 21px;
-  }
-
-  .text-center {
-    &, * {
-      text-align: center;
+    // Typography
+    .panel h1, .panel h2, .panel h3 {
+      letter-spacing: 0;
     }
 
-    p, h3, h4, .secondary-cta {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
+    .text-center {
+      &, * {
+        text-align: center;
+      }
 
-  #section-confidence {
-    background-image: url('../img/statistics/stats-wave.png');
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  #section-compare {
-    .comparison {
-      border-radius: 5px;
-      margin: 15px;
-      padding: 15px;
-      width: 460px;
-
-      .percent {
-        color: $blue;
-        font-size: 80px;
-        font-weight: 400;
+      p, h3, h4, .secondary-cta {
+        margin-left: auto;
+        margin-right: auto;
       }
     }
 
-    .comparison-1 {
-      border: 1px solid $blue;
-    }
-
-    .comparison-2 {
-      background-color: $light-blue-bg;
-
-      .percent {
-        color: $light-text-color;
-        font-weight: 200;
-      }
-    }
-  }
-
-  #section-worry {
-    .points {
-      padding: 60px 0;
-    }
-
-    .point {
-      padding: 0 30px;
-    }
-  }
-
-  #section-decisions {
-    background-image: url('../img/statistics/stats-wave-white.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    h2 {
-      font-weight: 900;
-      margin-bottom: 60px;
-    }
-  }
-
-  .panel {
     h1 {
+      font-weight: 600;
+      font-family: $gotham-large-type;
+      font-size: 36px;
+      letter-spacing: 1px;
+      line-height: 44px;
       &.white {
-        font-family: $gotham-large-type;
-        font-size: 36px;
         color: #FFFFFF;
-        letter-spacing: 1px;
-        line-height: 44px;
       }
 
       &.light {
         opacity: 0.33;
-        font-family: $gotham-large-type;
-        font-size: 36px;
         color: #FFFFFF;
-        letter-spacing: 1px;
-        line-height: 44px;
       }
 
       &.dark {
-        font-family: $gotham-large-type;
-        font-size: 36px;
         color: #00415d;
-        letter-spacing: 1px;
-        line-height: 44px;
       }
     }
 
@@ -174,12 +66,7 @@ body.statistics-page {
 
 
       &.white {
-        font-family: $gotham-large-type;
-        font-size: 30px;
-        font-weight: 400;
         color: #ffffff;
-        letter-spacing: 1px;
-        line-height: 38px;
       }
     }
 
@@ -192,19 +79,15 @@ body.statistics-page {
       display: table;
       letter-spacing: 1px;
       line-height: 20px;
+      margin-top: 0px;
+      margin-left: auto;
+      margin-right: auto;
       padding-bottom: 7px;
       text-transform: uppercase;
 
+
       &.white {
-        font-family: $gotham-small-type;
-        font-size: 14px;
-        font-weight: 500;
-        border-bottom: 2px solid $blue;
         color: #ffffff;
-        letter-spacing: 1px;
-        line-height: 20px;
-        padding-bottom: 7px;
-        text-transform: uppercase;
       }
 
       &.no-underline {
@@ -220,6 +103,14 @@ body.statistics-page {
       color: #00415D;
       letter-spacing: 0.5px;
       line-height: 30px;
+
+      a {
+        color: #00415D;
+        text-decoration: underline;
+        &:hover {
+          color: #0081ba;
+        }
+      }
     }
 
     p.white {
@@ -256,8 +147,8 @@ body.statistics-page {
 
       &:hover {
         text-decoration: none;
-        // background: $blue;
-        // color: #fff;
+        background: $blue;
+        color: #fff;
       }
     }
 
@@ -266,7 +157,9 @@ body.statistics-page {
       border-radius: 4px;
       border: 1px solid $blue;
       color: #00415D;
+      display: inline-block;
       padding: 10px 20px;
+      margin-top: 45px;
       font-family: $gotham-small-type;
       font-size: 13px;
       font-weight: 500;
@@ -275,12 +168,228 @@ body.statistics-page {
 
       &:hover {
         text-decoration: none;
-        // background: $blue;
-        // color: #fff;
+        background: $blue;
+        color: #fff;
       }
 
       &.white {
         color: #FFFFFF;
+      }
+    }
+  }
+
+  .flex-responsive {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex-img-cont {
+    margin-top: 30px;
+    img {
+      max-width: 200px;
+    }
+  }
+  .bg-img {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  // Specific Panels
+  #hero {
+    padding-top: 170px;
+    border: 0;
+    background-position: top left;
+    text-align: center;
+
+    h1 {
+      text-align: center;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    .video-link {
+      display: table;
+      height: 60px;
+      margin: 60px auto;
+      width: auto;
+    }
+
+    .learn-more {
+      color: #fff;
+      font-size: 14px;
+      margin-top: 150px;
+      //opacity: .6;
+
+      h1 {
+        margin-top: 0;
+        font-weight: 500;
+      }
+
+      a {
+        color: #fff;
+        img {
+          display: inline-block;
+          padding-top: 10px;
+          width: 24px;
+        }
+      }
+    }
+  }
+
+  #section-confidence {
+    background-image: image-url('statistics/stats-wave.png');
+    background-position: 0px 100px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+    h2 {
+      margin-top: 70px;
+      margin-bottom: 40px;
+    }
+
+    .panel.white-bg {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .center-block {
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  #section-compare {
+    .comparison {
+      border-radius: 5px;
+      margin: 15px;
+      padding: 15px;
+
+      .percent {
+        color: $blue;
+        font-size: 80px;
+        font-weight: 400;
+      }
+    }
+
+    .comparison-1 {
+      border: 1px solid $blue;
+    }
+
+    .comparison-2 {
+      background-color: $light-blue-bg;
+
+      .percent {
+        color: $light-text-color;
+        font-weight: 200;
+      }
+    }
+  }
+
+  #section-worry {
+    .points {
+      padding: 30px 0 60px 0;
+    }
+
+    .point {
+      padding: 0 30px;
+    }
+  }
+
+  #section-decisions {
+    background-image: url('../img/statistics/stats-wave-white.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    h2 {
+      font-weight: 900;
+      margin-bottom: 60px;
+    }
+  }
+
+  #video-modal {
+    &.modal-dialog-container {
+      background: transparent;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 35%, rgba(0, 0, 0, 0.498039));
+    }
+    .dialog {
+      margin: 0;
+      width: 100%;
+      height: auto;
+      padding: 0;
+      background: transparent;
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      background-color: #000;
+    }
+    .modal-header {
+      display: none;
+    }
+    .modal-body {
+      width: 100%;
+      padding-top: 56%;
+      position: relative;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .fallback-player {
+      display: none;
+      &.show-fallback {
+        display: block;
+      }
+    }
+    .modal-footer {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+
+  body.statistics-page {
+
+    .panel h3 {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .flex-cont {
+      display: flex;
+    }
+
+    .flex-1-content {
+      flex: 1;
+      text-align: left;
+    }
+
+    .flex-even {
+      flex-basis: 0;
+      flex-grow: 1;
+    }
+
+    .flex-img-cont {
+      cursor: pointer;
+      width: 50%;
+      margin-top: 0;
+      padding: 0 0 0 40px;
+      &.order-2 {
+        padding: 0 40px 0 0;
+        order: 2;
+      }
+      img {
+        max-width: 100%;
+        width: auto;
       }
     }
   }

@@ -1,17 +1,17 @@
 ---
 layout: statistics.hbs
-seo_title: Make your iOS app more engaging
+seo_title: Statistics Engine
 compact_header: false
 modals:
 - video_modal_compiled
 body_class:
-- mobile-page statistics-page
+- statistics-page
 page_script: statistics.js
 footer_style: grey
 og_title:
-- "Make your app more engaging"
+- ""
 og_description:
-- "Learn how to optimize your app for acquisition, engagement and retention."
+- ""
 ---
 <style>
 
@@ -30,18 +30,16 @@ og_description:
 </section>
 {{#with statistics_data.lets_talk}}
 <section id="section-1" class="panel blue-bg">
-  <div class="container">
-    <h3>{{{title}}}</h3>
-    <div class="flex-cont">
-      <div class="flex-1-content">
-        <h2>{{{subtitle}}}</h2>
-        {{#omarkdown}}{{{text}}}{{/omarkdown}}
-      </div>
-      <div class="flex-img-cont">
-        <img src="{{../assetsDir}}{{img}}">
-      </div>
+  <div class="flex-cont container">
+    <div class="flex-1-content">
+      <h3>{{{title}}}</h3>
+      <h2>{{{subtitle}}}</h2>
+      {{#omarkdown}}{{{text}}}{{/omarkdown}}
+      <a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a>
     </div>
-    <a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a>
+    <div class="flex-img-cont">
+      <img src="{{../assetsDir}}{{img}}">
+    </div>
   </div>
 </section>
 {{/with}}
@@ -49,7 +47,7 @@ og_description:
 <section id="" class="panel">
   <div class="container">
     <h3>{{{title}}}</h3>
-    <div class="flex-cont">
+    <div class="flex-cont container">
       <div class="flex-1-content">
         <h2>{{{subtitle}}}</h2>
         {{#omarkdown}}{{{text}}}{{/omarkdown}}
@@ -64,13 +62,27 @@ og_description:
 {{/with}}
 {{#with statistics_data.confidence}}
 <section id="section-confidence" class="panel darkblue-bg">
-  <div class="container text-center">
-    <h3 class="white">{{{title}}}</h3>
-    <h2 class="white">{{{subtitle}}}</h2>
-    {{#omarkdown}}{{{text}}}{{/omarkdown}}
-    <img src="{{../assetsDir}}{{{img}}}">
-    {{#omarkdown}}{{{text_2}}}{{/omarkdown}}
-    <a href="{{{cta_link}}}" class="secondary-cta white">{{{cta_text}}}</a>
+  <div class="container">
+    <div class="text-center">
+      <h3 class="white">{{{title}}}</h3>
+      <h2 class="white text-center">{{{subtitle}}}</h2>
+    </div>
+    <div class="center-block">
+      {{#omarkdown}}{{{text}}}{{/omarkdown}}
+    </div>
+  </div>
+  <div class="panel white-bg text-center">
+    <div class="container">
+      <img src="{{../assetsDir}}{{{img}}}">
+    </div>
+  </div>
+  <div class="container">
+    <div class="center-block">
+      {{#omarkdown}}{{{text_2}}}{{/omarkdown}}
+      <div class="text-center">
+        <a href="{{{cta_link}}}" class="secondary-cta white">{{{cta_text}}}</a>
+      </div>
+    </div>
   </div>
 </section>
 {{/with}}
@@ -80,7 +92,7 @@ og_description:
     <h2>{{{title}}}</h2>
     <div class="flex-cont">
       {{#each panels}}
-      <div class="flex-content comparison comparison-{{{id}}}">
+      <div class="flex-content flex-even comparison comparison-{{{id}}}">
         <h3 class="no-underline">{{{title}}}</h3>
         <p>{{{pre}}}</p>
         <div class="percent">{{{percentage}}}</div>
