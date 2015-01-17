@@ -52,7 +52,7 @@ faq_content:
       "
   -
     sub_title: "Where is statistical power in your sample size calculator?"
-    description: "Statistical power is essentially a measure of whether your test has adequate data to reach a conclusive result. Optimizely’s new Stats Engine runs tests that are always at a power of one, meaning that the test always has adequate data to show you results that are valid at that moment. This means that you can make a decision as soon as your results reach significance without worrying about power."
+    description: "Statistical power is essentially a measure of whether your test has adequate data to reach a conclusive result. Optimizely’s new Stats Engine runs tests that always achieve a power of one, meaning that the test always has adequate data to show you results that are valid at that moment, and will eventually detect a difference if there is one. This means that you can make a decision as soon as your results reach significance without worrying about power."
 
 cta:
   title: "Learn more about Optimizely"
