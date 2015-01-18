@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 //get configs
 var fs,
     creds;
@@ -103,7 +104,14 @@ var config = {
                        '  window.optly = window.optly || {}; \n\n' +
                        '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
                        '  window.linkPath = "/dist"; \n\n',
-        concat_footer: '\n\n})(jQuery, window, document);'
+        concat_footer: '\n\n})(jQuery, window, document);',
+        plugins: [
+            new webpack.optimize.UglifyJsPlugin({
+              compress: {
+                warnings: false
+              }
+            })
+          ]
       }
     }
   },

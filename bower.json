@@ -6,9 +6,6 @@
     "Kyle Rush <kylerrush@gmail.com>"
   ],
   "description": "optimizely marketing website",
-  "moduleType": [
-    "node"
-  ],
   "license": "MIT",
   "private": true,
   "ignore": [
@@ -28,5 +25,8 @@
     "history.js": "1.8.0",
     "oform": "2.3.2",
     "fitvids": "1.1.0"
+  },
+  "devDependencies": {
+    "jquery": "~2.1.3"
   }
 }

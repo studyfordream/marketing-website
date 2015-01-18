@@ -22,7 +22,8 @@ module.exports = function(grunt, options) {
       entry: expandPath(basePath, 'pages'),
       output: {
         path: './dist/assets/js/pages',
-        filename: '[name].js'
+        filename: '[name].js',
+        sourceMapFilename: '[file].map'
       },
       resolve: {
           extensions: ["", ".js", ".hbs"],
@@ -33,12 +34,20 @@ module.exports = function(grunt, options) {
           { test: /\.hbs$/, loader: 'handlebars-loader' }
         ]
       },
+      plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        })
+      ]
     },
     layouts: {
       entry: expandPath(basePath, 'layouts'),
       output: {
         path: './dist/assets/js/layouts',
-        filename: '[name].js'
+        filename: '[name].js',
+        sourceMapFilename: '[file].map'
       },
       resolve: {
           extensions: ["", ".js", ".hbs"],
@@ -48,13 +57,15 @@ module.exports = function(grunt, options) {
         loaders: [
           { test: /\.hbs$/, loader: 'handlebars-loader' }
         ]
-      }
+      },
+      plugins: "<%= grunt.config.get('plugins')%>"
     },
     globalBundle: {
       entry: './website-guts/assets/js/global.js',
       output: {
         path: './dist/assets/js',
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        sourceMapFilename: '[file].map'
       },
       resolve: {
           extensions: ["", ".js", ".hbs"],
@@ -68,7 +79,12 @@ module.exports = function(grunt, options) {
       plugins: [
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-        )
+        ),
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        })
       ]
     }
   }
