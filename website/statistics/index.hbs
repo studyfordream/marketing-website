@@ -1,6 +1,6 @@
 ---
 layout: statistics.hbs
-seo_title: Statistics Engine
+seo_title: "Optimizely Stats Engine"
 compact_header: false
 modals:
 - video_modal_compiled
@@ -9,13 +9,11 @@ body_class:
 page_script: statistics.js
 footer_style: grey
 og_title:
-- ""
+- "Optimizely Stats Engine"
 og_description:
-- ""
+- "Statistics for the Internet age is here."
 ---
-<style>
 
-</style>
 <section id="hero" class="panel bg-img" style="background-image: url('{{assetsDir}}{{statistics_data.hero.bg_img}}')">
   {{#with statistics_data.hero}}
   <div id="signup-form-panel-top">
@@ -28,6 +26,7 @@ og_description:
   </div>
   {{/with}}
 </section>
+<script type="text/javascript" id="vidyard_embed_code_Bf0qpT872TFpgGnJUqm0kA" src="//play.vidyard.com/Bf0qpT872TFpgGnJUqm0kA.js?v=3.1&type=lightbox"></script></script>
 {{#with statistics_data.lets_talk}}
 <section id="section-1" class="panel blue-bg">
   <div class="flex-cont container">
@@ -45,17 +44,15 @@ og_description:
 {{/with}}
 {{#with statistics_data.better_way}}
 <section id="" class="panel">
-  <div class="container">
-    <h3>{{{title}}}</h3>
-    <div class="flex-cont container">
-      <div class="flex-1-content">
-        <h2>{{{subtitle}}}</h2>
-        {{#omarkdown}}{{{text}}}{{/omarkdown}}
-        <a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a>
-      </div>
-      <div class="flex-img-cont">
-        <img src="{{../assetsDir}}{{img}}">
-      </div>
+  <div class="flex-cont container">
+    <div class="flex-1-content">
+      <h3>{{{title}}}</h3>
+      <h2>{{{subtitle}}}</h2>
+      {{#omarkdown}}{{{text}}}{{/omarkdown}}
+      <a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a>
+    </div>
+    <div class="flex-img-cont">
+      <img src="{{../assetsDir}}{{img}}">
     </div>
   </div>
 </section>
@@ -113,7 +110,7 @@ og_description:
 
     <div class="flex-cont points">
       {{#each panels}}
-      <div class="flex-content point">
+      <div class="flex-even point">
         <h3>{{{title}}}</h3>
         <p>{{{text}}}</p>
       </div>
@@ -130,7 +127,7 @@ og_description:
 <section id="section-decisions" class="panel">
   <div class="container text-center">
     <h2>{{{title}}}</h2>
-    <a href="{{{cta_link}}}" class="primary-cta">{{{cta_text}}}</a>
+    <a href="{{../linkPath}}/pricing" class="primary-cta">{{{cta_text}}}</a>
   </div>
 </section>
 {{/with}}
