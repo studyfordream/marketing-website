@@ -8,11 +8,11 @@ lets_talk:
   subtitle: "Data has changed<br>Statistics should too"
   img: "/img/statistics/analog-01.svg"
   text: |
-    Traditional statistics were developed over 100 years ago, for an offline world. These methods are no longer up to the task of helping businesses make decisions with real-time data. If you look at results in real time, as most optimization platforms allow you to do, you’ll see winning results where no winner actually exists. In fact, your error rate can skyrocket to <a href="#">over 30%</a> if you don't take precautions.
+    Traditional statistics were developed over 100 years ago, for an offline world. These methods are no longer up to the task of helping businesses make decisions with real-time data. If you look at results in real time, as most optimization platforms allow you to do, you’ll see winning results where no winner actually exists. In fact, your error rate can skyrocket to <a href="http://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/">over 30%</a> if you don't take precautions.
 
     Without taking precautions, like setting a sample size and committing to a minimum detectable effect in advance, you could make changes to your website or product that at best, have no impact, and at worst, could be hurting your bottom line.
   cta_text: "Read the blog"
-  cta_link: "/blog"
+  cta_link: "http://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/"
 better_way:
   title: "THERE'S A BETTER WAY"
   subtitle: "We believe statistics<br>should work the way you do"
@@ -20,7 +20,7 @@ better_way:
   text: |
     Our new Stats Engine supports experimentation and decision-making on your terms--no precautions needed. We partnered with Stanford statisticians to develop a revolutionary new approach to statistics for experience optimization. The approach builds on everything we’ve learned from helping over 8,000 Optimizely customers optimize more than 7 billion experiences.
   cta_text: "Download the ebook"
-  cta_link: "/ebook"
+  cta_link: "http://pages.optimizely.com/guide-statistics-online-experiments.html"
 confidence:
   title: "DECIDE WITH CONFIDENCE"
   subtitle: "Introducing always-valid results"
@@ -37,7 +37,7 @@ confidence:
     <h3 class="white no-underline">Test as many variations and goals as you want</h3>
     <p class="white">Adding many goals or variations to an experiment also increases your chance of finding a winning result that isn’t real. Optimizely’s Stats Engine corrects for multiple goals and variations with false discovery rate control. Now you can add as many as you want without sacrificing accuracy.</p>
   cta_text: "Learn the math"
-  cta_link: "/math"
+  cta_link: "http://pages.optimizely.com/rs/optimizely/images/stats_engine_technical_paper.pdf"
 compare:
   title: "Optimizely's Stats Engine increases confidence"
   panels:
@@ -56,7 +56,7 @@ compare:
   footnote: "* We simulated millions of A/A tests under both frameworks and calculated error rate by determining the percentage of experiments that declared a winning or losing variation given a continous monitoring policy. (1000+ visitors)"
   cta_title: "Interested in how stats engine affects your results?"
   cta_text: "Learn more"
-  cta_link: "/more"
+  cta_link: "http://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/"
 worry:
   title: "Statistics has never been easier"
   panels:
@@ -71,8 +71,7 @@ worry:
     text: "No need to change how you run your tests. Stats engine works exactly the way you expect it to, without any extra work."
   cta_title: "Get answers to your FAQs"
   cta_text: "Check out Optiverse"
-  cta_link: "/optiverse"
+  cta_link: "https://community.optimizely.com/t5/Product-What-s-New/Product-Update-A-new-Stats-Engine-to-power-your-results/ba-p/8518"
 decisions:
   title: "Start making better decisions today"
   cta_text: "Get plans and pricing"
-  cta_link: "/pricing"

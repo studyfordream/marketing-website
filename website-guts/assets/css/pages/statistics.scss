@@ -159,7 +159,7 @@ body.statistics-page {
       color: #00415D;
       display: inline-block;
       padding: 10px 20px;
-      margin-top: 45px;
+      margin-top: 20px;
       font-family: $gotham-small-type;
       font-size: 13px;
       font-weight: 500;
@@ -240,7 +240,7 @@ body.statistics-page {
   }
 
   #section-confidence {
-    background-image: image-url('statistics/stats-wave.png');
+    background-image: image-url('statistics/stats-wave-white.png');
     background-position: 0px 100px;
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -300,10 +300,10 @@ body.statistics-page {
   }
 
   #section-decisions {
-    background-image: url('../img/statistics/stats-wave-white.svg');
-    background-position: center center;
+    background-image: image-url('statistics/stats-wave-blue.png');
+    background-position: 0px 50px;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100% auto;
 
     h2 {
       font-weight: 900;
@@ -366,6 +366,10 @@ body.statistics-page {
 
     .flex-cont {
       display: flex;
+    }
+
+    .flex-content {
+
     }
 
     .flex-1-content {
