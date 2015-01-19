@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var BannerFooterPlugin = require('banner-footer-webpack-plugin');
 
 module.exports = function(grunt, options) {
   var basePath = 'website-guts/assets/js';
@@ -35,6 +36,9 @@ module.exports = function(grunt, options) {
         ]
       },
       plugins: [
+        new BannerFooterPlugin('<%= grunt.config.get("concat_banner") %>', '<%= grunt.config.get("concat_footer") %>', {
+          raw: true
+        }),
         new webpack.optimize.UglifyJsPlugin({
           compress: {
             warnings: false
@@ -58,7 +62,16 @@ module.exports = function(grunt, options) {
           { test: /\.hbs$/, loader: 'handlebars-loader' }
         ]
       },
-      plugins: "<%= grunt.config.get('plugins')%>"
+      plugins: [
+        new BannerFooterPlugin('<%= grunt.config.get("concat_banner") %>', '<%= grunt.config.get("concat_footer") %>', {
+          raw: true
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        })
+      ]
     },
     globalBundle: {
       entry: './website-guts/assets/js/global.js',
@@ -80,10 +93,8 @@ module.exports = function(grunt, options) {
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
         ),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            warnings: false
-          }
+        new BannerFooterPlugin('<%= grunt.config.get("concat_banner") %>', '<%= grunt.config.get("concat_footer") %>', {
+          raw: true
         })
       ]
     }
