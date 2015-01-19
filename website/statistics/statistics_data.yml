@@ -27,7 +27,12 @@ confidence:
   text: |
     <h3 class="white no-underline">Results are valid whenever you check</h3>
     <p class="white">With traditional statistics, peeking at your results any time other than your set sample size increases the chance you’ll find a winner when there isn’t one. With Stats Engine, check whenever you won't. With a method called sequential testing, you’ll see your statistical significance increase with more time and data—no more waiting.</p>
-  img: "/img/statistics/sequential-testing-graphic.png"
+  img: 
+    us: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/sequential-testing-graphic-us.png"
+    de: ""
+    fr: ""
+    es: ""
+    jp: ""
   text_2: |
     <h3 class="white no-underline">Test as many variations and goals as you want</h3>
     <p class="white">Adding many goals or variations to an experiment also increases your chance of finding a winning result that isn’t real. Optimizely’s Stats Engine corrects for multiple goals and variations with false discovery rate control. Now you can add as many as you want without sacrificing accuracy.</p>
