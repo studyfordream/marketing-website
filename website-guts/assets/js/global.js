@@ -9,7 +9,7 @@ var requireUtils = require.context('./utils', false, /\.js$/);
 requireUtils.keys().forEach(requireUtils);
 
 //require the form helper constructor
-var requireFormFactory = require('./utils/form_helpers/form_helper_factory');
+var requireFormFactory = require('./utils/form_helpers/form_helper_factory'); // jshint ignore:line
 
 //require all form helpers omitting the already included factory constructor
 var requireFormHelpers = require.context('./utils/form_helpers', false, /\.js$/);

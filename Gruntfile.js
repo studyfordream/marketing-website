@@ -89,6 +89,7 @@ module.exports = function(grunt) {
     'assemble',
     'handlebars',
     'modernizr',
+    'webpack',
     'concat',
     'sass:prod',
     'autoprefixer',
