@@ -135,9 +135,7 @@ body.sample-size-page {
       color: #888;
       margin: 15px 0 5px 0;
       text-align: center;
-      text-transform: uppercase;
-      span::first-letter { font-size: 1.4em; }
-      //span:last-child { margin-right: -2px; }
+      text-transform: capitalize;
     }
     #sample {
       color: #3385d6;
