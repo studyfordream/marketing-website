@@ -10,6 +10,23 @@ module.exports = function(grunt, options) {
       return map;
     }, {});
   };
+  var sharedLoaders = [
+    { test: /\.hbs$/, loader: 'handlebars-loader' },
+    {test: /\.js?$/, exclude: ['bower_components', 'node_modules'], loader: '6to5-loader?experimental&runtime'}
+  ];
+  var sharedPlugins = [
+    new webpack.ProvidePlugin({
+      to5Runtime: 'imports?global=>{}!exports?global.to5Runtime!6to5/runtime'
+    }),
+    new BannerFooterPlugin('<%= grunt.config.get("concat_banner") %>', '<%= grunt.config.get("concat_footer") %>', {
+      raw: true
+    })
+  ];
+  function addPlugins(pluginInst) {
+    var cloned = sharedPlugins.slice(0);
+    cloned.unshift(pluginInst);
+    return cloned;
+  }
 
   return {
     options: {
@@ -40,15 +57,9 @@ module.exports = function(grunt, options) {
           modulesDirectories: ['node_modules', 'website-guts/templates/client']
       },
       module: {
-        loaders: [
-          { test: /\.hbs$/, loader: 'handlebars-loader' }
-        ]
+        loaders: sharedLoaders
       },
-      plugins: [
-        new BannerFooterPlugin('<%= grunt.config.get("concat_banner") %>', '<%= grunt.config.get("concat_footer") %>', {
-          raw: true
-        })
-      ]
+      plugins: sharedPlugins
     },
     layouts: {
       entry: expandPath(basePath, 'layouts'),
@@ -62,15 +73,9 @@ module.exports = function(grunt, options) {
           modulesDirectories: ['node_modules', 'website-guts/templates/client']
       },
       module: {
-        loaders: [
-          { test: /\.hbs$/, loader: 'handlebars-loader' }
-        ]
+        loaders: sharedLoaders
       },
-      plugins: [
-        new BannerFooterPlugin('<%= grunt.config.get("concat_banner") %>', '<%= grunt.config.get("concat_footer") %>', {
-          raw: true
-        })
-      ]
+      plugins: sharedPlugins
     },
     globalBundle: {
       entry: './website-guts/assets/js/global.js',
@@ -84,18 +89,13 @@ module.exports = function(grunt, options) {
           modulesDirectories: ['node_modules', 'bower_components', 'website-guts/templates/client']
       },
       module: {
-        loaders: [
-          { test: /\.hbs$/, loader: 'handlebars-loader' }
-        ]
+        loaders: sharedLoaders
       },
-      plugins: [
+      plugins: addPlugins(
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-        ),
-        new BannerFooterPlugin('<%= grunt.config.get("concat_banner") %>', '<%= grunt.config.get("concat_footer") %>', {
-          raw: true
-        })
-      ]
+        )
+      )
     }
   }
 };

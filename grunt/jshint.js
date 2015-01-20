@@ -2,6 +2,7 @@ module.exports = {
   options: {
     trailing: true,
     curly: true,
+    esnext: true,
     eqeqeq: true,
     indent: 4,
     latedef: true,
