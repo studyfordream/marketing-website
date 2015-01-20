@@ -56,6 +56,7 @@ layout_modals:
         <![endif]-->
         <div id="outer-wrapper">
             <div id="inner-wrapper">
+              {{#unless page.no_header}}
                 <header>
                     {{#unless page.compact_header}}
                     <div id="top-nav-cont">
@@ -127,6 +128,7 @@ layout_modals:
                         </div><!--/container-->
                     </div><!--/#main-nav-cont-->
                 </header>
+                {{/unless}}
                 {{> body }}
                 <footer {{#if page.footer_style}}class="{{page.footer_style}}"{{/if}}>
                     <div class="container footer-wrapper">

@@ -15,7 +15,7 @@
 }
 
 html {
-    color: #242424;
+    color: $text-color;
     font-size: 1em;
     line-height: 1.4;
     height: 100%
@@ -215,7 +215,7 @@ ul {
         padding-bottom: 35px;
     }
     .ugc {
-        color: #242424;
+        color: $text-color;
         li {
           text-align: left;
         }
