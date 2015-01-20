@@ -1,5 +1,5 @@
 require('script!jquery-cookie/jquery.cookie');
-require('script!history.js');
+require('script!history.js/scripts/bundled-uncompressed/html4+html5/jquery.history');
 require('script!momentjs');
 require('script!fitvids');
 require('script!oform/src/oForm');
