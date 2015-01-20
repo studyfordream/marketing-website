@@ -4,7 +4,6 @@ window.optly.mrkt.anim = window.optly.mrkt.anim || {};
 
 var boundModels = {},
   samplesizeUrlparams = window.optly.mrkt.utils.deparam(window.location.search),
-  newFormula = samplesizeUrlparams.new && samplesizeUrlparams.new === 'true',
   defaultVals = {
     conversion: 3,
     effect: 20,
@@ -114,11 +113,11 @@ function formatCommas(number) {
  *
  *
 **/
-
+/* jshint ignore:start */
 function roundToHundred(estimate) {
   return 100 * Math.floor((estimate + 50) / 100);
 }
-
+/* jshint ignore:end */
 function sampleSizeEstimate(processedModels){
   var relativeMDE = processedModels.effect,
     significance = 1 - ( processedModels.significance / 100 ),
