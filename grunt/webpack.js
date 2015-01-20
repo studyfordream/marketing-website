@@ -17,7 +17,16 @@ module.exports = function(grunt, options) {
         colors: true,
         modules: true,
         reasons: true
-      }
+      },
+      devtool: 'source-map',
+      environment: '<%= grunt.config.get("environment") %>',
+      envPlugins: [
+        [
+          '!dev',
+          webpack.optimize.UglifyJsPlugin,
+          [{compress: {warnings: false}}]
+        ]
+      ]
     },
     pages: {
       entry: expandPath(basePath, 'pages'),
@@ -38,11 +47,6 @@ module.exports = function(grunt, options) {
       plugins: [
         new BannerFooterPlugin('<%= grunt.config.get("concat_banner") %>', '<%= grunt.config.get("concat_footer") %>', {
           raw: true
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            warnings: false
-          }
         })
       ]
     },
@@ -65,11 +69,6 @@ module.exports = function(grunt, options) {
       plugins: [
         new BannerFooterPlugin('<%= grunt.config.get("concat_banner") %>', '<%= grunt.config.get("concat_footer") %>', {
           raw: true
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            warnings: false
-          }
         })
       ]
     },

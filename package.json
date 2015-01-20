@@ -54,7 +54,7 @@
     "nightmare": "git+ssh://git@github.com:dtothefp/nightmare.git",
     "phantomjs": "~1.9.12",
     "webpack": "^1.4.15",
-    "grunt-webpack": "^1.0.8",
+    "grunt-webpack": "git+ssh://git@github.com:dtothefp/grunt-webpack.git",
     "banner-footer-webpack-plugin": "git+ssh://git@github.com:dtothefp/banner-footer-webpack-plugin.git",
     "script-loader": "^0.6.1",
     "handlebars": "^1.3.0",
