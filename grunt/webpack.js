@@ -49,8 +49,7 @@ module.exports = function(grunt, options) {
       entry: expandPath(basePath, 'pages'),
       output: {
         path: './dist/assets/js/pages',
-        filename: '[name].js',
-        sourceMapFilename: '[file].map'
+        filename: '[name].js'
       },
       resolve: {
           extensions: ["", ".js", ".hbs"],
@@ -65,8 +64,7 @@ module.exports = function(grunt, options) {
       entry: expandPath(basePath, 'layouts'),
       output: {
         path: './dist/assets/js/layouts',
-        filename: '[name].js',
-        sourceMapFilename: '[file].map'
+        filename: '[name].js'
       },
       resolve: {
           extensions: ["", ".js", ".hbs"],
@@ -81,8 +79,7 @@ module.exports = function(grunt, options) {
       entry: './website-guts/assets/js/global.js',
       output: {
         path: './dist/assets/js',
-        filename: 'bundle.js',
-        sourceMapFilename: '[file].map'
+        filename: 'bundle.js'
       },
       resolve: {
           extensions: ["", ".js", ".hbs"],
