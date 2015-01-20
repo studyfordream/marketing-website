@@ -1,0 +1,135 @@
+body.features-and-plans {
+  /*             */
+  /*TITLE SECTION*/
+  /*             */
+  .title-section {
+    background: #F3F6F8;
+    border: 1px solid #E6E6E6;
+    text-align: center;
+    .title-copy {
+      font-family: Gotham-Light;
+      text-align: center;
+      font-size: 48px;
+      color: $super-dark-blue;
+      line-height: 61px;
+      margin-bottom: 57px;
+      margin-top: 60px;
+    }
+    .buttons-container {
+      margin-bottom: 67px;
+    }
+    .learn-cta {
+      @extend .new-primary-button;
+      background-image: linear-gradient(-180deg, #0081EB 3%, #0081BA 100%);
+      border: 2px solid #0063BA;
+      padding: 15px 87.5px;
+      box-shadow: none;
+      font: $gotham-font-family;
+      color: white;
+    }
+    .plans-cta {
+      @extend .new-primary-button;
+      border: 2px solid #4A90E2;
+      background-color: transparent;
+      box-shadow: none;
+      font: $gotham-font-family;
+      color: #4A90E2;
+      padding: 15px 87.5px;
+    }
+  }
+
+  /*                */
+  /*BENEFITS SECTION*/
+  /*                */
+  .benefits-section {
+    background: white;
+    .title-copy {
+      text-align: center;
+      padding-top: 62px;
+      font: 30px $gotham-font-family;
+      color: $super-dark-blue;
+      line-height: 34px;
+    }
+    .benefit-items-container {
+      display: flex;
+      justify-content: space-around;
+    }
+    .benefit-item {
+      width: 256px;
+      text-align: center;
+      padding-top: 186px;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: 160px;
+      h3 { 
+        text-align: center;
+        font: 15px $gotham-font-family;
+        color: $super-dark-blue;
+        letter-spacing: 0.53px;
+        line-height: 21px;
+      }
+      p {
+        font-size: 15px;
+        color: #888B8C;
+        letter-spacing: 0.1px;
+        line-height: 20px;
+      }
+    }
+    .asterisk {
+      text-align: center;
+      font-size: 12px;
+      color: #979797;
+      line-height: 24px;
+      padding-bottom: 82px;
+    }
+  }
+
+  /*                 */
+  /*FEATURES SECTIONS*/
+  /*                 */
+  .feature-section {
+    border: 1px solid #EBEBEB;
+    h2 {
+      font: 28px $gotham-font-family;
+      color: $super-dark-blue;
+    }
+    p {
+      font: 15px $gotham-font-family;
+      color: #696F72;
+      line-height: 22px;
+    }
+    .description-container {
+      width: 539px;
+      display: inline-block;
+      padding: 55px 0 60px 110px;
+      padding-left: 110px;
+      background-repeat: no-repeat;
+      background-position: left 75px;
+      background-size: 80px;
+    }
+    .features-container {
+      width: 294px;
+      display: inline-block;
+      li {
+        font-size: 15px;
+        color: #9B9B9B;
+        letter-spacing: 0.21px;
+        line-height: 16px;
+        margin-bottom: 20px;
+      }
+    }
+    &.even {
+      background: #F3F6F8;
+    }
+    &.odd {
+      background: white;
+      .description-container {
+        float: right;
+      }
+    }
+  }
+
+}
+
+@media screen and (min-width: $tablet-min-width) {
+}

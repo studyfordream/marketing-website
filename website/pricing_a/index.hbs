@@ -1,0 +1,71 @@
+---
+layout: no-sub-nav.hbs
+visible_title: Features and Plans
+body_class:
+- features-and-plans
+no_container: true
+seo_title: Features and Plans
+og_title:
+- "Features and Plans"
+og_description:
+- "Get started optimizing instantly, or build a custom plan for your business."
+---
+
+<!--             -->
+<!--Title Section-->
+<!--             -->
+{{#with features.title_section}}
+<section class="title-section">
+  <h1 class="title-copy">{{{title}}}</h1>
+  <div class="buttons-container">
+    <a class="learn-cta" href="#">{{learn_cta}}</a>
+    <a class="plans-cta" href="#">{{plans_cta}}</a>
+  </div>
+</section><!--title-section-->
+{{/with}}
+
+<!--                -->
+<!--Benefits Section-->
+<!--                -->
+{{#with features.benefits_section}}
+<section class="benefits-section">
+  <h2 class="title-copy">{{title}}</h2>
+  <div class="benefit-items-container container">
+    {{#each benefits}}
+    <div class="benefit-item four" style="background-image: url('{{icon}}')">
+      <h3>{{title}}</h3>
+      <p>{{desc}}</p>
+    </div>
+    {{/each}}
+  </div>
+  <p class="asterisk">{{asterisk}}</p>
+</section>
+{{/with}}
+
+<!--                -->
+<!--Feature Sections-->
+<!--                -->
+{{#with features}}
+  {{#each feature_sections}}
+    {{#is_even @index}}
+    <section class="{{class}} feature-section even">
+    {{else}}
+    <section class="{{class}} feature-section odd">
+    {{/is_even}}
+    <div class="container">
+      <div class="description-container" style="background-image: url('{{icon}}')">
+        <h2>{{title}}</h2>
+        <p>{{desc}}</p>
+      </div>
+      <div class="features-container">
+        <h4>Features:</h4>
+        <ul>
+          {{#each this.features}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    </section>
+  {{/each}}
+{{/with}}

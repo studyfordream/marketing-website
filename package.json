@@ -38,10 +38,10 @@
     "grunt-modernizr": "0.6.0",
     "grunt-s3": "0.2.0-alpha.3",
     "grunt-sass": "0.14.0",
-    "time-grunt": "0.3.2",
     "grunt-userevvd": "0.1.4",
     "load-grunt-config": "0.16.0",
     "optimizely-marked": "0.0.4",
+    "time-grunt": "0.3.2",
     "uglify-js": "2.4.15"
   },
   "devDependencies": {
@@ -62,10 +62,10 @@
   ],
   "keywords": [
     "assemble",
-    "templates",
     "handlebars",
-    "site generator",
     "site builder",
+    "site generator",
+    "templates",
     "grunt"
   ]
 }
