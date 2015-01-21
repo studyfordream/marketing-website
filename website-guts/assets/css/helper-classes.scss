@@ -91,6 +91,26 @@
   }
 }
 
+.pricing-button {
+  background-image: linear-gradient(-180deg, #0081EB 3%, #0081BA 100%);
+  border: 1px solid #0063BA;
+  border-radius: 2px;
+  font-family: $body-font-family;
+  /*font-size: 0.389em;*/
+  font-size: 14px;
+  color: white;
+  line-height: 17px;
+  padding: 12px 75px;
+  text-decoration: none;
+  cursor: pointer;
+  border:none;
+  font-weight: 100;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+}
+
 .rounded-input {
   margin: 0;
   padding: 15px 4px;

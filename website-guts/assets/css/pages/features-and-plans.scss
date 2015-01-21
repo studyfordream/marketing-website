@@ -49,6 +49,7 @@ body.features-and-plans {
       font: 30px $gotham-font-family;
       color: $super-dark-blue;
       line-height: 34px;
+      padding: 66px 0;
     }
     .benefit-items-container {
       display: flex;
@@ -57,10 +58,10 @@ body.features-and-plans {
     .benefit-item {
       width: 256px;
       text-align: center;
-      padding-top: 186px;
+      padding-top: 99px;
       background-repeat: no-repeat;
       background-position: center top;
-      background-size: 160px;
+      background-size: 122px 83px;
       h3 { 
         text-align: center;
         font: 15px $gotham-font-family;
@@ -102,13 +103,13 @@ body.features-and-plans {
       width: 539px;
       display: inline-block;
       padding: 55px 0 60px 110px;
-      padding-left: 110px;
       background-repeat: no-repeat;
       background-position: left 75px;
       background-size: 80px;
     }
     .features-container {
       width: 294px;
+      padding: 55px 0;
       display: inline-block;
       li {
         font-size: 15px;
@@ -120,6 +121,9 @@ body.features-and-plans {
     }
     &.even {
       background: #F3F6F8;
+      .features-container {
+        float: right;
+      }
     }
     &.odd {
       background: white;
@@ -129,7 +133,46 @@ body.features-and-plans {
     }
   }
 
+  /*                  */
+  /*Enterprise Section*/
+  /*                  */
+  .enterprise-section {
+    background-image: radial-gradient(48% 112%, #005275 46%, #00415D 100%);
+    border: 1px solid #F0F0F0;
+    * {
+      text-align: center;
+    }
+    h2 {
+      font-size: 36px;
+      color: #A7C3E2;
+      margin-bottom: 0;
+      margin-top: 40px; 
+    }
+    p {
+      font-size: 18px;
+      color: white;
+      letter-spacing: 0.12px;
+    }
+    p:last-of-type {
+      padding-bottom: 40px;
+    }
+    .subtitle {
+      margin-top: 0;
+    }
+    .button-container {
+      margin-bottom: 65px;
+    }
+    .cta {
+      @extend .pricing-button;
+    }
+  }
+  /*               */
+  /*Starter Section*/
+  /*               */
+  .starter-section {
+  }
 }
+
 
 @media screen and (min-width: $tablet-min-width) {
 }

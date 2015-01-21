@@ -9,16 +9,16 @@ benefits_section:
     -
       title: "Fast and Easy"
       desc: "Quick implementation and easy to use visual editor"
-      icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/intersection.svg"
+      icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/timer.svg"
     -
       title: "Powerful"
       desc: "Create and deliver relevant experiences on web,
              mobile web, iOS, and Android.*"
-      icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/stopwatch.svg"
+      icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/screens.svg"
     -
       title: "Trusted and Secure"
       desc: "The platform choice for over 8,000 businesses and counting."
-      icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/stopwatch.svg"
+      icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/trophy.svg"
 
   asterisk: "* Android coming soon"
 
@@ -30,7 +30,6 @@ feature_sections:
       Halt neverending debates with your team and boss."
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/spaceship.svg"
     class: "create-and-launch"
-    index: 0
     features:
       -
         "A/B and multivariate testing"
@@ -46,7 +45,6 @@ feature_sections:
       into action."
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/magnifier.svg"
     class: "discover"
-    index: 1
     features:
       -
         "Analyze experiment results data in real-time"
@@ -64,7 +62,6 @@ feature_sections:
       party data you already know about them."
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/target.svg"
     class: "target"
-    index: 2
     features:
       -
         "Deliver optimized experiences to the right person, at the right time"
@@ -82,7 +79,6 @@ feature_sections:
       where it lives."
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/intersection.svg"
     class: "integrate"
-    index: 3
     features:
       -
         "Enterprise-grade integrations"
@@ -90,6 +86,19 @@ feature_sections:
         "Access to Optimizely’s JavaScript API"
       -
         "Access to Optimizely’s REST API"
+
+  -
+    title: "Manage Your Experience Optimization Program"
+    desc: "Empower your team with actionable, real-time data on your users and foster the growth of a data-driven culture in your company."
+    icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/team.svg"
+    class: "manage"
+    features:
+      -
+        "Flexible role-based permissions"
+      -
+        "Report annotations to share discoveries with your team"
+      -
+        "Detailed experiment change history"
 
   -
     title: "Enterprise Grade Support with Startup Agility"
@@ -100,7 +109,6 @@ feature_sections:
       technical solutions architects and optimization strategy experts."
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/woman.svg"
     class: "support"
-    index: 4
     features:
       -
         "Get your issues resolved quickly online or by phone "
@@ -113,11 +121,11 @@ enterprise_section:
   title: "Enterprise"
   subtitle: "Customized plans for your business."
   cta: "Talk to Us"
-  feature_list: "Interested in seeing more? See full feature list >>"
+  feature_cta: "Interested in seeing more? <a href='#'>See full feature list >></a>"
 
 starter_section:
   title: "Not ready for Enterprise?"
-  subtitle: "Get the basics with our free Starter Plan. No credit card required."
+  subtitle: "Get the <a href='#'>basics</a> with our free Starter Plan. No credit card required."
   cta: "Get Started"
 
 faqs:
