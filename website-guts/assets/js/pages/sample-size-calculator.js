@@ -132,7 +132,8 @@ function sampleSizeEstimate(processedModels){
   // Note: This is the variance estimate for conversion events. If you want to have a sample size calculation for revenue, customers should provide variance
   variance = c1 * (1 - c1) + c2 * (1 - c2);
 
-  sampleEstimate = 2 * (1 - significance) * variance * Math.log(1/theta) / (theta * theta);
+  // sampleEstimate = 2 * (1 - significance) * variance * Math.log(1/theta) / (theta * theta);
+  sampleEstimate = 2 * (1 - significance) * variance * Math.log(1+Math.sqrt(variance)/theta) / (theta * theta);
 
   if (!$.isNumeric(sampleEstimate) || !isFinite(sampleEstimate) || sampleEstimate < 0) {
     return '---';
