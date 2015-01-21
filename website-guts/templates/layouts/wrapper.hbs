@@ -49,6 +49,15 @@ layout_modals:
         {{#if environmentVariables.production}}
         <script id="bizible-settings" type="text/javascript" src="//cdn.bizible.com/_biz-a.js" async data-attach-secure-forms="true"></script>
         {{/if}}
+        {{#if environmentVariables.production}}
+        <script>
+        (function(d,b,a,s,e) {
+          var t = b.createElement(a), fs = b.getElementsByTagName(a)[0];
+          t.async=1; t.id=e; t.src=('https:'==document.location.protocol ? 'https://' : 'http://') + s;
+          fs.parentNode.insertBefore(t, fs);
+        })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
+        </script>
+        {{/if}}
     </head>
      <body class="signed-out{{#if page.compact_header}} compact-header{{/if}}{{#each layout_body_class}} {{.}}{{/each}}{{#each page.body_class}} {{.}}{{/each}}">
         <!--[if lt IE 8]>
