@@ -46,8 +46,8 @@ compare:
     id: 2
     title: "With traditional statistics"
     pre: "setting a 95% significance<br>level can result in a"
-    percentage: "30%"
-    post: "or more chance you'll make the wrong decision if you don't avoid pitfalls*"
+    percentage: "70%"
+    post: "or lower chance you'll make the right decision if you don't avoid pitfalls*"
   footnote: "* We simulated millions of A/A tests under both frameworks and calculated error rate by determining the percentage of experiments that declared a winning or losing variation given a continous monitoring policy. (1000+ visitors)"
   cta_title: "Interested in how stats engine affects your results?"
   cta_text: "Learn more"
