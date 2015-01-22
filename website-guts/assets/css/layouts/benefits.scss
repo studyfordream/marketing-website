@@ -73,7 +73,7 @@ body.benefits-layout {
   }
 
   h5 {
-    color: #242424;
+    color: $text-color;
   }
 
   blockquote {
@@ -92,7 +92,7 @@ body.benefits-layout {
   //TODO: make this global for li without breaking footer
   .columns.seven {
     li {
-      color: #242424;
+      color: $text-color;
       font-size: 14px;
       font-weight: 300;
       line-height: 1.5;
