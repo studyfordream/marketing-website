@@ -73,6 +73,11 @@ og_description:
   {{/each}}
 {{/with}}
 
+<!--               -->
+<!--Companies Panel-->
+<!--               -->
+{{> companies_panel}}
+
 
 <!--                  -->
 <!--Enterprise Section-->
@@ -101,3 +106,20 @@ og_description:
   </div>
 </section>
 {{/with}}
+
+
+<!--           -->
+<!--FAQ Section-->
+<!--           -->
+<section class="faq-section">
+{{#with features}}
+  <div class="faq-container">
+    {{#each faqs}}
+    <p class="question">{{question}}</p>
+    <p class="answer">{{{answer}}}</p>
+    {{/each}}
+  </div>
+  <p class="contact-text">{{contact.text}}</p>
+  <p class="phone-number">{{contact.phone_number}}</p>
+{{/with}}
+</section>

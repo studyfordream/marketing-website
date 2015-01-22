@@ -143,7 +143,11 @@ faqs:
     answer: "As a current customer, you are grandfathered into the original plan you selected. You can continue to use this plan, or select a new plan if you feel Starter or Enterprise better meets your needs. You can find more answers in this FAQ."
   -
     question: "Does Optimizely offer nonprofit pricing?"
-    answer: "Yes. Visit Optimizely for non-profits for more information."
+    answer: "Yes. Visit <a href='https://www.optimizely.com/nonprofits'>Optimizely for non-profits</a> for more information."
   -
     question: "I have more questions. Where can I find answers?"
     answer: "Check out our Knowledge Base for questions about how Optimizely works on your website or mobile app. If you have questions about an enterprise plan, please get in touch by calling or filling out a form. We’ll get back to you!"
+
+contact:
+  text: "Still have questions? Call us:"
+  phone_number: "1-800-252-9480"
