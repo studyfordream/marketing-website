@@ -44,6 +44,7 @@ module.exports = function(grunt, options){
             '<%= config.guts %>/assets/js/utils/form_helper_factory.js',
             '<%= config.guts %>/assets/js/utils/form_helpers/*.js',
             '<%= config.guts %>/assets/js/utils/trim_url.js',
+            '<%= config.guts %>/assets/js/utils/stringify_error.js',
             '<%= config.guts %>/assets/js/global.js',
             '<%= config.guts %>/assets/js/components/*.js',
             '<%= config.guts %>/assets/js/services/*.js',

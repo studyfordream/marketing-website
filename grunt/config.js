@@ -33,7 +33,8 @@ var config = {
                        '  window.linkPath = "" \n\n' +
                        '  try { \n\n',
         concat_footer: '  } catch(error){ \n\n' +
-                       '    if (typeof targetName === "undefined") { var targetName= "namespaceGlobal" }; \n\n' +
+                       '    if(typeof error === "object") { error = JSON.stringify(error) }; \n\n' +
+                       '    if (typeof targetName === "undefined") { var targetName = "namespaceGlobal" }; \n\n' +
                        '    var path = window.location.pathname;\n\n' +
                        '    var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
                        '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " + targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
@@ -56,10 +57,11 @@ var config = {
         concat_banner: '(function($, w, d){ \n\n' +
                        '  window.optly = window.optly || {}; \n\n' +
                        '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-                       '  window.linkPath = "<%= gitinfo.local.branch.current.name %>" \n\n' +
+                       '  window.linkPath = "<%= gitinfo.local.branch.current.name %>"; \n\n' +
                        '  try { \n\n',
-        concat_footer: '  ;throw "Big Fat Error!!!"; } catch(error){ \n\n' +
-                       '    if (typeof targetName === "undefined") { var targetName= "namespaceGlobal" }; \n\n' +
+        concat_footer: '  ;throw new Error("Big Fat Error!!!";) } catch(error){ \n\n' +
+                       '    if(typeof error === "object") { error = JSON.stringify(error) }; \n\n' +
+                       '    if (typeof targetName === "undefined") { var targetName = "namespaceGlobal" }; \n\n' +
                        '    var path = window.location.pathname;\n\n' +
                        '    var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
                        '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " + targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
@@ -82,7 +84,7 @@ var config = {
         concat_banner: '(function($, w, d){ \n\n' +
                        '  window.optly = window.optly || {}; \n\n' +
                        '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-                       '  window.linkPath = "<%= gitinfo.local.branch.current.name %>" \n\n' +
+                       '  window.linkPath = "<%= gitinfo.local.branch.current.name %>"; \n\n' +
                        '  try { \n\n',
         concat_footer: '  } catch(error){ \n\n' +
                        '  //report errors to GA \n\n' +
@@ -106,7 +108,7 @@ var config = {
         concat_banner: '(function($, w, d){ \n\n' +
                        '  window.optly = window.optly || {}; \n\n' +
                        '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-                       '  window.linkPath = "/dist" \n\n',
+                       '  window.linkPath = "/dist"; \n\n',
         concat_footer: '})(jQuery, window, document);'
       }
     }
