@@ -1,15 +1,33 @@
 ---
-layout: no-sub-nav.hbs
+layout: no-sub-nav-optional-page-header.hbs
 visible_title: Features and Plans
 body_class:
 - features-and-plans
 no_container: true
+page_header: false
 seo_title: Features and Plans
 og_title:
 - "Features and Plans"
 og_description:
 - "Get started optimizing instantly, or build a custom plan for your business."
 ---
+
+<!--           -->
+<!--Page Header-->
+<!--           -->
+<div id="page-header">
+  <div class="container">
+    <div class="page-subheader-cont">
+      <h1>{{page.visible_title}}</h1>
+      <div class="header-cta-container">
+        {{#with features.page_header}}
+        <a class="talk-button" href="#">{{cta}}</a>
+        <p class="phone-number">:</p>
+        {{/with}}
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <!--             -->
@@ -22,7 +40,7 @@ og_description:
     <a class="learn-cta" href="#">{{learn_cta}}</a>
     <a class="plans-cta" href="#">{{plans_cta}}</a>
   </div>
-</section><!--title-section-->
+</section>
 {{/with}}
 
 
