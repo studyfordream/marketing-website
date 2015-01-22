@@ -19,53 +19,36 @@ window.optly.mrkt.events.showEvents = function(resp, div){
     });
   };
 
-  if(!resp.error){
+  if(!resp.error) {
 
       var i,
-        items = resp.items;
+          items = resp.items;
 
       for(i = 0; i < items.length; i++){
 
         var entry, eventData, venue, startDate, endDate, zeroRegEx, description;
 
         entry = items[i];
-
         startDate = window.moment( entry.start.date || entry.start.dateTime );
-
         endDate = window.moment( entry.end.date || entry.end.dateTime );
-
         zeroRegEx = /\-0/g;
 
         if(typeof entry.location === 'string'){
-
           venue = entry.location.split(' /')[0];
-
         }
 
         description = entry.description.split('-- ')['1'].trim().replace(/\r?\n|\r/g, '');
-
         eventData = {
-
           title: entry.summary,
-
           link: entry.description.split(' --')[0],
-
           cityState: entry.location.split('/ ')[1],
-
           startMonth: startDate.format('MMM'),
-
           startDay: startDate.format('D'),
-
           endMonth: endDate.format('MMM'),
-
           endDay: endDate.format('D'),
-
           endYear: endDate.format('YYYY'),
-
           description: htmlDecode( description ),
-
           venue: venue
-
         };
 
         if(startDate.isAfter(currentDateTime)) {
