@@ -1,7 +1,7 @@
 hero:
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/hero.jpg"
   title: "Goodbye traditional statistics"
-  subtitle: "Statistics for the internet age is here"
+  subtitle: "Statistics for the Internet age is here"
   link_anchor_text: "Learn More"
 lets_talk:
   title: "LET'S TALK STATS"
@@ -48,8 +48,8 @@ compare:
     pre: "setting a 95% significance<br>level can result in a"
     percentage: "30%"
     post: "or more chance you'll make the wrong decision if you don't avoid pitfalls*"
-  footnote: "* We simulated millions of A/A tests under both frameworks and calculated error rate by determining the percentage of experiments that declared a winning or losing variation given a continous monitoring policy. (1000+ visitors)"
-  cta_title: "Interested in how stats engine affects your results?"
+  footnote: "* We simulated millions of A/A tests under both frameworks and calculated error rate by determining the percentage of experiments that declared a winning or losing variation given a continuous monitoring policy. (1000+ visitors)"
+  cta_title: "Interested in how Stats Engine affects your results?"
   cta_text: "Learn more"
   cta_link: "http://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/"
 worry:
