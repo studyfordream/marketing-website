@@ -1,0 +1,227 @@
+back: "<< Back to Feature Overview"
+
+starter_header:
+  title: "Starter"
+  desc: "All the basics.  No credit card required. "
+
+enterprise_header:
+  title: "Enterprise"
+  desc: "Customized For Your Business."
+
+sections:
+  -
+    title: "Create & Launch Experiments"
+    desc: "Start making decisions with actionable data. Optimizely
+      lets you see your ideas come to life quickly.
+      Halt neverending debates with your team and boss."
+    features:
+      -
+        title: "A/B and multivariate testing"
+        starter: true
+        enterprise: true
+      -
+        title: "Multivariate Testing"
+        starter: true
+        enterprise: true
+      -
+        title: "Instant Rollouts"
+        starter: true
+        enterprise: true
+      -
+        title: "Mobile Developer Tools"
+        starter: true
+        enterprise: true
+      -
+        title: "Multi-page Testing (funnel)"
+        starter: false
+        enterprise: true
+      -
+        title: "Multichannel Experiments"
+        starter: false
+        enterprise: true
+  -
+    title: "Discover Visitor Insights"
+    desc: "Learn more about the visitors that connect with you on your websites and mobile apps."
+    features:
+      -
+        title: "Stats Engine"
+        starter: true
+        enterprise: true
+      -
+        title: "Basic Visitor Segmentation"
+        starter: true
+        enterprise: true
+      -
+        title: "Custom Visitor Segmentation"
+        starter: false
+        enterprise: true
+      -
+        title: "Custom Reports"
+        starter: false
+        enterprise: true
+      -
+        title: "Report Annotations"
+        starter: false
+        enterprise: true
+  -
+    title: "Target Optimized Experiences"
+    desc: "Focus on your high-value visitors and increase revenue."
+    features:
+        title: "Browser or Device"
+        starter: true
+        enterprise: true
+      -
+        title: "Referrer URL"
+        starter: true
+        enterprise: true
+      -
+        title: "Query Parameters"
+        starter: true
+        enterprise: true
+      -
+        title: "Traffic Source"
+        starter: true
+        enterprise: true
+      -
+        title: "Browser Language"
+        starter: true
+        enterprise: true
+      -
+        title: "Ad Campaign"
+        starter: false
+        enterprise: true
+      -
+        title: "Custom Event"
+        starter: false
+        enterprise: true
+      -
+        title: "Custom Javascript"
+        starter: false
+        enterprise: true
+      -
+        title: "IP Address"
+        starter: false
+        enterprise: true
+      -
+        title: "Custom Dimension"
+        starter: false
+        enterprise: true
+      -
+        title: "Cookies"
+        starter: false
+        enterprise: true
+      -
+        title: "List Membership"
+        starter: false
+        enterprise: true
+      -
+        title: "Custom Tags"
+        starter: false
+        enterprise: true
+      -
+        title: "Time of Day"
+        starter: false
+        enterprise: true
+      -
+        title: "Location (Geotargeting)"
+        starter: false
+        enterprise: true
+  -
+    title: "Integrate Data Across Your Platforms"
+    desc: "Seamlessly integrate Optimizely with the best-in-class
+      products you already use and take action on your data, no matter where it lives."
+    features:
+      -
+        title: "Basic Analytics & Heatmapping Integrations"
+        starter: true
+        enterprise: true
+      -
+        title: "Advanced Analytics Integrations"
+        starter: false
+        enterprise: true
+      -
+        title: "Third Party Data Integrations"
+        starter: false
+        enterprise: true
+      -
+        title: "API Access"
+        starter: "JavaScript API REST API (1000 calls/month)"
+        enterprise: "JavaScript API REST API (Custom calls/month)"
+  -
+    title: "Manage Your Experience Optimization Program"
+    desc: "Empower your team with actionable, real-time data on your visitors and foster the growth of a data-driven culture in your company."
+    features:
+      -
+        title: "Projects"
+        starter: "1 Web and 1 Mobile App"
+        enterprise: "Custom"
+      -
+        title: "Domains"
+        starter: true
+        enterprise: true
+      -
+        title: "Experiments"
+        starter: true
+        enterprise: true
+      -
+        title: "Collaborators"
+        starter: "3"
+        enterprise: "Custom"
+      -
+        title: "Multi-account Login"
+        starter: true
+        enterprise: true
+      -
+        title: "Experiment Change History"
+        starter: true
+        enterprise: true
+      -
+        title: "Preview Changes"
+        starter: true
+        enterprise: true
+      -
+        title: "Cross-browser Testing"
+        starter: false
+        enterprise: true
+      -
+        title: "Role-based Permissions"
+        starter: false
+        enterprise: true
+      -
+        title: "Experiment Scheduler"
+        starter: false
+        enterprise: true
+      -
+        title: "Traffic"
+        starter: "50,000 MUVs/MUAs"
+        enterprise: "Custom"
+  -
+    title: ""
+    desc: ""
+    features:
+      -
+        title: ""
+        starter: true
+        enterprise: true
+      -
+        title: ""
+        starter: true
+        enterprise: true
+      -
+        title: ""
+        starter: true
+        enterprise: true
+      -
+        title: ""
+        starter: true
+        enterprise: true
+      -
+        title: ""
+        starter: false
+        enterprise: true
+      -
+        title: ""
+        starter: false
+        enterprise: true
+  -
+
