@@ -18,7 +18,7 @@ helperPaths.splice(helperPaths.indexOf('./form_helper_factory.js'), 1);
 helperPaths.forEach(requireFormHelpers);
 
 // require the global js
-var requireGlobal = require.context('./bundle', false, /\.js$/);
+var requireGlobal = require.context('./globals', false, /\.js$/);
 requireGlobal.keys().forEach(requireGlobal);
 
 // // all of the components
