@@ -3,6 +3,9 @@ body.events-page{
     list-style-type: none;
     margin-bottom: 8px;
   }
+  .hide-events-link {
+    display: none;
+  }
   .event-cont {
     border-bottom: 1px solid #444;
     padding-bottom: 30px;
@@ -44,12 +47,16 @@ body.events-page{
         text-align: left;
       }
     }
-    .show-past-events {
+    .show-past-events,
+    .show-future-events {
       background: image-url('past-events.png') no-repeat left center;
       margin-left: 10px;
       padding-left: 63px;
       padding-top: 7px;
       width: 300px;
+      a {
+        display: block;
+      }
     }
   }
 }

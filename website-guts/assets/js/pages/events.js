@@ -1,118 +1,118 @@
 window.optly.mrkt.events = {};
 
-window.optly.mrkt.events.showEvents = function(url, div){
+var gapi = window.gapi;
+var apiKey = 'AIzaSyDvPXqy9MlOTG39-J-MHR-OR2d2YgyJ9uE';
+var calendarId = 'optimizely.com_hh3e0hadjvjs9gh34mdlevverk@group.calendar.google.com';
 
-  var templateContext, htmlDecode;
+window.optly.mrkt.events.showEvents = function(resp, div){
 
-  templateContext = {};
-
-  templateContext.events = [];
+  var htmlDecode,
+    currentDateTime = new Date(),
+    futureEvents = [],
+    pastEvents = [],
+    templateContext = {};
 
   htmlDecode = function(text) {
     var urlRegex = /(https?:\/\/[^\s]+)/g;
     return text.replace(urlRegex, function(url) {
-        return '<a href="' + url + '">' + url + '</a>';
+      return '<a href="' + url + '">' + url + '</a>';
     });
   };
 
-  $.get(url).always(function(data, textStatus, jqXHR){
+  if(!resp.error){
 
-    if(jqXHR.status === 200){
+      var i,
+        items = resp.items;
 
-      try {
+      for(i = 0; i < items.length; i++){
 
-        if( data.feed.entry instanceof Array ){
+        var entry, eventData, venue, startDate, endDate, zeroRegEx, description;
 
-          var i, container;
+        entry = items[i];
 
-          container = {};
+        startDate = window.moment( entry.start.date || entry.start.dateTime );
 
-          for(i = 0; i <= data.feed.entry.length - 1; i++){
+        endDate = window.moment( entry.end.date || entry.end.dateTime );
 
-            var entry, eventData, venue, startDate, endDate, zeroRegEx, description;
+        zeroRegEx = /\-0/g;
 
-            entry = data.feed.entry[i];
+        if(typeof entry.location === 'string'){
 
-            startDate = moment( entry.gd$when[0].startTime );
-
-            endDate = moment( entry.gd$when[0].endTime );
-
-            zeroRegEx = /\-0/g;
-
-            if(typeof entry.gd$where[0].valueString === 'string'){
-
-              venue = entry.gd$where[0].valueString.split(' /')[0];
-
-            }
-
-            description = entry.content.$t.split('-- ')['1'].trim().replace(/\r?\n|\r/g, '');
-
-            eventData = {
-
-              title: entry.title.$t,
-
-              link: entry.content.$t.split(' --')[0],
-
-              cityState: entry.gd$where[0].valueString.split('/ ')[1],
-
-              startMonth: startDate.format('MMM'),
-
-              startDay: startDate.format('D'),
-
-              endMonth: endDate.format('MMM'),
-
-              endDay: endDate.format('D'),
-
-              endYear: endDate.format('YYYY'),
-
-              description: htmlDecode( description ),
-
-              venue: venue
-
-            };
-
-            templateContext.events.push(eventData);
-
-          }
-
-          //console.log(window.optly.mrkt.templates.eventDisplay(templateContext));
-
-          $(div).html(window.optly.mrkt.templates.eventDisplay(templateContext));
-
-        } else {
-
-          //report error to google analytics
-          window.analytics.track(window.location.pathname, {
-            category: 'api error',
-            label: 'google cal api data.feed.entry not array: ' + typeof(data.feed.entry)
-          }, {
-            integrations: {
-              Marketo: false
-            }
-          });
+          venue = entry.location.split(' /')[0];
 
         }
 
-      } catch (error) {
+        description = entry.description.split('-- ')['1'].trim().replace(/\r?\n|\r/g, '');
 
-        //report error to google analytics
-        window.analytics.track(window.location.pathname, {
-          category: 'api error',
-          label: 'google cal reponse contains invalid json'
-        }, {
-          integrations: {
-            Marketo: false
-          }
-        });
+        eventData = {
 
+          title: entry.summary,
+
+          link: entry.description.split(' --')[0],
+
+          cityState: entry.location.split('/ ')[1],
+
+          startMonth: startDate.format('MMM'),
+
+          startDay: startDate.format('D'),
+
+          endMonth: endDate.format('MMM'),
+
+          endDay: endDate.format('D'),
+
+          endYear: endDate.format('YYYY'),
+
+          description: htmlDecode( description ),
+
+          venue: venue
+
+        };
+
+        if(startDate.isAfter(currentDateTime)) {
+          futureEvents.push(eventData);
+        } else {
+          pastEvents.push(eventData);
+        }
+
+      } //end for loop
+
+      //reverse past events
+      pastEvents.reverse();
+
+      if(futureEvents.length > 30) {
+        futureEvents.splice(30);
       }
+
+      if(pastEvents.length > 30) {
+        pastEvents.splice(0, pastEvents.length - 30);
+      }
+
+      templateContext.events = futureEvents;
+
+      $(div).html(window.optly.mrkt.templates.eventDisplay(templateContext));
+      
+      $('body').delegate('#get-past-events', 'click', function(e){
+        e.preventDefault();
+        $('#get-future-events').parent().removeClass('hide-events-link');
+        $(this).parent().addClass('hide-events-link');
+        templateContext.events = pastEvents;
+        $(div).html(window.optly.mrkt.templates.eventDisplay(templateContext));
+      });
+      
+      $('body').delegate('#get-future-events', 'click', function(e){
+        e.preventDefault();
+        $('#get-past-events').parent().removeClass('hide-events-link');
+        $(this).parent().addClass('hide-events-link');
+        templateContext.events = futureEvents;
+        $(div).html(window.optly.mrkt.templates.eventDisplay(templateContext));
+      });
 
     } else {
 
-      //report non 200 to google analytics
+      //report error to google analytics
       window.analytics.track(window.location.pathname, {
         category: 'api error',
-        label: 'google cal reponse not 200: ' + jqXHR.status
+        label: 'google cal api error: ' + typeof resp.error === 'object' ? JSON.stringify(resp.error) : resp.error
       }, {
         integrations: {
           Marketo: false
@@ -121,17 +121,35 @@ window.optly.mrkt.events.showEvents = function(url, div){
 
     }
 
-  });
-
 };
 
-//show future events
-window.optly.mrkt.events.showEvents('https://www.google.com/calendar/feeds/optimizely.com_hh3e0hadjvjs9gh34mdlevverk@group.calendar.google.com/public/full?alt=json&orderby=starttime&max-results=30&singleevents=true&sortorder=ascending&futureevents=true', '#future-events-cont');
+function makeApiCall() {
+  gapi.client.load('calendar', 'v3', function() {
+    var request = gapi.client.calendar.events.list({
+      'calendarId': calendarId,
+      'orderBy': 'startTime',
+      'singleEvents': true
+    });
 
-$('body').delegate('#get-past-events', 'click', function(e){
+    request.execute(function(resp) {
+      //show future events
+      window.optly.mrkt.events.showEvents(resp, '#future-events-cont');
+    });
+  });
+}
 
-  window.optly.mrkt.events.showEvents('https://www.google.com/calendar/feeds/optimizely.com_hh3e0hadjvjs9gh34mdlevverk@group.calendar.google.com/public/full?alt=json&orderby=starttime&max-results=30&singleevents=true&sortorder=ascending&futureevents=false', '#past-events-cont');
+function gapiLoaded() {
+  gapi.client.setApiKey(apiKey);
+  makeApiCall();
+}
 
-  e.preventDefault();
+function loadGapi() {
+  //recursive hack because onload function isn't working for gapi
+  if(!gapi) {
+    return loadGapi();
+  }
+  gapi.load('auth', gapiLoaded);
+}
 
-});
+loadGapi();
+
