@@ -63,7 +63,7 @@ worry:
     text: "No need to commit to a sample size or duration in advance. You can also see conclusive results up to twice as fast."
   -
     title: "Leave the<br>Stats to Us"
-    text: "No need to change how you run your tests. Stats engine works exactly the way you expect it to, without any extra work."
+    text: "No need to change how you run your tests. Stats Engine works exactly the way you expect it to, without any extra work."
   cta_title: "Get answers to your FAQs"
   cta_text: "Check out Optiverse"
   cta_link: "https://community.optimizely.com/t5/Product-What-s-New/Product-Update-A-new-Stats-Engine-to-power-your-results/ba-p/8518"
