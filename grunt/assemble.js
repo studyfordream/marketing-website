@@ -24,6 +24,15 @@ module.exports = function (grunt) {
     assemble.set('data.environmentIsProduction', options.environmentIsProduction);
     assemble.set('data.environmentIsDev', options.environmentIsDev);
 
+    assemble.set('data.layout_modals', [
+      'signin_modal',
+      'signup_modal',
+      'create_experiment',
+      'reset_password',
+      'error_modal',
+      'contact_sales'
+    ]);
+
 
     assemble.layouts([options.layoutdir]);
     assemble.partials(options.partials);
@@ -46,45 +55,53 @@ module.exports = function (grunt) {
       });
     }
 
-    assemble.task('modals', function () {
-      assemble.option('renameKey', function (fp) {
-        var basename = renameKey(fp);
-        return basename.replace('_compiled', '');
-      });
-
-      var files = config.modals.files[0];
-      return assemble.src(normalizeSrc(files.cwd, files.src))
-        .pipe(through.obj(function (file, enc, cb) {
-          file.path = path.join(path.dirname(file.path), path.basename(file.path, path.extname(file.path)) + '_compiled') + path.extname(file.path);
-          this.push(file);
-          cb();
-        }))
-        .pipe(assemble.dest(files.dest))
-        on('error', function (err) {
-          console.log('error', err);
-        });
+    assemble.create('modal', 'modals', {
+      isPartial: true,
+      isRenderable: true
     });
 
-    assemble.task('resources', ['modals'], function () {
+    var modalFiles = config.modals.files[0];
+    assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src));
+
+    // assemble.task('modals', function () {
+    //   assemble.option('renameKey', function (fp) {
+    //     var basename = renameKey(fp);
+    //     return basename.replace('_compiled', '');
+    //   });
+
+    //   var files = config.modals.files[0];
+    //   return assemble.src(normalizeSrc(files.cwd, files.src))
+    //     .pipe(through.obj(function (file, enc, cb) {
+    //       file.path = path.join(path.dirname(file.path), path.basename(file.path, path.extname(file.path)) + '_compiled') + path.extname(file.path);
+    //       this.push(file);
+    //       cb();
+    //     }))
+    //     .pipe(assemble.dest(files.dest))
+    //     on('error', function (err) {
+    //       console.log('error', err);
+    //     });
+    // });
+
+    assemble.task('resources', function () {
       assemble.option('renameKey', renameKey);
       assemble.partials(options.partials);
 
       assemble.option('renameKey', function (fp) {
-        return fp.indexOf('resources-list') > -1 ? path.dirname(fp) : renameKey(fp);
+        return fp.indexOf('resources-list') > -1 ? path.join('resources', path.dirname(fp)) : renameKey(fp);
       });
 
       var files = config.resources.files[0];
       return assemble.src(normalizeSrc(files.cwd, files.src))
-        .pipe(through.obj(function (file, enc, cb) {
-          if (file.isNull()) {
-            // console.log('null contents');
-            file.contents = new Buffer('');
-          }
-          this.push(file);
-          cb();
-        }))
+        // .pipe(through.obj(function (file, enc, cb) {
+        //   if (file.isNull()) {
+        //     // console.log('null contents');
+        //     file.contents = new Buffer('');
+        //   }
+        //   this.push(file);
+        //   cb();
+        // }))
         .pipe(ext())
-        .pipe(assemble.dest(files.dest));
+        .pipe(assemble.dest(path.join(files.dest, 'resources')));
     });
 
     assemble.task('partners', ['resources'], function () {
@@ -124,7 +141,7 @@ module.exports = function (grunt) {
         .pipe(assemble.dest(files.dest));
     });
 
-    assemble.run(['modals', 'resources', 'partners', 'pages'], done);
+    assemble.run(['resources', 'partners', 'pages'], done);
   });
   return {};
 };

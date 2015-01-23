@@ -1,13 +1,12 @@
 ---
 layout_modals:
-- signin_modal_compiled
-- signup_modal_compiled
-- create_experiment_compiled
-- reset_password_compiled
-- error_modal_compiled
-- contact_sales_compiled
+- signin_modal
+- signup_modal
+- create_experiment
+- reset_password
+- error_modal
+- contact_sales
 ---
-{{ debug layout_modals }}
 <!DOCTYPE html>
 <html class="no-js">
     <head>
@@ -30,36 +29,36 @@ layout_modals:
         <script>{{#scriptinjector '../assets/js/services/user_state.js' true}}{{/scriptinjector}}</script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {{#if environmentVariables.staging}}<meta name="robots" content="noindex">{{/if}}
-        <title>{{#if page.seo_title}}{{page.seo_title}}{{else}}Optimizely: Make every experience count{{/if}}</title>
+        <title>{{#if this.seo_title}}{{this.seo_title}}{{else}}Optimizely: Make every experience count{{/if}}</title>
         {{!-- Standard meta tags --}}
-        <meta name="description" content="{{#if page.description}}{{page.description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
+        <meta name="description" content="{{#if this.description}}{{this.description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
         <meta name="keywords" content="AB test, split test, multivariate testing, conversion rate, experience optimization">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {{!-- Open Graph meta tags --}}
-        <meta property="og:title" content="Optimizely: {{#if page.og_title}}{{page.og_title}}{{else}}Make every experience count{{/if}}">
-        <meta property="og:description" content="{{#if page.og_description}}{{page.og_description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
+        <meta property="og:title" content="Optimizely: {{#if this.og_title}}{{this.og_title}}{{else}}Make every experience count{{/if}}">
+        <meta property="og:description" content="{{#if this.og_description}}{{this.og_description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
-        {{#if page.external_stylesheets}}
-        {{#each page.external_stylesheets}}
+        {{#if this.external_stylesheets}}
+        {{#each this.external_stylesheets}}
         <link rel="stylesheet" type="text/css" href="{{.}}">
         {{/each}}
         {{/if}}
         <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7838232/684744/css/fonts.css">
         <link rel="stylesheet" href="{{assetsDir}}/css/styles.css">
-        {{#if page.head_script ~}}<script src="{{page.head_script}}"></script>{{/if}}
+        {{#if this.head_script ~}}<script src="{{this.head_script}}"></script>{{/if}}
         {{#if environmentVariables.production}}
         <script id="bizible-settings" type="text/javascript" src="//cdn.bizible.com/_biz-a.js" async data-attach-secure-forms="true"></script>
         {{/if}}
     </head>
-     <body class="signed-out{{#if page.compact_header}} compact-header{{/if}}{{#each layout_body_class}} {{.}}{{/each}}{{#each page.body_class}} {{.}}{{/each}}">
+     <body class="signed-out{{#if this.compact_header}} compact-header{{/if}}{{#each layout_body_class}} {{.}}{{/each}}{{#each this.body_class}} {{.}}{{/each}}">
         <!--[if lt IE 8]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div id="outer-wrapper">
             <div id="inner-wrapper">
-              {{#unless page.no_header}}
+              {{#unless this.no_header}}
                 <header>
-                    {{#unless page.compact_header}}
+                    {{#unless this.compact_header}}
                     <div id="top-nav-cont">
                         <div class="container">
                             <div class="mobile-nav-toggle">
@@ -83,7 +82,7 @@ layout_modals:
                     <div id="main-nav-cont" class="main-nav">
                         <div class="container">
                             <p class="logo-cont"><a class="logo" href="{{linkPath}}/">Optimizely</a></p>
-                            {{#unless page.compact_header}}
+                            {{#unless this.compact_header}}
                             <nav>
                                 <ul id="main-nav" class="nav">
                                     <li class="first">
@@ -131,7 +130,7 @@ layout_modals:
                 </header>
                 {{/unless}}
                 {% body %}
-                <footer {{#if page.footer_style}}class="{{page.footer_style}}"{{/if}}>
+                <footer {{#if this.footer_style}}class="{{this.footer_style}}"{{/if}}>
                     <div class="container footer-wrapper">
                         <p><a class="logo" href="{{linkPath}}/">Optimizely</a></p>
                         <div id="footer-nav-cont">
@@ -222,28 +221,28 @@ layout_modals:
             </div><!--/#inner-wrapper-->
         </div><!--/#outer-wrapper-->
         <!-- <div class="optly-hide" data-tooltip="default"></div> -->
-        {{~#if layout_modals~}}
-        {{~includeModals layout_modals~}}
-        {{~/if}}
-        {{~#if page.modals~}}
-        {{~includeModals page.modals~}}
-        {{~/if}}
+        {{~#each this.layout_modals~}}
+        {{modal this}}
+        {{~/each}}
+        {{~#each this.modals~}}
+        {{modal this}}
+        {{~/each}}
         <script>
           var optly = optly || {};
           optly.mrkt = optly.mrkt || {};
           optly.mrkt.assetsDir = '{{assetsDir}}';
         </script>
         <script src="{{assetsDir}}/js/bundle.js" defer></script>
-        {{#if page.script_dependencies}}
-        {{#each page.script_dependencies}}
+        {{#if this.script_dependencies}}
+        {{#each this.script_dependencies}}
         <script src="{{.}}" defer></script>
         {{/each}}
         {{/if}}
         {{#if layout_script}}
         <script src="{{assetsDir}}/js/layouts/{{layout_script}}" defer></script>
         {{~/if}}
-        {{#if page.page_script}}
-        <script src="{{assetsDir}}/js/pages/{{page.page_script}}" defer></script>
+        {{#if this.page_script}}
+        <script src="{{assetsDir}}/js/pages/{{this.page_script}}" defer></script>
         {{/if}}
     </body>
 </html>
