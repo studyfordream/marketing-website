@@ -6,7 +6,7 @@
               {{#if page.modal_sub_header}}<p>{{page.modal_sub_header}}</p>{{/if}}
             </div><!--/.modal-header-->
             <div class="modal-body">
-                {{> body }}
+                {% body %}
             </div><!--/.modal-body-->
             <div class="modal-footer{{#unless page.primary_button_text}} no-primary-button{{/unless}}">
                 {{#if page.primary_button_text}}

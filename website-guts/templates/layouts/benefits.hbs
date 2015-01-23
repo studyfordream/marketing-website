@@ -1,5 +1,5 @@
 ---
-layout: wrapper.hbs
+layout: wrapper
 menu_items:
 - text: "Agencies"
   url: "/partners"
@@ -46,7 +46,7 @@ layout_script: benefits.js
     <div id="page-header-gradient"></div>
     <div id="page-content">
         {{#unless page.no_container}}<div class="container row">{{/unless}}
-        {{> body}}
+        {% body %}
         <div class="attention center-desktop row">
             <h3>Your improved site awaits <a href="{{linkPath}}/pricing" class="primary-button">View Plans &amp; Pricing</a></h3>
         </div>

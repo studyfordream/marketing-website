@@ -1,5 +1,5 @@
 ---
-layout: wrapper.hbs
+layout: wrapper
 layout_script: false
 layout_body_class:
 - integrations-solutions
@@ -77,7 +77,7 @@ layout_body_class:
 
             <div class="notranslate">
               {{#omarkdown path=linkPath}}
-                {{> body}}
+                {% body %}
               {{/omarkdown}}
             </div>
 

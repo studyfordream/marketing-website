@@ -111,7 +111,7 @@ var config = {
   guts: 'website-guts',
   dist: 'dist',
   temp: 'temp',
-  helpers: 'website-guts/helpers',
+  helpers: 'website-guts/helpers-v6',
   bowerDir: 'bower_components',
 };
 
