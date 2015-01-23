@@ -14,28 +14,32 @@ og_title: "Full Feature List"
 <!--             -->
 <!--Title Section-->
 <!--             -->
-<div class="title-section">
-  <h1 >{{starter_header.title}}</h1>
-  <p>{{starter_header.desc}}</p>
-  <h1 >{{enterprise_header.title}}</h1>
-  <p>{{enterprise_header.desc}}</p>
+<div class="title-section row">
+  <div class="starter columns four offset-four">
+    <h1 >{{starter_header.title}}</h1>
+    <p>{{starter_header.desc}}</p>
+  </div>
+  <div class="enterprise columns four">
+    <h1 >{{enterprise_header.title}}</h1>
+    <p>{{enterprise_header.desc}}</p>
+  </div>
 </div>
 
-<!--                -->
-<!--Feature Sections-->
-<!--                -->
+<!--              -->
+<!--Feature Tables-->
+<!--              -->
 {{#each tables}}
 <div class="table">
-  <div class="table-header">
-    <p class="table-title">{{this.title}}</p>
-    <p class="table-desc">{{this.desc}}</p>
+  <div class="table-header row">
+    <p class="table-title columns four">{{this.title}}</p>
+    <p class="table-desc columns eight">{{this.desc}}</p>
   </div>
   <div class="table-body">
     {{#each this.features}}
-      <div class="table-row">
-        <p>{{this.title}}</p>
-        <div class="starter-box"></div>
-        <div class="enterprise-box"></div>
+      <div class="table-row row">
+        <p class="columns four">{{this.title}}</p>
+        <div class="starter-box columns four"></div>
+        <div class="enterprise-box columns four"></div>
       </div>
     {{/each}}
   </div>
