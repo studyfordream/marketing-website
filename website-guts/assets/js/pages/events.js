@@ -87,11 +87,9 @@ window.optly.mrkt.events.showEvents = function(resp, div){
         pastEvents.splice(0, pastEvents.length - 30);
       }
 
-      templateContext.events = futureEvents;
-
-      $(div).html(window.optly.mrkt.templates.eventDisplay(templateContext));
+      $(div).html(window.optly.mrkt.templates.eventDisplay({events: futureEvents}));
       
-      $('body').delegate('#get-past-events', 'click', function(e){
+      $('#get-past-events').on('click', function(e){
         e.preventDefault();
         $('#get-future-events').parent().removeClass('hide-events-link');
         $(this).parent().addClass('hide-events-link');
@@ -102,11 +100,10 @@ window.optly.mrkt.events.showEvents = function(resp, div){
             $(elm).removeClass('hide-past').addClass('hide-upcoming');
           }
         });
-        templateContext.events = pastEvents;
-        $(div).html(window.optly.mrkt.templates.eventDisplay(templateContext));
+        $(div).html(window.optly.mrkt.templates.eventDisplay({events: pastEvents}));
       });
       
-      $('body').delegate('#get-future-events', 'click', function(e){
+      $('#get-future-events').on('click', function(e){
         e.preventDefault();
         $('#get-past-events').parent().removeClass('hide-events-link');
         $(this).parent().addClass('hide-events-link');
@@ -116,8 +113,8 @@ window.optly.mrkt.events.showEvents = function(resp, div){
           } else {
             $(elm).removeClass('hide-upcoming').addClass('hide-past');
           }
-        });        templateContext.events = futureEvents;
-        $(div).html(window.optly.mrkt.templates.eventDisplay(templateContext));
+        });
+        $(div).html(window.optly.mrkt.templates.eventDisplay({events: futureEvents}));
       });
 
     } else {
