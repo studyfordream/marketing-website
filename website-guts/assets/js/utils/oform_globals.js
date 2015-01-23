@@ -93,14 +93,14 @@
       otm_Keyword__c: source.otm.keyword || '',
       GCLID__c: source.gclid || '',
       Signup_Platform__c: source.signupPlatform || '',
-      Email: response.email ? response.email : '',
+      Email: response.email || '',
       FirstName: response.first_name || '',
       LastName: response.last_name || '',
       Phone: response.phone_number || '',
-      Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
-      Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
-      iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
-      Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
+      Web__c: data.Web__c || $('input[type="checkbox"][name="web"]').is(':checked') + '',
+      Mobile_Web__c: data.Mobile_Web__c || $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+      iOS__c: data.iOS__c || $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+      Android__c: data.Android__c || $('input[type="checkbox"][name="android"]').is(':checked') + ''
     };
 
     $.cookie('sourceCookie',
@@ -117,8 +117,18 @@
       source.signupPlatform + '|||'
     );
 
+    function cap(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     for(propertyName in data){
-      reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
+      if(reportingObject[propertyName] === '' || typeof reportingObject[propertyName] === 'undefined') {
+        //check if the property name is just the uppercase version and if it has a value other than empty string
+        if ( !!reportingObject[cap(propertyName)] ) {
+          continue;
+        };
+        reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
+      }
     }
 
     w.analytics.identify(response.unique_user_id, reportingObject, {
