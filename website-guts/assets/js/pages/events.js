@@ -95,6 +95,13 @@ window.optly.mrkt.events.showEvents = function(resp, div){
         e.preventDefault();
         $('#get-future-events').parent().removeClass('hide-events-link');
         $(this).parent().addClass('hide-events-link');
+        $('#events-cont').find('h3').each(function(i, elm) {
+          if(i) {
+            $(elm).removeClass('hide-upcoming').addClass('hide-past');
+          } else {
+            $(elm).removeClass('hide-past').addClass('hide-upcoming');
+          }
+        });
         templateContext.events = pastEvents;
         $(div).html(window.optly.mrkt.templates.eventDisplay(templateContext));
       });
@@ -103,7 +110,13 @@ window.optly.mrkt.events.showEvents = function(resp, div){
         e.preventDefault();
         $('#get-past-events').parent().removeClass('hide-events-link');
         $(this).parent().addClass('hide-events-link');
-        templateContext.events = futureEvents;
+        $('#events-cont').find('h3').each(function(i, elm) {
+          if(i) {
+            $(elm).removeClass('hide-past').addClass('hide-upcoming');
+          } else {
+            $(elm).removeClass('hide-upcoming').addClass('hide-past');
+          }
+        });        templateContext.events = futureEvents;
         $(div).html(window.optly.mrkt.templates.eventDisplay(templateContext));
       });
 
