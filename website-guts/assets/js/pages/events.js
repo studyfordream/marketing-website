@@ -9,8 +9,7 @@ window.optly.mrkt.events.showEvents = function(resp, div){
   var htmlDecode,
     currentDateTime = new Date(),
     futureEvents = [],
-    pastEvents = [],
-    templateContext = {};
+    pastEvents = [];
 
   htmlDecode = function(text) {
     var urlRegex = /(https?:\/\/[^\s]+)/g;
