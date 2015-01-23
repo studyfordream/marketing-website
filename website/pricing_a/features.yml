@@ -34,7 +34,6 @@ feature_sections:
       lets you see your ideas come to life quickly.
       Halt neverending debates with your team and boss."
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/spaceship.svg"
-    class: "create-and-launch"
     features:
       -
         "A/B and multivariate testing"
@@ -49,7 +48,6 @@ feature_sections:
       how groups of visitors behave and turn this data
       into action."
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/magnifier.svg"
-    class: "discover"
     features:
       -
         "Analyze experiment results data in real-time"
@@ -66,7 +64,6 @@ feature_sections:
       their demographics, psychographics, and other first
       party data you already know about them."
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/target.svg"
-    class: "target"
     features:
       -
         "Deliver optimized experiences to the right person, at the right time"
@@ -83,7 +80,6 @@ feature_sections:
       can take action on all your data, no matter
       where it lives."
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/intersection.svg"
-    class: "integrate"
     features:
       -
         "Enterprise-grade integrations"
@@ -96,7 +92,6 @@ feature_sections:
     title: "Manage Your Experience Optimization Program"
     desc: "Empower your team with actionable, real-time data on your users and foster the growth of a data-driven culture in your company."
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/team.svg"
-    class: "manage"
     features:
       -
         "Flexible role-based permissions"
@@ -113,7 +108,6 @@ feature_sections:
       powerful experiences with the help of our team of
       technical solutions architects and optimization strategy experts."
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/woman.svg"
-    class: "support"
     features:
       -
         "Get your issues resolved quickly online or by phone "

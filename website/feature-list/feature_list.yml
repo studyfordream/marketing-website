@@ -1,14 +1,14 @@
-back: "<< Back to Feature Overview"
+back: "<a href='#'><< Back to Feature Overview</a>"
 
 starter_header:
   title: "Starter"
-  desc: "All the basics.  No credit card required. "
+  desc: "All the basics. No credit card required."
 
 enterprise_header:
   title: "Enterprise"
   desc: "Customized For Your Business."
 
-sections:
+tables:
   -
     title: "Create & Launch Experiments"
     desc: "Start making decisions with actionable data. Optimizely
@@ -67,6 +67,7 @@ sections:
     title: "Target Optimized Experiences"
     desc: "Focus on your high-value visitors and increase revenue."
     features:
+      -
         title: "Browser or Device"
         starter: true
         enterprise: true
@@ -196,32 +197,47 @@ sections:
         starter: "50,000 MUVs/MUAs"
         enterprise: "Custom"
   -
-    title: ""
-    desc: ""
+    title: "Support"
+    desc: "Take your optimization program to the next level with enterprise
+      onboarding and continued access to technical and testing strategy experts."
     features:
       -
-        title: ""
+        title: "Community (Optiverse)"
         starter: true
         enterprise: true
       -
-        title: ""
+        title: "Knowledge Base"
         starter: true
         enterprise: true
       -
-        title: ""
+        title: "Online Tickets"
         starter: true
         enterprise: true
       -
-        title: ""
+        title: "Phone Support"
         starter: true
         enterprise: true
       -
-        title: ""
+        title: "Enterprise Onboarding"
         starter: false
         enterprise: true
       -
-        title: ""
+        title: "Dedicated Customer Success Manager"
         starter: false
         enterprise: true
-  -
+      -
+        title: "Dedicated Solutions Architect"
+        starter: false
+        enterprise: true
+      -
+        title: "Strategic Consulting"
+        starter: false
+        enterprise: true
 
+calls_to_action:
+  starter:
+    label: "Free"
+    button_text: "Get Started Now"
+  enterprise:
+    label: "Get Quote"
+    button_text: "Talk to Us"

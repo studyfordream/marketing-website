@@ -1,144 +1,44 @@
 ---
-layout: no-sub-nav-optional-page-header.hbs
-visible_title: Features and Plans
+layout: no-sub-nav.hbs
+visible_title: Full Feature List
 body_class:
-- features-and-plans
-no_container: true
-page_header: false
-seo_title: Features and Plans
-og_title:
-- "Features and Plans"
-og_description:
-- "Get started optimizing instantly, or build a custom plan for your business."
+- feature-list
+seo_title: Full Feature List
+og_title: "Full Feature List"
 ---
 
-<!--           -->
-<!--Page Header-->
-<!--           -->
-<div id="page-header">
-  <div class="container">
-    <div class="page-subheader-cont">
-      <h1>{{page.visible_title}}</h1>
-      <div class="header-cta-container">
-        {{#with features.page_header}}
-        <a class="talk-button" href="#">{{cta}}</a>
-        <p>{{or_word}}</p>
-        <p>{{alternative}}</p>
-        {{/with}}
-      </div>
-    </div>
-  </div>
-</div>
 
+{{#with feature_list}}
+<p>{{{back}}}</p>
 
 <!--             -->
 <!--Title Section-->
 <!--             -->
-{{#with features.title_section}}
-<section class="title-section">
-  <h1 class="title-copy">{{{title}}}</h1>
-  <div class="buttons-container">
-    <a class="learn-cta" href="#">{{learn_cta}}</a>
-    <a class="plans-cta" href="#">{{plans_cta}}</a>
-  </div>
-</section>
-{{/with}}
-
-
-<!--                -->
-<!--Benefits Section-->
-<!--                -->
-{{#with features.benefits_section}}
-<section class="benefits-section">
-  <h2 class="title-copy">{{title}}</h2>
-  <div class="benefit-items-container container">
-    {{#each benefits}}
-    <div class="benefit-item four" style="background-image: url('{{icon}}')">
-      <h3>{{title}}</h3>
-      <p>{{desc}}</p>
-    </div>
-    {{/each}}
-  </div>
-  <p class="asterisk">{{asterisk}}</p>
-</section>
-{{/with}}
-
+<div class="title-section">
+  <h1 >{{starter_header.title}}</h1>
+  <p>{{starter_header.desc}}</p>
+  <h1 >{{enterprise_header.title}}</h1>
+  <p>{{enterprise_header.desc}}</p>
+</div>
 
 <!--                -->
 <!--Feature Sections-->
 <!--                -->
-{{#with features}}
-  {{#each feature_sections}}
-    {{#is_even @index}}
-    <section class="{{class}} feature-section even">
-    {{else}}
-    <section class="{{class}} feature-section odd">
-    {{/is_even}}
-    <div class="container">
-      <div class="description-container" style="background-image: url('{{icon}}')">
-        <h2>{{title}}</h2>
-        <p>{{desc}}</p>
-      </div>
-      <div class="features-container">
-        <h4>Features:</h4>
-        <ul>
-          {{#each this.features}}
-          <li>{{this}}</li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
-    </section>
-  {{/each}}
-{{/with}}
-
-<!--               -->
-<!--Companies Panel-->
-<!--               -->
-{{> companies_panel}}
-
-
-<!--                  -->
-<!--Enterprise Section-->
-<!--                  -->
-{{#with features.enterprise_section}}
-<section class="enterprise-section">
-  <h2 class="title-copy">{{title}}</h2>
-  <p class="subtitle">{{subtitle}}</p>
-  <div class="button-container">
-    <a class="cta" href="#">{{cta}}</a>
+{{#each tables}}
+<div class="table">
+  <div class="table-header">
+    <p class="table-title">{{this.title}}</p>
+    <p class="table-desc">{{this.desc}}</p>
   </div>
-  <p>{{{feature_cta}}}</p>
-</section>
-{{/with}}
-
-
-<!--               -->
-<!--Starter Section-->
-<!--               -->
-{{#with features.starter_section}}
-<section class="starter-section">
-  <h2 class="title-copy">{{title}}</h2>
-  <p class="subtitle">{{{subtitle}}}</p>
-  <div class="button-container">
-    <a class="cta" href="#">{{cta}}</a>
-  </div>
-</section>
-{{/with}}
-
-
-<!--           -->
-<!--FAQ Section-->
-<!--           -->
-<section class="faq-section">
-{{#with features}}
-  <div class="faq-container">
-    {{#each faqs}}
-    <p class="question">{{question}}</p>
-    <p class="answer">{{{answer}}}</p>
+  <div class="table-body">
+    {{#each this.features}}
+      <div class="table-row">
+        <p>{{this.title}}</p>
+        <div class="starter-box"></div>
+        <div class="enterprise-box"></div>
+      </div>
     {{/each}}
   </div>
-  <p class="contact-text">{{contact.text}}</p>
-  <p class="phone-number">{{contact.phone_number}}</p>
+</div>
+{{/each}}
 {{/with}}
-</section>
