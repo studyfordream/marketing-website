@@ -7,6 +7,7 @@ var helpers = require('handlebars-helpers');
 module.exports = function (grunt) {
   grunt.registerTask('assemble', 'Assemble', function () {
     var done = this.async();
+
     var assemble = require('assemble');
     var Handlebars = require('assemble/node_modules/engine-assemble/node_modules/engine-handlebars/node_modules/handlebars');
 
@@ -28,6 +29,13 @@ module.exports = function (grunt) {
     assemble.partials(options.partials);
     assemble.helpers(options.helpers);
 
+    console.log('layouts', Object.keys(assemble.views.layouts).map(function (key) {
+      return {
+        key: key,
+        path: assemble.views.layouts[key].path
+      }
+    }));
+
     function normalizeSrc (cwd, sources) {
       sources = Array.isArray(sources) ? sources : [sources];
       return sources.map(function (src) {
@@ -40,7 +48,7 @@ module.exports = function (grunt) {
 
     assemble.task('modals', function () {
       assemble.option('renameKey', function (fp) {
-        var basename = path.basename(fp, path.extname(fp));
+        var basename = renameKey(fp);
         return basename.replace('_compiled', '');
       });
 

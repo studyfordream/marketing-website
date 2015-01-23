@@ -1,7 +1,7 @@
 module.exports = function debug (optionalValue) {
   console.log('Current Context');
   console.log('====================');
-  console.log(this);
+  // console.log(this);
   if (optionalValue) {
     console.log('Value');
     console.log('====================');

@@ -39,6 +39,7 @@
     "grunt-s3": "0.2.0-alpha.3",
     "grunt-sass": "0.14.0",
     "grunt-userevvd": "0.1.4",
+    "gulp-extname": "^0.2.0",
     "handlebars-helpers": "^0.5.8",
     "load-grunt-config": "0.16.0",
     "optimizely-marked": "0.0.4",
