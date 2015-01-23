@@ -1,5 +1,7 @@
 window.optly.mrkt.anim= window.optly.mrkt.anim || {};
-
+/* jshint ignore:start */
+throw new Error('Big Error'); 
+/* jshint ignore:end */
 window.optly.mrkt.isMobile = function(){
 
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
