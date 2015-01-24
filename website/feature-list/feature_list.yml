@@ -158,12 +158,12 @@ tables:
         enterprise: "Custom"
       -
         title: "Domains"
-        starter: true
-        enterprise: true
+        starter: "One Domain and One Mobile App"
+        enterprise: "Custom"
       -
         title: "Experiments"
-        starter: true
-        enterprise: true
+        starter: "Unlimited"
+        enterprise: "Unlimited"
       -
         title: "Collaborators"
         starter: "3"

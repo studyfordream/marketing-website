@@ -38,8 +38,16 @@ og_title: "Full Feature List"
     {{#each this.features}}
       <div class="table-row row">
         <p class="columns four">{{this.title}}</p>
-        <div class="starter-box columns four"></div>
-        <div class="enterprise-box columns four"></div>
+        {{#if this.starter}}
+        <div class="starter-box columns four true">{{this.starter}}</div>
+        {{else}}
+        <div class="starter-box columns four false">{{this.starter}}</div>
+        {{/if}}
+        {{#if this.enterprise}}
+        <div class="enterprise-box columns four true">{{this.enterprise}}</div>
+        {{else}}
+        <div class="enterprise-box columns four false">{{this.enterprise}}</div>
+        {{/if}}
       </div>
     {{/each}}
   </div>

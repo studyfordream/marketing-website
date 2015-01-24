@@ -2,6 +2,12 @@ body.feature-list {
   #page-content {
     background-color: white;
   }
+  #page-header {
+    border-bottom: 2px solid #ccc;
+  }
+  #page-header-gradient {
+    display: none;
+  }
 
   .title-section {
     * {
@@ -19,16 +25,25 @@ body.feature-list {
       line-height: 19px;
     }
   }
+  .table:first-of-type {
+    color: red;
+  }
 
-  .table {
+  .table ~ .table {
     margin-top: 75px;
+  }
+  .table {
     .table-header {
       border-top: 2px solid #DFDFDF;
       padding: 15px 0 20px 0;
     }
     .table-row {
       border: 1px solid #F0F0F0;
-      padding: 15px 0 20px 0;
+      border-left: none;
+      padding: 0;
+      p {
+        padding-top: 13px;
+      }
     }
     .table-title {
       font-family: Gotham-Medium;
@@ -47,7 +62,19 @@ body.feature-list {
     .starter-box,
     .enterprise-box {
       background: #FAFAFA;
-      height: 20px;
+      height: 62px;
+    }
+    .true,
+    .false {
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 30px;
+    }
+    .true {
+      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/checkmark.svg');
+    }
+    .false {
+      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/cross.svg');
     }
     .starter-box {
       border-right: 2px solid #DFDFDF;
