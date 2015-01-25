@@ -21,7 +21,11 @@ external_stylesheets:
   </section>
 
   <section class="description-panel container">
-    <h1 class="section-title">{{description.title}}</h1>
+    <h1 class="section-title">{{description.title}}
+      <div class="sliding-vertical">
+        {{#each description.rotating_words}}<span>{{this}}</span>{{/each}}
+      </div>
+    </h1>
     <div class="flex-container">
       <p class="description">{{description.blurb}}</p>
       <div class="pier"></div>

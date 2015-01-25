@@ -44,6 +44,25 @@ body.opticon {
       margin-bottom: 50px;
       color: $brand-blue;
     }
+    .sliding-vertical{
+      display: inline;
+      text-indent: 8px;
+    }
+    .sliding-vertical span {
+      animation: topToBottom 17.5s linear infinite 0s;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+    }
+    .sliding-vertical span:nth-child(1){ animation-delay: 0s;}
+    .sliding-vertical span:nth-child(2){ animation-delay: 2.5s;}
+    .sliding-vertical span:nth-child(3){ animation-delay: 5s; }
+    .sliding-vertical span:nth-child(4){ animation-delay: 7.5s; }
+    .sliding-vertical span:nth-child(5){ animation-delay: 10s; }
+    .sliding-vertical span:nth-child(6){ animation-delay: 12.5s; }
+    .sliding-vertical span:nth-child(7){ animation-delay: 15s; }
+    .sliding-vertical span:nth-child(8){ animation-delay: 17.5s; }
+
     .description {
       margin: 0px auto 10px auto;
       color: $light-text-color;
@@ -208,4 +227,15 @@ body.opticon {
       }
     }
   }
+}
+
+/*topToBottom Animation*/
+@keyframes topToBottom{
+  0% { opacity: 0; }
+  5% { opacity: 0;  transform: translateY(-50px); }
+  10% { opacity: 1; transform: translateY(0px); }
+  12.5% { opacity: 1; transform: translateY(0px); }
+  15% { opacity: 0; transform: translateY(50px); }
+  80% { opacity: 0; }
+  100% { opacity: 0; }
 }
