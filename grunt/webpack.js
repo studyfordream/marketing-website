@@ -6,7 +6,7 @@ module.exports = function(grunt, options) {
   var basePath = 'website-guts/assets/js';
   var expandPath = function(basePath, dir) {
     return grunt.file.expand({cwd: basePath}, dir + '/*.js').reduce(function(map, filepath) {
-      map[path.basename(filepath, '.js')] = './' + path.join(basePath, filepath);
+      map[filepath.replace('.js', '')] = './' + path.join(basePath, filepath);
       return map;
     }, {});
   };
@@ -45,25 +45,10 @@ module.exports = function(grunt, options) {
         ]
       ]
     },
-    pages: {
-      entry: expandPath(basePath, 'pages'),
+    locals: {
+      entry: expandPath(basePath, '{pages,layouts}'),
       output: {
-        path: './dist/assets/js/pages',
-        filename: '[name].js'
-      },
-      resolve: {
-          extensions: ["", ".js", ".hbs"],
-          modulesDirectories: ['node_modules', 'website-guts/templates/client']
-      },
-      module: {
-        loaders: sharedLoaders
-      },
-      plugins: sharedPlugins
-    },
-    layouts: {
-      entry: expandPath(basePath, 'layouts'),
-      output: {
-        path: './dist/assets/js/layouts',
+        path: './dist/assets/js',
         filename: '[name].js'
       },
       resolve: {
