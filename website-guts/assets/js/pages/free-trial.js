@@ -551,7 +551,7 @@ if( !!queryString.otm_content ) {
     }
   }
 
-  if(typeof queryString === 'object' && queryString.otm_content === 'string'){
+  if(typeof queryString === 'object' && typeof queryString.otm_content === 'string'){
     if(queryString.otm_content === 'eo' || queryString.otm_content === 'brand'){
       $('.seo-form-subheader').hide();
     }
