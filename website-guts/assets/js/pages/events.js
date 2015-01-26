@@ -70,7 +70,7 @@ window.optly.mrkt.events.showEvents = function(resp, div){
       pastEvents.splice(0, pastEvents.length - 30);
     }
 
-    $(div).html(window.optly.mrkt.templates.eventDisplay({events: futureEvents}));
+    $(div).html(eventDisplay({events: futureEvents}));
 
     $('#get-past-events').on('click', function(e){
       e.preventDefault();
@@ -83,7 +83,7 @@ window.optly.mrkt.events.showEvents = function(resp, div){
           $(elm).removeClass('hide-past').addClass('hide-upcoming');
         }
       });
-      $(div).html(window.optly.mrkt.templates.eventDisplay({events: pastEvents}));
+      $(div).html(eventDisplay({events: pastEvents}));
     });
 
     $('#get-future-events').on('click', function(e){
@@ -97,7 +97,7 @@ window.optly.mrkt.events.showEvents = function(resp, div){
           $(elm).removeClass('hide-upcoming').addClass('hide-past');
         }
       });
-      $(div).html(window.optly.mrkt.templates.eventDisplay({events: futureEvents}));
+      $(div).html(eventDisplay({events: futureEvents}));
     });
 
   } else {
