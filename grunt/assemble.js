@@ -3,6 +3,7 @@ var ext = require('gulp-extname');
 var through = require('through2');
 var path = require('path');
 var helpers = require('handlebars-helpers');
+var extend = require('extend-shallow');
 
 module.exports = function (grunt) {
   grunt.registerTask('assemble', 'Assemble', function () {
@@ -16,6 +17,15 @@ module.exports = function (grunt) {
     helpers.register(Handlebars, options);
 
     var renameKey = assemble.option('renameKey');
+    var dirnameKey = function (search) {
+      return function (fp) {
+        if (fp.indexOf(search) > -1) {
+          var segments = path.dirname(fp).split('/');
+          return segments[segments.length - 1];
+        }
+        return renameKey(fp);
+      };
+    };
     assemble.data(options.data);
 
     assemble.set('data.assetsDir', options.assetsDir);
@@ -38,13 +48,6 @@ module.exports = function (grunt) {
     assemble.partials(options.partials);
     assemble.helpers(options.helpers);
 
-    console.log('layouts', Object.keys(assemble.views.layouts).map(function (key) {
-      return {
-        key: key,
-        path: assemble.views.layouts[key].path
-      }
-    }));
-
     function normalizeSrc (cwd, sources) {
       sources = Array.isArray(sources) ? sources : [sources];
       return sources.map(function (src) {
@@ -55,76 +58,89 @@ module.exports = function (grunt) {
       });
     }
 
+    // create custom template type `modals`
     assemble.create('modal', 'modals', {
       isPartial: true,
       isRenderable: true
     });
 
+    // create custom template type `resources`
+    assemble.create('resource', 'resources', {
+      isPartial: true,
+      isRenderable: false,
+    });
+
+    var collectionMiddleware = function (collection) {
+      return function (file, next) {
+        if (!file.data[collection]) return next();
+        var col = assemble.get(collection) || {};
+        var key = assemble.option('renameKey')(file.path);
+        col[key] = extend({}, col[key], file.data);
+        assemble.set(collection, col);
+        next();
+      };
+    };
+
+    // custom middleware for `resources` to add front-matter (`data`)
+    // to the assemble cache. (`assemble.get('resources').foo`)
+    assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
+    assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
+    assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
+
+    // load `modal` templates
     var modalFiles = config.modals.files[0];
     assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src));
 
-    // assemble.task('modals', function () {
-    //   assemble.option('renameKey', function (fp) {
-    //     var basename = renameKey(fp);
-    //     return basename.replace('_compiled', '');
-    //   });
+    // use a custom `renameKey` method when loading `resources`
+    assemble.option('renameKey', dirnameKey('resources-list'));
 
-    //   var files = config.modals.files[0];
-    //   return assemble.src(normalizeSrc(files.cwd, files.src))
-    //     .pipe(through.obj(function (file, enc, cb) {
-    //       file.path = path.join(path.dirname(file.path), path.basename(file.path, path.extname(file.path)) + '_compiled') + path.extname(file.path);
-    //       this.push(file);
-    //       cb();
-    //     }))
-    //     .pipe(assemble.dest(files.dest))
-    //     on('error', function (err) {
-    //       console.log('error', err);
-    //     });
-    // });
+    // load `resource` templates
+    var resourceFiles = config.resources.files[0];
+    assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
 
+    // reset the `renameKey` method
+    assemble.option('renameKey', renameKey);
+
+    // build the `resources` page
     assemble.task('resources', function () {
+      var start = process.hrtime();
       assemble.option('renameKey', renameKey);
       assemble.partials(options.partials);
-
-      assemble.option('renameKey', function (fp) {
-        return fp.indexOf('resources-list') > -1 ? path.join('resources', path.dirname(fp)) : renameKey(fp);
-      });
-
       var files = config.resources.files[0];
-      return assemble.src(normalizeSrc(files.cwd, files.src))
-        // .pipe(through.obj(function (file, enc, cb) {
-        //   if (file.isNull()) {
-        //     // console.log('null contents');
-        //     file.contents = new Buffer('');
-        //   }
-        //   this.push(file);
-        //   cb();
-        // }))
+      return assemble.src('website/resources/index.hbs')
         .pipe(ext())
-        .pipe(assemble.dest(path.join(files.dest, 'resources')));
+        .pipe(assemble.dest(path.join(files.dest, 'resources')))
+        .on('data', function (file) {
+          //console.log(file.path, 'rendered');
+        })
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished rendering resources', end);
+        });
     });
 
     assemble.task('partners', ['resources'], function () {
+      var start = process.hrtime();
       assemble.option('renameKey', renameKey);
       assemble.partials(options.partials);
 
-      assemble.option('renameKey', function (fp) {
-        return fp.indexOf('partners') > -1 ? path.join('partners', path.dirname(fp)) : renameKey(fp);
-      });
+      assemble.option('renameKey', dirnameKey('partners'));
 
       var files = config.partners.files[0];
       return assemble.src(normalizeSrc(files.cwd, files.src))
-        .pipe(through.obj(function (file, enc, cb) {
-          // console.log('partner file', file.data.layout);
-          // console.log(typeof assemble.views.layouts[file.data.layout] !== 'undefined');
-          this.push(file);
-          cb();
-        }))
         .pipe(ext())
-        .pipe(assemble.dest(path.join(files.dest, 'partners')));
+        .pipe(assemble.dest(path.join(files.dest, 'partners')))
+        .on('data', function (file) {
+          // console.log(file.path, 'rendered');
+        })
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished rendering partners', end);
+        });
     });
 
     assemble.task('pages', ['partners'], function () {
+      var start = process.hrtime();
       assemble.option('renameKey', renameKey);
       assemble.partials(options.partials);
       assemble.option('renameKey', function (fp) {
@@ -138,7 +154,14 @@ module.exports = function (grunt) {
           cb();
         }))
         .pipe(ext())
-        .pipe(assemble.dest(files.dest));
+        .pipe(assemble.dest(files.dest))
+        .on('data', function (file) {
+          // console.log(file.path, 'rendered');
+        })
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished rendering pages', end);
+        });
     });
 
     assemble.run(['resources', 'partners', 'pages'], done);

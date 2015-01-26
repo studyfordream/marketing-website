@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "body-parser": "1.8.3",
+    "extend-shallow": "^0.2.0",
     "grunt-contrib-connect": "0.8.0",
     "grunt-contrib-watch": "0.6.1",
     "grunt-jasmine-node": "git+ssh://git@github.com:dtothefp/grunt-jasmine-node.git",

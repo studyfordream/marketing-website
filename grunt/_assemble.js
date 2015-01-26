@@ -42,7 +42,7 @@ module.exports = {
     },
     files: [
       {
-        src: ['resources/resources-list/**/*.hbs', 'resources/index.hbs'],
+        src: ['resources/resources-list/**/*.hbs'/*, 'resources/index.hbs'*/],
         dest: '<%= config.dist %>/',
         cwd: '<%= config.content %>/',
         expand: true
