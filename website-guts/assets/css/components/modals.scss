@@ -356,4 +356,162 @@ body {
       }
     }
   }
+  .faq-section {
+    .faq-container {
+      width: 500px;
+      margin-right: auto;
+      margin-left: auto;
+      border-top: 1px solid #DFDFDF;
+    }
+    .question {
+      font-family: Gotham-Medium;
+      font-size: 15px;
+      color: #00415D;
+      letter-spacing: 0.53px;
+      line-height: 19px;
+      margin-top: 55px;
+    }
+    .answer {
+      font-family: Gotham-Light;
+      font-size: 15px;
+      color: #696F72;
+      line-height: 22px;
+      margin-bottom: 55px;
+    }
+    .contact-text {
+      font-family: Gotham-Light;
+      font-size: 30px;
+      color: #696F72;
+      line-height: 52px;
+      text-align: center;
+      margin-bottom: 10px;
+      margin-top: 80px;
+    }
+    .phone-number {
+      margin-top: 10px;
+      font-size: 30px;
+      text-align: center;
+      color: #0094CD;
+    }
+  } 
+  .pricing-matrix {
+    #page-content {
+      background-color: white;
+    }
+    #page-header {
+      border-bottom: 2px solid #ccc;
+    }
+    #page-header-gradient {
+      display: none;
+    }
+
+    /*             */
+    /*Title Section*/
+    /*             */
+    .title-table-header {
+      * {
+        text-align: center;
+      }
+      h1 {
+        font: 30px Gotham-Light;
+        color: #0581C2;
+        line-height: 36px;
+        margin-bottom: 5px;
+      }
+      p {
+        font-family: Gotham-Book;
+        font-size: 15px;
+        color: #9B9B9B;
+        line-height: 19px;
+        margin-top: 0;
+      }
+    }
+    /*              */
+    /*Table Sections*/
+    /*              */
+    .table ~ .table {
+      margin-top: 75px;
+    }
+    .table {
+      .table-header {
+        border-top: 2px solid #DFDFDF;
+        padding: 15px 0 20px 0;
+      }
+      .table-row {
+        border: 1px solid #F0F0F0;
+        border-left: none;
+        padding: 0;
+        p {
+          padding-top: 20px;
+          margin-top: 0;
+        }
+      }
+      .table-title {
+        font-family: Gotham-Medium;
+        font-size: 15px;
+        color: #00415D;
+        letter-spacing: 0.39px;
+        line-height: 18px;
+      }
+      .table-desc {
+        font-family: Gotham-Light;
+        font-size: 14px;
+        color: #888B8C;
+        letter-spacing: 0.3px;
+        line-height: 18px;
+      }
+      .starter-box,
+      .enterprise-box {
+        background: #FAFAFA;
+        height: 68px;
+      }
+      .text {
+        text-align: center;
+        font-family: Gotham-Light;
+        font-size: 14px;
+        color: #888B8C;
+        letter-spacing: 0.3px;
+        line-height: 19px;
+      }
+      .true,
+      .false {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 30px;
+      }
+      .true {
+        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/checkmark.svg');
+      }
+      .false {
+        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/cross.svg');
+      }
+      .starter-box {
+        border-right: 2px solid #DFDFDF;
+      }
+      .enterprise-box {
+        border-left: 2px solid #DFDFDF;
+      }
+    }
+
+    /*           */
+    /*CTA Section*/
+    /*           */
+    .cta {
+      margin-bottom: 100px;
+      * { text-align: center; }
+      h1 {
+        font-family: Gotham-Light;
+        font-size: 24px;
+        color: #696F72;
+        line-height: 29px;
+      }
+    }
+    .enterprise-cta,
+    .starter-cta {
+      @extend .pricing-button;
+    }
+    .back {
+      margin-top: 50px;
+    }
+  }
 }

@@ -1,120 +1,79 @@
 ---
-layout: no-sub-nav.hbs
-visible_title: Plans and Pricing
+layout: no-sub-nav-optional-page-header.hbs
+visible_title: Pricing
 body_class:
-- pricing-page
-page_script:
-- pricing.js
+- pricing
 no_container: true
-modals:
-- contact_sales_thank_you_compiled
-- downgrade_plan_compiled
-- downgrade_plan_confirm_compiled
-- pricing_plan_signup_thank_you_compiled
+page_header: false
 seo_title: Pricing
-og_title:
-- "Plans and Pricing"
-og_description:
-- "Get started optimizing instantly, or build a custom plan for your business."
+og_title: Pricing
+og_description: "Get started optimizing instantly, or build a custom plan for your business."
 ---
-<section class="blue-bg" id="plan-section">
+
+<!--           -->
+<!--Page Header-->
+<!--           -->
+<div id="page-header">
   <div class="container">
-    <div class="pricing-overview">
-      <div class="plan-box plan-box-cont" id="starter-plan">
-        <h2 class="plan-box-header">{{pricing.starter_plan.name}}</h2>
-        <div class="plan-box-content">
-          {{#omarkdown}}{{{pricing.starter_plan.overview}}}{{/omarkdown}}
-        </div><!--/.plan-box-content-->
-        <div class="cta">
-          {{#omarkdown}}{{{pricing.starter_plan.cta}}}{{/omarkdown}}
-          <p class="hidden current-plan">Your current plan</p>
-          <p class="processing hidden">{{{pricing.processing_message}}}</p>
-        </div><!--/.cta-->
-      </div><!--/.plan-box-->
-      <div class="plan-box plan-box-cont highlight" id="enterprise-plan">
-        <h2 class="plan-box-header">{{pricing.enterprise_plan.name}}</h2>
-        <div class="plan-box-content">
-          {{#omarkdown}}{{{pricing.enterprise_plan.overview}}}{{/omarkdown}}
-        </div><!--/.plan-box-content-->
-        <div class="cta">
-          {{#omarkdown}}{{{pricing.enterprise_plan.cta}}}{{/omarkdown}}
-          <p id="SL-phone-number" class="SL_swap">
-            US: <a href="tel:{{pricing.enterprise_plan.phone_us}}">{{pricing.enterprise_plan.phone_us}}</a><br/>
-            UK: <a href="tel:{{pricing.enterprise_plan.phone_uk}}">{{pricing.enterprise_plan.phone_uk}}</a>
-          </p>
-          <p class="hidden current-plan">Your current plan</p>
-        </div><!--/.cta-->
-      </div><!--/.plan-box-->
-    </div><!--/.row-->
-    {{#if pricing.full_feature_list_button_text}}<a class="button" id="full-feature-list-btn" href="#full-feature-list-cont"><span>{{pricing.full_feature_list_button_text}}</span></a>{{/if}}
-  </div><!--/.container-->
-</section>
-<section id="company-list-cont">
-  <div class="container" id="company-list">
-    {{#if pricing.company_logos.header}}<h4>{{pricing.company_logos.header}}</h4>{{/if}}
-    {{#if pricing.company_logos.logos}}
-    <div class="logo-container">
-      {{#each pricing.company_logos.logos}}
-        <div class="bg-img-cont">
-          <div class="bg-img" style="background-image: url('{{svg}}')"></div>
-        </div>
-      {{/each}}
+    <div class="page-subheader-cont">
+      <h1>{{page.visible_title}}</h1>
+      <div class="header-cta-container">
+        {{#with features.page_header}}
+        <a class="talk-button" href="#">{{cta}}</a>
+        <p>{{or_word}}</p>
+        <p>{{alternative}}</p>
+        {{/with}}
+      </div>
     </div>
-    {{/if}}
-  </div><!--/.container-->
+  </div>
+</div>
+
+
+<!--             -->
+<!--Title Section-->
+<!--             -->
+{{#with pricing.title_section}}
+<section class="title-section">
+  <h1 class="title-copy">{{{title}}}</h1>
+  <div class="buttons-container">
+    <a class="explore" href="#">{{button_text}}</a>
+  </div>
 </section>
-<section class="blue-bg" id="full-feature-list-cont">
-  <div class="pricing-section__feature-list container">
-    {{#if pricing.full_feature_list_header}}
-      <h2 class="pricing-section__heading pricing-section__heading--dark">
-        {{pricing.full_feature_list_header}}
-      </h2>
-    {{/if}}
-    <div class="pricing-feature-detail-cont">
-      <div class="feature-list-box plan-box-cont">
-        <h2 class="plan-box-header">{{pricing.starter_plan.name}}</h2>
-        {{#each pricing.starter_plan.full_features}}
-        <div class="feature-category">
-          {{#if title}}<h3>{{{title}}}</h3>{{/if}}
-          <div class="feature-overview">{{#omarkdown}}{{{description}}}{{/omarkdown}}</div>
-        </div><!--/.feature-category-->
-        {{/each}}
-      </div><!--/.feature-list-box-->
-      <div class="feature-list-box plan-box-cont highlight">
-        <h2 class="plan-box-header">{{pricing.enterprise_plan.name}}</h2>
-        {{#each pricing.enterprise_plan.full_features}}
-        <div class="feature-category">
-          {{#if title}}<h3>{{{title}}}</h3>{{/if}}
-          <div class="feature-overview">{{#omarkdown}}{{{description}}}{{/omarkdown}}</div>
-        </div><!--/.feature-category-->
-        {{/each}}
-      </div><!--/.feature-list-box-->
-    </div><!--/.pricing-feature-detail-cont-->
-    <div class="row">
-      <h3 class="pricing-section__feature-list__question"><strong>Still have a question?</strong><br/>Call us at <span id="SL-phone-number" class="SL_swap"><a href="tel:{{pricing.enterprise_plan.phone_us}}">{{pricing.enterprise_plan.phone_us}}</a> (US) or <a href="tel:{{pricing.enterprise_plan.phone_uk}}">{{pricing.enterprise_plan.phone_uk}}</a> (UK)</span></h3>
-    </div><!--/.row-->
-  </div><!--/.container-->
+{{/with}}
+
+
+<!--                -->
+<!--Benefits Section-->
+<!--                -->
+{{#with features.benefits_section}}
+<section class="benefits-section">
+  <h2 class="title-copy">{{title}}</h2>
+  <div class="benefit-items-container container">
+    {{#each benefits}}
+    <div class="benefit-item four" style="background-image: url('{{icon}}')">
+      <h3>{{title}}</h3>
+      <p>{{desc}}</p>
+    </div>
+    {{/each}}
+  </div>
+  <p class="asterisk">{{asterisk}}</p>
 </section>
-<section>
-  <div class="container">
-    <div class="row">
-      {{#if pricing.faq.header}}
-        <h2 class="pricing-section__heading pricing-section__heading--light">{{pricing.faq.header}}</h2>
-      {{/if}}
-      <div class="pricing-faq">
-        {{#each pricing.faq.entries}}
-          <div class="pricing-faq__item">
-            <span class="pricing-faq__item__title">
-              {{#if title}}{{{title}}}{{/if}}
-            </span><!--/.pricing-faq__item__title-->
-            <p class="pricing-faq__item__description">
-              {{#if description}}
-                {{#omarkdown}}{{{description}}}{{/omarkdown}}
-              {{/if}}
-            </p><!--/.pricing-faq__item__description-->
-          </div><!--/.pricing-faq__item-->
-        {{/each}}
-      </div><!--/.pricing-faq-->
-    </div><!--/.row-->
-  </div><!--/.container-->
-</section>
+{{/with}}
+
+<!--              -->
+<!--Pricing Matrix-->
+<!--              -->
+<div class="container">
+  {{> pricing_matrix}}
+</div>
+
+<!--               -->
+<!--Companies Panel-->
+<!--               -->
+{{> companies_panel}}
+
+
+<!--           -->
+<!--FAQ Section-->
+<!--           -->
+{{> faq_section}}
