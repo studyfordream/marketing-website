@@ -105,6 +105,22 @@ body.opticon {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 25% 25%;
+    position: relative;
+    .justify-your-trip {
+      color: white;
+      text-transform: uppercase;
+      position: absolute;
+      right: 20%;
+      top: -21px;
+      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/ribbon.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      padding: 23px;
+      &:hover {
+        text-decoration: none;
+      }
+    }
     .section-title {
       padding-top: 100px;
       text-align: center;
