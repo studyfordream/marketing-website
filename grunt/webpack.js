@@ -76,6 +76,11 @@ module.exports = function(grunt, options) {
         preLoaders: [
           {
             test: /\.js$/,
+            exclude: [ /node_modules/ ],
+            loader: 'inject-loader'
+          },
+          {
+            test: /\.js$/,
             exclude: /node_modules/,
             loader: 'jshint-loader'
           }
