@@ -29,8 +29,6 @@ module.exports = function(grunt) {
   grunt.registerTask('staging-deploy', [
     'gitinfo',
     'config:staging',
-    'jshint:clientDev',
-    'jshint:server',
     'clean:preBuild',
     'assemble',
     'modernizr',
@@ -46,8 +44,6 @@ module.exports = function(grunt) {
   grunt.registerTask('smartling-staging-deploy', [
     'gitinfo',
     'config:smartlingStaging',
-    'jshint:clientDev',
-    'jshint:server',
     'clean:preBuild',
     'assemble',
     'modernizr',
@@ -79,8 +75,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'config:production',
-    'jshint:clientProd',
-    'jshint:server',
     'clean:preBuild',
     'assemble',
     'modernizr',
@@ -107,14 +101,12 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'config:dev',
-    'jshint:clientProd',
-    'jshint:server',
     'jshint:test',
     'clean:preBuild',
     'assemble',
     'modernizr',
-    'concat',
     'webpack',
+    'concat',
     'sass:dev',
     'replace',
     'autoprefixer',

@@ -6,7 +6,9 @@ require('script!oform/src/oForm');
 
 //require the top level utils
 var requireUtils = require.context('./utils', false, /\.js$/);
-requireUtils.keys().forEach(requireUtils);
+var utilsPaths = requireUtils.keys();
+utilsPaths.splice(utilsPaths.indexOf('./form-filler.js'), 1);
+utilsPaths.forEach(requireUtils);
 
 //require the form helper constructor
 var requireFormFactory = require('./utils/form_helpers/form_helper_factory'); // jshint ignore:line

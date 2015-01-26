@@ -36,7 +36,7 @@ module.exports = function(grunt, options) {
         reasons: true
       },
       jshint: {
-        emitErrors: false,
+        emitErrors: true,
         failOnHint: true,
         config: {
           src: require('./jshint'),
@@ -65,17 +65,17 @@ module.exports = function(grunt, options) {
         filename: '[name].js'
       },
       resolve: {
-          extensions: ["", ".js", ".hbs"],
+          extensions: ['', '.js', '.hbs'],
           modulesDirectories: ['node_modules', 'website-guts/templates/client']
       },
       module: {
         preLoaders: [
-        {
-          test: /\.js$/, // include .js files
-          exclude: /node_modules/, // exclude any and all files in the node_modules folder
-          loader: "jshint-loader"
-        }
-      ],
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'jshint-loader'
+          }
+        ],
         loaders: sharedLoaders
       },
       plugins: sharedPlugins
@@ -87,15 +87,29 @@ module.exports = function(grunt, options) {
         filename: 'bundle.js'
       },
       resolve: {
-          extensions: ["", ".js", ".hbs"],
+          extensions: ['', '.js', '.hbs'],
           modulesDirectories: ['node_modules', 'bower_components', 'website-guts/templates/client']
       },
       module: {
+        preLoaders: [
+          {
+            test: /\.js$/,
+            exclude: [
+              /node_modules/,
+              /bower_components/,
+              /equal_height_grid/,
+              /form-filler/,
+              /guid_sprintf/,
+              /uri/
+            ],
+            loader: 'jshint-loader'
+          }
+        ],
         loaders: sharedLoaders
       },
       plugins: addPlugins(
         new webpack.ResolverPlugin(
-            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
+            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
         )
       )
     }
