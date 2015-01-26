@@ -19,7 +19,8 @@ module.exports = function(grunt, options) {
       to5Runtime: 'imports?global=>{}!exports?global.to5Runtime!6to5/runtime'
     }),
     new BannerFooterPlugin('<%= grunt.config.get("concat_banner") %>', '<%= grunt.config.get("concat_footer") %>', {
-      raw: true
+      raw: true,
+      injectScript: 'var targetName = __filename;'
     })
   ];
   function addPlugins(pluginInst) {
@@ -34,6 +35,9 @@ module.exports = function(grunt, options) {
         colors: true,
         modules: true,
         reasons: true
+      },
+      node: {
+        __filename: true
       },
       jshint: {
         emitErrors: true,
