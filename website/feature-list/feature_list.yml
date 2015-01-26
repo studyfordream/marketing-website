@@ -2,7 +2,7 @@ back: "<a href='#'><< Back to Feature Overview</a>"
 
 starter_header:
   title: "Starter"
-  desc: "All the basics. No credit card required."
+  desc: "All the basics.<br>No credit card required."
 
 enterprise_header:
   title: "Enterprise"
@@ -17,116 +17,142 @@ tables:
     features:
       -
         title: "A/B and multivariate testing"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Multivariate Testing"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Instant Rollouts"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Mobile Developer Tools"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Multi-page Testing (funnel)"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Multichannel Experiments"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
   -
     title: "Discover Visitor Insights"
     desc: "Learn more about the visitors that connect with you on your websites and mobile apps."
     features:
       -
         title: "Stats Engine"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Basic Visitor Segmentation"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Custom Visitor Segmentation"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Custom Reports"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Report Annotations"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
   -
     title: "Target Optimized Experiences"
     desc: "Focus on your high-value visitors and increase revenue."
     features:
       -
         title: "Browser or Device"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Referrer URL"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Query Parameters"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Traffic Source"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Browser Language"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Ad Campaign"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Custom Event"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Custom Javascript"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "IP Address"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Custom Dimension"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Cookies"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "List Membership"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Custom Tags"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Time of Day"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Location (Geotargeting)"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
   -
     title: "Integrate Data Across Your Platforms"
     desc: "Seamlessly integrate Optimizely with the best-in-class
@@ -134,68 +160,83 @@ tables:
     features:
       -
         title: "Basic Analytics & Heatmapping Integrations"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Advanced Analytics Integrations"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Third Party Data Integrations"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "API Access"
-        starter: "JavaScript API REST API (1000 calls/month)"
-        enterprise: "JavaScript API REST API (Custom calls/month)"
+        string: true
+        starter_text: "JavaScript API REST API (1000 calls/month)"
+        enterprise_text: "JavaScript API REST API (Custom calls/month)"
   -
     title: "Manage Your Experience Optimization Program"
     desc: "Empower your team with actionable, real-time data on your visitors and foster the growth of a data-driven culture in your company."
     features:
       -
         title: "Projects"
-        starter: "1 Web and 1 Mobile App"
-        enterprise: "Custom"
+        string: true
+        starter_text: "1 Web and 1 Mobile App"
+        enterprise_text: "Custom"
       -
         title: "Domains"
-        starter: "One Domain and One Mobile App"
-        enterprise: "Custom"
+        string: true
+        starter_text: "One Domain and One Mobile App"
+        enterprise_text: "Custom"
       -
         title: "Experiments"
-        starter: "Unlimited"
-        enterprise: "Unlimited"
+        string: true
+        starter_text: "Unlimited"
+        enterprise_text: "Unlimited"
       -
         title: "Collaborators"
-        starter: "3"
-        enterprise: "Custom"
+        string: true
+        starter_text: "3"
+        enterprise_text: "Custom"
       -
         title: "Multi-account Login"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Experiment Change History"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Preview Changes"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Cross-browser Testing"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Role-based Permissions"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Experiment Scheduler"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Traffic"
-        starter: "50,000 MUVs/MUAs"
-        enterprise: "Custom"
+        string: true
+        starter_text: "50,000 MUVs/MUAs"
+        enterprise_text: "Custom"
   -
     title: "Support"
     desc: "Take your optimization program to the next level with enterprise
@@ -203,36 +244,44 @@ tables:
     features:
       -
         title: "Community (Optiverse)"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Knowledge Base"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Online Tickets"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Phone Support"
-        starter: true
-        enterprise: true
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
       -
         title: "Enterprise Onboarding"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Dedicated Customer Success Manager"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Dedicated Solutions Architect"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
       -
         title: "Strategic Consulting"
-        starter: false
-        enterprise: true
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
 
 calls_to_action:
   starter:

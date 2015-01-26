@@ -9,6 +9,9 @@ body.feature-list {
     display: none;
   }
 
+  /*             */
+  /*Title Section*/
+  /*             */
   .title-section {
     * {
       text-align: center;
@@ -17,18 +20,19 @@ body.feature-list {
       font: 30px Gotham-Light;
       color: #0581C2;
       line-height: 36px;
+      margin-bottom: 5px;
     }
     p {
       font-family: Gotham-Book;
       font-size: 15px;
       color: #9B9B9B;
       line-height: 19px;
+      margin-top: 0;
     }
   }
-  .table:first-of-type {
-    color: red;
-  }
-
+  /*              */
+  /*Table Sections*/
+  /*              */
   .table ~ .table {
     margin-top: 75px;
   }
@@ -42,7 +46,8 @@ body.feature-list {
       border-left: none;
       padding: 0;
       p {
-        padding-top: 13px;
+        padding-top: 20px;
+        margin-top: 0;
       }
     }
     .table-title {
@@ -62,7 +67,15 @@ body.feature-list {
     .starter-box,
     .enterprise-box {
       background: #FAFAFA;
-      height: 62px;
+      height: 68px;
+    }
+    .text {
+      text-align: center;
+      font-family: Gotham-Light;
+      font-size: 14px;
+      color: #888B8C;
+      letter-spacing: 0.3px;
+      line-height: 19px;
     }
     .true,
     .false {
@@ -82,6 +95,26 @@ body.feature-list {
     .enterprise-box {
       border-left: 2px solid #DFDFDF;
     }
+  }
+
+  /*           */
+  /*CTA Section*/
+  /*           */
+  .cta {
+    * { text-align: center; }
+    h1 {
+      font-family: Gotham-Light;
+      font-size: 24px;
+      color: #696F72;
+      line-height: 29px;
+    }
+  }
+  .enterprise-cta,
+  .starter-cta {
+    @extend .pricing-button;
+  }
+  .back {
+    margin-top: 50px;
   }
 }
 
