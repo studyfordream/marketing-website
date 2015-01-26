@@ -1,6 +1,8 @@
 module.exports = {
   options: {
     trailing: true,
+    forin: false,
+    strict: false,
     curly: true,
     esnext: true,
     eqeqeq: true,

@@ -35,6 +35,19 @@ module.exports = function(grunt, options) {
         modules: true,
         reasons: true
       },
+      jshint: {
+        emitErrors: false,
+        failOnHint: true,
+        config: {
+          src: require('./jshint'),
+          tasks: {
+            dev: ['clientDev', 'server'],
+            staging: ['clientDev', 'server'],
+            production: ['clientProd', 'server'],
+          }
+        }
+      },
+      watch: true,
       devtool: 'source-map',
       environment: '<%= grunt.config.get("environment") %>',
       envPlugins: [
@@ -56,6 +69,13 @@ module.exports = function(grunt, options) {
           modulesDirectories: ['node_modules', 'website-guts/templates/client']
       },
       module: {
+        preLoaders: [
+        {
+          test: /\.js$/, // include .js files
+          exclude: /node_modules/, // exclude any and all files in the node_modules folder
+          loader: "jshint-loader"
+        }
+      ],
         loaders: sharedLoaders
       },
       plugins: sharedPlugins

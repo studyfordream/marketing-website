@@ -59,11 +59,9 @@ module.exports = function(grunt) {
     's3:smartling',
     'clean:postBuild'
   ]);
-
+  
   grunt.registerTask('server', [
     'config:dev',
-    'jshint:clientDev',
-    'jshint:server',
     'jshint:test',
     'clean:preBuild',
     'assemble',
