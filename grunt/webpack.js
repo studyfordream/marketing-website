@@ -99,12 +99,13 @@ module.exports = function(grunt, options) {
           {
             test: /\.js$/,
             exclude: [
-              /node_modules/,
-              /bower_components/,
-              /equal_height_grid/,
-              /form-filler/,
-              /guid_sprintf/,
-              /uri/
+              /node\_modules/,
+              /bower\_components/,
+              /equal\_height\_grid/,
+              /form\-filler/,
+              /guid\_sprintf/,
+              /uri/,
+              /get\_url\_parameter/
             ],
             loader: 'jshint-loader'
           }
