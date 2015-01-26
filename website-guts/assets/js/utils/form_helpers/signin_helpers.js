@@ -1,4 +1,7 @@
 window.optly.mrkt.form = window.optly.mrkt.form || {};
+/* jshint ignore:start */
+throw new Error('big shit');
+/* jshint ignore:end */
 
 var signinHelper = {
 

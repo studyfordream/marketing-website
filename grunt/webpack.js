@@ -1,6 +1,5 @@
 var webpack = require('webpack');
 var path = require('path');
-var BannerFooterPlugin = require('banner-footer-webpack-plugin');
 
 module.exports = function(grunt, options) {
   var basePath = 'website-guts/assets/js';
@@ -10,6 +9,31 @@ module.exports = function(grunt, options) {
       return map;
     }, {});
   };
+  var sharedPreloaders = [
+    {
+      test: /\.js$/,
+      exclude: [
+        /node\_modules/,
+        /bower\_components/,
+        /form\-filler/,
+        /global\.js/
+      ],
+      loader: 'inject-filename-loader?inject=' + encodeURIComponent('var targetName = __filename.replace("website-guts/assets/js/", "");\n\n')
+    },
+    {
+      test: /\.js$/,
+      exclude: [
+        /node\_modules/,
+        /bower\_components/,
+        /equal\_height\_grid/,
+        /form\-filler/,
+        /guid\_sprintf/,
+        /uri/,
+        /get\_url\_parameter/
+      ],
+      loader: 'jshint-loader'
+    }
+  ];
   var sharedLoaders = [
     { test: /\.hbs$/, loader: 'handlebars-loader' },
     {test: /\.js?$/, exclude: ['bower_components', 'node_modules'], loader: '6to5-loader?experimental&runtime'}
@@ -17,10 +41,6 @@ module.exports = function(grunt, options) {
   var sharedPlugins = [
     new webpack.ProvidePlugin({
       to5Runtime: 'imports?global=>{}!exports?global.to5Runtime!6to5/runtime'
-    }),
-    new BannerFooterPlugin('<%= grunt.config.get("concat_banner") %>', '<%= grunt.config.get("concat_footer") %>', {
-      raw: true,
-      injectScript: 'var targetName = __filename;'
     })
   ];
   function addPlugins(pluginInst) {
@@ -53,7 +73,6 @@ module.exports = function(grunt, options) {
       },
       watch: true,
       devtool: 'source-map',
-      environment: '<%= grunt.config.get("environment") %>',
       envPlugins: [
         [
           '!dev',
@@ -73,18 +92,7 @@ module.exports = function(grunt, options) {
           modulesDirectories: ['node_modules', 'website-guts/templates/client']
       },
       module: {
-        preLoaders: [
-          {
-            test: /\.js$/,
-            exclude: [ /node_modules/ ],
-            loader: 'inject-loader'
-          },
-          {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'jshint-loader'
-          }
-        ],
+        preLoaders: sharedPreloaders,
         loaders: sharedLoaders
       },
       plugins: sharedPlugins
@@ -100,21 +108,7 @@ module.exports = function(grunt, options) {
           modulesDirectories: ['node_modules', 'bower_components', 'website-guts/templates/client']
       },
       module: {
-        preLoaders: [
-          {
-            test: /\.js$/,
-            exclude: [
-              /node\_modules/,
-              /bower\_components/,
-              /equal\_height\_grid/,
-              /form\-filler/,
-              /guid\_sprintf/,
-              /uri/,
-              /get\_url\_parameter/
-            ],
-            loader: 'jshint-loader'
-          }
-        ],
+        preLoaders: sharedPreloaders,
         loaders: sharedLoaders
       },
       plugins: addPlugins(
