@@ -21,22 +21,20 @@ body_class:
   <div class="row">
     <div class="integrations-container">
       <div class="row partner-grid">
-        {{#integrations}}
-          {{#each pages}}
-            <div class="partner-grid-elm" data-priority="{{data.priority}}">
-              <div class="title-container">
-                <h4 class="partner-title"><a href="{{relativeDir this.dest ../../linkPath}}">{{data.title}}</a></h4>
-              </div> <!-- .title-container -->
-              <div class="partner-inner-content">
-                <a href="{{relativeDir this.dest ../../linkPath}}" class="partner-logos" style="background-image: url('{{data.logo}}');"></a>
-                <p>{{ data.summary }}</p>
-              </div>
-              <div class="button-container">
-                <a href="{{relativeDir this.dest ../../linkPath}}" class="button">{{{../../technology_data.more}}} &gt;</a>
-              </div>
-            </div> <!-- .partner-grid-elm -->
-          {{/each}}
-        {{/integrations}}
+        {{#collection "integrations"}}
+          <div class="partner-grid-elm" data-priority="{{this.priority}}">
+            <div class="title-container">
+              <h4 class="partner-title"><a href="{{relativeDir this.dest ../linkPath}}">{{this.title}}</a></h4>
+            </div> <!-- .title-container -->
+            <div class="partner-inner-content">
+              <a href="{{relativeDir this.dest ../linkPath}}" class="partner-logos" style="background-image: url('{{this.logo}}');"></a>
+              <p>{{ this.summary }}</p>
+            </div>
+            <div class="button-container">
+              <a href="{{relativeDir this.dest ../linkPath}}" class="button">{{{../technology_data.more}}} &gt;</a>
+            </div>
+          </div> <!-- .partner-grid-elm -->
+        {{/collection}}
       </div><!-- .partner-grid -->
     </div> <!-- .integrations-container -->
   </div>

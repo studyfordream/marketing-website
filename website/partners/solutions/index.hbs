@@ -67,28 +67,26 @@ script_dependencies:
         <p>{{{solutions_data.filter.no_results}}}</p>
       </div>
       <div class="row partner-grid">
-        {{#solutions}}
-          {{#each pages}}
-            <div class="partner-grid-elm {{#if data.stars}}{{data.stars}}-star{{/if}} {{#each data.locations}}{{createClassList this.location.region}}{{/each}} {{#each data.tags}}{{createClassList this}}{{/each}}" data-priority="{{data.priority}}">
-              <div class="title-container">
-                <h4 class="partner-title"><a href="{{relativeDir this.dest ../../linkPath}}">{{data.title}}</a></h4>
-                {{#each data.locations}}
-                  <div class="partner-location {{#if @first}}active{{/if}}" data-region="{{createClassList this.location.region}}">{{this.location.city}}, {{stateCountry this.location.state this.location.country }}</div>
-                {{/each}}
-              </div> <!-- .title-container -->
-              <div class="partner-inner-content">
-                <a href="{{relativeDir this.dest ../../linkPath}}" class="partner-logos" style="background-image: url('{{data.logo}}');"></a>
-                <div class="level">
-                  <div class="level-heading">{{{../../solutions_data.filter.stars}}}: <span data-tooltip title="{{{../../solutions_data.partner_tooltip}}}"></span></div>
-                  <div class="star-cont {{#if data.stars}}star-cont--{{data.stars}}{{/if}}"></div>
-                </div>
-              </div>
-              <div class="button-container">
-                <a href="{{relativeDir this.dest ../../linkPath}}" class="button">{{{../../solutions_data.more}}} &gt;</a>
+        {{#collection "solutions"}}
+          <div class="partner-grid-elm {{#if this.stars}}{{this.stars}}-star{{/if}} {{#each this.locations}}{{createClassList this.location.region}}{{/each}} {{#each this.tags}}{{createClassList this}}{{/each}}" data-priority="{{this.priority}}">
+            <div class="title-container">
+              <h4 class="partner-title"><a href="{{relativeDir this.dest ../linkPath}}">{{this.title}}</a></h4>
+              {{#each this.locations}}
+                <div class="partner-location {{#if @first}}active{{/if}}" data-region="{{createClassList this.location.region}}">{{this.location.city}}, {{stateCountry this.location.state this.location.country }}</div>
+              {{/each}}
+            </div> <!-- .title-container -->
+            <div class="partner-inner-content">
+              <a href="{{relativeDir this.dest ../linkPath}}" class="partner-logos" style="background-image: url('{{this.logo}}');"></a>
+              <div class="level">
+                <div class="level-heading">{{{../solutions_data.filter.stars}}}: <span data-tooltip title="{{{../solutions_data.partner_tooltip}}}"></span></div>
+                <div class="star-cont {{#if this.stars}}star-cont--{{this.stars}}{{/if}}"></div>
               </div>
             </div>
-          {{/each}}
-        {{/solutions}}
+            <div class="button-container">
+              <a href="{{relativeDir this.dest ../linkPath}}" class="button">{{{../solutions_data.more}}} &gt;</a>
+            </div>
+          </div>
+        {{/collection}}
 
       </div><!-- /.partner-grid -->
     </div><!-- /.integrations-container-->

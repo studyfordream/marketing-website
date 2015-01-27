@@ -7,7 +7,7 @@ layout_body_class:
 <div id="main">
   <div id="page-header">
     <div class="container">
-      {{#if page.data.solutions }}
+      {{#if this.solutions }}
         <h1>{{solutions_data.page_heading}}</h1>
         {{#if solutions_data.sub_head}}<p>{{solutions_data.sub_head}}</p>{{/if}}
       {{else}}
@@ -23,21 +23,21 @@ layout_body_class:
         <div class="row single-partner-container">
           <div class="columns four">
             <div class="partners-back">
-              {{#if page.data.solutions }}
+              {{#if this.solutions }}
                 <a href="{{linkPath}}/partners/solutions/">&lt; {{{solutions_data.see_all}}}</a>
               {{else}}
                 <a href="{{linkPath}}/partners/technology/">&lt; {{{technology_data.see_all}}}</a>
               {{/if}}
             </div>
 
-            <div class="partners-logo notranslate" style="background-image: url('{{logo}}');"></div>
+            <div class="partners-logo notranslate" style="background-image: url('{{this.logo}}');"></div>
 
             <div class="partners-link notranslate">
               <p><a href="{{website_link}}">{{website_display}}</a></p>
             </div>
 
             <div class="partners-contact">
-              {{#each page.data.locations}}
+              {{#each this.locations}}
                 <div class="partners-location notranslate">
                   <p>
                     {{#if this.location.phone}}{{this.location.phone}} <br />{{/if}}
@@ -49,16 +49,16 @@ layout_body_class:
                   </p>
                 </div>
               {{/each}}
-              {{#if page.data.contact}}
-                {{breaklines page.data.contact}}
+              {{#if this.contact}}
+                {{breaklines this.contact}}
               {{/if}}
             </div>
 
-            {{#if page.data.languages}}
+            {{#if this.languages}}
               <div class="partners-languages">
                 <p>
                   <strong>{{{solutions_data.languages}}}</strong> <br />
-                  {{#eachNoTrailing page.data.languages ", "}}{{.}}, {{/eachNoTrailing}}
+                  {{#eachNoTrailing this.languages ", "}}{{.}}, {{/eachNoTrailing}}
                 </p>
               </div>
             {{/if}}
@@ -67,7 +67,7 @@ layout_body_class:
             <h4 class="notranslate">{{title}}</h4>
 
             <div class="level">
-              {{#if page.data.solutions }}
+              {{#if this.solutions }}
                 {{#if stars}}
                   <div class="level-heading">{{{solutions_data.filter.stars}}}: <span data-tooltip title="{{{solutions_data.partner_tooltip}}}"></span></div>
                   <div class="star-cont {{#if stars}}star-cont--{{stars}}{{/if}} star-left"></div>
@@ -81,9 +81,9 @@ layout_body_class:
               {{/omarkdown}}
             </div>
 
-            {{#if page.tags}}
+            {{#if this.tags}}
             <div class="partners-tags notranslate">
-              <p>{{#eachNoTrailing page.tags ", </span>"}}<span>{{this}}, </span>{{/eachNoTrailing}}</p>
+              <p>{{#eachNoTrailing this.tags ", </span>"}}<span>{{this}}, </span>{{/eachNoTrailing}}</p>
             </div>
             {{/if}}
 
