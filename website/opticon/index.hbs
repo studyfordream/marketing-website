@@ -23,14 +23,20 @@ external_stylesheets:
     <h4 class="event-details">{{date}} | {{location}}</h4>
   </section>
 
-  <!--                  -->
-  <!--Andreeseen Section-->
-  <!--                  -->
+  <!--                   -->
+  <!--Description Section-->
+  <!--                   -->
   <section class="description-panel container">
     <h1 class="section-title">{{description.title}}</h1>
     <div class="flex-container">
-      <p class="description">{{description.blurb}}</p>
-      <div class="pier"></div>
+      <div class="andreeseen-container">
+        <div class="andreeseen"></div>
+        <p class="caption">{{description.caption}}</p>
+      </div>
+      <div>
+        <p class="description">{{description.blurb_1}}</p>
+        <p class="description">{{description.blurb_2}}</p>
+      </div>
     </div>
   </section>
 

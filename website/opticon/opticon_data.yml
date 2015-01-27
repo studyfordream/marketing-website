@@ -6,7 +6,9 @@ location: "Pier 27, San Francisco"
 
 description:
   title: "It's all about the experience."
-  blurb: "Opticon is the premier event for members of the experience optimization and testing community. Attendees, including business leaders, industry experts and practitioners, leave Opticon armed with new strategies, ideas, and contacts to take their optimization programs to the next level. In 2015 Opticon will be an unforgettable experience, taking place on San Francisco’s scenic waterfront at Pier 27 with twice as much content, double the number of attendees, and a visionary keynote speaker."
+  blurb_1: "Opticon is the premier event for members of the experience optimization and testing community. Attendees, including business leaders, industry experts and practitioners, leave Opticon armed with new strategies, ideas, and contacts to take their optimization programs to the next level."
+  blurb_2: "In 2015 Opticon will be an unforgettable experience, taking place on San Francisco’s scenic waterfront at Pier 27 with twice as much content, double the number of attendees, and visionary speakers like Marc Andreessen, the General Partner of Andreessen Horowitz."
+  caption: "Keynote speaker Marc Andreessen"
 
 call_for_speakers:
   title: "Call for Speakers"
