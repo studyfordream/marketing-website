@@ -30,21 +30,25 @@ tables:
         boolean: true
         starter_bool: true
         enterprise_bool: true
+        tooltip: "Make visual changes to your website or mobile app immediately without waiting for your developers or App Store review."
       -
         title: "Mobile Developer Tools"
         boolean: true
         starter_bool: true
         enterprise_bool: true
+        tooltip: "Optimize code-level variables and roll out entirely new features, no matter how custom your mobile app."
       -
         title: "Multi-page Testing (funnel)"
         boolean: true
         starter_bool: false
         enterprise_bool: true
+        tooltip: "Test and personalize experiences throughout your funnel."
       -
         title: "Multichannel Experiments"
         boolean: true
         starter_bool: false
         enterprise_bool: true
+        tooltip: "Connect experiences across your websites and mobile applciations."
   -
     title: "Discover Visitor Insights"
     desc: "Learn more about the visitors that connect with you on your websites and mobile apps."
@@ -54,11 +58,13 @@ tables:
         boolean: true
         starter_bool: true
         enterprise_bool: true
+        tooltip: "A new approach to experience optimization that aligns statistics with the way businesses actually operate."
       -
         title: "Basic Visitor Segmentation"
         boolean: true
         starter_bool: true
         enterprise_bool: true
+        tooltip: "Segment experiment results by source type, browser, mobile vs. non-mobile"
       -
         title: "Custom Visitor Segmentation"
         boolean: true
@@ -69,11 +75,13 @@ tables:
         boolean: true
         starter_bool: false
         enterprise_bool: true
+        tooltip: "Create and share reusable reports highlighting specific metrics."
       -
         title: "Report Annotations"
         boolean: true
         starter_bool: false
         enterprise_bool: true
+        tooltip: "Add notes directly on your results page."
   -
     title: "Target Optimized Experiences"
     desc: "Focus on your high-value visitors and increase revenue."
@@ -138,11 +146,13 @@ tables:
         boolean: true
         starter_bool: false
         enterprise_bool: true
+        tooltip: "Upload your customer lists to Optimizely and target optimized experiences to them."
       -
         title: "Custom Tags"
         boolean: true
         starter_bool: false
         enterprise_bool: true
+        tooltip: "Target optimized experiences based on data you have about your visitors."
       -
         title: "Time of Day"
         boolean: true
@@ -163,16 +173,19 @@ tables:
         boolean: true
         starter_bool: true
         enterprise_bool: true
+        tooltip: "Integrate with Google Analytics, ClickTale, KissMetrics, and more!"
       -
         title: "Advanced Analytics Integrations"
         boolean: true
         starter_bool: false
         enterprise_bool: true
+        tooltip: "Integrate with enterprise-ready analytics tools such as Adobe Analytics (Site Catalyst) and Google Analytics Premium."
       -
         title: "Third Party Data Integrations"
         boolean: true
         starter_bool: false
         enterprise_bool: true
+        tooltip: "Integrate with third party data providers such as BlueKai and Tealium."
       -
         title: "API Access"
         string: true
@@ -232,6 +245,7 @@ tables:
         boolean: true
         starter_bool: false
         enterprise_bool: true
+        tooltip: "Schedule when experiments should start and stop in advance."
       -
         title: "Traffic"
         string: true

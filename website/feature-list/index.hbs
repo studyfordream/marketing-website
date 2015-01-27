@@ -37,7 +37,11 @@ og_title: "Full Feature List"
   <div class="table-body">
     {{#each this.features}}
       <div class="table-row row">
-        <p class="columns four">{{this.title}}</p>
+        {{#if this.tooltip}}
+          <p title="{{this.tooltip}}" class="columns four" data-tooltip>{{this.title}}</p>
+        {{else}}
+          <p class="columns four">{{this.title}}</p>
+        {{/if}}
         {{#if this.string}}
           {{#if this.starter_text}}
             <div class="starter-box columns four text"><p>{{this.starter_text}}</p></div>
