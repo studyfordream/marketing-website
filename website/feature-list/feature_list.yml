@@ -16,7 +16,7 @@ tables:
       Halt neverending debates with your team and boss."
     features:
       -
-        title: "A/B and multivariate testing"
+        title: "A/B testing"
         boolean: true
         starter_bool: true
         enterprise_bool: true
@@ -208,12 +208,12 @@ tables:
         starter_bool: true
         enterprise_bool: true
       -
-        title: "Experiment Change History"
+        title: "Preview Changes"
         boolean: true
         starter_bool: true
         enterprise_bool: true
       -
-        title: "Preview Changes"
+        title: "Experiment Change History"
         boolean: true
         starter_bool: true
         enterprise_bool: true
