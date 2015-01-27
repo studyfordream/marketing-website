@@ -1,7 +1,7 @@
 hero:
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/hero.jpg"
   title: "Goodbye traditional statistics"
-  subtitle: "Statistics for the internet age is here"
+  subtitle: "Statistics for the Internet age is here"
   link_anchor_text: "Learn More"
 lets_talk:
   title: "LET'S TALK STATS"
@@ -45,11 +45,11 @@ compare:
   -
     id: 2
     title: "With traditional statistics"
-    pre: "setting a 95% significance<br>level can result in a"
-    percentage: "30%"
-    post: "or more chance you'll make the wrong decision if you don't avoid pitfalls*"
-  footnote: "* We simulated millions of A/A tests under both frameworks and calculated error rate by determining the percentage of experiments that declared a winning or losing variation given a continous monitoring policy. (1000+ visitors)"
-  cta_title: "Interested in how stats engine affects your results?"
+    pre: "setting a 95% significance<br>level results in a"
+    percentage: "<span><</span>70%"
+    post: "chance you'll make the right decision if you don't avoid pitfalls*"
+  footnote: "* We simulated millions of A/A tests under both frameworks and calculated error rate by determining the percentage of experiments that declared a winning or losing variation given a continuous monitoring policy. (1000+ visitors)"
+  cta_title: "Interested in how Stats Engine affects your results?"
   cta_text: "Learn more"
   cta_link: "http://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/"
 worry:
@@ -63,7 +63,7 @@ worry:
     text: "No need to commit to a sample size or duration in advance. You can also see conclusive results up to twice as fast."
   -
     title: "Leave the<br>Stats to Us"
-    text: "No need to change how you run your tests. Stats engine works exactly the way you expect it to, without any extra work."
+    text: "No need to change how you run your tests. Stats Engine works exactly the way you expect it to, without any extra work."
   cta_title: "Get answers to your FAQs"
   cta_text: "Check out Optiverse"
   cta_link: "https://community.optimizely.com/t5/Product-What-s-New/Product-Update-A-new-Stats-Engine-to-power-your-results/ba-p/8518"
