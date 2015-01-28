@@ -21,6 +21,8 @@
 
 small {font-size: 80%;}
 
+.a-center {text-align: center;}
+
 .button {
   background-color: #126fb0;
   background: linear-gradient(to bottom, #147ec7 0%,#126fb0 100%);
@@ -49,3 +51,12 @@ small {font-size: 80%;}
 }
 
 .hide-label {display: none;}
+
+input[type="text"], input[type="url"], input[type="email"], input[type="tel"],  input[type="password"]{
+  &.oform-error-show,
+  &.error-show {
+    background-color: #fef3f3;
+    border-color: #f3b6b3;
+    color: #242424;
+  }
+}

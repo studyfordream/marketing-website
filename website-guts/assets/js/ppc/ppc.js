@@ -48,7 +48,7 @@ w.optly.mrkt.trialForm = new Oform({
   return w.optly.mrkt.Oform.before();
 }).on('validationerror', function(element){
   w.optly.mrkt.Oform.validationError(element);
-  w.alert('validation error: ' + element.getAttribute('name'));
+  //w.alert('validation error: ' + element.getAttribute('name'));
 }).on('error', function(){
   $('#seo-form .error-message').text('An unknown error occured.');
   $('body').addClass('oform-error').removeClass('oform-processing');
@@ -78,7 +78,7 @@ w.optly.mrkt.trialForm = new Oform({
   console.log(returnData);
   if(response){
     if(returnData.XHR.status === 200){
-      window.alert('200 response');
+      //window.alert('200 response');
       //remove error class from body?
       w.optly.mrkt.Oform.trackLead({
         email: d.getElementById('email').value,
@@ -122,7 +122,7 @@ w.optly.mrkt.trialForm = new Oform({
       }, 1000);
 
     } else {
-      window.alert('non 200 response');
+      //window.alert('non 200 response');
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
         label: 'status not 200: ' + event.target.status
@@ -153,7 +153,7 @@ w.optly.mrkt.trialForm = new Oform({
     $('body').addClass('oform-error').removeClass('oform-processing');
   }
 }).on('done', function(){
-  w.alert('done event');
+  //w.alert('done event');
   if($('body').hasClass('oform-error')){
     $('body').removeClass('oform-processing');
     //report that there were errors in the form
@@ -166,4 +166,34 @@ w.optly.mrkt.trialForm = new Oform({
       }
     });
   }
+});
+
+var validateOnBlur = function(isValid, element){
+  w.optly.mrkt.trialForm.options.adjustClasses(element, isValid);
+  var elementValue = $(element).val();
+  var elementHasValue = elementValue ? 'has value' : 'no value';
+  if(!isValid){
+    w.optly.mrkt.formHadError = true;
+    w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' error blur', {
+      category: 'form error',
+      label: elementHasValue,
+      value: elementValue.length
+    }, {
+      integrations: {
+        Marketo: false
+      }
+    });
+  }
+};
+
+$('#seo-form [name="name"]').blur(function(){
+  validateOnBlur(w.optly.mrkt.trialForm.options.validate.text(this), this);
+});
+
+$('#seo-form [name="url-input"]').blur(function(){
+  validateOnBlur(w.optly.mrkt.trialForm.options.customValidation['url-input'](this), this);
+});
+
+$('#seo-form [name="email"]').blur(function(){
+  validateOnBlur(w.optly.mrkt.trialForm.options.validate.email( $(this).val() ), this);
 });

@@ -8,6 +8,15 @@ h4.seo-form-heading {
   text-align: center;
 }
 
+#ppc-form {
+  width: 400px;
+  margin: 0 auto;
+  #submit {
+    width: 200px;
+    margin-top: 10px;
+  }
+}
+
 #seo-form {
   ul {padding: 0;}
   li {
@@ -39,6 +48,8 @@ h4.seo-form-heading {
     margin: auto auto 100px auto;
   }
   #ppc-form {
+    width: auto;
+    margin: 0 auto;
     h4 {
       text-align: center;
     }

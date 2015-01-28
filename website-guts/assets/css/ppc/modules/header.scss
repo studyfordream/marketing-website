@@ -6,11 +6,31 @@ header {
   }
 }
 
+
+
 p.logo a {
   background-image: image-url('ppc/logo.png');
   background-repeat: no-repeat;
   display: block;
   text-indent: -900em;
-  height: 49px;
-  width: 173px;
+  width: 130px;
+  height: 28px;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: $desktop-min-width){
+  p.logo a {
+    margin: 0;
+    height: 49px;
+    width: 173px;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  p.logo a {
+    background-image: image-url('ppc/logo@2x.png');
+    background-size: 165px 35.5px;
+    height: 35.5px;
+    width: 165px;
+  }
 }

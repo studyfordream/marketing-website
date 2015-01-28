@@ -26,6 +26,9 @@ module.exports = {
     },
     files: {
       '<%= config.dist %>/assets/js/ppc/bundle.js': [
+        '<%= config.guts %>/assets/js/ppc/libraries/jquery.cookie.js',
+        '<%= config.guts %>/assets/js/ppc/utils/get-url-parameter.js',
+        '<%= config.guts %>/assets/js/ppc/services/source.js',
         '<%= config.guts %>/assets/js/ppc/utils/trim-url.js',
         '<%= config.guts %>/assets/js/ppc/utils/oform-globals.js',
         '<%= config.guts %>/assets/js/ppc/libraries/oform.min.js',
