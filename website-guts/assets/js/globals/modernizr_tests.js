@@ -1,15 +1,15 @@
-/*  Random string function for analytics.identify
-  * taken from here:
-  * http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript
-  */
-window.optly.mrkt.utils.randomString = function() {
+//Test for viewport unit support
+Modernizr.addTest('viewportunits', function() {
+  var bool;
 
-  var text = '';
-  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  Modernizr.testStyles('#modernizr { width: 50vw; }', function(elem) {
+    var width = parseInt(window.innerWidth/2,10),
+    compStyle = parseInt((window.getComputedStyle ?
+                          getComputedStyle(elem, null) :
+                          elem.currentStyle).width,10);
 
-  for(var i=0; i < 8; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
+    bool= (compStyle === width);
+  });
 
-  return text;
-};
+  return bool;
+});
