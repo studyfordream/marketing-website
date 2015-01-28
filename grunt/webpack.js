@@ -89,7 +89,7 @@ module.exports = function(grunt, options) {
       },
       resolve: {
           extensions: ['', '.js', '.hbs'],
-          modulesDirectories: ['node_modules', 'website-guts/templates/client']
+          modulesDirectories: ['node_modules', 'website-guts/templates/client', 'website-guts/assets/js/globals']
       },
       module: {
         preLoaders: sharedPreloaders,
@@ -105,7 +105,7 @@ module.exports = function(grunt, options) {
       },
       resolve: {
           extensions: ['', '.js', '.hbs'],
-          modulesDirectories: ['node_modules', 'bower_components', 'website-guts/templates/client']
+          modulesDirectories: ['node_modules', 'bower_components', 'website-guts/templates/client', 'website-guts/assets/js/globals']
       },
       module: {
         preLoaders: sharedPreloaders,

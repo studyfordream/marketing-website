@@ -21,7 +21,9 @@ helperPaths.forEach(requireFormHelpers);
 
 // require the global js
 var requireGlobal = require.context('./globals', false, /\.js$/);
-requireGlobal.keys().forEach(requireGlobal);
+var globalsPaths = requireGlobal.keys();
+globalsPaths.splice(globalsPaths.indexOf('./translation.js'), 1);
+globalsPaths.forEach(requireGlobal);
 
 // // all of the components
 var requireComponents = require.context('./components', false, /\.js$/);

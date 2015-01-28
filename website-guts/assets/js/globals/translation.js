@@ -10,7 +10,7 @@
  * @param {...*} substitutions - Substitution parameters
  * @returns {String} Localized string
  */
-window.optly.tr = function(str) {
+module.exports = function(str) {
   // If window.optlyDict is present - use it for dictionary lookup.
   // Need to have a global variable here because it must be declared *before* app load because app may need to localize
   // message during initialize.
