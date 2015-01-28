@@ -9,3 +9,12 @@ a {
   text-decoration: none;
   color: $link-color;
 }
+p {
+  text-align: center;
+}
+
+@media only screen and (min-width: $desktop-min-width){
+  p {
+    text-align: left;
+  }
+}

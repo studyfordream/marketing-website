@@ -1,12 +1,10 @@
 header {
-  background: #006eb6;
+  background: $bright-blue;
   p.logo {
     margin: 8px 0;
     padding: 0;
   }
 }
-
-
 
 p.logo a {
   background-image: image-url('ppc/logo.png');
