@@ -1,742 +1,87 @@
-<div class="pricing-matrix">
-<!--             -->
-<!--Title Section-->
-<!--             -->
-<div class="title-table-header row">
-  <div class="starter columns four offset-four">
-    <h1 >Starter</h1>
-    <p>All the basics.<br>No credit card required.</p>
+<div id="feature-list">
+{{#with feature_list}}
+  <!--             -->
+  <!--Title Section-->
+  <!--             -->
+  <div class="title-table-header row">
+    <div class="starter columns four offset-four">
+      <h1 >{{starter_header.title}}</h1>
+      <p>{{{starter_header.desc}}}</p>
+    </div>
+    <div class="enterprise columns four">
+      <h1 >{{enterprise_header.title}}</h1>
+      <p>{{enterprise_header.desc}}</p>
+    </div>
   </div>
-  <div class="enterprise columns four">
-    <h1 >Enterprise</h1>
-    <p>Customized For Your Business.</p>
-  </div>
-</div>
 
-<!--              -->
-<!--Feature Tables-->
-<!--              -->
-
-<div class="table">
-  <div class="table-header row">
-    <p class="table-title columns four">Create &amp; Launch Experiments</p>
-    <p class="table-desc columns eight">Start making decisions with actionable data. Optimizely lets you see your ideas come to life quickly. Halt neverending debates with your team and boss.</p>
+  <!--              -->
+  <!--Feature Tables-->
+  <!--              -->
+  {{#each tables}}
+  <div class="table">
+    <div class="table-header row">
+      <p class="table-title columns four">{{this.title}}</p>
+      <p class="table-desc columns eight">{{this.desc}}</p>
+    </div>
+    <div class="table-body">
+      {{#each this.features}}
+        <div class="table-row row">
+          <div class="columns four">
+            {{#if this.tooltip}}
+              <p><span title="{{this.tooltip}}" data-tooltip>{{this.title}}</span></p>
+            {{else}}
+              <p>{{this.title}}</p>
+            {{/if}}
+          </div>
+          {{#if this.string}}
+            {{#if this.starter_text}}
+              <div class="starter-box columns four text"><p>{{this.starter_text}}</p></div>
+            {{/if}}
+            {{#if this.enterprise_text}}
+              <div class="enterprise-box columns four text"><p>{{this.enterprise_text}}</p></div>
+            {{/if}}
+          {{/if}}
+          {{#if this.boolean}}
+            {{#if this.starter_bool}}
+                <div class="starter-box columns four true"></div>
+            {{else}}
+                <div class="starter-box columns four false"></div>
+            {{/if}}
+            {{#if this.enterprise_bool}}
+              <div class="enterprise-box columns four true"></div>
+            {{else}}
+              <div class="enterprise-box columns four false"></div>
+            {{/if}}
+          {{/if}}
+        </div>
+      {{/each}}
+    </div>
   </div>
-  <div class="table-body">
-    
-      <div class="table-row row">
-        <p class="columns four">A/B testing</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Multivariate Testing</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Instant Rollouts</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Mobile Developer Tools</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Multi-page Testing (funnel)</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Multichannel Experiments</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-  </div>
-</div>
-
-<div class="table">
-  <div class="table-header row">
-    <p class="table-title columns four">Discover Visitor Insights</p>
-    <p class="table-desc columns eight">Learn more about the visitors that connect with you on your websites and mobile apps.</p>
-  </div>
-  <div class="table-body">
-    
-      <div class="table-row row">
-        <p class="columns four">Stats Engine</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Basic Visitor Segmentation</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Custom Visitor Segmentation</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Custom Reports</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Report Annotations</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-  </div>
-</div>
-
-<div class="table">
-  <div class="table-header row">
-    <p class="table-title columns four">Target Optimized Experiences</p>
-    <p class="table-desc columns eight">Focus on your high-value visitors and increase revenue.</p>
-  </div>
-  <div class="table-body">
-    
-      <div class="table-row row">
-        <p class="columns four">Browser or Device</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Referrer URL</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Query Parameters</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Traffic Source</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Browser Language</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Ad Campaign</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Custom Event</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Custom Javascript</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">IP Address</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Custom Dimension</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Cookies</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">List Membership</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Custom Tags</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Time of Day</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Location (Geotargeting)</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-  </div>
-</div>
-
-<div class="table">
-  <div class="table-header row">
-    <p class="table-title columns four">Integrate Data Across Your Platforms</p>
-    <p class="table-desc columns eight">Seamlessly integrate Optimizely with the best-in-class products you already use and take action on your data, no matter where it lives.</p>
-  </div>
-  <div class="table-body">
-    
-      <div class="table-row row">
-        <p class="columns four">Basic Analytics &amp; Heatmapping Integrations</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Advanced Analytics Integrations</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Third Party Data Integrations</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">API Access</p>
-        
-          
-            <div class="starter-box columns four text"><p>JavaScript API REST API (1000 calls/month)</p></div>
-          
-          
-            <div class="enterprise-box columns four text"><p>JavaScript API REST API (Custom calls/month)</p></div>
-          
-        
-        
-      </div>
-    
-  </div>
-</div>
-
-<div class="table">
-  <div class="table-header row">
-    <p class="table-title columns four">Manage Your Experience Optimization Program</p>
-    <p class="table-desc columns eight">Empower your team with actionable, real-time data on your visitors and foster the growth of a data-driven culture in your company.</p>
-  </div>
-  <div class="table-body">
-    
-      <div class="table-row row">
-        <p class="columns four">Projects</p>
-        
-          
-            <div class="starter-box columns four text"><p>1 Web and 1 Mobile App</p></div>
-          
-          
-            <div class="enterprise-box columns four text"><p>Custom</p></div>
-          
-        
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Domains</p>
-        
-          
-            <div class="starter-box columns four text"><p>One Domain and One Mobile App</p></div>
-          
-          
-            <div class="enterprise-box columns four text"><p>Custom</p></div>
-          
-        
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Experiments</p>
-        
-          
-            <div class="starter-box columns four text"><p>Unlimited</p></div>
-          
-          
-            <div class="enterprise-box columns four text"><p>Unlimited</p></div>
-          
-        
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Collaborators</p>
-        
-          
-            <div class="starter-box columns four text"><p>3</p></div>
-          
-          
-            <div class="enterprise-box columns four text"><p>Custom</p></div>
-          
-        
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Multi-account Login</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Experiment Change History</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Preview Changes</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Cross-browser Testing</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Role-based Permissions</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Experiment Scheduler</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Traffic</p>
-        
-          
-            <div class="starter-box columns four text"><p>50,000 MUVs/MUAs</p></div>
-          
-          
-            <div class="enterprise-box columns four text"><p>Custom</p></div>
-          
-        
-        
-      </div>
-    
-  </div>
-</div>
-
-<div class="table">
-  <div class="table-header row">
-    <p class="table-title columns four">Support</p>
-    <p class="table-desc columns eight">Take your optimization program to the next level with enterprise onboarding and continued access to technical and testing strategy experts.</p>
-  </div>
-  <div class="table-body">
-    
-      <div class="table-row row">
-        <p class="columns four">Community (Optiverse)</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Knowledge Base</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Online Tickets</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Phone Support</p>
-        
-        
-          
-              <div class="starter-box columns four true"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Enterprise Onboarding</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Dedicated Customer Success Manager</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Dedicated Solutions Architect</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-      <div class="table-row row">
-        <p class="columns four">Strategic Consulting</p>
-        
-        
-          
-              <div class="starter-box columns four false"></div>
-          
-          
-            <div class="enterprise-box columns four true"></div>
-          
-        
-      </div>
-    
-  </div>
-</div>
+  {{/each}}
 
 
-
-<!--                    -->
-<!--Bottom Title Section-->
-<!--                    -->
-<div class="title-table-header row">
-  <div class="starter columns four offset-four">
-    <h1 >Starter</h1>
-    <p>All the basics.<br>No credit card required.</p>
+  <!--                    -->
+  <!--Bottom Title Section-->
+  <!--                    -->
+  <div class="title-table-header row">
+    <div class="starter columns four offset-four">
+      <h1 >{{starter_header.title}}</h1>
+      <p>{{{starter_header.desc}}}</p>
+    </div>
+    <div class="enterprise columns four">
+      <h1 >{{enterprise_header.title}}</h1>
+      <p>{{enterprise_header.desc}}</p>
+    </div>
   </div>
-  <div class="enterprise columns four">
-    <h1 >Enterprise</h1>
-    <p>Customized For Your Business.</p>
+  <div class="cta row">
+    <div class="starter columns four offset-four">
+      <h1 class="">{{calls_to_action.starter.label}}</h1>
+      <a class="starter-cta" href="#">{{calls_to_action.starter.button_text}}</a>
+    </div>
+    <div class="enterprise columns four">
+      <h1 class="">{{calls_to_action.enterprise.label}}</h1>
+      <a class="enterprise-cta" href="#">{{calls_to_action.enterprise.button_text}}</a>
+    </div>
   </div>
-</div>
-<div class="cta row">
-  <div class="starter columns four offset-four">
-    <h1 class="">Free</h1>
-    <a class="starter-cta" href="#">Get Started Now</a>
-  </div>
-  <div class="enterprise columns four">
-    <h1 class="">Get Quote</h1>
-    <a class="enterprise-cta" href="#">Talk to Us</a>
-  </div>
-</div>
+  {{/with}}
 </div>

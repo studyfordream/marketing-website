@@ -122,15 +122,23 @@ body.pricing {
 }
 
 @media screen and (min-width: $tablet-min-width) {
-  .header-cta-container {
-    display: inline;
-  }
-  .title-section {
-    .title-copy {
-      font-size: 48px;
+  body.pricing {
+    #page-header {
+      .header-cta-container {
+        display: inline;
+      }
+    }
+    #page-header {
+      .title-section {
+        .title-copy {
+          font-size: 48px;
+        }
+      }
     }
   }
 }
 
 @media screen and (min-width: $desktop-min-width) {
+  body.pricing {
+  }
 }
