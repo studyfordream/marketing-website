@@ -14,7 +14,7 @@ module.exports = function(str) {
   // If window.optlyDict is present - use it for dictionary lookup.
   // Need to have a global variable here because it must be declared *before* app load because app may need to localize
   // message during initialize.
-  if(typeof window.optlyDict !== 'undefined' && window.optlyDict[str] !== null) {
+  if(typeof window !== 'undefined' && typeof window.optlyDict !== 'undefined' && window.optlyDict[str] !== null) {
     str = window.optlyDict[str];
   }
 
