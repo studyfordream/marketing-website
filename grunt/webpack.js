@@ -15,6 +15,7 @@ module.exports = function(grunt, options) {
       exclude: [
         /node\_modules/,
         /bower\_components/,
+        /libraries/,
         /form\-filler/,
         /global\.js/
       ],
@@ -25,6 +26,7 @@ module.exports = function(grunt, options) {
       exclude: [
         /node\_modules/,
         /bower\_components/,
+        /libraries/,
         /equal\_height\_grid/,
         /form\-filler/,
         /guid\_sprintf/,
@@ -105,7 +107,7 @@ module.exports = function(grunt, options) {
       },
       resolve: {
           extensions: ['', '.js', '.hbs'],
-          modulesDirectories: ['node_modules', 'bower_components', 'website-guts/templates/client', 'website-guts/assets/js/globals']
+          modulesDirectories: ['node_modules', 'bower_components', 'website-guts/templates/client', 'website-guts/assets/js/globals', 'website-guts/assets/js/libraries']
       },
       module: {
         preLoaders: sharedPreloaders,
