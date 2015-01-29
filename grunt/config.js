@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 //get configs
 var fs,
     creds;
@@ -33,8 +34,9 @@ var config = {
                        '  window.linkPath = "" \n\n' +
                        '  try { \n\n',
         concat_footer: '  } catch(error){ \n\n' +
+                       '    console.error(error, targetName);\n\n' +
                        '    if(typeof error === "object") { error = JSON.stringify(error) }; \n\n' +
-                       '    if (typeof targetName === "undefined" || targetName === null) { var targetName = "namespaceGlobal" }; \n\n' +
+                       '    if (typeof targetName === "undefined" || targetName === null) { var targetName = "unknown target" }; \n\n' +
                        '    var path = window.location.pathname;\n\n' +
                        '    var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
                        '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " + targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
@@ -60,8 +62,9 @@ var config = {
                        '  window.linkPath = "<%= gitinfo.local.branch.current.name %>"; \n\n' +
                        '  try { \n\n',
         concat_footer: '  } catch(error){ \n\n' +
+                       '    console.error(error, targetName);\n\n' +
                        '    if(typeof error === "object") { error = JSON.stringify(error) }; \n\n' +
-                       '    if (typeof targetName === "undefined" || targetName === null) { var targetName = "namespaceGlobal" }; \n\n' +
+                       '    if (typeof targetName === "undefined" || targetName === null) { var targetName = "unknown target" }; \n\n' +
                        '    var path = window.location.pathname;\n\n' +
                        '    var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
                        '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " + targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +

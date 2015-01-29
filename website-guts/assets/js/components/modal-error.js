@@ -1,10 +1,11 @@
-var DEFAULT_ERROR_MESSAGE = window.optly.tr('Don\'t worry, most issues are minor - please refresh your browser and try again.');
+var tr = require('translation');
+var DEFAULT_ERROR_MESSAGE = tr('Don\'t worry, most issues are minor - please refresh your browser and try again.');
 var errorCache = [];
 
 function showError(errorMessage, errorId) {
   // translate error message on the fly because TR may not be defined at the time of error reporting
   var info = {
-      errorMessage: window.optly.tr(errorMessage) || DEFAULT_ERROR_MESSAGE,
+      errorMessage: tr(errorMessage) || DEFAULT_ERROR_MESSAGE,
       guid: errorId || window.optly.mrkt.utils.generateGuid(),
       timestamp: window.optly.mrkt.utils.formatDateJson(new Date())
     },
@@ -19,7 +20,7 @@ function showError(errorMessage, errorId) {
     $('#optimizely_error_dialog #optimizely_error_type').append($errorMsgElm);
     $('#optimizely_error_dialog #optimizely_error_info').append($errorIdElm);
     if(errorCache.length === 1) {
-      var message = window.optly.tr('Multiple Account Errors'),
+      var message = tr('Multiple Account Errors'),
         $messageHeader = $('<h3>').text(message);
 
       $('#error-modal .modal-body').prepend($messageHeader);
