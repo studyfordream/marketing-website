@@ -9,88 +9,92 @@ og_title: "Full Feature List"
 
 
 {{#with feature_list}}
-<p>{{{back}}}</p>
+  <p>{{{back}}}</p>
+  <div class="feature-list">
 
-<!--             -->
-<!--Title Section-->
-<!--             -->
-<div class="title-table-header row">
-  <div class="starter columns four offset-four">
-    <h1 >{{starter_header.title}}</h1>
-    <p>{{{starter_header.desc}}}</p>
+  <!--             -->
+  <!--Title Section-->
+  <!--             -->
+  <div class="title-table-header row">
+    <div class="starter columns four offset-four">
+      <h1 >{{starter_header.title}}</h1>
+      <p>{{{starter_header.desc}}}</p>
+    </div>
+    <div class="enterprise columns four">
+      <h1 >{{enterprise_header.title}}</h1>
+      <p>{{enterprise_header.desc}}</p>
+    </div>
   </div>
-  <div class="enterprise columns four">
-    <h1 >{{enterprise_header.title}}</h1>
-    <p>{{enterprise_header.desc}}</p>
-  </div>
-</div>
 
-<!--              -->
-<!--Feature Tables-->
-<!--              -->
-{{#each tables}}
-<div class="table">
-  <div class="table-header row">
-    <p class="table-title columns four">{{this.title}}</p>
-    <p class="table-desc columns eight">{{this.desc}}</p>
+  <!--              -->
+  <!--Feature Tables-->
+  <!--              -->
+  {{#each tables}}
+  <div class="table">
+    <div class="table-header row">
+      <p class="table-title columns four">{{this.title}}</p>
+      <p class="table-desc columns eight">{{this.desc}}</p>
+    </div>
+    <div class="table-body">
+      {{#each this.features}}
+        <div class="table-row row">
+          <div class="columns four">
+            {{#if this.tooltip}}
+              <p><span title="{{this.tooltip}}" data-tooltip>{{this.title}}</span></p>
+            {{else}}
+              <p>{{this.title}}</p>
+            {{/if}}
+          </div>
+          {{#if this.string}}
+            {{#if this.starter_text}}
+              <div class="starter-box columns four text"><p>{{this.starter_text}}</p></div>
+            {{/if}}
+            {{#if this.enterprise_text}}
+              <div class="enterprise-box columns four text"><p>{{this.enterprise_text}}</p></div>
+            {{/if}}
+          {{/if}}
+          {{#if this.boolean}}
+            {{#if this.starter_bool}}
+                <div class="starter-box columns four true"></div>
+            {{else}}
+                <div class="starter-box columns four false"></div>
+            {{/if}}
+            {{#if this.enterprise_bool}}
+              <div class="enterprise-box columns four true"></div>
+            {{else}}
+              <div class="enterprise-box columns four false"></div>
+            {{/if}}
+          {{/if}}
+        </div>
+      {{/each}}
+    </div>
   </div>
-  <div class="table-body">
-    {{#each this.features}}
-      <div class="table-row row">
-        {{#if this.tooltip}}
-          <p title="{{this.tooltip}}" class="columns four" data-tooltip>{{this.title}}</p>
-        {{else}}
-          <p class="columns four">{{this.title}}</p>
-        {{/if}}
-        {{#if this.string}}
-          {{#if this.starter_text}}
-            <div class="starter-box columns four text"><p>{{this.starter_text}}</p></div>
-          {{/if}}
-          {{#if this.enterprise_text}}
-            <div class="enterprise-box columns four text"><p>{{this.enterprise_text}}</p></div>
-          {{/if}}
-        {{/if}}
-        {{#if this.boolean}}
-          {{#if this.starter_bool}}
-              <div class="starter-box columns four true"></div>
-          {{else}}
-              <div class="starter-box columns four false"></div>
-          {{/if}}
-          {{#if this.enterprise_bool}}
-            <div class="enterprise-box columns four true"></div>
-          {{else}}
-            <div class="enterprise-box columns four false"></div>
-          {{/if}}
-        {{/if}}
-      </div>
-    {{/each}}
-  </div>
-</div>
-{{/each}}
+  {{/each}}
 
 
-<!--                    -->
-<!--Bottom Title Section-->
-<!--                    -->
-<div class="title-section row">
-  <div class="starter columns four offset-four">
-    <h1 >{{starter_header.title}}</h1>
-    <p>{{{starter_header.desc}}}</p>
+  <!--                    -->
+  <!--Bottom Title Section-->
+  <!--                    -->
+  <div class="title-table-header row">
+    <div class="starter columns four offset-four">
+      <h1 >{{starter_header.title}}</h1>
+      <p>{{{starter_header.desc}}}</p>
+    </div>
+    <div class="enterprise columns four">
+      <h1 >{{enterprise_header.title}}</h1>
+      <p>{{enterprise_header.desc}}</p>
+    </div>
   </div>
-  <div class="enterprise columns four">
-    <h1 >{{enterprise_header.title}}</h1>
-    <p>{{enterprise_header.desc}}</p>
+  <div class="cta row">
+    <div class="starter columns four offset-four">
+      <h1 class="">{{calls_to_action.starter.label}}</h1>
+      <a class="starter-cta" href="#">{{calls_to_action.starter.button_text}}</a>
+    </div>
+    <div class="enterprise columns four">
+      <h1 class="">{{calls_to_action.enterprise.label}}</h1>
+      <a class="enterprise-cta" href="#">{{calls_to_action.enterprise.button_text}}</a>
+    </div>
   </div>
+  <p class="columns four back">{{{back}}}</p>
+  {{/with}}
 </div>
-<div class="cta row">
-  <div class="starter columns four offset-four">
-    <h1 class="">{{calls_to_action.starter.label}}</h1>
-    <a class="starter-cta" href="#">{{calls_to_action.starter.button_text}}</a>
-  </div>
-  <div class="enterprise columns four">
-    <h1 class="">{{calls_to_action.enterprise.label}}</h1>
-    <a class="enterprise-cta" href="#">{{calls_to_action.enterprise.button_text}}</a>
-  </div>
-</div>
-<p class="columns four back">{{{back}}}</p>
-{{/with}}
