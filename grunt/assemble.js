@@ -4,6 +4,7 @@ var through = require('through2');
 var path = require('path');
 var helpers = require('handlebars-helpers');
 var extend = require('extend-shallow');
+var createStack = require('layout-stack');
 
 module.exports = function (grunt) {
   grunt.registerTask('assemble', 'Assemble', function () {
@@ -81,11 +82,42 @@ module.exports = function (grunt) {
       };
     };
 
+    // transform the layout front matter into an object
+    // that `layout-stack` requires
+    var mapLayouts = function (layouts) {
+      return Object.keys(layouts).reduce(function (acc, key) {
+        acc[key] = layouts[key].data;
+        return acc;
+      }, {});
+    };
+
+    // middleware to merge the layout context into the current page context
+    var mergeLayoutContext = function (file, next) {
+      var layout = file.layout || file.options.layout || file.data.layout;
+      // => partners
+      var layouts = mapLayouts(assemble.views.layouts);
+      // => layout frontmatter
+
+      var stack = createStack(layout, layouts, assemble.options);
+      // => ['wrapper', 'partners']
+
+      var data = {};
+      var name = null;
+      while (name = stack.shift()) {
+        extend(data, layouts[name]);
+      }
+      extend(data, file.data);
+
+      file.data = data;
+      next();
+    };
+
     // custom middleware for `resources` to add front-matter (`data`)
     // to the assemble cache. (`assemble.get('resources').foo`)
     assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
+    assemble.before(/\.hbs/, mergeLayoutContext);
 
     // load `modal` templates
     var modalFiles = config.modals.files[0];
