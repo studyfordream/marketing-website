@@ -53,16 +53,15 @@ body.opticon {
       flex-wrap: wrap;
     }
     .andreeseen-container {
-      width: 100%;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .andreeseen {
+      background: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/marc_square.jpg') no-repeat center center;
+      background-size: contain;
       width: 100%;
-      height: 100%;
-      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/marc_square.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: 25% 25%;
-      margin: 9px auto 0 auto;
+      padding-top: 100%;
     }
     .caption {
       text-align: center;
@@ -214,8 +213,10 @@ body.opticon {
         width: 46%;
         text-align: left;
       }
-      .andreeseen {
+      .andreeseen-container {
+        width: 350px;
         margin-right: 50px;
+        margin-left: 0;
       }
       .caption {
         text-align: left;
