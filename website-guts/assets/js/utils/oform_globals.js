@@ -100,6 +100,8 @@
       Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
       Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
       iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+      iOStestc: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+      IOSTest2: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
       Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
     };
 
