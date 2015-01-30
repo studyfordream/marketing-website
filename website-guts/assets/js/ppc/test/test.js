@@ -1,7 +1,5 @@
 $(function(){
 
-  window.console.log('heyo test file');
-
   var QUnit = window.QUnit;
 
   /*
