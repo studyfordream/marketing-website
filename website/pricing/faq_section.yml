@@ -1,0 +1,23 @@
+faqs:
+  -
+    question: "How are monthly unique visitors counted?"
+    answer: "Monthly unique visitors are counted by adding the number of unique visitors in an experiment on the web to the number of unique visitors in an experiment in a mobile app. You can distribute the unique visitor allocation however you like."
+  -
+    question: "What amount of coding knowledge is required to use Optimizely?"
+    answer: "Once the Optimizely Snippet or SDK is installed, you can get started optimizing without technical expertise using a visual editor for both websites and mobile apps. Optimizely is also very developer-friendly, with features that enable custom experiments and advanced targeting for a range of use cases."
+  -
+    question: "What will I need to install on my website or in my mobile app?"
+    answer: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that’s required to start running experiments."
+  -
+    question: "I signed up for Optimizely's Bronze, Silver, or Gold plan. What do these new plans mean for me?"
+    answer: "As a current customer, you are grandfathered into the original plan you selected. You can continue to use this plan, or select a new plan if you feel Starter or Enterprise better meets your needs. You can find more answers in this <a href='https://help.optimizely.com/hc/en-us/articles/200040055'>FAQ</a>."
+  -
+    question: "Does Optimizely offer nonprofit pricing?"
+    answer: "Yes. Visit <a href='https://www.optimizely.com/nonprofits'>Optimizely for non-profits</a> for more information."
+  -
+    question: "I have more questions. Where can I find answers?"
+    answer: "Check out our <a href='https://help.optimizely.com'>Knowledge Base</a> for questions about how Optimizely works on your website or mobile app. If you have questions about an enterprise plan, please get in touch by calling or filling out a form. We’ll get back to you!"
+
+contact:
+  text: "Still have questions? Call us:"
+  phone_number: "1-800-252-9480"
