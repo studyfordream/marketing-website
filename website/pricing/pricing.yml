@@ -38,13 +38,13 @@ faqs:
     answer: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that’s required to start running experiments."
   -
     question: "I signed up for Optimizely's Bronze, Silver, or Gold plan. What do these new plans mean for me?"
-    answer: "As a current customer, you are grandfathered into the original plan you selected. You can continue to use this plan, or select a new plan if you feel Starter or Enterprise better meets your needs. You can find more answers in this FAQ."
+    answer: "As a current customer, you are grandfathered into the original plan you selected. You can continue to use this plan, or select a new plan if you feel Starter or Enterprise better meets your needs. <a href='https://help.optimizely.com/hc/en-us/articles/200040055'>You can find more answers in this FAQ</a>."
   -
     question: "Does Optimizely offer nonprofit pricing?"
     answer: "Yes. Visit <a href='https://www.optimizely.com/nonprofits'>Optimizely for non-profits</a> for more information."
   -
     question: "I have more questions. Where can I find answers?"
-    answer: "Check out our Knowledge Base for questions about how Optimizely works on your website or mobile app. If you have questions about an enterprise plan, please get in touch by calling or filling out a form. We’ll get back to you!"
+    answer: "Check out our <a href='https://help.optimizely.com'>Knowledge Base</a> for questions about how Optimizely works on your website or mobile app. If you have questions about an enterprise plan, please get in touch by calling or filling out a form. We’ll get back to you!"
 
 contact:
   text: "Still have questions? Call us:"
