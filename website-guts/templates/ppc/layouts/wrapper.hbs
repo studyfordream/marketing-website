@@ -29,9 +29,9 @@
         <meta property="og:title" content="Optimizely: {{#if page.og_title}}{{page.og_title}}{{else}}Make every experience count{{/if}}">
         <meta property="og:description" content="{{#if page.og_description}}{{page.og_description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
         {{#if page.ui_test}}
-        <link rel="stylesheet" href="{{assetsDir}}css/qunit-1.17.1.css" type="text/css" media="screen">
-        <script src="{{assetsDir}}js/ppc/libraries/qunit-1.17.1.js"></script>
-        <script src="{{assetsDir}}js/ppc/test/test.js"></script>
+        <link rel="stylesheet" href="{{assetsDir}}/css/qunit-1.17.1.css" type="text/css" media="screen">
+        <script src="{{assetsDir}}/js/ppc/libraries/qunit-1.17.1.js"></script>
+        <script src="{{assetsDir}}/js/ppc/test/test.js"></script>
         {{/if}}
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
         {{#if page.external_stylesheets}}
@@ -51,6 +51,10 @@
         <!--[if lt IE 8]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        {{#if page.ui_test}}
+        <div id="qunit"></div>
+        <div id="qunit-fixture"></div>
+        {{/if}}
         <div id="outer-wrapper">
             <div id="inner-wrapper">
                 <header>

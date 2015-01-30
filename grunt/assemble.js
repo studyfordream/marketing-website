@@ -91,7 +91,7 @@ module.exports = {
     },
     files: [
       {
-        src: ['free-trial-n/index.hbs'],
+        src: ['free-trial-n/**/*.hbs'],
         dest: '<%= config.dist %>/',
         cwd: '<%= config.content %>/',
         expand: true

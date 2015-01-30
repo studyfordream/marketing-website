@@ -44,19 +44,22 @@ module.exports = {
   ppcUITest: {
     files: [
       {
+        src: '<%= config.guts %>/assets/js/ppc/test/test.js',
+        dest: '<%= config.dist %>/assets/js/ppc/test/',
+        expand: true,
+        flatten: true
+      },
+      {
         src: '<%= config.guts %>/assets/css/ppc/libraries/qunit-1.17.1.css',
         dest: '<%= config.dist %>/assets/css/',
-        expand: true
+        expand: true,
+        flatten: true
       },
       {
         src: '<%= config.guts %>/assets/js/ppc/libraries/qunit-1.17.1.js',
         dest: '<%= config.dist %>/assets/js/ppc/libraries/',
-        expand: true
-      },
-      {
-        src: '<%= config.guts %>/assets/js/test/test.js',
-        dest: '<%= config.dist %>/assets/js/ppc/test/',
-        expand: true
+        expand: true,
+        flatten: true
       }
     ]
   }

@@ -49,7 +49,7 @@ module.exports = {
   },
   jsPPC: {
     files: ['<%= config.guts %>/assets/js/ppc/**/*.js'],
-    tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'modernizr', 'concat:ppc', 'concat:jqueryModernizrPPC', 'clean:postBuild']
+    tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'modernizr', 'concat:ppc', 'concat:jqueryModernizrPPC', 'copy:ppcUITest', 'clean:postBuild']
   },
   sass: {
     files: ['<%= config.guts %>/assets/css/**/*.scss', '!<%= config.guts %>/assets/css/ppc/**/*.{css,scss}'],
