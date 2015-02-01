@@ -120,7 +120,7 @@ enterprise_section:
   title: "Enterprise"
   subtitle: "Customized plans for your business."
   cta: "Talk to Us"
-  feature_cta: "Interested in seeing more? <a href='#'>See full feature list >></a>"
+  feature_cta: "Interested in seeing more? <a href='https://www.optimizely.com/feature-list'>See full feature list >></a>"
 
 starter_section:
   title: "Not ready for Enterprise?"

@@ -18,6 +18,7 @@ body.features-and-plans {
       }
     }
     .header-cta-container {
+      display: none;
       font-family: Gotham-Light;
       float: right;
       margin-top: 10px;
@@ -47,7 +48,7 @@ body.features-and-plans {
     .title-copy {
       font-family: Gotham-Light;
       text-align: center;
-      font-size: 48px;
+      font-size: 44px;
       color: $super-dark-blue;
       line-height: 61px;
       margin-bottom: 57px;
@@ -240,4 +241,15 @@ body.features-and-plans {
 
 
 @media screen and (min-width: $tablet-min-width) {
+  body.features-and-plans {
+    .header-cta-container {
+      display: block;
+    }
+    .title-section {
+      .title-copy {
+        font-size: 48px;
+      }
+    }
+
+  }
 }

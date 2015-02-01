@@ -1,4 +1,4 @@
-back: "<a href='#'><< Back to Feature Overview</a>"
+back: "<< Back to Feature Overview"
 
 starter_header:
   title: "Starter"
@@ -190,7 +190,7 @@ tables:
         title: "API Access"
         string: true
         starter_text: "JavaScript API<br/>REST API (1000 calls/month)"
-        enterprise_text: "JavaScript API<br/>REST API (Custom calls/month)"
+        enterprise_text: "JavaScript API<br/>REST API (Custom calls/day)"
   -
     title: "Manage Your Experience Optimization Program"
     desc: "Empower your team with actionable, real-time data on your visitors and foster the growth of a data-driven culture in your company."
@@ -228,7 +228,7 @@ tables:
       -
         title: "Experiment Change History"
         boolean: true
-        starter_bool: true
+        starter_bool: false
         enterprise_bool: true
       -
         title: "Cross-browser Testing"
@@ -247,10 +247,14 @@ tables:
         enterprise_bool: true
         tooltip: "Schedule when experiments should start and stop in advance."
       -
-        title: "Traffic"
+        title: "Traffic Optimized"
         string: true
         starter_text: "50,000 MUVs/MUAs"
         enterprise_text: "Custom"
+        tooltip: "Monthly unique visitors are counted by adding the number
+          of unique visitors in an experiment on the web to the number of
+          monthly active users in an experiment on a mobile app. You can
+          distribute the unique visitor allocation however you like."
   -
     title: "Support"
     desc: "Take your optimization program to the next level with enterprise
