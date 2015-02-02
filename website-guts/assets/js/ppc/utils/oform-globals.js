@@ -2,7 +2,7 @@ w.optly.mrkt.Oform = {};
 
 w.optly.mrkt.Oform.before = function(){
 
-  $('body').addClass('oform-process');
+  $('body').addClass('oform-processing');
 
   return true;
 
