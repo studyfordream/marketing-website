@@ -1,12 +1,13 @@
 hero: 
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/hero-img-comp.jpg"
-  title: "Make your app <br><strong>more engaging</strong>"
+  title: "Make your iOS app <br><strong>more engaging</strong>"
   vid_btn_txt: "Watch Video"
   signup_btn_txt: "Get Started"
-  link_text: "A single platform for iOS, Android, and the web."
+  link_text: "Optimizely's Android SDK is coming soon."
+  link_anchor_text: "Learn More"
 top_grid: 
   title: "Fast, powerful A/B testing"
-  sub_title: "for mobile apps"
+  sub_title: "for iOS apps"
   grid_content:
   -
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/01.svg"
@@ -112,12 +113,13 @@ testing_ideas:
 form_panel:
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/bottom-img-comp.jpg"
   title: "Start optimizing"
-  subtitle: "your mobile app today"
+  subtitle: "your iOS app today"
   email: "Work Email"
   email_icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/email.svg"
   password: "Create Password"
   password_icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg"
   submit_button: "Get Started"
   submit_success: "Success"
-  link_text: "A single platform for iOS, Android, and the web."
+  link_text: "Optimizely's Android SDK is coming soon."
+  link_anchor_text: "Learn More"
 
