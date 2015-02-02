@@ -35,6 +35,14 @@ footer {
         list-style-type: none;
         margin-bottom: 20px;
     }
+    .logo {
+      display: block;
+      text-indent: -900em;
+      background-image: image-url('ppc/footer-logo-transparent.png');
+      height: 23px;
+      width: 108px;
+      margin: 0 auto;
+    }
     a {
         color: $footer-link-color;
         text-decoration: none;
@@ -96,6 +104,7 @@ footer {
       .twitter {
         background: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/twitter.svg');
       }
+      /*
       .logo {
         background: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/grey-footer/logo-gray 2.svg');
         position: relative;
@@ -103,6 +112,7 @@ footer {
         width: 135px;
         height: 35px;
       }
+      */
       #footer-nav-cont {
         margin-top: 15px;
       }
@@ -120,6 +130,9 @@ footer {
     footer {
         font-size: $footer-desktop-font-size;
         text-align: left;
+        .logo {
+          margin: 0;
+        }
         h4 {
             font-size: 1em;
             font-weight: 100;
@@ -132,19 +145,6 @@ footer {
         }
         li {
             text-align: left;
-        }
-        .logo {
-          background: image-url('ppc/footer-logo.png') no-repeat!important;
-          height: 29px;
-          width: 115px;
-          display: block;
-          text-indent: -900em;
-        }
-        .logo {
-            background-size: 108px 23.112px;
-            height: 23.112px;
-            width: 108px;
-            margin: 0;
         }
         #footer-nav {
           margin: 0;
@@ -239,4 +239,13 @@ footer {
             padding-right: 0;
         }
     }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  footer {
+    .logo {
+      background-image: image-url('ppc/footer-logo-transparent@2x.png');
+      background-size: 108px 23px;
+    }
+  }
 }

@@ -16,12 +16,20 @@ p.logo a {
   margin: 0 auto;
 }
 
-@media only screen and (min-width: $desktop-min-width){
+@mixin desktop {
   p.logo a {
     margin: 0;
     height: 49px;
     width: 173px;
   }
+}
+
+@media only screen and (min-width: $desktop-min-width){
+  @include desktop;
+}
+
+.oldie {
+  @include desktop;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {

@@ -120,6 +120,16 @@ h4.seo-form-heading {
   }
 }
 
+.customer-quote {
+  .pull-quote {
+    padding: 0 20px;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
 body.oform-processing {
   #seo-form {
     .oform-processing-show {display: block;}
@@ -148,6 +158,9 @@ body.oform-processing {
 
   .customer-quote {
     text-align: center;
+    .pull-quote {
+      margin: auto;
+    }
   }
 
   .pull-quote {
