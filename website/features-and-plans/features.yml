@@ -124,5 +124,5 @@ enterprise_section:
 
 starter_section:
   title: "Not ready for Enterprise?"
-  subtitle: "Get the <a href='#'>basics</a> with our free Starter Plan. No credit card required."
+  subtitle: "Get the <a href='https://www.optimizely.com/feature-list'>basics</a> with our free Starter Plan. No credit card required."
   cta: "Get Started"

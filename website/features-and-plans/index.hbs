@@ -5,6 +5,7 @@ body_class:
 - features-and-plans
 no_container: true
 page_header: false
+page_script: features-and-plans.js
 seo_title: Features and Plans
 og_title:
 - "Features and Plans"
@@ -21,7 +22,7 @@ og_description:
       <h1>{{page.visible_title}}</h1>
       <div class="header-cta-container">
         {{#with features.page_header}}
-        <a class="talk-button" href="#">{{cta}}</a>
+        <a class="talk-button" id="talk-to-us" href="#">{{cta}}</a>
         <p>{{or_word}}</p>
         <p>{{alternative}}</p>
         {{/with}}
@@ -38,8 +39,8 @@ og_description:
 <section class="title-section">
   <h1 class="title-copy">{{{title}}}</h1>
   <div class="buttons-container">
-    <a class="learn-cta" href="#">{{learn_cta}}</a>
-    <a class="plans-cta" href="#">{{plans_cta}}</a>
+    <a class="learn-cta" id="learn-cta" href="#benefits">{{learn_cta}}</a>
+    <a class="plans-cta" id="plans-cta" href="#enterprise">{{plans_cta}}</a>
   </div>
 </section>
 {{/with}}
@@ -49,7 +50,7 @@ og_description:
 <!--Benefits Section-->
 <!--                -->
 {{#with features.benefits_section}}
-<section class="benefits-section">
+<section class="benefits-section" id="benefits">
   <h2 class="title-copy">{{title}}</h2>
   <div class="benefit-items-container container">
     {{#each benefits}}
@@ -102,11 +103,11 @@ og_description:
 <!--Enterprise Section-->
 <!--                  -->
 {{#with features.enterprise_section}}
-<section class="enterprise-section">
+<section class="enterprise-section" id="enterprise">
   <h2 class="title-copy">{{title}}</h2>
   <p class="subtitle">{{subtitle}}</p>
   <div class="button-container">
-    <a class="cta" href="#">{{cta}}</a>
+    <a class="cta" id="enterprise-cta" href="#">{{cta}}</a>
   </div>
   <p>{{{feature_cta}}}</p>
 </section>
@@ -121,7 +122,7 @@ og_description:
   <h2 class="title-copy">{{title}}</h2>
   <p class="subtitle">{{{subtitle}}}</p>
   <div class="button-container">
-    <a class="cta" href="#">{{cta}}</a>
+    <a class="cta" id="starter-cta" href="#">{{cta}}</a>
   </div>
 </section>
 {{/with}}
