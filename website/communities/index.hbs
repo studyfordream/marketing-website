@@ -1,0 +1,14 @@
+---
+layout: page.hbs
+seo_title: Communities
+visible_title: Communities
+body_class:
+- communities-page
+---
+{{#each communities.groups}}
+<div class="row">
+  <h2>{{group_name}}</h2>
+  <img class="group-pic desktop-img" src="{{../assetsDir}}{{image}}" />
+  {{#omarkdown}}{{{text_content}}}{{/omarkdown}}
+</div>
+{{/each}}

@@ -1,5 +1,9 @@
 items:
 -
+ link_to_release: "http://www.prnewswire.co.uk/news-releases/optimizely-introduces-stats-engine---and-statistical-analysis-leaps-into-the-internet-age-289145541.html"
+ release_date: "2014-1-20" 
+ release_title: "Optimizely Introduces Stats Engine - and Statistical Analysis Leaps into the Internet Age"
+-
  link_to_release: "http://www.prnewswire.com/news-releases/optimizely-now-powers-connected-experiences-across-web-and-mobile-283041601.html"
  release_date: "2014-11-18" 
  release_title: "Optimizely Now Powers Connected Experiences Across Web and Mobile"

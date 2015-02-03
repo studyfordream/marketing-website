@@ -1,0 +1,141 @@
+---
+layout: statistics.hbs
+compact_header: false
+modals:
+- video_modal_compiled
+body_class:
+- statistics-page
+page_script: statistics.js
+footer_style: grey
+seo_title: "Optimizely Stats Engine"
+og_title: "Optimizely Stats Engine"
+og_description: "Statistics for the Internet age is here."
+---
+<style>
+
+</style>
+
+<section id="hero" class="panel bg-img" style="background-image: url('{{statistics_data.hero.bg_img}}')">
+  {{#with statistics_data.hero}}
+  <div id="signup-form-panel-top">
+    <h1 class="light">{{{title}}}</h1>
+    <h1 class="white">{{{subtitle}}}</h1>
+    <a href="#" class="video-link" data-show-video><span class="circle-arrow big"></span></a>
+    <div class="learn-more">
+      <a href="#section-1" smooth-scroll>{{{link_anchor_text}}}<br><img src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/arrow-down.svg"></a>
+    </div>
+  </div>
+  {{/with}}
+</section><script type="text/javascript" id="vidyard_embed_code_arWqtV49TG3w4UYMLF_CHA" src="//play.vidyard.com/arWqtV49TG3w4UYMLF_CHA.js?v=3.1&type=lightbox"></script>
+<script>
+  $('[data-show-video]').on('click', function(e) {
+    e.preventDefault();
+    fn_vidyard_arWqtV49TG3w4UYMLF_CHA();
+  });
+</script>
+{{#with statistics_data.lets_talk}}
+<section id="section-1" class="panel blue-bg">
+  <div class="flex-cont container">
+    <div class="flex-1-content">
+      <h3>{{{title}}}</h3>
+      <h2>{{{subtitle}}}</h2>
+      {{#omarkdown}}{{{text}}}{{/omarkdown}}
+      <span class="SL_swap" id="statsengine-readtheblog"><a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a></span>
+    </div>
+    <div class="flex-img-cont">
+      <img src="{{img}}">
+    </div>
+  </div>
+</section>
+{{/with}}
+{{#with statistics_data.better_way}}
+<section id="" class="panel">
+  <div class="container">
+    <h3>{{{title}}}</h3>
+    <div class="flex-cont container">
+      <div class="flex-1-content">
+        <h2>{{{subtitle}}}</h2>
+        {{#omarkdown}}{{{text}}}{{/omarkdown}}
+        <a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a>
+      </div>
+      <div class="flex-img-cont">
+        <img src="{{img}}">
+      </div>
+    </div>
+  </div>
+</section>
+{{/with}}
+{{#with statistics_data.confidence}}
+<section id="section-confidence" class="panel darkblue-bg">
+  <div class="container">
+    <div class="text-center">
+      <h3 class="white">{{{title}}}</h3>
+      <h2 class="white text-center">{{{subtitle}}}</h2>
+    </div>
+    <div class="center-block">
+      {{#omarkdown}}{{{text}}}{{/omarkdown}}
+    </div>
+  </div>
+  <div class="panel white-bg text-center">
+    <div id="SL_statistics-testing-graphic" class="container SL_swap">
+      <img src="{{{img}}}">
+    </div>
+  </div>
+  <div class="container">
+    <div class="center-block">
+      {{#omarkdown}}{{{text_2}}}{{/omarkdown}}
+      <div class="text-center">
+        <a href="{{{cta_link}}}" class="secondary-cta white">{{{cta_text}}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{/with}}
+{{#with statistics_data.compare}}
+<section id="section-compare" class="panel">
+  <div class="container text-center">
+    <h2>{{{title}}}</h2>
+    <div class="flex-cont">
+      {{#each panels}}
+      <div class="flex-content flex-even comparison comparison-{{{id}}}">
+        <h3 class="no-underline">{{{title}}}</h3>
+        <p>{{{pre}}}</p>
+        <div class="percent">{{{percentage}}}</div>
+        <p>{{{post}}}</p>
+      </div>
+      {{/each}}
+    </div>
+    <p class="footnote">{{{footnote}}}</p>
+    <p>{{{cta_title}}}</p>
+    <span class="SL_swap" id="statsengine-learnmore"><a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a></span>
+  </div>
+</section>
+{{/with}}
+{{#with statistics_data.worry}}
+<section id="section-worry" class="panel blue-bg">
+  <div class="container text-center">
+    <h2>{{{title}}}</h2>
+
+    <div class="flex-cont points">
+      {{#each panels}}
+      <div class="flex-even point">
+        <h3>{{{title}}}</h3>
+        <p>{{{text}}}</p>
+      </div>
+      {{/each}}
+    </div>
+
+    <p>{{{cta_title}}}</p>
+
+    <span class="SL_swap" id="statsengine-optiverse"><a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a></span>
+  </div>
+</section>
+{{/with}}
+{{#with statistics_data.decisions}}
+<section id="section-decisions" class="panel">
+  <div class="container text-center">
+    <h2>{{{title}}}</h2>
+    <a href="{{../linkPath}}{{{cta_link}}}" class="primary-cta">{{{cta_text}}}</a>
+  </div>
+</section>
+{{/with}}

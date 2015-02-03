@@ -12,10 +12,11 @@ body.mobile-page {
     width: 25px;
     height: 25px;
     display: inline-block;
+
     &:after {
       content: "";
-      width: 0; 
-      height: 0; 
+      width: 0;
+      height: 0;
       border-top: 5px solid transparent;
       border-bottom: 5px solid transparent;
       border-left: 7px solid #fff;
@@ -24,8 +25,21 @@ body.mobile-page {
       left: 8px;
       transform: translateY(-50%);
     }
+
+    &.big {
+      height: 60px;
+      left: -10px;
+      width: 60px;
+
+      &:after {
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-left: 17px solid #fff;
+        left: 20px;
+      }
+    }
   }
-  
+
   #video-modal {
     &.modal-dialog-container {
       background: transparent;
@@ -154,7 +168,7 @@ body.mobile-page {
     background-position: center center;
     background-size: cover;
   }
-  #hero, 
+  #hero,
   #signup-form-panel-bottom,
   #signup-form-panel-top {
     text-align: center;
@@ -616,7 +630,7 @@ body.mobile-page {
 @media only screen and (min-width: $desktop-min-width) {
   body.mobile-page {
     .panel {
-      
+
     }
     #customer-logos {
       h2 {text-align: center;}
@@ -637,4 +651,3 @@ body.mobile-page {
     }
   }
 }
-

@@ -1,0 +1,35 @@
+body.communities-page {
+  .row {
+    .group-pic {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+    &:last-child {
+      margin-top: 1.5em;
+    }
+  }
+}
+
+
+@media only screen and (min-width: $tablet-min-width) {
+  body.communities-page {
+    .row {
+      .group-pic {
+        width: 48%;
+        margin: 0 1.5em;
+      }
+      &:nth-child(odd) {
+        .group-pic {
+          float: left;
+          margin-left: 0;
+        }
+      }
+      &:nth-child(even) {
+        .group-pic {
+          float: right;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
