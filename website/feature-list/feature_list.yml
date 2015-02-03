@@ -258,7 +258,7 @@ tables:
   -
     title: "Support"
     desc: "Take your optimization program to the next level with enterprise
-      onboarding and continued access to technical and testing strategy experts."
+      onboarding and get access to technical and testing strategy experts."
     features:
       -
         title: "Community (Optiverse)"
@@ -273,12 +273,12 @@ tables:
       -
         title: "Online Tickets"
         boolean: true
-        starter_bool: true
+        starter_bool: false
         enterprise_bool: true
       -
         title: "Phone Support"
         boolean: true
-        starter_bool: true
+        starter_bool: false
         enterprise_bool: true
       -
         title: "Enterprise Onboarding"
@@ -287,11 +287,6 @@ tables:
         enterprise_bool: true
       -
         title: "Dedicated Customer Success Manager"
-        boolean: true
-        starter_bool: false
-        enterprise_bool: true
-      -
-        title: "Dedicated Solutions Architect"
         boolean: true
         starter_bool: false
         enterprise_bool: true
