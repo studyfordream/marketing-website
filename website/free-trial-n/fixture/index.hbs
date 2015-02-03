@@ -1,46 +1,25 @@
 ---
-layout: wrapper.hbs
-page_script: bundle.js
+layout: original.hbs
 ui_test: true
+page_script: bundle.js
+form_heading: "Test it Out for Free"
+form_body: |
+  Welcome to Optimizely. Sign up for a free account and test out the most popular <span id="symmetry_test">A/B testing tool</span> on the planet!
+customer_quote: "Optimizely removed every roadblock to landing page testing and allows us to quickly make user-driven decisions."
+customer_quote_logo: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/ppc/sliderocket.png"
+product_details:
+  -
+   heading: "About Optimizely"
+   details: |
+    * No technical skills required
+    * Most popular testing tool on the planet
+    * A user interface customers love
+   graphic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/ppc/about-optimize-graphic.png"
+  -
+   heading: "How it Works"
+   details: |
+    * Visually optimize your website
+    * Choose the goals you want to track
+    * Push live and watch ROI improve
+   graphic: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/ppc/how-it-works.png"
 ---
-<div class="container hero clearfix">
-  <div class="form-cont">
-    <div id="ppc-form" class="landing-page-form">
-      <h4 class="seo-form-heading">Test it Out for Free</h4>
-      <p class="seo-form-subheader">Welcome to Optimizely. Sign up for a free account and test out the most popular <span id="symmetry_test">A/B testing tool</span> on the planet!</p>
-      <form id="seo-form" method="POST" class="seo-form inline-labels" action="/account/free_trial_create" autocomplete="off" novalidate="novalidate">
-        <p class="error-message oform-error-show"></p>
-        <input id="utm_medium" type="hidden" name="utm_medium" value="">
-        <input id="hidden" type="hidden" name="hidden" value="">
-        <ul>
-          <li class="url-input-related">
-            <label for="url">Type in a URL to try it out</label>
-            <input id="url" required name="url-input" type="url">
-          </li>
-          <li class="name-related">
-            <label for="name">Your Name</label>
-            <input id="name" required data-validation="name" name="name" type="text">
-          </li>
-          <li id="phone-email-cont" class="clearfix">
-            <div class="label half left email-related">
-              <label for="email">Email - no spam</label>
-              <input id="email" required name="email" type="email">
-            </div>
-
-            <div class="label half right phone_number-related">
-              <label for="phone">Phone Number</label>
-              <input id="phone" name="phone_number" type="tel">
-            </div>
-          </li>
-          <li class="terms">
-            <small>By clicking the <q>Test it Out</q> button below I agree to the <br><a href="/terms" target="_blank">Terms of Service</a> and <a href="/privacy" target="_blank">Privacy Policy</a>.</small>
-          </li>
-          <li class="a-center">
-            <button type="submit" id="submit" class="button oform-processing-hide">Test it Out</button>
-            <p class="oform-processing-show processing-message">Processing...</p>
-          </li>
-        </ul>
-      </form>
-    </div><!--/#ppc-form-->
-  </div>
-</div>

@@ -171,6 +171,7 @@ body.oform-processing {
   }
 
   .customer-logos p {text-align: center;}
+
 }
 
 
@@ -256,6 +257,24 @@ body.oform-processing {
       margin: 10px auto 0 auto;
       display: block;
     }
+  }
+  .product-detail {
+    width: 445px;
+    float: left;
+    background-repeat: no-repeat;
+    padding-left: 130px;
+    ul {
+      padding-left: 15px;
+      margin-top: 0;
+    }
+    li, p {font-size: .9em;}
+    p:first-child {
+      margin: 0;
+      text-align: left;
+    }
+  }
+  .product-detail:nth-child(odd){
+    margin-right: 19px;
   }
   .seo-customers {
     * {

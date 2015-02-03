@@ -85,5 +85,23 @@ $(function(){
     }
 
   });
+  /*
+  QUnit.test('check a valid submission', function(){
+
+    $('#seo-form #url').val('kylerush.net');
+    $('#seo-form #name').val('kyle rush test');
+    $('#seo-form #email').val('kyle+test201512154836@optimizely.com');
+    $('#seo-form #phone').val('');
+
+    window.optly.mrkt.trialForm.run({
+
+      target: document.getElementById('seo-form'),
+
+      preventDefault: function(){}
+
+    });
+
+  });
+  */
 
 });
