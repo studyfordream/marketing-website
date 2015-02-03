@@ -4,6 +4,17 @@ var secondLastSlash = function(path) {
   return split.splice(split.length - 2).join('/');
 };
 module.exports = function(grunt, options){
+  var lastTarget;
+  var processBundleName = function (src, filepath) {
+    var updatedSrc;
+    if(lastTarget !== grunt.task.current.target) {
+      updatedSrc = 'var targetName = "' + grunt.task.current.target + '";\n\n' + src;
+    }
+    lastTarget = grunt.task.current.target;
+
+    return updatedSrc || src;
+  };
+
   return {
     namespacePages: {
       options: {
@@ -28,10 +39,11 @@ module.exports = function(grunt, options){
       isFile: true,
       dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr.min.js'
     },
-    ppc: {
+    ppcBundle: {
       options: {
         banner: '<%= grunt.config.get("concat_banner") %>',
-        footer: '<%= grunt.config.get("concat_footer") %>'
+        footer: '<%= grunt.config.get("concat_footer") %>',
+        process: processBundleName
       },
       files: {
         '<%= config.dist %>/assets/js/ppc/bundle.js': [
@@ -57,10 +69,11 @@ module.exports = function(grunt, options){
       isFile: true,
       dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr-ppc.min.js'
     },
-    namespaceGlobal: {
+    globalBundle: {
       options: {
         banner: '<%= grunt.config.get("concat_banner") %>',
-        footer: '<%= grunt.config.get("concat_footer") %>'
+        footer: '<%= grunt.config.get("concat_footer") %>',
+        process: processBundleName
       },
       files: {
         '<%= config.temp %>/assets/js/global.js': [
@@ -73,7 +86,6 @@ module.exports = function(grunt, options){
           '<%= config.guts %>/assets/js/utils/form_helper_factory.js',
           '<%= config.guts %>/assets/js/utils/form_helpers/*.js',
           '<%= config.guts %>/assets/js/utils/trim_url.js',
-          '<%= config.guts %>/assets/js/utils/stringify_error.js',
           '<%= config.guts %>/assets/js/global.js',
           '<%= config.guts %>/assets/js/components/*.js',
           '<%= config.guts %>/assets/js/services/*.js',

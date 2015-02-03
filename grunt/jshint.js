@@ -53,9 +53,8 @@ module.exports = {
     files: {
       src: [
         '<%= config.guts %>/assets/js/**/*.js',
-        '!<%= config.guts %>/assets/js/libraries/**/*.js',
-        '!<%= config.guts %>/assets/js/utils/*.js',
-        '!<%= config.guts %>/assets/js/ppc/libraries/**/*.js'
+        '!<%= config.guts %>/assets/js{,/ppc}/libraries/**/*.js',
+        '!<%= config.guts %>/assets/js{,/ppc}/utils/*.js'
       ]
     }
   },
