@@ -20,7 +20,8 @@ module.exports = function(grunt) {
               resemble: 'grunt-resemble-cli',
               sass: 'grunt-sass',
               connect: 'grunt-contrib-connect',
-              jasmine_node: 'grunt-jasmine-node'
+              jasmine_node: 'grunt-jasmine-node',
+              assemble: 'grunt/assemble/'
           }
       },
       init: true

@@ -5,13 +5,15 @@ var path = require('path');
 var helpers = require('handlebars-helpers');
 var extend = require('extend-shallow');
 var createStack = require('layout-stack');
+var customTypes = require('./types/page-de');
 
 module.exports = function (grunt) {
   grunt.registerTask('assemble', 'Assemble', function () {
     var done = this.async();
 
     var assemble = require('assemble');
-    var Handlebars = require('assemble/node_modules/engine-assemble/node_modules/engine-handlebars/node_modules/handlebars');
+    var push = require('assemble-push')(assemble);
+    var Handlebars = require('handlebars');
 
     var config = grunt.config.get('_assemble'); // old assemble config
     var options = config.options; // global options
@@ -26,6 +28,17 @@ module.exports = function (grunt) {
         }
         return renameKey(fp);
       };
+    };
+    var dirnameLangKey = function (search) {
+      return function (fp) {
+        // fp => website/about/index.hbs
+        if (fp.indexOf(search + '/') > -1 
+          && fp.indexOf(search + '/index') === -1) {
+            var segments = path.dirname(fp).split('/');
+            return segments[segments.length - 1];
+          }
+          return renameKey(fp);      
+        };
     };
     assemble.data(options.data);
 
@@ -44,6 +57,20 @@ module.exports = function (grunt) {
       'contact_sales'
     ]);
 
+    customTypes(assemble);
+
+    assemble.option('renameKey', dirnameLangKey('website-de'));
+    assemble['page-de'](['website-de/**/*.hbs']);
+    // console.log(assemble.views['page-des']);
+
+    // assemble.option('renameKey', dirnameLangKey('website'));
+
+    // assemble.pages(
+    //   ['website/**/*.hbs']);
+    // console.log(Object.keys(assemble.views.pages));
+
+    // var indexPage = assemble.findRenderable('index', ['page-des', 'pages']);
+    // console.log(indexPage.render());
 
     assemble.layouts([options.layoutdir]);
     assemble.partials(options.partials);
@@ -136,8 +163,6 @@ module.exports = function (grunt) {
     // build the `resources` page
     assemble.task('resources', function () {
       var start = process.hrtime();
-      assemble.option('renameKey', renameKey);
-      assemble.partials(options.partials);
       var files = config.resources.files[0];
       return assemble.src('website/resources/index.hbs')
         .pipe(ext())
@@ -153,9 +178,6 @@ module.exports = function (grunt) {
 
     assemble.task('partners', ['resources'], function () {
       var start = process.hrtime();
-      assemble.option('renameKey', renameKey);
-      assemble.partials(options.partials);
-
       assemble.option('renameKey', dirnameKey('partners'));
 
       var files = config.partners.files[0];
@@ -173,14 +195,11 @@ module.exports = function (grunt) {
 
     assemble.task('pages', ['partners'], function () {
       var start = process.hrtime();
-      assemble.option('renameKey', renameKey);
-      assemble.partials(options.partials);
-      assemble.option('renameKey', function (fp) {
-        return fp.indexOf('index') > -1 ? path.dirname(fp) : renameKey(fp);
-      });
+      assemble.option('renameKey', dirnameLangKey('website'));
 
       var files = config.pages.files[0];
       return assemble.src(normalizeSrc(files.cwd, files.src))
+        // .pipe(push('page-des'))
         .pipe(through.obj(function (file, enc, cb) {
           this.push(file);
           cb();

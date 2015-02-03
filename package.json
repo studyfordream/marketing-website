@@ -59,7 +59,8 @@
     "layout-stack": "^0.1.1",
     "nightmare": "git+ssh://git@github.com:dtothefp/nightmare.git",
     "phantomjs": "~1.9.12",
-    "through2": "^0.6.3"
+    "through2": "^0.6.3",
+    "assemble-push": "^0.1.1"
   },
   "licenses": [
     {
