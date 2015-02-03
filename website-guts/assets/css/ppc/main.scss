@@ -108,6 +108,10 @@ h4.seo-form-heading {
   background: image-url('noise.png');
 }
 
+.product-detail {
+  margin-bottom: 40px;  
+}
+
 .seo-customers {
   .row {
     margin: 60px 0;
@@ -211,11 +215,12 @@ body.oform-processing {
   }
   .form-cont {
     float: right;
-    width: 400px;
-  }
-  .form-cont {
     width: 402px;
     margin: auto auto 100px auto;
+  }
+  .form-cont.center {
+    margin: 0 auto 100px auto;
+    float: none;
   }
   #ppc-form {
     width: auto;
@@ -269,8 +274,9 @@ body.oform-processing {
     }
     li, p {font-size: .9em;}
     p:first-child {
-      margin: 0;
+      margin-right: 0;
       text-align: left;
+      margin: 0;
     }
   }
   .product-detail:nth-child(odd){
@@ -298,4 +304,12 @@ body.oform-processing {
 
 .oldie {
   @include desktop;
+}
+
+@media screen and (max-width: 400px){
+
+  .product-detail {
+    background: none!important;
+  }
+
 }

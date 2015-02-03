@@ -19,7 +19,17 @@ module.exports = {
     isFile: true,
     dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr.min.js'
   },
-  ppc: {
+  namespacePPC: {
+    options: {
+      banner: '<%= grunt.config.get("concat_banner") %>',
+      footer: '<%= grunt.config.get("concat_footer") %>'
+    },
+    src: ['pages/*/js', 'layouts/*.js'],
+    expand: true,
+    cwd: '<%= config.guts %>/assets/js/ppc/',
+    dest: '<%= config.dist %>/assets/js/ppc/'
+  },
+  ppcBundle: {
     options: {
       banner: '<%= grunt.config.get("concat_banner") %>',
       footer: '<%= grunt.config.get("concat_footer") %>'
@@ -33,8 +43,7 @@ module.exports = {
         '<%= config.guts %>/assets/js/ppc/utils/trim-url.js',
         '<%= config.guts %>/assets/js/ppc/utils/oform-globals.js',
         '<%= config.guts %>/assets/js/ppc/libraries/oform.min.js',
-        '<%= config.guts %>/assets/js/ppc/global.js',
-        '<%= config.guts %>/assets/js/ppc/ppc.js'
+        '<%= config.guts %>/assets/js/ppc/global.js'
       ]
     }
   },
