@@ -64,16 +64,18 @@ layout_script: original.js
     </div>
   </div><!--/#hero-->
 </div><!--/.top-section-->
+{{#if page.product_details}}
 <div class="light-gray-section">
   <div class="container clearfix" id="product-detail-cont">
     {{#each page.product_details}}
-    <div class="product-detail" style="background: url({{graphic}}) no-repeat;">
-      <p><strong>{{heading}}</strong></p>
+    <div class="product-detail{{#unless graphic}} no-graphic{{/unless}}" style="background: url({{graphic}}) no-repeat;">
+      {{#if heading}}<p><strong>{{heading}}</strong></p>{{/if}}
       {{#omarkdown}}{{{details}}}{{/omarkdown}}
     </div>
     {{/each}}
   </div>
 </div><!--/.light-gray-section-->
+{{/if}}
 {{#if page.customer_quote}}
 <div class="textured-section customer-quote">
   <div class="container">
