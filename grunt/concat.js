@@ -29,6 +29,19 @@ module.exports = function(grunt, options){
       cwd: '<%= config.guts %>/assets/js/',
       dest: '<%= config.dist %>/assets/js/'
     },
+    namespacePPCPages: {
+      options: {
+        banner: '<%= grunt.config.get("concat_banner") %>',
+        footer: '<%= grunt.config.get("concat_footer") %>',
+        process: function(src, filepath) {
+          return 'var targetName = "' + grunt.task.current.target + '" + "--" +  "' + secondLastSlash(filepath) + '";\n\n' + src;
+        }
+      },
+      src: ['pages/*.js', 'layouts/*.js'],
+      expand: true,
+      cwd: '<%= config.guts %>/assets/js/ppc/',
+      dest: '<%= config.dist %>/assets/js/ppc/'
+    },
     jqueryModernizr: {
       src: [
         '<%= config.guts %>/assets/js/libraries/jquery-2.1.1.min.js',
