@@ -1,0 +1,73 @@
+hero:
+  bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/hero.jpg"
+  title: "Goodbye traditional statistics"
+  subtitle: "Statistics for the Internet age is here"
+  link_anchor_text: "Learn More"
+lets_talk:
+  title: "LET'S TALK STATS"
+  subtitle: "Data has changed<br>Statistics should too"
+  img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/analog-01.svg"
+  text: |
+    <p class="SL_swap" id="statsengine-letstalktext">Traditional statistics were developed over 100 years ago, for an offline world. These methods are no longer up to the task of helping businesses make decisions with real-time data. If you look at results in real time, as most optimization platforms allow you to do, you’ll see winning results where no winner actually exists. In fact, your error rate can skyrocket to <a href="http://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/">over 30%</a> if you don't take precautions.</p>
+
+    Without taking precautions, like setting a sample size and committing to a minimum detectable effect in advance, you could make changes to your website or product that at best, have no impact, and at worst, could be hurting your bottom line.
+  cta_text: "Read the blog"
+  cta_link: "http://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/"
+better_way:
+  title: "THERE'S A BETTER WAY"
+  subtitle: "We believe statistics<br>should work the way you do"
+  img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/digital-01.svg"
+  text: |
+    Our new Stats Engine supports experimentation and decision-making on your terms--no precautions needed. We partnered with Stanford statisticians to develop a revolutionary new approach to statistics for experience optimization. The approach builds on everything we’ve learned from helping over 8,000 Optimizely customers optimize more than 7 billion experiences.
+  cta_text: "Download the ebook"
+  cta_link: "http://pages.optimizely.com/guide-statistics-online-experiments.html"
+confidence:
+  title: "DECIDE WITH CONFIDENCE"
+  subtitle: "Introducing always-valid results"
+  text: |
+    <h3 class="white no-underline">Results are valid whenever you check</h3>
+    <p class="white">With traditional statistics, peeking at your results any time other than your set sample size increases the chance you’ll find a winner when there isn’t one. With Stats Engine, check whenever you want. With a method called sequential testing, you’ll see your statistical significance increase with more time and data—no more waiting.</p>
+  img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/sequential-testing-graphic-us.png"
+  text_2: |
+    <h3 class="white no-underline">Test as many variations and goals as you want</h3>
+    <p class="white">Adding many goals or variations to an experiment also increases your chance of finding a winning result that isn’t real. Optimizely’s Stats Engine corrects for multiple goals and variations with false discovery rate control. Now you can add as many as you want without sacrificing accuracy.</p>
+  cta_text: "Learn the math"
+  cta_link: "http://pages.optimizely.com/rs/optimizely/images/stats_engine_technical_paper.pdf"
+compare:
+  title: "Optimizely's Stats Engine increases confidence"
+  panels:
+  -
+    id: 1
+    title: "With Stats Engine"
+    pre: "setting a 95% significance<br>level results in a"
+    percentage: "95%"
+    post: "chance you'll make the right decision"
+  -
+    id: 2
+    title: "With traditional statistics"
+    pre: "setting a 95% significance<br>level results in a"
+    percentage: "<span><</span>70%"
+    post: "chance you'll make the right decision if you don't avoid pitfalls*"
+  footnote: "* We simulated millions of A/A tests under both frameworks and calculated error rate by determining the percentage of experiments that declared a winning or losing variation given a continuous monitoring policy. (1000+ visitors)"
+  cta_title: "Interested in how Stats Engine affects your results?"
+  cta_text: "Learn more"
+  cta_link: "http://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/"
+worry:
+  title: "Statistics has never been easier"
+  panels:
+  -
+    title: "Always-valid<br>Statistics"
+    text: "Make a statistically sound decision whenever you look at your results, as soon as data is available."
+  -
+    title: "Significance on<br>Your Schedule"
+    text: "No need to commit to a sample size or duration in advance. You can also see conclusive results up to twice as fast."
+  -
+    title: "Leave the<br>Stats to Us"
+    text: "No need to change how you run your tests. Stats Engine works exactly the way you expect it to, without any extra work."
+  cta_title: "Get answers to your FAQs"
+  cta_text: "Check out Optiverse"
+  cta_link: "https://community.optimizely.com/t5/Product-What-s-New/Product-Update-A-new-Stats-Engine-to-power-your-results/ba-p/8518"
+decisions:
+  title: "Start making better decisions today"
+  cta_text: "Get plans and pricing"
+  cta_link: "/pricing"

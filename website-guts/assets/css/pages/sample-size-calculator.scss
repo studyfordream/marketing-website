@@ -2,6 +2,11 @@ $animprop: opacity 1 0;
 $transition: opacity 0.3s linear;
 
 body.sample-size-page {
+  &.new-formula {
+    .hide-content {
+      display: none;
+    }
+  }
   .callout {
     border: 1px solid #eee;
     box-shadow: none;
@@ -126,13 +131,12 @@ body.sample-size-page {
       text-align: center;
     }
     .sample-label {
-      font-weight: normal;
+      font-weight: 500;
+      font-size: 1.1em;
       color: #888;
       margin: 15px 0 5px 0;
       text-align: center;
-      text-transform: uppercase;
-      span { font-size: 1.4em; }
-      span:last-child { margin-right: -2px; }
+      text-transform: capitalize;
     }
     #sample {
       color: #3385d6;
