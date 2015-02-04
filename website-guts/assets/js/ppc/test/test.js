@@ -8,6 +8,12 @@ $(function(){
     ================================ TEST NOTES ================================
     ============================================================================
 
+    1. When you run the test make sure the browser and tab has focus on your
+       machine or else the first test will fail.
+
+    2. Use these URL query strings to run thest or tests will fail:
+        ?ui_test=true&utm_campaign=utm_campaign_uitest&utm_content=utm_content_uitest&utm_medium=utm_medium_uitest&utm_source=utm_source_uitest&utm_keyword=utm_keyword_uitest&otm_campaign=otm_campaign_uitest&otm_content=btt&otm_medium=otm_medium_uitest&otm_source=otm_source_uitest&otm_keyword=otm_keyword_uitest&signup_platform=signup_platform_uitest
+
   */
 
   QUnit.test('check that the first field is focused on page load', function(){
@@ -98,7 +104,7 @@ $(function(){
 
   QUnit.asyncTest('check a valid submission', function(){
 
-    QUnit.expect(1);
+    QUnit.expect(2);
 
     $('#seo-form #url').val('kylerush.net');
     $('#seo-form #name').val('kyle rush test');
@@ -116,6 +122,8 @@ $(function(){
     setTimeout(function(){
 
       QUnit.assert.equal($('body').attr('data-form-success'), '/account/free_trial_create', 'form successfully submitted');
+
+      QUnit.assert.equal($.cookie('sourceCookie'), 'utm_campaign_uitest|||utm_content_uitest|||utm_medium_uitest|||utm_source_uitest|||utm_keyword_uitest|||otm_campaign_uitest|||btt|||otm_medium_uitest|||otm_source_uitest|||otm_keyword_uitest|||signup_platform_uitest|||', 'source cookie is set properly');
 
     }, 2500);
 
