@@ -1,10 +1,15 @@
 ---
 layout: wrapper.hbs
+layout_script: original.js
 ---
 <div class="top-section">
   <div class="container hero clearfix">
+    {{#if page.hero}}
     <div class="social-proof-cont">
-      <img src="{{assetsDir}}/img/ppc/ppc.png">
+      {{#if page.hero.graphic}}
+      <div class="SL_swap"{{#if page.hero.graphic_swap_id}} id="SL-{{page.hero.graphic_swap_id}}"{{/if}}><img src="{{page.hero.graphic}}"{{#if page.hero.graphic_description}}alt="{{page.hero.graphic_description}}"{{/if}}></div>
+      {{/if}}
+      {{#if page.hero.experiment_count}}
       <div id="social-proof-cont">
         <div class="social-numbers visitors-tested-cont">
           <p class="social-number" id="visitors-tested-number">1,306,200,329</p>
@@ -14,9 +19,11 @@ layout: wrapper.hbs
           <p class="social-number" id="experiments-run-number">100,329</p>
           <p class="description">Experiments run</p>
         </div>
-      </div>
-    </div>
-    <div class="form-cont">
+      </div><!--/#social-proof-cont-->
+      {{/if}}
+    </div><!--/.social-proof-cont-->
+    {{/if}}
+    <div class="form-cont{{#unless page.hero}} center{{/unless}}">
       <div id="ppc-form" class="landing-page-form">
         <h4 class="seo-form-heading">{{page.form_heading}}</h4>
         {{#omarkdown}}{{{page.form_body}}}{{/omarkdown}}
@@ -57,16 +64,18 @@ layout: wrapper.hbs
     </div>
   </div><!--/#hero-->
 </div><!--/.top-section-->
+{{#if page.product_details}}
 <div class="light-gray-section">
   <div class="container clearfix" id="product-detail-cont">
     {{#each page.product_details}}
-    <div class="product-detail" style="background: url({{graphic}}) no-repeat;">
-      <p><strong>{{heading}}</strong></p>
+    <div class="product-detail{{#unless graphic}} no-graphic{{/unless}}" style="background: url({{graphic}}) no-repeat;">
+      {{#if heading}}<p><strong>{{heading}}</strong></p>{{/if}}
       {{#omarkdown}}{{{details}}}{{/omarkdown}}
     </div>
     {{/each}}
   </div>
 </div><!--/.light-gray-section-->
+{{/if}}
 {{#if page.customer_quote}}
 <div class="textured-section customer-quote">
   <div class="container">
