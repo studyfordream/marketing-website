@@ -13,7 +13,7 @@ module.exports = {
       },
       {
         src: '<%= config.guts %>/assets/css/ppc/styles.scss',
-        dest: '<%= config.temp %>/css/ppc-styles.css'
+        dest: '<%= config.temp %>/css/ppc/styles.css'
       }
     ]
   },
@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         src: '<%= config.guts %>/assets/css/ppc/styles.scss',
-        dest: '<%= config.temp %>/css/ppc-styles.css'
+        dest: '<%= config.temp %>/css/ppc/styles.css'
       }
     ]
   }

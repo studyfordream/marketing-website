@@ -105,7 +105,7 @@ for(propertyName in data){
 
 w.analytics.identify(response.unique_user_id, reportingObject, {
   integrations: {
-    Marketo: true
+    'Marketo': true
   }
 });
 
@@ -116,7 +116,7 @@ w.analytics.track('/account/create/success', {
   label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
 }, {
   integrations: {
-    Marketo: false
+    'Marketo': false
   }
 });
 

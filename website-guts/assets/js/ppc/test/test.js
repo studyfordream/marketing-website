@@ -125,7 +125,7 @@ $(function(){
 
       QUnit.assert.equal($.cookie('sourceCookie'), 'utm_campaign_uitest|||utm_content_uitest|||utm_medium_uitest|||utm_source_uitest|||utm_keyword_uitest|||otm_campaign_uitest|||btt|||otm_medium_uitest|||otm_source_uitest|||otm_keyword_uitest|||signup_platform_uitest|||', 'source cookie is set properly');
 
-    }, 2500);
+    }, 3000);
 
     //check the source cookie
 
