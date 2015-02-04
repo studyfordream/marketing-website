@@ -78,7 +78,7 @@ module.exports = {
   pages: {
     files: [
       {
-        src: ['**/*.hbs', '!partners/**/*.hbs', '!resources/resources-list/**/*.hbs', '!resources/index.hbs', '!free-trial-n/**/*.hbs'],
+        src: ['**/*.hbs', '!partners/**/*.hbs', '!resources/resources-list/**/*.hbs', '!resources/index.hbs', '!om/**/*.hbs'],
         dest: '<%= config.dist %>/',
         cwd: '<%= config.content %>/',
         expand: true
@@ -91,7 +91,7 @@ module.exports = {
     },
     files: [
       {
-        src: ['free-trial-n/**/*.hbs'],
+        src: ['om/**/*.hbs'],
         dest: '<%= config.dist %>/',
         cwd: '<%= config.content %>/',
         expand: true

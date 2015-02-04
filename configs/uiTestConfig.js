@@ -15,7 +15,7 @@ module.exports = function(options){
     basePath: function(opts) {
       var queryString = createQueryString(opts.queryParams);
       if(!cachedPath) {
-        cachedPath = 'http://0.0.0.0:9000' + global.linkPath + opts.path + '?phantom=true';
+        cachedPath = 'http://0.0.0.0:9000' + global.linkPath + opts.path + '?uiTest=true';
       }
       return  cachedPath + queryString;
     },

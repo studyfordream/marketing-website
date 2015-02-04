@@ -75,11 +75,8 @@ w.optly.mrkt.trialForm = new Oform({
     'timingValue': xhrElapsedTime,
     'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   });
-  console.log(returnData);
   if(response){
     if(returnData.XHR.status === 200){
-      //window.alert('200 response');
-      //remove error class from body?
       w.optly.mrkt.Oform.trackLead({
         email: d.getElementById('email').value,
         url: d.getElementById('url').value,
