@@ -133,5 +133,8 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'build'
   ]);
-
+grunt.registerTask('release', [
+    'compress',
+   'github-release'
+  ]);
 };
