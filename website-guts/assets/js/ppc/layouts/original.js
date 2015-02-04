@@ -112,11 +112,14 @@ w.optly.mrkt.trialForm = new Oform({
       });
 
       //for phantom tests
-      document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
+      //document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
+      $('body').attr('data-form-success', $('#seo-form').attr('action') );
 
-      setTimeout(function(){
-        w.location = 'https://www.optimizely.com/edit?url=' + encodeURIComponent(d.getElementById('url').value);
-      }, 1000);
+      if(!w.optly.mrkt.automatedTest){
+        setTimeout(function(){
+          w.location = 'https://www.optimizely.com/edit?url=' + encodeURIComponent(d.getElementById('url').value);
+        }, 1000);
+      }
 
     } else {
       //window.alert('non 200 response');

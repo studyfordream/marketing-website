@@ -44,6 +44,22 @@ window.optly.mrkt.browser = BrowserDetect.browser;
 
 window.optly.mrkt.browserVersion = BrowserDetect.version;
 
+window.optly.mrkt.automatedTest = function(){
+
+  var uiTest, stagingDomain;
+
+  uiTest = window.optly.mrkt.utils.getURLParameter('uiTest') === 'true';
+
+  stagingDomain = window.location.hostname !== 'www.optimizely.com';
+
+  if(uiTest && stagingDomain){
+    return true;
+  } else {
+    return false;
+  }
+
+};
+
 window.optly.mrkt.inlineFormLabels = function(){
 
   if(w.optly.mrkt.browser !== 'Explorer'){

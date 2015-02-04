@@ -85,8 +85,20 @@ $(function(){
     }
 
   });
-  /*
-  QUnit.test('check a valid submission', function(){
+
+  QUnit.test('check the symmetry experiment functionality', function(){
+
+    QUnit.expect(2);
+
+    QUnit.assert.equal($('#ppc-form h4.seo-form-heading').text(), '#1 Behavioral Targeting tool', 'symmetry header works');
+
+    QUnit.assert.equal($('#ppc-form > p').first().text(), 'Welcome to Optimizely. Sign up for a free account and test out the most popular Behavioral Targeting Tool on the planet!');
+
+  });
+
+  QUnit.asyncTest('check a valid submission', function(){
+
+    QUnit.expect(1);
 
     $('#seo-form #url').val('kylerush.net');
     $('#seo-form #name').val('kyle rush test');
@@ -101,7 +113,14 @@ $(function(){
 
     });
 
+    setTimeout(function(){
+
+      QUnit.assert.equal($('body').attr('data-form-success'), '/account/free_trial_create', 'form successfully submitted');
+
+    }, 2500);
+
+    //check the source cookie
+
   });
-  */
 
 });
