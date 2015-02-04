@@ -35,6 +35,11 @@ body.pricing {
       font: 12px Gotham-Medium;
       color: #444B4F;
       line-height: 12px;
+      &:hover {
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.18);
+        background: #eee;
+        border-color: #b8b8b8;
+      }
     }
   }
 
@@ -95,7 +100,6 @@ body.pricing {
       justify-content: space-around;
     }
     .benefit-item {
-      width: 256px;
       text-align: center;
       padding-top: 99px;
       background-repeat: no-repeat;
@@ -105,11 +109,11 @@ body.pricing {
       margin-right: auto;
       margin-bottom: 75px;
       h3 {
+        font-family: Gotham-Medium;
+        font-size: 1em;
+        font-weight: 100;
         text-align: center;
-        font: 15px $gotham-font-family;
         color: $super-dark-blue;
-        letter-spacing: 0.53px;
-        line-height: 21px;
       }
       p {
         font-size: 15px;
@@ -145,6 +149,7 @@ body.pricing {
     .benefits-section {
       .benefit-item {
         margin-bottom: 10px;
+        width: 33%;
       }
     }
   }

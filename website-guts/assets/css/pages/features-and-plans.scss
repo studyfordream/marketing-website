@@ -34,6 +34,11 @@ body.features-and-plans {
       font: 12px Gotham-Medium;
       color: #444B4F;
       line-height: 12px;
+      &:hover {
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.18);
+        background: #eee;
+        border-color: #b8b8b8;
+      }
     }
   }
 
@@ -81,6 +86,9 @@ body.features-and-plans {
       font: $gotham-font-family;
       color: #4A90E2;
       padding: 15px 87.5px;
+      &:hover {
+        background: none;
+      }
     }
   }
 
@@ -89,31 +97,33 @@ body.features-and-plans {
   /*                */
   .benefits-section {
     background: white;
+    padding: 50px 0;
     .title-copy {
       text-align: center;
-      padding-top: 62px;
       font: 30px $gotham-font-family;
       color: $super-dark-blue;
       line-height: 34px;
-      padding: 66px 0;
+      padding: 0 0 50px 0;
     }
     .benefit-items-container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-around;
     }
     .benefit-item {
-      width: 256px;
       text-align: center;
       padding-top: 99px;
       background-repeat: no-repeat;
       background-position: center top;
       background-size: 122px 83px;
+      margin-left: auto;
+      margin-right: auto;
       h3 {
+        font-family: Gotham-Medium;
+        font-size: 1em;
+        font-weight: 100;
         text-align: center;
-        font: 15px $gotham-font-family;
         color: $super-dark-blue;
-        letter-spacing: 0.53px;
-        line-height: 21px;
       }
       p {
         font-size: 15px;
@@ -127,7 +137,6 @@ body.features-and-plans {
       font-size: 12px;
       color: #979797;
       line-height: 24px;
-      padding-bottom: 82px;
     }
   }
 
@@ -136,6 +145,7 @@ body.features-and-plans {
   /*                 */
   .feature-section {
     border: 1px solid #EBEBEB;
+    padding: 50px 0;
     h2 {
       font: 28px $gotham-font-family;
       color: $super-dark-blue;
@@ -143,39 +153,39 @@ body.features-and-plans {
     p {
       font: 15px $gotham-font-family;
       color: #696F72;
-      line-height: 22px;
+      line-height: 28px;
     }
     .description-container {
-      width: 539px;
+      width: 62%;
       display: inline-block;
-      padding: 55px 0 60px 110px;
+      padding: 150px 0 60px 0;
       background-repeat: no-repeat;
-      background-position: left 75px;
+      background-position: center 75px;
       background-size: 80px;
     }
     .features-container {
-      width: 294px;
-      padding: 55px 0;
+      padding: 0;
       display: inline-block;
+      h4 {
+        font-family: Gotham-Medium;
+        font-size: 1em;
+        font-weight: 100;
+        color: #696F72;
+        letter-spacing: 0.53px;
+      }
       li {
         font-size: 15px;
         color: #9B9B9B;
         letter-spacing: 0.21px;
-        line-height: 16px;
-        margin-bottom: 20px;
+        line-height: 22px;
+        margin: 10px 0;
       }
     }
     &.even {
       background: #F3F6F8;
-      .features-container {
-        float: right;
-      }
     }
     &.odd {
       background: white;
-      .description-container {
-        float: right;
-      }
     }
   }
 
@@ -223,7 +233,6 @@ body.features-and-plans {
     }
     .title-copy {
       margin-bottom: 0;
-      padding-top: 25px;
       font-size: 24px;
       color: #00415D;
     }
@@ -241,6 +250,11 @@ body.features-and-plans {
       font: 14px Gotham-Medium;
       color: #444B4F;
       padding: 12px 50px;
+      &:hover {
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.18);
+        background: #eee;
+        border-color: #b8b8b8;
+      }
     }
   }
 }
@@ -256,6 +270,30 @@ body.features-and-plans {
         font-size: 48px;
       }
     }
-
+    .feature-section {
+      .description-container {
+        padding: 0 0 0 110px;
+        background-position: left 40px;
+        background-size: 80px;
+      }
+      .features-container {
+        width: 35%;
+      }
+      &.even {
+        background: #F3F6F8;
+        .features-container {
+          float: right;
+        }
+      }
+      &.odd {
+        background: white;
+        .description-container {
+          float: right;
+        }
+      }
+    }
+    .benefit-item {
+      width: 33%;
+    }
   }
 }

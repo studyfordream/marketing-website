@@ -109,6 +109,9 @@
   overflow: hidden;
   white-space: nowrap;
   margin: 0;
+  &:hover {
+    background: #147ec7;
+  }
 }
 
 .rounded-input {

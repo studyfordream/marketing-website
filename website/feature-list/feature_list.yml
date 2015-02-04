@@ -142,12 +142,6 @@ tables:
         starter_bool: false
         enterprise_bool: true
       -
-        title: "List Membership"
-        boolean: true
-        starter_bool: false
-        enterprise_bool: true
-        tooltip: "Upload your customer lists to Optimizely and target optimized experiences to them."
-      -
         title: "Custom Tags"
         boolean: true
         starter_bool: false
