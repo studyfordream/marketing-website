@@ -243,7 +243,7 @@ tables:
       -
         title: "Traffic Optimized"
         string: true
-        starter_text: "50,000 MUVs/MUAs"
+        starter_text: "50,000 MUVs/MAUs"
         enterprise_text: "Custom"
         tooltip: "Monthly unique visitors are counted by adding the number
           of unique visitors in an experiment on the web to the number of
