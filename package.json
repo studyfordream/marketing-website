@@ -39,6 +39,7 @@
     "grunt-s3": "0.2.0-alpha.3",
     "grunt-sass": "0.14.0",
     "grunt-userevvd": "0.1.4",
+    "l10n-tools": "git+ssh://git@github.com/optimizely/l10n-tools.git",
     "grunt-webpack": "git+ssh://git@github.com:dtothefp/grunt-webpack.git",
     "handlebars-loader": "0.1.7",
     "imports-loader": "0.6.3",
