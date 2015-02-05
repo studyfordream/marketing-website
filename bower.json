@@ -17,10 +17,8 @@
   ],
   "dependencies": {
     "fastclick": "1.0.2",
-    "fitvids": "1.1.0",
     "history.js": "1.8.0",
     "jquery": "2.1.1",
-    "jquery-cookie": "1.4.1",
     "momentjs": "2.6.0",
     "normalize-css": "3.0.1",
     "oform": "2.3.2"

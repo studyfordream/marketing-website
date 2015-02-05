@@ -1,8 +1,7 @@
-require('script!jquery-cookie/jquery.cookie');
-require('script!history.js/scripts/bundled-uncompressed/html4+html5/jquery.history');
-require('script!momentjs');
-require('script!fitvids');
-require('script!oform/src/oForm');
+require('script!jquery.cookie-1.4.1.min');
+require('script!history.js/scripts/bundled/html4+html5/jquery.history');
+require('script!momentjs/min/moment.min');
+require('script!oform/dist/oForm.min');
 
 //require the top level utils
 var requireUtils = require.context('./utils', false, /\.js$/);
