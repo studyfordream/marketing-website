@@ -4,6 +4,17 @@ var secondLastSlash = function(path) {
   return split.splice(split.length - 2).join('/');
 };
 module.exports = function(grunt, options){
+  var lastTarget;
+  var processBundleName = function (src, filepath) {
+    var updatedSrc;
+    if(lastTarget !== grunt.task.current.target) {
+      updatedSrc = 'var targetName = "' + grunt.task.current.target + '";\n\n' + src;
+    }
+    lastTarget = grunt.task.current.target;
+
+    return updatedSrc || src;
+  };
+
   return {
     namespacePages: {
       options: {
@@ -18,6 +29,19 @@ module.exports = function(grunt, options){
       cwd: '<%= config.guts %>/assets/js/',
       dest: '<%= config.dist %>/assets/js/'
     },
+    namespaceOMPages: {
+      options: {
+        banner: '<%= grunt.config.get("concat_banner") %>',
+        footer: '<%= grunt.config.get("concat_footer") %>',
+        process: function(src, filepath) {
+          return 'var targetName = "' + grunt.task.current.target + '" + "--" +  "' + secondLastSlash(filepath) + '";\n\n' + src;
+        }
+      },
+      src: ['pages/*.js', 'layouts/*.js'],
+      expand: true,
+      cwd: '<%= config.guts %>/assets/js/om/',
+      dest: '<%= config.dist %>/assets/js/om/'
+    },
     jqueryModernizr: {
       src: [
         '<%= config.guts %>/assets/js/libraries/jquery-2.1.1.min.js',
@@ -28,28 +52,57 @@ module.exports = function(grunt, options){
       isFile: true,
       dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr.min.js'
     },
-    namespaceGlobal: {
+    omBundle: {
       options: {
         banner: '<%= grunt.config.get("concat_banner") %>',
-        footer: '<%= grunt.config.get("concat_footer") %>'
+        footer: '<%= grunt.config.get("concat_footer") %>',
+        process: processBundleName
       },
       files: {
-          '<%= config.temp %>/assets/js/global.js': [
-            '<%= config.guts %>/assets/js/utils/oform_globals.js',
-            '<%= config.guts %>/assets/js/utils/check_complex_password.js',
-            '<%= config.guts %>/assets/js/utils/equal_height_grid.js',
-            '<%= config.guts %>/assets/js/utils/get_url_parameter.js',
-            '<%= config.guts %>/assets/js/utils/uri.js',
-            '<%= config.guts %>/assets/js/utils/guid_sprintf.js',
-            '<%= config.guts %>/assets/js/utils/form_helper_factory.js',
-            '<%= config.guts %>/assets/js/utils/form_helpers/*.js',
-            '<%= config.guts %>/assets/js/utils/trim_url.js',
-            '<%= config.guts %>/assets/js/utils/stringify_error.js',
-            '<%= config.guts %>/assets/js/global.js',
-            '<%= config.guts %>/assets/js/components/*.js',
-            '<%= config.guts %>/assets/js/services/*.js',
-            '!<%= config.guts %>/assets/js/services/user_state.js'
-            ]
+        '<%= config.dist %>/assets/js/om/bundle.js': [
+          '<%= config.guts %>/assets/js/om/libraries/jquery.cookie.js',
+          '<%= config.guts %>/assets/js/om/utils/get-url-parameter.js',
+          '<%= config.guts %>/assets/js/om/utils/uri.js',
+          '<%= config.guts %>/assets/js/om/services/source.js',
+          '<%= config.guts %>/assets/js/om/utils/trim-url.js',
+          '<%= config.guts %>/assets/js/om/utils/oform-globals.js',
+          '<%= config.guts %>/assets/js/om/libraries/oform.min.js',
+          '<%= config.guts %>/assets/js/om/global.js'
+        ]
+      }
+    },
+    jqueryModernizrOM: {
+      src: [
+        '<%= config.guts %>/assets/js/libraries/jquery-1.6.4.min.js',
+        '<%= config.temp %>/assets/js/libraries/modernizr.2.8.3.min.js'
+      ],
+      expand: false,
+      flatten: true,
+      isFile: true,
+      dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr-om.min.js'
+    },
+    globalBundle: {
+      options: {
+        banner: '<%= grunt.config.get("concat_banner") %>',
+        footer: '<%= grunt.config.get("concat_footer") %>',
+        process: processBundleName
+      },
+      files: {
+        '<%= config.temp %>/assets/js/global.js': [
+          '<%= config.guts %>/assets/js/utils/oform_globals.js',
+          '<%= config.guts %>/assets/js/utils/check_complex_password.js',
+          '<%= config.guts %>/assets/js/utils/equal_height_grid.js',
+          '<%= config.guts %>/assets/js/utils/get_url_parameter.js',
+          '<%= config.guts %>/assets/js/utils/uri.js',
+          '<%= config.guts %>/assets/js/utils/guid_sprintf.js',
+          '<%= config.guts %>/assets/js/utils/form_helper_factory.js',
+          '<%= config.guts %>/assets/js/utils/form_helpers/*.js',
+          '<%= config.guts %>/assets/js/utils/trim_url.js',
+          '<%= config.guts %>/assets/js/global.js',
+          '<%= config.guts %>/assets/js/components/*.js',
+          '<%= config.guts %>/assets/js/services/*.js',
+          '!<%= config.guts %>/assets/js/services/user_state.js'
+        ]
       }
     },
     concatBundle: {

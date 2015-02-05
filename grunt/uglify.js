@@ -33,5 +33,16 @@ module.exports = {
         flatten: true
       }
     ]
+  },
+  ppcLayoutFiles: {
+    files: [
+      {
+        expand: true,
+        cwd: '<%= config.dist %>/assets/js/ppc/layouts/',
+        src: '**/*.js',
+        dest: '<%= config.dist %>/assets/js/ppc/layouts',
+        flatten: true
+      }
+    ]
   }
 };

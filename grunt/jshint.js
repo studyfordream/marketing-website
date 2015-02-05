@@ -53,8 +53,8 @@ module.exports = {
     files: {
       src: [
         '<%= config.guts %>/assets/js/**/*.js',
-        '!<%= config.guts %>/assets/js/libraries/**/*.js',
-        '!<%= config.guts %>/assets/js/utils/*.js'
+        '!<%= config.guts %>/assets/js{,/om}/libraries/**/*.js',
+        '!<%= config.guts %>/assets/js{,/om}/utils/*.js'
       ]
     }
   },
@@ -77,8 +77,8 @@ module.exports = {
     files: {
       src: [
         '<%= config.guts %>/assets/js/**/*.js',
-        '!<%= config.guts %>/assets/js/libraries/**/*.js',
-        '!<%= config.guts %>/assets/js/utils/*.js',
+        '!<%= config.guts %>/assets/js{,/om}/libraries/**/*.js',
+        '!<%= config.guts %>/assets/js{,/om}/utils/*.js'
       ]
     }
   },

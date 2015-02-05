@@ -116,7 +116,7 @@
       source.otm.medium + '|||' +
       source.otm.source + '|||' +
       source.otm.keyword + '|||' +
-      source.signupPlatform + '|||'
+      source.signup_platform + '|||'
     );
 
     for(propertyName in data){

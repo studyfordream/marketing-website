@@ -10,6 +10,10 @@ module.exports = {
       {
         src: '<%= config.guts %>/assets/css/styles.scss',
         dest: '<%= config.temp %>/css/styles.css'
+      },
+      {
+        src: '<%= config.guts %>/assets/css/om/styles.scss',
+        dest: '<%= config.temp %>/css/om/styles.css'
       }
     ]
   },
@@ -23,6 +27,10 @@ module.exports = {
       {
         src: '<%= config.guts %>/assets/css/styles.scss',
         dest: '<%= config.temp %>/css/styles.css'
+      },
+      {
+        src: '<%= config.guts %>/assets/css/om/styles.scss',
+        dest: '<%= config.temp %>/css/om/styles.css'
       }
     ]
   }
