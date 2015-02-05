@@ -128,13 +128,11 @@ module.exports = function(grunt, options) {
               } else if(req.url === '/account/info') {
                 var paths = [
                   'website-guts/endpoint-mocks/accountInfo.json',
-                  'website-guts/endpoint-mocks/allIosInfo.json'
+                  'website-guts/endpoint-mocks/nullAccountInfo.json'
                 ];
 
-                var randIndex = 0;
-
                 res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read(paths[randIndex]) );
+                res.end( grunt.file.read(paths[0]) );
 
               } else if(req.url === '/experiment/load_recent?max_experiments=5') {
 

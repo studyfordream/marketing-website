@@ -28,6 +28,8 @@
   margin: 0;
 }
 .plan-box-cont {
+  display: flex;
+  flex-direction: column;
   background: $faint-gray-bg;
   border: 2px solid $faint-gray-border;
   border-radius: 4px;
@@ -149,6 +151,9 @@ body.pricing-page {
   }
   .plan-box-content, .feature-overview {
     padding: 15px 30px 15px 30px;
+  }
+  .plan-box-content {
+    flex: 1;
   }
   .feature-category h3 {
     @extend .plan-box-header;

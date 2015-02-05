@@ -103,7 +103,7 @@ body.press-page {
 			text-align: center;
 			li {
 				display: inline-block;
-				border-right: 1px solid #242424;
+				border-right: 1px solid $text-color;
 				padding: 0 10px 0 4px;
 			}
 			li:last-child {

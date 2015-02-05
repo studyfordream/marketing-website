@@ -4,6 +4,7 @@
 @import 'modules/type';
 @import 'smart-grid/smart-grid';
 @import 'modules/header';
+@import 'modules/opticon-header';
 @import 'modules/footer';
 @import 'modules/forms';
 @import 'main';
@@ -36,6 +37,11 @@
 @import 'pages/resources-page';
 @import 'pages/pricing';
 @import 'pages/android';
+@import 'pages/communities';
+@import 'pages/statistics';
+@import 'pages/opticon';
+@import 'pages/opticon-speakers';
+@import 'pages/opticon-confirmation';
 
 /* layouts */
 @import 'layouts/benefits';
@@ -49,6 +55,7 @@
 
 /* components */
 @import 'components/modals';
+@import 'components/play-button';
 @import 'components/tooltip';
 @import 'components/pills';
 @import 'components/dropdown-filter';

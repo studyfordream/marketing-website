@@ -1,5 +1,9 @@
 $('#full-feature-list-btn').click(w.optly.mrkt.utils.smoothScroll);
 
+window.optly.mrkt.utils.equalHeightGrid({
+  selector: '.plan-box .cta'
+});
+
 //setup DOM for automated test
 var automatedTest = window.optly.mrkt.automatedTest();
 

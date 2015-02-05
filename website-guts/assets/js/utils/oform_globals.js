@@ -22,11 +22,13 @@
 
   w.optly.mrkt.Oform.validationError = function(element){
 
+    w.optly.mrkt.formHadError = true;
+
     var elementValue = $(element).val();
 
     var elementHasValue = elementValue ? 'has value' : 'no value';
 
-    w.analytics.track($(element).closest('form').attr('id') + ' ' + element.getAttribute('name') + ' error', {
+    w.analytics.track($(element).closest('form').attr('id') + ' ' + element.getAttribute('name') + ' error submit', {
 
       category: 'form error',
 
@@ -98,6 +100,8 @@
       Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
       Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
       iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+      iOStestc: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
+      IOSTest2: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
       Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
     };
 
