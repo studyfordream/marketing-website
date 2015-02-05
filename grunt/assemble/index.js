@@ -32,12 +32,12 @@ module.exports = function (grunt) {
     var dirnameLangKey = function (search) {
       return function (fp) {
         // fp => website/about/index.hbs
-        if (fp.indexOf(search + '/') > -1 
+        if (fp.indexOf(search + '/') > -1
           && fp.indexOf(search + '/index') === -1) {
             var segments = path.dirname(fp).split('/');
             return segments[segments.length - 1];
           }
-          return renameKey(fp);      
+          return renameKey(fp);
         };
     };
     assemble.data(options.data);
@@ -60,8 +60,15 @@ module.exports = function (grunt) {
     customTypes(assemble);
 
     assemble.option('renameKey', dirnameLangKey('website-de'));
-    assemble['page-de'](['website-de/**/*.hbs']);
-    // console.log(assemble.views['page-des']);
+
+    assemble['page-de']({
+      src: [ '**/*.hbs' ],
+      fallback: [ '**/*.hbs', '!resources/resources-list/**/*', '!partners/**/*' ]
+    });
+
+    Object.keys( assemble.views['page-des'] ).forEach(function(key) {
+      console.log(key, assemble.views['page-des'][key].path);
+    });
 
     // assemble.option('renameKey', dirnameLangKey('website'));
 
@@ -199,7 +206,12 @@ module.exports = function (grunt) {
 
       var files = config.pages.files[0];
       return assemble.src(normalizeSrc(files.cwd, files.src))
-        // .pipe(push('page-des'))
+        .pipe(through.obj(function(file, enc, cb) {
+          console.log(file.path);
+          this.push(file);
+          cb();
+        }))
+        //.pipe(push('page-des'))
         .pipe(through.obj(function (file, enc, cb) {
           this.push(file);
           cb();

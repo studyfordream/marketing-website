@@ -44,7 +44,9 @@
     "load-grunt-config": "0.16.0",
     "optimizely-marked": "0.0.4",
     "time-grunt": "0.3.2",
-    "uglify-js": "2.4.15"
+    "uglify-js": "2.4.15",
+    "globby": "^1.1.0",
+    "gray-matter": "^1.1.2"
   },
   "devDependencies": {
     "body-parser": "1.8.3",
