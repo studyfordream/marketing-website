@@ -91,7 +91,7 @@ module.exports = {
     },
     files: [
       {
-        src: ['om/**/*.hbs'],
+        src: ['om/**/*.hbs', '!<%= grunt.config.get("exclude_from_assemble") %>'],
         dest: '<%= config.dist %>/',
         cwd: '<%= config.content %>/',
         expand: true

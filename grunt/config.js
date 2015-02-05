@@ -25,6 +25,7 @@ var config = function(grunt, options) {
           sassImagePath: '/img',
           compress_js: true,
           drop_console: true,
+          exclude_from_assemble: '**/fixture.hbs',
           concat_banner: '(function($, w, d){ \n\n' +
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
@@ -46,6 +47,7 @@ var config = function(grunt, options) {
         variables: {
           aws: creds,
           environment: 'staging',
+          exclude_from_assemble: 'bobloblaw.hbs',
           environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
           assetsDir: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets',
           link_path: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
@@ -73,6 +75,7 @@ var config = function(grunt, options) {
         variables: {
           aws: creds,
           environment: 'staging',
+          exclude_from_assemble: '**/fixture.hbs',
           environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
           assetsDir: '/assets',
           link_path: '',
@@ -96,6 +99,7 @@ var config = function(grunt, options) {
       options: {
         variables: {
           environment: 'dev',
+          exclude_from_assemble: 'bobloblaw.hbs',
           environmentData: 'website-guts/data/environments/development/environmentVariables.json',
           assetsDir: '/dist/assets',
           link_path: '/dist',
