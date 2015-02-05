@@ -115,7 +115,7 @@ w.optly.mrkt.trialForm = new Oform({
       //document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
       $('body').attr('data-form-success', $('#seo-form').attr('action') );
 
-      if(!w.optly.mrkt.automatedTest){
+      if(!w.optly.mrkt.automatedTest()){
         setTimeout(function(){
           w.location = 'https://www.optimizely.com/edit?url=' + encodeURIComponent(d.getElementById('url').value);
         }, 1000);
