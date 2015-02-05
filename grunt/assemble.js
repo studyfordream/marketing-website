@@ -85,9 +85,9 @@ module.exports = {
       }
     ]
   },
-  ppc: {
+  om: {
     options: {
-      layoutdir: '<%= config.guts %>/templates/ppc/layouts/'
+      layoutdir: '<%= config.guts %>/templates/om/layouts/'
     },
     files: [
       {

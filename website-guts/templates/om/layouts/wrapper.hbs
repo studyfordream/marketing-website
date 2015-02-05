@@ -17,7 +17,7 @@
         <!-- Chartbeat -->
         <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
         {{/if}}
-        <script src="{{assetsDir}}/js/libraries/jquery-modernizr-ppc.min.js"></script>
+        <script src="{{assetsDir}}/js/libraries/jquery-modernizr-om.min.js"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {{#if environmentVariables.staging}}<meta name="robots" content="noindex">{{/if}}
         <title>{{#if page.seo_title}}{{page.seo_title}}{{else}}Optimizely: Make every experience count{{/if}}</title>
@@ -30,8 +30,8 @@
         <meta property="og:description" content="{{#if page.og_description}}{{page.og_description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
         {{#if page.ui_test}}
         <link rel="stylesheet" href="{{assetsDir}}/css/qunit-1.17.1.css" type="text/css" media="screen">
-        <script src="{{assetsDir}}/js/ppc/libraries/qunit-1.17.1.js"></script>
-        <script src="{{assetsDir}}/js/ppc/test/test.js"></script>
+        <script src="{{assetsDir}}/js/om/libraries/qunit-1.17.1.js"></script>
+        <script src="{{assetsDir}}/js/om/test/test.js"></script>
         {{/if}}
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
         {{#if page.external_stylesheets}}
@@ -39,7 +39,7 @@
         <link rel="stylesheet" type="text/css" href="{{.}}">
         {{/each}}
         {{/if}}
-        <link rel="stylesheet" type="text/css" href="{{assetsDir}}/css/ppc/styles.css">
+        <link rel="stylesheet" type="text/css" href="{{assetsDir}}/css/om/styles.css">
         <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7838232/684744/css/fonts.css">
         <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7838232/736966/css/fonts.css">
         {{#if page.head_script ~}}<script src="{{page.head_script}}"></script>{{/if}}
@@ -158,17 +158,17 @@
           optly.mrkt = optly.mrkt || {};
           optly.mrkt.assetsDir = '{{assetsDir}}';
         </script>
-        <script src="{{assetsDir}}/js/ppc/bundle.js"></script>
+        <script src="{{assetsDir}}/js/om/bundle.js"></script>
         {{#if page.script_dependencies}}
         {{#each page.script_dependencies}}
         <script src="{{.}}" defer></script>
         {{/each}}
         {{/if}}
         {{#if layout_script}}
-        <script src="{{assetsDir}}/js/ppc/layouts/{{layout_script}}"></script>
+        <script src="{{assetsDir}}/js/om/layouts/{{layout_script}}"></script>
         {{~/if}}
         {{#if page.page_script}}
-        <script src="{{assetsDir}}/js/ppc/pages/{{page.page_script}}"></script>
+        <script src="{{assetsDir}}/js/om/pages/{{page.page_script}}"></script>
         {{/if}}
     </body>
 </html>

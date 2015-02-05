@@ -34,30 +34,30 @@ module.exports = {
   js: {
     files: [
       {
-        cwd: '<%= config.guts %>/assets/js/ppc/libraries',
+        cwd: '<%= config.guts %>/assets/js/om/libraries',
         src: '**',
-        dest: '<%= config.dist %>/assets/js/ppc/libraries/',
+        dest: '<%= config.dist %>/assets/js/om/libraries/',
         expand: true
       }
     ]
   },
-  ppcUITest: {
+  omUITest: {
     files: [
       {
-        src: '<%= config.guts %>/assets/js/ppc/test/test.js',
-        dest: '<%= config.dist %>/assets/js/ppc/test/',
+        src: '<%= config.guts %>/assets/js/om/test/test.js',
+        dest: '<%= config.dist %>/assets/js/om/test/',
         expand: true,
         flatten: true
       },
       {
-        src: '<%= config.guts %>/assets/css/ppc/libraries/qunit-1.17.1.css',
+        src: '<%= config.guts %>/assets/css/om/libraries/qunit-1.17.1.css',
         dest: '<%= config.dist %>/assets/css/',
         expand: true,
         flatten: true
       },
       {
-        src: '<%= config.guts %>/assets/js/ppc/libraries/qunit-1.17.1.js',
-        dest: '<%= config.dist %>/assets/js/ppc/libraries/',
+        src: '<%= config.guts %>/assets/js/om/libraries/qunit-1.17.1.js',
+        dest: '<%= config.dist %>/assets/js/om/libraries/',
         expand: true,
         flatten: true
       }

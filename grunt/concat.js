@@ -29,7 +29,7 @@ module.exports = function(grunt, options){
       cwd: '<%= config.guts %>/assets/js/',
       dest: '<%= config.dist %>/assets/js/'
     },
-    namespacePPCPages: {
+    namespaceOMPages: {
       options: {
         banner: '<%= grunt.config.get("concat_banner") %>',
         footer: '<%= grunt.config.get("concat_footer") %>',
@@ -39,8 +39,8 @@ module.exports = function(grunt, options){
       },
       src: ['pages/*.js', 'layouts/*.js'],
       expand: true,
-      cwd: '<%= config.guts %>/assets/js/ppc/',
-      dest: '<%= config.dist %>/assets/js/ppc/'
+      cwd: '<%= config.guts %>/assets/js/om/',
+      dest: '<%= config.dist %>/assets/js/om/'
     },
     jqueryModernizr: {
       src: [
@@ -52,27 +52,26 @@ module.exports = function(grunt, options){
       isFile: true,
       dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr.min.js'
     },
-    ppcBundle: {
+    omBundle: {
       options: {
         banner: '<%= grunt.config.get("concat_banner") %>',
         footer: '<%= grunt.config.get("concat_footer") %>',
         process: processBundleName
       },
       files: {
-        '<%= config.dist %>/assets/js/ppc/bundle.js': [
-          '<%= config.guts %>/assets/js/ppc/libraries/jquery.cookie.js',
-          '<%= config.guts %>/assets/js/ppc/utils/get-url-parameter.js',
-          '<%= config.guts %>/assets/js/ppc/utils/uri.js',
-          '<%= config.guts %>/assets/js/ppc/services/source.js',
-          '<%= config.guts %>/assets/js/ppc/utils/trim-url.js',
-          '<%= config.guts %>/assets/js/ppc/utils/oform-globals.js',
-          '<%= config.guts %>/assets/js/ppc/libraries/oform.min.js',
-          '<%= config.guts %>/assets/js/ppc/global.js',
-          '<%= config.guts %>/assets/js/ppc/ppc.js'
+        '<%= config.dist %>/assets/js/om/bundle.js': [
+          '<%= config.guts %>/assets/js/om/libraries/jquery.cookie.js',
+          '<%= config.guts %>/assets/js/om/utils/get-url-parameter.js',
+          '<%= config.guts %>/assets/js/om/utils/uri.js',
+          '<%= config.guts %>/assets/js/om/services/source.js',
+          '<%= config.guts %>/assets/js/om/utils/trim-url.js',
+          '<%= config.guts %>/assets/js/om/utils/oform-globals.js',
+          '<%= config.guts %>/assets/js/om/libraries/oform.min.js',
+          '<%= config.guts %>/assets/js/om/global.js'
         ]
       }
     },
-    jqueryModernizrPPC: {
+    jqueryModernizrOM: {
       src: [
         '<%= config.guts %>/assets/js/libraries/jquery-1.6.4.min.js',
         '<%= config.temp %>/assets/js/libraries/modernizr.2.8.3.min.js'
@@ -80,7 +79,7 @@ module.exports = function(grunt, options){
       expand: false,
       flatten: true,
       isFile: true,
-      dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr-ppc.min.js'
+      dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr-om.min.js'
     },
     globalBundle: {
       options: {

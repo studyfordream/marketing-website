@@ -12,8 +12,8 @@ module.exports = {
         dest: '<%= config.temp %>/css/styles.css'
       },
       {
-        src: '<%= config.guts %>/assets/css/ppc/styles.scss',
-        dest: '<%= config.temp %>/css/ppc/styles.css'
+        src: '<%= config.guts %>/assets/css/om/styles.scss',
+        dest: '<%= config.temp %>/css/om/styles.css'
       }
     ]
   },
@@ -29,8 +29,8 @@ module.exports = {
         dest: '<%= config.temp %>/css/styles.css'
       },
       {
-        src: '<%= config.guts %>/assets/css/ppc/styles.scss',
-        dest: '<%= config.temp %>/css/ppc/styles.css'
+        src: '<%= config.guts %>/assets/css/om/styles.scss',
+        dest: '<%= config.temp %>/css/om/styles.css'
       }
     ]
   }

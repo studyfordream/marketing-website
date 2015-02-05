@@ -9,10 +9,10 @@ module.exports = {
     src: '<%= config.temp %>/css/*.css',
     dest: '<%= config.dist %>/assets/css/'
   },
-  ppc: {
+  om: {
     flatten: true,
     expand: true,
-    src: '<%= config.temp %>/css/ppc/*.css',
-    dest: '<%= config.dist %>/assets/css/ppc/'
+    src: '<%= config.temp %>/css/om/*.css',
+    dest: '<%= config.dist %>/assets/css/om/'
   }
 };
