@@ -54,6 +54,7 @@ external_stylesheets:
     </div>
   </section>
 
+
   <!--               -->
   <!--Sponsor Section-->
   <!--               -->
@@ -79,6 +80,19 @@ external_stylesheets:
     <a class="cta" href="{{linkPath}}/opticon/speakers">{{call_for_speakers.cta.mobile}}</a>
   </div>
   </section>
-  {{/with}}
 
+  <!--                -->
+  <!--Training Section-->
+  <!--                -->
+  <section class="training-panel">
+    <h1 class="blue-headline section-title">{{training.title}}</h1>
+    <div class="container">
+      <p class="blurb">{{{training.blurb}}}</p>
+      <div class="button-container">
+        <a href="https://opticon2015.eventbrite.com" target="_blank">{{training.cta}}</a>
+      </div>
+    </div>
+  </section>
+
+  {{/with}}
 </div><!-- /.row-->
