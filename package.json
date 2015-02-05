@@ -51,7 +51,8 @@
     "script-loader": "0.6.1",
     "time-grunt": "0.3.2",
     "uglify-js": "2.4.15",
-    "webpack": "1.4.15"
+    "webpack": "1.4.15",
+    "q": "^1.1.2"
   },
   "devDependencies": {
     "body-parser": "1.8.3",
