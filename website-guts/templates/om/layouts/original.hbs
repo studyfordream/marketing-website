@@ -68,7 +68,7 @@ layout_script: original.js
 <div class="light-gray-section">
   <div class="container clearfix" id="product-detail-cont">
     {{#each page.product_details}}
-    <div class="product-detail{{#unless graphic}} no-graphic{{/unless}}" style="background: url({{graphic}}) no-repeat;">
+    <div class="product-detail{{#unless graphic}} no-graphic{{/unless}}" style="background-image: url({{graphic}});">
       {{#if heading}}<p><strong>{{heading}}</strong></p>{{/if}}
       {{#omarkdown}}{{{details}}}{{/omarkdown}}
     </div>

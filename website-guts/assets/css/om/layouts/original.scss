@@ -110,6 +110,8 @@ h4.seo-form-heading {
 
 .product-detail {
   margin-bottom: 40px;
+  background-position: -900px 0;
+  background-repeat: no-repeat;
 }
 
 .seo-customers {
@@ -266,7 +268,7 @@ body.oform-processing {
   .product-detail {
     width: 445px;
     float: left;
-    background-repeat: no-repeat;
+    background-position: 0 0;
     padding-left: 130px;
     ul {
       padding-left: 15px;
