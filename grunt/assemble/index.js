@@ -61,15 +61,6 @@ module.exports = function (grunt) {
 
     assemble.option('renameKey', dirnameLangKey('website-de'));
 
-    assemble['page-de']({
-      src: [ '**/*.hbs' ],
-      fallback: [ '**/*.hbs', '!resources/resources-list/**/*', '!partners/**/*' ]
-    });
-
-    Object.keys( assemble.views['page-des'] ).forEach(function(key) {
-      console.log(key, assemble.views['page-des'][key].path);
-    });
-
     // assemble.option('renameKey', dirnameLangKey('website'));
 
     // assemble.pages(
@@ -206,28 +197,35 @@ module.exports = function (grunt) {
 
       var files = config.pages.files[0];
       return assemble.src(normalizeSrc(files.cwd, files.src))
-        .pipe(through.obj(function(file, enc, cb) {
-          console.log(file.path);
-          this.push(file);
-          cb();
-        }))
-        //.pipe(push('page-des'))
-        .pipe(through.obj(function (file, enc, cb) {
-          this.push(file);
-          cb();
-        }))
         .pipe(ext())
         .pipe(assemble.dest(files.dest))
-        .on('data', function (file) {
-          // console.log(file.path, 'rendered');
-        })
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished rendering pages', end);
         });
     });
 
-    assemble.run(['resources', 'partners', 'pages'], done);
+    assemble.task('pages-de', ['pages'], function () {
+      var start = process.hrtime();
+      var files = config.pages.files[0];
+
+      assemble.option('renameKey', dirnameLangKey('website-de'));
+
+      assemble['page-de']({
+        src: [ '**/*.hbs' ],
+        fallback: [ '**/*.hbs', '!resources/resources-list/**/*', '!partners/**/*' ]
+      }); 
+
+      return push('page-des')
+      .pipe(ext())
+      .pipe(assemble.dest(files.dest))
+      .on('end', function () {
+        var end = process.hrtime(start);
+        console.log('finished rendering pages-de', end);
+      });
+    }); 
+
+    assemble.run(['resources', 'partners', 'pages', 'pages-de'], done);
   });
   return {};
 };

@@ -1,4 +1,4 @@
-module.exports = function (base) {
+module.exports = function (assemble, base) {
   return function langLoader(args) {
     var fs = require('fs');
     var path = require('path');
@@ -6,21 +6,22 @@ module.exports = function (base) {
     var matter = require('gray-matter');
     var srcPattern = args.src;
     var fallbackPattern = args.fallback;
-
+    var renameKey = assemble.option('renameKey');
     var srcFiles = globby.sync(srcPattern, {cwd: base});
     var fallbackFiles = globby.sync(fallbackPattern, {cwd: 'website'});
     var o = {};
 
     fallbackFiles.forEach(function(fp) {
-
+      var langPath = path.join(base, fp);
+      var key = renameKey(langPath);
       if (srcFiles.indexOf(fp) === -1) {
-        o[fp] = matter(fs.readFileSync('website/' + fp, 'utf8'));
-        o[fp].path = path.join(base, fp);
+        o[key] = matter(fs.readFileSync('website/' + fp, 'utf8'));
+        o[key].path = langPath;
         return;
       }
 
-      o[fp] = matter(fs.readFileSync(path.join(base, fp), 'utf8'));
-      o[fp].path = path.join(base,fp);
+      o[key] = matter(fs.readFileSync(langPath, 'utf8'));
+      o[key].path = langPath;
     });
 
     //add loop for additional source files potentially look at keys

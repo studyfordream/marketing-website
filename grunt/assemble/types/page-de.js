@@ -4,5 +4,5 @@ module.exports = function(assemble) {
   //make more dynamic to get language dirs in an array
   assemble.create('page-de', {
     isRenderable: true
-  }, [langLoader('website-de')]);
+  }, [langLoader(assemble, 'website-de')]);
 };
