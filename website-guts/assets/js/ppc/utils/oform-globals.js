@@ -36,7 +36,7 @@ w.optly.mrkt.Oform.validationError = function(element){
 
 };
 
-w.optly.mrkt.Oform.trackLead = function(data, XMLHttpRequest){
+w.optly.mrkt.Oform.trackLead = function(data, returnData){
 
   var propertyName,
   reportingObject,
@@ -46,7 +46,7 @@ w.optly.mrkt.Oform.trackLead = function(data, XMLHttpRequest){
 
   source = w.optly.mrkt.source;
 
-  response = JSON.parse(XMLHttpRequest.target.responseText);
+  response = JSON.parse(returnData.XHR.responseText);
 
   if(response.token){
 

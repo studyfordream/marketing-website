@@ -6,7 +6,7 @@ if(!Modernizr.touch){
   $('#url').focus();
 }
 
-d.querySelector('#hidden').value = 'touched';
+d.getElementById('hidden').value = 'touched';
 
 var xhrInitiationTime;
 
@@ -61,7 +61,7 @@ w.optly.mrkt.trialForm = new Oform({
   } catch(error){
     w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
       category: 'api error',
-      label: 'json parse error: ' + error,
+      label: 'json parse error: ' + error
     }, {
       integrations: {
         'Marketo': false
@@ -82,7 +82,7 @@ w.optly.mrkt.trialForm = new Oform({
         url: d.getElementById('url').value,
         name: d.getElementById('name').value,
         phone: d.getElementById('phone').value
-      }, event);
+      }, returnData);
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
       }, {
@@ -159,7 +159,7 @@ w.optly.mrkt.trialForm = new Oform({
     //report that there were errors in the form
     w.analytics.track('seo-form validation error', {
       category: 'form error',
-      label: $('input.oform-error-show').length + ' errors',
+      label: $('input.oform-error-show').length + ' errors'
     }, {
       integrations: {
         'Marketo': false
