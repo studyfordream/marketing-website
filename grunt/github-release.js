@@ -2,12 +2,12 @@ module.exports = {
   options: {
     repository: 'optimizely/marketing-website',
     release: {
-      tag_name: 'tag',
-      name: 'name',
-      body: 'Description of the release'
+      tag_name: 'v1.0.0',
+      name: 'v1.0.0',
+      body: 'Website packaged at <%= dateVar %>'
     }
   },
   files: {
-    src: ['website-stable.zip']
+    src: ['temp/website-stable.zip']
   }
 };

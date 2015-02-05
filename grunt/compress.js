@@ -1,7 +1,7 @@
 module.exports = {
   main: {
     options: {
-      archive: 'website-stable.zip' // What you want to call your file
+      archive: 'temp/website-stable.zip' // What you want to call your file
     },
     files: [
       {
