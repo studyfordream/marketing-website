@@ -137,7 +137,7 @@ module.exports = function(grunt) {
   ]);
   grunt.loadNpmTasks('grunt-github-releaser');
   grunt.loadNpmTasks('grunt-git');
-
+  grunt.loadNpmTasks('grunt-release-it');
   grunt.registerTask('forceoff', 'Forces the force flag off', function() {
     grunt.option('force', false);
   });
@@ -145,7 +145,6 @@ module.exports = function(grunt) {
   grunt.registerTask('forceon', 'Forces the force flag on', function() {
     grunt.option('force', true);
   });
-  
   grunt.registerTask('release', 'makes a release to github', function() {
     // Use the forceon option for all tasks that need to continue executing in case of error
     var prepare = ['prompt', 'build', 'compress','gitfetch'];
