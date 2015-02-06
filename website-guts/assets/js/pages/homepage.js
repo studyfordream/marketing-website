@@ -7,7 +7,7 @@ $('#get-started').submit(function(e){
   if( inputVal ){
     w.optly.mrkt.modal.open({ modalType: 'signup' });
     d.body.classList.add('test-it-out-success');
-    $('input[type="email"]').val(inputVal);
+    $('#signup-form input[type="email"]').val(inputVal);
 
     var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (emailRegEx.test(inputVal)) {
