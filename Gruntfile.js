@@ -9,21 +9,23 @@
 module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
+  var dateVar = grunt.template.today("dddd, mmmm dS, yyyy, h:MM:ss TT");
 
   //jit-grunt loads only the npm tasks required for the grunt task.
   //makes livereload much faster.
   require('load-grunt-config')(grunt, {
-      jitGrunt: {
-          staticMappings: {
-              replace: 'grunt-text-replace',
-              handlebars: 'grunt-contrib-handlebars',
-              resemble: 'grunt-resemble-cli',
-              sass: 'grunt-sass',
-              connect: 'grunt-contrib-connect',
-              jasmine_node: 'grunt-jasmine-node'
-          }
-      },
-      init: true
+    jitGrunt: {
+      staticMappings: {
+        replace: 'grunt-text-replace',
+        handlebars: 'grunt-contrib-handlebars',
+        resemble: 'grunt-resemble-cli',
+        sass: 'grunt-sass',
+        connect: 'grunt-contrib-connect',
+        jasmine_node: 'grunt-jasmine-node'
+      }
+    },
+    data: {dateVar: dateVar},
+    init: true
   });
 
   grunt.registerTask('staging-deploy', [
@@ -133,5 +135,23 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'build'
   ]);
+  grunt.loadNpmTasks('grunt-github-releaser');
+  grunt.loadNpmTasks('grunt-git');
+
+  grunt.registerTask('forceoff', 'Forces the force flag off', function() {
+    grunt.option('force', false);
+  });
+
+  grunt.registerTask('forceon', 'Forces the force flag on', function() {
+    grunt.option('force', true);
+  });
+  
+  grunt.registerTask('release', 'makes a release to github', function() {
+    // Use the forceon option for all tasks that need to continue executing in case of error
+    var prepare = ['prompt', 'build', 'compress','gitfetch'];
+    var git_release_tasks = ['forceon', 'gittag', 'gitpush', 'forceoff','github-release'];
+    grunt.task.run(prepare);
+    grunt.task.run(git_release_tasks);
+  });
 
 };
