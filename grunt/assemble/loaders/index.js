@@ -9,23 +9,21 @@ module.exports = function (assemble, base) {
     var renameKey = assemble.option('renameKey');
     var srcFiles = globby.sync(srcPattern, {cwd: base});
     var fallbackFiles = globby.sync(fallbackPattern, {cwd: 'website'});
-    var o = {};
 
-    fallbackFiles.forEach(function(fp) {
+    var map = fallbackFiles.reduce(function(map, fp) {
       var langPath = path.join(base, fp);
       var key = renameKey(langPath);
       if (srcFiles.indexOf(fp) === -1) {
-        o[key] = matter(fs.readFileSync('website/' + fp, 'utf8'));
-        o[key].path = langPath;
-        return;
+        map[key] = matter(fs.readFileSync('website/' + fp, 'utf8'));
+        map[key].path = langPath;
+      } else {
+        map[key] = matter(fs.readFileSync(langPath, 'utf8'));
+        map[key].path = langPath;
       }
-
-      o[key] = matter(fs.readFileSync(langPath, 'utf8'));
-      o[key].path = langPath;
-    });
+      return map;
+    }, {});
 
     //add loop for additional source files potentially look at keys
-
-    return o;
+    return map;
   }
 };
