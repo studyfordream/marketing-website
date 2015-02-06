@@ -333,9 +333,12 @@ body {
         span {
           text-decoration: underline;
           width: 100%;
-          &[data-tooltip]:before {
-            background: none;
-            height: 0;
+          &[data-tooltip] {
+            text-indent: 0;
+            &:before {
+              background: none;
+              height: 0;
+            }
           }
         }
       }
