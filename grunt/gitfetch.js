@@ -1,5 +1,5 @@
 module.exports = {
-  your_target: {
+  origin: {
     options: {
       all: true
     }

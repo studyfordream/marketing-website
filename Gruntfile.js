@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         jasmine_node: 'grunt-jasmine-node'
       }
     },
-    data: {dateVar: dateVar},
+    data: {dateVar: dateVar, marketingDistName: 'website-stable'},
     init: true
   });
 
