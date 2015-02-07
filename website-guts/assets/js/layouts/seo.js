@@ -40,94 +40,44 @@ new Oform({
   $('body').addClass('oform-error').removeClass('oform-processing');
 })
 .on('load', function(event){
-  var xhrElapsedTime,
-      response;
-  xhrElapsedTime = new Date() - xhrInitiationTime;
-  try {
-    response = JSON.parse(event.target.responseText);
-  } catch(error){
-    w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
-      category: 'api error',
-      label: 'json parse error: ' + error,
+  var xhrElapsedTime = new Date() - xhrInitiationTime,
+      response = this.parseResponse(event);
+
+  if(response){
+    //remove error class from body?
+    w.optly.mrkt.Oform.trackLead({
+      email: d.getElementById('email').value,
+      url: d.getElementById('url').value,
+      name: d.getElementById('name').value,
+      phone: d.getElementById('phone').value
+    }, event);
+    //[> legacy reporting - to be deprecated <]
+    w.analytics.track('/free-trial/success', {
+      category: 'account',
+      label: w.location.pathname
     }, {
+      'Marketo': false
+    });
+    w.Munchkin.munchkinFunction('visitWebPage', {
+      url: '/free-trial/success'
+    });
+    w.analytics.page('/account/create/success', {
       integrations: {
         'Marketo': false
       }
     });
-  }
-  w.ga('send', {
-    'hitType': 'timing',
-    'timingCategory': 'api response time',
-    'timingVar': '/account/free_trial_create',
-    'timingValue': xhrElapsedTime,
-    'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-  });
-  if(response){
-    if(event.target.status === 200){
-      //remove error class from body?
-      w.optly.mrkt.Oform.trackLead({
-        email: d.getElementById('email').value,
-        url: d.getElementById('url').value,
-        name: d.getElementById('name').value,
-        phone: d.getElementById('phone').value
-      }, event);
-      //[> legacy reporting - to be deprecated <]
-      w.analytics.track('/free-trial/success', {
-        category: 'account',
-        label: w.location.pathname
-      }, {
+    w.analytics.page('/free-trial/success', {
+      integrations: {
         'Marketo': false
-      });
-      w.Munchkin.munchkinFunction('visitWebPage', {
-        url: '/free-trial/success'
-      });
-      w.analytics.page('/account/create/success', {
-        integrations: {
-          'Marketo': false
-        }
-      });
-      w.analytics.page('/free-trial/success', {
-        integrations: {
-          'Marketo': false
-        }
-      });
-
-      //for phantom tests
-      document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
-
-      setTimeout(function(){
-        w.location = 'https://www.optimizely.com/welcome';
-      }, 1000);
-
-    } else {
-      w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
-        category: 'api error',
-        label: 'status not 200: ' + event.target.status
-      }, {
-        integrations: {
-          'Marketo': false
-        }
-      });
-      if(response.error && typeof response.error === 'string'){
-        //update error message, apply error class to body
-        $('#seo-form .error-message').text(response.error);
-        $('body').addClass('oform-error').removeClass('oform-processing');
-        w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
-          category: 'api error',
-          label: 'response.error: ' + response.error
-        }, {
-          integrations: {
-            'Marketo': false
-          }
-        });
-      } else {
-        $('#seo-form .error-message').text('An unknown error occured.');
-        $('body').addClass('oform-error').removeClass('oform-processing');
       }
-    }
-  } else {
-    $('#seo-form .error-message').text('An unknown error occured.');
-    $('body').addClass('oform-error').removeClass('oform-processing');
+    });
+
+    //for phantom tests
+    document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
+
+    setTimeout(function(){
+      w.location = 'https://www.optimizely.com/welcome';
+    }, 1000);
   }
 })
 .on('done', function(){
