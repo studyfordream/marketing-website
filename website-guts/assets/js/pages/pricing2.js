@@ -97,7 +97,6 @@ var updatePlanInfo = function(){
               //show confirmation
               //w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
               if(!automatedTest){
-                debugger;
                 w.location = 'https://www.optimizely.com/welcome';
               }
           },
