@@ -1,0 +1,16 @@
+body.feature-list {
+  #page-content {
+    background-color: white;
+    padding-top: 35px;
+  }
+  #page-header {
+    border-bottom: 2px solid #ccc;
+  }
+  #page-header-gradient {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: $tablet-min-width) {
+}

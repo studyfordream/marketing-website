@@ -67,10 +67,10 @@
   ],
   "keywords": [
     "assemble",
-    "templates",
     "handlebars",
-    "site generator",
     "site builder",
+    "site generator",
+    "templates",
     "grunt"
   ]
 }

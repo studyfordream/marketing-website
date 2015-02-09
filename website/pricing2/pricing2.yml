@@ -1,0 +1,28 @@
+page_header:
+  cta: "Talk to Us"
+  or_word: "or"
+  us_phone_number: "1-800-252-9480"
+  uk_phone_number: "+44 (0)203 6956190"
+
+title_section:
+  title: "Powerful features.<br>Custom tailored to your needs."
+  button_text: "Explore Features"
+
+benefits_section:
+  title: "Included in all plans:"
+  benefits:
+    -
+      title: "Fast and Easy"
+      desc: "Quick implementation and easy to use visual editor"
+      icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/timer.svg"
+    -
+      title: "Powerful"
+      desc: "Create and deliver relevant experiences on web,
+             mobile web, iOS, and Android.*"
+      icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/screens.svg"
+    -
+      title: "Trusted and Secure"
+      desc: "The platform choice for over 8,000 businesses and counting."
+      icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/trophy.svg"
+
+  asterisk: "* Android coming soon"
