@@ -206,6 +206,14 @@ $(function() {
     signupMobileMvppTopHelperInst.processingAdd();
     signupMobileMvppTopHelperInst.removeErrors();
     signupMobileMvppTopHelperInst.optionsErrorElm.innerHTML = signupMobileMvppTopHelperInst.errorMessages.DEFAULT;
+    w.analytics.track('/mobile/submit', {
+      category: 'account',
+      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+    }, {
+      integrations: {
+        'Marketo': false
+      }
+    });
     return true;
   });
 
@@ -256,6 +264,14 @@ $(function() {
     signupMobileMvppBottomHelperInst.processingAdd();
     signupMobileMvppBottomHelperInst.removeErrors();
     signupMobileMvppBottomHelperInst.optionsErrorElm.innerHTML = signupMobileMvppBottomHelperInst.errorMessages.DEFAULT;
+    w.analytics.track('/mobile/submit', {
+      category: 'account',
+      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+    }, {
+      integrations: {
+        'Marketo': false
+      }
+    });
     return true;
   });
 
