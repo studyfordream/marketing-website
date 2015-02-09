@@ -10,7 +10,7 @@
     }
     .starter {
       width: 50%;
-      float: right;
+      float: left;
     }
     .enterprise {
       width: 50%;
@@ -151,9 +151,21 @@
 
 @media only screen and (min-width: $tablet-min-width) {
   #feature-list {
+    .title-table-header {
+      .starter,
+      .enterprise {
+        width: 31.915%;
+      }
+    }
     .table {
       .starter-box,
       .enterprise-box {
+        width: 31.915%;
+      }
+    }
+    .cta {
+      .starter,
+      .enterprise {
         width: 31.915%;
       }
     }
