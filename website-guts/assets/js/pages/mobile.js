@@ -175,6 +175,18 @@ $(function() {
     toggleSrc(imgCache[imgIndex], true);
   });
 
+  //custom validation error reporting handler
+  var validationErrorCustom = function(element){
+    var elementName = element.getAttribute('name');
+    var elementValue = $(element).val();
+    var elementHasValue = elementValue ? 'has value' : 'no value';
+    w.analytics.track('mobile-signup-form ' + elementName + ' error submit', {
+      category: 'form error',
+      label: elementHasValue,
+      value: elementValue.length
+    });
+  };
+
    //Oform for signup top
   var signupMobileMvppTopHelperInst = window.optly.mrkt.form.mobileMvpp({formId: 'mobile-signup-form-top'});
 
@@ -197,7 +209,8 @@ $(function() {
     return true;
   });
 
-  signupFormTop.on('validationerror', function(elm) {
+  signupFormTop.on('validationerror', function(elm){
+    validationErrorCustom(elm);
     w.optly.mrkt.Oform.validationError(elm);
     signupMobileMvppTopHelperInst.showOptionsError();
   });
@@ -247,6 +260,7 @@ $(function() {
   });
 
   signupFormBottom.on('validationerror', function(elm) {
+    validationErrorCustom(elm);
     w.optly.mrkt.Oform.validationError(elm);
     signupMobileMvppBottomHelperInst.showOptionsError();
   });
