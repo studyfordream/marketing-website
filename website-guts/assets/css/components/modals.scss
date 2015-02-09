@@ -9,50 +9,7 @@ body {
   }
 }
 
-.companies-panel {
-  padding: 1% 1%;
-  background: #efefef;
-  .container {
-    margin-bottom: 10%;
-  }
-  .companies-header {
-    p {
-      margin: 12% 2% 8% 2%;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 14px;
-      color:  #8C8C8C;
-    }
-  }
-  .logo-container {
-      padding-top: 3%;
-      .bg-img-cont {
-        padding: 0 50px;
-        .bg-img {
-          width: 100%;
-          padding-top: 50%;
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-size: contain;
-        }
-        .sony {
-          background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg');
-        }
-        .microsoft {
-          background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_gray.svg');
-        }
-        .bleacher-report {
-          background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/bleacher_report_logo_gray.svg');
-        }
-        .nbc {
-          background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/nbc_universal_gray.svg');
-        }
-        .american-apparel {
-          background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/american_apparel_logo_gray.svg');
-        }
-      }
-  }
-}
+
 
 .modal-dialog-container {
   width: 100%;
@@ -247,183 +204,8 @@ body {
     }
   }
 }
-/*           */
-/*FAQ Section*/
-/*           */
-.faq-section {
-  .faq-container {
-    margin-right: auto;
-    margin-left: auto;
-    border-top: 1px solid #DFDFDF;
-  }
-  .question {
-    font-family: Gotham-Medium;
-    font-size: 15px;
-    color: #00415D;
-    letter-spacing: 0.53px;
-    line-height: 19px;
-    margin-top: 55px;
-  }
-  .answer {
-    font-family: Gotham-Light;
-    font-size: 15px;
-    color: #696F72;
-    line-height: 22px;
-    margin-bottom: 55px;
-  }
-  .contact-text {
-    font-family: Gotham-Light;
-    font-size: 30px;
-    color: #696F72;
-    line-height: 52px;
-    text-align: center;
-    margin-bottom: 10px;
-    margin-top: 80px;
-  }
-  .phone-number {
-    margin-top: 10px;
-    font-size: 30px;
-    text-align: center;
-    color: #0094CD;
-  }
-}
-
-
-/*            */
-/*Feature List*/
-/*            */
-#feature-list {
-  /*Title Section*/
-  .title-table-header {
-    * {
-      text-align: center;
-    }
-    h1 {
-      font: 30px Gotham-Light;
-      color: #0581C2;
-      line-height: 36px;
-      margin-bottom: 5px;
-    }
-    p {
-      font-family: Gotham-Book;
-      font-size: 15px;
-      color: #9B9B9B;
-      line-height: 19px;
-      margin-top: 0;
-    }
-  }
-  /*Table Sections*/
-  .table ~ .table {
-    margin-top: 75px;
-  }
-  .table {
-    .table-header {
-      border-top: 2px solid #DFDFDF;
-      padding: 15px 0 20px 0;
-    }
-    .table-row {
-      border: 1px solid #F0F0F0;
-      border-left: none;
-      padding: 0;
-      p {
-        padding-top: 20px;
-        margin-top: 0;
-        font-family: Gotham-Light;
-        font-size: 14px;
-        span {
-          text-decoration: underline;
-          width: 100%;
-          &[data-tooltip] {
-            text-indent: 0;
-            &:before {
-              background: none;
-              height: 0;
-            }
-          }
-        }
-      }
-      [data-tooltip-dialog] {
-        background: rgba(38,38,38,0.70);
-        border: 1px solid #262626;
-        border-radius: 0px 0px 0px 2px 2px 2px 2px;
-        &:after {
-          left: 9%;
-          border-bottom: none;
-          border-left: 5px solid transparent;
-          border-right: 5px solid transparent;
-          border-top: 5px solid rgba(38,38,38,0.70);
-        }
-      }
-    }
-    .table-title {
-      font-family: Gotham-Medium;
-      font-size: 15px;
-      color: #00415D;
-      letter-spacing: 0.39px;
-      line-height: 18px;
-    }
-    .table-desc {
-      font-family: Gotham-Light;
-      font-size: 14px;
-      color: #888B8C;
-      letter-spacing: 0.3px;
-      line-height: 18px;
-    }
-    .starter-box,
-    .enterprise-box {
-      background: #FAFAFA;
-      height: 68px;
-    }
-    .text {
-      text-align: center;
-      font-family: Gotham-Light;
-      font-size: 14px;
-      color: #888B8C;
-      letter-spacing: 0.3px;
-      line-height: 19px;
-    }
-    .true,
-    .false {
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 30px;
-    }
-    .true {
-      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/checkmark.svg');
-    }
-    .false {
-      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/cross.svg');
-    }
-    .starter-box {
-      border-right: 2px solid #DFDFDF;
-    }
-    .enterprise-box {
-      border-left: 2px solid #DFDFDF;
-    }
-  }
-  /*CTA Section*/
-  .cta {
-    margin-bottom: 150px;
-    * { text-align: center; }
-    h1 {
-      font-family: Gotham-Light;
-      font-size: 24px;
-      color: #696F72;
-      line-height: 29px;
-    }
-  }
-  .enterprise-cta,
-  .starter-cta {
-    @extend .pricing-button;
-  }
-}
 
 @media only screen and (min-width: $tablet-min-width) {
-  .faq-section {
-    .faq-container {
-      width: 500px;
-    }
-  }
   .modal-dialog-container {
     overflow: auto;
     background: transparent;
@@ -481,22 +263,7 @@ body {
     }
     .webinar-detail-info { width: 350px; }
   }
-  .companies-panel {
-    .companies-header {
-      p {
-        margin-top: 6%;
-        font-size: 14px;
-      }
-    }
-    .logo-container {
-      display: flex;
-      justify-content: center;
-      .bg-img-cont {
-        width: 20%;
-        padding: 0 20px;
-      }
-    }
-  }
+
 }
 
 @media only screen and (min-width: $desktop-min-width) {
@@ -516,19 +283,5 @@ body {
     label span {font-weight: 500; font-size: 12px;}
   }
   .modal-footer {clear: both;}
-  .companies-panel {
-    height: 190px;
-    .companies-header {
-      p {
-        margin: 20px 0 25px 0;
-        text-align: center;
-      }
-    }
-    .logo-container {
-      padding-top: 0;
-      img {
-        width: 20%;
-      }
-    }
-  }
+
 }
