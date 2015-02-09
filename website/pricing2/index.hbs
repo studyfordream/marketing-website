@@ -1,0 +1,87 @@
+---
+layout: no-sub-nav-optional-page-header.hbs
+visible_title: Pricing
+body_class:
+- pricing
+no_container: true
+page_header: false
+page_script: pricing2.js
+seo_title: Pricing
+og_title: "Plans and Pricing"
+og_description: "Get started optimizing instantly, or build a custom plan for your business."
+---
+
+<!--           -->
+<!--Page Header-->
+<!--           -->
+<div id="page-header">
+  <div class="container">
+    <div class="page-subheader-cont">
+      <h1>{{page.visible_title}}</h1>
+      <div class="header-cta-container">
+        {{#with pricing.page_header}}
+        <a class="talk-button" id="talk-to-us" href="#">{{cta}}</a>
+        <p>{{or_word}}</p>
+        <p id="SL-pricing-phone-number-1" class="SL_swap">
+        US:<a href="tel:{{us_phone_number}}">{{us_phone_number}}</a><br>
+        UK:<a href="tel:{{uk_phone_number}}">{{uk_phone_number}}</a>
+        </p>
+        {{/with}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--             -->
+<!--Title Section-->
+<!--             -->
+{{#with pricing.title_section}}
+<section class="title-section">
+  <h1 class="title-copy">{{{title}}}</h1>
+  <div class="buttons-container">
+    <a class="explore" id="explore-features" href="#feature-list">
+      <span>{{button_text}}</span>
+    </a>
+  </div>
+</section>
+{{/with}}
+
+
+<!--                -->
+<!--Benefits Section-->
+<!--                -->
+{{#with features.benefits_section}}
+<section class="benefits-section">
+  <h2 class="title-copy">{{title}}</h2>
+  <div class="benefit-items-container container">
+    {{#each benefits}}
+    <div class="benefit-item four" style="background-image: url('{{icon}}')">
+      <h3>{{title}}</h3>
+      <p>{{desc}}</p>
+    </div>
+    {{/each}}
+  </div>
+  <p class="asterisk">{{asterisk}}</p>
+</section>
+{{/with}}
+
+
+<!--             -->
+<!---Feature List-->
+<!--             -->
+<div class="container">
+  {{> feature_list}}
+</div>
+
+
+<!--               -->
+<!--Companies Panel-->
+<!--               -->
+{{> companies_panel}}
+
+
+<!--           -->
+<!--FAQ Section-->
+<!--           -->
+{{> faq_section}}
