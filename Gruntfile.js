@@ -24,7 +24,10 @@ module.exports = function(grunt) {
         jasmine_node: 'grunt-jasmine-node'
       }
     },
-    data: {dateVar: dateVar, marketingDistName: 'website-stable'},
+    data: {
+      dateVar: dateVar,
+      marketingDistName: 'website-stable'
+    },
     init: true
   });
 
@@ -137,7 +140,7 @@ module.exports = function(grunt) {
   ]);
   grunt.loadNpmTasks('grunt-github-releaser');
   grunt.loadNpmTasks('grunt-git');
-  grunt.loadNpmTasks('grunt-release-it');
+
   grunt.registerTask('forceoff', 'Forces the force flag off', function() {
     grunt.option('force', false);
   });
@@ -147,8 +150,8 @@ module.exports = function(grunt) {
   });
   grunt.registerTask('release', 'makes a release to github', function() {
     // Use the forceon option for all tasks that need to continue executing in case of error
-    var prepare = ['prompt', 'build', 'compress','gitfetch'];
-    var git_release_tasks = ['forceon', 'gittag', 'gitpush', 'forceoff','github-release'];
+    var prepare = ['prompt', 'build', 'compress', 'gitfetch'];
+    var git_release_tasks = ['forceon', 'gittag', 'gitpush', 'forceoff', 'github-release'];
     grunt.task.run(prepare);
     grunt.task.run(git_release_tasks);
   });
