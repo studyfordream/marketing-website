@@ -5,9 +5,8 @@ module.exports = {
     },
     files: [
       {
-        cwd: 'dist/',
-        expand: true,
-        src: ['**/**'], // What should be included in the zip
+        src: ['dist/**'], // What should be included in the zip
+        dest: ''
       },
     ]
   }
