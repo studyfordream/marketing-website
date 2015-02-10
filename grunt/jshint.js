@@ -87,7 +87,11 @@ module.exports = {
       node: true
     },
     files: {
-      src: ['<%= config.guts %>/helpers/*.js']
+      src: [
+        '<%= config.guts %>/helpers/*.js',
+        'grunt/**/*.js',
+        'Gruntfile.js'
+      ]
     }
   }
 };

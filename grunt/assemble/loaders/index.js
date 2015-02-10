@@ -1,29 +1,50 @@
+var fs = require('fs');
+var path = require('path');
+var globby = require('globby');
+var matter = require('gray-matter');
+
 module.exports = function (assemble, base) {
+  function createMap(argsObj) {
+    var renameKey = assemble.option('renameKey');
+    var langPath = argsObj.langPath;
+    var readPath = argsObj.readPath;
+    var map = argsObj.map;
+    var key = renameKey(langPath);
+    map[key] = matter(fs.readFileSync(readPath || langPath, 'utf8'));
+    map[key].path = langPath;
+    return map;
+  }
+
   return function langLoader(args) {
-    var fs = require('fs');
-    var path = require('path');
-    var globby = require('globby');
-    var matter = require('gray-matter');
     var srcPattern = args.src;
     var fallbackPattern = args.fallback;
-    var renameKey = assemble.option('renameKey');
     var srcFiles = globby.sync(srcPattern, {cwd: base});
     var fallbackFiles = globby.sync(fallbackPattern, {cwd: 'website'});
 
     var map = fallbackFiles.reduce(function(map, fp) {
-      var langPath = path.join(base, fp);
-      var key = renameKey(langPath);
+      var readPath;
+
       if (srcFiles.indexOf(fp) === -1) {
-        map[key] = matter(fs.readFileSync('website/' + fp, 'utf8'));
-        map[key].path = langPath;
+        readPath = 'website/' + fp;
       } else {
-        map[key] = matter(fs.readFileSync(langPath, 'utf8'));
-        map[key].path = langPath;
+        srcFiles.splice(srcFiles.indexOf(fp), 1);
       }
-      return map;
+
+      return createMap({
+        map: map,
+        readPath: readPath,
+        langPath: path.join(base, fp)
+      });
     }, {});
 
-    //add loop for additional source files potentially look at keys
+    //add loop for additional custom source files
+    srcFiles.forEach(function(fp) {
+      createMap({
+        map: map,
+        langPath: path.join(base, fp)
+      });
+    });
+
     return map;
-  }
+  };
 };

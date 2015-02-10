@@ -32,8 +32,7 @@ module.exports = function (grunt) {
     var dirnameLangKey = function (search) {
       return function (fp) {
         // fp => website/about/index.hbs
-        if (fp.indexOf(search + '/') > -1
-          && fp.indexOf(search + '/index') === -1) {
+        if (fp.indexOf(search + '/') > -1 && fp.indexOf(search + '/index') === -1) {
             var segments = path.dirname(fp).split('/');
             return segments[segments.length - 1];
           }
@@ -98,7 +97,9 @@ module.exports = function (grunt) {
 
     var collectionMiddleware = function (collection) {
       return function (file, next) {
-        if (!file.data[collection]) return next();
+        if (!file.data[collection]) { 
+          return next(); 
+        }
         var col = assemble.get(collection) || {};
         var key = assemble.option('renameKey')(file.path);
         col[key] = extend({}, col[key], file.data);
@@ -128,7 +129,8 @@ module.exports = function (grunt) {
 
       var data = {};
       var name = null;
-      while (name = stack.shift()) {
+      while (stack.length) {
+        name = stack.shift();
         extend(data, layouts[name]);
       }
       extend(data, file.data);
@@ -214,7 +216,7 @@ module.exports = function (grunt) {
       assemble['page-de']({
         src: [ '**/*.hbs' ],
         fallback: [ '**/*.hbs', '!resources/resources-list/**/*', '!partners/**/*' ]
-      }); 
+      });
 
       return push('page-des')
       .pipe(ext())

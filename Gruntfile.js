@@ -102,7 +102,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('ui-test', function(which) {
     var task = 'jasmine_node';
-    if (which) task += ':' + which;
+    if (which) {
+      task += ':' + which;
+    }
 
     grunt.task.run([
       'config:dev',
