@@ -85,6 +85,8 @@ w.optly.mrkt.Oform.trackLead = function(data, returnData){
     Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
   };
 
+  console.log('reporting object: ', reportingObject);
+
   $.cookie('sourceCookie',
   source.utm.campaign + '|||' +
   source.utm.content + '|||' +
@@ -96,72 +98,75 @@ w.optly.mrkt.Oform.trackLead = function(data, returnData){
   source.otm.medium + '|||' +
   source.otm.source + '|||' +
   source.otm.keyword + '|||' +
-  source.signupPlatform + '|||'
-);
+  source.signupPlatform + '|||');
 
-for(propertyName in data){
-  reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
-}
+  console.log('sourceCookie', $.cookie('sourceCookie'));
 
-w.analytics.identify(response.unique_user_id, reportingObject, {
-  integrations: {
-    'Marketo': true
+  for(propertyName in data){
+    reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
   }
-});
 
-/* legacy reporting - to be deprecated */
+  console.log('reportingObject', reportingObject);
 
-w.analytics.track('/account/create/success', {
-  category: 'account',
-  label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-}, {
-  integrations: {
-    'Marketo': false
-  }
-});
+  w.analytics.identify(response.unique_user_id, reportingObject, {
+    integrations: {
+      'Marketo': true
+    }
+  });
 
-w.Munchkin.munchkinFunction('visitWebPage', {
-  url: '/account/create/success'
-});
+  /* legacy reporting - to be deprecated */
 
-w.analytics.track('/account/signin', {
-  category: 'account',
-  label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-}, {
-  integrations: {
-    'Marketo': false
-  }
-});
-/*
-temporarily commented out to decrease marketo queue
-w.Munchkin.munchkinFunction('visitWebPage', {
-url: '/event/account/signin'
-});
-w.Munchkin.munchkinFunction('visitWebPage', {
-url: '/event/customer/signedin'
-});
-*/
-w.Munchkin.munchkinFunction('visitWebPage', {
-  url: '/event/plan/null'
-});
+  w.analytics.track('/account/create/success', {
+    category: 'account',
+    label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+  }, {
+    integrations: {
+      'Marketo': false
+    }
+  });
 
-/* new reporting */
+  w.Munchkin.munchkinFunction('visitWebPage', {
+    url: '/account/create/success'
+  });
 
-w.analytics.track('account created', {
-  category: 'account',
-  label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-}, {
-  integrations: {
-    Marketo: false
-  }
-});
-w.analytics.track('account signin', {
-  category: 'account',
-  label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-}, {
-  integrations: {
-    Marketo: false
-  }
-});
+  w.analytics.track('/account/signin', {
+    category: 'account',
+    label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+  }, {
+    integrations: {
+      'Marketo': false
+    }
+  });
+  /*
+  temporarily commented out to decrease marketo queue
+  w.Munchkin.munchkinFunction('visitWebPage', {
+  url: '/event/account/signin'
+  });
+  w.Munchkin.munchkinFunction('visitWebPage', {
+  url: '/event/customer/signedin'
+  });
+  */
+  w.Munchkin.munchkinFunction('visitWebPage', {
+    url: '/event/plan/null'
+  });
+
+  /* new reporting */
+
+  w.analytics.track('account created', {
+    category: 'account',
+    label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+  }, {
+    integrations: {
+      Marketo: false
+    }
+  });
+  w.analytics.track('account signin', {
+    category: 'account',
+    label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+  }, {
+    integrations: {
+      Marketo: false
+    }
+  });
 
 };

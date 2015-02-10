@@ -97,3 +97,5 @@ var source = window.optly.mrkt.source = {
   gclid: gclid,
   signupPlatform: signupPlatform
 };
+
+console.log('source', source);
