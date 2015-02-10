@@ -6,6 +6,8 @@ var helpers = require('handlebars-helpers');
 var extend = require('extend-shallow');
 var createStack = require('layout-stack');
 var customTypes = require('./types/page-de');
+var es = require('event-stream');
+var Plasma = require('plasma');
 
 module.exports = function (grunt) {
   grunt.registerTask('assemble', 'Assemble', function () {
@@ -55,8 +57,6 @@ module.exports = function (grunt) {
         } else {
           key = path.join(base, path.basename(fp).replace(path.extname(fp), ''));
         }
-        console.log('fp', fp);
-        console.log('key', key);
         return key;
       };
     };
@@ -119,8 +119,8 @@ module.exports = function (grunt) {
 
     var collectionMiddleware = function (collection) {
       return function (file, next) {
-        if (!file.data[collection]) { 
-          return next(); 
+        if (!file.data[collection]) {
+          return next();
         }
         var col = assemble.get(collection) || {};
         var key = assemble.option('renameKey')(file.path);
@@ -162,12 +162,39 @@ module.exports = function (grunt) {
       next();
     };
 
+    var plasma = new Plasma();
+    var mergePageData = function (file, next) {
+      // pageData.about
+      var key = path.dirname(file.path);
+      var data = plasma.load([path.join(key, '*.{json,yaml,yml}')]);
+      if (data) {
+        console.log('plasma data', data);
+      }
+
+      // extend(file.data, data);
+      next();
+    };
+
     // custom middleware for `resources` to add front-matter (`data`)
     // to the assemble cache. (`assemble.get('resources').foo`)
+    assemble.onLoad(/resources/, mergePageData);
     assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
     assemble.before(/\.hbs/, mergeLayoutContext);
+
+    var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
+    assemble.before(pathRe, function (file, next) {
+      var dirname = file.options.params[1];
+      dirname = dirname.replace(process.cwd(), '');
+
+      var locale = dirname.split('/')[0];
+      file.data.linkPath = assemble.get('data.linkPath');
+      if (locale && locale.length && locale !== 'website') {
+        file.data.linkPath += ('/' + locale);
+      }
+      next();
+    });
 
     // load `modal` templates
     var modalFiles = config.modals.files[0];
@@ -238,7 +265,7 @@ module.exports = function (grunt) {
       /* jshint ignore:start */
       assemble['subfolder']({
         src: [ '**/*.hbs' ],
-        fallback: [ '**/*.hbs', '!resources/resources-list/**/*', '!partners/**/*' ]
+        fallback: [ '**/*.hbs', '!partners/**/*.hbs', '!resources/resources-list/**/*' ]
       });
       /* jshint ignore:end */
       return push('subfolders')
@@ -248,9 +275,17 @@ module.exports = function (grunt) {
         var end = process.hrtime(start);
         console.log('finished rendering pages-de', end);
       });
-    }); 
+    });
 
-    assemble.run(['resources', 'partners', 'pages', 'subfolders'], done);
+    assemble.task('copy', ['subfolders'], function () {
+      var streams = [assemble.src('dist/partners/**/*.html', {minimal: true})];
+      config.locales.forEach(function (locale) {
+        streams = streams.concat(assemble.dest('dist/' + locale + '/partners', {minimal: true}));
+      });
+      return es.pipe.apply(es, streams);
+    });
+
+    assemble.run(['resources', 'partners', 'pages', 'subfolders', 'copy'], done);
   });
   return {};
 };

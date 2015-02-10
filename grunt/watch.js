@@ -11,7 +11,7 @@ module.exports = {
       '<%= config.guts %>/assets/js/services/user_state.js',
       '<%= config.guts %>/helpers/**/*.js'
     ],
-    tasks: ['config:dev', 'assemble:modals', 'assemble:pages']
+    tasks: ['config:dev', 'assemble']
   },
   assemblePartners: {
     files: [
@@ -20,7 +20,7 @@ module.exports = {
       '!<%= config.guts %>/templates/**/*_compiled.hbs',
       '!<%= config.guts %>/templates/client/**/*.hbs'
     ],
-    tasks: ['config:dev', 'assemble:partners']
+    tasks: ['config:dev', 'assemble']
   },
   assembleResources: {
     files: [
@@ -30,7 +30,7 @@ module.exports = {
       '!<%= config.guts %>/templates/**/*_compiled.hbs',
       '!<%= config.guts %>/templates/client/**/*.hbs'
     ],
-    tasks: ['config:dev', 'assemble:resources']
+    tasks: ['config:dev', 'assemble']
   },
   sass: {
     files: '<%= config.guts %>/assets/css/**/*.scss',
