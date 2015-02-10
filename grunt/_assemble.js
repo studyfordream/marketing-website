@@ -14,7 +14,7 @@ module.exports = {
     'website-de',
     'website-fr',
     'website-es',
-    'website-js'
+    'website-jp'
   ],
   modals: {
     options: {
