@@ -17,14 +17,13 @@
       float: right;
     }
     h1 {
-      font: 30px Gotham-Light;
+      font: 1.9em $gotham-font-family;
       color: #0581C2;
       line-height: 36px;
       margin-bottom: 5px;
     }
     p {
-      font-family: Gotham-Book;
-      font-size: 15px;
+      font: 0.9em $gotham-font-family;
       color: #9B9B9B;
       line-height: 19px;
       margin-top: 0;
@@ -46,8 +45,7 @@
       p {
         padding-top: 20px;
         margin-top: 0;
-        font-family: Gotham-Light;
-        font-size: 14px;
+        font: 0.87em $gotham-font-family;
         span {
           text-decoration: underline;
           width: 100%;
@@ -65,7 +63,7 @@
         border: 1px solid #262626;
         border-radius: 0px 0px 0px 2px 2px 2px 2px;
         &:after {
-          left: 9%;
+          left: 50%;
           border-bottom: none;
           border-left: 5px solid transparent;
           border-right: 5px solid transparent;
@@ -74,15 +72,14 @@
       }
     }
     .table-title {
-      font-family: Gotham-Medium;
-      font-size: 15px;
+      font: 0.9em $gotham-small-type;
+      font-weight: 500;
       color: #00415D;
       letter-spacing: 0.39px;
       line-height: 18px;
     }
     .table-desc {
-      font-family: Gotham-Light;
-      font-size: 14px;
+      font: 0.87em $gotham-font-family;
       color: #888B8C;
       letter-spacing: 0.3px;
       line-height: 18px;
@@ -103,8 +100,7 @@
     }
     .text {
       text-align: center;
-      font-family: Gotham-Light;
-      font-size: 14px;
+      font: 0.87em $gotham-font-family;
       color: #888B8C;
       letter-spacing: 0.3px;
       line-height: 19px;
@@ -127,8 +123,7 @@
     margin-bottom: 150px;
     * { text-align: center; }
     h1 {
-      font-family: Gotham-Light;
-      font-size: 24px;
+      font: 1.7em $gotham-font-family;
       color: #696F72;
       line-height: 29px;
     }
@@ -156,11 +151,23 @@
       .enterprise {
         width: 31.915%;
       }
+      .starter {
+        margin-left: 31.915%;
+      }
     }
     .table {
       .starter-box,
       .enterprise-box {
         width: 31.915%;
+      }
+      .row-title {
+        float: left;
+        width:31.915%;
+      }
+      .table-row {
+        [data-tooltip-dialog]:after {
+          left: 9%;
+        }
       }
     }
     .cta {
@@ -168,6 +175,29 @@
       .enterprise {
         width: 31.915%;
       }
+      .starter {
+        margin-left: 31.915%;
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: $desktop-min-width) {
+  #feature-list {
+    .title-table-header {
+      .starter {
+        margin-left: 34.043%;
+      }
+    }
+    .cta {
+      .starter {
+        margin-left: 34.043%;
+      }
+    }
+    .enterprise-cta,
+    .starter-cta {
+      padding: 12px 45px;
     }
   }
 }

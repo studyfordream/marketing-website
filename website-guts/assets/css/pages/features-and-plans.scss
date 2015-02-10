@@ -17,8 +17,12 @@ body.features-and-plans {
         margin-right: 15px;
       }
     }
+    br {
+      display: block;
+    }
     .header-cta-container {
-      font-family: Gotham-Light;
+      display: none;
+      font-family: $gotham-font-family;
       float: right;
       margin-top: 10px;
       margin-bottom: 10px;
@@ -35,7 +39,7 @@ body.features-and-plans {
       background-image: linear-gradient(-180deg, #EEEFF3 0%, #E0E1E5 100%);
       border: 1px solid #D4D5D9;
       border-radius: 2px;
-      font: 12px Gotham-Medium;
+      font: 12px $gotham-small-type;
       color: #444B4F;
       line-height: 12px;
       &:hover {
@@ -54,9 +58,8 @@ body.features-and-plans {
     border: 1px solid #E6E6E6;
     text-align: center;
     .title-copy {
-      font-family: Gotham-Light;
+      font: 35px $gotham-font-family;
       text-align: center;
-      font-size: 44px;
       color: $super-dark-blue;
       line-height: 61px;
       margin-bottom: 57px;
@@ -70,6 +73,7 @@ body.features-and-plans {
       background-image: linear-gradient(-180deg, #0081EB 3%, #0081BA 100%);
       border: 2px solid #0063BA;
       padding: 15px 45px;
+      margin-bottom: 15px;
       box-shadow: none;
       font: $gotham-font-family;
       color: white;
@@ -77,7 +81,7 @@ body.features-and-plans {
       span {
         display: inline;
         background-repeat: no-repeat;
-        background-position: right center;
+        background-position: 130px center;
         padding: 3px 44px;
         background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/down-arrow.svg');
       }
@@ -124,9 +128,8 @@ body.features-and-plans {
       margin-left: auto;
       margin-right: auto;
       h3 {
-        font-family: Gotham-Medium;
-        font-size: 1em;
-        font-weight: 100;
+        font: 1em $gotham-small-type;
+        font-weight: 500;
         text-align: center;
         color: $super-dark-blue;
       }
@@ -161,7 +164,7 @@ body.features-and-plans {
       line-height: 28px;
     }
     .description-container {
-      width: 62%;
+      width: 100%;
       display: inline-block;
       padding: 150px 0 60px 0;
       background-repeat: no-repeat;
@@ -172,9 +175,8 @@ body.features-and-plans {
       padding: 0;
       display: inline-block;
       h4 {
-        font-family: Gotham-Medium;
-        font-size: 1em;
-        font-weight: 100;
+        font: 1em $gotham-small-type;
+        font-weight: 500;
         color: #696F72;
         letter-spacing: 0.53px;
       }
@@ -252,7 +254,7 @@ body.features-and-plans {
       background-image: linear-gradient(-180deg, #EEEFF3 0%, #E0E1E5 100%);
       border: 1px solid #D4D5D9;
       border-radius: 2px;
-      font: 14px Gotham-Medium;
+      font: 14px $gotham-small-type;
       color: #444B4F;
       padding: 12px 50px;
       &:hover {
@@ -267,6 +269,11 @@ body.features-and-plans {
 
 @media screen and (min-width: $tablet-min-width) {
   body.features-and-plans {
+    #page-header {
+      .header-cta-container {
+        display: inline;
+      }
+    }
     .header-cta-container {
       display: block;
     }
@@ -276,10 +283,12 @@ body.features-and-plans {
       }
       .learn-cta {
         margin-right: 15px;
+        margin-bottom: 0;
       }
     }
     .feature-section {
       .description-container {
+        width: 62%;
         padding: 0 0 0 110px;
         background-position: left 40px;
         background-size: 80px;

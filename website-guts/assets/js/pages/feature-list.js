@@ -1,21 +1,7 @@
-$('#talk-to-us').on('click', function(e){
-  e.preventDefault();
+$('#feature-list-talk-to-us').on('click', function(e){
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
-});
-
-$('#enterprise-cta').on('click', function(e){
   e.preventDefault();
-  w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
 });
-
-$('#starter-cta').on('click', function(e){
-  e.preventDefault();
-  w.optly.mrkt.modal.open({ modalType: 'signup' });
-});
-
-$('#learn-cta').on('click', w.optly.mrkt.utils.smoothScroll);
-$('#plans-cta').on('click', w.optly.mrkt.utils.smoothScroll);
-
 
 //setup DOM for automated test
 var automatedTest = window.optly.mrkt.automatedTest();
@@ -46,11 +32,11 @@ var updatePlanInfo = function(){
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-twoyear' ||
       startsWithC.test(w.optly.mrkt.user.acctData.plan_id)
     ) {
-      $('#starter-cta').remove();
+      $('#feature-list-get-started-now').remove();
     }
   }
 
-  $('#starter-cta').on('click', function(e){
+  $('#feature-list-get-started-now').on('click', function(e){
     if(typeof w.optly.mrkt.user.acctData === 'object'){
 
       //user is signed in
