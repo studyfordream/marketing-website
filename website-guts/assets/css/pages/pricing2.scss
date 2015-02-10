@@ -19,7 +19,7 @@ body.pricing2 {
     }
     .header-cta-container {
       display: none;
-      font-family: Gotham-Light;
+      font-family: $gotham-font-family;
       float: right;
       margin-top: 10px;
       margin-bottom: 10px;
@@ -36,7 +36,7 @@ body.pricing2 {
       background-image: linear-gradient(-180deg, #EEEFF3 0%, #E0E1E5 100%);
       border: 1px solid #D4D5D9;
       border-radius: 2px;
-      font: 12px Gotham-Medium;
+      font: 12px $gotham-small-type;
       color: #444B4F;
       line-height: 12px;
       &:hover {
@@ -55,9 +55,8 @@ body.pricing2 {
     border: 1px solid #E6E6E6;
     text-align: center;
     .title-copy {
-      font-family: Gotham-Light;
+      font: 44px $gotham-font-family;
       text-align: center;
-      font-size: 43px;
       color: $super-dark-blue;
       line-height: 61px;
       margin-bottom: 57px;
@@ -113,9 +112,8 @@ body.pricing2 {
       margin-right: auto;
       margin-bottom: 75px;
       h3 {
-        font-family: Gotham-Medium;
-        font-size: 1em;
-        font-weight: 100;
+        font: 1em $gotham-small-type;
+        font-weight: 500;
         text-align: center;
         color: $super-dark-blue;
       }
