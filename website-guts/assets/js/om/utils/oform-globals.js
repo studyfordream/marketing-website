@@ -85,8 +85,6 @@ w.optly.mrkt.Oform.trackLead = function(data, returnData){
     Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
   };
 
-  console.log('reporting object: ', reportingObject);
-
   $.cookie('sourceCookie',
   source.utm.campaign + '|||' +
   source.utm.content + '|||' +
@@ -100,13 +98,9 @@ w.optly.mrkt.Oform.trackLead = function(data, returnData){
   source.otm.keyword + '|||' +
   source.signup_platform + '|||');
 
-  console.log('sourceCookie', $.cookie('sourceCookie'));
-
   for(propertyName in data){
     reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
   }
-
-  console.log('reportingObject', reportingObject);
 
   w.analytics.identify(response.unique_user_id, reportingObject, {
     integrations: {
