@@ -8,11 +8,6 @@ $('#feature-list-talk-to-us').on('click', function(e){
   e.preventDefault();
 });
 
-$('#feature-list-get-started-now').on('click', function(e){
-  w.optly.mrkt.modal.open({ modalType: 'signup' });
-  e.preventDefault();
-});
-
 $('#explore-features').on('click', w.optly.mrkt.utils.smoothScroll);
 
 //setup DOM for automated test
