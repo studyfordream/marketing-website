@@ -17,6 +17,9 @@ body.pricing2 {
         margin-right: 15px;
       }
     }
+    br {
+      display: block;
+    }
     .header-cta-container {
       display: none;
       font-family: $gotham-font-family;
@@ -55,7 +58,7 @@ body.pricing2 {
     border: 1px solid #E6E6E6;
     text-align: center;
     .title-copy {
-      font: 44px $gotham-font-family;
+      font: 35px $gotham-font-family;
       text-align: center;
       color: $super-dark-blue;
       line-height: 61px;
@@ -77,8 +80,8 @@ body.pricing2 {
       span {
         display: inline;
         background-repeat: no-repeat;
-        background-position: right center;
-        padding: 3px 44px;
+        background-position: 170px center;
+        padding: 3px 48px;
         background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/down-arrow.svg');
       }
     }

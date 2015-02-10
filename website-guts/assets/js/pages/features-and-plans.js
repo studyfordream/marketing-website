@@ -1,17 +1,17 @@
-$('#talk-to-us').click(function(e){
+$('#talk-to-us').on('click', function(e){
   e.preventDefault();
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
 });
 
-$('#enterprise-cta').click(function(e){
+$('#enterprise-cta').on('click', function(e){
   e.preventDefault();
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
 });
 
-$('#starter-cta').click(function(e){
+$('#starter-cta').on('click', function(e){
   e.preventDefault();
   w.optly.mrkt.modal.open({ modalType: 'signup' });
 });
 
-$('#learn-cta').click(w.optly.mrkt.utils.smoothScroll);
-$('#plans-cta').click(w.optly.mrkt.utils.smoothScroll);
+$('#learn-cta').on('click', w.optly.mrkt.utils.smoothScroll);
+$('#plans-cta').on('click', w.optly.mrkt.utils.smoothScroll);

@@ -1,19 +1,19 @@
-$('#talk-to-us').click(function(e){
+$('#talk-to-us').on('click', function(e){
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
   e.preventDefault();
 });
 
-$('#feature-list-talk-to-us').click(function(e){
+$('#feature-list-talk-to-us').on('click', function(e){
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
   e.preventDefault();
 });
 
-$('#feature-list-get-started-now').click(function(e){
+$('#feature-list-get-started-now').on('click', function(e){
   w.optly.mrkt.modal.open({ modalType: 'signup' });
   e.preventDefault();
 });
 
-$('#explore-features').click(w.optly.mrkt.utils.smoothScroll);
+$('#explore-features').on('click', w.optly.mrkt.utils.smoothScroll);
 
 //setup DOM for automated test
 var automatedTest = window.optly.mrkt.automatedTest();
@@ -48,7 +48,7 @@ var updatePlanInfo = function(){
     }
   }
 
-  $('#feature-list-get-started-now').click(function(e){
+  $('#feature-list-get-started-now').on('click', function(e){
     if(typeof w.optly.mrkt.user.acctData === 'object'){
 
       //user is signed in
