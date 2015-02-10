@@ -150,11 +150,12 @@ module.exports = function (grunt) {
       // => ['wrapper', 'partners']
 
       var data = {};
-      var name;
-      while (stack.length) {
-        name = stack.shift();
+      var name = null;
+      /* jshint ignore:start */
+      while (name = stack.shift()) {
         extend(data, layouts[name]);
       }
+      /* jshint ignore:end */
       extend(data, file.data);
 
       file.data = data;
