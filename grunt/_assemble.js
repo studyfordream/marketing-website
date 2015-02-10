@@ -10,6 +10,12 @@ module.exports = {
     partials: ['<%= config.guts %>/templates/partials/*.hbs'],
     helpers: ['<%= config.helpers %>/**/*.js'],
   },
+  locales: [
+    'website-de',
+    'website-fr',
+    'website-es',
+    'website-js'
+  ],
   modals: {
     options: {
       ext: '.hbs'

@@ -56,7 +56,7 @@ module.exports = function (grunt) {
       'contact_sales'
     ]);
 
-    customTypes(assemble);
+    customTypes(assemble, config.locales);
 
     assemble.option('renameKey', dirnameLangKey('website-de'));
 
@@ -128,7 +128,7 @@ module.exports = function (grunt) {
       // => ['wrapper', 'partners']
 
       var data = {};
-      var name = null;
+      var name;
       while (stack.length) {
         name = stack.shift();
         extend(data, layouts[name]);
@@ -207,18 +207,18 @@ module.exports = function (grunt) {
         });
     });
 
-    assemble.task('pages-de', ['pages'], function () {
+    assemble.task('de-pages', ['pages'], function () {
       var start = process.hrtime();
       var files = config.pages.files[0];
 
       assemble.option('renameKey', dirnameLangKey('website-de'));
 
-      assemble['page-de']({
+      assemble['de-page']({
         src: [ '**/*.hbs' ],
         fallback: [ '**/*.hbs', '!resources/resources-list/**/*', '!partners/**/*' ]
       });
 
-      return push('page-des')
+      return push('de-pages')
       .pipe(ext())
       .pipe(assemble.dest(files.dest))
       .on('end', function () {
@@ -227,7 +227,7 @@ module.exports = function (grunt) {
       });
     }); 
 
-    assemble.run(['resources', 'partners', 'pages', 'pages-de'], done);
+    assemble.run(['resources', 'partners', 'pages', 'de-pages'], done);
   });
   return {};
 };

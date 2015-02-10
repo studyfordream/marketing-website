@@ -84,7 +84,8 @@ module.exports = {
   },
   server: {
     options: {
-      node: true
+      node: true,
+      debug: true
     },
     files: {
       src: [
