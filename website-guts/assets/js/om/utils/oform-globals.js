@@ -98,7 +98,7 @@ w.optly.mrkt.Oform.trackLead = function(data, returnData){
   source.otm.medium + '|||' +
   source.otm.source + '|||' +
   source.otm.keyword + '|||' +
-  source.signupPlatform + '|||');
+  source.signup_platform + '|||');
 
   console.log('sourceCookie', $.cookie('sourceCookie'));
 
