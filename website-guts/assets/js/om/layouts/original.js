@@ -119,7 +119,7 @@ w.optly.mrkt.trialForm = new Oform({
         setTimeout(function(){
           var redirectURL, domain, queryParams;
           domain = window.location.hostname;
-          queryParams = window.location.href.split('?', 1)[1] || '';
+          queryParams = window.location.href.split(/\?(.+)?/)[1] || '';
           queryParams = queryParams ? '&' + queryParams : queryParams;
           if(/^www\.optimizely\./.test(domain)){
             //production
