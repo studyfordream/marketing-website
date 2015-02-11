@@ -120,8 +120,10 @@ w.optly.mrkt.trialForm = new Oform({
           var redirectURL, domain;
           domain = window.location.hostname;
           if(/^www\.optimizely\./.test(domain)){
-            redirectURL = '/';
+            //production
+            redirectURL = '/edit?url=';
           } else {
+            //local dev
             redirectURL = 'https://www.optimizely.com/edit?url=';
           }
           w.location = redirectURL + encodeURIComponent(d.getElementById('url').value) + '&' + window.location.href.split('?', 1)[1];
