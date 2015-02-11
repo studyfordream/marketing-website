@@ -117,7 +117,18 @@ w.optly.mrkt.trialForm = new Oform({
 
       if(!w.optly.mrkt.automatedTest()){
         setTimeout(function(){
-          w.location = 'https://www.optimizely.com/edit?url=' + encodeURIComponent(d.getElementById('url').value) + '&' + window.location.href.split('?')[1];
+          var redirectURL, domain, queryParams;
+          domain = window.location.hostname;
+          queryParams = window.location.href.split(/\?(.+)?/)[1] || '';
+          queryParams = queryParams ? '&' + queryParams : queryParams;
+          if(/^www\.optimizely\./.test(domain)){
+            //production
+            redirectURL = '/edit?url=';
+          } else {
+            //local dev
+            redirectURL = 'https://www.optimizely.com/edit?url=';
+          }
+          w.location = redirectURL + encodeURIComponent(d.getElementById('url').value) + queryParams;
         }, 1000);
       }
 
