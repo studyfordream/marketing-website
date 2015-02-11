@@ -117,8 +117,10 @@ w.optly.mrkt.trialForm = new Oform({
 
       if(!w.optly.mrkt.automatedTest()){
         setTimeout(function(){
-          var redirectURL, domain;
+          var redirectURL, domain, queryParams;
           domain = window.location.hostname;
+          queryParams = window.location.href.split('?', 1)[1] || '';
+          queryParams = queryParams ? '&' + queryParams : queryParams;
           if(/^www\.optimizely\./.test(domain)){
             //production
             redirectURL = '/edit?url=';
@@ -126,7 +128,7 @@ w.optly.mrkt.trialForm = new Oform({
             //local dev
             redirectURL = 'https://www.optimizely.com/edit?url=';
           }
-          w.location = redirectURL + encodeURIComponent(d.getElementById('url').value) + '&' + window.location.href.split('?', 1)[1];
+          w.location = redirectURL + encodeURIComponent(d.getElementById('url').value) + queryParams;
         }, 1000);
       }
 
