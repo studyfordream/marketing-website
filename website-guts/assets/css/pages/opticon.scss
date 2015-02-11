@@ -188,6 +188,9 @@ body.opticon {
       }
     }
   }
+  .desktop {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
@@ -230,6 +233,12 @@ body.opticon {
       .blurb {
         width: 450px;
       }
+    }
+    .desktop {
+      display: block;
+    }
+    .mobile {
+      display: none;
     }
   }
 }

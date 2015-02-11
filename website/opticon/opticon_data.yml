@@ -31,4 +31,5 @@ call_for_sponsors:
 training:
   title: "Optimizely Training"
   blurb: "Join us the day before Opticon for a great hands-on way to learn best practices for Optimizely experiment workflow and implementation and get an exclusive training guide not available anywhere else. Three concurrent sessions will be offered focused technology, strategy, and mobile. Space is limited so register today!"
-  cta: "Join a training session"
+  cta_desktop: "Join a training session"
+  cta_mobile: "Training"
