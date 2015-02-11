@@ -71,8 +71,10 @@ module.exports = function(grunt, options) {
 
                 } else if(req.url === '/account/free_trial_create'){
 
-                  res.writeHead(200, {'Content-Type': 'application/json'});
-                  res.end( grunt.file.read('website-guts/endpoint-mocks/formSuccess.json') );
+                  setTimeout(function(){
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end( grunt.file.read('website-guts/endpoint-mocks/formSuccess.json') );
+                  }, 2000);
 
                 } else if(req.url === '/account/free_trial_landing/account_exists'){
 

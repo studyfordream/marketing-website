@@ -1,21 +1,20 @@
 ---
-layout: statistics
-seo_title: Statistics Engine
+layout: statistics.hbs
 compact_header: false
 modals:
-- video_modal
+- video_modal_compiled
 body_class:
 - statistics-page
 page_script: statistics.js
 footer_style: grey
-og_title:
-- ""
-og_description:
-- ""
+seo_title: "Optimizely Stats Engine"
+og_title: "Optimizely Stats Engine"
+og_description: "Statistics for the Internet age is here."
 ---
 <style>
 
 </style>
+
 <section id="hero" class="panel bg-img" style="background-image: url('{{statistics_data.hero.bg_img}}')">
   {{#with statistics_data.hero}}
   <div id="signup-form-panel-top">
@@ -41,7 +40,7 @@ og_description:
       <h3>{{{title}}}</h3>
       <h2>{{{subtitle}}}</h2>
       {{#omarkdown}}{{{text}}}{{/omarkdown}}
-      <a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a>
+      <span class="SL_swap" id="statsengine-readtheblog"><a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a></span>
     </div>
     <div class="flex-img-cont">
       <img src="{{img}}">
@@ -106,9 +105,9 @@ og_description:
       </div>
       {{/each}}
     </div>
-    <p class="footnote"{{{footnote}}}</p>
+    <p class="footnote">{{{footnote}}}</p>
     <p>{{{cta_title}}}</p>
-    <a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a>
+    <span class="SL_swap" id="statsengine-learnmore"><a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a></span>
   </div>
 </section>
 {{/with}}
@@ -128,7 +127,7 @@ og_description:
 
     <p>{{{cta_title}}}</p>
 
-    <a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a>
+    <span class="SL_swap" id="statsengine-optiverse"><a href="{{{cta_link}}}" class="secondary-cta">{{{cta_text}}}</a></span>
   </div>
 </section>
 {{/with}}

@@ -5,7 +5,9 @@ module.exports = {
       '!<%= config.content %>/partners/**/*.{hbs,yml}',
       '!<%= config.content %>/resources/resources-list/**/*.{hbs,yml}',
       '!<%= config.content %>/resources/index.hbs',
+      '!<%= config.content %>/om/**/*.hbs',
       '<%= config.guts %>/templates/**/*.hbs',
+      '!<%= config.guts %>/templates/om/**/*.hbs',
       '!<%= config.guts %>/templates/**/*_compiled.hbs',
       '!<%= config.guts %>/templates/client/**/*.hbs',
       '<%= config.guts %>/assets/js/services/user_state.js',
@@ -17,6 +19,7 @@ module.exports = {
     files: [
       '<%= config.content %>/partners/**/*.{hbs,yml}',
       '<%= config.guts %>/templates/**/*.hbs',
+      '!<%= config.guts %>/templates/om/**/*.hbs',
       '!<%= config.guts %>/templates/**/*_compiled.hbs',
       '!<%= config.guts %>/templates/client/**/*.hbs'
     ],
@@ -27,21 +30,37 @@ module.exports = {
       '<%= config.content %>/resources/resources-list/**/*.{hbs,yml}',
       '<%= config.content %>/resources/*.{hbs,yml}',
       '<%= config.guts %>/templates/**/*.hbs',
+      '!<%= config.guts %>/templates/om/**/*.hbs',
       '!<%= config.guts %>/templates/**/*_compiled.hbs',
       '!<%= config.guts %>/templates/client/**/*.hbs'
     ],
     tasks: ['config:dev', 'assemble']
   },
+  assembleOM: {
+    files: [
+      '<%= config.content %>/om/**/*.{hbs,yml}',
+      '<%= config.guts %>/templates/om/**/*.hbs'
+    ],
+    tasks: ['config:dev', 'assemble:om']
+  },
+  sassom: {
+    files: '<%= config.guts %>/assets/css/om/**/*.{css,scss}',
+    tasks: ['config:dev', 'sass:dev', 'replace', 'autoprefixer', 'clean:postBuild']
+  },
+  jsom: {
+    files: ['<%= config.guts %>/assets/js/om/**/*.js'],
+    tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'modernizr', 'concat:namespaceOMPages', 'concat:omBundle', 'concat:jqueryModernizrOM', 'copy:omUITest', 'clean:postBuild']
+  },
   sass: {
-    files: '<%= config.guts %>/assets/css/**/*.scss',
-    tasks: ['config:dev', 'sass', 'replace', 'autoprefixer', 'clean:postBuild']
+    files: ['<%= config.guts %>/assets/css/**/*.scss', '!<%= config.guts %>/assets/css/om/**/*.{css,scss}'],
+    tasks: ['config:dev', 'sass:dev', 'replace', 'autoprefixer', 'clean:postBuild']
   },
   img: {
     files: ['<%= config.guts %>/assets/img/*.{png,jpg,svg}'],
     tasks: ['copy:img']
   },
   js: {
-    files: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/services/user_state.js', '<%= config.temp %>/assets/js/**/*.js'],
+    files: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/services/user_state.js', '!<%= config.guts %>/assets/js/om/**/*.js', '<%= config.temp %>/assets/js/**/*.js'],
     tasks: ['config:dev', 'jshint:clientDev', 'jshint:server', 'handlebars', 'modernizr', 'concat', 'clean:postBuild']
   },
   test: {

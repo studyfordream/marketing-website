@@ -275,3 +275,57 @@ $(function() {
 
 
 });
+
+//track focus on form fields
+$('#mobile-signup-form-bottom input:not([type="hidden"]), #mobile-signup-form-top input:not([type="hidden"])').each(function(){
+  $(this).one('focus', function(){
+    //put all the information in the event because we'll want to use this as a goal in optimizely
+    //send a general focus event to track focus for either the top or bottom form
+    w.analytics.track('mobile-signup-form ' + $(this).attr('name') + ' focus',
+    {
+      category: 'forms'
+    },
+    {
+      integrations: {
+        'Marketo': false
+      }
+    });
+    //send a specific focus event to track focus on either the top or bottom form
+    w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus',
+    {
+      category: 'forms'
+    },
+    {
+      integrations: {
+        'Marketo': false
+      }
+    });
+  });
+});
+
+//track blur on form fields
+$('#mobile-signup-form-bottom input:not([type="hidden"]), #mobile-signup-form-top input:not([type="hidden"])').each(function(){
+  $(this).one('blur', function(){
+    //put all the information in the event because we'll want to use this as a goal in optimizely
+    //send a general focus event to track focus for either the top or bottom form
+    w.analytics.track('mobile-signup-form ' + $(this).attr('name') + ' blur',
+    {
+      category: 'forms'
+    },
+    {
+      integrations: {
+        'Marketo': false
+      }
+    });
+    //send a specific focus event to track focus on either the top or bottom form
+    w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' blur',
+    {
+      category: 'forms'
+    },
+    {
+      integrations: {
+        'Marketo': false
+      }
+    });
+  });
+});

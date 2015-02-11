@@ -3,6 +3,8 @@ layout: about
 no_container: true
 seo_title: Events
 visible_title: Events
+script_dependencies: 
+- "https://apis.google.com/js/client.js"
 body_class:
 - events-page
 page_script: events.js
@@ -11,11 +13,12 @@ page_script: events.js
   <div>
     <article>
       <div id="events-cont">
-        <h3>Upcoming Events</h3>
+        <h3 class="hide-past"><span class="upcoming">Upcoming</span><span class="past">Past</span> Events</h3>
         <div id="future-events-cont"></div>
-        <h3 class="events-heading-small heading-underline">Past Events</h3>
+        <h3 class="events-heading-small heading-underline hide-upcoming"><span class="upcoming">Upcoming</span><span class="past">Past</span> Events</h3>
       </div><!--/#events-cont-->
       <div id="previous-events-cont">
+        <p class="show-future-events hide-events-link">Learn more about Optimizely's upcoming events. <a href="#" id="get-future-events">Load Upcoming Events</a></p>
         <p class="show-past-events">Learn more about Optimizely's past events. <a href="#" id="get-past-events">Load Past Events</a></p>
         <div id="past-events-cont"></div>
       </div><!--/#previous-events-cont-->

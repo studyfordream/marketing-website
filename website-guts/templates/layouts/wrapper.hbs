@@ -49,6 +49,15 @@ layout_modals:
         {{#if environmentVariables.production}}
         <script id="bizible-settings" type="text/javascript" src="//cdn.bizible.com/_biz-a.js" async data-attach-secure-forms="true"></script>
         {{/if}}
+        {{#if environmentVariables.production}}
+        <script>
+        (function(d,b,a,s,e) {
+          var t = b.createElement(a), fs = b.getElementsByTagName(a)[0];
+          t.async=1; t.id=e; t.src=('https:'==document.location.protocol ? 'https://' : 'http://') + s;
+          fs.parentNode.insertBefore(t, fs);
+        })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
+        </script>
+        {{/if}}
     </head>
      <body class="signed-out{{#if this.compact_header}} compact-header{{/if}}{{#each layout_body_class}} {{.}}{{/each}}{{#each this.body_class}} {{.}}{{/each}}">
         <!--[if lt IE 8]>
@@ -91,6 +100,7 @@ layout_modals:
                                             <li class="first"><a href="{{linkPath}}/benefits/">Benefits</a></li>
                                             <li><a href="{{linkPath}}/pricing">Plans and Pricing</a></li>
                                             <li><a href="{{linkPath}}/mobile/">Mobile</a></li>
+                                            <li><a href="{{linkPath}}/statistics/">Stats Engine</a></li>
                                             <li><a href="{{linkPath}}/customers/">Customer List</a></li>
                                             <li><a href="{{linkPath}}/customers/customer-stories/">Customer Stories</a></li>
                                             <li class="last"><a href="{{linkPath}}/resources/live-demo-webinar/">Live Demo Signup</a></li>
@@ -135,16 +145,16 @@ layout_modals:
                         <p><a class="logo" href="{{linkPath}}/">Optimizely</a></p>
                         <div id="footer-nav-cont">
                             <div class="left-nav">
-                                <p>&copy; 2014, Optimizely. All Rights Reserved</p>
+                              <p>&copy; {{moment format="YYYY"}}, Optimizely. All Rights Reserved</p>
                                 <ul id="legalese" class="clearfix">
-                                    <li class="terms"><a href="{{linkPath}}/terms/" id="SL-link-terms" class="SL_swap">Terms of Service</a> &nbsp;<span class="separater">|</span></li>
-                                    <li><a href="{{linkPath}}/privacy/" id="SL-link-privacy" class="SL_swap">Privacy Policy</a> &nbsp;<span class="separater">|</span></li>
+                                    <li class="terms"><a href="{{linkPath}}/terms/">Terms of Service</a> &nbsp;<span class="separater">|</span></li>
+                                    <li><a href="{{linkPath}}/privacy/">Privacy Policy</a> &nbsp;<span class="separater">|</span></li>
                                     <li class="security"><a href="{{linkPath}}/security/">Security</a></li>
                                 </ul>
                                 <ul class="social-links">
-                                    <li><a href="http://twitter.com/optimizely" id="SL-link-twitter" class="twitter SL_swap">Twitter</a></li>
-                                    <li><a href="http://www.facebook.com/optimizely" id="SL-link-facebook" class="facebook SL_swap">Facebook</a></li>
-                                    <li><a href="https://plus.google.com/+optimizely/posts" id="SL-link-gplus" class="google-plus SL_swap">Google+</a></li>
+                                    <li><a href="http://twitter.com/optimizely" class="twitter">Twitter</a></li>
+                                    <li><a href="http://www.facebook.com/optimizely" class="facebook">Facebook</a></li>
+                                    <li><a href="https://plus.google.com/+optimizely/posts" class="google-plus">Google+</a></li>
                                 </ul>
                             </div><!--/.left-->
                             <div class="right-nav">
@@ -154,7 +164,8 @@ layout_modals:
                                             <ul>
                                                 <li><a href="{{linkPath}}/pricing">Plans and Pricing</a></li>
                                                 <li><a href="{{linkPath}}/benefits/">Benefits</a></li>
-                                                <li><a href="{{linkPath}}/mobile/">iOS</a></li>
+                                                <li><a href="{{linkPath}}/mobile/">Mobile</a></li>
+                                                <li><a href="{{linkPath}}/statistics/">Stats Engine</a></li>
                                                 <li><a href="{{linkPath}}/partners/">Optimizely for Agencies</a></li>
                                                 <li><a href="http://developers.optimizely.com">Optimizely for Developers</a></li>
                                                 <li><a href="{{linkPath}}/ecommerce/">Optimizely for E-commerce</a></li>
@@ -199,7 +210,7 @@ layout_modals:
                                         <li id="footer-nav-other" class="columns two">
                                             <h4>Other</h4>
                                             <ul>
-                                                <li><a href="http://success.optimizely.com">Customer Success</a></li>
+                                                <li><a href="{{linkPath}}/success">Customer Success</a></li>
                                                 <li><a href="{{linkPath}}/demo/">Request a Demo</a></li>
                                                 <li><a href="{{linkPath}}/opt_out/">Opt Out</a></li>
                                             </ul>
@@ -244,5 +255,7 @@ layout_modals:
         {{#if this.page_script}}
         <script src="{{assetsDir}}/js/pages/{{this.page_script}}" defer></script>
         {{/if}}
+
+        {{> ad_tags }}
     </body>
 </html>

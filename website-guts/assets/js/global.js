@@ -16,13 +16,13 @@ window.optly.mrkt.isMobile = function(){
 
 window.optly.mrkt.automatedTest = function(){
 
-	var phantom, stagingDomain;
+	var uiTest, stagingDomain;
 
-	phantom = window.optly.mrkt.utils.getURLParameter('phantom') === 'true';
+	uiTest = window.optly.mrkt.utils.getURLParameter('uiTest') === 'true';
 
 	stagingDomain = window.location.hostname !== 'www.optimizely.com';
 
-	if(phantom && stagingDomain){
+	if(uiTest && stagingDomain){
 		return true;
 	} else {
 		return false;

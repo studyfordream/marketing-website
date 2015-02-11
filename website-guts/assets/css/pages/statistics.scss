@@ -272,6 +272,12 @@ body.statistics-page {
         color: $blue;
         font-size: 80px;
         font-weight: 400;
+        span {
+          font-size: 0.8em;
+          position: relative;
+          top: -5px;
+          left: -7px;
+        }
       }
     }
 

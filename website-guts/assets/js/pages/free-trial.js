@@ -537,21 +537,24 @@ var symExpDict = {
   }
 };
 
-var queryString = window.optly.mrkt.utils.deparam(window.location.href);
+var queryString = window.optly.mrkt.utils.deparam(window.location.search);
 
 if( !!queryString.otm_content ) {
   var content = symExpDict[ queryString.otm_content ];
 
-  if(content.heading) {
-    $('.seo-form-heading').text(content.heading);
+  if(typeof content === 'object'){
+    if(typeof content.heading === 'string'){
+      $('.seo-form-heading').text(content.heading);
+    }
+    if(typeof content.text === 'string'){
+      $('#symmetry_test').text(content.text);
+    }
   }
 
-  if(content.text) {
-    $('#symmetry_test').text(content.text);
-  }
-
-  if(queryString.otm_content === 'eo' || queryString.otm_content === 'brand'){
-    $('.seo-form-subheader').hide();
+  if(typeof queryString === 'object' && typeof queryString.otm_content === 'string'){
+    if(queryString.otm_content === 'eo' || queryString.otm_content === 'brand'){
+      $('.seo-form-subheader').hide();
+    }
   }
 
 }

@@ -1,17 +1,15 @@
 ---
-layout: mobile
-seo_title: Make your iOS app more engaging
+layout: mobile.hbs
+seo_title: Make your app more engaging
 compact_header: false
 modals:
-- video_modal
+- video_modal_compiled
 body_class:
 - mobile-page
 page_script: mobile.js
 footer_style: grey
-og_title:
-- "Make your app more engaging"
-og_description:
-- "Learn how to optimize your app for acquisition, engagement and retention."
+og_title: "Make your app more engaging"
+og_description: "Learn how to optimize your app for acquisition, engagement, and retention."
 ---
 <section id="hero" class="panel bg-img" style="background-image: url('{{mobile_page_mvpp_data.hero.bg_img}}')">
   {{#with mobile_page_mvpp_data.hero}}
@@ -53,7 +51,7 @@ og_description:
         <p class="error-message error-hide">Please Correct Form Errors</p>
     </div>
   </form>
-  <p>{{link_text}} <a href="{{../linkPath}}/android">{{link_anchor_text}}</a></p>
+  <p>{{link_text}}</p>
   {{/with}}
   <a href="#" class="video-link" data-show-video><span class="circle-arrow"></span>Watch Video</a>
   </div>
@@ -156,7 +154,6 @@ og_description:
         <p class="error-message error-hide">Please Correct Form Errors</p>
     </div>
   </form>
-  <p>{{link_text}} <a href="{{../linkPath}}/android">{{link_anchor_text}}</a></p>
+  <p>{{link_text}}</p>
 {{/with}}
 </section>
-
