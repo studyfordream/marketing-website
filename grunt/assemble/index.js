@@ -5,7 +5,7 @@ var path = require('path');
 var helpers = require('handlebars-helpers');
 var extend = require('extend-shallow');
 var createStack = require('layout-stack');
-var customTypes = require('./types/page-de');
+var customSubfolders = require('./types/subfolders');
 var es = require('event-stream');
 var Plasma = require('plasma');
 
@@ -14,6 +14,10 @@ module.exports = function (grunt) {
     var done = this.async();
 
     var assemble = require('assemble');
+    var localizeLinkPath = require('./middleware/localize-link-path');
+    var mergeLayoutContext = require('./middleware/merge-layout-context');
+    var collectionMiddleware = require('./middleware/onload-collection')(assemble);
+    var mergePageData = require('./middleware/merge-page-data');
     var push = require('assemble-push')(assemble);
     var Handlebars = require('handlebars');
 
@@ -69,28 +73,6 @@ module.exports = function (grunt) {
     assemble.set('data.environmentIsProduction', options.environmentIsProduction);
     assemble.set('data.environmentIsDev', options.environmentIsDev);
 
-    assemble.set('data.layout_modals', [
-      'signin_modal',
-      'signup_modal',
-      'create_experiment',
-      'reset_password',
-      'error_modal',
-      'contact_sales'
-    ]);
-
-    customTypes(assemble, config.locales);
-
-    //assemble.option('renameKey', dirnameLangKey('website-de'));
-
-    // assemble.option('renameKey', dirnameLangKey('website'));
-
-    // assemble.pages(
-    //   ['website/**/*.hbs']);
-    // console.log(Object.keys(assemble.views.pages));
-
-    // var indexPage = assemble.findRenderable('index', ['page-des', 'pages']);
-    // console.log(indexPage.render());
-
     assemble.layouts([options.layoutdir]);
     assemble.partials(options.partials);
     assemble.helpers(options.helpers);
@@ -105,6 +87,8 @@ module.exports = function (grunt) {
       });
     }
 
+    customSubfolders(assemble, config.locales);
+
     // create custom template type `modals`
     assemble.create('modal', 'modals', {
       isPartial: true,
@@ -117,102 +101,37 @@ module.exports = function (grunt) {
       isRenderable: false,
     });
 
-    var collectionMiddleware = function (collection) {
-      return function (file, next) {
-        if (!file.data[collection]) {
-          return next();
-        }
-        var col = assemble.get(collection) || {};
-        var key = assemble.option('renameKey')(file.path);
-        col[key] = extend({}, col[key], file.data);
-        assemble.set(collection, col);
-        next();
-      };
-    };
-
-    // transform the layout front matter into an object
-    // that `layout-stack` requires
-    var mapLayouts = function (layouts) {
-      return Object.keys(layouts).reduce(function (acc, key) {
-        acc[key] = layouts[key].data;
-        return acc;
-      }, {});
-    };
-
-    // middleware to merge the layout context into the current page context
-    var mergeLayoutContext = function (file, next) {
-      var layout = file.layout || file.options.layout || file.data.layout;
-      // => partners
-      var layouts = mapLayouts(assemble.views.layouts);
-      // => layout frontmatter
-
-      var stack = createStack(layout, layouts, assemble.options);
-      // => ['wrapper', 'partners']
-
-      var data = {};
-      var name = null;
-      /* jshint ignore:start */
-      while (name = stack.shift()) {
-        extend(data, layouts[name]);
-      }
-      /* jshint ignore:end */
-      extend(data, file.data);
-
-      file.data = data;
-      next();
-    };
-
-    var plasma = new Plasma();
-    var mergePageData = function (file, next) {
-      // pageData.about
-      var key = path.dirname(file.path);
-      var data = plasma.load([path.join(key, '*.{json,yaml,yml}')]);
-      if (data) {
-        console.log('plasma data', data);
-      }
-
-      // extend(file.data, data);
-      next();
-    };
-
     // custom middleware for `resources` to add front-matter (`data`)
     // to the assemble cache. (`assemble.get('resources').foo`)
-    assemble.onLoad(/resources/, mergePageData);
+    assemble.onLoad(/\.hbs/, mergePageData(assemble));
     assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
-    assemble.before(/\.hbs/, mergeLayoutContext);
+
+    assemble.before(/\.hbs/, mergeLayoutContext(assemble));
 
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
-    assemble.before(pathRe, function (file, next) {
-      var dirname = file.options.params[1];
-      dirname = dirname.replace(process.cwd(), '');
+    assemble.before(pathRe, localizeLinkPath(assemble));
 
-      var locale = dirname.split('/')[0];
-      file.data.linkPath = assemble.get('data.linkPath');
-      if (locale && locale.length && locale !== 'website') {
-        file.data.linkPath += ('/' + locale);
-      }
-      next();
-    });
-
+    /****** This block for some reason needs to come after the middleware or get Warning: Object.keys called on non-object *********/
     // load `modal` templates
     var modalFiles = config.modals.files[0];
     assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src));
-
     // use a custom `renameKey` method when loading `resources`
     assemble.option('renameKey', dirnameKey('resources-list'));
 
     // load `resource` templates
     var resourceFiles = config.resources.files[0];
     assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
-
     // reset the `renameKey` method
     assemble.option('renameKey', renameKey);
+    /*******************************************************************************************************************************/
 
     // build the `resources` page
     assemble.task('resources', function () {
       var start = process.hrtime();
+      //only the resources index file is rendered, all other resource-list
+      //files are use purely for data to create the grid
       var files = config.resources.files[0];
       return assemble.src('website/resources/index.hbs')
         .pipe(ext())
@@ -229,7 +148,10 @@ module.exports = function (grunt) {
     assemble.task('partners', ['resources'], function () {
       var start = process.hrtime();
       assemble.option('renameKey', dirnameKey('partners'));
-
+      //all hbs files within partners are templated
+      //the frontmatter data from individual partners files creates the grid
+      //as well as renders individual pages
+      //??? how does the markdown get parsed
       var files = config.partners.files[0];
       return assemble.src(normalizeSrc(files.cwd, files.src))
         .pipe(ext())
@@ -261,6 +183,7 @@ module.exports = function (grunt) {
       var start = process.hrtime();
       var files = config.pages.files[0];
 
+      //resources seems to be happening successfully in here
       assemble.option('renameKey', dirnameLangKey(config.locales));
       /* jshint ignore:start */
       assemble['subfolder']({
