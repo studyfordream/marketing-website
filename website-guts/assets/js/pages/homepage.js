@@ -15,7 +15,7 @@ $('#get-started').submit(function(e){
       w.analytics.identify(
         anonymousVisitorIdentifier,
         { email: inputVal },
-        { integrations: { Marketo: true } }
+        { integrations: { 'Marketo': true } }
       );
     }
 
