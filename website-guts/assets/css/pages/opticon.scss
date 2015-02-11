@@ -18,18 +18,17 @@ body.opticon {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 25% 25%;
-    height: 450px;
+    padding-top: 150px;
+    padding-bottom: 120px;
     * {
       text-align: center;
     }
     .title {
       margin: 0;
-      padding-top: 150px;
       font-size: 5em;
       letter-spacing: 2px;
     }
     .event-details {
-      padding-bottom: 120px;
       text-transform: uppercase;
       color: white;
       margin-top: 7px;
@@ -146,7 +145,6 @@ body.opticon {
     }
     .button-container {
       text-align: center;
-      padding-bottom: 100px;
       a {
         padding: 15px 59px;
         background-color: white;
@@ -162,34 +160,36 @@ body.opticon {
   }
 
   .call-for-sponsors-panel {
-    .section-title {
-      margin-top: 50px;
-      margin-bottom: 50px;
-      text-align: center;
-      color: $brand-blue;
-    }
-    .blurb {
-      max-width: 640px;
-      margin-bottom: 50px;
-      text-align: center;
-      color: $brand-blue;
-      color: $super-dark-blue;
-    }
-    .button-container {
-      text-align: center;
-      padding-bottom: 50px;
-      a {
-        padding: 15px 59px;
-        background-color: $brand-blue;
-        color: white;
-        border-radius: 4px;
-        text-transform: uppercase;
-        &:hover {
-          text-decoration: none;
-          background-color: $brand-blue-hover;
-        }
+    padding-top: 50px;
+  }
+  .blue-headline {
+    margin-bottom: 50px;
+    text-align: center;
+    color: $brand-blue;
+  }
+  .blurb {
+    max-width: 560px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+    color: $light-text-color;
+  }
+  .button-container {
+    text-align: center;
+    padding-bottom: 50px;
+    a {
+      padding: 15px 59px;
+      background-color: $brand-blue;
+      color: white;
+      border-radius: 4px;
+      text-transform: uppercase;
+      &:hover {
+        text-decoration: none;
+        background-color: $brand-blue-hover;
       }
     }
+  }
+  .desktop {
+    display: none;
   }
 }
 
@@ -233,6 +233,12 @@ body.opticon {
       .blurb {
         width: 450px;
       }
+    }
+    .desktop {
+      display: block;
+    }
+    .mobile {
+      display: none;
     }
   }
 }

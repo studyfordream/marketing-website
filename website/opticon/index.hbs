@@ -54,11 +54,12 @@ external_stylesheets:
     </div>
   </section>
 
+
   <!--               -->
   <!--Sponsor Section-->
   <!--               -->
   <section id="call-for-sponsors" class="call-for-sponsors-panel">
-    <h1 class="section-title container">{{call_for_sponsors.title}}</h1>
+    <h1 class="blue-headline section-title container">{{call_for_sponsors.title}}</h1>
     <p class="blurb container">{{call_for_sponsors.blurb}}</p>
     <div class="button-container">
       <a class="cta" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Sponsorship_Prospectus.pdf">{{call_for_sponsors.cta}}</a>
@@ -79,6 +80,22 @@ external_stylesheets:
     <a class="cta" href="{{linkPath}}/opticon/speakers">{{call_for_speakers.cta.mobile}}</a>
   </div>
   </section>
-  {{/with}}
 
+  <!--                -->
+  <!--Training Section-->
+  <!--                -->
+  <section class="training-panel">
+    <h1 class="blue-headline section-title">{{training.title}}</h1>
+    <div class="container">
+      <p class="blurb">{{{training.blurb}}}</p>
+      <div class="button-container desktop">
+        <a href="https://opticon2015.eventbrite.com" target="_blank">{{training.cta_desktop}}</a>
+      </div>
+      <div class="button-container mobile">
+        <a href="https://opticon2015.eventbrite.com" target="_blank">{{training.cta_mobile}}</a>
+      </div>
+    </div>
+  </section>
+
+  {{/with}}
 </div><!-- /.row-->
