@@ -47,7 +47,6 @@ w.optly.mrkt.trialForm = new Oform({
   selector: '#seo-form',
   customValidation: {
     'url-input': function(element){
-      console.log('value: ' + element.value);
       var urlRegex = /.+\..+/;
       return urlRegex.test(element.value);
     }
