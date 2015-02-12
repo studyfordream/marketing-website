@@ -79,11 +79,11 @@ body.features-and-plans {
       color: white;
       display: inline-block;
       span {
-        display: inline;
+        padding: 3px 60px;
+        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing/down_arrow.png');
         background-repeat: no-repeat;
-        background-position: 130px center;
-        padding: 3px 44px;
-        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/down-arrow.svg');
+        background-position: right center;
+        background-size: 34px;
       }
     }
     .plans-cta {
