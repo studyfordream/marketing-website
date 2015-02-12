@@ -9,9 +9,13 @@ var customSubfolders = require('./types/subfolders');
 var es = require('event-stream');
 var Plasma = require('plasma');
 
+process.env.lastRunTime = process.env.lastRunTime || null;
+
 module.exports = function (grunt) {
+
   grunt.registerTask('assemble', 'Assemble', function () {
     var done = this.async();
+    console.log('lastRunTime', process.env.lastRunTime);
 
     var assemble = require('assemble');
     var localizeLinkPath = require('./middleware/localize-link-path');
@@ -50,7 +54,7 @@ module.exports = function (grunt) {
       });
     }
 
-    customSubfolders(assemble, config.locales);
+    customSubfolders(assemble, config.locales, process.env.lastRunTime);
 
     // create custom template type `modals`
     assemble.create('modal', 'modals', {
@@ -173,7 +177,15 @@ module.exports = function (grunt) {
       return es.pipe.apply(es, streams);
     });
 
-    assemble.run(['pages', 'subfolders'], done);
+    assemble.run(['pages', 'subfolders'], function (err) {
+      console.log('run done', arguments);
+      if (err) {
+        return done(err);
+      }
+      process.env.lastRunTime = new Date();
+      console.log('reset lastRunTime', process.env.lastRunTime);
+      done();
+    });
   });
   return {};
 };

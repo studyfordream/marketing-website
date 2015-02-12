@@ -4,13 +4,17 @@ var globby = require('globby');
 var matter = require('gray-matter');
 var _ = require('lodash');
 
-module.exports = function (assemble, locales) {
+module.exports = function (assemble, locales, lastRunTime) {
   function createMap(argsObj) {
     var renameKey = assemble.option('renameKey');
     var langPath = argsObj.langPath;
     var readPath = argsObj.readPath;
     var map = argsObj.map;
     var key = renameKey(langPath);
+    var stats = fs.statSync(readPath || langPath);
+    if (lastRunTime && new Date(+stats.mtime) < new Date(lastRunTime)) {
+      return map;
+    }
     map[key] = matter(fs.readFileSync(readPath || langPath, 'utf8'));
     map[key].path = langPath;
     return map;
