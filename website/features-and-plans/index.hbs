@@ -110,14 +110,15 @@ og_description:
 <!--                  -->
 <!--Enterprise Section-->
 <!--                  -->
-{{#with features.enterprise_section}}
+{{#with features}}
 <section class="enterprise-section" id="enterprise">
-  <h2 class="title-copy">{{title}}</h2>
-  <p class="subtitle">{{subtitle}}</p>
+  <h2 class="title-copy">{{enterprise_section.title}}</h2>
+  <p class="subtitle">{{enterprise_section.subtitle}}</p>
+  <p class="current-plan-message">{{current_plan_message}}</p>
   <div class="button-container">
-    <a class="cta" id="enterprise-cta" href="#">{{cta}}</a>
+    <a class="cta" id="enterprise-cta" href="#">{{enterprise_section.cta}}</a>
   </div>
-  <p>{{{feature_cta}}}</p>
+  <p>{{{enterprise_section.feature_cta}}}</p>
 </section>
 {{/with}}
 
@@ -125,13 +126,14 @@ og_description:
 <!--               -->
 <!--Starter Section-->
 <!--               -->
-{{#with features.starter_section}}
-<section class="starter-section">
-  <h2 class="title-copy">{{title}}</h2>
-  <p class="subtitle">{{{subtitle}}}</p>
+{{#with features}}
+<section class="starter-section" id="starter-cta-cont">
+  <h2 class="title-copy">{{starter_section.title}}</h2>
+  <p class="subtitle">{{{starter_section.subtitle}}}</p>
   <div class="button-container">
-    <a class="cta" id="starter-cta" href="#">{{cta}}</a>
+    <a class="cta" id="starter-cta" href="#">{{starter_section.cta}}</a>
   </div>
+  <p class="current-plan-message">{{current_plan_message}}</p>
 </section>
 {{/with}}
 

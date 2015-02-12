@@ -1,4 +1,5 @@
 body.features-and-plans {
+  .current-plan-message {display: none;}
   #page-content {
     background-color: white;
   }
@@ -264,6 +265,11 @@ body.features-and-plans {
       }
     }
   }
+}
+
+body.features-and-plans.plan-enterprise {
+  #starter-cta-cont, #enterprise-cta {display: none;}
+  #enterprise .current-plan-message {display: block;}
 }
 
 
