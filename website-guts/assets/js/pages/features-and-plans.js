@@ -1,3 +1,6 @@
+//for scroll tracking
+w.optimizelyScrollTrackerID = '/pricing';
+
 $('#talk-to-us').on('click', function(e){
   e.preventDefault();
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
@@ -8,12 +11,10 @@ $('#enterprise-cta').on('click', function(e){
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
 });
 
-$('#learn-cta').on('click', w.optly.mrkt.utils.smoothScroll);
-$('#plans-cta').on('click', w.optly.mrkt.utils.smoothScroll);
-
+$('#learn-cta, #plans-cta').on('click', w.optly.mrkt.utils.smoothScroll);
 
 //setup DOM for automated test
-var automatedTest = window.optly.mrkt.automatedTest();
+var automatedTest = w.optly.mrkt.automatedTest();
 
 if(automatedTest){
   w.optly.mrkt.user.acctData = {
