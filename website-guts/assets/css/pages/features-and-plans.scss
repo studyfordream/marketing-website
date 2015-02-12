@@ -223,9 +223,6 @@ body.features-and-plans {
     .subtitle {
       margin-top: 0;
     }
-    .button-container {
-      margin-bottom: 65px;
-    }
     .cta {
       @extend .pricing-button;
     }
@@ -235,6 +232,7 @@ body.features-and-plans {
   /*Starter Section*/
   /*               */
   .starter-section {
+    padding-bottom: 60px;
     background-color: white;
     * {
       text-align: center;
@@ -272,6 +270,10 @@ body.features-and-plans.plan-enterprise {
   #enterprise .current-plan-message {display: block;}
 }
 
+body.features-and-plans.plan-free_light {
+  #starter-cta {display: none;}
+  #starter-cta-cont .current-plan-message {display: block;}
+}
 
 @media screen and (min-width: $tablet-min-width) {
   body.features-and-plans {

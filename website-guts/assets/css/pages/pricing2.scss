@@ -144,6 +144,11 @@ body.pricing2.plan-enterprise {
   #feature-list-enterprise-cta-cont .current-plan-message {display: block;}
 }
 
+body.pricing2.plan-free_light {
+  #feature-list-get-started-now {display: none;}
+  #feature-list-starter-cta-cont .current-plan-message {display: block;}
+}
+
 @media screen and (min-width: $tablet-min-width) {
   body.pricing2 {
     #page-header {
