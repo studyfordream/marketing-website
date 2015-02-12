@@ -26,7 +26,7 @@ module.exports = function(assemble) {
       }
       var key = path.join(dirname, basename);
       if(col[key]) {
-        next();
+        return next();
       }
       col[key] = extend({}, col[key], file.data);
       assemble.set(collection, col);
