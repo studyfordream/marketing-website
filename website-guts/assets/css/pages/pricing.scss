@@ -1,256 +1,176 @@
-.pricing-section__heading {
-  margin: 1.7em 0;
-}
-.pricing-section__heading--light {
-  color: $gray-on-white-text;
-}
-.pricing-section__heading--dark {
-  color: $super-dark-blue;
-}
-.pricing-section__feature-list {
-  padding-bottom: 20px;
-}
-.pricing-section__feature-list__question {
-  color: $gray-on-white-text;
-  font-family: $gotham-small-type;
-  font-weight: normal;
-  text-align: center;
-}
-.plan-box-header {
-  background: $faint-gray-bg;
-  text-transform: uppercase;
-  color: $dark-blue;
-  font-size: 1.1em;
-  font-weight: 500;
-  font-family: $body-font-family;
-  padding: 10px 0;
-  border-bottom: 1px solid $faint-gray-border;
-  margin: 0;
-}
-.plan-box-cont {
-  display: flex;
-  flex-direction: column;
-  background: $faint-gray-bg;
-  border: 2px solid $faint-gray-border;
-  border-radius: 4px;
-  margin-bottom: 40px;
-  .plan-box-content {
-    background: #fff;
-    min-height: 220px;
+body.pricing {
+  .current-plan-message {display: none;}
+  #page-content {
+    background-color: white;
   }
-  .cta {
-    padding: 10px 25px 20px 25px;
-    border-top: 1px solid $faint-gray-border;
-    text-align: center;
-    background: $faint-gray-bg;
-    p {margin: 0;}
-    h3 {
-      font-size: 3em;
-      line-height: .8em;
-      margin: 10px 0 15px 0;
+  /*           */
+  /*PAGE HEADER*/
+  /*           */
+  #page-header {
+    h1 {
+      font: 1.5em $gotham-font-family;
+      color: #3B5871;
+      margin-top: 6px;
     }
-    p:nth-child(3) a {
-      @extend .secondary-button;
-      margin: 15px 0;
-    }
-  }
-  &.highlight {
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, .3);
-    border: 2px solid $blue;
-    h2 {
-      text-shadow: rgba(0, 0, 0, .5) 2px 2px 3px;
-      background: $blue;
-      color: #fff;
-      border-bottom: 2px solid $blue;
-    }
-    .cta {
-      p:nth-child(3) a {
-        @extend .button;
-        text-shadow: none;
+    p {
+      display: inline;
+      &:first-of-type {
+        margin-right: 15px;
       }
     }
-    .feature-category {
-      h3 {
-        background: $blue;
-        color: #fff;
-        border-color: $blue;
-        //font-size: ;
-      }
+    br {
+      display: block;
     }
-  }
-  .feature-category .feature-overview {
-    margin: 0;
-    padding: 0 30px 0 30px!important;
-  }
-  h4 {
-    color: $super-dark-blue;
-    margin: 15px 0 15px 0;
-    font-size: 1em;
-    font-family: $body-font-family;
-    font-weight: 400;
-  }
-  color: $gray-on-white-text;
-  li {
-    margin-bottom: 20px;
-    font-size: .85em;
-  }
-}
-#enterprise-plan .action {margin-bottom: 10px;}
-body.plan-enterprise {
-  #enterprise-plan {
-    .current-plan {
-      display: block!important;
-      visibility: visible;
-    }
-    .action {
+    .header-cta-container {
       display: none;
+      font-family: $gotham-font-family;
+      float: right;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      p:last-of-type {
+        float: right;
+        margin: -10px 0 0 0;
+      }
     }
-  }
-}
-body.plan-free_light {
-  #starter-plan {
-    .current-plan {
-      display: block!important;
-      visibility: visible;
-      margin: 1em 0;
-      font-weight: 500;
-    }
-    a:last-child {
-      display: none;
-    }
-  }
-}
-body.plan-enterprise {
-  #enterprise-plan {
-    .current-plan {
-      display: block!important;
-      visibility: visible;
-      margin: 1em 0;
-      font-weight: 500;
-    }
-    a:last-child {
-      display: none;
-    }
-  }
-}
-body.processing-free-light {
-  #starter-plan a:last-child {display: none;}
-  p.processing {
-    font-weight: 500;
-    margin: 1em 0;
-    display: block!important;
-    visibility: visible;
-  }
-}
-@media only screen and (min-width: $desktop-min-width){
-  .plan-box-header {text-align: center;}
-}
-body.pricing-page {
-  section.blue-bg, #page-header-gradient {
-    background: $light-blue-bg;
-  }
-  .plan-box-content, .feature-overview {
-    padding: 15px 30px 15px 30px;
-  }
-  .plan-box-content {
-    flex: 1;
-  }
-  .feature-category h3 {
-    @extend .plan-box-header;
-    font-weight: 100;
-    border-top: 1px solid $faint-gray-border;
-    padding: 7px 0;
-    font-size: 1em;
-  }
-  #full-feature-list-btn {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-  #full-feature-list-btn span {
-    display: block;
-    background-repeat: no-repeat;
-    width: 100%;
-    background-position: right center;
-    padding: 0 40px;
-    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/down-arrow.svg');
-  }
-  #company-list {
-    h4 {
-      text-align: center;
-      font-size: 1.1em;
-      color: $gray-on-white-text;
-    }
-    .logo-container {
-      margin-bottom: 4%;
-      .bg-img-cont {
-        padding: 0 70px;
-        .bg-img {
-          width: 100%;
-          padding-top: 50%;
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-size: contain;
-        }
+    .talk-button {
+      @extend .pricing-button;
+      padding: 12px 50px;
+      margin-top: 15px;
+      margin-right: 15px;
+      background-image: linear-gradient(-180deg, #EEEFF3 0%, #E0E1E5 100%);
+      border: 1px solid #D4D5D9;
+      border-radius: 2px;
+      font: 12px $gotham-small-type;
+      color: #444B4F;
+      line-height: 12px;
+      &:hover {
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.18);
+        background: #eee;
+        border-color: #b8b8b8;
       }
     }
   }
-  #full-feature-list-btn {
-    margin: 0 auto 40px auto;
-    display: table;
-  }
-  @media only screen and (min-width: $tablet-min-width){
-    .pricing-overview {
-      display: flex;
-      justify-content: center;
-      .plan-box-cont {
-        max-width: 380px;
-        margin-right: 25px;
-      }
-      div:last-child {
-        margin-right: 0;
-      }
-    }
-    .cta {
-      h3 {text-align: center;}
-    }
-    .pricing-feature-detail-cont {
-      display: flex;
-      justify-content: center;
-      .feature-list-box {
-        margin-right: 25px;
-        max-width: 380px;
-      }
-      div:last-child {
-        margin-right: 0;
-      }
-    }
-    #company-list {
-      .logo-container {
-        display: flex;
-        justify-content: center;
-        .bg-img-cont {
-          width: 20%;
-          padding: 0 20px;
-        }
-      }
-    }
-  }
-  @media only screen and (min-width: $desktop-min-width){
-    .pricing-overview {
-      display: flex;
-      .columns {
-        align-self: center;
-      }
-    }
-  }
-}
-.pricing-faq__item {
-  margin: 2em 0;
 
-  &:last-child {
-    margin-bottom: 0;
+  /*             */
+  /*TITLE SECTION*/
+  /*             */
+  .title-section {
+    background: #F3F6F8;
+    border: 1px solid #E6E6E6;
+    text-align: center;
+    .title-copy {
+      font: 2.1875em $gotham-font-family;
+      text-align: center;
+      color: $super-dark-blue;
+      line-height: 61px;
+      margin-bottom: 57px;
+      margin-top: 60px;
+    }
+    .buttons-container {
+      margin-bottom: 67px;
+    }
+    .explore {
+      @extend .pricing-button;
+      background-image: linear-gradient(-180deg, #0081EB 3%, #0081BA 100%);
+      border: 2px solid #0063BA;
+      padding: 15px 31px;
+      margin-right: 15px;
+      box-shadow: none;
+      font: $gotham-font-family;
+      color: white;
+      span {
+        padding: 3px 60px;
+        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing/down_arrow.png');
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 34px;
+      }
+    }
+  }
+
+  /*                */
+  /*BENEFITS SECTION*/
+  /*                */
+  .benefits-section {
+    background: white;
+    .title-copy {
+      text-align: center;
+      padding-top: 62px;
+      font: 1.875em $gotham-font-family;
+      color: $super-dark-blue;
+      line-height: 34px;
+      padding: 66px 0;
+    }
+    .benefit-items-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .benefit-item {
+      text-align: center;
+      padding-top: 99px;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: 122px 83px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 75px;
+      h3 {
+        font: 1em $gotham-small-type;
+        font-weight: 500;
+        text-align: center;
+        color: $super-dark-blue;
+      }
+      p {
+        font-size: 15px;
+        color: #888B8C;
+        letter-spacing: 0.1px;
+        line-height: 20px;
+      }
+    }
+    .asterisk {
+      text-align: center;
+      font-size: 0.75em;
+      color: #979797;
+      line-height: 24px;
+      padding-bottom: 82px;
+    }
   }
 }
-.pricing-faq__item__title {
-  color: $blue;
+
+body.pricing.plan-enterprise {
+  #feature-list-get-started-now {display: none;}
+  #feature-list-talk-to-us {display: none;}
+  #feature-list-enterprise-cta-cont .current-plan-message {display: block;}
+}
+
+body.pricing.plan-free_light {
+  #feature-list-get-started-now {display: none;}
+  #feature-list-starter-cta-cont .current-plan-message {display: block;}
+}
+
+@media screen and (min-width: $tablet-min-width) {
+  body.pricing {
+    #page-header {
+      .header-cta-container {
+        display: inline;
+      }
+    }
+    .title-section {
+      .title-copy {
+        font-size: 3em;
+      }
+    }
+    .benefits-section {
+      .benefit-item {
+        margin-bottom: 10px;
+        width: 33%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-min-width) {
+  body.pricing {
+  }
 }
