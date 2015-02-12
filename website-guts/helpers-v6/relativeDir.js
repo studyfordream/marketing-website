@@ -1,18 +1,21 @@
 module.exports = function relativeDir (thisDest, linkPath) {
-  thisDest = thisDest.dirname;
-  thisDest = thisDest.replace(process.cwd() + '/website', '');
+  var pathname;
+  console.log('this object', thisDest);
+  console.log('****link path****', linkPath);
+  pathname = thisDest.dirname;
+  
+  if(/website\-/.test(pathname)) {
+    pathname = pathname.substr(pathname.indexOf('/'));
+  } else {
+    pathname = pathname.replace(process.cwd() + '/website', '');
+  }
 
   if(!!linkPath) {
-    var locale = linkPath.substr(1).split('/')[1];
-    var index = locale == undefined ? -1 : thisDest.indexOf(locale);
-    if (index !== -1) {
-      thisDest = thisDest.substring(index + locale.length);
-    }
-    thisDest = linkPath + thisDest;
+    pathname = linkPath + pathname;
   }
-  if (thisDest[0] !== '/') {
-    thisDest = '/' + thisDest;
+  if (pathname[0] !== '/') {
+    pathname = '/' + pathname;
   }
 
-  return thisDest;
+  return pathname;
 };

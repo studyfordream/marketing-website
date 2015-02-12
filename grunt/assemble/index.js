@@ -26,44 +26,7 @@ module.exports = function (grunt) {
     helpers.register(Handlebars, options);
 
     var renameKey = assemble.option('renameKey');
-    var dirnameKey = function (search) {
-      return function (fp) {
-        if (fp.indexOf(search) > -1) {
-          var segments = path.dirname(fp).split('/');
-          return segments[segments.length - 1];
-        }
-        return renameKey(fp);
-      };
-    };
-    var dirnamePageKey = function (search) {
-      return function (fp) {
-        // fp => website/about/index.hbs
-        if (fp.indexOf(search + '/') > -1 && fp.indexOf(search + '/index') === -1) {
-            var segments = path.dirname(fp).split('/');
-            return segments[segments.length - 1];
-          }
-          return renameKey(fp);
-        };
-    };
-    var dirnameLangKey = function (locales) {
-      return function (fp) {
-        var key;
-        var base = fp.substr(0, fp.indexOf('/'));
-        //locales.forEach(function(locale) {
-          //var re = new RegExp(locale);
-          //if(re.test(fp)) {
-            //base = locale;
-          //}
-        //});
-        // fp => website/about/index.hbs
-        if (fp.indexOf(base + '/') > -1 && fp.indexOf(base + '/index') === -1) {
-          key = fp.substr(0, fp.lastIndexOf('/'));
-        } else {
-          key = path.join(base, path.basename(fp).replace(path.extname(fp), ''));
-        }
-        return key;
-      };
-    };
+    var renameKeys = require('./utils/rename-keys')(renameKey);
 
     assemble.data(options.data);
 
@@ -118,13 +81,15 @@ module.exports = function (grunt) {
     var modalFiles = config.modals.files[0];
     assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src));
     // use a custom `renameKey` method when loading `resources`
-    assemble.option('renameKey', dirnameKey('resources-list'));
+    //assemble.option('renameKey', renameKeys.dirnameKey('resources-list'));
+
+    assemble.option('renameKey', renameKeys.noExtPath);
 
     // load `resource` templates
     var resourceFiles = config.resources.files[0];
     assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
     // reset the `renameKey` method
-    assemble.option('renameKey', renameKey);
+    //assemble.option('renameKey', renameKey);
     /*******************************************************************************************************************************/
 
     // build the `resources` page
@@ -147,7 +112,7 @@ module.exports = function (grunt) {
 
     assemble.task('partners', ['resources'], function () {
       var start = process.hrtime();
-      assemble.option('renameKey', dirnameKey('partners'));
+      //assemble.option('renameKey', renameKeys.dirnameKey('partners'));
       //all hbs files within partners are templated
       //the frontmatter data from individual partners files creates the grid
       //as well as renders individual pages
@@ -165,9 +130,9 @@ module.exports = function (grunt) {
         });
     });
 
-    assemble.task('pages', ['partners'], function () {
+    assemble.task('pages', function () {
       var start = process.hrtime();
-      assemble.option('renameKey', dirnamePageKey('website'));
+      //assemble.option('renameKey', renameKeys.dirnamePageKey('website'));
 
       var files = config.pages.files[0];
       return assemble.src(normalizeSrc(files.cwd, files.src))
@@ -184,11 +149,11 @@ module.exports = function (grunt) {
       var files = config.pages.files[0];
 
       //resources seems to be happening successfully in here
-      assemble.option('renameKey', dirnameLangKey(config.locales));
+      //assemble.option('renameKey', renameKeys.dirnameLangKey(config.locales));
       /* jshint ignore:start */
       assemble['subfolder']({
         src: [ '**/*.hbs' ],
-        fallback: [ '**/*.hbs', '!partners/**/*.hbs', '!resources/resources-list/**/*' ]
+        fallback: [ '**/*.hbs', '!resources/resources-list/**/*' ]
       });
       /* jshint ignore:end */
       return push('subfolders')
@@ -208,7 +173,7 @@ module.exports = function (grunt) {
       return es.pipe.apply(es, streams);
     });
 
-    assemble.run(['resources', 'partners', 'pages', 'subfolders', 'copy'], done);
+    assemble.run(['pages', 'subfolders'], done);
   });
   return {};
 };

@@ -84,7 +84,7 @@ module.exports = {
   pages: {
     files: [
       {
-        src: ['**/*.hbs', '!partners/**/*.hbs', '!resources/resources-list/**/*.hbs', '!resources/index.hbs', '!om/**/*.hbs'],
+        src: ['**/*.hbs', 'partners/**/*.hbs', '!resources/resources-list/**/*.hbs', '!om/**/*.hbs'],
         dest: '<%= config.dist %>/',
         cwd: '<%= config.content %>/',
         expand: true

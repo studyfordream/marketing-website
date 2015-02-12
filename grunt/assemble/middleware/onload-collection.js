@@ -1,4 +1,5 @@
 var extend = require('extend-shallow');
+var path = require('path');
 
 module.exports = function(assemble) {
   //sets a key on the assemble instance equal to the collection name
@@ -11,7 +12,22 @@ module.exports = function(assemble) {
         return next();
       }
       var col = assemble.get(collection) || {};
-      var key = assemble.option('renameKey')(file.path);
+      var split = file.path.split('/');
+      var ext;
+      var dirname = split[split.length - 2];
+      var basename = split[split.length - 1];
+      if(/\.hbs/.test(basename)) {
+        ext = '.hbs';
+      } else if (/.\html/.test(basename)) {
+        ext = '.html';
+      }
+      if(ext) {
+        basename = path.basename(basename, ext);
+      }
+      var key = path.join(dirname, basename);
+      if(col[key]) {
+        next();
+      }
       col[key] = extend({}, col[key], file.data);
       assemble.set(collection, col);
       next();

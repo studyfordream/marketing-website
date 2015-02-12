@@ -70,20 +70,20 @@ script_dependencies:
         {{#collection "solutions"}}
           <div class="partner-grid-elm {{#if this.stars}}{{this.stars}}-star{{/if}} {{#each this.locations}}{{createClassList this.location.region}}{{/each}} {{#each this.tags}}{{createClassList this}}{{/each}}" data-priority="{{this.priority}}">
             <div class="title-container">
-              <h4 class="partner-title"><a href="{{relativeDir this.dest ../linkPath}}">{{this.title}}</a></h4>
+              <h4 class="partner-title"><a href="{{relativeDir this ../linkPath}}">{{this.title}}</a></h4>
               {{#each this.locations}}
                 <div class="partner-location {{#if @first}}active{{/if}}" data-region="{{createClassList this.location.region}}">{{this.location.city}}, {{stateCountry this.location.state this.location.country }}</div>
               {{/each}}
             </div> <!-- .title-container -->
             <div class="partner-inner-content">
-              <a href="{{relativeDir this.dest ../linkPath}}" class="partner-logos" style="background-image: url('{{this.logo}}');"></a>
+              <a href="{{relativeDir this ../linkPath}}" class="partner-logos" style="background-image: url('{{this.logo}}');"></a>
               <div class="level">
                 <div class="level-heading">{{{../solutions_data.filter.stars}}}: <span data-tooltip title="{{{../solutions_data.partner_tooltip}}}"></span></div>
                 <div class="star-cont {{#if this.stars}}star-cont--{{this.stars}}{{/if}}"></div>
               </div>
             </div>
             <div class="button-container">
-              <a href="{{relativeDir this.dest ../linkPath}}" class="button">{{{../solutions_data.more}}} &gt;</a>
+              <a href="{{relativeDir this ../linkPath}}" class="button">{{{../solutions_data.more}}} &gt;</a>
             </div>
           </div>
         {{/collection}}
