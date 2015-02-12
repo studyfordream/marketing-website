@@ -1,7 +1,7 @@
 module.exports = {
   main: {
     options: {
-      archive: 'temp/website-stable.tar.gz' // What you want to call your file
+      archive: 'temp/<%= marketingDistName %>.tar.gz' // What you want to call your file
     },
     files: [
       {

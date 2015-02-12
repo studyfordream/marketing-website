@@ -1,7 +1,7 @@
 module.exports = {
-   'website-stable': {
-     options: {
-       branch: ':refs/tags/<%= marketingDistName %>'
-     }
-   }
- };
+  'website-stable': {
+    options: {
+      branch: ':refs/tags/<%= marketingDistName %>'
+    }
+  }
+};
