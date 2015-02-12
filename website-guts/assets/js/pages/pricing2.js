@@ -1,3 +1,6 @@
+//for scroll tracking
+w.optimizelyScrollTrackerID = '/pricing';
+
 $('#talk-to-us').on('click', function(e){
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
   e.preventDefault();
@@ -161,7 +164,7 @@ signupForm.on('load', function(event, data) {
 }.bind(signupHelper));
 
 signupForm.on('done', function() {
-  window.setTimeout(function() { 
+  window.setTimeout(function() {
     signupHelper.scrollTopDialog();
   }, 500);
   signupHelper.processingRemove({callee: 'done'});

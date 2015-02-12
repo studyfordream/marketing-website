@@ -1,3 +1,6 @@
+//for scroll tracking
+w.optimizelyScrollTrackerID = '/pricing';
+
 $('#talk-to-us').on('click', function(e){
   e.preventDefault();
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
