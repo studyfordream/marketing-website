@@ -7,18 +7,18 @@ layout_body_class: false
   <div id="page-header">
     <div class="container">
       <div class="clearfix page-subheader-cont">
-        <h1>{{page.visible_title}}</h1>
+        <h1>{{this.visible_title}}</h1>
         <ul class="sub-header-nav">
-          <li class="sub-nav-about"><a href="{{linkPath}}/{{page.subnav_first}}">Customer List</a></li>
-          <li class="sub-nav-"><a href="{{linkPath}}/{{page.subnav_last}}">Customer Stories</a></li>
+          <li class="sub-nav-about"><a href="{{linkPath}}/{{this.subnav_first}}">Customer List</a></li>
+          <li class="sub-nav-"><a href="{{linkPath}}/{{this.subnav_last}}">Customer Stories</a></li>
         </ul>
       </div><!---->
     </div><!--/.container-->
   </div><!--/#page-header-->
   <div id="page-header-gradient"></div>
   <div id="page-content">
-    {{#unless page.no_container}}<div class="container">{{/unless}}
+    {{#unless this.no_container}}<div class="container">{{/unless}}
       {% body %}
-    {{#unless page.no_container}}</div><!--/.container-->{{/unless}}
+    {{#unless this.no_container}}</div><!--/.container-->{{/unless}}
   </div><!--/#content-->
 </div><!--/#main-->

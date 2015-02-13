@@ -70,7 +70,8 @@
     "nightmare": "git+ssh://git@github.com:dtothefp/nightmare.git",
     "phantomjs": "~1.9.12",
     "plasma": "^0.6.1",
-    "through2": "^0.6.3"
+    "through2": "^0.6.3",
+    "js-yaml": "^3.2.6"
   },
   "licenses": [
     {

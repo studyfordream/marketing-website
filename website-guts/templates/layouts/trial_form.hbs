@@ -6,11 +6,11 @@ layout_body_class:
 ---
 <div id="main">
   <div class="header-wrapper">
-    {{#if page.page_header}}
+    {{#if this.page_header}}
     <div id="page-header">
       <div class="container">
-        {{#if page.visible_title}}<h1>{{page.visible_title}}</h1>{{/if}}
-        {{#if page.sub_head}}<p>{{page.sub_head}}</p>{{/if}}
+        {{#if this.visible_title}}<h1>{{this.visible_title}}</h1>{{/if}}
+        {{#if this.sub_head}}<p>{{this.sub_head}}</p>{{/if}}
       </div><!--/.container-->
     </div><!--/#page-header-->
     {{/if}}
@@ -18,7 +18,7 @@ layout_body_class:
       <div class="row">
         <div class="columns six hero-left-cont">
           <img src="{{assetsDir}}/img/ppc/ppc.png">
-          {{#if page.social_proof}}
+          {{#if this.social_proof}}
           <div id="social-proof-cont">
               <div class="social-numbers visitors-tested-cont">
                 <p class="social-number" id="visitors-tested-number">1,306,200,329</p>
@@ -33,10 +33,10 @@ layout_body_class:
         </div>
         <div class="columns six ppc-form-cont">
           <div id="ppc-form" class="landing-page-form">
-            {{#if page.form_header}}
-            <h4 class="seo-form-heading">{{page.form_header}}</h4>
+            {{#if this.form_header}}
+            <h4 class="seo-form-heading">{{this.form_header}}</h4>
             {{/if}}
-            <p class="seo-form-subheader">{{{page.form_text}}}</p>
+            <p class="seo-form-subheader">{{{this.form_text}}}</p>
             <form id="seo-form" method="POST" class="seo-form inline-labels" action="/account/free_trial_create" autocomplete="off" novalidate="novalidate">
               <p class="error-message oform-error-show"></p>
               <input id="utm_medium" type="hidden" name="utm_medium" value="">

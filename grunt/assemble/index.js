@@ -15,7 +15,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('assemble', 'Assemble', function () {
     var done = this.async();
-    console.log('lastRunTime', process.env.lastRunTime);
 
     var assemble = require('assemble');
     var localizeLinkPath = require('./middleware/localize-link-path');
@@ -142,6 +141,9 @@ module.exports = function (grunt) {
       return assemble.src(normalizeSrc(files.cwd, files.src))
         .pipe(ext())
         .pipe(assemble.dest(files.dest))
+        //.on('data', function (file) {
+           //console.log(file.path, 'rendered');
+        //})
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished rendering pages', end);
@@ -163,6 +165,9 @@ module.exports = function (grunt) {
       return push('subfolders')
       .pipe(ext())
       .pipe(assemble.dest(files.dest))
+      //.on('data', function (file) {
+         //console.log(file.path, 'rendered');
+      //})
       .on('end', function () {
         var end = process.hrtime(start);
         console.log('finished rendering pages-de', end);
@@ -178,12 +183,10 @@ module.exports = function (grunt) {
     });
 
     assemble.run(['pages', 'subfolders'], function (err) {
-      console.log('run done', arguments);
       if (err) {
         return done(err);
       }
       process.env.lastRunTime = new Date();
-      console.log('reset lastRunTime', process.env.lastRunTime);
       done();
     });
   });
