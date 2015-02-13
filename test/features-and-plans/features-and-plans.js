@@ -2,7 +2,7 @@ var Nightmare = require('nightmare');
 //var path = require('path');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
-var pricingPath = config.basePath({path: '/pricing2/'});
+var pricingPath = config.basePath({path: '/features-and-plans/'});
 
 describe('pricing page', function() {
 
@@ -15,7 +15,7 @@ describe('pricing page', function() {
             plan: 'bronze-oneyear'
           }
         }))
-        .click('#feature-list-get-started-now')
+        .click('#starter-cta')
         .wait(300)
         .screenshot(config.screenshot({ imgName: 'downgrade-confirm' }))
         .click('#downgrade-plan-form button[type="submit"]')
@@ -62,7 +62,7 @@ describe('pricing page', function() {
             plan: ''
           }
         }))
-        .click('#feature-list-get-started-now')
+        .click('#starter-cta')
         .wait('body.change-plan-success')
         .wait(300)
         .screenshot(config.screenshot({ imgName: 'pricing-no-plan-start-new-plan' }))
@@ -74,6 +74,26 @@ describe('pricing page', function() {
         })
         .run(done);
     });
+
+    // Counterpart test to the 'enterprise user cannot downgrade' test
+    // If the user has no plan, they should be able to sign up for either plan
+    it('expects the starter button to have id starter-cta', function(done) {
+      new Nightmare({phantomPath: phantomPath})
+        .viewport(1024, 1000)
+        .goto(config.basePath({
+          queryParams: {
+            plan: ''
+          }
+        }))
+        .wait(300)
+        .screenshot(config.screenshot({ imgName: 'enterprise-downgrade-option' }))
+        .evaluate(function() {
+          return window.jQuery('#starter-cta').attr('id');
+        }, function(result) {
+            expect(result).toBe('starter-cta');
+        })
+        .run(done);
+    });
   }); //end create account test
 
   describe('anonymous visitor', function() {
@@ -81,7 +101,7 @@ describe('pricing page', function() {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
         .goto(pricingPath)
-        .click('#feature-list-get-started-now')
+        .click('#starter-cta')
         .wait(300)
         .type('#signup-dialog input[name="email"]', config.email)
         .type('#signup-dialog input[name="password1"]', 'ks93+-93KLI')
@@ -105,12 +125,40 @@ describe('pricing page', function() {
     });
   }); //end create account test
 
-  describe('anonymous visitor', function() {
-    it('submits contact sales form', function(done) {
+  describe('visitor', function() {
+    it('submits contact sales form from bottom button', function(done) {
       new Nightmare({phantomPath: phantomPath})
         .viewport(1024, 1000)
         .goto(pricingPath)
-        .click('#feature-list-talk-to-us')
+        .click('#enterprise-cta')
+        .wait(300)
+        .type('#contact-sales-form input[name="first_name"]', config.firstName)
+        .type('#contact-sales-form input[name="last_name"]', config.lastName)
+        .type('#contact-sales-form input[name="company_name"]', config.company)
+        .type('#contact-sales-form input[name="title"]', config.title)
+        .type('#contact-sales-form input[name="email_address"]', config.email)
+        .type('#contact-sales-form input[name="phone_number"]', config.phone)
+        .type('#contact-sales-form input[name="website"]', config.website)
+        .screenshot(config.screenshot({ imgName: 'contact-form-filled' }))
+        .click('#contact-sales-form button[type="submit"]')
+        .wait('body.contact-sales-success')
+        .wait(300)
+        .screenshot(config.screenshot({ imgName: 'contact-sales-complete' }))
+        .evaluate(function() {
+          return document.body.getAttribute('class');
+        }, function(result) {
+            var contactSalesSubmit = /contact\-sales\-submit/;
+            var contactSalesSuccess = /contact\-sales\-success/;
+            expect(contactSalesSubmit.test(result)).toBe(true);
+            expect(contactSalesSuccess.test(result)).toBe(true);
+        })
+        .run(done);
+    });
+    it('submits contact sales form from top button', function(done) {
+      new Nightmare({phantomPath: phantomPath})
+        .viewport(1024, 1000)
+        .goto(pricingPath)
+        .click('#talk-to-us')
         .wait(300)
         .type('#contact-sales-form input[name="first_name"]', config.firstName)
         .type('#contact-sales-form input[name="last_name"]', config.lastName)
