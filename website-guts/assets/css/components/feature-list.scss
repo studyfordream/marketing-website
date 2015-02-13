@@ -3,6 +3,7 @@
 /*            */
 
 #feature-list {
+  .current-plan-message {display: none;}
   /*Title Section*/
   .title-table-header {
     * {
@@ -143,6 +144,16 @@
   }
 }
 
+body.plan-enterprise {
+  #feature-list-get-started-now {display: none;}
+  #feature-list-talk-to-us {display: none;}
+  #feature-list-enterprise-cta-cont .current-plan-message {display: block;}
+}
+
+body.plan-free_light {
+  #feature-list-get-started-now {display: none;}
+  #feature-list-starter-cta-cont .current-plan-message {display: block;}
+}
 
 @media only screen and (min-width: $tablet-min-width) {
   #feature-list {

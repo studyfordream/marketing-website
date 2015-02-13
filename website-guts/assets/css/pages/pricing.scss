@@ -1,5 +1,4 @@
 body.pricing {
-  .current-plan-message {display: none;}
   #page-content {
     background-color: white;
   }
@@ -136,17 +135,6 @@ body.pricing {
       padding-bottom: 82px;
     }
   }
-}
-
-body.pricing.plan-enterprise {
-  #feature-list-get-started-now {display: none;}
-  #feature-list-talk-to-us {display: none;}
-  #feature-list-enterprise-cta-cont .current-plan-message {display: block;}
-}
-
-body.pricing.plan-free_light {
-  #feature-list-get-started-now {display: none;}
-  #feature-list-starter-cta-cont .current-plan-message {display: block;}
 }
 
 @media screen and (min-width: $tablet-min-width) {
