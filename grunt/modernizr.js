@@ -5,7 +5,9 @@ module.exports = {
     uglify: true,
     tests: ['teststyles'],
     files: {
-      src: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/libraries/*.js']
+      src: ['<%= config.guts %>/assets/js/**/*.js',
+            '!<%= config.guts %>/assets/js/libraries/*.js',
+            '<%= config.guts %>/assets/css/**/*.scss']
     },
     extensibility : {
       addtest: true,
@@ -14,6 +16,9 @@ module.exports = {
       testallprops: true,
     },
     matchCommunityTests: true,
-    parseFiles: true
+    parseFiles: true,
+    extra: {
+      'cssanimations': true
+    }
   }
 };
