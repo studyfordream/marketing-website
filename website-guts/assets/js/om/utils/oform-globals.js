@@ -98,7 +98,7 @@ w.optly.mrkt.Oform.trackLead = function(dataObj){
     otm_Source__c: source.otm.source || '',
     otm_Keyword__c: source.otm.keyword || '',
     GCLID__c: source.gclid || '',
-    Signup_Platform__c: response.Signup_Platform__c || source.signupPlatform || '',
+    Signup_Platform__c: source.signupPlatform || '',
     Email: response.email ? response.email : '',
     FirstName: response.first_name || '',
     LastName: response.last_name || '',
