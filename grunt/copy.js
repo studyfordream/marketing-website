@@ -30,5 +30,37 @@ module.exports = {
       },
       {src: ['<%= config.guts %>/assets/img/favicon.ico'], dest: '<%= config.dist %>/favicon.ico'},
     ]
+  },
+  js: {
+    files: [
+      {
+        cwd: '<%= config.guts %>/assets/js/om/libraries',
+        src: '**',
+        dest: '<%= config.dist %>/assets/js/om/libraries/',
+        expand: true
+      }
+    ]
+  },
+  omUITest: {
+    files: [
+      {
+        src: '<%= config.guts %>/assets/js/om/test/test.js',
+        dest: '<%= config.dist %>/assets/js/om/test/',
+        expand: true,
+        flatten: true
+      },
+      {
+        src: '<%= config.guts %>/assets/css/om/libraries/qunit-1.17.1.css',
+        dest: '<%= config.dist %>/assets/css/',
+        expand: true,
+        flatten: true
+      },
+      {
+        src: '<%= config.guts %>/assets/js/om/libraries/qunit-1.17.1.js',
+        dest: '<%= config.dist %>/assets/js/om/libraries/',
+        expand: true,
+        flatten: true
+      }
+    ]
   }
 };

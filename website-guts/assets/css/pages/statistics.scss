@@ -132,6 +132,10 @@ body.statistics-page {
       text-decoration: underline;
     }
 
+    .footnote {
+      font-size: 0.75em;
+    }
+
     .primary-cta {
       /* maintain a button max-height 40px*/
       border-radius: 4px;
@@ -272,6 +276,12 @@ body.statistics-page {
         color: $blue;
         font-size: 80px;
         font-weight: 400;
+        span {
+          font-size: 0.8em;
+          position: relative;
+          top: -5px;
+          left: -7px;
+        }
       }
     }
 

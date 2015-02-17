@@ -8,10 +8,12 @@ module.exports = {
       src: ['<%= config.guts %>/assets/js/**/*.js', '!<%= config.guts %>/assets/js/libraries/*.js']
     },
     extensibility : {
-        addtest: true,
-        teststyles: true,
-        testprops: true,
-        testallprops: true,
-    }
+      addtest: true,
+      teststyles: true,
+      testprops: true,
+      testallprops: true,
+    },
+    matchCommunityTests: true,
+    parseFiles: true
   }
 };

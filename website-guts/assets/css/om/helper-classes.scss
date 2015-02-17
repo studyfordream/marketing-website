@@ -1,0 +1,68 @@
+.clearfix {
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear:both;
+  }
+}
+
+small {font-size: 80%;}
+
+.a-center {text-align: center;}
+
+.button {
+  background-color: #126fb0;
+  background: linear-gradient(to bottom, #147ec7 0%,#126fb0 100%);
+  color: #fff!important;
+  border: 1px solid #22599a;
+  border-radius: 1px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: .87em;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 0.6em 2.8em;
+  text-align: center;
+
+  &.small {
+    font-size: 12px;
+    padding: 0.5em 1em;
+  }
+
+  &:hover {
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.18);
+    background: #147ec7;
+    border-color: #1c487d;
+    text-decoration: none;
+  }
+}
+
+.hide-label {display: none;}
+
+input[type="text"], input[type="url"], input[type="email"], input[type="tel"],  input[type="password"]{
+  &.oform-error-show,
+  &.error-show {
+    background-color: #fef3f3;
+    border-color: #f3b6b3;
+    color: #242424;
+  }
+}
+
+.pull-quote {
+  font-size: 1.81em;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+@mixin desktop {
+  .left {float: left;}
+  .right {float: right;}
+}
+
+@media only screen and (min-width: $desktop-min-width){
+  @include desktop;
+}
+
+.oldie {@include desktop;}

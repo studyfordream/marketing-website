@@ -175,6 +175,18 @@ $(function() {
     toggleSrc(imgCache[imgIndex], true);
   });
 
+  //custom validation error reporting handler
+  var validationErrorCustom = function(element){
+    var elementName = element.getAttribute('name');
+    var elementValue = $(element).val();
+    var elementHasValue = elementValue ? 'has value' : 'no value';
+    w.analytics.track('mobile-signup-form ' + elementName + ' error submit', {
+      category: 'form error',
+      label: elementHasValue,
+      value: elementValue.length
+    });
+  };
+
    //Oform for signup top
   var signupMobileMvppTopHelperInst = window.optly.mrkt.form.mobileMvpp({formId: 'mobile-signup-form-top'});
 
@@ -194,10 +206,19 @@ $(function() {
     signupMobileMvppTopHelperInst.processingAdd();
     signupMobileMvppTopHelperInst.removeErrors();
     signupMobileMvppTopHelperInst.optionsErrorElm.innerHTML = signupMobileMvppTopHelperInst.errorMessages.DEFAULT;
+    w.analytics.track('/mobile/submit', {
+      category: 'account',
+      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+    }, {
+      integrations: {
+        'Marketo': false
+      }
+    });
     return true;
   });
 
-  signupFormTop.on('validationerror', function(elm) {
+  signupFormTop.on('validationerror', function(elm){
+    validationErrorCustom(elm);
     w.optly.mrkt.Oform.validationError(elm);
     signupMobileMvppTopHelperInst.showOptionsError();
   });
@@ -243,10 +264,19 @@ $(function() {
     signupMobileMvppBottomHelperInst.processingAdd();
     signupMobileMvppBottomHelperInst.removeErrors();
     signupMobileMvppBottomHelperInst.optionsErrorElm.innerHTML = signupMobileMvppBottomHelperInst.errorMessages.DEFAULT;
+    w.analytics.track('/mobile/submit', {
+      category: 'account',
+      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+    }, {
+      integrations: {
+        'Marketo': false
+      }
+    });
     return true;
   });
 
   signupFormBottom.on('validationerror', function(elm) {
+    validationErrorCustom(elm);
     w.optly.mrkt.Oform.validationError(elm);
     signupMobileMvppBottomHelperInst.showOptionsError();
   });
@@ -274,4 +304,58 @@ $(function() {
   }.bind(signupMobileMvppBottomHelperInst));
 
 
+});
+
+//track focus on form fields
+$('#mobile-signup-form-bottom input:not([type="hidden"]), #mobile-signup-form-top input:not([type="hidden"])').each(function(){
+  $(this).one('focus', function(){
+    //put all the information in the event because we'll want to use this as a goal in optimizely
+    //send a general focus event to track focus for either the top or bottom form
+    w.analytics.track('mobile-signup-form ' + $(this).attr('name') + ' focus',
+    {
+      category: 'forms'
+    },
+    {
+      integrations: {
+        'Marketo': false
+      }
+    });
+    //send a specific focus event to track focus on either the top or bottom form
+    w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus',
+    {
+      category: 'forms'
+    },
+    {
+      integrations: {
+        'Marketo': false
+      }
+    });
+  });
+});
+
+//track blur on form fields
+$('#mobile-signup-form-bottom input:not([type="hidden"]), #mobile-signup-form-top input:not([type="hidden"])').each(function(){
+  $(this).one('blur', function(){
+    //put all the information in the event because we'll want to use this as a goal in optimizely
+    //send a general focus event to track focus for either the top or bottom form
+    w.analytics.track('mobile-signup-form ' + $(this).attr('name') + ' blur',
+    {
+      category: 'forms'
+    },
+    {
+      integrations: {
+        'Marketo': false
+      }
+    });
+    //send a specific focus event to track focus on either the top or bottom form
+    w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' blur',
+    {
+      category: 'forms'
+    },
+    {
+      integrations: {
+        'Marketo': false
+      }
+    });
+  });
 });

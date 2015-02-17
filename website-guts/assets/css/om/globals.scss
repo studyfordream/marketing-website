@@ -1,0 +1,20 @@
+img {max-width: 100%;}
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+a {
+  text-decoration: none;
+  color: $link-color;
+}
+p {
+  text-align: center;
+}
+
+@media only screen and (min-width: $desktop-min-width){
+  p {
+    text-align: left;
+  }
+}

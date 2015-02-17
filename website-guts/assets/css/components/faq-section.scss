@@ -1,0 +1,53 @@
+/*           */
+/*FAQ Section*/
+/*           */
+.faq-section {
+  .faq-container {
+    margin-right: auto;
+    margin-left: auto;
+    border-top: 1px solid #DFDFDF;
+  }
+  .question {
+    font: 0.9em $gotham-small-type;
+    font-weight: 500;
+    color: #00415D;
+    letter-spacing: 0.53px;
+    line-height: 19px;
+    margin-top: 55px;
+  }
+  .answer {
+    font: 0.95em $gotham-font-family;
+    color: #696F72;
+    line-height: 22px;
+    margin-bottom: 55px;
+  }
+  .contact-text {
+    font: 1.9em $gotham-font-family;
+    color: #696F72;
+    line-height: 52px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 80px;
+  }
+  .phone-number {
+    margin-top: 10px;
+    font-size: 1.9em;
+    text-align: center;
+    color: #696F72;
+    a {
+      color: #0094CD;
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  .faq-section {
+    .faq-container {
+      width: 500px;
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+
+}

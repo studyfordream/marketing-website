@@ -18,18 +18,17 @@ body.opticon {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 25% 25%;
-    height: 450px;
+    padding-top: 150px;
+    padding-bottom: 120px;
     * {
       text-align: center;
     }
     .title {
       margin: 0;
-      padding-top: 150px;
       font-size: 5em;
       letter-spacing: 2px;
     }
     .event-details {
-      padding-bottom: 120px;
       text-transform: uppercase;
       color: white;
       margin-top: 7px;
@@ -47,20 +46,32 @@ body.opticon {
     .description {
       margin: 0px auto 10px auto;
       color: $light-text-color;
-      width: 550px;
     }
     .flex-container {
       display: flex;
+      flex-wrap: wrap;
     }
-    .pier {
-      display: none;
-      width: 300px;
-      height: 170px;
-      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pier27.jpg');
+    .andreeseen-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .andreeseen {
+      width: 350px;
+      height: 350px;
+      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/marc_square.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: 25% 25%;
-      margin-top: 8px;
+      margin: 9px auto 0 auto;
+    }
+    .caption {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: $light-text-color;
+    }
+    p.description:last-of-type {
+      margin-top: 30px;
     }
   }
 
@@ -105,6 +116,22 @@ body.opticon {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 25% 25%;
+    position: relative;
+    .justify-your-trip {
+      color: white;
+      text-transform: uppercase;
+      position: absolute;
+      right: 20%;
+      top: -21px;
+      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/ribbon.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      padding: 23px;
+      &:hover {
+        text-decoration: none;
+      }
+    }
     .section-title {
       padding-top: 100px;
       text-align: center;
@@ -118,7 +145,6 @@ body.opticon {
     }
     .button-container {
       text-align: center;
-      padding-bottom: 100px;
       a {
         padding: 15px 59px;
         background-color: white;
@@ -134,34 +160,36 @@ body.opticon {
   }
 
   .call-for-sponsors-panel {
-    .section-title {
-      margin-top: 50px;
-      margin-bottom: 50px;
-      text-align: center;
-      color: $brand-blue;
-    }
-    .blurb {
-      max-width: 640px;
-      margin-bottom: 50px;
-      text-align: center;
-      color: $brand-blue;
-      color: $super-dark-blue;
-    }
-    .button-container {
-      text-align: center;
-      padding-bottom: 50px;
-      a {
-        padding: 15px 59px;
-        background-color: $brand-blue;
-        color: white;
-        border-radius: 4px;
-        text-transform: uppercase;
-        &:hover {
-          text-decoration: none;
-          background-color: $brand-blue-hover;
-        }
+    padding-top: 50px;
+  }
+  .blue-headline {
+    margin-bottom: 50px;
+    text-align: center;
+    color: $brand-blue;
+  }
+  .blurb {
+    max-width: 560px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+    color: $light-text-color;
+  }
+  .button-container {
+    text-align: center;
+    padding-bottom: 50px;
+    a {
+      padding: 15px 59px;
+      background-color: $brand-blue;
+      color: white;
+      border-radius: 4px;
+      text-transform: uppercase;
+      &:hover {
+        text-decoration: none;
+        background-color: $brand-blue-hover;
       }
     }
+  }
+  .desktop {
+    display: none;
   }
 }
 
@@ -183,6 +211,15 @@ body.opticon {
       .blurb {
         margin: 0 50px 90px 0;
       }
+      .description {
+        width: 470px;
+      }
+      .andreeseen {
+        margin-right: 50px;
+      }
+      .caption {
+        text-align: left;
+      }
     }
     .call-for-speakers-panel {
       .button-container.desktop {
@@ -197,15 +234,18 @@ body.opticon {
         width: 450px;
       }
     }
+    .desktop {
+      display: block;
+    }
+    .mobile {
+      display: none;
+    }
   }
 }
 
 @media only screen and (min-width: $desktop-min-width) {
   body.opticon {
     .description-panel {
-      .pier {
-        display: block;
-      }
     }
   }
 }

@@ -8,7 +8,7 @@ module.exports = {
     environmentIsDev: '<%= grunt.config.get("environmentIsDev") %>',
     data: ['<%= config.content %>/**/*.json', '<%= config.content %>/**/*.yml', '<%= grunt.config.get("environmentData") %>'],
     partials: ['<%= config.guts %>/templates/partials/*.hbs'],
-    helpers: ['<%= config.helpers %>/**/*.js'],
+    helpers: ['<%= config.helpers %>/**/*.js', 'helper-moment'],
   },
   modals: {
     options: {
@@ -78,7 +78,20 @@ module.exports = {
   pages: {
     files: [
       {
-        src: ['**/*.hbs', '!partners/**/*.hbs', '!resources/resources-list/**/*.hbs', '!resources/index.hbs'],
+        src: ['**/*.hbs', '!partners/**/*.hbs', '!resources/resources-list/**/*.hbs', '!resources/index.hbs', '!om/**/*.hbs'],
+        dest: '<%= config.dist %>/',
+        cwd: '<%= config.content %>/',
+        expand: true
+      }
+    ]
+  },
+  om: {
+    options: {
+      layoutdir: '<%= config.guts %>/templates/om/layouts/'
+    },
+    files: [
+      {
+        src: ['om/**/*.hbs', '!<%= grunt.config.get("exclude_from_assemble") %>'],
         dest: '<%= config.dist %>/',
         cwd: '<%= config.content %>/',
         expand: true
