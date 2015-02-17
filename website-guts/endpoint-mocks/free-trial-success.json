@@ -1,0 +1,60 @@
+{
+  "project_count": 1,
+  "last_name": "fox-powell test",
+  "plan_display_name": null,
+  "locale": "en-US",
+  "csrf_token": "2b173edff487ef0722173a7bb84c54ea5508d8e0244d3cad8b88ead06145a59fc9d710785327f754718cdab3328021bac0934893c189c9d0db047d6619c1cd870199f8ec60e8e01b08d40e89828356eb",
+  "unique_user_id": "ba367ff8b6e511e4bac71197bb2ceec0",
+  "beta_customer": false,
+  "experiments_total": 0,
+  "use_project_goals": true,
+  "first_name": "david",
+  "include_whitelist_feature": null,
+  "user_accounts": [{
+      "current_account": false,
+      "account_id": 2506100379,
+      "email": "david+test2015117154242@optimizely.com",
+      "is_admin": true,
+      "role": "Administrator",
+      "account_name": null
+  }],
+  "subscribed": false,
+  "has_seen_editor_guiders": false,
+  "project_ids": [2506100379],
+  "token": "a81996d9fed1c4e297348f46f646cb90df3d554c",
+  "source": null,
+  "projects": {
+      "2506100379": {
+          "preview_js_file_name": "b22e11959f879a19a1fd3059e5822fa4",
+          "project_status": "Active",
+          "project_platforms": ["web"]
+      }
+  },
+  "plan_id": null,
+  "subscription": null,
+  "has_seen_results2_guiders": false,
+  "email": "david+test2015117154242@optimizely.com",
+  "company_name": null,
+  "phone_number": "9172315327",
+  "account_id": 2506100379,
+  "has_seen_audience_guiders": false,
+  "munchkin_token": "a81996d9fed1c4e297348f46f646cb90df3d554c",
+  "backend_api_token": "AAKoWakA5xzWEPq4RNgdq5XhB4Qu3GkV",
+  "has_installed_snippet": false,
+  "user_locale": "en-US",
+  "is_admin": false,
+  "is_entitled_to_platinum": false,
+  "trusted_tester": false,
+  "has_seen_first_notice": false,
+  "preview_script_url": "https://www.optimizely.com/js/preview-master-1850.382195126393960537.js?token=803ca67b5b0240ee91ab544841888ee4&account_id=2506100379",
+  "permissions": {
+      "userPermissions": ["delete-note", "modify-account-tokens", "view-audience", "delete-experiment", "create-visitor-segment", "edit-project-integration", "pause-experiment", "create-goal", "read-account-tokens", "invite", "view-collaborators", "edit-project", "billing", "create-collaborators", "archive-experiment", "delete-goal", "view-users", "modify-collaborators", "create-experiment", "view-experiment", "create-audience", "modify-goal", "view-audit-log", "delete-collaborators", "modify-dimension", "view-note", "reset-results", "view-project-integration", "view-usage", "modify-running-experiment", "modify-project", "update-note", "delete-user", "create-note", "modify-paused-experiment", "create-ios-project", "create-project", "view-goal", "delete-dimension", "start-experiment", "user-permissions", "modify-audience", "create-dimension"],
+      "accountPermissions": ["audience-targeting"]
+  },
+  "succeeded": true,
+  "frozen": false,
+  "should_see_results2_popovers": true,
+  "max_projects": 2,
+  "must_change_password": true,
+  "is_master_account": true
+}

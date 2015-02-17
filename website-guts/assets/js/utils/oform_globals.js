@@ -158,6 +158,8 @@
       }
     }
 
+    debugger;
+
     //make a raw Munchkin associateLead Request
     w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
 
