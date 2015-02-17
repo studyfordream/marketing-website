@@ -1,0 +1,320 @@
+header {
+  margin-bottom: 30px;
+}
+
+.top-section {
+  border-bottom: 1px solid #d5d5d5;
+}
+
+h4.seo-form-heading {
+  font-size: 1.4em;
+  font-weight: 100;
+  text-align: center;
+}
+
+#ppc-form {
+  width: 400px;
+  margin: 0 auto;
+  #submit {
+    width: 200px;
+    margin-top: 10px;
+  }
+}
+
+.social-numbers {margin: 0 auto;}
+
+.social-number {
+  font-family: $condensed-sans-serif;
+  font-size: 2.1em;
+  font-style: normal;
+  font-weight: 400;
+  color: #036;
+}
+
+.description {
+  font-family: $body-font-family;
+  font-size: .8em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #036;
+}
+
+#social-proof-cont {
+  padding-top: 20px;
+}
+
+.social-numbers {
+  background: image-url('ppc/free-trial-sprite-adjusted-2.png') no-repeat;
+  padding: 0 0 0 80px;
+  width: 220px;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.visitors-tested-cont {
+  background-position: 0 13px;
+}
+
+.experiments-run-cont {
+  background-position: -735px 13px;
+}
+
+.seo-customers {
+  .row {
+    margin: 60px 0;
+  }
+  br {
+    display: none;
+  }
+  h4 {
+    margin: 0 0 40px 0;
+  }
+}
+
+#seo-form {
+  margin-bottom: 100px;
+  ul {padding: 0;}
+  li {
+    list-style-type: none;
+    margin: 0;
+    &.terms {
+      text-align: center;
+    }
+  }
+  input {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  button {
+    width: 100%;
+  }
+  .processing-message {text-align: center;}
+  .oform-error-message, .oform-processing-show {
+    display: none;
+  }
+}
+
+.light-gray-section {
+  padding: 50px 0;
+  background: #f4f4f4;
+}
+
+.textured-section {
+  padding: 50px 0;
+  border-top: 1px solid #d5d5d5;
+  box-shadow: inset 0px 0px 11px rgba(0,0,0,0.1);
+  background: image-url('noise.png');
+}
+
+.product-detail {
+  margin-bottom: 40px;
+  background-position: -900px 0;
+  background-repeat: no-repeat;
+}
+
+.seo-customers {
+  .row {
+    margin: 60px 0;
+  }
+  br {
+    display: none;
+  }
+  h4 {
+    margin: 0 0 40px 0;
+  }
+}
+
+.customer-quote {
+  .pull-quote {
+    padding: 0 20px;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+body.oform-processing {
+  #seo-form {
+    .oform-processing-show {display: block;}
+    .oform-processing-hide {display: none;}
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+
+  #about-optimizely, #how-it-works {
+    ul {
+      width: 340px;
+      margin: 0 auto;
+    }
+
+    li {
+      list-style-type: disc;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  #about-optimizely {
+    margin-bottom: 50px;
+  }
+
+  .customer-quote {
+    text-align: center;
+    .pull-quote {
+      margin: auto;
+    }
+  }
+
+  .pull-quote {
+    color: #6b6b6b;
+    display: block;
+    margin-bottom: 0.5em;
+    text-shadow: 1px 1px #fff;
+  }
+
+  .customer-logos p {text-align: center;}
+
+}
+
+
+@mixin desktop {
+
+  #about-optimizely, #how-it-works {
+    li {
+      font-size: .9em;
+    }
+
+    background: image-url('ppc/free-trial-sprite-adjusted-2.png') no-repeat;
+    p {
+      margin: 0;
+      line-height: 1em;
+    }
+  }
+
+  #about-optimizely {
+    padding-left: 130px;
+    background-position: -1572px 0;
+  }
+
+  #how-it-works {
+    padding-left: 145px;
+    width: 400px;
+    margin: 0 auto;
+    background-position: -2830px 0;
+  }
+
+  .hero {margin-top: 60px;}
+  header {
+    margin-bottom: 40px;
+  }
+  .social-proof-cont {
+    float: left;
+    width: 447px;
+  }
+  .form-cont {
+    float: right;
+    width: 402px;
+    margin: auto auto 100px auto;
+  }
+  .form-cont.center {
+    margin: 0 auto 100px auto;
+    float: none;
+  }
+  #ppc-form {
+    width: auto;
+    margin: 0 auto;
+    h4 {
+      text-align: center;
+    }
+  }
+  .social-numbers {
+    float: left;
+    width: 50%;
+    .social-number {
+      margin-bottom: 7px;
+      font-size: 2.1em;
+      text-align: left;
+    }
+  }
+  h4.seo-form-heading {
+    font-size: 1.2em;
+    margin-top: 0;
+  }
+  p.seo-form-subheader {
+    font-size: 0.95em;
+  }
+  #seo-form {
+    margin-bottom: 0;
+    #phone-email-cont div {width: 50%;}
+    #phone-email-cont .right {
+      padding-left: 10px;
+    }
+    #phone-email-cont .left {
+      padding-right: 10px;
+    }
+    li.terms {
+      text-align: left;
+    }
+    button {
+      width: 200px;
+      margin: 10px auto 0 auto;
+      display: block;
+    }
+  }
+  .product-detail {
+    width: 445px;
+    float: left;
+    background-position: 0 0;
+    padding-left: 130px;
+    ul {
+      padding-left: 15px;
+      margin-top: 0;
+    }
+    li, p {font-size: .9em;}
+    p:first-child {
+      margin-right: 0;
+      text-align: left;
+      margin: 0;
+    }
+  }
+  .product-detail.no-graphic {
+    padding-left: 0;
+  }
+  .product-detail:nth-child(odd){
+    margin-right: 19px;
+  }
+  .seo-customers {
+    * {
+      text-align: left;
+    }
+    h4 {
+      margin: 0;
+    }
+    br {
+      display: block;
+    }
+  }
+
+}
+
+@media screen and (min-width: $desktop-min-width){
+
+  @include desktop;
+
+}
+
+.oldie {
+  @include desktop;
+}
+
+@media screen and (max-width: 400px){
+
+  .product-detail {
+    background: none!important;
+  }
+
+}

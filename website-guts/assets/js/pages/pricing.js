@@ -1,8 +1,17 @@
-$('#full-feature-list-btn').click(w.optly.mrkt.utils.smoothScroll);
+//for scroll tracking
+w.optimizelyScrollTrackerID = '/pricing';
 
-window.optly.mrkt.utils.equalHeightGrid({
-  selector: '.plan-box .cta'
+$('#talk-to-us').on('click', function(e){
+  w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
+  e.preventDefault();
 });
+
+$('#feature-list-talk-to-us').on('click', function(e){
+  w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
+  e.preventDefault();
+});
+
+$('#explore-features').on('click', w.optly.mrkt.utils.smoothScroll);
 
 //setup DOM for automated test
 var automatedTest = window.optly.mrkt.automatedTest();
@@ -18,10 +27,10 @@ var updatePlanInfo = function(){
   var startsWithC = /^c/;
 
   //remove starter signup if enterprise
-  if(typeof w.optly.mrkt.user.acctData === 'object'){
-    if(w.optly.mrkt.user.acctData.plan_id){
+  if (typeof w.optly.mrkt.user.acctData === 'object') {
+    if(w.optly.mrkt.user.acctData.plan_id) {
       var enterpriseRegex = /^enterprise|c/;
-      if(enterpriseRegex.test(w.optly.mrkt.user.acctData.plan_id)){
+      if (enterpriseRegex.test(w.optly.mrkt.user.acctData.plan_id)) {
         d.body.classList.add('plan-enterprise');
       } else {
         d.body.classList.add('plan-' + w.optly.mrkt.user.acctData.plan_id);
@@ -32,57 +41,37 @@ var updatePlanInfo = function(){
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-oneyear' ||
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-twoyear' ||
       startsWithC.test(w.optly.mrkt.user.acctData.plan_id)
-    ){
-
-      $('#starter-plan a:first-child').remove();
-
+    ) {
+      $('#feature-list-get-started-now').remove();
     }
-
   }
 
-  $('#starter-plan a:first').click(function(e){
-
+  $('#feature-list-get-started-now').on('click', function(e){
     if(typeof w.optly.mrkt.user.acctData === 'object'){
 
       //user is signed in
-
       if(w.optly.mrkt.user.acctData.plan_id){
 
         //user already has a plan
-
-        var plan = w.optly.mrkt.user.acctData.plan_id;
-
-        var deprecatedPlans = ['bronze-monthly', 'bronze-oneyear', 'bronze-twoyear', 'silver-monthly', 'silver-oneyear', 'silver-twoyear', 'gold-monthly', 'gold-oneyear', 'gold-twoyear'];
-
-        var isDeprecatedPlan = function(plan){
-
+        var plan = w.optly.mrkt.user.acctData.plan_id,
+        deprecatedPlans = ['bronze-monthly', 'bronze-oneyear', 'bronze-twoyear', 'silver-monthly', 'silver-oneyear', 'silver-twoyear', 'gold-monthly', 'gold-oneyear', 'gold-twoyear'],
+        isDeprecatedPlan = function(plan){
           var i, isDeprecated;
-
           for(i = 0; i < deprecatedPlans.length; i++){
-
             if(deprecatedPlans[i] === plan){
-
               isDeprecated = true;
-
             }
-
           }
-
           return isDeprecated;
-
         };
 
-        if( isDeprecatedPlan(plan) ){
-
+        if (isDeprecatedPlan(plan)) {
           //show downgrade dialog
           w.optly.mrkt.modal.open({ modalType: 'downgrade-plan' });
-
         } else if(
-
           plan !== 'enterprise-monthly' ||
           plan !== 'enterprise-oneyear' ||
           plan !== 'enterprise-twoyear'
-
         ) {
 
           //the user can signup for starter plan
@@ -90,16 +79,13 @@ var updatePlanInfo = function(){
           w.optly.mrkt.changePlanHelper.changePlan({
             plan: 'free_light',
             callback: function(){
-                //show confirmation
-                w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
+              //show confirmation
+              w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
             },
             load: w.optly.mrkt.changePlanHelper.load
           });
-
         }
-
       } else {
-
         //user is signed in, but no plan
         //sign the user up for the starter plan
         document.body.classList.add('processing-free-light');
@@ -108,43 +94,25 @@ var updatePlanInfo = function(){
           callback: function(){
               //show confirmation
               //w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
-              if(!w.optly.mrkt.automatedTest()){
+              if(!automatedTest){
                 w.location = 'https://www.optimizely.com/welcome';
               }
           },
           load: w.optly.mrkt.changePlanHelper.load
         });
-
       }
-
     } else {
-
       //user is not signed in
-
       w.optly.mrkt.modal.open({ modalType: 'signup' });
-
     }
 
     e.preventDefault();
-
   });
-
 };
 
-$('#enterprise-plan a:first').click(function(e){
-
-  w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
-
-  e.preventDefault();
-
-});
-
 w.optly_q.push([updatePlanInfo]);
-
 w.optly.mrkt.activeModals.signup.remove();
-
 var signupHelper = w.optly.mrkt.form.createAccount({formId: 'signup-form', dialogId: 'signup-dialog'});
-
 w.optly.mrkt.activeModals = w.optly.mrkt.activeModals || {};
 
 var signupForm  = new Oform({
@@ -186,12 +154,12 @@ signupForm.on('error', function() {
     label: w.location.pathname
   }, {
     integrations: {
-      Marketo: false
+      'Marketo': false
     }
   });
 }.bind(signupHelper));
 
-signupForm.on('load', function(event, data){
+signupForm.on('load', function(event, data) {
   signupHelper.pricingSignupSuccess(event, data);
 }.bind(signupHelper));
 
@@ -199,12 +167,12 @@ signupForm.on('done', function() {
   window.setTimeout(function() {
     signupHelper.scrollTopDialog();
   }, 500);
-
   signupHelper.processingRemove({callee: 'done'});
+
 }.bind(signupHelper));
 
 /* downgrade plan */
-$('#downgrade-plan-form').submit(function(e){
+$('#downgrade-plan-form').submit(function(e) {
   d.body.classList.add('downgrade-plan-submit');
   w.optly.mrkt.changePlanHelper.changePlan({
     plan: 'free_light',
@@ -214,7 +182,7 @@ $('#downgrade-plan-form').submit(function(e){
       w.optly.mrkt.modal.open({ modalType: 'downgrade-plan-confirm' });
       //downgrade-plan
       $('#downgrade-plan-confirm-form').submit(function(){
-        if(!w.optly.mrkt.automatedTest()){
+        if(!automatedTest){
           location.reload();
         }
       });

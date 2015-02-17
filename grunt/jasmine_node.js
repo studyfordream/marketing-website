@@ -15,7 +15,7 @@ module.exports = {
     }
   },
   pricing: {
-    src: ['test/pricing/**/*.js']
+    src: ['test/{pricing,features-and-plans}/**/*.js']
   },
   dialogs: {
     src: ['test/dialogs/**/*.js']

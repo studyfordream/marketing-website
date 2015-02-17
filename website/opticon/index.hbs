@@ -40,35 +40,6 @@ external_stylesheets:
     </div>
   </section>
 
-
-  <!--                         -->
-  <!--Call for Speakers Section-->
-  <!--                         -->
-  <section id="call-for-speakers" class="call-for-speakers-panel">
-    <h1 class="section-title">{{call_for_speakers.title}}</h1>
-    <p class="blurb">{{{call_for_speakers.blurb}}}</p>
-  {{/with}}
-  <div class="button-container desktop">
-    <a class="cta" href="{{linkPath}}/opticon/speakers">{{opticon_data.call_for_speakers.cta.desktop}}</a>
-  </div>
-  <div class="button-container mobile">
-    <a class="cta" href="{{linkPath}}/opticon/speakers">{{opticon_data.call_for_speakers.cta.mobile}}</a>
-  </div>
-  {{#with opticon_data}}
-  </section>
-
-
-  <!--               -->
-  <!--Sponsor Section-->
-  <!--               -->
-  <section id="call-for-sponsors" class="call-for-sponsors-panel">
-    <h1 class="section-title container">{{call_for_sponsors.title}}</h1>
-    <p class="blurb container">{{call_for_sponsors.blurb}}</p>
-    <div class="button-container">
-      <a class="cta" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Sponsorship_Prospectus.pdf">{{call_for_sponsors.cta}}</a>
-    </div>
-  </section>
-
   <!--                -->
   <!--Register Section-->
   <!--                -->
@@ -79,6 +50,49 @@ external_stylesheets:
       <p class="blurb">{{{register.blurb}}}</p>
       <div class="button-container">
         <a class="cta" href="https://opticon2015.eventbrite.com/?ref=elink" target="_blank">{{register.cta}}</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!--               -->
+  <!--Sponsor Section-->
+  <!--               -->
+  <section id="call-for-sponsors" class="call-for-sponsors-panel">
+    <h1 class="blue-headline section-title container">{{call_for_sponsors.title}}</h1>
+    <p class="blurb container">{{call_for_sponsors.blurb}}</p>
+    <div class="button-container">
+      <a class="cta" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Sponsorship_Prospectus.pdf">{{call_for_sponsors.cta}}</a>
+    </div>
+  </section>
+
+
+  <!--                         -->
+  <!--Call for Speakers Section-->
+  <!--                         -->
+  <section id="call-for-speakers" class="call-for-speakers-panel">
+    <h1 class="section-title">{{call_for_speakers.title}}</h1>
+    <p class="blurb">{{{call_for_speakers.blurb}}}</p>
+  <div class="button-container desktop">
+    <a class="cta" href="{{linkPath}}/opticon/speakers">{{call_for_speakers.cta.desktop}}</a>
+  </div>
+  <div class="button-container mobile">
+    <a class="cta" href="{{linkPath}}/opticon/speakers">{{call_for_speakers.cta.mobile}}</a>
+  </div>
+  </section>
+
+  <!--                -->
+  <!--Training Section-->
+  <!--                -->
+  <section class="training-panel">
+    <h1 class="blue-headline section-title">{{training.title}}</h1>
+    <div class="container">
+      <p class="blurb">{{{training.blurb}}}</p>
+      <div class="button-container desktop">
+        <a href="https://opticon2015.eventbrite.com" target="_blank">{{training.cta_desktop}}</a>
+      </div>
+      <div class="button-container mobile">
+        <a href="https://opticon2015.eventbrite.com" target="_blank">{{training.cta_mobile}}</a>
       </div>
     </div>
   </section>
