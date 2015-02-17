@@ -36,17 +36,41 @@ w.optly.mrkt.Oform.validationError = function(element){
 
 };
 
-w.optly.mrkt.Oform.trackLead = function(data, returnData){
+w.optly.mrkt.Oform.trackLead = function(dataObj){
 
-  var propertyName,
-  reportingObject,
-  source,
-  response,
-  token;
+  var data = dataObj.data, 
+    returnData = dataObj.event,
+    formElm = dataObj.formElm,
+    propertyName,
+    reportingObject,
+    source,
+    response,
+    token;
 
   source = w.optly.mrkt.source;
 
-  response = JSON.parse(returnData.XHR.responseText);
+  try {
+    response = JSON.parse(returnData.XHR.responseText);
+  } catch(e) {
+    if(typeof error === 'object') { 
+      try { 
+        error = JSON.stringify(err, ['message', 'arguments', 'type', 'name']); 
+      } catch (innerErr) { 
+        error = innerErr.message || 'cannot parse error message'; 
+      } 
+    }
+    w.analytics.ready(function() { 
+      w.analytics.track(window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname) + ':trackLead', {
+          category: 'api error',
+          label: error
+        }, { 
+          integrations: {
+            'All': false, 
+            'Google Analytics': true
+          } 
+        }); 
+    });
+  }
 
   if(response.token){
 
@@ -74,15 +98,15 @@ w.optly.mrkt.Oform.trackLead = function(data, returnData){
     otm_Source__c: source.otm.source || '',
     otm_Keyword__c: source.otm.keyword || '',
     GCLID__c: source.gclid || '',
-    Signup_Platform__c: source.signupPlatform || '',
+    Signup_Platform__c: response.Signup_Platform__c || source.signupPlatform || '',
     Email: response.email ? response.email : '',
     FirstName: response.first_name || '',
     LastName: response.last_name || '',
     Phone: response.phone_number || '',
-    Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
-    Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
-    iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
-    Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
+    Web__c: $(formElm + ' input[type="checkbox"][name="web"]').is(':checked') + '',
+    Mobile_Web__c: $(formElm + ' input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+    iOS__c: $(formElm + ' input[type="checkbox"][name="ios"]').is(':checked') + '',
+    Android__c: $(formElm + ' input[type="checkbox"][name="android"]').is(':checked') + ''
   };
 
   $.cookie('sourceCookie',
@@ -98,9 +122,23 @@ w.optly.mrkt.Oform.trackLead = function(data, returnData){
   source.otm.keyword + '|||' +
   source.signup_platform + '|||');
 
-  for(propertyName in data){
-    reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
+  function cap(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
+
+  //allow overwriting of values in default reporting object with values from custom
+  //data object passed from load/success method
+  for(propertyName in data){
+    //check if the property name is just the uppercase version and overwrite it
+    if ( typeof reportingObject[cap(propertyName)] !== 'undefined' ) {
+      reportingObject[cap(propertyName)] = data[propertyName];
+    } else {
+      reportingObject[propertyName] = data[propertyName];
+    }
+  }
+
+  //make a raw Munchkin associateLead Request
+  w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
 
   w.analytics.identify(response.unique_user_id, reportingObject, {
     integrations: {

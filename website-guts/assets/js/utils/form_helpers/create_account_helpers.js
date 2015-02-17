@@ -112,10 +112,8 @@ var createAccountHelper = {
 
   load: function(e) {
     var resp = this.parseResponse(e),
-      formElm = this.formElm;
-
-    if(resp) {
-      w.optly.mrkt.Oform.trackLead({
+      formElm = this.formElm,
+      data = {
         name: formElm.querySelector('[name="name"]').value || '',
         email: formElm.querySelector('[name="email"]').value || '',
         phone: formElm.querySelector('[name="phone_number"]').value || '',
@@ -123,7 +121,14 @@ var createAccountHelper = {
         Mobile_Web__c: $('#signup-form input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
         iOS__c: $('#signup-form input[type="checkbox"][name="ios"]').is(':checked') + '',
         Android__c: $('#signup-form input[type="checkbox"][name="android"]').is(':checked') + ''
-      }, e);
+      };
+
+    if(resp) {
+      w.optly.mrkt.Oform.trackLead({
+        formElm: '#signup-form',
+        data: data,
+        event: e
+      });
 
       this.redirectHelper({
         redirectPath: '/welcome',

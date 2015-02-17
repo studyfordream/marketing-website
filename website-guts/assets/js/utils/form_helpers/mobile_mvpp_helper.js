@@ -17,9 +17,14 @@ var mobileMvppHelper = {
 
     if(resp) {
       w.optly.mrkt.Oform.trackLead({
-        Signup_Platform__c: 'ios',
-        email: this.formElm.querySelector('[name="email"]').value
-      }, e);
+        formElm: this.formElm,
+        data: {
+          Signup_Platform__c: 'ios',
+          iOS__c: 'true',
+          email: this.formElm.querySelector('[name="email"]').value
+        }, 
+        event: e
+      });
 
       w.Munchkin.munchkinFunction('visitWebPage', {url: '/event/ios-form-signup'});
 

@@ -124,8 +124,6 @@
       Web__c: $(formElm).find('input[type="checkbox"][name="web"]').is(':checked') + '',
       Mobile_Web__c: $(formElm).find('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
       iOS__c: $(formElm).find('input[type="checkbox"][name="ios"]').is(':checked') + '',
-      iOStestc: $(formElm).find('input[type="checkbox"][name="ios"]').is(':checked') + '',
-      IOSTest2: $(formElm).find('input[type="checkbox"][name="ios"]').is(':checked') + '',
       Android__c: $(formElm).find('input[type="checkbox"][name="android"]').is(':checked') + ''
     };
 
@@ -147,18 +145,16 @@
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
+    //allow overwriting of values in default reporting object with values from custom
+    //data object passed from load/success method
     for(propertyName in data){
-      //
-      if(reportingObject[propertyName] === '' || typeof reportingObject[propertyName] === 'undefined') {
-        //check if the property name is just the uppercase version and if it has a value other than empty string
-        if ( !!reportingObject[cap(propertyName)] ) {
-          continue;
-        };
-        reportingObject[propertyName] = data[propertyName]; //jshint ignore:line
+      //check if the property name is just the uppercase version and overwrite it
+      if ( typeof reportingObject[cap(propertyName)] !== 'undefined' ) {
+        reportingObject[cap(propertyName)] = data[propertyName];
+      } else {
+        reportingObject[propertyName] = data[propertyName];
       }
     }
-
-    debugger;
 
     //make a raw Munchkin associateLead Request
     w.Munchkin.munchkinFunction('associateLead', reportingObject, token);

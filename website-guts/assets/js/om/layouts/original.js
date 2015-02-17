@@ -77,12 +77,17 @@ w.optly.mrkt.trialForm = new Oform({
   });
   if(response){
     if(returnData.XHR.status === 200){
-      w.optly.mrkt.Oform.trackLead({
+      var data = {
         email: d.getElementById('email').value,
         url: d.getElementById('url').value,
         name: d.getElementById('name').value,
         phone: d.getElementById('phone').value
-      }, returnData);
+      };
+      w.optly.mrkt.Oform.trackLead({
+        formElm: '#seo-form',
+        data: data,
+        event: returnData
+      });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
       }, {
