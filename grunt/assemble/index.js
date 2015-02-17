@@ -2,7 +2,6 @@
 var ext = require('gulp-extname');
 var through = require('through2');
 var path = require('path');
-var helpers = require('handlebars-helpers');
 var extend = require('extend-shallow');
 var createStack = require('layout-stack');
 var customSubfolders = require('./types/subfolders');
@@ -22,11 +21,9 @@ module.exports = function (grunt) {
     var collectionMiddleware = require('./middleware/onload-collection')(assemble);
     var mergePageData = require('./middleware/merge-page-data');
     var push = require('assemble-push')(assemble);
-    var Handlebars = require('handlebars');
 
     var config = grunt.config.get('_assemble'); // old assemble config
     var options = config.options; // global options
-    helpers.register(Handlebars, options);
 
     var renameKey = assemble.option('renameKey');
     var renameKeys = require('./utils/rename-keys')(renameKey);
@@ -74,10 +71,10 @@ module.exports = function (grunt) {
     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
 
-    assemble.before(/\.hbs/, mergeLayoutContext(assemble));
+    assemble.preRender(/\.hbs/, mergeLayoutContext(assemble));
 
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
-    assemble.before(pathRe, localizeLinkPath(assemble));
+    assemble.preRender(pathRe, localizeLinkPath(assemble));
 
     /****** This block for some reason needs to come after the middleware or get Warning: Object.keys called on non-object *********/
     // load `modal` templates

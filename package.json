@@ -39,8 +39,6 @@
     "grunt-s3": "0.2.0-alpha.3",
     "grunt-sass": "0.14.0",
     "grunt-userevvd": "0.1.4",
-    "gulp-extname": "^0.2.0",
-    "handlebars-helpers": "^0.5.8",
     "load-grunt-config": "0.16.0",
     "optimizely-marked": "0.0.4",
     "time-grunt": "0.3.2",
@@ -64,14 +62,14 @@
     "grunt-resemble-cli": "0.0.8",
     "grunt-text-replace": "0.3.12",
     "gulp-extname": "^0.2.0",
-    "handlebars": "^2.0.0",
+    "handlebars": "^3.0.0",
+    "js-yaml": "^3.2.6",
     "layout-stack": "^0.1.1",
     "lodash": "^3.2.0",
     "nightmare": "git+ssh://git@github.com:dtothefp/nightmare.git",
     "phantomjs": "~1.9.12",
     "plasma": "^0.6.1",
-    "through2": "^0.6.3",
-    "js-yaml": "^3.2.6"
+    "through2": "^0.6.3"
   },
   "licenses": [
     {

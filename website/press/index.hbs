@@ -15,7 +15,7 @@ body_class:
 			{{#each press_mentions.items}}
 			<div class="press-feed-item{{#compare @index '>=' 20}} optly-hide{{/compare}}">
 				<img src="{{logo_url}}">
-				<time datetime="{{formatDate story_date "%Y-%m-%d"}}">{{formatDate story_date "%b. %Y"}}</time>
+				<time datetime="{{moment story_date "YYYY-MM-DD"}}">{{moment story_date "MMM. YYYY"}}</time>
 				<h4 class="press-article-headline notranslate"><a href="{{link_to_story}}" target="_blank">{{story_title}}</a></h4>
 	    </div><!--/.press-feed-item-->
 	    {{/each}}
@@ -39,7 +39,7 @@ body_class:
 				<ul class="notranslate">
 					{{#each press_releases.items}}
 					<li>
-						<time datetime="{{formatDate release_date "%Y-%m-%d"}}">{{formatDate release_date "%b %Y"}}</time>
+						<time datetime="{{moment release_date "YYYY-MM-DD"}}">{{moment release_date "MMM YYYY"}}</time>
 						<p><a href="{{link_to_release}}" target="_blank">{{release_title}}</a></p>
 					</li>
 					{{/each}}
