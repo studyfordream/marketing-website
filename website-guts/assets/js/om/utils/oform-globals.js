@@ -38,7 +38,7 @@ w.optly.mrkt.Oform.validationError = function(element){
 
 w.optly.mrkt.Oform.trackLead = function(dataObj){
 
-  var pageData = args.pagData,
+  var pageData = args.pageData,
     XHRevent = args.XHRevent,
     formElm = args.formElm,
     propertyName,

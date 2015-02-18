@@ -56,7 +56,7 @@
 
   w.optly.mrkt.Oform.trackLead = function(args) {
 
-    var pageData = args.pagData,
+    var pageData = args.pageData,
       XHRevent = args.XHRevent,
       formElm = args.formElm,
       propertyName,
@@ -144,7 +144,6 @@
     function cap(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
-
     //only add the pageData property if the property is not already in the reportingObject (with different case)
     for(propertyName in pageData){
       if(typeof reportingObject[cap(propertyName)] === 'undefined'){
