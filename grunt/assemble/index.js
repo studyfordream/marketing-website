@@ -38,6 +38,11 @@ module.exports = function (grunt) {
     assemble.partials(options.partials);
     assemble.helpers(options.helpers);
 
+    assemble.transform('translations', require('./transforms/load-translations'), '**/*.{yml,yaml}', 'website');
+    config.locales.forEach(assemble.transform.bind(assemble, 'translations', require('./transforms/load-translations'), '**/*.{yml,yaml}'));
+
+    console.log('lang', assemble.get('lang'));
+
     function normalizeSrc (cwd, sources) {
       sources = Array.isArray(sources) ? sources : [sources];
       return sources.map(function (src) {
