@@ -10,6 +10,8 @@ d.getElementById('hidden').value = 'touched';
 
 var xhrInitiationTime;
 
+w.optly.mrkt.formHadError = false;
+
 //track focus on form fields
 $('#seo-form input:not([type="hidden"])').each(function(){
   $(this).one('blur', function(){
@@ -48,6 +50,7 @@ w.optly.mrkt.trialForm = new Oform({
   return w.optly.mrkt.Oform.before();
 }).on('validationerror', function(element){
   w.optly.mrkt.Oform.validationError(element);
+  w.optly.mrkt.formHadError = true;
   //w.alert('validation error: ' + element.getAttribute('name'));
 }).on('error', function(){
   $('#seo-form .error-message').text('An unknown error occured.');
@@ -180,20 +183,22 @@ w.optly.mrkt.trialForm = new Oform({
 });
 
 var validateOnBlur = function(isValid, element){
-  w.optly.mrkt.trialForm.options.adjustClasses(element, isValid);
-  var elementValue = $(element).val();
-  var elementHasValue = elementValue ? 'has value' : 'no value';
-  if(!isValid){
-    w.optly.mrkt.formHadError = true;
-    w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' error blur', {
-      category: 'form error',
-      label: elementHasValue,
-      value: elementValue.length
-    }, {
-      integrations: {
-        Marketo: false
-      }
-    });
+  if($(element).val()){
+    w.optly.mrkt.trialForm.options.adjustClasses(element, isValid);
+    var elementValue = $(element).val();
+    var elementHasValue = elementValue ? 'has value' : 'no value';
+    if(!isValid){
+      w.optly.mrkt.formHadError = true;
+      w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' error blur', {
+        category: 'form error',
+        label: elementHasValue,
+        value: elementValue.length
+      }, {
+        integrations: {
+          Marketo: false
+        }
+      });
+    }
   }
 };
 
