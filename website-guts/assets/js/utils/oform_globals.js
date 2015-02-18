@@ -145,13 +145,9 @@
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    //allow overwriting of values in default reporting object with values from custom
-    //data object passed from load/success method
+    //only add the pageData property if the property is not already in the reportingObject (with different case)
     for(propertyName in pageData){
-      //check if the property name is just the uppercase version and overwrite it
-      if ( typeof reportingObject[cap(propertyName)] !== 'undefined' ) {
-        reportingObject[cap(propertyName)] = pageData[propertyName];
-      } else {
+      if(typeof reportingObject[cap(propertyName)] === 'undefined'){
         reportingObject[propertyName] = pageData[propertyName];
       }
     }
