@@ -18,7 +18,8 @@
     "node": "0.10.26"
   },
   "scripts": {
-    "test": "grunt assemble"
+    "test": "grunt assemble",
+    "postinstall": "rm -fr node_modules/assemble/node_modules/vinyl-fs"
   },
   "dependencies": {
     "assemble": "git://github.com/assemble/assemble#v0.6.0",
@@ -69,7 +70,8 @@
     "nightmare": "git+ssh://git@github.com:dtothefp/nightmare.git",
     "phantomjs": "~1.9.12",
     "plasma": "^0.6.1",
-    "through2": "^0.6.3"
+    "through2": "^0.6.3",
+    "vinyl-fs": "git://github.com/wearefractal/vinyl-fs"
   },
   "licenses": [
     {

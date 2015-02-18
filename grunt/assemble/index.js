@@ -8,8 +8,6 @@ var customSubfolders = require('./types/subfolders');
 var es = require('event-stream');
 var Plasma = require('plasma');
 
-process.env.lastRunTime = process.env.lastRunTime || null;
-
 module.exports = function (grunt) {
 
   grunt.registerTask('assemble', 'Assemble', function () {
@@ -135,7 +133,10 @@ module.exports = function (grunt) {
       //assemble.option('renameKey', renameKeys.dirnamePageKey('website'));
 
       var files = config.pages.files[0];
-      return assemble.src(normalizeSrc(files.cwd, files.src))
+      var opts = {
+        since: (process.env.lastRunTime ? new Date(process.env.lastRunTime) : null)
+      };
+      return assemble.src(normalizeSrc(files.cwd, files.src), opts)
         .pipe(ext())
         .pipe(assemble.dest(files.dest))
         //.on('data', function (file) {
