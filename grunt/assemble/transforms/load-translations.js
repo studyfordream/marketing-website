@@ -21,7 +21,7 @@ module.exports = function translationTransform (assemble, args) {
   var plasma = new Plasma();
   plasma.option('cwd', locale);
   plasma.option('namespace', function(fp) {
-    return path.dirname(fp).split('/').slice(-1);
+    return path.dirname(fp).split('/').slice(-1)[0];
   });
   var data = plasma.load(patterns);
 

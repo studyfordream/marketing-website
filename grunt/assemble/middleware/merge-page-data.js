@@ -1,23 +1,32 @@
 var path = require('path');
-
+var extend = require('extend-shallow');
 
 module.exports = function(assemble) {
-  var Plasma = require('plasma');
-  var globby = require('globby');
-  var fs = require('fs');
+  var lang = assemble.get('lang');
 
-  //scope data locally and potentially perform translation related dictionary creation
-  var plasma = new Plasma();
   return function mergePageData (file, next) {
     // pageData.about
-    var key = path.dirname(file.path);
-    var yamlFiles = globby.sync('*.{yaml,yml}', {cwd: key});
-    var data = plasma.load([path.join(key, '*.{json,yaml,yml}')]);
-    //if (data) {
-    ////console.log('plasma data', data);
-    //}
 
-    // extend(file.data, data);
+    // normalize key
+    var key = path.dirname(file.path);
+    var index = key.indexOf('/website');
+    if ( index !== -1) {
+      key = key.substr(index + 1);
+    }
+
+    // find the locale
+    var locale = key.split('/')[0];
+
+    // find the page name
+    var page = key.split('/').slice(-1)[0];
+
+    var data = lang[locale] || {};
+    file.data = extend({}, file.data, data[page]);
+
+    // lang[locale] = lang[locale] || {};
+
+    // // add any page data
+    // lang[locale][page] = extend({}, lang[locale][page], file.data);
     next();
   };
 };

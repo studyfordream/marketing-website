@@ -18,6 +18,7 @@ module.exports = function (grunt) {
     var mergeLayoutContext = require('./middleware/merge-layout-context');
     var collectionMiddleware = require('./middleware/onload-collection')(assemble);
     var mergePageData = require('./middleware/merge-page-data');
+    var sendToSmartling = require('./plugins/smartling');
     var push = require('assemble-push')(assemble);
 
     var config = grunt.config.get('_assemble'); // old assemble config
@@ -40,8 +41,6 @@ module.exports = function (grunt) {
 
     assemble.transform('translations', require('./transforms/load-translations'), '**/*.{yml,yaml}', 'website');
     config.locales.forEach(assemble.transform.bind(assemble, 'translations', require('./transforms/load-translations'), '**/*.{yml,yaml}'));
-
-    console.log('lang', assemble.get('lang'));
 
     function normalizeSrc (cwd, sources) {
       sources = Array.isArray(sources) ? sources : [sources];
@@ -69,11 +68,11 @@ module.exports = function (grunt) {
 
     // custom middleware for `resources` to add front-matter (`data`)
     // to the assemble cache. (`assemble.get('resources').foo`)
-    assemble.onLoad(/\.hbs/, mergePageData(assemble));
     assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
 
+    assemble.preRender(/\.hbs/, mergePageData(assemble));
     assemble.preRender(/\.hbs/, mergeLayoutContext(assemble));
 
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
@@ -133,6 +132,18 @@ module.exports = function (grunt) {
         });
     });
 
+    assemble.task('prep-smartling', function () {
+      var start = process.hrtime();
+
+      var files = config.pages.files[0];
+      return assemble.src(['**/*.hbs'])
+        .pipe(sendToSmartling(assemble))
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished rendering pages', end);
+        });
+    });
+
     assemble.task('pages', function () {
       var start = process.hrtime();
       //assemble.option('renameKey', renameKeys.dirnamePageKey('website'));
@@ -186,6 +197,7 @@ module.exports = function (grunt) {
     });
 
     assemble.run(['pages', 'subfolders'], function (err) {
+    // assemble.run(['prep-smartling'], function (err) {
       if (err) {
         return done(err);
       }
