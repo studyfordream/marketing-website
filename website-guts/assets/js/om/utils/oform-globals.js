@@ -38,9 +38,9 @@ w.optly.mrkt.Oform.validationError = function(element){
 
 w.optly.mrkt.Oform.trackLead = function(dataObj){
 
-  var data = dataObj.data, 
-    returnData = dataObj.event,
-    formElm = dataObj.formElm,
+  var pageData = args.pagData,
+    XHRevent = args.XHRevent,
+    formElm = args.formElm,
     propertyName,
     reportingObject,
     source,
@@ -50,7 +50,7 @@ w.optly.mrkt.Oform.trackLead = function(dataObj){
   source = w.optly.mrkt.source;
 
   try {
-    response = JSON.parse(returnData.XHR.responseText);
+    response = JSON.parse(XHRevent.XHR.responseText);
   } catch(e) {
     if(typeof error === 'object') { 
       try { 
@@ -98,7 +98,7 @@ w.optly.mrkt.Oform.trackLead = function(dataObj){
     otm_Source__c: source.otm.source || '',
     otm_Keyword__c: source.otm.keyword || '',
     GCLID__c: source.gclid || '',
-    Signup_Platform__c: source.signupPlatform || '',
+    source.signupPlatform || pageData.Signup_Platform__c || '',
     Email: response.email ? response.email : '',
     FirstName: response.first_name || '',
     LastName: response.last_name || '',
@@ -126,14 +126,10 @@ w.optly.mrkt.Oform.trackLead = function(dataObj){
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  //allow overwriting of values in default reporting object with values from custom
-  //data object passed from load/success method
-  for(propertyName in data){
-    //check if the property name is just the uppercase version and overwrite it
-    if ( typeof reportingObject[cap(propertyName)] !== 'undefined' ) {
-      reportingObject[cap(propertyName)] = data[propertyName];
-    } else {
-      reportingObject[propertyName] = data[propertyName];
+  //only add the pageData property if the property is not already in the reportingObject (with different case)
+  for(propertyName in pageData){
+    if(typeof reportingObject[cap(propertyName)] === 'undefined'){
+      reportingObject[propertyName] = pageData[propertyName];
     }
   }
 

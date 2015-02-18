@@ -103,8 +103,8 @@ w.optly.mrkt.trialForm = new Oform({
       //remove error class from body?
       w.optly.mrkt.Oform.trackLead({
         formElm: '#seo-form',
-        data: data,
-        event: event
+        pageData: data,
+        XHRevent: event
       });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'

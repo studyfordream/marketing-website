@@ -56,19 +56,19 @@
 
   w.optly.mrkt.Oform.trackLead = function(args) {
 
-    var pageData = args.data,
-        XHREvent = args.event,
-        formElm = args.formElm,
-        propertyName,
-        reportingObject,
-        source,
-        response,
-        token;
+    var pageData = args.pagData,
+      XHRevent = args.XHRevent,
+      formElm = args.formElm,
+      propertyName,
+      reportingObject,
+      source,
+      response,
+      token;
 
     source = w.optly.mrkt.source;
 
     try {
-      response = JSON.parse(XHREvent.target.responseText);
+      response = JSON.parse(XHRevent.target.responseText);
     } catch(e) {
       if(typeof error === 'object') {
         try {
@@ -116,7 +116,7 @@
       otm_Source__c: source.otm.source || '',
       otm_Keyword__c: source.otm.keyword || '',
       GCLID__c: source.gclid || '',
-      Signup_Platform__c: source.signupPlatform || '',
+      Signup_Platform__c: source.signupPlatform || pageData.Signup_Platform__c || '',
       Email: response.email || '',
       FirstName: response.first_name || '',
       LastName: response.last_name || '',

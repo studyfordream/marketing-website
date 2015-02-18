@@ -85,8 +85,8 @@ w.optly.mrkt.trialForm = new Oform({
       };
       w.optly.mrkt.Oform.trackLead({
         formElm: '#seo-form',
-        data: data,
-        event: loadEvent
+        pageData: data,
+        XHRevent: loadEvent
       });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
