@@ -54,11 +54,11 @@
 
   };
 
-  w.optly.mrkt.Oform.trackLead = function(dataObj) {
+  w.optly.mrkt.Oform.trackLead = function(args) {
 
-    var data = dataObj.data, 
-        XMLHttpRequest = dataObj.event,
-        formElm = dataObj.formElm,
+    var pageData = args.data,
+        XMLHttpRequest = args.event,
+        formElm = args.formElm,
         propertyName,
         reportingObject,
         source,
@@ -70,23 +70,23 @@
     try {
       response = JSON.parse(XMLHttpRequest.target.responseText);
     } catch(e) {
-      if(typeof error === 'object') { 
-        try { 
-          error = JSON.stringify(err, ['message', 'arguments', 'type', 'name']); 
-        } catch (innerErr) { 
-          error = innerErr.message || 'cannot parse error message'; 
-        } 
+      if(typeof error === 'object') {
+        try {
+          error = JSON.stringify(err, ['message', 'arguments', 'type', 'name']);
+        } catch (innerErr) {
+          error = innerErr.message || 'cannot parse error message';
+        }
       }
-      w.analytics.ready(function() { 
+      w.analytics.ready(function() {
         w.analytics.track(window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname) + ':trackLead', {
             category: 'api error',
             label: error
-          }, { 
+          }, {
             integrations: {
-              'All': false, 
+              'All': false,
               'Google Analytics': true
-            } 
-          }); 
+            }
+          });
       });
     }
 
@@ -147,12 +147,12 @@
 
     //allow overwriting of values in default reporting object with values from custom
     //data object passed from load/success method
-    for(propertyName in data){
+    for(propertyName in pageData){
       //check if the property name is just the uppercase version and overwrite it
       if ( typeof reportingObject[cap(propertyName)] !== 'undefined' ) {
-        reportingObject[cap(propertyName)] = data[propertyName];
+        reportingObject[cap(propertyName)] = pageData[propertyName];
       } else {
-        reportingObject[propertyName] = data[propertyName];
+        reportingObject[propertyName] = pageData[propertyName];
       }
     }
 
