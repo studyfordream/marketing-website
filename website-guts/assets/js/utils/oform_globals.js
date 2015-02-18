@@ -57,7 +57,7 @@
   w.optly.mrkt.Oform.trackLead = function(args) {
 
     var pageData = args.data,
-        XMLHttpRequest = args.event,
+        XHREvent = args.event,
         formElm = args.formElm,
         propertyName,
         reportingObject,
@@ -68,7 +68,7 @@
     source = w.optly.mrkt.source;
 
     try {
-      response = JSON.parse(XMLHttpRequest.target.responseText);
+      response = JSON.parse(XHREvent.target.responseText);
     } catch(e) {
       if(typeof error === 'object') {
         try {
