@@ -38,6 +38,15 @@ layout_modals:
         <meta property="og:title" content="Optimizely: {{#if page.og_title}}{{page.og_title}}{{else}}Make every experience count{{/if}}">
         <meta property="og:description" content="{{#if page.og_description}}{{page.og_description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+        {{#if environmentVariables.production}}
+        <script>
+        (function(d,b,a,s,e) {
+          var t = b.createElement(a), fs = b.getElementsByTagName(a)[0];
+          t.async=1; t.id=e; t.src=('https:'==document.location.protocol ? 'https://' : 'http://') + s;
+          fs.parentNode.insertBefore(t, fs);
+        })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
+        </script>
+        {{/if}}
         {{#if page.external_stylesheets}}
         {{#each page.external_stylesheets}}
         <link rel="stylesheet" type="text/css" href="{{.}}">
@@ -48,15 +57,6 @@ layout_modals:
         {{#if page.head_script ~}}<script src="{{page.head_script}}"></script>{{/if}}
         {{#if environmentVariables.production}}
         <script id="bizible-settings" type="text/javascript" src="//cdn.bizible.com/_biz-a.js" async data-attach-secure-forms="true"></script>
-        {{/if}}
-        {{#if environmentVariables.production}}
-        <script>
-        (function(d,b,a,s,e) {
-          var t = b.createElement(a), fs = b.getElementsByTagName(a)[0];
-          t.async=1; t.id=e; t.src=('https:'==document.location.protocol ? 'https://' : 'http://') + s;
-          fs.parentNode.insertBefore(t, fs);
-        })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
-        </script>
         {{/if}}
     </head>
      <body class="signed-out{{#if page.compact_header}} compact-header{{/if}}{{#each layout_body_class}} {{.}}{{/each}}{{#each page.body_class}} {{.}}{{/each}}">

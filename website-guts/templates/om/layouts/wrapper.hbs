@@ -28,6 +28,15 @@
         {{!-- Open Graph meta tags --}}
         <meta property="og:title" content="Optimizely: {{#if page.og_title}}{{page.og_title}}{{else}}Make every experience count{{/if}}">
         <meta property="og:description" content="{{#if page.og_description}}{{page.og_description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
+        {{#if environmentVariables.production}}
+        <script>
+        (function(d,b,a,s,e) {
+          var t = b.createElement(a), fs = b.getElementsByTagName(a)[0];
+          t.async=1; t.id=e; t.src=('https:'==document.location.protocol ? 'https://' : 'http://') + s;
+          fs.parentNode.insertBefore(t, fs);
+        })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
+        </script>
+        {{/if}}
         {{#if page.ui_test}}
         <link rel="stylesheet" href="{{assetsDir}}/css/qunit-1.17.1.css" type="text/css" media="screen">
         <script src="{{assetsDir}}/js/om/libraries/qunit-1.17.1.js"></script>
