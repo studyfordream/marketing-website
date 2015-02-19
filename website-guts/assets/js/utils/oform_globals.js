@@ -116,7 +116,7 @@
       otm_Source__c: source.otm.source || '',
       otm_Keyword__c: source.otm.keyword || '',
       GCLID__c: source.gclid || '',
-      Signup_Platform__c: source.signupPlatform || pageData.Signup_Platform__c || '',
+      Signup_Platform__c: pageData.Signup_Platform__c || source.signupPlatform || '',
       Email: response.email || '',
       FirstName: response.first_name || '',
       LastName: response.last_name || '',
