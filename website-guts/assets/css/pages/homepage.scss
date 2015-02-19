@@ -112,6 +112,33 @@ body.home-page {
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width){
+  html.cssanimations body.home-page {
+    .fade-in {
+      opacity:0;
+      animation: fadeIn ease 1;
+      animation-fill-mode: forwards;
+      animation-duration: .6s;
+    }
+    .cta-wrap {
+      //-webkit-animation-delay: 0.7s;
+      //-moz-animation-delay: 0.7s;
+      animation-delay: 0.5s;
+    }
+  }
+}
+
 @media only screen and (min-width: $tablet-min-width){
   body.home-page {
     #touch-cta,

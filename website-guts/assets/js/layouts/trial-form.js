@@ -42,6 +42,30 @@ $('#seo-form input:not([type="hidden"])').each(function(){
   });
 });
 
+//track change on form fields
+$('#seo-form input:not([type="hidden"])').each(function(){
+  var element = this;
+  var continuallyCheckForValue = setInterval(function(){
+    if($(element).val()){
+      clearInterval(continuallyCheckForValue);
+      w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' value changed', {
+        category: 'forms'
+      },{
+        integrations: {
+          'Marketo': false
+        }
+      });
+      w.analytics.track($(element).closest('form').attr('id') + ' value engagement', {
+        category: 'forms'
+      },{
+          integrations: {
+            'Marketo': false
+          }
+      });
+    }
+  }, 1000);
+});
+
 //form
 w.optly.mrkt.trialForm = new Oform({
   selector: '#seo-form',
