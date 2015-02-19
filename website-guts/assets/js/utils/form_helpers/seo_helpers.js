@@ -20,10 +20,10 @@ var seoHelper = {
     if(response){
       //remove error class from body?
       w.optly.mrkt.Oform.trackLead({
-        email: d.getElementById('seo-form').querySelector('#email').value,
-        url: d.getElementById('seo-form').querySelector('#url').value,
-        name: d.getElementById('seo-form').querySelector('#name').value,
-        phone: d.getElementById('seo-form').querySelector('#phone').value
+        email: this.formElm.email.value,
+        url: this.formElm.url.value,
+        name: this.formElm.name.value,
+        phone: this.formElm.phone.value
       }, event);
       //[> legacy reporting - to be deprecated <]
       w.analytics.track('/free-trial/success', {
@@ -64,7 +64,7 @@ var seoHelper = {
 
       if(response.error && typeof response.error === 'string'){
         //update error message, apply error class to body
-        $('#seo-form .error-message').text(response.error);
+        this.showOptionsError({serverMessage: response.error});
         $('body').addClass('oform-error').removeClass('oform-processing');
         w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
           category: 'api error',

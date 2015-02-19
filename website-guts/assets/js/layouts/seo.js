@@ -1,7 +1,5 @@
 $('[name="hidden"]').val('touched');
 
-document.querySelector('[name="hidden"]').value = 'touched';
-
 //track focus on form fields
 $('#seo-form input:not([type="hidden"])').each(function(){
   $(this).one('focus', function(){
