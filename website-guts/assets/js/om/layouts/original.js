@@ -51,14 +51,14 @@ $('#seo-form input:not([type="hidden"])').each(function(){
   var continuallyCheckForValue = setInterval(function(){
     if($(element).val()){
       clearInterval(continuallyCheckForValue);
-      w.analytics.track(element.closest('form').attr('id') + ' ' + $(this).attr('name') + ' value changed', {
+      w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' value changed', {
         category: 'forms'
       },{
         integrations: {
           'Marketo': false
         }
       });
-      w.analytics.track($(this).closest('form').attr('id') + ' value engagement', {
+      w.analytics.track($(element).closest('form').attr('id') + ' value engagement', {
         category: 'forms'
       },{
           integrations: {

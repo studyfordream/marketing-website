@@ -6,6 +6,17 @@
 <!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html dir="ltr" lang="en-US" class="no-js"><!--<![endif]-->
     <head>
         <meta charset="utf-8">
+        {{#if environmentVariables.production}}
+        <script>
+          var _sf_startpt=(new Date()).getTime()
+          var monitorTiming = setInterval(function(){
+            if(window.optimizely){
+              window.optimizelyLoadTime = (new Date).getTime() - _sf_startpt;
+              clearInterval(monitorTiming);
+            }
+          }, 100);
+        </script>
+        {{/if}}
         <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>
         <script type="text/javascript">
           !function(){var analytics=window.analytics=window.analytics||[];if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.0";
@@ -13,10 +24,6 @@
           analytics.page()
         }}();
         </script>
-        {{#if environmentVariables.production}}
-        <!-- Chartbeat -->
-        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
-        {{/if}}
         <script src="{{assetsDir}}/js/libraries/jquery-modernizr-om.min.js"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {{#if environmentVariables.staging}}<meta name="robots" content="noindex">{{/if}}
@@ -178,6 +185,9 @@
         {{~/if}}
         {{#if page.page_script}}
         <script src="{{assetsDir}}/js/om/pages/{{page.page_script}}"></script>
+        {{/if}}
+        {{#if environmentVariables.production}}
+        {{> ad_tags }}
         {{/if}}
     </body>
 </html>
