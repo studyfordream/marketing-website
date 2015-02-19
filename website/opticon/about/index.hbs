@@ -5,6 +5,7 @@ no_container: true
 no_header: true
 no_footer: true
 body_class:
+- opticon
 - opticon-about
 external_stylesheets:
 - //cloud.typography.com/7838232/736966/css/fonts.css
@@ -13,3 +14,17 @@ external_stylesheets:
 {{#with opticon_about}}
 <h2 class="page-title">{{page_title}}</h2>
 {{/with}}
+
+{{> opticon_register}}
+
+{{#with opticon_about.faq_section}}
+<h3 class="">{{title}}</h3>
+{{#each faqs}}
+<div class="faq">
+  <p>{{this.question}}</p>
+  <p>{{this.answer}}</p>
+</div>
+{{/each}}
+{{/with}}
+
+{{> opticon_sponsors}}
