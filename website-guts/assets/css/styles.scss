@@ -1,21 +1,17 @@
 @import 'variables';
 @import 'mixins';
 @import 'normalize';
-@import 'modules/type';
 @import 'smart-grid/smart-grid';
-@import 'modules/header';
-@import 'modules/opticon-header';
-@import 'modules/footer';
-@import 'modules/forms';
 @import 'main';
 @import 'helper-classes';
 
 /* pages */
-
 @import 'pages/about';
 @import 'pages/android';
+@import 'pages/benefits';
 @import 'pages/communities';
 @import 'pages/contact';
+@import 'pages/customer-stories';
 @import 'pages/customers';
 @import 'pages/demo';
 @import 'pages/events';
@@ -34,6 +30,7 @@
 @import 'pages/opticon';
 @import 'pages/opticon-confirmation';
 @import 'pages/opticon-speakers';
+@import 'pages/partners';
 @import 'pages/press';
 @import 'pages/pricing';
 @import 'pages/privacy';
@@ -51,9 +48,15 @@
 @import 'layouts/jobs';
 @import 'layouts/simple';
 @import 'layouts/trial-form';
-@import 'pages/benefits';
-@import 'pages/customer-stories';
-@import 'pages/partners';
+@import 'layouts/opticon';
+
+/* modules */
+@import 'modules/footer';
+@import 'modules/forms';
+@import 'modules/header';
+@import 'modules/opticon-footer';
+@import 'modules/opticon-header';
+@import 'modules/type';
 
 /* components */
 @import 'components/companies-panel';

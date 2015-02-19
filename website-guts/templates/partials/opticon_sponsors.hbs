@@ -1,0 +1,22 @@
+<!--                -->
+<!--Sponsor Section-->
+<!--                -->
+<section class="sponsors-section container">
+  {{#with opticon_data.sponsors}}
+  <p>{{title}}</p>
+  <div class="large-sponsors-container">
+    {{#each large_sponsors}}
+      <div class="large-sponsor"></div>
+    {{/each}}
+  </div>
+
+  <div class="small-sponsors-container">
+    {{#each small_sponsors}}
+      <div class="small-sponsor"></div>
+    {{/each}}
+  </div>
+
+  <p>{{{sub_title}}}</p>
+
+  {{/with}}
+</section>

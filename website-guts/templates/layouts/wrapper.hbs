@@ -140,6 +140,7 @@ layout_modals:
                 </header>
                 {{/unless}}
                 {{> body }}
+                {{#unless no_footer}}
                 <footer {{#if page.footer_style}}class="{{page.footer_style}}"{{/if}}>
                     <div class="container footer-wrapper">
                         <p><a class="logo" href="{{linkPath}}/">Optimizely</a></p>
@@ -234,6 +235,7 @@ layout_modals:
                         </div><!--/#footer-nav-cont-->
                     </div><!--/.container-->
                 </footer>
+                {{/unless}}
             </div><!--/#inner-wrapper-->
         </div><!--/#outer-wrapper-->
         <!-- <div class="optly-hide" data-tooltip="default"></div> -->
