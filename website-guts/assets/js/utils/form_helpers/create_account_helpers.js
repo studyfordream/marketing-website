@@ -113,7 +113,7 @@ var createAccountHelper = {
   load: function(e) {
     var resp = this.parseResponse(e),
       formElm = this.formElm,
-      data = {
+      pageData = {
         name: formElm.querySelector('[name="name"]').value || '',
         email: formElm.querySelector('[name="email"]').value || '',
         phone: formElm.querySelector('[name="phone_number"]').value || '',
@@ -126,7 +126,7 @@ var createAccountHelper = {
     if(resp) {
       w.optly.mrkt.Oform.trackLead({
         formElm: '#signup-form',
-        pageData: data,
+        pageData: pageData,
         XHRevent: e
       });
 

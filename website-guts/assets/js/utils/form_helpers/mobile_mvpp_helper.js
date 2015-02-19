@@ -13,16 +13,17 @@ var mobileMvppHelper = {
   },
 
   success: function(e) {
-    var resp = this.parseResponse(e);
+    var resp = this.parseResponse(e),
+      pageData = {
+        Signup_Platform__c: 'ios',
+        iOS__c: 'true',
+        email: this.formElm.querySelector('[name="email"]').value
+      };
 
     if(resp) {
       w.optly.mrkt.Oform.trackLead({
         formElm: this.formElm,
-        pagData: {
-          Signup_Platform__c: 'ios',
-          iOS__c: 'true',
-          email: this.formElm.querySelector('[name="email"]').value
-        }, 
+        pageData: pageData, 
         XHRevent: e
       });
 

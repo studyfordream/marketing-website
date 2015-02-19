@@ -16,15 +16,20 @@ var seoHelper = {
 
   success: function(event) {
     var response = this.parseResponse(event);
+    var pageData = {
+      email: this.formElm.email.value,
+      url: this.formElm.url.value,
+      name: this.formElm.name.value,
+      phone: this.formElm.phone.value
+    };
 
     if(response){
       //remove error class from body?
       w.optly.mrkt.Oform.trackLead({
-        email: this.formElm.email.value,
-        url: this.formElm.url.value,
-        name: this.formElm.name.value,
-        phone: this.formElm.phone.value
-      }, event);
+        formElm: this.formElm,
+        pageData: pageData,
+        XHRevent: event
+      });
       //[> legacy reporting - to be deprecated <]
       w.analytics.track('/free-trial/success', {
         category: 'account',

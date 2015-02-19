@@ -36,7 +36,7 @@ w.optly.mrkt.Oform.validationError = function(element){
 
 };
 
-w.optly.mrkt.Oform.trackLead = function(dataObj){
+w.optly.mrkt.Oform.trackLead = function(args){
 
   var pageData = args.pageData,
     XHRevent = args.XHRevent,
@@ -98,7 +98,7 @@ w.optly.mrkt.Oform.trackLead = function(dataObj){
     otm_Source__c: source.otm.source || '',
     otm_Keyword__c: source.otm.keyword || '',
     GCLID__c: source.gclid || '',
-    source.signupPlatform || pageData.Signup_Platform__c || '',
+    Signup_Platform__c: pageData.Signup_Platform__c || source.Signup_Platform__c || '',
     Email: response.email ? response.email : '',
     FirstName: response.first_name || '',
     LastName: response.last_name || '',

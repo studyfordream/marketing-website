@@ -118,7 +118,7 @@ w.optly.mrkt.trialForm = new Oform({
   });
   if(response){
     if(event.target.status === 200){
-      var data = {
+      var pageData = {
         email: d.getElementById('email').value,
         url: d.getElementById('url').value,
         name: d.getElementById('name').value,
@@ -127,7 +127,7 @@ w.optly.mrkt.trialForm = new Oform({
       //remove error class from body?
       w.optly.mrkt.Oform.trackLead({
         formElm: '#seo-form',
-        pageData: data,
+        pageData: pageData,
         XHRevent: event
       });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
