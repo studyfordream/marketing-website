@@ -1,0 +1,39 @@
+---
+layout: partners.hbs
+title: "Lytics"
+integrations: True
+priority: 49
+summary: "Integrate Lytics' predictive audiences with Optimizely to deliver personalized experiences."
+logo: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/partner-logos/technology/lytics.png"
+website_link: "http://www.lytics.com/"
+website_display: "www.lytics.com"
+kb_article: "https://activate.getlytics.com/#/documentation/optimizely"
+stars: 0
+industry:
+locations:
+- location:
+    phone:
+    email:
+    region:
+    city:
+    state:
+    address1:
+    address2:
+    zip:
+    country:
+contact:
+  Questions? 
+  techpartners@optimizely.com
+languages:
+tags:
+---
+##### Company
+
+Lytics, the pioneer of adaptive digital marketing, provides marketers with a marketing activation platform that integrates all touch points, surfaces previously undiscoverable behaviors of customers and prospects, then proactively recommends how to best target audiences across web, mobile, email and social.
+
+##### Integration
+
+
+Connect Lytics with Optimizely to deliver personalized, 1:1 experiences to site visitors that improve test results, conversion rates and drive revenue growth.
+
+With Lytics & Optimizely, integrate customer data across email, social, websites and mobile to surface previously undiscoverable audiences.   Using that data, Lytics SmartAudience™ segments and suggests opportunities to create targeted, personalized experiences based on audience behavior across all marketing channels. Pass Lytics SmartAudience™ to Optimizely using the native Optimizely CustomTags code.
