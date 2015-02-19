@@ -520,3 +520,22 @@ w.optly_q.push([function(){
 }]);
 
 w.optly.mrkt.formHadError = false;
+
+//report optimizely load time
+if(window.monitorTiming){
+	var reportOptimizelyTiming = setInterval(function(){
+		if(w.optimizelyLoadTime){
+			if(w.ga){
+				w.ga('send', {
+			    'hitType': 'timing',
+			    'timingCategory': 'external script timing',
+			    'timingVar': 'cdn.optimizely.com',
+			    'timingValue': w.optimizelyLoadTime,
+					'timeingLabel': 'Optimizely',
+			    'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+			  });
+				clearInterval(reportOptimizelyTiming);
+			}
+		}
+	}, 1000);
+}

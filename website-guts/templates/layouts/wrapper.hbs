@@ -11,11 +11,18 @@ layout_modals:
 <html class="no-js">
     <head>
         <meta charset="utf-8">
-        <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>
         {{#if environmentVariables.production}}
-        <!-- Chartbeat -->
-        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+        <script>
+          var _sf_startpt=(new Date()).getTime()
+          var monitorTiming = setInterval(function(){
+            if(window.optimizely){
+              window.optimizelyLoadTime = (new Date).getTime() - _sf_startpt;
+              clearInterval(monitorTiming);
+            }
+          }, 100);
+        </script>
         {{/if}}
+        <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>
         <script src="{{assetsDir}}/js/libraries/jquery-modernizr.min.js"></script>
         <script>
             window.optly_q = [];
