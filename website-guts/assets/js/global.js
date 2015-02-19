@@ -1,6 +1,6 @@
-window.optly.mrkt.anim= window.optly.mrkt.anim || {};
+w.optly.mrkt.anim = w.optly.mrkt.anim || {};
 
-window.optly.mrkt.isMobile = function(){
+w.optly.mrkt.isMobile = function(){
 
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
@@ -14,13 +14,13 @@ window.optly.mrkt.isMobile = function(){
 
 };
 
-window.optly.mrkt.automatedTest = function(){
+w.optly.mrkt.automatedTest = function(){
 
 	var uiTest, stagingDomain;
 
-	uiTest = window.optly.mrkt.utils.getURLParameter('uiTest') === 'true';
+	uiTest = w.optly.mrkt.utils.getURLParameter('uiTest') === 'true';
 
-	stagingDomain = window.location.hostname !== 'www.optimizely.com';
+	stagingDomain = w.location.hostname !== 'www.optimizely.com';
 
 	if(uiTest && stagingDomain){
 		return true;
@@ -30,29 +30,29 @@ window.optly.mrkt.automatedTest = function(){
 
 };
 
-window.optly.mrkt.mobileJS = function(){
+w.optly.mrkt.mobileJS = function(){
 
-	if( window.optly.mrkt.isMobile() ){
+	if( w.optly.mrkt.isMobile() ){
 
 		$('body').addClass('mobile');
 
-		$.getScript(window.optly.mrkt.assetsDir + '/js/libraries/fastclick.js', function(){
+		$.getScript(w.optly.mrkt.assetsDir + '/js/libraries/fastclick.js', function(){
 
-			window.FastClick.attach(document.body);
+			w.FastClick.attach(document.body);
 
 		});
 
   }
 
-  var querystring = window.optly.mrkt.utils.deparam(window.location.href);
+  var querystring = w.optly.mrkt.utils.deparam(w.location.href);
 
   if( (querystring.site_mode && querystring.site_mode === 'mobile') ) {
     $.cookie('optimizelySiteMode', 'mobile', { path: '/' });
   }
 
   var mobileNavBound = false;
-  $(window).on('load resize', function() {
-    if(window.innerWidth <= 960) {
+  $(w).on('load resize', function() {
+    if(w.innerWidth <= 960) {
         $('body').addClass('mobile-nav-ready');
 
         if(!mobileNavBound) {
@@ -93,21 +93,21 @@ window.optly.mrkt.mobileJS = function(){
 
 };
 
-window.optly.mrkt.mobileJS();
+w.optly.mrkt.mobileJS();
 
 //apply active class to active links
-window.optly.mrkt.activeLinks = {};
+w.optly.mrkt.activeLinks = {};
 
-window.optly.mrkt.activeLinks.currentPath = window.location.pathname;
+w.optly.mrkt.activeLinks.currentPath = w.location.pathname;
 
-window.optly.mrkt.activeLinks.markActiveLinks = function(){
+w.optly.mrkt.activeLinks.markActiveLinks = function(){
 
 	$('a').each(function(){
 
 		if(
 
-			$(this).attr('href') === window.optly.mrkt.activeLinks.currentPath ||
-			$(this).attr('href') + '/' === window.optly.mrkt.activeLinks.currentPath
+			$(this).attr('href') === w.optly.mrkt.activeLinks.currentPath ||
+			$(this).attr('href') + '/' === w.optly.mrkt.activeLinks.currentPath
 
 		){
 
@@ -119,9 +119,9 @@ window.optly.mrkt.activeLinks.markActiveLinks = function(){
 
 };
 
-window.optly.mrkt.activeLinks.markActiveLinks();
+w.optly.mrkt.activeLinks.markActiveLinks();
 
-window.optly.mrkt.inlineFormLabels = function(){
+w.optly.mrkt.inlineFormLabels = function(){
 
 	if(w.optly.mrkt.browser !== 'Explorer'){
 
@@ -145,7 +145,7 @@ window.optly.mrkt.inlineFormLabels = function(){
 
 };
 
-window.optly.mrkt.formDataStringToObject = function getJsonFromUrl(string) {
+w.optly.mrkt.formDataStringToObject = function getJsonFromUrl(string) {
 
 	var data, result, i;
 
@@ -170,8 +170,8 @@ Modernizr.addTest('viewportunits', function() {
     var bool;
 
     Modernizr.testStyles('#modernizr { width: 50vw; }', function(elem) {
-        var width = parseInt(window.innerWidth/2,10),
-            compStyle = parseInt((window.getComputedStyle ?
+        var width = parseInt(w.innerWidth/2,10),
+            compStyle = parseInt((w.getComputedStyle ?
                       getComputedStyle(elem, null) :
                       elem.currentStyle).width,10);
 
@@ -185,7 +185,7 @@ Modernizr.addTest('viewportunits', function() {
   * taken from here:
   * http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript
   */
-window.optly.mrkt.utils.randomString = function() {
+w.optly.mrkt.utils.randomString = function() {
 
   var text = '';
   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -197,11 +197,11 @@ window.optly.mrkt.utils.randomString = function() {
   return text;
 };
 
-window.optly_q.push([function(){
+w.optly_q.push([function(){
 
 	if(typeof w.optly_q.acctData === 'object'){
 
-		window.analytics.ready(function(){
+		w.analytics.ready(function(){
 
 			w.Munchkin.munchkinFunction('associateLead', {
 
@@ -211,8 +211,8 @@ window.optly_q.push([function(){
 
 		});
 
-              var anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
-		window.analytics.identify(anonymousVisitorIdentifier, {
+              var anonymousVisitorIdentifier = w.optly.mrkt.utils.randomString();
+		w.analytics.identify(anonymousVisitorIdentifier, {
 			name: w.optly_q.acctData.name,
 			email: w.optly_q.acctData.email,
       Email: w.optly_q.acctData.email
@@ -264,9 +264,9 @@ var BrowserDetect = {
 
 BrowserDetect.init();
 
-window.optly.mrkt.browser = BrowserDetect.browser;
+w.optly.mrkt.browser = BrowserDetect.browser;
 
-window.optly.mrkt.browserVersion = BrowserDetect.version;
+w.optly.mrkt.browserVersion = BrowserDetect.version;
 
 /*
   Helper function to mark messages that should be localized.
@@ -280,12 +280,12 @@ window.optly.mrkt.browserVersion = BrowserDetect.version;
  * @param {...*} substitutions - Substitution parameters
  * @returns {String} Localized string
  */
-window.optly.tr = function(str) {
-  // If window.optlyDict is present - use it for dictionary lookup.
+w.optly.tr = function(str) {
+  // If w.optlyDict is present - use it for dictionary lookup.
   // Need to have a global variable here because it must be declared *before* app load because app may need to localize
   // message during initialize.
-  if(typeof window.optlyDict !== 'undefined' && window.optlyDict[str] !== null) {
-    str = window.optlyDict[str];
+  if(typeof w.optlyDict !== 'undefined' && w.optlyDict[str] !== null) {
+    str = w.optlyDict[str];
   }
 
   var subs = [].slice.call(arguments, 1);
@@ -306,7 +306,7 @@ window.optly.tr = function(str) {
   return str;
 };
 
-window.optly.mrkt.changePlanHelper = {
+w.optly.mrkt.changePlanHelper = {
 
 	changePlan: function(args){
 
@@ -486,7 +486,7 @@ window.optly.mrkt.changePlanHelper = {
 
 };
 
-window.optly.mrkt.utils.smoothScroll = function(event) {
+w.optly.mrkt.utils.smoothScroll = function(event) {
 
 	var targetElmPos = $(this.getAttribute('href')).offset().top;
 
@@ -522,10 +522,10 @@ w.optly_q.push([function(){
 w.optly.mrkt.formHadError = false;
 
 //call the utility function to unregister archived experiments from the mixpanel cookie
-w.analytics.ready(window.optly.mrkt.utils.trimMixpanelCookie);
+w.analytics.ready(w.optly.mrkt.utils.trimMixpanelCookie);
 
 //report optimizely load time
-if(window.monitorTiming){
+if(w.monitorTiming){
 	var reportOptimizelyTiming = setInterval(function(){
 		if(w.optimizelyLoadTime){
 			if(w.ga){
