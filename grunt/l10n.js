@@ -21,7 +21,7 @@ module.exports = function (grunt) {
     var jsPhrases = extractFrom('website-guts/assets/js/**/*.js', jsParser);
     var hbsPhrases = extractFrom('website-guts/templates/**/*.hbs', hbsParser);
     //console.log(hbsPhrases);
-    return smartling.send(jsPhrases.concat(hbsPhrases), smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, UPLOAD_FNAME)
+    return smartling.send(smartling.generatePO(jsPhrases.concat(hbsPhrases)), smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, UPLOAD_FNAME)
   }
 
   function extractFrom(srcs, parser){
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
       }
     }
     var defs = locales.map(function (locale) {
-      return smartling.fetch(locale, UPLOAD_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID)
+      return smartling.fetch(smartlingConfig.URL, locale, UPLOAD_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID)
         .then(function (content) {
           var dict = smartling.parsePO2dict(content);
           content = "window.optly.dict = " + JSON.stringify(dict);
