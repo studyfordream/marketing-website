@@ -20,10 +20,10 @@ var seoHelper = {
     if(response){
       //remove error class from body?
       w.optly.mrkt.Oform.trackLead({
-        email: d.getElementById('email').value,
-        url: d.getElementById('url').value,
-        name: d.getElementById('name').value,
-        phone: d.getElementById('phone').value
+        email: d.getElementById('seo-form').querySelector('#email').value,
+        url: d.getElementById('seo-form').querySelector('#url').value,
+        name: d.getElementById('seo-form').querySelector('#name').value,
+        phone: d.getElementById('seo-form').querySelector('#phone').value
       }, event);
       //[> legacy reporting - to be deprecated <]
       w.analytics.track('/free-trial/success', {
@@ -79,6 +79,11 @@ var seoHelper = {
         $('body').addClass('oform-error').removeClass('oform-processing');
       }
     }
+  },
+
+  error: function() {
+    this.showOptionsError({error: 'UNEXPECTED'});
+    $('body').addClass('oform-error').removeClass('oform-processing');
   },
 
   done: function() {

@@ -32,7 +32,9 @@ layout_body_class:
           {{/if}}
           <p class="seo-form-subheader">{{{page.form_text}}}</p>
           <form id="seo-form" method="POST" class="seo-form inline-labels" action="/account/free_trial_create" autocomplete="off" novalidate="novalidate">
-            <p class="error-message oform-error-show"></p>
+            <div class="options">
+              <p class="error-message oform-error-show"></p>
+            </div>
             <input id="utm_medium" type="hidden" name="utm_medium" value="">
             <input id="hidden" type="hidden" name="hidden" value="">
             <ul>
