@@ -1,8 +1,64 @@
+var path = require('path');
+
 var secondLastSlash = function(path) {
   var split = path.split('/');
 
   return split.splice(split.length - 2).join('/');
 };
+
+/*
+  Generates concate bundle array to ensure proper ordering
+ *
+ * @param {Array}  -  array of paths to concat with string '<%= config.guts %>/assets/js/'
+ * @returns
+ */
+
+var makeBundlePaths = function makeBundlePaths(pathsArr) {
+  return pathsArr.reduce(function(map, jsPath) {
+    var concatPath,
+      exclude = false;
+
+    if(jsPath[0] === '!') {
+      exclude = true;
+      jsPath = jsPath.substr(1);
+    }
+
+    concatPath = path.join( (exclude ? '!' : '') + '<%= config.guts %>/assets/js/', jsPath);
+
+    map.push(concatPath);
+    return map;
+  }, []);
+};
+
+var omBundlePaths = [
+  'om/libraries/jquery.cookie.js',
+  'om/utils/get-url-parameter.js',
+  'om/utils/uri.js',
+  'om/utils/trim-mixpanel-cookie.js',
+  'om/services/source.js',
+  'om/utils/trim-url.js',
+  'om/utils/oform-globals.js',
+  'om/libraries/oform.min.js',
+  'om/global.js'
+];
+
+var bundlePaths = [
+  'utils/oform_globals.js',
+  'utils/check_complex_password.js',
+  'utils/equal_height_grid.js',
+  'utils/get_url_parameter.js',
+  'utils/uri.js',
+  'utils/trim-mixpanel-cookie.js',
+  'utils/guid_sprintf.js',
+  'utils/form_helper_factory.js',
+  'utils/form_helpers/*.js',
+  'utils/trim_url.js',
+  'global.js',
+  'components/*.js',
+  'services/*.js',
+  '!services/user_state.js'
+];
+
 module.exports = function(grunt, options){
   var lastTarget;
   var processBundleName = function (src, filepath) {
@@ -59,16 +115,7 @@ module.exports = function(grunt, options){
         process: processBundleName
       },
       files: {
-        '<%= config.dist %>/assets/js/om/bundle.js': [
-          '<%= config.guts %>/assets/js/om/libraries/jquery.cookie.js',
-          '<%= config.guts %>/assets/js/om/utils/get-url-parameter.js',
-          '<%= config.guts %>/assets/js/om/utils/uri.js',
-          '<%= config.guts %>/assets/js/om/services/source.js',
-          '<%= config.guts %>/assets/js/om/utils/trim-url.js',
-          '<%= config.guts %>/assets/js/om/utils/oform-globals.js',
-          '<%= config.guts %>/assets/js/om/libraries/oform.min.js',
-          '<%= config.guts %>/assets/js/om/global.js'
-        ]
+        '<%= config.dist %>/assets/js/om/bundle.js': makeBundlePaths(omBundlePaths)
       }
     },
     jqueryModernizrOM: {
@@ -88,21 +135,7 @@ module.exports = function(grunt, options){
         process: processBundleName
       },
       files: {
-        '<%= config.temp %>/assets/js/global.js': [
-          '<%= config.guts %>/assets/js/utils/oform_globals.js',
-          '<%= config.guts %>/assets/js/utils/check_complex_password.js',
-          '<%= config.guts %>/assets/js/utils/equal_height_grid.js',
-          '<%= config.guts %>/assets/js/utils/get_url_parameter.js',
-          '<%= config.guts %>/assets/js/utils/uri.js',
-          '<%= config.guts %>/assets/js/utils/guid_sprintf.js',
-          '<%= config.guts %>/assets/js/utils/form_helper_factory.js',
-          '<%= config.guts %>/assets/js/utils/form_helpers/*.js',
-          '<%= config.guts %>/assets/js/utils/trim_url.js',
-          '<%= config.guts %>/assets/js/global.js',
-          '<%= config.guts %>/assets/js/components/*.js',
-          '<%= config.guts %>/assets/js/services/*.js',
-          '!<%= config.guts %>/assets/js/services/user_state.js'
-        ]
+        '<%= config.temp %>/assets/js/global.js': makeBundlePaths(bundlePaths)
       }
     },
     concatBundle: {
