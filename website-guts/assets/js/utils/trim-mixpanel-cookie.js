@@ -18,7 +18,7 @@ window.optly.mrkt.utils.trimMixpanelCookie = function trimMixpanelCookie(){
       $.each(window.mixpanel.cookie.props, function(propKey, prop) {
         var propStr;
         if ( /Experiment\:/.test( propKey ) ) {
-          propStr = propKey.substr( propKey.indexOf(':' + 1) );
+          propStr = propKey.substr( propKey.indexOf(':')  + 1 );
 
           if ( allExperimentNames.indexOf( propStr ) === -1) {
             mixpanel.unregister(propKey);
