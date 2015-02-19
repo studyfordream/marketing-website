@@ -520,3 +520,6 @@ w.optly_q.push([function(){
 }]);
 
 w.optly.mrkt.formHadError = false;
+
+//call the utility function to unregister archived experiments from the mixpanel cookie
+window.analytics.ready(window.optly.mrkt.utils.trimMixpanelCookie);
