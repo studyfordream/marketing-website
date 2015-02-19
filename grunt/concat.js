@@ -10,42 +10,37 @@ var secondLastSlash = function(path) {
   Generates concate bundle array to ensure proper ordering
  *
  * @param {Array}  -  array of paths to concat with string '<%= config.guts %>/assets/js/'
- * @param {Array}  - array of paths to exclude from concat bundle
- * @param {string} - prefix to include in path such as 'om'
  * @returns
  */
 
-var makeBundlePaths = function makeBundlePaths(pathsArr, excludePaths, prefix) {
-  var excludePathsMap;
-  var _mapPaths = function _mapPaths(paths, exclude) {
-    return paths.reduce(function(map, jsPath) {
-      var concatPath = path.join((exclude ? '!' : '') + '<%= config.guts %>/assets/js/', (prefix ? prefix  : ''), jsPath);
-      map.push(concatPath);
-      return map;
-    }, []);
-  }
-  var pathsMap = _mapPaths(pathsArr);
+var makeBundlePaths = function makeBundlePaths(pathsArr) {
+  return pathsArr.reduce(function(map, jsPath) {
+    var concatPath,
+      exclude = false;
 
-  if(excludePaths.length > 0) {
-    return pathsMap.concat( _mapPaths(excludePaths, true) );
-  } else {
-    return _mapPaths(pathsArr);
-  }
+    if(jsPath[0] === '!') {
+      exclude = true;
+      jsPath = jsPath.substr(1);
+    }
+
+    concatPath = path.join( (exclude ? '!' : '') + '<%= config.guts %>/assets/js/', jsPath);
+
+    map.push(concatPath);
+    return map;
+  }, []);
 };
 
 var omBundlePaths = [
-  'libraries/jquery.cookie.js',
-  'utils/get-url-parameter.js',
-  'utils/uri.js',
-  'utils/trim-mixpanel-cookie.js',
-  'services/source.js',
-  'utils/trim-url.js',
-  'utils/oform-globals.js',
-  'libraries/oform.min.js',
-  'global.js'
+  'om/libraries/jquery.cookie.js',
+  'om/utils/get-url-parameter.js',
+  'om/utils/uri.js',
+  'om/utils/trim-mixpanel-cookie.js',
+  'om/services/source.js',
+  'om/utils/trim-url.js',
+  'om/utils/oform-globals.js',
+  'om/libraries/oform.min.js',
+  'om/global.js'
 ];
-
-var omExcludeBundlePaths = [];
 
 var bundlePaths = [
   'utils/oform_globals.js',
@@ -60,11 +55,8 @@ var bundlePaths = [
   'utils/trim_url.js',
   'global.js',
   'components/*.js',
-  'services/*.js'
-];
-
-var excludeBundlePaths = [
-  'services/user_state.js'
+  'services/*.js',
+  '!services/user_state.js'
 ];
 
 module.exports = function(grunt, options){
@@ -123,7 +115,7 @@ module.exports = function(grunt, options){
         process: processBundleName
       },
       files: {
-        '<%= config.dist %>/assets/js/om/bundle.js': makeBundlePaths(bundlePaths, omExcludeBundlePaths, 'om')
+        '<%= config.dist %>/assets/js/om/bundle.js': makeBundlePaths(omBundlePaths)
       }
     },
     jqueryModernizrOM: {
@@ -143,7 +135,7 @@ module.exports = function(grunt, options){
         process: processBundleName
       },
       files: {
-        '<%= config.temp %>/assets/js/global.js': makeBundlePaths(bundlePaths, excludeBundlePaths)
+        '<%= config.temp %>/assets/js/global.js': makeBundlePaths(bundlePaths)
       }
     },
     concatBundle: {
