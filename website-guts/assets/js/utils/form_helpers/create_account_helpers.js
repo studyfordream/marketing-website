@@ -117,10 +117,10 @@ var createAccountHelper = {
         name: formElm.querySelector('[name="name"]').value || '',
         email: formElm.querySelector('[name="email"]').value || '',
         phone: formElm.querySelector('[name="phone_number"]').value || '',
-        Web__c: $('#signup-form input[type="checkbox"][name="web"]').is(':checked') + '',
-        Mobile_Web__c: $('#signup-form input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
-        iOS__c: $('#signup-form input[type="checkbox"][name="ios"]').is(':checked') + '',
-        Android__c: $('#signup-form input[type="checkbox"][name="android"]').is(':checked') + ''
+        Web__c: $(formElm).find('input[type="checkbox"][name="web"]').is(':checked') + '',
+        Mobile_Web__c: $(formElm).find('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+        iOS__c: $(formElm).find('input[type="checkbox"][name="ios"]').is(':checked') + '',
+        Android__c: $(formElm).find('input[type="checkbox"][name="android"]').is(':checked') + ''
       };
 
     if(resp) {
