@@ -1,0 +1,18 @@
+body.seo-layout {
+  #seo-form {
+    .oform-error-message, .oform-processing-show {
+      display: none;
+    }
+  }
+  &.oform-processing {
+    #seo-form {
+      .oform-processing-show {display: block;}
+      .oform-processing-hide {display: none;}
+    }
+  }
+  .shadow-cta {
+    h4 {
+      margin: 0;
+    }
+  }
+}

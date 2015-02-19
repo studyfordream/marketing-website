@@ -71,7 +71,7 @@ $(function(){
 
   });
 
-  QUnit.test('check that the form has inline lables for browsers that support the placeholder attribute', function(){
+  QUnit.test('check that the form has inline labels for browsers that support the placeholder attribute', function(){
 
     if(Modernizr.placeholder){
 
