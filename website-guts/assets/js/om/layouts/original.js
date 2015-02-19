@@ -97,12 +97,12 @@ w.optly.mrkt.trialForm = new Oform({
 }).on('error', function(){
   $('#seo-form .error-message').text('An unknown error occured.');
   $('body').addClass('oform-error').removeClass('oform-processing');
-}).on('load', function(returnData){
+}).on('load', function(loadEvent){
   var xhrElapsedTime,
   response;
   xhrElapsedTime = new Date() - xhrInitiationTime;
   try {
-    response = JSON.parse(returnData.XHR.responseText);
+    response = JSON.parse(loadEvent.XHR.responseText);
   } catch(error){
     w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
       category: 'api error',
@@ -121,13 +121,18 @@ w.optly.mrkt.trialForm = new Oform({
     'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   });
   if(response){
-    if(returnData.XHR.status === 200){
-      w.optly.mrkt.Oform.trackLead({
+    if(loadEvent.XHR.status === 200){
+      var pageData = {
         email: d.getElementById('email').value,
         url: d.getElementById('url').value,
         name: d.getElementById('name').value,
         phone: d.getElementById('phone').value
-      }, returnData);
+      };
+      w.optly.mrkt.Oform.trackLead({
+        formElm: '#seo-form',
+        pageData: pageData,
+        XHRevent: loadEvent
+      });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
       }, {
