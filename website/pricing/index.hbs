@@ -63,11 +63,11 @@ og_description: "Get started optimizing instantly, or build a custom plan for yo
     {{#each benefits}}
     <div class="benefit-item four" style="background-image: url('{{icon}}')">
       <h3>{{title}}</h3>
-      <p>{{desc}}</p>
+      <p{{#is @index 1}} id="powerful-pricing-text" class="SL_swap"{{/is}}>{{desc}}</p>
     </div>
     {{/each}}
   </div>
-  <p class="asterisk">{{asterisk}}</p>
+  <p class="asterisk SL_hide">{{asterisk}}</p>
 </section>
 {{/with}}
 
