@@ -21,12 +21,12 @@ external_stylesheets:
   <!--             -->
   <section class="title-section">
     <div class="title-container">
-      <h1 class="page-title">{{title_section.title1}}</h1>
-      <h1 class="page-title">{{title_section.title2}}</h1>
+      <h1 class="page-title homepage-title">{{title_section.title1}}</h1>
+      <h1 class="page-title homepage-title">{{title_section.title2}}</h1>
     </div>
     <h4 class="event-details">{{title_section.date}} | {{title_section.location}}</h4>
     <p class="">{{{title_section.sub_title}}}</p>
-    <a href="#">{{title_section.cta}}</a>
+    <a class="body-button" href="{{linkPath}}/opticon/about">{{title_section.cta}}</a>
   </section>
 
   <!--                   -->
@@ -41,31 +41,35 @@ external_stylesheets:
   <!--                -->
   <!--Speakers Section-->
   <!--                -->
-  <section class="speakers">
-    <h3 class="section-title">{{speakers.title}}</h3>
+  <section class="speakers container">
+    <h3 class="description-title">{{speakers.title}}</h3>
     <p>{{speakers.keynote.title}}</p>
-    {{#each speakers.keynote.speaker_list}}
-      <div class="speaker-container">
-        <p>{{this.name}}</p>
-        <p>{{this.company}}</p>
-        <p>{{this.blurb}}</p>
-      </div>
-    {{/each}}
+    <div class="speakers-container flex-container">
+      {{#each speakers.keynote.speaker_list}}
+        <div class="speaker-container">
+          <p>{{this.name}}</p>
+          <p>{{this.company}}</p>
+          <p>{{this.blurb}}</p>
+        </div>
+      {{/each}}
+    </div>
     <a href="#">{{speaker_section.cta}}</a>
   </section>
 
   <!--              -->
   <!--Tracks Section-->
   <!--              -->
-  <section class="tracks">
-    <h3 class="section-title">{{tracks.title}}</h3>
-    <p>{{tracks.sub_title}}</p>
-    {{#each tracks.track_list}}
-      <div class="track-container">
-        <p>{{this.title}}</p>
-        <p>{{this.blurb}}</p>
-      </div>
-    {{/each}}
+  <section class="tracks container">
+    <h3 class="description-title">{{tracks.title}}</h3>
+    <p class="subtitle">{{tracks.sub_title}}</p>
+    <div class="tracks-container flex-container">
+      {{#each tracks.track_list}}
+        <div class="track-container">
+          <p>{{this.title}}</p>
+          <p>{{this.blurb}}</p>
+        </div>
+      {{/each}}
+    </div>
   </section>
 
   {{/with}}

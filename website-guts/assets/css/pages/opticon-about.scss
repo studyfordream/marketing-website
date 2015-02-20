@@ -1,0 +1,64 @@
+body.opticon-about {
+  .top-paragraph {
+    width: 72%;
+  }
+  .paragraphs-container {
+    margin-bottom: 100px;
+  }
+  #opticon-faq {
+    padding: 50px 0;
+    h3 {
+      font-family: AdelleSans-Regular;
+      font-weight: 100;
+      font-size: 1.875em;
+      color: #0081BA;
+    }
+  }
+  .faq-item {
+    width: 45%;
+    margin-right: 30px;
+    p:first-of-type {
+      font-family: AdelleSans-Bold;
+      font-size: 18px;
+      color: #6C6C6C;
+      letter-spacing: 0.5px;
+      line-height: 28px;
+    }
+    p:last-of-type {
+      font-family: AdelleSans-Regular;
+      font-size: 13px;
+      color: #6C6C6C;
+      letter-spacing: 0.4px;
+      line-height: 24px;
+    }
+  }
+  .left-paragraph,
+  .right-paragraph {
+    flex: 1;
+    text-align: center;
+  }
+  .left-paragraph {
+    margin-right: 30px;
+  }
+  .confetti-right {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/confetti_right.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /*background-size: 160px;*/
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    right: -26px;
+    top: 15em;
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  body.opticon-about {
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.opticon-about {
+  }
+}
