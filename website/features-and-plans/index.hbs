@@ -64,11 +64,11 @@ og_description:
     {{#each benefits}}
     <div class="benefit-item four" style="background-image: url('{{icon}}')">
       <h3>{{title}}</h3>
-      <p{{#is @index 1}} id="powerful-pricing-text" class="SL_swap"{{/is}}>{{desc}}</p>
+      <p{{#is @index 1}} id="SL_powerful-text" class="SL_swap"{{/is}}>{{desc}}</p>
     </div>
     {{/each}}
   </div>
-  <p class="asterisk SL_hide">{{asterisk}}</p>
+  <p id="SL_android-coming-soon" class="asterisk SL_swap">{{asterisk}}</p>
 </section>
 {{/with}}
 
