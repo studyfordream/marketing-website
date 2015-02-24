@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
   options: {
-    layoutdir: '<%= config.guts %>/templates/layouts/**/*.hbs',
+    layoutDir: '<%= config.guts %>/templates/layouts/**/*.hbs',
     assetsDir: '<%= grunt.config.get("assetsDir") %>',
     linkPath: '<%= grunt.config.get("link_path") %>',
     sassImagePath: '<%= grunt.config.get("sassImagePath") %>',
@@ -40,6 +40,10 @@ module.exports = {
       'primary_button_text',
       'negative_button_text',
       'hidden_button_text'
+    ],
+    layoutYamlWhitelist: [
+      'faq_navigation',
+      'menu_items'
     ]
   },
   modals: {

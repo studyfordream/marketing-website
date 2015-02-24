@@ -26,6 +26,7 @@ module.exports = function (grunt) {
 
     var renameKey = assemble.option('renameKey');
     var renameKeys = require('./utils/rename-keys')(renameKey);
+    var layoutPath = options.layoutDir.substring(0, options.layoutDir.indexOf('*') - 1);
 
     assemble.data(options.data);
 
@@ -33,19 +34,22 @@ module.exports = function (grunt) {
     assemble.set('data.websiteRoot', options.websiteRoot);
     assemble.set('data.locales', options.locales);
     assemble.set('data.modalYamlWhitelist', options.modalYamlWhitelist);
+    assemble.set('data.layoutYamlWhitelist', options.layoutYamlWhitelist);
     assemble.set('data.assetsDir', options.assetsDir);
     assemble.set('data.linkPath', options.linkPath);
     assemble.set('data.sassImagePath', options.sassImagePath);
     assemble.set('data.environmentIsProduction', options.environmentIsProduction);
     assemble.set('data.environmentIsDev', options.environmentIsDev);
+    assemble.set('data.layoutPath', layoutPath);
 
-    assemble.layouts([options.layoutdir]);
+    assemble.layouts([options.layoutDir]);
     assemble.partials(options.partials);
     assemble.helpers(options.helpers);
 
     assemble.transform('page-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}', options.websiteRoot);
     options.locales.forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}'));
     assemble.transform('modal-translations', require('./transforms/load-translations'), '**/*.hbs', options.modalsDir);
+    assemble.transform('layout-translations', require('./transforms/load-translations'), '**/*.hbs', layoutPath);
 
     function normalizeSrc (cwd, sources) {
       sources = Array.isArray(sources) ? sources : [sources];
