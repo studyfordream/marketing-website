@@ -20,13 +20,15 @@ external_stylesheets:
   <!--Title Section-->
   <!--             -->
   <section class="title-section">
-    <div class="title-container">
-      <h1 class="page-title homepage-title">{{title_section.title1}}</h1>
-      <h1 class="page-title homepage-title">{{title_section.title2}}</h1>
+    <div class="content-container">
+      <div class="title-container">
+        <h1 class="page-title homepage-title">{{title_section.title1}}</h1>
+        <h1 class="page-title homepage-title">{{title_section.title2}}</h1>
+      </div>
+      <h4 class="event-details">{{title_section.date}} | {{title_section.location}}</h4>
+      <p class="">{{{title_section.sub_title}}}</p>
+      <a class="body-button" href="{{linkPath}}/opticon/about">{{title_section.cta}}</a>
     </div>
-    <h4 class="event-details">{{title_section.date}} | {{title_section.location}}</h4>
-    <p class="">{{{title_section.sub_title}}}</p>
-    <a class="body-button" href="{{linkPath}}/opticon/about">{{title_section.cta}}</a>
   </section>
 
   <!--                   -->
@@ -35,7 +37,9 @@ external_stylesheets:
   <section class="description container">
     <h3 class="description-title">{{description.title}}</h3>
     <p class="description-text">{{description.blurb}}</p>
-    <a href="#">{{description.cta}}</a>
+    <div class="button-container">
+      <a class="body-button" href="{{linkPath}}/opticon/about">{{description.cta}}</a>
+    </div>
   </section>
 
   <!--                -->
@@ -43,17 +47,19 @@ external_stylesheets:
   <!--                -->
   <section class="speakers container">
     <h3 class="description-title">{{speakers.title}}</h3>
-    <p>{{speakers.keynote.title}}</p>
+    <p class="subtitle">{{speakers.keynote.title}}</p>
     <div class="speakers-container flex-container">
       {{#each speakers.keynote.speaker_list}}
-        <div class="speaker-container">
-          <p>{{this.name}}</p>
-          <p>{{this.company}}</p>
-          <p>{{this.blurb}}</p>
-        </div>
+      <div class="speaker-container {{this.class}}">
+        <p>{{this.name}}</p>
+        <p>{{this.company}}</p>
+        <p class="detail-text">{{this.blurb}}</p>
+      </div>
       {{/each}}
     </div>
-    <a href="#">{{speaker_section.cta}}</a>
+    <div class="button-container">
+      <a class="body-button" href="#">{{speakers.cta}}</a>
+    </div>
   </section>
 
   <!--              -->
@@ -62,11 +68,11 @@ external_stylesheets:
   <section class="tracks container">
     <h3 class="description-title">{{tracks.title}}</h3>
     <p class="subtitle">{{tracks.sub_title}}</p>
-    <div class="tracks-container flex-container">
+    <div class="tracks-container flex-container row">
       {{#each tracks.track_list}}
-        <div class="track-container">
+        <div class="track-container {{this.class}}">
           <p>{{this.title}}</p>
-          <p>{{this.blurb}}</p>
+          <p class="detail-text">{{this.blurb}}</p>
         </div>
       {{/each}}
     </div>

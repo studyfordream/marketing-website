@@ -4,6 +4,35 @@ body.opticon-homepage {
   }
   .homepage-title {
   }
+  .speaker-container {
+    width: 31%;
+    margin: 0 auto;
+    padding-top: 200px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: top center;
+    p:last-of-type {
+      text-align: left;
+    }
+  }
+  .siroker { background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/placeholder_headshot.png'); }
+  .montana { background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/placeholder_headshot.png'); }
+  .roker { background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/placeholder_headshot.png'); }
+  .track-container {
+    width: 24%;
+    margin: 0 auto;
+    padding-top: 75px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: top center;
+    p:last-of-type {
+      text-align: left;
+    }
+  }
+  .developer { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/developer-icon.svg'); }
+  .strategy { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/strategy-icon.svg'); }
+  .culture { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/culture-icon.svg'); }
+  .action { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/action-icon.svg'); }
 }
 
 @media only screen and (min-width: $tablet-min-width) {

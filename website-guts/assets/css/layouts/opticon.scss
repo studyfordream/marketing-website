@@ -35,6 +35,16 @@ body.opticon {
     line-height: 31px;
     text-align: left;
   }
+  .detail-text {
+    font-family: AdelleSans-Regular;
+    font-size: 0.8125em;
+    color: #6C6C6C;
+    letter-spacing: 0.4px;
+    line-height: 24px;
+  }
+  .button-container {
+    text-align: center;
+  }
   .flex-container {
     display: flex;
     flex-flow: row wrap;
