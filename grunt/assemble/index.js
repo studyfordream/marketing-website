@@ -29,6 +29,10 @@ module.exports = function (grunt) {
 
     assemble.data(options.data);
 
+    assemble.set('data.basename', options.basename);
+    assemble.set('data.websiteRoot', options.websiteRoot);
+    assemble.set('data.locales', options.locales);
+    assemble.set('data.modalYamlWhitelist', options.modalYamlWhitelist);
     assemble.set('data.assetsDir', options.assetsDir);
     assemble.set('data.linkPath', options.linkPath);
     assemble.set('data.sassImagePath', options.sassImagePath);
@@ -39,8 +43,9 @@ module.exports = function (grunt) {
     assemble.partials(options.partials);
     assemble.helpers(options.helpers);
 
-    assemble.transform('translations', require('./transforms/load-translations'), '**/*.{yml,yaml}', 'website');
-    config.locales.forEach(assemble.transform.bind(assemble, 'translations', require('./transforms/load-translations'), '**/*.{yml,yaml}'));
+    assemble.transform('page-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}', options.websiteRoot);
+    options.locales.forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}'));
+    assemble.transform('modal-translations', require('./transforms/load-translations'), '**/*.hbs', options.modalsDir);
 
     function normalizeSrc (cwd, sources) {
       sources = Array.isArray(sources) ? sources : [sources];
@@ -52,7 +57,7 @@ module.exports = function (grunt) {
       });
     }
 
-    customSubfolders(assemble, config.locales, process.env.lastRunTime);
+    customSubfolders(assemble, options.locales, process.env.lastRunTime);
 
     // create custom template type `modals`
     assemble.create('modal', 'modals', {
@@ -72,65 +77,23 @@ module.exports = function (grunt) {
     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
 
-    assemble.preRender(/\.hbs/, mergePageData(assemble));
+    //is this order dependent because we are merging page data for localization
     assemble.preRender(/\.hbs/, mergeLayoutContext(assemble));
+    //will do merging of page data in plugin instead
+    //assemble.preRender(/\.hbs/, mergePageData(assemble));
 
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
     assemble.preRender(pathRe, localizeLinkPath(assemble));
 
-    /****** This block for some reason needs to come after the middleware or get Warning: Object.keys called on non-object *********/
-    // load `modal` templates
     var modalFiles = config.modals.files[0];
     assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src));
-    // use a custom `renameKey` method when loading `resources`
-    //assemble.option('renameKey', renameKeys.dirnameKey('resources-list'));
 
     assemble.option('renameKey', renameKeys.noExtPath);
 
-    // load `resource` templates
     var resourceFiles = config.resources.files[0];
     assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
-    // reset the `renameKey` method
-    //assemble.option('renameKey', renameKey);
-    /*******************************************************************************************************************************/
 
-    // build the `resources` page
-    assemble.task('resources', function () {
-      var start = process.hrtime();
-      //only the resources index file is rendered, all other resource-list
-      //files are use purely for data to create the grid
-      var files = config.resources.files[0];
-      return assemble.src('website/resources/index.hbs')
-        .pipe(ext())
-        .pipe(assemble.dest(path.join(files.dest, 'resources')))
-        .on('data', function (file) {
-          //console.log(file.path, 'rendered');
-        })
-        .on('end', function () {
-          var end = process.hrtime(start);
-          console.log('finished rendering resources', end);
-        });
-    });
 
-    assemble.task('partners', ['resources'], function () {
-      var start = process.hrtime();
-      //assemble.option('renameKey', renameKeys.dirnameKey('partners'));
-      //all hbs files within partners are templated
-      //the frontmatter data from individual partners files creates the grid
-      //as well as renders individual pages
-      //??? how does the markdown get parsed
-      var files = config.partners.files[0];
-      return assemble.src(normalizeSrc(files.cwd, files.src))
-        .pipe(ext())
-        .pipe(assemble.dest(path.join(files.dest, 'partners')))
-        .on('data', function (file) {
-          // console.log(file.path, 'rendered');
-        })
-        .on('end', function () {
-          var end = process.hrtime(start);
-          console.log('finished rendering partners', end);
-        });
-    });
 
     assemble.task('prep-smartling', function () {
       var start = process.hrtime();
@@ -153,6 +116,7 @@ module.exports = function (grunt) {
         since: (process.env.lastRunTime ? new Date(process.env.lastRunTime) : null)
       };
       return assemble.src(normalizeSrc(files.cwd, files.src), opts)
+        .pipe(require('./plugins/smartling')(assemble))
         .pipe(ext())
         .pipe(assemble.dest(files.dest))
         //.on('data', function (file) {
@@ -177,6 +141,7 @@ module.exports = function (grunt) {
       });
       /* jshint ignore:end */
       return push('subfolders')
+      .pipe(require('./plugins/smartling')(assemble))
       .pipe(ext())
       .pipe(assemble.dest(files.dest))
       //.on('data', function (file) {

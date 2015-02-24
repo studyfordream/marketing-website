@@ -24,12 +24,13 @@ module.exports = function (assemble, locales, lastRunTime) {
     var collection = {};
     var srcPattern = args.src;
     var fallbackPattern = args.fallback;
+    var websiteRoot = assemble.get('data.websiteRoot');
     // collect an object with locale key mapping to all files for locale
     var localesCollection = locales.reduce(function(o, locale) {
       o[locale] = globby.sync(srcPattern, {cwd: locale});
       return o;
     }, {});
-    var fallbackFiles = globby.sync(fallbackPattern, {cwd: 'website'});
+    var fallbackFiles = globby.sync(fallbackPattern, {cwd: websiteRoot});
 
     _.forEach(localesCollection, function(srcFiles, base) {
       //assemble.option('renameKey', dirnameLangKey(base));
@@ -37,7 +38,7 @@ module.exports = function (assemble, locales, lastRunTime) {
         var readPath;
 
         if (srcFiles.indexOf(fp) === -1) {
-          readPath = 'website/' + fp;
+          readPath = path.join(websiteRoot, fp);
         } else {
           srcFiles.splice(srcFiles.indexOf(fp), 1);
         }

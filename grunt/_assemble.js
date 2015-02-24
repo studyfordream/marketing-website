@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
   options: {
     layoutdir: '<%= config.guts %>/templates/layouts/**/*.hbs',
@@ -9,13 +11,37 @@ module.exports = {
     data: ['<%= config.content %>/**/*.json', '<%= config.content %>/**/*.yml', '<%= grunt.config.get("environmentData") %>'],
     partials: ['<%= config.guts %>/templates/partials/*.hbs'],
     helpers: ['<%= config.helpers %>/**/*.js', 'helper-moment'],
+    basename: path.basename(process.cwd()),
+    websiteRoot: 'website',
+    websiteGuts: '<%= config.guts %>',
+    modalsDir: '<%= config.guts %>/templates/components/modals',
+    locales: [
+      'website-de',
+      'website-fr',
+      'website-es',
+      'website-jp'
+    ],
+    modals: [
+      'error_modal',
+      'reset_password',
+      'create_experiment',
+      'signup_modal',
+      'signin_modal',
+      'contact_sales',
+      'negative_button_text',
+      'nonprofits_video_modal',
+      'pricing_plan_signup_thank_you',
+      'downgrade_plan',
+      'contact_sales_thank_you'
+    ],
+    modalYamlWhitelist: [
+      'modal_title',
+      'modal_sub_header',
+      'primary_button_text',
+      'negative_button_text',
+      'hidden_button_text'
+    ]
   },
-  locales: [
-    'website-de',
-    'website-fr',
-    'website-es',
-    'website-jp'
-  ],
   modals: {
     options: {
       ext: '.hbs'

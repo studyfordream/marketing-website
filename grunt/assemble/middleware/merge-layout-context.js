@@ -1,5 +1,6 @@
 var createStack = require('layout-stack');
 var extend = require('extend-shallow');
+var _ = require('lodash');
 
 module.exports = function(assemble) {
   // transform the layout front matter into an object
@@ -50,8 +51,13 @@ module.exports = function(assemble) {
     //     },
     /* jshint ignore:start */
     while (name = stack.shift()) {
-      extend(data, layouts[name]);
+      _.forEach(layouts[name], function(val, key) {
+        if(key !== 'src' && key !== 'dest') {
+          data[key] = val;
+        }
+      });
     }
+
     /* jshint ignore:end */
     extend(data, file.data);
 

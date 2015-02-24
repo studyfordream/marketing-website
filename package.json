@@ -71,7 +71,8 @@
     "phantomjs": "~1.9.12",
     "plasma": "^0.6.1",
     "through2": "^0.6.3",
-    "vinyl-fs": "git://github.com/wearefractal/vinyl-fs"
+    "vinyl-fs": "git://github.com/wearefractal/vinyl-fs",
+    "parser-front-matter": "^1.1.2"
   },
   "licenses": [
     {
