@@ -1,11 +1,34 @@
 body.opticon-homepage {
   .title-section {
     background: #E9F3F4;
+    padding: 50px 0;
   }
-  .homepage-title {
+  .page-title {
+    font-family: AdelleSans-Bold;
+    font-size: 64px;
+    color: #E9F3F4;
+    letter-spacing: 1.83px;
+    line-height: 74px;
+    background: #0081BA;
+    padding: 0 15px 0 25px;
+    margin: 0;
+  }
+  .first-title {
+    margin-left: 217px;
+  }
+  .second-title {
+    margin-left: 120px;
+  }
+  .content-container {
+    text-align: right;
+    padding: 0 24%;
+    h1,
+    h4 {
+      text-align: right;
+    }
   }
   .description {
-    padding: 5% 18%;
+    padding: 5% 13%;
     .description-title {
       padding: 0;
     }
@@ -42,14 +65,24 @@ body.opticon-homepage {
   .strategy { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/strategy-icon.svg'); }
   .culture { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/culture-icon.svg'); }
   .action { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/action-icon.svg'); }
-  .confetti-right {
-    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/confetti_right.svg');
+  .confetti-left {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pattern_left.svg');
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    width: 350px;
-    height: 350px;
-    right: -26px;
+    width: 100%;
+    height: 400px;
+    left: 0;
+    top: 9em;
+  }
+  .confetti-right {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pattern_right.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    right: -173px;
     top: 46em;
   }
 }

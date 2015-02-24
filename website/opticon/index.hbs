@@ -15,75 +15,73 @@ external_stylesheets:
 ---
 
 {{#with opticon_data}}
-<div class="row">
-  <!--             -->
-  <!--Title Section-->
-  <!--             -->
-  <section class="title-section">
-    <div class="content-container">
-      <div class="title-container">
-        <h1 class="page-title homepage-title">{{title_section.title1}}</h1>
-        <h1 class="page-title homepage-title">{{title_section.title2}}</h1>
-      </div>
-      <h4 class="event-details">{{title_section.date}} | {{title_section.location}}</h4>
-      <p class="">{{{title_section.sub_title}}}</p>
-      <a class="body-button" href="{{linkPath}}/opticon/about">{{title_section.cta}}</a>
+<div class="confetti-left"></div>
+<!--             -->
+<!--Title Section-->
+<!--             -->
+<section class="title-section">
+  <div class="content-container">
+    <div class="title-container">
+      <h1 class="page-title first-title">{{title_section.title1}}</h1>
+      <h1 class="page-title second-title">{{title_section.title2}}</h1>
     </div>
-  </section>
+    <h4 class="event-details">{{title_section.date}} | {{title_section.location}}</h4>
+    <p class="">{{{title_section.sub_title}}}</p>
+    <a class="body-button" href="{{linkPath}}/opticon/about">{{title_section.cta}}</a>
+  </div>
+</section>
 
-  <!--                   -->
-  <!--Description Section-->
-  <!--                   -->
-  <section class="description container">
-    <h3 class="description-title">{{description.title}}</h3>
-    <p class="description-text">{{description.blurb}}</p>
-    <div class="button-container">
-      <a class="body-button" href="{{linkPath}}/opticon/about">{{description.cta}}</a>
+<!--                   -->
+<!--Description Section-->
+<!--                   -->
+<section class="description container">
+  <h3 class="description-title">{{description.title}}</h3>
+  <p class="description-text">{{description.blurb}}</p>
+  <div class="button-container">
+    <a class="body-button" href="{{linkPath}}/opticon/about">{{description.cta}}</a>
+  </div>
+</section>
+
+<div class="confetti-right"></div>
+
+<!--                -->
+<!--Speakers Section-->
+<!--                -->
+<section class="speakers container">
+  <h3 class="description-title">{{speakers.title}}</h3>
+  <p class="subtitle">{{speakers.keynote.title}}</p>
+  <div class="speakers-container flex-container">
+    {{#each speakers.keynote.speaker_list}}
+    <div class="speaker-container {{this.class}}">
+      <p>{{this.name}}</p>
+      <p>{{this.company}}</p>
+      <p class="detail-text">{{this.blurb}}</p>
     </div>
-  </section>
+    {{/each}}
+  </div>
+  <div class="button-container">
+    <a class="body-button" href="#">{{speakers.cta}}</a>
+  </div>
+</section>
 
-  <div class="confetti-right"></div>
-
-  <!--                -->
-  <!--Speakers Section-->
-  <!--                -->
-  <section class="speakers container">
-    <h3 class="description-title">{{speakers.title}}</h3>
-    <p class="subtitle">{{speakers.keynote.title}}</p>
-    <div class="speakers-container flex-container">
-      {{#each speakers.keynote.speaker_list}}
-      <div class="speaker-container {{this.class}}">
-        <p>{{this.name}}</p>
-        <p>{{this.company}}</p>
+<!--              -->
+<!--Tracks Section-->
+<!--              -->
+<section class="tracks container">
+  <h3 class="description-title">{{tracks.title}}</h3>
+  <p class="subtitle">{{tracks.sub_title}}</p>
+  <div class="tracks-container flex-container">
+    {{#each tracks.track_list}}
+      <div class="track-container {{this.class}}">
+        <p>{{this.title}}</p>
         <p class="detail-text">{{this.blurb}}</p>
       </div>
-      {{/each}}
-    </div>
-    <div class="button-container">
-      <a class="body-button" href="#">{{speakers.cta}}</a>
-    </div>
-  </section>
+    {{/each}}
+  </div>
+</section>
 
-  <!--              -->
-  <!--Tracks Section-->
-  <!--              -->
-  <section class="tracks container">
-    <h3 class="description-title">{{tracks.title}}</h3>
-    <p class="subtitle">{{tracks.sub_title}}</p>
-    <div class="tracks-container flex-container">
-      {{#each tracks.track_list}}
-        <div class="track-container {{this.class}}">
-          <p>{{this.title}}</p>
-          <p class="detail-text">{{this.blurb}}</p>
-        </div>
-      {{/each}}
-    </div>
-  </section>
+{{/with}}
 
-  {{/with}}
+{{> opticon_register}}
 
-  {{> opticon_register}}
-
-  {{> opticon_sponsors}}
-
-</div><!-- /.row-->
+{{> opticon_sponsors}}

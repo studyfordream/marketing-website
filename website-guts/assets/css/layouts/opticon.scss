@@ -1,14 +1,5 @@
 body.opticon {
   background-color: white;
-  .page-title {
-    font-family: AdelleSans-Bold;
-    font-size: 64px;
-    color: #E9F3F4;
-    letter-spacing: 1.83px;
-    line-height: 74px;
-    background: #0081BA;
-    display: inline;
-  }
   .page-content {
     padding: 40px 0;
   }
@@ -27,7 +18,7 @@ body.opticon {
     color: #0081BA;
     letter-spacing: 0.57px;
     line-height: 41px;
-    padding: 0 20%;
+    padding: 0 18%;
   }
   .description-text {
     font-family: AdelleSans-Regular;
@@ -58,7 +49,7 @@ body.opticon {
     letter-spacing: 0.38px;
     border: 1px solid #0081BA;
     border-radius: 2px;
-    padding: 11px 15px;
+    padding: 11px 35px;
     display: inline-block;
     margin: 30px 0;
     &:hover {
