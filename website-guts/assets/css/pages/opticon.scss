@@ -4,6 +4,15 @@ body.opticon-homepage {
   }
   .homepage-title {
   }
+  .description {
+    padding: 5% 18%;
+    .description-title {
+      padding: 0;
+    }
+  }
+  .tracks {
+    padding: 50px 0 80px 0;
+  }
   .speaker-container {
     width: 31%;
     margin: 0 auto;
@@ -15,12 +24,12 @@ body.opticon-homepage {
       text-align: left;
     }
   }
-  .siroker { background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/placeholder_headshot.png'); }
-  .montana { background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/placeholder_headshot.png'); }
-  .roker { background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/placeholder_headshot.png'); }
+  .siroker { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/placeholder_headshot.png'); }
+  .montana { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/placeholder_headshot.png'); }
+  .roker { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/placeholder_headshot.png'); }
   .track-container {
-    width: 24%;
-    margin: 0 auto;
+    width: 25%;
+    margin: 0 10px;
     padding-top: 75px;
     text-align: center;
     background-repeat: no-repeat;
@@ -33,6 +42,16 @@ body.opticon-homepage {
   .strategy { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/strategy-icon.svg'); }
   .culture { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/culture-icon.svg'); }
   .action { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/action-icon.svg'); }
+  .confetti-right {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/confetti_right.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    right: -26px;
+    top: 46em;
+  }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
