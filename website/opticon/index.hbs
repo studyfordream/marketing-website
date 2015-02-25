@@ -53,8 +53,8 @@ external_stylesheets:
   <div class="speakers-container flex-container">
     {{#each speakers.keynote.speaker_list}}
     <div class="speaker-container {{this.class}}">
-      <p>{{this.name}}</p>
-      <p>{{this.company}}</p>
+      <p class="item-title">{{this.name}}</p>
+      <p class="item-company">{{this.company}}</p>
       <p class="detail-text">{{this.blurb}}</p>
     </div>
     {{/each}}
@@ -73,7 +73,7 @@ external_stylesheets:
   <div class="tracks-container flex-container">
     {{#each tracks.track_list}}
       <div class="track-container {{this.class}}">
-        <p>{{this.title}}</p>
+        <p class="item-title">{{this.title}}</p>
         <p class="detail-text">{{this.blurb}}</p>
       </div>
     {{/each}}

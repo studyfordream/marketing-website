@@ -28,13 +28,9 @@
     }
     .nav-text-item {
       &:not(.body-button) a {
-      color: $light-text-color;
+        color: $light-text-color;
       }
-
       margin: 0 30px;
-    }
-
-    a:not(.body-button) { 
     }
   }
 }
