@@ -14,6 +14,7 @@ module.exports = function(assemble) {
 
   // middleware to merge the layout context into the current page context
   return function mergeLayoutContext (file, next) {
+    var translated = assemble.get('translated');
     //the layout for the current file
     var layout = file.layout || file.options.layout || file.data.layout;
     // => partners
@@ -27,34 +28,19 @@ module.exports = function(assemble) {
 
     var data = {};
     var name = null;
-    //gets all of the data from each layout and extends the data object
-    // page_success:
-    //  { layout: 'wrapper',
-    //    layout_script: false,
-    //    layout_body_class: false,
-    //    src:
-    //     { dirname: 'website-guts/templates/layouts',
-    //       basename: 'page_success.hbs',
-    //       name: 'page_success',
-    //       extname: '.hbs',
-    //       extSegments: [Object],
-    //       path: 'website-guts/templates/layouts/page_success.hbs',
-    //       ext: '.hbs' },
-    //    dest:
-    //     { dirname: 'website-guts/templates/layouts',
-    //       basename: 'page_success.hbs',
-    //       name: 'page_success',
-    //       extname: '.hbs',
-    //       extSegments: [Object],
-    //       path: 'website-guts/templates/layouts/page_success.hbs',
-    //       ext: '.hbs' } 
-    //     },
     /* jshint ignore:start */
     while (name = stack.shift()) {
       _.forEach(layouts[name], function(val, key) {
+        //here swap the keys
         if(key !== 'src' && key !== 'dest') {
+          //apply translation for the layout YFM
+          if(translated.layouts[name] && translated.layouts[name].hasOwnProperty(key)) {
+            val = translated.layouts[name][key];
+          }
+
           data[key] = val;
         }
+
       });
     }
 

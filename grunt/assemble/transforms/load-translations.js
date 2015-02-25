@@ -39,6 +39,5 @@ module.exports = function translationTransform (assemble, args) {
   // would have to add some sort of whitelist/blacklist here for scoping some of the YML company data globally
   // how will we later reference this data in templates, assuming with keyword `this`
 
-  console.log(Object.keys(lang.website));
   assemble.set('lang', lang);
 };

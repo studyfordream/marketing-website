@@ -10,14 +10,14 @@ var Plasma = require('plasma');
 
 module.exports = function (grunt) {
 
-  grunt.registerTask('assemble', 'Assemble', function () {
+  grunt.registerTask('assemble', 'Assemble', function (target) {
     var done = this.async();
 
     var assemble = require('assemble');
     var localizeLinkPath = require('./middleware/localize-link-path');
     var mergeLayoutContext = require('./middleware/merge-layout-context');
     var collectionMiddleware = require('./middleware/onload-collection')(assemble);
-    var mergePageData = require('./middleware/merge-page-data');
+    var mergeTranslatedData = require('./middleware/merge-translated-data');
     var sendToSmartling = require('./plugins/smartling');
     var push = require('assemble-push')(assemble);
 
@@ -30,6 +30,7 @@ module.exports = function (grunt) {
 
     assemble.data(options.data);
 
+    assemble.option('environment', options.environment);
     assemble.set('data.basename', options.basename);
     assemble.set('data.websiteRoot', options.websiteRoot);
     assemble.set('data.locales', options.locales);
@@ -83,6 +84,7 @@ module.exports = function (grunt) {
 
     //is this order dependent because we are merging page data for localization
     assemble.preRender(/\.hbs/, mergeLayoutContext(assemble));
+    assemble.preRender(/\.hbs/, mergeTranslatedData(assemble));
     //will do merging of page data in plugin instead
     //assemble.preRender(/\.hbs/, mergePageData(assemble));
 
@@ -97,21 +99,29 @@ module.exports = function (grunt) {
     var resourceFiles = config.resources.files[0];
     assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
 
+    var allRoots = options.locales.concat([
+                        options.websiteRoot,
+                        options.websiteGuts
+                      ]);
 
+    var hbsPaths = allRoots.reduce(function(map, root) {
+                          var pattern = '**/*.hbs';
+                          map.push(path.join(root, pattern));
+                          return map;
+                      }, []);
 
     assemble.task('prep-smartling', function () {
       var start = process.hrtime();
 
-      var files = config.pages.files[0];
-      return assemble.src(['**/*.hbs'])
+      return assemble.src(hbsPaths)
         .pipe(sendToSmartling(assemble))
         .on('end', function () {
           var end = process.hrtime(start);
-          console.log('finished rendering pages', end);
+          console.log('finished translating pages', end);
         });
     });
 
-    assemble.task('pages', function () {
+    assemble.task('pages', ['prep-smartling'], function () {
       var start = process.hrtime();
       //assemble.option('renameKey', renameKeys.dirnamePageKey('website'));
 
@@ -120,7 +130,7 @@ module.exports = function (grunt) {
         since: (process.env.lastRunTime ? new Date(process.env.lastRunTime) : null)
       };
       return assemble.src(normalizeSrc(files.cwd, files.src), opts)
-        .pipe(require('./plugins/smartling')(assemble))
+        //.pipe(require('./plugins/smartling')(assemble))
         .pipe(ext())
         .pipe(assemble.dest(files.dest))
         //.on('data', function (file) {
@@ -145,7 +155,7 @@ module.exports = function (grunt) {
       });
       /* jshint ignore:end */
       return push('subfolders')
-      .pipe(require('./plugins/smartling')(assemble))
+      //.pipe(require('./plugins/smartling')(assemble))
       .pipe(ext())
       .pipe(assemble.dest(files.dest))
       //.on('data', function (file) {
@@ -165,7 +175,7 @@ module.exports = function (grunt) {
       return es.pipe.apply(es, streams);
     });
 
-    assemble.run(['pages', 'subfolders'], function (err) {
+    assemble.run(['prep-smartling', 'pages', 'subfolders'], function (err) {
     // assemble.run(['prep-smartling'], function (err) {
       if (err) {
         return done(err);

@@ -17,12 +17,19 @@ var logKeys = function(o) {
 // var smartling = require('smartling-api');
 var smartling = {
   upload: function (languages, done) {
+    languages['website-de'] = {
+      about: {
+        seo_title: 'New Stuff',
+        visible_title: 'New Stuff'
+      }
+    };
     done(null, languages);
   }
 };
 var i = 1;
 module.exports = function (assemble) {
   var lang = assemble.get('lang') || {};
+  var environment = assemble.option('environment');
   var websiteRoot = assemble.get('data.websiteRoot');
   var locales = assemble.get('data.locales');
   var locale;
@@ -57,26 +64,34 @@ module.exports = function (assemble) {
       page = path.basename(file.path, '.hbs');
     }
 
-    //if(/partners/.test(file.path)) {
-      //console.log(page);
-    //}
-
     // add any page data
     lang[locale][page] = extend({}, lang[locale][page], file.data);
- 
+
     this.push(file);
     cb();
   }, function (cb) {
     //don't forget that lang.modals is defined here
     console.log('send to smartling');
-    smartling.upload(lang, function (err, translated) {
-      if (err) {
-        return cb(err);
-      }
-      //console.log(Object.keys(lang.website));
-      //logKeys(translated[locale]);
-      assemble.set('lang', translated);
+    if(environment === 'dev') {
+      //potentially have a cached translated object somewhere
+      console.log(lang);
+      assemble.set('translated', lang);
       cb();
-    });
+    }
+    else if(environment === 'smartling-staging') {
+      smartling.upload(lang, function (err, translated) {
+        if (err) {
+          return cb(err);
+        }
+        //console.log(Object.keys(lang.website));
+        //logKeys(translated[locale]);
+        assemble.set('translated', translated);
+        cb();
+      });
+    } else if (environment === 'production' || environment === 'staging') {
+      //retrieve translated object from smartling or potentially have a cached object somewhere
+      console.log('environment is: ' + environment);
+      cb();
+    }
   });
 };
