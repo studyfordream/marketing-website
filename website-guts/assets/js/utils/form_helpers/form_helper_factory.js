@@ -200,6 +200,19 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         if(resp && resp.error) {
           // if the server response has an error property
           this.showOptionsError({serverMessage: resp.error});
+          //handle invalid emails
+          if(resp.error === 'Please enter a real email address.'){
+            w.analytics.track('email not valid', {
+              category: $(this.formElm).attr('action') + '/invalid-email',
+              label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+            });
+            if(typeof w.optly.mrkt.activeModals[$(this.formElm).attr('id')] === 'object'){
+              var oFormInstance = $(this.formElm).attr('id');
+              var element = $(this.formElm).find('input[name="email"]')[0];
+              w.optly.mrkt.activeModals[oFormInstance].options.adjustClasses(element, false);
+              $(this.formElm).find('.email-related').text(resp.error);
+            }
+          }
         } else {
           this.showOptionsError({error: 'UNEXPECTED'});
         }
