@@ -26,7 +26,7 @@ external_stylesheets:
       <h1 class="page-title second-title">{{title_section.title2}}</h1>
     </div>
     <h4 class="event-details">{{title_section.date}} | {{title_section.location}}</h4>
-    <p class="">{{{title_section.sub_title}}}</p>
+    <p class="optimizely-host">{{{title_section.sub_title}}}</p>
     <a class="body-button" href="{{linkPath}}/opticon/about">{{title_section.cta}}</a>
   </div>
 </section>
@@ -44,26 +44,7 @@ external_stylesheets:
 
 <div class="confetti-right"></div>
 
-<!--                -->
-<!--Speakers Section-->
-<!--                -->
-<section class="speakers container">
-  <h3 class="description-title">{{speakers.title}}</h3>
-  <p class="subtitle">{{speakers.keynote.title}}</p>
-  <div class="speakers-container flex-container">
-    {{#each speakers.keynote.speaker_list}}
-    <div class="speaker-container {{this.class}}">
-      <p class="item-title">{{this.name}}</p>
-      <p class="item-company">{{this.company}}</p>
-      <p class="detail-text">{{this.blurb}}</p>
-    </div>
-    {{/each}}
-  </div>
-  <div class="button-container">
-    <a class="body-button" href="#">{{speakers.cta}}</a>
-  </div>
-</section>
-
+{{> opticon_keynote_speakers}}
 <!--              -->
 <!--Tracks Section-->
 <!--              -->

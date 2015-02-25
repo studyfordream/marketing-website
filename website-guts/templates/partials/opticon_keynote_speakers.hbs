@@ -1,0 +1,20 @@
+<!--                -->
+<!--Speakers Section-->
+<!--                -->
+<section class="speakers container">
+  <h3 class="description-title">{{speakers.title}}</h3>
+  <p class="subtitle">{{speakers.keynote.title}}</p>
+  <div class="speakers-container flex-container">
+    {{#each speakers.keynote.speaker_list}}
+    <div class="speaker-container {{this.class}}">
+      <p class="item-title">{{this.name}}</p>
+      <p class="item-company">{{this.company}}</p>
+      <p class="detail-text">{{this.blurb}}</p>
+    </div>
+    {{/each}}
+  </div>
+  <div class="button-container">
+    <a class="body-button" href="#">{{speakers.cta}}</a>
+  </div>
+</section>
+
