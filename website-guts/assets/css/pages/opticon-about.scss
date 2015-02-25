@@ -5,6 +5,12 @@ body.opticon-about {
   .paragraphs-container {
     margin-bottom: 100px;
   }
+  .page-title {
+    font-size: 48px;
+    color: #fff;
+    display: inline;
+    padding: 2px 15px;
+  }
   #opticon-faq {
     padding: 50px 0;
     h3 {
@@ -13,6 +19,9 @@ body.opticon-about {
       font-size: 1.875em;
       color: #0081BA;
     }
+  }
+  .flex-container {
+    flex-wrap: wrap;
   }
   .faq-item {
     width: 45%;
@@ -41,14 +50,8 @@ body.opticon-about {
     margin-right: 30px;
   }
   .confetti-right {
-    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pattern_right.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    right: -26px;
-    top: 15em;
+    right: -173px;
+    top: 10em;
   }
 }
 

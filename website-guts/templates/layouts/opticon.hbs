@@ -4,15 +4,17 @@ layout_script: false
 layout_body_class: false
 ---
 
-<nav id="opticon-nav">
-  <a href="{{linkPath}}/opticon">
-    <img class="opticon-logo" src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/opticon-logo.svg" alt="Opticon 2015">
-  </a>
-  <ul class="nav-options">
-    <li><a href="{{linkPath}}/opticon/about/">About</a></li>
-    <li><a href="{{linkPath}}/opticon/speakers/">Speakers</a></li>
-    <li><a href="#">Register Now</a></li>
-  </ul>
+<nav id="opticon-nav-bar">
+  <div class="container opticon-flex-container">
+    <div class="opticon-logo">
+      <a href="{{linkPath}}/opticon">
+        <img src="//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/opticon-logo.svg" alt="Opticon 2015">
+      </a>
+    </div>
+    <div class="nav-text-item"><a href="{{linkPath}}/opticon/about/">About</a></div>
+    <div class="nav-text-item"><a href="{{linkPath}}/opticon/speakers/">Speakers</a></div>
+    <div class="nav-text-item body-button"><a href="#">Register Now</a></div>
+  </div>
 </nav>
 
 {{> body }}

@@ -3,13 +3,16 @@ body.opticon {
   .page-content {
     padding: 40px 0;
   }
+  .page-title {
+    font-family: AdelleSans-Bold;
+    background: #0081BA;
+  }
   .subtitle {
     font-family: AdelleSans-Regular;
     font-size: 1.25em;
     color: #444B4F;
     letter-spacing: 0.41px;
     line-height: 38px;
-    text-align: center;
   }
   .description-title {
     font-family: AdelleSans-Regular;
@@ -18,7 +21,6 @@ body.opticon {
     color: #0081BA;
     letter-spacing: 0.57px;
     line-height: 41px;
-    padding: 0 18%;
   }
   .description-text {
     font-family: AdelleSans-Regular;
@@ -127,5 +129,21 @@ body.opticon {
     height: 50px;
     background: #D8D8D8;
     margin: 3px;
+  }
+  .confetti-left {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pattern_left.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 100%;
+    height: 400px;
+  }
+  .confetti-right {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pattern_right.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 400px;
+    height: 400px;
   }
 }
