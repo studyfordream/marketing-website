@@ -169,6 +169,10 @@ window.optly.mrkt.modal.open = function(modalArgs) {
     }
   });
 
+  if(typeof modalArgs.callback === 'function'){
+    modalArgs.callback();
+  }
+
 };
 
 window.optly.mrkt.modal.close = function(modalArgs) {
