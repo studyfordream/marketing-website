@@ -13,7 +13,6 @@ var xhrInitiationTime;
 w.optly.mrkt.formHadError = false;
 
 //track focus on form fields
-//track focus on form fields
 $('#seo-form input:not([type="hidden"])').each(function(){
   $(this).one('focus', function(){
     //put all the information in the event because we'll want to use this as a goal in optimizely
