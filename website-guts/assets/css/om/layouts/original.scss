@@ -305,6 +305,12 @@ body.oform-processing {
 
   @include desktop;
 
+  //for ppc landing page experiment
+  .social-proof-cont, .light-gray-section, .customer-quote, .seo-customers {display: none;}
+  .form-cont {float: none;}
+  .hero {padding-bottom: 40px;}
+  footer {min-height: 700px;}
+
 }
 
 .oldie {
