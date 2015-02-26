@@ -207,10 +207,10 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
               label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
             });
             if(typeof w.optly.mrkt.activeModals[$(this.formElm).attr('id')] === 'object'){
-              var oFormInstance = $(this.formElm).attr('id');
+              var oFormInstance = w.optly.mrkt.activeModals[$(this.formElm).attr('id')];
               var element = $(this.formElm).find('input[name="email"]')[0];
-              w.optly.mrkt.activeModals[oFormInstance].options.adjustClasses(element, false);
-              $(this.formElm).find('.email-related').text(resp.error);
+              oFormInstance.options.adjustClasses(element, false);
+              $(this.formElm).find('.email-related').text(window.optly.tr(resp.error));
             }
           }
         } else {
