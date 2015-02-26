@@ -97,6 +97,25 @@ body.opticon {
     letter-spacing: 0.39px;
     line-height: 28px;
   }
+  .speaker-container {
+    width: 31%;
+    margin: 0 auto;
+    padding-top: 200px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  .speaker-blurb {
+    text-align: left;
+  }
+  .item-company {
+    font-family: AdelleSans-Regular;
+    font-size: 12px;
+    color: #979797;
+    letter-spacing: 1.79px;
+    line-height: 28px;
+    margin: 0;
+  }
   .disabled {
     font-family: AdelleSans-Regular;
     font-size: 0.9375em;

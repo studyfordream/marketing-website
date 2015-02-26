@@ -1,20 +1,19 @@
 <!--                -->
 <!--Speakers Section-->
 <!--                -->
+{{#with speakers_data}}
 <section class="speakers container">
   <h3 class="description-title">{{speakers.title}}</h3>
   <p class="subtitle">{{speakers.keynote.title}}</p>
   <div class="speakers-container flex-container">
     {{#each speakers.keynote.speaker_list}}
-    <div class="speaker-container {{this.class}}">
+    <div class="speaker-container" style="background-image: url('{{this.image}}')">
       <p class="item-title">{{this.name}}</p>
       <p class="item-company">{{this.company}}</p>
-      <p class="detail-text">{{this.blurb}}</p>
+      <p class="detail-text speaker-blurb">{{this.blurb}}</p>
     </div>
     {{/each}}
   </div>
-  <div class="button-container">
-    <a class="body-button" href="#">{{speakers.cta}}</a>
-  </div>
 </section>
+{{/with}}
 

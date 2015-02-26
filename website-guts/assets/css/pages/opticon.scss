@@ -9,12 +9,7 @@ body.opticon-homepage {
     background: #0081BA;
     padding: 0 15px 0 25px;
     margin: 0;
-  }
-  .first-title {
-    margin-left: 245px;
-  }
-  .second-title {
-    margin-left: 140px;
+    display: inline-block;
   }
   .event-details {
     margin: 15px 0;
@@ -47,28 +42,6 @@ body.opticon-homepage {
   .tracks {
     padding: 50px 0 80px 0;
   }
-  .speaker-container {
-    width: 31%;
-    margin: 0 auto;
-    padding-top: 200px;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-position: top center;
-    p:last-of-type {
-      text-align: left;
-    }
-  }
-  .item-company {
-    font-family: AdelleSans-Regular;
-    font-size: 12px;
-    color: #979797;
-    letter-spacing: 1.79px;
-    line-height: 28px;
-    margin: 0;
-  }
-  .siroker { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/placeholder_headshot.png'); }
-  .montana { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/placeholder_headshot.png'); }
-  .roker { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/placeholder_headshot.png'); }
   .track-container {
     width: 25%;
     margin: 0 10px;

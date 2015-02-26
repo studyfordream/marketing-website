@@ -23,6 +23,7 @@ external_stylesheets:
   <div class="content-container">
     <div class="title-container">
       <h1 class="page-title first-title">{{title_section.title1}}</h1>
+      <br>
       <h1 class="page-title second-title">{{title_section.title2}}</h1>
     </div>
     <h4 class="event-details">{{title_section.date}} | {{title_section.location}}</h4>
@@ -43,8 +44,14 @@ external_stylesheets:
 </section>
 
 <div class="confetti-right"></div>
+{{/with}}
 
 {{> opticon_keynote_speakers}}
+{{#with opticon_data}}
+<div class="button-container">
+  <a class="body-button" href="#">{{speakers_cta}}</a>
+</div>
+
 <!--              -->
 <!--Tracks Section-->
 <!--              -->
