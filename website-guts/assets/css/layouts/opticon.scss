@@ -6,6 +6,13 @@ body.opticon {
   .page-title {
     font-family: AdelleSans-Bold;
     background: #0081BA;
+    display: inline-block;
+  }
+  .common-page-title {
+    font-size: 48px;
+    color: #fff;
+    display: inline;
+    padding: 2px 15px;
   }
   .subtitle {
     font-family: AdelleSans-Regular;
@@ -144,10 +151,6 @@ body.opticon {
   .sponsors-section {
     padding: 30px 0 5px 0;
     text-align: center;
-  }
-  .large-sponsors-container,
-  .small-sponsors-container {
-    display: flex;
   }
   .small-sponsors-container {
     margin: 3px 0 80px 0;

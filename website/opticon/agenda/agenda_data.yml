@@ -1,0 +1,40 @@
+title: "Agenda"
+sub_title: "More information coming soon"
+
+first_day:
+  title: "Wednesday, June 17"
+  times:
+    -
+      time: "9:00 AM"
+      event: "Optimizely Keynote"
+    -
+      time: "10:00 AM"
+      event: "Breakout Sessions"
+    -
+      time: "11:30 AM"
+      event: "Marc Andreessen Keynote"
+    -
+      time: "12:15 PM"
+      event: "Lunch"
+    -
+      time: "1:30 PM"
+      event: "Breakout Sessions"
+    -
+      time: "5:30 PM"
+      event: "Opticon Bash"
+
+second_day:
+  title: "Thursday, June 18"
+  times:
+    -
+      time: "9:00 AM"
+      event: "Opties Awards"
+    -
+      time: "10:00 AM"
+      event: "Breakout Sessions"
+    -
+      time: "12:10 PM"
+      event: "Lunch"
+    -
+      time: "1:25 PM"
+      event: "Breakout Sessions"
