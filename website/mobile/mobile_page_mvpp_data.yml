@@ -43,11 +43,6 @@ panels:
   beta_text: "Currently in beta"
   bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/04multi-ex-static.gif"
   bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/multi-exp-4.gif"
-- 
-  title: "Mobile <br>Metrics"
-  text: "Track the metrics that matter to mobile developers, with out-of-the-box support for retention metrics, revenue reports, and more."
-  bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/05mobile-metrics-static.gif"
-  bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/mobile-metrics-5.gif"
 customer_logos:
  body: |
   ## Already loved by these<br><strong>awesome apps</strong>
