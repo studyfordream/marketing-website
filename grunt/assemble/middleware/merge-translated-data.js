@@ -10,7 +10,8 @@ module.exports = function(assemble) {
 
   return function mergePageData (file, next) {
     var translated = assemble.get('translated');
-    var locale, page, data, modalData;
+    var pagesNamespace = 'page_content';
+    var locale, page, data, modalData, pageData;
     var modalsKey = 'modals';
     var key = path.dirname(file.path);
     var rootIndex = key.indexOf('/' + websiteRoot + '/');
@@ -31,10 +32,10 @@ module.exports = function(assemble) {
     if(/modal/.test(key)) {
       //if it's a modal file the key is the filename
       page = path.basename(file.path, '.hbs');
-      console.log(translated);
       data = translated[modalsKey];
     } else {
       data = translated[locale || websiteRoot];
+
       //if it's a page file the path is the dirname
       //after the language tranformation this appends language specific data
       //to the file data
@@ -43,14 +44,10 @@ module.exports = function(assemble) {
       if(page.indexOf(locale) !== -1) {
         page = path.basename(file.path, '.hbs');
       }
+      if(/customer\-stories/.test(file.path)) {
+        console.log(data);
+      }
     }
-
-    if(page === 'layouts') {
-      console.log('****************************');
-      console.log(page, file.path);
-      console.log(file.data);
-    }
-
 
     file.data = extend({}, file.data, data[page]);
     next();

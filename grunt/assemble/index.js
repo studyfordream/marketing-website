@@ -83,8 +83,8 @@ module.exports = function (grunt) {
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
 
     //is this order dependent because we are merging page data for localization
-    assemble.preRender(/\.hbs/, mergeLayoutContext(assemble));
-    assemble.preRender(/\.hbs/, mergeTranslatedData(assemble));
+    assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
+    assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
     //will do merging of page data in plugin instead
     //assemble.preRender(/\.hbs/, mergePageData(assemble));
 

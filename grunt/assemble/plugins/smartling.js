@@ -74,7 +74,6 @@ module.exports = function (assemble) {
     console.log('send to smartling');
     if(environment === 'dev') {
       //potentially have a cached translated object somewhere
-      console.log(lang);
       assemble.set('translated', lang);
       cb();
     }
