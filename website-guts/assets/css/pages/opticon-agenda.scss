@@ -16,6 +16,22 @@ body.opticon-agenda {
   .agenda-time {
     min-width: 186px;
     padding-left: 25px;
+    font-family: AdelleSans-Regular;
+    font-size: 14px;
+    color: #444B4F;
+    letter-spacing: 1px;
+    span {
+      font-size: 0.6875em;
+    }
+  }
+  .agenda-event {
+    font-family: AdelleSans-Regular;
+    font-size: 14px;
+    color: #444B4F;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: #444B4F;
+    letter-spacing: 0.47px;
   }
   .description-title {
     padding-left: 25px;
