@@ -112,6 +112,7 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
   <div class="ideas-cont flex-cont">
     {{#each testing_ideas.ideas_grid}}
     <div class="single-idea-cont flex-cont">
+      <a href="{{article_link}}" target="_blank" style="text-decoration:none;">
       <div class="idea-icon">
         <div class="bg-img static" style="background-image: url('{{icon_static}}')"></div>
         <div class="bg-img dynamic" style="background-image: url('{{icon_dynamic}}')"></div>
@@ -120,6 +121,7 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
         <h4>{{title}}</h4>
         <p>{{text}}</p>
       </div>
+      </a>
     </div>
     {{/each}}
   </div>
