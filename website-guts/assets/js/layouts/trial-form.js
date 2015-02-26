@@ -223,20 +223,22 @@ w.optly.mrkt.trialForm = new Oform({
 });
 
 var validateOnBlur = function(isValid, element){
-  w.optly.mrkt.trialForm.options.adjustClasses(element, isValid);
-  var elementValue = $(element).val();
-  var elementHasValue = elementValue ? 'has value' : 'no value';
-  if(!isValid){
-    w.optly.mrkt.formHadError = true;
-    w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' error blur', {
-      category: 'form error',
-      label: elementHasValue,
-      value: elementValue.length
-    }, {
-      integrations: {
-        Marketo: false
-      }
-    });
+  if($(element).val()){
+    w.optly.mrkt.trialForm.options.adjustClasses(element, isValid);
+    var elementValue = $(element).val();
+    var elementHasValue = elementValue ? 'has value' : 'no value';
+    if(!isValid){
+      w.optly.mrkt.formHadError = true;
+      w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' error blur', {
+        category: 'form error',
+        label: elementHasValue,
+        value: elementValue.length
+      }, {
+        integrations: {
+          Marketo: false
+        }
+      });
+    }
   }
 };
 
