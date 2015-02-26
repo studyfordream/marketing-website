@@ -45,7 +45,7 @@ module.exports = function(assemble) {
         page = path.basename(file.path, '.hbs');
       }
       if(/customer\-stories/.test(file.path)) {
-        console.log(data);
+        debugger;
       }
     }
 

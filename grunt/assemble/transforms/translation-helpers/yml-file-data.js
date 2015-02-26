@@ -19,6 +19,8 @@ module.exports = function(patterns, locale) {
     }
 
     if(keysCache.length && keysCache.indexOf(key) !== -1) {
+      //intentionally use an obscure separator because the dash was clobbering file paths
+      //with dashes in them
       key = key + '~' + iterator;
       iterator += 1;
     } else {

@@ -6,17 +6,12 @@ var globby = require('globby');
 module.exports = function(assemble) {
 
   return function(translationType, patterns, locale) {
-    var whitelists = {
-      modal: assemble.get('data.modalYamlWhitelist'),
-      layout: assemble.get('data.layoutYamlWhitelist')
-    };
     var langKeys = {
       modal: 'modals',
       layout: 'layouts'
     };
     var componentKey = langKeys[translationType];
     var key = langKeys[translationType];
-    var whitelist = whitelists[translationType];
     var langData = {};
     var frontMatterData = langData[componentKey] = {};
     //in this case the componentType is the path to the modals || layouts dir
@@ -39,9 +34,7 @@ module.exports = function(assemble) {
         frontMatterData[componentName] = {};
         //use the whitelist to retrieve modal data
         _.forEach(data, function(val, key) {
-          if(whitelist.indexOf(key) !== -1) {
-            frontMatterData[componentName][key] = val;
-          }
+          frontMatterData[componentName][key] = val;
         });
 
         if(Object.keys(frontMatterData[componentName]).length === 0) {

@@ -63,8 +63,9 @@ module.exports = function (assemble) {
     if(allRoots.indexOf(page) !== -1) {
       page = path.basename(file.path, '.hbs');
     }
+    
 
-    // add any page data
+    console.log(page);
     lang[locale][page] = extend({}, lang[locale][page], file.data);
 
     this.push(file);
