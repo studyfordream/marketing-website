@@ -35,6 +35,7 @@ module.exports = function(assemble) {
       } else {
         cached = true;
       }
+      //console.log(page);
     }
 
     if(pagePath) {
@@ -48,7 +49,7 @@ module.exports = function(assemble) {
     }
 
     //put in custom function for replacing translated array values
-    if(translated[locale] && translated[locale][page] && !cached) {
+    if(translated[locale] && translated[locale][page]) {
       file.data = extend({}, file.data, translated[locale][page]);
     }
 

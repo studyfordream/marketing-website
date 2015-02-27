@@ -31,12 +31,18 @@ module.exports = function(assemble) {
     var data = {};
     var name = null;
     var page;
+    var ignoreKeys = [
+      'src',
+      'dest',
+      'layout'
+    ];
     /* jshint ignore:start */
     while (name = stack.shift()) {
       _.forEach(layouts[name], function(val, key) {
         page = path.join(locale, name);
         //here swap the keys
-        if(key !== 'src' && key !== 'dest') {
+        if(ignoreKeys.indexOf(key) === -1) {
+
           //apply translation for the layout YFM
           if(translated[locale] && translated[locale][page] && translated[locale][page].hasOwnProperty(key)) {
             val = extend(val, translated[locale][page][key]);
@@ -50,7 +56,8 @@ module.exports = function(assemble) {
 
     /* jshint ignore:end */
     //which way should extend be to overwrite file.data with data
-    file.data = extend(data, file.data);
+    //data from layout YFM would overwrite page YFM if the keys match
+    file.data = extend(file.data, data);
 
     //puts the data from the YAML front matter of layouts onto file.data
     //can be accessed with this[property] in hbs template

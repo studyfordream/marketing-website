@@ -92,7 +92,7 @@ module.exports = function (assemble) {
     cb();
   }, function (cb) {
     //don't forget that lang.modals is defined here
-    console.log('send to smartling');
+    console.log('send to smartling', lang);
     if(environment === 'dev') {
       //potentially have a cached translated object somewhere
       assemble.set('translated', lang);

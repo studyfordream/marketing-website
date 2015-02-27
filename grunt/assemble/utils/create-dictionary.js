@@ -1,4 +1,5 @@
 var path = require('path');
+var _ = require('lodash');
 var marked = require('optimizely-marked');
 
 //need to have a way to recognize markdown in page content in hbs template outside of front matter
@@ -17,7 +18,7 @@ module.exports = function (assemble) {
   function processArray(arr, type, parser) {
     var reduced =  arr.reduce(function(map, item, index) {
       var val;
-      if(typeof item === 'object' && item !== null) {
+      if(_.isPlainObject(item)) {
         val = parser(item);
       } else if(Array.isArray(item)) {
         val = processArray(item, type, parser);
@@ -74,7 +75,7 @@ module.exports = function (assemble) {
           break;
         }
         //fucking null....are you kidding me!!!!
-      } else if(typeof data[key] === 'object' && data[key] !== null && !Array.isArray(data[key]) ) {
+      } else if( _.isPlainObject(data[key]) ) {
         recursed = createDictionary(data[key]);
         //this is important, keeps keys with empty values from being added
         if(Object.keys(recursed).length > 0) {
