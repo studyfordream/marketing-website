@@ -7,7 +7,12 @@ module.exports = {
     linkPath: '<%= grunt.config.get("link_path") %>',
     sassImagePath: '<%= grunt.config.get("sassImagePath") %>',
     environment: '<%= grunt.config.get("environment") %>',
-    data: ['<%= config.content %>/*.yml'],
+    data: [
+      '<%= config.content %>/**/*.json',
+      //this is only one level deep intentionally
+      '<%= config.content %>/*.yml',
+      '<%= grunt.config.get("environmentData") %>'
+    ],
     partials: ['<%= config.guts %>/templates/partials/*.hbs'],
     client: ['<%= config.guts %>/templates/client/**/*.hbs'],
     helpers: ['<%= config.helpers %>/**/*.js', 'helper-moment'],

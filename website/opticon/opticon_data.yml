@@ -27,3 +27,9 @@ call_for_sponsors:
   title: "Sponsorship Opportunities"
   blurb: "Sponsor Opticon and gain exposure to over 1,000 leaders in the optimization community. Sponsors of the event have a unique opportunity to grow their business, help lead the conversation in optimization, and set the tone for what will be accomplished in the emergent space of experience optimization in the coming year."
   cta: "Download PDF"
+
+training:
+  title: "Optimizely Training"
+  blurb: "Join us the day before Opticon for a great hands-on way to learn best practices for Optimizely experiment workflow and implementation and get an exclusive training guide not available anywhere else. Three concurrent sessions will be offered focused technology, strategy, and mobile. Space is limited so register today!"
+  cta_desktop: "Join a training session"
+  cta_mobile: "Training"

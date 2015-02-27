@@ -42,12 +42,35 @@ $('#seo-form input:not([type="hidden"])').each(function(){
   });
 });
 
+//track change on form fields
+$('#seo-form input:not([type="hidden"])').each(function(){
+  var element = this;
+  var continuallyCheckForValue = setInterval(function(){
+    if($(element).val()){
+      clearInterval(continuallyCheckForValue);
+      w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' value changed', {
+        category: 'forms'
+      },{
+        integrations: {
+          'Marketo': false
+        }
+      });
+      w.analytics.track($(element).closest('form').attr('id') + ' value engagement', {
+        category: 'forms'
+      },{
+          integrations: {
+            'Marketo': false
+          }
+      });
+    }
+  }, 1000);
+});
+
 //form
 w.optly.mrkt.trialForm = new Oform({
   selector: '#seo-form',
   customValidation: {
     'url-input': function(element){
-      console.log('value: ' + element.value);
       var urlRegex = /.+\..+/;
       return urlRegex.test(element.value);
     }
@@ -95,13 +118,18 @@ w.optly.mrkt.trialForm = new Oform({
   });
   if(response){
     if(event.target.status === 200){
-      //remove error class from body?
-      w.optly.mrkt.Oform.trackLead({
+      var pageData = {
         email: d.getElementById('email').value,
         url: d.getElementById('url').value,
         name: d.getElementById('name').value,
         phone: d.getElementById('phone').value
-      }, event);
+      };
+      //remove error class from body?
+      w.optly.mrkt.Oform.trackLead({
+        formElm: '#seo-form',
+        pageData: pageData,
+        XHRevent: event
+      });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
       }, {
@@ -133,9 +161,20 @@ w.optly.mrkt.trialForm = new Oform({
       //for phantom tests
       document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
 
-      setTimeout(function(){
-        w.location = 'https://www.optimizely.com/edit?url=' + encodeURIComponent(d.getElementById('url').value);
-      }, 1000);
+      if(!w.optly.mrkt.automatedTest()){
+        setTimeout(function(){
+          var redirectURL, domain;
+          domain = window.location.hostname;
+          if(/^www\.optimizely\./.test(domain)){
+            //production
+            redirectURL = '/edit?url=';
+          } else {
+            //local dev
+            redirectURL = 'https://www.optimizely.com/edit?url=';
+          }
+          w.location = redirectURL + encodeURIComponent(d.getElementById('url').value);
+        }, 1000);
+      }
 
     } else {
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {

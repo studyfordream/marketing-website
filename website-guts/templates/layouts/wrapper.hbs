@@ -1,22 +1,29 @@
 ---
 layout_modals:
-- signin_modal
-- signup_modal
-- create_experiment
-- reset_password
-- error_modal
-- contact_sales
+- signin_modal_compiled
+- signup_modal_compiled
+- create_experiment_compiled
+- reset_password_compiled
+- error_modal_compiled
+- contact_sales_compiled
 ---
 <!DOCTYPE html>
 <html class="no-js">
     <head>
         <meta charset="utf-8">
-        <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>
         {{#if environmentVariables.production}}
-        <!-- Chartbeat -->
-        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+        <script>
+          var _sf_startpt=(new Date()).getTime()
+          var monitorTiming = setInterval(function(){
+            if(window.optimizely){
+              window.optimizelyLoadTime = (new Date).getTime() - _sf_startpt;
+              clearInterval(monitorTiming);
+            }
+          }, 100);
+        </script>
         {{/if}}
         <script src="{{assetsDir}}/js/libraries/jquery-modernizr.min.js"></script>
+        <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>
         <script>
             window.optly_q = [];
             window.optly = {};
@@ -38,6 +45,15 @@ layout_modals:
         <meta property="og:title" content="Optimizely: {{#if this.og_title}}{{this.og_title}}{{else}}Make every experience count{{/if}}">
         <meta property="og:description" content="{{#if this.og_description}}{{this.og_description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+        {{#if environmentVariables.production}}
+        <script>
+        (function(d,b,a,s,e) {
+          var t = b.createElement(a), fs = b.getElementsByTagName(a)[0];
+          t.async=1; t.id=e; t.src=('https:'==document.location.protocol ? 'https://' : 'http://') + s;
+          fs.parentNode.insertBefore(t, fs);
+        })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
+        </script>
+        {{/if}}
         {{#if this.external_stylesheets}}
         {{#each this.external_stylesheets}}
         <link rel="stylesheet" type="text/css" href="{{.}}">
@@ -48,15 +64,6 @@ layout_modals:
         {{#if this.head_script ~}}<script src="{{this.head_script}}"></script>{{/if}}
         {{#if environmentVariables.production}}
         <script id="bizible-settings" type="text/javascript" src="//cdn.bizible.com/_biz-a.js" async data-attach-secure-forms="true"></script>
-        {{/if}}
-        {{#if environmentVariables.production}}
-        <script>
-        (function(d,b,a,s,e) {
-          var t = b.createElement(a), fs = b.getElementsByTagName(a)[0];
-          t.async=1; t.id=e; t.src=('https:'==document.location.protocol ? 'https://' : 'http://') + s;
-          fs.parentNode.insertBefore(t, fs);
-        })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
-        </script>
         {{/if}}
     </head>
      <body class="signed-out{{#if this.compact_header}} compact-header{{/if}}{{#each layout_body_class}} {{.}}{{/each}}{{#each this.body_class}} {{.}}{{/each}}">
@@ -108,11 +115,13 @@ layout_modals:
                                     </li>
                                     <li><a href="{{linkPath}}/pricing">Pricing</a></li>
                                     <li>
-                                        <p>Optiverse</p>
+                                        <p>Support</p>
                                         <ul>
                                             <li><a href="https://community.optimizely.com">Community</a></li>
-                                            <li><a href="https://help.optimizely.com">Support</a></li>
+                                            <li><a href="https://help.optimizely.com/hc/en-us">Knowledge Base</a></li>
                                             <li><a href="https://learn.optimizely.com">Academy</a></li>
+                                            <li><a href="https://community.optimizely.com/t5/Browse-Groups/ct-p/opt_groups">User Groups</a></li>
+                                            <li><a href="http://developers.optimizely.com/">Developer Documentation</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -121,14 +130,12 @@ layout_modals:
                                             <li><a href="{{linkPath}}/ab-testing/">What is A/B Testing?</a></li>
                                             <li><a href="{{linkPath}}/split-testing/">What is Split Testing?</a></li>
                                             <li><a href="{{linkPath}}/resources/multivariate-testing/">What is Multivariate Testing?</a></li>
-                                            <li><a href="{{linkPath}}/gettingstarted/">Getting Started</a></li>
                                             <li><a href="{{linkPath}}/partners/solutions/">Solutions Partners</a></li>
-                                            <li><a href="{{linkPath}}/partners/technology/">Technology Partners</a></li>
+                                            <li><a href="{{linkPath}}/partners/technology/">Integrations</a></li>
                                             <li><a href="{{linkPath}}/faq/">FAQ</a></li>
-                                            <li><a href="http://developers.optimizely.com">Developer Platform</a></li>
                                             <li><a href="http://certification.optimizely.com">Certification</a></li>
                                             <li><a href="{{linkPath}}/resources/sample-size-calculator/">Sample Size Calculator</a></li>
-                                            <li><a href="{{linkPath}}/resources/">Resources</a></li>
+                                            <li><a href="{{linkPath}}/resources/">Content Library</a></li>
                                             <li id="SL-link-blog" class="SL_swap"><a href="http://blog.optimizely.com">Blog</a></li>
                                         </ul>
                                     </li>
@@ -186,14 +193,19 @@ layout_modals:
                                             <ul>
                                                 <li><a href="{{linkPath}}/ab-testing/">What is A/B Testing?</a></li>
                                                 <li><a href="{{linkPath}}/split-testing/">What is Split Testing?</a></li>
-                                                <li><a href="{{linkPath}}/gettingstarted/">Getting Started</a></li>
+                                                <li><a href="{{linkPath}}/resources/multivariate-testing/">What is Multivariate Testing?</a></li>
                                                 <li><a href="{{linkPath}}/resources/live-demo-webinar/">Live Demo Signup</a></li>
-                                                <li><a href="{{linkPath}}/partners/">Solutions Partners</a></li>
-                                                <li><a href="{{linkPath}}/partners/technology/">Technology Partners</a></li>
+                                                <li><a href="{{linkPath}}/partners/solutions/">Solutions Partners</a></li>
+                                                <li><a href="{{linkPath}}/partners/technology/">Integrations</a></li>
+                                                <li><a href="{{linkPath}}/customers/">Customer List</a></li>
                                                 <li><a href="{{linkPath}}/faq/">FAQ</a></li>
-                                                <li><a href="http://help.optimizely.com">Knowledge Base</a></li>
-                                                <li><a href="http://developers.optimizely.com">API Documentation</a></li>
+                                                <li><a href="https://community.optimizely.com">Community</a></li>
+                                                <li><a href="https://help.optimizely.com/hc/en-us">Knowledge Base</a></li>
+                                                <li><a href="https://learn.optimizely.com">Academy</a></li>
+                                                <li><a href="https://community.optimizely.com/t5/Browse-Groups/ct-p/opt_groups">User Groups</a></li>
+                                                <li><a href="http://developers.optimizely.com">Developer Documentation</a></li>
                                                 <li><a href="{{linkPath}}/resources/sample-size-calculator/">Sample Size Calculator</a></li>
+                                                <li><a href="{{linkPath}}/resources/">Content Library</a></li>
                                                 <li id="SL-link-blog" class="SL_swap"><a href="http://blog.optimizely.com">Blog</a></li>
                                             </ul>
                                         </li>
@@ -256,6 +268,8 @@ layout_modals:
         <script src="{{assetsDir}}/js/pages/{{this.page_script}}" defer></script>
         {{/if}}
 
+        {{#if environmentVariables.production}}
         {{> ad_tags }}
+        {{/if}}
     </body>
 </html>

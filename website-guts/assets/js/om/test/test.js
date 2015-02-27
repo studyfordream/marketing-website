@@ -34,7 +34,7 @@ $(function(){
 
   });
 
-  QUnit.test('check blur validation catches bad inputs', function(){
+  QUnit.test('check blur validation does not trigger for blank input', function(){
 
     $('#seo-form #url').focus().blur();
     $('#seo-form #name').focus().blur();
@@ -43,9 +43,26 @@ $(function(){
 
     QUnit.expect(4);
 
-    QUnit.assert.ok($('#seo-form #url').hasClass('oform-error-show'), 'url blur validation worked');
+    QUnit.assert.ok(!$('#seo-form #url').hasClass('oform-error-show'), 'url blur validation worked');
 
-    QUnit.assert.ok($('#seo-form #name').hasClass('oform-error-show'), 'name blur validation worked');
+    QUnit.assert.ok(!$('#seo-form #name').hasClass('oform-error-show'), 'name blur validation worked');
+
+    QUnit.assert.ok(!$('#seo-form #email').hasClass('oform-error-show'), 'email blur validation worked');
+
+    //phone number is not required so this input should not have an error
+    QUnit.assert.ok(!$('#seo-form #phone').hasClass('oform-error-show'), 'phone did not validate');
+
+  });
+
+  QUnit.test('check blur validation catches bad inputs', function(){
+
+    $('#seo-form #url').val('t').focus().blur();
+    $('#seo-form #email').val('t').focus().blur();
+    $('#seo-form #phone').val('1').focus().blur();
+
+    QUnit.expect(3);
+
+    QUnit.assert.ok($('#seo-form #url').hasClass('oform-error-show'), 'url blur validation worked');
 
     QUnit.assert.ok($('#seo-form #email').hasClass('oform-error-show'), 'email blur validation worked');
 
@@ -54,27 +71,7 @@ $(function(){
 
   });
 
-  QUnit.test('check submit validation catches bad inputs', function(){
-
-    $('#seo-form #url').val('Q');
-    $('#seo-form #name').val('');
-    $('#seo-form #email').val('Q');
-    $('#seo-form #phone').val('');
-
-    QUnit.expect(4);
-
-    QUnit.assert.ok($('#seo-form #url').hasClass('oform-error-show'), 'url blur validation worked');
-
-    QUnit.assert.ok($('#seo-form #name').hasClass('oform-error-show'), 'name blur validation worked');
-
-    QUnit.assert.ok($('#seo-form #email').hasClass('oform-error-show'), 'email blur validation worked');
-
-    //phone number is not required so this input should not have an error
-    QUnit.assert.ok(!$('#seo-form #phone').hasClass('oform-error-show'), 'phone did not validate');
-
-  });
-
-  QUnit.test('check that the form has inline lables for browsers that support the placeholder attribute', function(){
+  QUnit.test('check that the form has inline labels for browsers that support the placeholder attribute', function(){
 
     if(Modernizr.placeholder){
 
@@ -102,6 +99,40 @@ $(function(){
 
   });
 
+  QUnit.asyncTest('check submit validation catches bad inputs', function(){
+
+    $('#seo-form #url').val('Q');
+    $('#seo-form #name').val('');
+    $('#seo-form #email').val('Q');
+    $('#seo-form #phone').val('');
+
+    QUnit.expect(4);
+
+    window.optly.mrkt.trialForm.run({
+
+      target: document.getElementById('seo-form'),
+
+      preventDefault: function(){}
+
+    });
+
+    setTimeout(function(){
+
+      QUnit.assert.ok($('#seo-form #url').hasClass('oform-error-show'), 'url blur validation worked');
+
+      QUnit.assert.ok($('#seo-form #name').hasClass('oform-error-show'), 'name blur validation worked');
+
+      QUnit.assert.ok($('#seo-form #email').hasClass('oform-error-show'), 'email blur validation worked');
+
+      //phone number is not required so this input should not have an error
+      QUnit.assert.ok(!$('#seo-form #phone').hasClass('oform-error-show'), 'phone did not validate');
+
+      QUnit.start();
+
+    }, 1000);
+
+  });
+
   QUnit.asyncTest('check a valid submission', function(){
 
     QUnit.expect(2);
@@ -123,7 +154,9 @@ $(function(){
 
       QUnit.assert.equal($('body').attr('data-form-success'), '/account/free_trial_create', 'form successfully submitted');
 
-      QUnit.assert.equal($.cookie('sourceCookie'), 'utm_campaign_uitest|||utm_content_uitest|||utm_medium_uitest|||utm_source_uitest|||utm_keyword_uitest|||otm_campaign_uitest|||btt|||otm_medium_uitest|||otm_source_uitest|||otm_keyword_uitest|||signup_platform_uitest|||', 'source cookie is set properly');
+      QUnit.assert.equal($.cookie('sourceCookie'), 'utm_campaign_uitest|||utm_content_uitest|||utm_medium_uitest|||utm_source_uitest|||utm_keyword_uitest|||otm_campaign_uitest|||btt|||otm_medium_uitest|||otm_source_uitest|||otm_keyword_uitest|||undefined|||', 'source cookie is set properly');
+
+      QUnit.start();
 
     }, 3000);
 

@@ -1,4 +1,4 @@
-body.home-page{
+body.home-page {
   #signed-in-mobile {
     display: none;
     margin: 1em 0 8em 0;
@@ -110,51 +110,37 @@ body.home-page{
       margin-right: auto;
     }
   }
-  .companies {
-    padding: 1% 1%;
-    background: #efefef;
-    .container {
-      margin-bottom: 10%;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width){
+  html.cssanimations body.home-page {
+    .fade-in {
+      opacity:0;
+      animation: fadeIn ease 1;
+      animation-fill-mode: forwards;
+      animation-duration: .6s;
     }
-    .companies-header {
-      p {
-        margin: 12% 2% 8% 2%;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 14px;
-        color:  #8C8C8C;
-      }
-    }
-    .logo-container {
-        padding-top: 3%;
-        .bg-img-cont {
-          padding: 0 50px;
-          .bg-img {
-            width: 100%;
-            padding-top: 50%;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-          }
-          .sony {
-            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg');
-          }
-          .microsoft {
-            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_gray.svg');
-          }
-          .bleacher-report {
-            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/bleacher_report_logo_gray.svg');
-          }
-          .nbc {
-            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/nbc_universal_gray.svg');
-          }
-          .american-apparel {
-            background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/american_apparel_logo_gray.svg');
-          }
-        }
+    .cta-wrap {
+      //-webkit-animation-delay: 0.7s;
+      //-moz-animation-delay: 0.7s;
+      animation-delay: 0.5s;
     }
   }
-  @media only screen and (min-width: $tablet-min-width){
+}
+
+@media only screen and (min-width: $tablet-min-width){
+  body.home-page {
     #touch-cta,
     .mobile-container {width: 65%;}
     #cta {
@@ -172,22 +158,6 @@ body.home-page{
         button {
           width: auto;
           margin: 0;
-        }
-      }
-    }
-    .companies {
-      .companies-header {
-        p {
-          margin-top: 6%;
-          font-size: 14px;
-        }
-      }
-      .logo-container {
-        display: flex;
-        justify-content: center;
-        .bg-img-cont {
-          width: 20%;
-          padding: 0 20px;
         }
       }
     }
@@ -214,7 +184,10 @@ body.home-page{
       }
     }
   }
-  @media only screen and (min-width: $desktop-min-width){
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.home-page {
     text-align: center;
     #outer-wrapper, #inner-wrapper, #cta {
       position: relative;
@@ -258,19 +231,6 @@ body.home-page{
         margin-left: auto;
         margin-right: auto;
         margin-top: 10%;
-      }
-    }
-    .companies {
-      height: 300px;
-      .companies-header {
-        p {
-          margin: 4% 2% 4% 2%;
-        }
-      }
-      .logo-container {
-        img {
-          width: 20%;
-        }
       }
     }
   }

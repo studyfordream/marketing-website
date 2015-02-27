@@ -1,0 +1,22 @@
+---
+layout: wrapper
+layout_script: false
+layout_body_class: false
+---
+<div id="main">
+  {{#if this.page_header}}
+  <div id="page-header">
+    <div class="container">
+      <div class="clearfix page-subheader-cont">
+        <h1>{{this.visible_title}}</h1>
+      </div><!---->
+    </div><!--/.container-->
+  </div><!--/#page-header-->
+  <div id="page-header-gradient"></div>
+  {{/if}}
+  <div id="page-content">
+    {{#unless this.no_container}}<div class="container">{{/unless}}
+      {% body %}
+    {{#unless this.no_container}}</div><!--/.container-->{{/unless}}
+  </div><!--/#content-->
+</div><!--/#main-->

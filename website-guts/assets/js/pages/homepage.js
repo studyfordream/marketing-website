@@ -5,7 +5,12 @@ $('#get-started').submit(function(e){
   var inputVal = $('#get-started input[type="email"]').val();
 
   if( inputVal ){
-    w.optly.mrkt.modal.open({ modalType: 'signup' });
+    w.optly.mrkt.modal.open({
+      modalType: 'signup',
+      callback: function(){
+        w.optimizely.push(['activate', 2548130011]);
+      }
+    });
     d.body.classList.add('test-it-out-success');
     $('input[type="email"]').val(inputVal);
   } else {

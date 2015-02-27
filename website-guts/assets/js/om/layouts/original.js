@@ -10,10 +10,14 @@ d.getElementById('hidden').value = 'touched';
 
 var xhrInitiationTime;
 
+w.optly.mrkt.formHadError = false;
+
+//track focus on form fields
 //track focus on form fields
 $('#seo-form input:not([type="hidden"])').each(function(){
-  $(this).one('blur', function(){
-    window.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus',
+  $(this).one('focus', function(){
+    //put all the information in the event because we'll want to use this as a goal in optimizely
+    w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' focus',
     {
       category: 'forms'
     },
@@ -23,6 +27,46 @@ $('#seo-form input:not([type="hidden"])').each(function(){
       }
     });
   });
+});
+
+//track blur on form fields
+$('#seo-form input:not([type="hidden"])').each(function(){
+  $(this).one('blur', function(){
+    //put all the information in the event because we'll want to use this as a goal in optimizely
+    w.analytics.track($(this).closest('form').attr('id') + ' ' + $(this).attr('name') + ' blur',
+    {
+      category: 'forms'
+    },
+    {
+      integrations: {
+        'Marketo': false
+      }
+    });
+  });
+});
+
+//track change on form fields
+$('#seo-form input:not([type="hidden"])').each(function(){
+  var element = this;
+  var continuallyCheckForValue = setInterval(function(){
+    if($(element).val()){
+      clearInterval(continuallyCheckForValue);
+      w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' value changed', {
+        category: 'forms'
+      },{
+        integrations: {
+          'Marketo': false
+        }
+      });
+      w.analytics.track($(element).closest('form').attr('id') + ' value engagement', {
+        category: 'forms'
+      },{
+          integrations: {
+            'Marketo': false
+          }
+      });
+    }
+  }, 1000);
 });
 
 //form
@@ -48,16 +92,17 @@ w.optly.mrkt.trialForm = new Oform({
   return w.optly.mrkt.Oform.before();
 }).on('validationerror', function(element){
   w.optly.mrkt.Oform.validationError(element);
+  w.optly.mrkt.formHadError = true;
   //w.alert('validation error: ' + element.getAttribute('name'));
 }).on('error', function(){
   $('#seo-form .error-message').text('An unknown error occured.');
   $('body').addClass('oform-error').removeClass('oform-processing');
-}).on('load', function(returnData){
+}).on('load', function(loadEvent){
   var xhrElapsedTime,
   response;
   xhrElapsedTime = new Date() - xhrInitiationTime;
   try {
-    response = JSON.parse(returnData.XHR.responseText);
+    response = JSON.parse(loadEvent.XHR.responseText);
   } catch(error){
     w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
       category: 'api error',
@@ -76,13 +121,18 @@ w.optly.mrkt.trialForm = new Oform({
     'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   });
   if(response){
-    if(returnData.XHR.status === 200){
-      w.optly.mrkt.Oform.trackLead({
+    if(loadEvent.XHR.status === 200){
+      var pageData = {
         email: d.getElementById('email').value,
         url: d.getElementById('url').value,
         name: d.getElementById('name').value,
         phone: d.getElementById('phone').value
-      }, returnData);
+      };
+      w.optly.mrkt.Oform.trackLead({
+        formElm: '#seo-form',
+        pageData: pageData,
+        XHRevent: loadEvent
+      });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
       }, {
@@ -117,7 +167,18 @@ w.optly.mrkt.trialForm = new Oform({
 
       if(!w.optly.mrkt.automatedTest()){
         setTimeout(function(){
-          w.location = 'https://www.optimizely.com/edit?url=' + encodeURIComponent(d.getElementById('url').value);
+          var redirectURL, domain, queryParams;
+          domain = window.location.hostname;
+          queryParams = window.location.href.split(/\?(.+)?/)[1] || '';
+          queryParams = queryParams ? '&' + queryParams : queryParams;
+          if(/^www\.optimizely\./.test(domain)){
+            //production
+            redirectURL = '/edit?url=';
+          } else {
+            //local dev
+            redirectURL = 'https://www.optimizely.com/edit?url=';
+          }
+          w.location = redirectURL + encodeURIComponent(d.getElementById('url').value) + queryParams;
         }, 1000);
       }
 
@@ -169,20 +230,22 @@ w.optly.mrkt.trialForm = new Oform({
 });
 
 var validateOnBlur = function(isValid, element){
-  w.optly.mrkt.trialForm.options.adjustClasses(element, isValid);
-  var elementValue = $(element).val();
-  var elementHasValue = elementValue ? 'has value' : 'no value';
-  if(!isValid){
-    w.optly.mrkt.formHadError = true;
-    w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' error blur', {
-      category: 'form error',
-      label: elementHasValue,
-      value: elementValue.length
-    }, {
-      integrations: {
-        Marketo: false
-      }
-    });
+  if($(element).val()){
+    w.optly.mrkt.trialForm.options.adjustClasses(element, isValid);
+    var elementValue = $(element).val();
+    var elementHasValue = elementValue ? 'has value' : 'no value';
+    if(!isValid){
+      w.optly.mrkt.formHadError = true;
+      w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' error blur', {
+        category: 'form error',
+        label: elementHasValue,
+        value: elementValue.length
+      }, {
+        integrations: {
+          Marketo: false
+        }
+      });
+    }
   }
 };
 
