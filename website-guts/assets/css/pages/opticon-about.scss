@@ -1,6 +1,7 @@
 body.opticon-about {
   .top-paragraph {
     width: 72%;
+    margin: 62px 0;
   }
   .paragraphs-container {
     margin-bottom: 100px;
@@ -38,7 +39,6 @@ body.opticon-about {
   .left-paragraph,
   .right-paragraph {
     flex: 1;
-    text-align: center;
   }
   .left-paragraph {
     margin-right: 30px;
