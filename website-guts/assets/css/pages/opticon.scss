@@ -75,42 +75,6 @@ body.opticon {
     }
   }
 
-  .call-for-speakers-panel {
-    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/call-for-speakers.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 25% 25%;
-    * {
-      text-align: center;
-    }
-    .section-title {
-      padding-top: 100px;
-      margin-bottom: 50px;
-    }
-    .blurb {
-      color: $super-dark-blue;
-      margin-bottom: 50px;
-    }
-    .button-container {
-      text-align: center;
-      padding-bottom: 100px;
-      &.desktop {
-        display: none;
-      }
-      a {
-        padding: 15px 59px;
-        background-color: $super-dark-blue;
-        color: white;
-        border-radius: 4px;
-        text-transform: uppercase;
-        &:hover {
-          text-decoration: none;
-          background-color: $super-dark-blue-hover;
-        }
-      }
-    }
-  }
-
   .register-panel {
     background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/call_for_sponsors.jpg');
     background-size: cover;
@@ -191,6 +155,42 @@ body.opticon {
   .desktop {
     display: none;
   }
+
+  .training-panel {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/call-for-speakers.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 25% 25%;
+    * {
+      text-align: center;
+    }
+    .section-title {
+      padding-top: 100px;
+      margin-bottom: 50px;
+    }
+    .blurb {
+      color: $super-dark-blue;
+      margin-bottom: 50px;
+    }
+    .button-container {
+      text-align: center;
+      padding-bottom: 100px;
+      &.desktop {
+        display: none;
+      }
+      a {
+        padding: 15px 59px;
+        background-color: $super-dark-blue;
+        color: white;
+        border-radius: 4px;
+        text-transform: uppercase;
+        &:hover {
+          text-decoration: none;
+          background-color: $super-dark-blue-hover;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
@@ -221,14 +221,6 @@ body.opticon {
         text-align: left;
       }
     }
-    .call-for-speakers-panel {
-      .button-container.desktop {
-        display: block;
-      }
-      .button-container.mobile {
-        display: none;
-      }
-    }
     .register-panel {
       .blurb {
         width: 450px;
@@ -239,6 +231,14 @@ body.opticon {
     }
     .mobile {
       display: none;
+    }
+    .training-panel {
+      .button-container.desktop {
+        display: block;
+      }
+      .button-container.mobile {
+        display: none;
+      }
     }
   }
 }
