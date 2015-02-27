@@ -10,13 +10,6 @@ description:
   blurb_2: "In 2015 Opticon will be an unforgettable experience, taking place on San Francisco’s scenic waterfront at Pier 27 with twice as much content, double the number of attendees, and visionary speakers like Marc Andreessen, the General Partner of Andreessen Horowitz."
   caption: "Keynote speaker Marc Andreessen"
 
-call_for_speakers:
-  title: "Call for Speakers"
-  blurb: "Showcase your optimization expertise. The call for speakers is now open!"
-  cta:
-    desktop: "Share your expertise"
-    mobile: "Apply"
-
 register:
   title: "Registration"
   blurb: "The agenda and speaker list will be updated shortly. If you want to get a jump on things and take advantage of early bird pricing be sure to register today."
