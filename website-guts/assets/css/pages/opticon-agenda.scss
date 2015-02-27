@@ -1,12 +1,19 @@
 body.opticon-agenda {
   .agenda-container {
     align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .subtitle {
+    margin-bottom: 75px;
   }
   .agenda-day {
     border: solid 1px #ddd;
-    flex: 1;
-    &:first-of-type {
-      margin-right: 50px;
+    background: #fff;
+    z-index: 1;
+    min-width: 200px;
+    width: 100%;
+    &:last-of-type {
+      margin-top: 50px;
     }
   }
   .agenda-row {
@@ -39,11 +46,24 @@ body.opticon-agenda {
   .content-container {
     padding: 50px 0;
   }
+  .confetti-right {
+    right: -173px;
+    z-index: -1;
+  }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon-agenda {
-
+    .agenda-day {
+      flex: 1;
+      margin: 0;
+      &:first-of-type {
+        margin-right: 50px;
+      }
+      &:last-of-type {
+        margin-top: 0;
+      }
+    }
   }
 }
 
