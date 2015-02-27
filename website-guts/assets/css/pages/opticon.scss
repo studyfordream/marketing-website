@@ -157,16 +157,13 @@ body.opticon {
   }
 
   .training-panel {
-    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/call-for-speakers.jpg');
+    background: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/call-for-speakers.jpg') no-repeat 25% 25%;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 25% 25%;
-    * {
-      text-align: center;
-    }
+    text-align: center;
     .section-title {
       padding-top: 100px;
       margin-bottom: 50px;
+      text-align: center;
     }
     .blurb {
       color: $super-dark-blue;
@@ -211,14 +208,11 @@ body.opticon {
       .blurb {
         margin: 0 50px 90px 0;
       }
+      .description-container {
+        margin: 0 auto;
+      }
       .description {
         width: 470px;
-      }
-      .andreeseen {
-        margin-right: 50px;
-      }
-      .caption {
-        text-align: left;
       }
     }
     .register-panel {
@@ -245,7 +239,8 @@ body.opticon {
 
 @media only screen and (min-width: $desktop-min-width) {
   body.opticon {
-    .description-panel {
+    .andreeseen {
+      margin-right: 50px;
     }
   }
 }
