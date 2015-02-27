@@ -1,3 +1,5 @@
+w.pageID = '/free-trial';
+
 if(Modernizr.placeholder){
   w.optly.mrkt.inlineFormLabels();
 }
@@ -12,7 +14,6 @@ var xhrInitiationTime;
 
 w.optly.mrkt.formHadError = false;
 
-//track focus on form fields
 //track focus on form fields
 $('#seo-form input:not([type="hidden"])').each(function(){
   $(this).one('focus', function(){
