@@ -62,8 +62,8 @@ module.exports = function (assemble) {
           }
           break;
         }
-
-      } else if(typeof data[key] === 'object') {
+      //fucking null....are you kidding me!!!!
+      } else if(typeof data[key] === 'object' && data[key] !== null) {
         recursed = createDictionary(data[key]);
         //this is important, keeps keys with empty values from being added
         if(Object.keys(recursed).length > 0) {

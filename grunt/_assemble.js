@@ -9,6 +9,7 @@ module.exports = {
     environment: '<%= grunt.config.get("environment") %>',
     data: ['<%= config.content %>/*.yml'],
     partials: ['<%= config.guts %>/templates/partials/*.hbs'],
+    client: ['<%= config.guts %>/templates/client/**/*.hbs'],
     helpers: ['<%= config.helpers %>/**/*.js', 'helper-moment'],
     basename: path.basename(process.cwd()),
     websiteRoot: 'website',

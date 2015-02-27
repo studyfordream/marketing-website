@@ -1,3 +1,4 @@
+var path = require('path');
 var createStack = require('layout-stack');
 var extend = require('extend-shallow');
 var _ = require('lodash');
@@ -15,6 +16,7 @@ module.exports = function(assemble) {
   // middleware to merge the layout context into the current page context
   return function mergeLayoutContext (file, next) {
     var translated = assemble.get('translated');
+    var locale = 'layouts';
     //the layout for the current file
     var layout = file.layout || file.options.layout || file.data.layout;
     // => partners
@@ -28,14 +30,16 @@ module.exports = function(assemble) {
 
     var data = {};
     var name = null;
+    var page;
     /* jshint ignore:start */
     while (name = stack.shift()) {
       _.forEach(layouts[name], function(val, key) {
+        page = path.join(locale, name);
         //here swap the keys
         if(key !== 'src' && key !== 'dest') {
           //apply translation for the layout YFM
-          if(translated.layouts[name] && translated.layouts[name].hasOwnProperty(key)) {
-            val = translated.layouts[name][key];
+          if(translated[locale] && translated[locale][page] && translated[locale][page].hasOwnProperty(key)) {
+            val = extend(val, translated[locale][page][key]);
           }
 
           data[key] = val;
@@ -45,12 +49,13 @@ module.exports = function(assemble) {
     }
 
     /* jshint ignore:end */
-    extend(data, file.data);
+    //which way should extend be to overwrite file.data with data
+    file.data = extend(data, file.data);
 
     //puts the data from the YAML front matter of layouts onto file.data
     //can be accessed with this[property] in hbs template
     //ex. this.body_class in the wrapper layout
-    file.data = data;
+    //file.data = data;
     next();
   };
 };

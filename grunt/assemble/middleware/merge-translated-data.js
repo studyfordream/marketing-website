@@ -7,49 +7,51 @@ module.exports = function(assemble) {
   var websiteRoot = assemble.get('data.websiteRoot');
   var basename = assemble.get('data.basename');
   var locales = assemble.get('data.locales');
+  var cachedTypes = [];
 
   return function mergePageData (file, next) {
     var translated = assemble.get('translated');
     var pagesNamespace = 'page_content';
+    var allRoots = locales.concat(websiteRoot);
     var locale, page, data, modalData, pageData;
-    var modalsKey = 'modals';
-    var key = path.dirname(file.path);
-    var rootIndex = key.indexOf('/' + websiteRoot + '/');
+    var pagePath = true;
+    var cached = false;
+    var rootIndex = file.path.indexOf('/' + websiteRoot + '/');
     var localeIndex = _.findIndex(locales, function(locale) {
       var re = new RegExp(locale);
-      return re.test(key);
+      return re.test(file.path);
     });
 
     if(rootIndex !== -1) {
-      key = key.substr(rootIndex + 1);
       locale = websiteRoot;
     } else if(localeIndex !== -1) {
       locale = locales[localeIndex];
-    }
-
-    //specific logic for translating modal data from `translated` object
-    //lang.modals[<modal_file_name_no_ext>]
-    if(/modal/.test(key)) {
-      //if it's a modal file the key is the filename
-      page = path.basename(file.path, '.hbs');
-      data = translated[modalsKey];
     } else {
-      data = translated[locale || websiteRoot];
-
-      //if it's a page file the path is the dirname
-      //after the language tranformation this appends language specific data
-      //to the file data
-      page = key.split('/').slice(-1)[0];
-      //if it's the root homepage then set the name to the basename `index`
-      if(page.indexOf(locale) !== -1) {
-        page = path.basename(file.path, '.hbs');
-      }
-      if(/customer\-stories/.test(file.path)) {
-        debugger;
+      pagePath = false;
+      locale = path.dirname(file.path).split('/').slice(-1)[0];
+      page = path.join(locale, path.basename(file.path, path.extname(file.path)));
+      if(cachedTypes.indexOf(page) === -1) {
+        cachedTypes.push(page);
+      } else {
+        cached = true;
       }
     }
 
-    file.data = extend({}, file.data, data[page]);
+    if(pagePath) {
+      //if it's a page file other than the root homepage the path is the dirname
+      page = path.dirname(file.path).split('/').slice(-1)[0];
+
+      //if the page is the root homepage normalize it's key to `index`
+      if(allRoots.indexOf(page) !== -1) {
+        page = path.basename(file.path, path.extname(file.path));
+      }
+    }
+
+    //put in custom function for replacing translated array values
+    if(translated[locale] && translated[locale][page] && !cached) {
+      file.data = extend({}, file.data, translated[locale][page]);
+    }
+
     next();
   };
 };

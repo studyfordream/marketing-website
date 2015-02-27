@@ -29,44 +29,64 @@ var smartling = {
 var i = 1;
 module.exports = function (assemble) {
   var lang = assemble.get('lang') || {};
+  var pageData = assemble.get('pageData');
   var environment = assemble.option('environment');
   var websiteRoot = assemble.get('data.websiteRoot');
   var locales = assemble.get('data.locales');
+  var createTranslationDict = require('../utils/create-dictionary')(assemble);
   var locale;
 
   return through.obj(function (file, enc, cb) {
     // instead of middleware
     // load file.data information onto `assemble.get('lang')` here
-    var page, data, modalData;
+    var page, data, modalData, parsedTranslations;
+    var allRoots = locales.concat(websiteRoot);
     var rootIndex = file.path.indexOf('/' + websiteRoot + '/');
     var localeIndex = _.findIndex(locales, function(locale) {
       var re = new RegExp(locale);
       return re.test(file.path);
     });
+    var pagePath = true;
 
-    // pageData.about
-
-    // normalize key
     if(rootIndex !== -1) {
       locale = websiteRoot;
     } else if(localeIndex !== -1) {
       locale = locales[localeIndex];
+    } else {
+      pagePath = false;
+      locale = path.dirname(file.path).split('/').slice(-1)[0];
+      page = path.join(locale, path.basename(file.path, path.extname(file.path)));
     }
 
-    lang[locale] = lang[locale] || {};
+    if(pagePath) {
+      //if it's a page file other than the root homepage the path is the dirname
+      page = path.dirname(file.path).split('/').slice(-1)[0];
 
-    //if it's a page file other than the root homepage the path is the dirname
-    page = path.dirname(file.path).split('/').slice(-1)[0];
+      //if the page is the root homepage normalize it's key to `index`
+      if(allRoots.indexOf(page) !== -1) {
+        page = path.basename(file.path, path.extname(file.path));
+      }
+      parsedTranslations = createTranslationDict(file.data, locale);
+      if(Object.keys(parsedTranslations).length > 0) {
+        lang[locale] = lang[locale] || {};
+        lang[locale][page] = extend({}, lang[locale][page], parsedTranslations);
+      }
 
-    //if the page is the root homepage normalize it's key to `index`
-    var allRoots = locales.concat(websiteRoot);
-    if(allRoots.indexOf(page) !== -1) {
-      page = path.basename(file.path, '.hbs');
+      if(pageData[locale][page]) {
+        file.data = extend({}, file.data, pageData[locale][page]);
+      }
+      //parse the file.data for TR and MD and put it on lang
+      //put the pageData on file.data
+
+    } else {
+      //can parse the file.data here for TR or MD instead of in the transform on put it on lang
+      //if there is page data (there shouldn't ever be YAML for layouts|modals|partials put it on the file.data
+      parsedTranslations = createTranslationDict(file.data, locale);
+      if(Object.keys(parsedTranslations).length > 0) {
+        lang[locale] = lang[locale] || {};
+        lang[locale][page] = parsedTranslations;
+      }
     }
-    
-
-    console.log(page);
-    lang[locale][page] = extend({}, lang[locale][page], file.data);
 
     this.push(file);
     cb();

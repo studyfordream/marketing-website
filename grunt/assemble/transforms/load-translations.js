@@ -35,14 +35,15 @@ module.exports = function translationTransform (assemble, args) {
     }
     pageData[locale] = extend({}, pageData[locale], data);
   } else if( /modal/.test(translationType) || /layout/.test(translationType) ) {
+    //NOTE: this was ommitted and is being performed in the smartling plugin
     translationType = translationType.split('-')[0];
-    data = processFrontMatter(translationType, patterns, locale);
-    locale = locale.substr(locale.lastIndexOf('/') + 1);
-    parsedTranslations = createTranslationDict(data, locale);
-    if(Object.keys(parsedTranslations).length > 0) {
-     lang = extend({}, lang, parsedTranslations);
-    }
-    pageData = extend({}, pageData, data);
+    //data = processFrontMatter(translationType, patterns, locale);
+    //locale = locale.substr(locale.lastIndexOf('/') + 1);
+    //parsedTranslations = createTranslationDict(data, locale);
+    //if(Object.keys(parsedTranslations).length > 0) {
+     //lang = extend({}, lang, parsedTranslations);
+    //}
+    //pageData = extend({}, pageData, data);
   }
 
   // add logic for pulling out whitelisted TR and MD strings

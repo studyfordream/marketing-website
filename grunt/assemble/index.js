@@ -85,8 +85,6 @@ module.exports = function (grunt) {
     //is this order dependent because we are merging page data for localization
     assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
     assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
-    //will do merging of page data in plugin instead
-    //assemble.preRender(/\.hbs/, mergePageData(assemble));
 
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
     assemble.preRender(pathRe, localizeLinkPath(assemble));
@@ -113,7 +111,7 @@ module.exports = function (grunt) {
     assemble.task('prep-smartling', function () {
       var start = process.hrtime();
 
-      return assemble.src(hbsPaths)
+      return assemble.src(hbsPaths.concat(['!' + options.client]))
         .pipe(sendToSmartling(assemble))
         .on('end', function () {
           var end = process.hrtime(start);
@@ -130,12 +128,8 @@ module.exports = function (grunt) {
         since: (process.env.lastRunTime ? new Date(process.env.lastRunTime) : null)
       };
       return assemble.src(normalizeSrc(files.cwd, files.src), opts)
-        //.pipe(require('./plugins/smartling')(assemble))
         .pipe(ext())
         .pipe(assemble.dest(files.dest))
-        //.on('data', function (file) {
-           //console.log(file.path, 'rendered');
-        //})
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished rendering pages', end);
@@ -155,24 +149,12 @@ module.exports = function (grunt) {
       });
       /* jshint ignore:end */
       return push('subfolders')
-      //.pipe(require('./plugins/smartling')(assemble))
       .pipe(ext())
       .pipe(assemble.dest(files.dest))
-      //.on('data', function (file) {
-         //console.log(file.path, 'rendered');
-      //})
       .on('end', function () {
         var end = process.hrtime(start);
         console.log('finished rendering pages-de', end);
       });
-    });
-
-    assemble.task('copy', ['subfolders'], function () {
-      var streams = [assemble.src('dist/partners/**/*.html', {minimal: true})];
-      config.locales.forEach(function (locale) {
-        streams = streams.concat(assemble.dest('dist/' + locale + '/partners', {minimal: true}));
-      });
-      return es.pipe.apply(es, streams);
     });
 
     assemble.run(['prep-smartling', 'pages', 'subfolders'], function (err) {
