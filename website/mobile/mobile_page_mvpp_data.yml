@@ -79,13 +79,13 @@ testing_ideas:
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/onboard.gif"
     title: "Onboarding Flow"
     text: "More than 80% of apps are deleted after their first use. That’s why it’s so important to test how you onboard users and show the value of your app."
-    article_link: "https://help.optimizely.com/hc/en-us/articles/203430454"
+    article_link: "//help.optimizely.com/hc/en-us/articles/203430454"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/permission-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/permission.gif"
     title: "Requesting Permissions"
     text: "With more access, you can offer a better experience. Try testing the right way to ask your users for permissions."
-    article_link: "https://help.optimizely.com/hc/en-us/articles/203476374"
+    article_link: "//help.optimizely.com/hc/en-us/articles/203476374"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/feature-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/feature.gif"

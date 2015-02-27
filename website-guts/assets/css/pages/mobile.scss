@@ -412,12 +412,17 @@ body.mobile-page {
       }
     }
     .single-idea-cont {
+      color: $mobile-page-grey;
       cursor: pointer;
       margin-top: 60px;
       &:flex-cont {
         display: flex;
       }
       &:hover {
+        text-decoration: none;
+        h4 {
+          text-decoration: underline;
+        }
         .static {
           display: none;
         }
