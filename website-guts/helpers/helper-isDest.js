@@ -7,7 +7,7 @@ module.exports.register = function (Handlebars) {
     
     if(base === compare){
        return insertTrue;
-    } else if (insertFalse && linkPath) {
+    } else if (insertFalse && typeof linkPath === 'string') {
        return path.join(linkPath, insertFalse);
     } else {
       return '';
