@@ -33,7 +33,7 @@ external_stylesheets:
         <div class="andreeseen"></div>
         <p class="caption">{{description.caption}}</p>
       </div>
-      <div>
+      <div class="description-container">
         <p class="description">{{description.blurb_1}}</p>
         <p class="description">{{description.blurb_2}}</p>
       </div>
@@ -67,25 +67,11 @@ external_stylesheets:
   </section>
 
 
-  <!--                         -->
-  <!--Call for Speakers Section-->
-  <!--                         -->
-  <section id="call-for-speakers" class="call-for-speakers-panel">
-    <h1 class="section-title">{{call_for_speakers.title}}</h1>
-    <p class="blurb">{{{call_for_speakers.blurb}}}</p>
-  <div class="button-container desktop">
-    <a class="cta" href="{{linkPath}}/opticon/speakers">{{call_for_speakers.cta.desktop}}</a>
-  </div>
-  <div class="button-container mobile">
-    <a class="cta" href="{{linkPath}}/opticon/speakers">{{call_for_speakers.cta.mobile}}</a>
-  </div>
-  </section>
-
   <!--                -->
   <!--Training Section-->
   <!--                -->
   <section class="training-panel">
-    <h1 class="blue-headline section-title">{{training.title}}</h1>
+    <h1 class="section-title">{{training.title}}</h1>
     <div class="container">
       <p class="blurb">{{{training.blurb}}}</p>
       <div class="button-container desktop">
