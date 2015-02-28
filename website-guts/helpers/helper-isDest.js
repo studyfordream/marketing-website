@@ -1,5 +1,5 @@
 var path = require('path');
-//linkPath, dest, compare, insertTrue, insertFalse
+
 module.exports.register = function (Handlebars) {
   Handlebars.registerHelper('isDest', function(dest, compare, insertTrue, insertFalse, linkPath) {
     var base = path.dirname(dest);
