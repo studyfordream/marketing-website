@@ -1,0 +1,28 @@
+body.opticon-speakers {
+ #outer-wrapper {
+    background-color: $light-blue-bg;
+  }
+  .message-container {
+    margin: 10vh auto;
+    background-color: white;
+    padding: 15px 0px;
+    border: 2px solid gray;
+    h1 {
+      text-align: center;
+    }
+    p {
+      text-align: center;
+      font-size: 1.2em;
+      margin: 70px;
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  body.opticon-speakers {
+    .message-container {
+      margin: 20vh auto;
+      width: 80%;
+    }
+  }
+}
