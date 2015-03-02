@@ -7,7 +7,7 @@ hero:
 top_grid:
   TR_title: "Fast, powerful A/B testing"
   TR_sub_title: "for mobile apps"
-  grid_content:
+  TR_grid_content:
   -
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/01.svg"
     TR_title: "Optimize Everything"
@@ -20,7 +20,7 @@ top_grid:
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/03.svg"
     TR_title: "Reliable and Trusted"
     TR_grid_content: "Optimize your app on the #1 experience optimization platform that is already delivering billions of experiences globally."
-panels:
+TR_panels:
 -
   TR_title: "Visual Editor"
   TR_text: "Change your interface on the fly without writing a line of code."
@@ -77,7 +77,7 @@ customer_logos:
     name: "HomeFinder"
 testing_ideas: 
   TR_header: "Try out these <strong>testing ideas</strong>"
-  ideas_grid:
+  TR_ideas_grid:
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/onboard-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/onboard.gif"
@@ -119,4 +119,4 @@ form_panel:
   TR_submit_button: "Get Started"
   TR_submit_success: "Success"
   TR_link_text: "A single platform for iOS, Android, and the web."
-
+  TR_video_link_text: "Watch Video"
