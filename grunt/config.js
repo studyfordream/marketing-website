@@ -33,9 +33,9 @@ var config = function(grunt, options) {
             '  try { \n\n',
           concat_footer: '  } catch(error){ \n\n' +
             '    console.error(error, targetName);\n\n' +
-            '    if(typeof error === "object") { try { error = JSON.stringify(err, ["message", "arguments", "type", "name"]); } catch (innerErr) { error = innerErr.message || "cannot parse error message"; } }; \n\n' +
+            '    if(typeof error === "object") { try { error = JSON.stringify(error, ["message", "arguments", "type", "name"]); } catch (innerErr) { error = innerErr.message || "cannot parse error message"; } }; \n\n' +
             '    var path = window.location.pathname;\n\n' +
-            '    var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
+            '    var trimpath = path.lastIndexOf("/") === path.length - 1 && path.length > 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
             '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " + targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
             '  } \n' +
             '})(jQuery, window, document);'
@@ -61,9 +61,9 @@ var config = function(grunt, options) {
             '  try { \n\n',
           concat_footer: '  } catch(error){ \n\n' +
             '    console.error(error, targetName);\n\n' +
-            '    if(typeof error === "object") { try { error = JSON.stringify(err, ["message", "arguments", "type", "name"]); } catch (innerErr) { error = innerErr.message || "cannot parse error message"; } }; \n\n' +
+            '    if(typeof error === "object") { try { error = JSON.stringify(error, ["message", "arguments", "type", "name"]); } catch (innerErr) { error = innerErr.message || "cannot parse error message"; } }; \n\n' +
             '    var path = window.location.pathname;\n\n' +
-            '    var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
+            '    var trimpath = path.lastIndexOf("/") === path.length - 1 && path.length > 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
             '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " + targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
             '  } \n' +
             '})(jQuery, window, document);'
