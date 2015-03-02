@@ -3,6 +3,7 @@ var extend = require('extend-shallow');
 var _ = require('lodash');
 
 module.exports = function(assemble) {
+  var mergeTranslated = require('../utils/merge-tranlated-dictionary');
   var environment = assemble.option('environment');
   var websiteRoot = assemble.get('data.websiteRoot');
   var basename = assemble.get('data.basename');
@@ -48,11 +49,16 @@ module.exports = function(assemble) {
       }
     }
 
+    if(/mobile/.test(page) || /customer\-stories/.test(page)) {
+      debugger;
+    }
     //put in custom function for replacing translated array values
     if(translated[locale] && translated[locale][page]) {
-      file.data = extend({}, file.data, translated[locale][page]);
+      file.data = mergeTranslated(file.data, translated[locale][page]);
     }
-
+    if(/mobile/.test(page) || /customer\-stories/.test(page)) {
+      debugger;
+    }
     next();
   };
 };

@@ -14,16 +14,41 @@ var logKeys = function(o) {
     }
   }));
 };
+function recurseKeys(data) {
+  return Object.keys(data).reduce(function(o, key) {
+    var val, clone;
+    
+    if(_.isPlainObject(data[key])) {
+      o[key] = recurseKeys(data[key]);
+    } else if(Array.isArray(data[key])) {
+      data[key].forEach(function(thing, index) {
+        if(_.isPlainObject(thing)) {
+          for(var propKey in thing) {
+            thing[propKey] += ' I GOT TRANSLATED';
+          }
+        } else {
+          o[key][index] = thing + ' I GOT TRANSLATED';
+        }
+      });
+    } else {
+      o[key] = data[key] + ' I GOT TRANSLATED';
+    }
+
+    return o;
+  
+  }, _.clone(data));
+}
 // var smartling = require('smartling-api');
 var smartling = {
-  upload: function (languages, done) {
-    languages['website-de'] = {
-      about: {
-        seo_title: 'New Stuff',
-        visible_title: 'New Stuff'
-      }
-    };
-    done(null, languages);
+  upload: function (dictionary, done) {
+    //languages['website-de'] = {
+      //about: {
+        //seo_title: 'New Stuff',
+        //visible_title: 'New Stuff'
+      //}
+    //};
+    var translated = recurseKeys(dictionary);
+    done(null, translated);
   }
 };
 var i = 1;
@@ -66,15 +91,27 @@ module.exports = function (assemble) {
       if(allRoots.indexOf(page) !== -1) {
         page = path.basename(file.path, path.extname(file.path));
       }
+
+      if(page === 'mobile' || /customer\-stories/.test(page)) {
+        debugger;
+      }
+
+      //must extend local page data (i.e. from YML file) before parsing for translation
+      if(pageData[locale][page]) {
+        file.data = extend({}, file.data, pageData[locale][page]);
+      }
+
       parsedTranslations = createTranslationDict(file.data, locale);
+
       if(Object.keys(parsedTranslations).length > 0) {
         lang[locale] = lang[locale] || {};
         lang[locale][page] = extend({}, lang[locale][page], parsedTranslations);
       }
 
-      if(pageData[locale][page]) {
-        file.data = extend({}, file.data, pageData[locale][page]);
+      if(page === 'mobile' || /customer\-stories/.test(page)) {
+        debugger;
       }
+
       //parse the file.data for TR and MD and put it on lang
       //put the pageData on file.data
 
@@ -95,8 +132,19 @@ module.exports = function (assemble) {
     console.log('send to smartling', lang);
     if(environment === 'dev') {
       //potentially have a cached translated object somewhere
-      assemble.set('translated', lang);
-      cb();
+      //assemble.set('translated', lang);
+      //cb();
+      
+      smartling.upload(lang, function (err, translated) {
+        if (err) {
+          return cb(err);
+        }
+        //console.log(Object.keys(lang.website));
+        //logKeys(translated[locale]);
+        assemble.set('translated', translated);
+        cb();
+      });
+
     }
     else if(environment === 'smartling-staging') {
       smartling.upload(lang, function (err, translated) {
