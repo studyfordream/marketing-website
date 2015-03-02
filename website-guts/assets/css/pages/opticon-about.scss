@@ -1,10 +1,10 @@
 body.opticon-about {
-  .top-paragraph {
-    width: 72%;
-    margin: 62px 0;
-  }
   .paragraphs-container {
     margin-bottom: 100px;
+  }
+  .top-paragraph {
+    padding: 4%;
+    margin: 62px 0;
   }
   #opticon-faq {
     padding: 50px 0;
@@ -19,8 +19,7 @@ body.opticon-about {
     flex-wrap: wrap;
   }
   .faq-item {
-    width: 45%;
-    margin-right: 30px;
+    margin: 45px 0;
     p:first-of-type {
       font-family: AdelleSans-Bold;
       font-size: 18px;
@@ -39,9 +38,7 @@ body.opticon-about {
   .left-paragraph,
   .right-paragraph {
     flex: 1;
-  }
-  .left-paragraph {
-    margin-right: 30px;
+    padding: 4%;
   }
   .confetti-right {
     right: -173px;
@@ -51,6 +48,24 @@ body.opticon-about {
 
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon-about {
+    .top-paragraph {
+      width: 72%;
+      padding: 0;
+    }
+    .left-paragraph,
+    .right-paragraph {
+      padding: 0;
+    }
+    .left-paragraph {
+      margin-right: 30px;
+    }
+    .description-text {
+      text-align: left;
+    }
+    .faq-item {
+      width: 45%;
+      margin: 35px 35px 0 0;
+    }
   }
 }
 

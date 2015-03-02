@@ -1,19 +1,27 @@
 #opticon-nav-bar {
   background-color: white;
+  border-bottom: 1px solid #ccc;
   .opticon-logo {
     width: 155px;
-    /*margin: 15px auto;*/
+    margin: 0 auto;
   }
-
   .nav-options {
     flex-flow: column-wrap;
     padding: 0;
-      a {
-        display: block;
-        text-decoration: none;
-      }
+  }
+  .nav-text-item {
+    display: block;
+    color: $light-text-color;
+    margin: 5px 0;
+    &:hover {
+      text-decoration: none;
     }
   }
+  .body-button {
+    margin: 0;
+    color: #0081BA;
+  }
+}
 
 @media only screen and (min-width: $tablet-min-width) {
   #opticon-nav-bar {
@@ -22,14 +30,10 @@
       align-items: center;
     }
     padding: 10px 0;
-    border-bottom: 1px solid #ccc;
     .opticon-logo {
       flex: 1;
     }
     .nav-text-item {
-      &:not(.body-button) a {
-        color: $light-text-color;
-      }
       margin: 0 30px;
     }
   }
