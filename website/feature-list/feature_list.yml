@@ -260,11 +260,19 @@ tables:
         boolean: true
         starter_bool: true
         enterprise_bool: true
+        tooltip: "A thriving community where experimenters unite, explore, and optimize."
       -
         title: "Knowledge Base"
         boolean: true
         starter_bool: true
         enterprise_bool: true
+        tooltip: "A resource to search and browse for answers and documentation."
+      -
+        title: "Academy"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+        tooltip: "A space to learn and grow your optimization skills."
       -
         title: "Online Tickets"
         boolean: true
@@ -282,11 +290,6 @@ tables:
         enterprise_bool: true
       -
         title: "Dedicated Customer Success Manager"
-        boolean: true
-        starter_bool: false
-        enterprise_bool: true
-      -
-        title: "Strategic Consulting"
         boolean: true
         starter_bool: false
         enterprise_bool: true
