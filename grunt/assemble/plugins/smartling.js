@@ -92,13 +92,9 @@ module.exports = function (assemble) {
         page = path.basename(file.path, path.extname(file.path));
       }
 
-      if(page === 'mobile' || /customer\-stories/.test(page)) {
-        debugger;
-      }
-
       //must extend local page data (i.e. from YML file) before parsing for translation
       if(pageData[locale][page]) {
-        file.data = extend({}, file.data, pageData[locale][page]);
+        extend(file.data, pageData[locale][page]);
       }
 
       parsedTranslations = createTranslationDict(file.data, locale);
@@ -106,10 +102,6 @@ module.exports = function (assemble) {
       if(Object.keys(parsedTranslations).length > 0) {
         lang[locale] = lang[locale] || {};
         lang[locale][page] = extend({}, lang[locale][page], parsedTranslations);
-      }
-
-      if(page === 'mobile' || /customer\-stories/.test(page)) {
-        debugger;
       }
 
       //parse the file.data for TR and MD and put it on lang
@@ -129,7 +121,7 @@ module.exports = function (assemble) {
     cb();
   }, function (cb) {
     //don't forget that lang.modals is defined here
-    console.log('send to smartling', lang);
+    console.log('send to smartling');
     if(environment === 'dev') {
       //potentially have a cached translated object somewhere
       //assemble.set('translated', lang);

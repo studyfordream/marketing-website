@@ -10,11 +10,12 @@ module.exports = function(assemble) {
   var locales = assemble.get('data.locales');
   var cachedTypes = [];
 
-  return function mergePageData (file, next) {
+  return function mergeTranslatedData (file, next) {
+    var pageData = assemble.get('pageData');
     var translated = assemble.get('translated');
     var pagesNamespace = 'page_content';
     var allRoots = locales.concat(websiteRoot);
-    var locale, page, data, modalData, pageData;
+    var locale, page, data, modalData;
     var pagePath = true;
     var cached = false;
     var rootIndex = file.path.indexOf('/' + websiteRoot + '/');
@@ -49,16 +50,16 @@ module.exports = function(assemble) {
       }
     }
 
-    if(/mobile/.test(page) || /customer\-stories/.test(page)) {
-      debugger;
+    if(pageData[locale] && pageData[locale][page]) {
+      extend(file.data, pageData[locale][page]);
     }
+
     //put in custom function for replacing translated array values
     if(translated[locale] && translated[locale][page]) {
-      file.data = mergeTranslated(file.data, translated[locale][page]);
+      mergeTranslated(file.data, translated[locale][page], true); //mutate the file.data object
+      //file.data = mergeTranslated(file.data, translated[locale][page]);
     }
-    if(/mobile/.test(page) || /customer\-stories/.test(page)) {
-      debugger;
-    }
+
     next();
   };
 };

@@ -2,6 +2,7 @@ var path = require('path');
 var createStack = require('layout-stack');
 var extend = require('extend-shallow');
 var _ = require('lodash');
+var mergeTranslated = require('../utils/merge-tranlated-dictionary');
 
 module.exports = function(assemble) {
   // transform the layout front matter into an object
@@ -45,7 +46,13 @@ module.exports = function(assemble) {
 
           //apply translation for the layout YFM
           if(translated[locale] && translated[locale][page] && translated[locale][page].hasOwnProperty(key)) {
-            val = extend(val, translated[locale][page][key]);
+            if(_.isPlainObject(val)) {
+              mergeTranslated(val, translated[locale][page][key]);
+            } else if(Array.isArray(val)) {
+              val = mergeTranslated(val, translated[locale][page][key]);
+            } else {
+              val = translated[locale][page][key];
+            }
           }
 
           data[key] = val;
@@ -57,7 +64,7 @@ module.exports = function(assemble) {
     /* jshint ignore:end */
     //which way should extend be to overwrite file.data with data
     //data from layout YFM would overwrite page YFM if the keys match
-    file.data = extend(file.data, data);
+    extend(file.data, data);
 
     //puts the data from the YAML front matter of layouts onto file.data
     //can be accessed with this[property] in hbs template

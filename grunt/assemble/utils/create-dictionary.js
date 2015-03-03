@@ -83,7 +83,7 @@ module.exports = function (assemble) {
         }
       }
       //else if( Array.isArray(data[key]) ) {
-        //val = processArray(data[key], split, createDictionary);
+      //val = processArray(data[key], split, createDictionary);
       //}
 
       if(val) {
