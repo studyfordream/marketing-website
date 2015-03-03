@@ -4,53 +4,19 @@ var path = require('path');
 var _ = require('lodash');
 var through = require('through2');
 var extend = require('extend-shallow');
-var logKeys = function(o) {
-  console.log(Object.keys(o).sort(function(a,b) {
-    if(a > b) { 
-      return 1;
-    }
-    if(a < b) { 
-      return -1;
-    }
-  }));
-};
-function recurseKeys(data) {
-  return Object.keys(data).reduce(function(o, key) {
-    var val, clone;
-    
-    if(_.isPlainObject(data[key])) {
-      o[key] = recurseKeys(data[key]);
-    } else if(Array.isArray(data[key])) {
-      data[key].forEach(function(thing, index) {
-        if(_.isPlainObject(thing)) {
-          for(var propKey in thing) {
-            thing[propKey] += ' I GOT TRANSLATED';
-          }
-        } else {
-          o[key][index] = thing + ' I GOT TRANSLATED';
-        }
-      });
-    } else {
-      o[key] = data[key] + ' I GOT TRANSLATED';
-    }
-
-    return o;
-  
-  }, _.clone(data));
+var htmlParser = require('l10n-tools/html-parser');
+var smartling = require('l10n-tools/smartling');
+var fs = require('fs');
+var q = require('q');
+try{
+  var smartlingConfig = fs.readFileSync('./configs/smartlingConfig.json', {encoding: 'utf-8'});
+} catch(err){
+  console.error('Cannot read Smartling config: ', err);
 }
-// var smartling = require('smartling-api');
-var smartling = {
-  upload: function (dictionary, done) {
-    //languages['website-de'] = {
-      //about: {
-        //seo_title: 'New Stuff',
-        //visible_title: 'New Stuff'
-      //}
-    //};
-    var translated = recurseKeys(dictionary);
-    done(null, translated);
-  }
-};
+if(smartlingConfig){
+  smartlingConfig = JSON.parse(smartlingConfig);
+}
+
 var i = 1;
 module.exports = function (assemble) {
   var lang = assemble.get('lang') || {};
@@ -58,6 +24,7 @@ module.exports = function (assemble) {
   var environment = assemble.option('environment');
   var websiteRoot = assemble.get('data.websiteRoot');
   var locales = assemble.get('data.locales');
+  var localeCodes = ['de_DE', 'fr_FR', 'sp_SP', 'jp_JP'];
   var createTranslationDict = require('../utils/create-dictionary')(assemble);
   var locale;
 
@@ -120,38 +87,52 @@ module.exports = function (assemble) {
     this.push(file);
     cb();
   }, function (cb) {
-    //don't forget that lang.modals is defined here
-    console.log('send to smartling');
-    if(environment === 'dev') {
-      //potentially have a cached translated object somewhere
-      //assemble.set('translated', lang);
-      //cb();
-      
-      smartling.upload(lang, function (err, translated) {
-        if (err) {
-          return cb(err);
+    var DICT_FNAME = 'marketing_website_yaml.pot';
+    var phrases = [];
+    /*
+      Recursively go aroung object and group all of the text messages by filename
+     */
+    function addStrings(phrases, obj, key){
+      if(_.isString(obj)){
+        if(key.indexOf('MD_') === 0){
+          // parse given key as HTML page - try to extract simple messages from it
+          var list = htmlParser.extract(obj);
+          // append all the new messages into general array
+          phrases.push.apply(phrases, list);
+        } else {
+          phrases.push({msg: obj});
         }
-        //console.log(Object.keys(lang.website));
-        //logKeys(translated[locale]);
-        assemble.set('translated', translated);
-        cb();
+      }
+      else if (_.isArray(obj) || _.isPlainObject(obj)) {
+        _.forEach(obj, function(value, key){
+          addStrings(phrases, value, key);
+        });
+      }
+    }
+    _.forEach(lang, function(pages){
+      _.forEach(pages, function(keys, fname){
+        var list = [];
+        phrases.push({fname: fname, phrases: list});
+        addStrings(list, keys, fname);
       });
+    });
 
-    }
-    else if(environment === 'smartling-staging') {
-      smartling.upload(lang, function (err, translated) {
-        if (err) {
-          return cb(err);
-        }
-        //console.log(Object.keys(lang.website));
-        //logKeys(translated[locale]);
-        assemble.set('translated', translated);
+    console.log('send to smartling', phrases);
+    smartling.send(smartling.generatePO(phrases), smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, DICT_FNAME).then(function(){
+      var translations = [];
+      var defers = localeCodes.map(function(code){
+        return smartling.fetch(smartlingConfig.URL, code, DICT_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID).then(function(body){
+          //fs.writeFileSync(code + '-' + DICT_FNAME, body);
+          console.log(smartling.parsePOWithContext(body));
+          translations[code] = smartling.parsePOWithContext(body);
+        });
+      });
+      // when all translations are fetched - call callback
+      q.all(defers).then(function(){
+        console.log(translations);
+        assemble.set('translated', translations);
         cb();
       });
-    } else if (environment === 'production' || environment === 'staging') {
-      //retrieve translated object from smartling or potentially have a cached object somewhere
-      console.log('environment is: ' + environment);
-      cb();
-    }
+    });
   });
 };

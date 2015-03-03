@@ -64,6 +64,7 @@
     "grunt-text-replace": "0.3.12",
     "gulp-extname": "^0.2.0",
     "handlebars": "^3.0.0",
+    "l10n-tools": "git+ssh://git@github.com/optimizely/l10n-tools.git",
     "js-yaml": "^3.2.6",
     "layout-stack": "^0.1.1",
     "lodash": "^3.2.0",
@@ -72,7 +73,8 @@
     "plasma": "^0.6.1",
     "through2": "^0.6.3",
     "vinyl-fs": "git://github.com/wearefractal/vinyl-fs",
-    "parser-front-matter": "^1.1.2"
+    "parser-front-matter": "^1.1.2",
+    "q": "^1.1.2"
   },
   "licenses": [
     {
