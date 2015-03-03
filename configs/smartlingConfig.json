@@ -1,0 +1,5 @@
+{
+  "API_KEY": "cf62dd3d-9067-4cad-820b-c4e54fde4b4b",
+  "PROJECT_ID": "397734a3c",
+  "URL": "https://api.smartling.com/v1/file/get?apiKey=%s&projectId=%s&locale=%s&fileUri=%s&includeOriginalStrings=true&retrievalType=pseudo"
+}
