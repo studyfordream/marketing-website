@@ -25,11 +25,11 @@
 
 @media only screen and (min-width: $tablet-min-width) {
   #opticon-nav-bar {
+    padding: 10px 0;
     .opticon-flex-container {
       display: flex;
       align-items: center;
     }
-    padding: 10px 0;
     .opticon-logo {
       flex: 1;
     }

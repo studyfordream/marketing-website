@@ -4,8 +4,6 @@
   width: 100%;
   .nav-text-item {
     margin: 15px 0;
-  }
-  .nav-text {
     font-family: AdelleSans-Regular;
     font-size: 1.338em;
     letter-spacing: 0.46px;
@@ -13,6 +11,9 @@
     color: $light-text-color;
     &:hover {
       text-decoration: none;
+    }
+    &.body-button {
+      color: #0081BA;
     }
   }
 }

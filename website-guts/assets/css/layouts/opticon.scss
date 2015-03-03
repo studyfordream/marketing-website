@@ -60,44 +60,10 @@ body.opticon {
     margin: 0;
   }
   .body-button {
-    font-family: AdelleSans-Regular;
-    font-size: 1em;
-    color: #0081BA;
-    background-color: #fff;
-    letter-spacing: 0.38px;
-    border: 1px solid #0081BA;
-    border-radius: 2px;
-    padding: 11px 35px;
-    display: inline-block;
-    margin: 30px 0;
-    &:hover {
-      text-decoration: none;
-      background: #E9F3F4;
-    }
+    @include opticon-button;
   }
   .arrow-button {
-    font-family: AdelleSans-Regular;
-    font-size: 1em;
-    background-color: #fff;
-    color: #0081BA;
-    letter-spacing: 0.38px;
-    border: 1px solid #0081BA;
-    border-radius: 2px;
-    display: inline-block;
-    margin: 15px 0;
-    &:hover {
-      text-decoration: none;
-    }
-    .cta-text,
-    .cta-arrow {
-      display: inline-block;
-      border: 1px solid #0081BA;
-      border-radius: 2px;
-      padding: 11px 15px;
-    }
-    .cta-arrow {
-      border-left: none;
-    }
+    @include anim-opticon-button;
   }
   .optimizely-host {
     font-family: AdelleSans-Regular;
