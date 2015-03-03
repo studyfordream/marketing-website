@@ -38,3 +38,6 @@ second_day:
     -
       time: "1:25 <span>PM</span>"
       event: "Breakout Sessions"
+    -
+      time: "4:20 <span>PM</span>"
+      event: "Opticon Ends"
