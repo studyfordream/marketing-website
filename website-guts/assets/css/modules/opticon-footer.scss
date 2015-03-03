@@ -5,15 +5,16 @@
   .nav-text-item {
     margin: 15px 0;
     font-family: AdelleSans-Regular;
-    font-size: 1.338em;
+    font-size: 0.938em;
     letter-spacing: 0.46px;
     line-height: 23px;
     color: $light-text-color;
+    display: block;
     &:hover {
       text-decoration: none;
     }
     &.body-button {
-      color: #0081BA;
+      color: $opticon-brand-blue;
     }
   }
 }
@@ -30,12 +31,8 @@
       flex: 1;
     }
     .nav-text-item {
-      color: $light-text-color;
       margin: 0 30px;
-    }
-    .nav-text {
       font-size: 1.338em;
-      color: $light-text-color;
     }
     .opticon-flex-container {
       justify-content: flex-end;

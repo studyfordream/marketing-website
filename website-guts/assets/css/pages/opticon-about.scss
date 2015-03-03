@@ -12,7 +12,7 @@ body.opticon-about {
       font-family: AdelleSans-Regular;
       font-weight: 100;
       font-size: 1.875em;
-      color: #0081BA;
+      color: $opticon-brand-blue;
     }
   }
   .flex-container {
@@ -20,17 +20,17 @@ body.opticon-about {
   }
   .faq-item {
     margin: 45px 0;
-    p:first-of-type {
+    .question {
       font-family: AdelleSans-Bold;
-      font-size: 18px;
-      color: #6C6C6C;
+      font-size: 1.125em;
+      color: $opticon-text-gray;
       letter-spacing: 0.5px;
       line-height: 28px;
     }
-    p:last-of-type {
+    .answer {
       font-family: AdelleSans-Regular;
-      font-size: 13px;
-      color: #6C6C6C;
+      font-size: 0.8125;
+      color: $opticon-text-gray;
       letter-spacing: 0.4px;
       line-height: 24px;
     }

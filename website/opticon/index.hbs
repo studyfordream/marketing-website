@@ -26,29 +26,29 @@ external_stylesheets:
     <h1 class="page-title second-title">{{title_section.title2}}</h1>
     <h4 class="event-details">{{title_section.date}} | {{title_section.location}}</h4>
     <p class="optimizely-host">{{{title_section.sub_title}}}</p>
-    <a class="body-button" href="{{linkPath}}/opticon/about">{{title_section.cta}}</a>
+    <a class="arrow-button" href="https://www.eventbrite.com/e/opticon-2015-tickets-14328636337">
+      <div class="cta-text">{{title_section.cta}}</div>
+      <div class="cta-arrow">→</div>
+    </a>
   </div>
 </section>
+{{/with}}
 
 <!--                   -->
 <!--Description Section-->
 <!--                   -->
 <section class="description container">
-  <h3 class="description-title">{{description.title}}</h3>
-  <p class="description-text">{{description.blurb}}</p>
+  <h3 class="description-title">{{opticon_data.description.title}}</h3>
+  <p class="description-text">{{opticon_data.description.blurb}}</p>
   <div class="button-container">
-    <a class="body-button" href="{{linkPath}}/opticon/about">{{description.cta}}</a>
+    <a class="body-button" href="{{linkPath}}/opticon/about">{{opticon_data.description.cta}}</a>
   </div>
 </section>
 
 <div class="confetti-right"></div>
-{{/with}}
 
 {{> opticon_keynote_speakers}}
 {{#with opticon_data}}
-<div class="button-container">
-  <a class="body-button" href="#">{{speakers_cta}}</a>
-</div>
 
 <!--              -->
 <!--Tracks Section-->

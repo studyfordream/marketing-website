@@ -307,10 +307,10 @@
 @mixin opticon-button {
   font-family: AdelleSans-Regular;
   font-size: 1em;
-  color: #0081BA;
+  color: $brand-blue;
   background-color: #fff;
   letter-spacing: 0.38px;
-  border: 1px solid #0081BA;
+  border: 1px solid $brand-blue;
   border-radius: 2px;
   padding: 11px 35px;
   display: inline-block;
@@ -336,7 +336,7 @@
     right: -60px;
     top: 0;
     padding-top: 18px;
-    border-left: 1px solid #0081BA;
+    border-left: 1px solid $brand-blue;
   }
   .cta-text {
     transition: all 0.5s ease-out;

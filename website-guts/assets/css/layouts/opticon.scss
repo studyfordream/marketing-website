@@ -5,11 +5,11 @@ body.opticon {
   }
   .page-title {
     font-family: AdelleSans-Bold;
-    background: #0081BA;
+    background: $opticon-brand-blue;
     display: inline-block;
   }
   .common-page-title {
-    font-size: 48px;
+    font-size: 3em;
     color: #fff;
     display: inline;
     padding: 2px 15px;
@@ -17,7 +17,7 @@ body.opticon {
   .subtitle {
     font-family: AdelleSans-Regular;
     font-size: 1.25em;
-    color: #444B4F;
+    color: $almost-black-text-color;
     letter-spacing: 0.41px;
     line-height: 38px;
   }
@@ -25,14 +25,14 @@ body.opticon {
     font-family: AdelleSans-Regular;
     font-weight: 100;
     font-size: 1.875em;
-    color: #0081BA;
+    color: $opticon-brand-blue;
     letter-spacing: 0.57px;
     line-height: 41px;
   }
   .description-text {
     font-family: AdelleSans-Regular;
     font-size: 1em;
-    color: #6C6C6C;
+    color: $opticon-text-gray;
     letter-spacing: 0.56px;
     line-height: 31px;
     text-align: left;
@@ -40,7 +40,7 @@ body.opticon {
   .detail-text {
     font-family: AdelleSans-Regular;
     font-size: 0.8125em;
-    color: #6C6C6C;
+    color: $opticon-text-gray;
     letter-spacing: 0.4px;
     line-height: 24px;
   }
@@ -53,8 +53,8 @@ body.opticon {
   }
   .item-title {
     font-family: AdelleSans-Bold;
-    font-size: 14px;
-    color: #444B4F;
+    font-size: 0.875em;
+    color: $almost-black-text-color;
     letter-spacing: 1.07px;
     line-height: 28px;
     margin: 0;
@@ -67,8 +67,8 @@ body.opticon {
   }
   .optimizely-host {
     font-family: AdelleSans-Regular;
-    font-size: 13px;
-    color: #444B4F;
+    font-size: 0.8125em;
+    color: $almost-black-text-color;
     letter-spacing: 0.39px;
     line-height: 28px;
   }
@@ -83,14 +83,14 @@ body.opticon {
   }
   .register-section {
     padding: 30px 0;
-    background: #0081BA;
+    background: $opticon-brand-blue;
     border: 1px solid #DADADA;
     text-align: center;
     h3 {
       font-family: AdelleSans-Regular;
       font-weight: 100;
       font-size: 2em;
-      color: #E9F3F4;
+      color: #fff;
       letter-spacing: 0.61px;
       line-height: 41px;
       text-align: center;
@@ -117,7 +117,7 @@ body.opticon {
     margin: 3px;
   }
   .confetti-left {
-    @include opticon-confetti('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pattern_left.svg', 100%, 450px);
+    @include opticon-confetti('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pattern_left.svg', 450px, 450px);
     display: none;
   }
   .confetti-right {

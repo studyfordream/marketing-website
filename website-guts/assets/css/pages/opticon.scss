@@ -1,12 +1,12 @@
 body.opticon-homepage {
   .title-section {
-    background: #E9F3F4;
+    background: $opticon-light-blue;
     padding: 50px 0;
   }
   .page-title {
     font-size: 4em;
-    color: #E9F3F4;
-    background: #0081BA;
+    color: $opticon-light-blue;
+    background: $opticon-brand-blue;
     padding: 0 15px 0 25px;
     margin: 0;
   }
@@ -15,7 +15,7 @@ body.opticon-homepage {
     font-family: AdelleSans-Regular;
     font-weight: 100;
     font-size: 20px;
-    color: #444B4F;
+    color: $almost-black-text-color;
     letter-spacing: 0.41px;
   }
   .speaker-container {
