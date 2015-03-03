@@ -7,10 +7,6 @@ var marked = require('optimizely-marked');
 module.exports = function (assemble) {
   var locales = assemble.get('data.locales');
 
-  function parseMarkdown(mdStr) {
-    return marked(mdStr);
-  }
-
   //array will only be translated if key defining the array has a TR or MD flag
   //otherwise keys like layout_body_class or src containing arrays will be put into
   //translation dict.if the array contains only strings all those strings will be returned
@@ -23,7 +19,7 @@ module.exports = function (assemble) {
       } else if(Array.isArray(item)) {
         val = processArray(item, type, parser);
       } else if(type === 'MD') {
-        val = parseMarkdown(item);
+        val = marked(item);
       } else {
         val = item;
       }
@@ -37,8 +33,9 @@ module.exports = function (assemble) {
     return reduced;
   }
 
-  var createDictionary = function createDictionary(data, locale) {
+  var createDictionary = function createDictionary(fileData, locale) {
     var linkPath = assemble.get('data.linkPath');
+    var data = fileData.data || fileData;
 
     if(locales.indexOf(locale) !== -1) {
       linkPath = path.join(linkPath, locale);
@@ -51,28 +48,44 @@ module.exports = function (assemble) {
     });
 
     return Object.keys(data).reduce(function(o, key){
-      var split = key.split('_')[0];
+      var split = key.split('_');
+      var prefix = split[0];
+      var suffix = split[1] + '_' + split[2];
       var val;
       var recursed;
+      var pageContent;
 
-      if( ( split === 'MD' || split === 'TR' ) && ( data[key] !== 'object' || Array.isArray(data[key]) ) ) {
-        switch(split) {
+      if( ( prefix === 'MD' || prefix === 'TR' ) && ( data[key] !== 'object' || Array.isArray(data[key]) ) ) {
+        switch(prefix) {
           case 'MD':
             //if it's an array remember the key
             if(Array.isArray(data[key])) {
-            val = processArray(data[key], split, createDictionary);
-          } else {
-            val = parseMarkdown(data[key]);
-          }
-          break;
+              val = processArray(data[key], prefix, createDictionary);
+            } else {
+              val = marked(data[key]);
+            }
+            break;
           case 'TR':
+            if(suffix === 'page_content' && data[key] === 'MD') {
+              pageContent = fileData.contents.toString();  //convert the buffer object
+              switch(data[key]) {
+                case 'MD':
+                  val = marked(pageContent);
+                  break;
+                default:
+                  val = pageContent;
+                  break;
+              }
+              key = 'HTML_' + suffix; //set the key so it later overwrites `file.content` in middleware
+              break; //break out early if this key is for page content translation
+            }
             //if it's an array remember the key
             if(Array.isArray(data[key])) {
-            val = processArray(data[key], split, createDictionary);
-          } else {
-            val = data[key];
-          }
-          break;
+              val = processArray(data[key], prefix, createDictionary);
+            } else {
+              val = data[key];
+            }
+            break;
         }
         //fucking null....are you kidding me!!!!
       } else if( _.isPlainObject(data[key]) ) {
@@ -83,7 +96,7 @@ module.exports = function (assemble) {
         }
       }
       //else if( Array.isArray(data[key]) ) {
-      //val = processArray(data[key], split, createDictionary);
+      //val = processArray(data[key], prefix, createDictionary);
       //}
 
       if(val) {

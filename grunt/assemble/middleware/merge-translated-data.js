@@ -56,6 +56,10 @@ module.exports = function(assemble) {
 
     //put in custom function for replacing translated array values
     if(translated[locale] && translated[locale][page]) {
+      //replace the content of the page if it has been parsed for translation
+      if(translated[locale][page].HTML_page_content) {
+        file.content = translated[locale][page].HTML_page_content;
+      }
       mergeTranslated(file.data, translated[locale][page], true); //mutate the file.data object
       //file.data = mergeTranslated(file.data, translated[locale][page]);
     }

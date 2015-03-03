@@ -83,11 +83,10 @@ module.exports = function (grunt) {
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
 
     //is this order dependent because we are merging page data for localization
-    assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
-    assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
-
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
     assemble.preRender(pathRe, localizeLinkPath(assemble));
+    assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
+    assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
 
     var modalFiles = config.modals.files[0];
     assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src));
@@ -157,7 +156,7 @@ module.exports = function (grunt) {
       });
     });
 
-    assemble.run(['prep-smartling', 'pages', 'subfolders'], function (err) {
+    assemble.run(['prep-smartling', 'pages'], function (err) {
     // assemble.run(['prep-smartling'], function (err) {
       if (err) {
         return done(err);

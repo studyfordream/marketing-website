@@ -3,7 +3,7 @@ featured_video:
   TR_header: "12 Million More Sign-ups"
   TR_body: "Code.org used website optimization to bring computer science education to the world. With Optimizely, the team was able to quickly and easily improve the registration flow on their website, generating 12 million more sign-ups for the annual Hour of Code campaign."
 
-customer_stories: 
+TR_customer_stories: 
 - 
   TR_header: "28% lift in social shares"
   logo_url: "//cdn.optimizely.com/img/5935064/befd776a60b44ea3bec46c54ec11d3cb.png"

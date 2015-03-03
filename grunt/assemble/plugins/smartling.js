@@ -97,7 +97,7 @@ module.exports = function (assemble) {
         extend(file.data, pageData[locale][page]);
       }
 
-      parsedTranslations = createTranslationDict(file.data, locale);
+      parsedTranslations = createTranslationDict(file, locale);
 
       if(Object.keys(parsedTranslations).length > 0) {
         lang[locale] = lang[locale] || {};
@@ -110,7 +110,7 @@ module.exports = function (assemble) {
     } else {
       //can parse the file.data here for TR or MD instead of in the transform on put it on lang
       //if there is page data (there shouldn't ever be YAML for layouts|modals|partials put it on the file.data
-      parsedTranslations = createTranslationDict(file.data, locale);
+      parsedTranslations = createTranslationDict(file, locale);
       if(Object.keys(parsedTranslations).length > 0) {
         lang[locale] = lang[locale] || {};
         lang[locale][page] = parsedTranslations;
@@ -126,7 +126,7 @@ module.exports = function (assemble) {
       //potentially have a cached translated object somewhere
       //assemble.set('translated', lang);
       //cb();
-      
+
       smartling.upload(lang, function (err, translated) {
         if (err) {
           return cb(err);

@@ -7,7 +7,7 @@ module.exports = function(patterns, locale) {
   var plasma = new Plasma();
   var iterator = 0;
   var keysCache = [];
-  var pagesNamespace = 'page_content';
+  var pagesNamespace = 'page_data';
   var lastKey, data;
   plasma.option('cwd', locale);
   plasma.option('namespace', function(fp) {
