@@ -19,7 +19,6 @@ body.opticon-homepage {
     letter-spacing: 0.41px;
   }
   .speaker-container {
-    margin: 0 auto;
     padding: 200px 2% 0 2%;
     text-align: center;
     background-repeat: no-repeat;
@@ -44,7 +43,7 @@ body.opticon-homepage {
   }
   .content-container {
     text-align: right;
-    padding: 0 24%;
+    padding: 0 5%;
     h1,
     h4 {
       text-align: right;
@@ -60,8 +59,8 @@ body.opticon-homepage {
     padding: 50px 0 80px 0;
   }
   .track-container {
-    margin: 0 10px;
-    padding-top: 75px;
+    width: 25%;
+    padding: 75px 10px 10px 10px;
     text-align: center;
     background-repeat: no-repeat;
     background-position: top center;
@@ -86,7 +85,7 @@ body.opticon-homepage {
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon-homepage {
     .speaker-container {
-      width: 31%;
+      width: 33%;
     }
     .description-title {
       padding: 0 18%;

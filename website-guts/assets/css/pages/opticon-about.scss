@@ -19,7 +19,7 @@ body.opticon-about {
     flex-wrap: wrap;
   }
   .faq-item {
-    margin: 45px 0;
+    padding: 20px 0;
     .question {
       font-family: AdelleSans-Bold;
       font-size: 1.125em;
@@ -37,7 +37,7 @@ body.opticon-about {
   }
   .left-paragraph,
   .right-paragraph {
-    flex: 1;
+    width: 50%;
     padding: 4%;
   }
   .confetti-right {
@@ -54,17 +54,14 @@ body.opticon-about {
     }
     .left-paragraph,
     .right-paragraph {
-      padding: 0;
-    }
-    .left-paragraph {
-      margin-right: 30px;
+      padding: 10px 30px 10px 0;
     }
     .description-text {
       text-align: left;
     }
     .faq-item {
-      width: 45%;
-      margin: 35px 35px 0 0;
+      width: 50%;
+      padding: 20px 35px 0 0;
     }
   }
 }
