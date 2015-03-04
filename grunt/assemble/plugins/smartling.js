@@ -28,7 +28,7 @@ module.exports = function (assemble) {
   var environment = assemble.option('environment');
   var websiteRoot = assemble.get('data.websiteRoot');
   var locales = assemble.get('data.locales');
-  var localeCodes = ['de_DE', 'fr_FR', 'sp_SP', 'jp_JP'];
+  var localeCodes = ['de_DE', 'fr_FR', 'es_ES', 'ja_JP'];
   var createTranslationDict = require('../utils/create-dictionary')(assemble);
   var locale;
 
