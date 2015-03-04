@@ -16,7 +16,7 @@ layout_modals:
           var _sf_startpt=(new Date()).getTime()
           var monitorTiming = setInterval(function(){
             if(window.optimizely){
-              window.optimizelyLoadTime = (new Date).getTime() - _sf_startpt;
+              window.optimizelyLoadTime = (new Date()).getTime() - _sf_startpt;
               clearInterval(monitorTiming);
             }
           }, 100);

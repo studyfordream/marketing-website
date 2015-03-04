@@ -534,7 +534,7 @@ if(w.monitorTiming){
 			    'timingCategory': 'external script timing',
 			    'timingVar': 'cdn.optimizely.com',
 			    'timingValue': w.optimizelyLoadTime,
-					'timeingLabel': 'Optimizely',
+					'timingLabel': 'Optimizely',
 			    'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
 			  });
 				clearInterval(reportOptimizelyTiming);
