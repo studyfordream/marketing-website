@@ -19,6 +19,7 @@ TR_menu_items:
 layout_body_class:
 - benefits-layout
 layout_script: benefits.js
+TR_page_content: true
 ---
 <div id="main">
     <div id="page-header">
@@ -26,7 +27,7 @@ layout_script: benefits.js
             <div class="clearfix page-subheader-cont">
                 <h1>
                     {{#unless this.hide_h1_super}}<span class="super">Optimizely for</span>{{/unless}}
-                    {{this.visible_title}}
+                    {{this.TR_visible_title}}
                 </h1>
                 <ul class="sub-header-nav">
                     <li><a href="{{linkPath}}/pricing" class="pricing">Plans and Pricing</a></li>
@@ -34,9 +35,14 @@ layout_script: benefits.js
                     <li class="dropdown">
                         <span class="for-menu-label">Optimizely for: </span>
                         <ul class="for-menu" data-current="{{dirname}}">
-                            {{#menu_items}}
-                            <li><a href="{{#isUrl url}}{{../../linkPath}}{{/isUrl}}{{url}}"{{#class}} class="{{.}}"{{/class}}>{{text}}</a></li>
-                            {{/menu_items}}
+                            {{#this.TR_menu_items}}
+                            {{!-- {{debug ../this.dest}} --}}
+                            <li>
+                              <a href="{{#isUrl url}}{{../../linkPath}}{{/isUrl}}{{url}}"{{#isCurrentDest ../this.dest url true}} class="active hide"{{/isCurrentDest}}>
+                                {{TR_text}}
+                              </a>
+                            </li>
+                            {{/this.TR_menu_items}}
                         </ul>
                     </li>
                 </ul>

@@ -1,8 +1,8 @@
 ---
 layout: page
-seo_title: Customers
-visible_title: "Over 8,000 Happy Customers"
-sub_head: Find out who's testing with Optimizely right now
+TR_seo_title: Customers
+TR_visible_title: "Over 8,000 Happy Customers"
+TR_sub_head: Find out who's testing with Optimizely right now
 page_script: customers.js
 body_class:
 - customers-page
@@ -89,9 +89,9 @@ body_class:
 </div>
 <div class="testimonials-container">
   <ul>
-    {{#each customers.slides}}
+    {{#each page_data.TR_slides}}
     <li {{#isnt @index 0}}class="optly-hide"{{/isnt}}data-slides={{@index}}>
-      <q>{{header}}</q>
+      <q>{{TR_header}}</q>
       <div class="logo-border">
         <img src="{{../assetsDir}}{{logo}}" alt="Customer Quote Logos">
       </div>

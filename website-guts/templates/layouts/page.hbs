@@ -6,8 +6,11 @@ layout_body_class: false
 <div id="main">
 	<div id="page-header">
 		<div class="container">
-			<h1>{{this.visible_title}}</h1>
-			{{#if this.sub_head}}{{#omarkdown}}{{{this.sub_head}}}{{/omarkdown}}{{/if}}
+			<h1>{{this.TR_visible_title}}</h1>
+			{{!-- removed markedown helper here for i18n --}}
+			{{#if this.TR_sub_head}}
+				<p>{{{this.TR_sub_head}}}</p>
+			{{/if}}
 		</div><!--/.container-->
 	</div><!--/#page-header-->
 	<div id="page-header-gradient"></div>

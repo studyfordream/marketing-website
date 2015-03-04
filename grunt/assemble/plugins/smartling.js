@@ -73,6 +73,10 @@ module.exports = function (assemble) {
     });
     var pagePath = true;
 
+    if(/layout/.test(file.path)) {
+      debugger;
+    }
+
     if(rootIndex !== -1) {
       locale = websiteRoot;
     } else if(localeIndex !== -1) {

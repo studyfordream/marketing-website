@@ -66,7 +66,7 @@ module.exports = function (assemble) {
             }
             break;
           case 'TR':
-            if(suffix === 'page_content' && data[key] === 'MD') {
+            if(suffix === 'page_content') {
               pageContent = fileData.contents.toString();  //convert the buffer object
               switch(data[key]) {
                 case 'MD':

@@ -18,9 +18,6 @@ TR_top_nav:
 -
   link: "contact"
   TR_title: "contact"
--
-  link: "about"
-  TR_title: "about"
 ---
 <div id="main">
 	<div id="page-header">
@@ -30,7 +27,7 @@ TR_top_nav:
 				<ul class="sub-header-nav">
           {{#each TR_top_nav}}
           <li class="sub-nav-{{link}}">
-            <a href="{{linkPath}}/{{link}}">{{capitalizeFirst TR_title}}</a>
+            <a href="{{../linkPath}}/{{link}}"{{#isCurrentDest ../this.dest link true}}class="active"{{/isCurrentDest}}>{{capitalizeFirst TR_title}}</a>
           </li>
           {{/each}}
 				</ul>
