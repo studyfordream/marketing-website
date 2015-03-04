@@ -18,12 +18,10 @@ body.opticon-agenda {
   }
   .agenda-row {
     border-top: solid 1px #ddd;
-    display: flex;
   }
   .agenda-time {
     min-width: 120px;
     padding: 5px 20px 0 5px;
-    font-family: AdelleSans-Regular;
     font-size: 0.875em;
     color: $almost-black-text-color;
     letter-spacing: 1px;
@@ -32,12 +30,10 @@ body.opticon-agenda {
     }
   }
   .agenda-event {
-    font-family: AdelleSans-Regular;
     font-size: 0.875em;
     color: $almost-black-text-color;
     letter-spacing: 1px;
     font-size: 1em;
-    color: $almost-black-text-color;
     letter-spacing: 0.47px;
   }
   .description-title {

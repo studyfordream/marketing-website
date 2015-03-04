@@ -4,9 +4,16 @@ body.opticon {
     padding: 40px 0;
   }
   .page-title {
-    font-family: AdelleSans-Bold;
     background: $opticon-brand-blue;
     display: inline-block;
+  }
+  .adelle-sans {
+    font-family: AdelleSans-Regular;
+    font-weight: 100;
+  }
+  .adelle-sans--bold {
+    font-family: AdelleSans-Regular;
+    font-weight: 600;
   }
   .common-page-title {
     font-size: 3em;
@@ -15,22 +22,18 @@ body.opticon {
     padding: 2px 15px;
   }
   .subtitle {
-    font-family: AdelleSans-Regular;
     font-size: 1.25em;
     color: $almost-black-text-color;
     letter-spacing: 0.41px;
     line-height: 38px;
   }
   .description-title {
-    font-family: AdelleSans-Regular;
-    font-weight: 100;
     font-size: 1.875em;
     color: $opticon-brand-blue;
     letter-spacing: 0.57px;
     line-height: 41px;
   }
   .description-text {
-    font-family: AdelleSans-Regular;
     font-size: 1em;
     color: $opticon-text-gray;
     letter-spacing: 0.56px;
@@ -38,7 +41,6 @@ body.opticon {
     text-align: left;
   }
   .detail-text {
-    font-family: AdelleSans-Regular;
     font-size: 0.8125em;
     color: $opticon-text-gray;
     letter-spacing: 0.4px;
@@ -52,10 +54,16 @@ body.opticon {
     display: block;
   }
   .item-title {
-    font-family: AdelleSans-Bold;
     font-size: 0.875em;
     color: $almost-black-text-color;
     letter-spacing: 1.07px;
+    line-height: 28px;
+    margin: 0;
+  }
+  .item-company {
+    font-size: 0.75em;
+    color: #979797;
+    letter-spacing: 1.79px;
     line-height: 28px;
     margin: 0;
   }
@@ -66,14 +74,12 @@ body.opticon {
     @include anim-opticon-button;
   }
   .optimizely-host {
-    font-family: AdelleSans-Regular;
     font-size: 0.8125em;
     color: $almost-black-text-color;
     letter-spacing: 0.39px;
     line-height: 28px;
   }
   .disabled {
-    font-family: AdelleSans-Regular;
     font-size: 0.9375em;
     color: #979797;
     letter-spacing: 0.46px;
@@ -86,8 +92,7 @@ body.opticon {
     background: $opticon-brand-blue;
     border: 1px solid #DADADA;
     text-align: center;
-    h3 {
-      font-family: AdelleSans-Regular;
+    .register-title {
       font-weight: 100;
       font-size: 2em;
       color: #fff;

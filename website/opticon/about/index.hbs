@@ -12,23 +12,23 @@ body_class:
 <div class="confetti-right"></div>
 <div class="page-content paragraphs-container container">
   {{#with opticon_about}}
-  <h2 class="page-title common-page-title">{{page_title}}</h2>
+  <h2 class="page-title common-page-title adelle-sans">{{page_title}}</h2>
   <div class="top-paragraph">
-    <h3 class="description-title">{{top_paragraph.title}}</h3>
-    <p class="description-text">{{top_paragraph.blurb1}}</p>
-    <p class="description-text">{{top_paragraph.blurb2}}</p>
-    <a class="body-button" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Justify_Your_Trip.pdf">{{top_paragraph.cta}}</a>
+    <h3 class="description-title adelle-sans">{{top_paragraph.title}}</h3>
+    <p class="description-text adelle-sans">{{top_paragraph.blurb1}}</p>
+    <p class="description-text adelle-sans">{{top_paragraph.blurb2}}</p>
+    <a class="body-button adelle-sans" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Justify_Your_Trip.pdf">{{top_paragraph.cta}}</a>
   </div>
   <div class="flex-container">
     <div class="left-paragraph">
-      <h3 class="description-title">{{left_paragraph.title}}</h3>
-      <p class="description-text">{{left_paragraph.blurb}}</p>
-      <a class="body-button" href="https://opticon2015.eventbrite.com/">{{left_paragraph.cta}}</a>
+      <h3 class="description-title adelle-sans">{{left_paragraph.title}}</h3>
+      <p class="description-text adelle-sans">{{left_paragraph.blurb}}</p>
+      <a class="body-button adelle-sans" href="https://opticon2015.eventbrite.com/">{{left_paragraph.cta}}</a>
     </div>
     <div class="right-paragraph">
-      <h3 class="description-title">{{right_paragraph.title}}</h3>
-      <p class="description-text">{{right_paragraph.blurb}}</p>
-      <p class="disabled">{{right_paragraph.cta}}</p>
+      <h3 class="description-title adelle-sans">{{right_paragraph.title}}</h3>
+      <p class="description-text adelle-sans">{{right_paragraph.blurb}}</p>
+      <p class="disabled adelle-sans">{{right_paragraph.cta}}</p>
     </div>
     </div>
   {{/with}}
@@ -41,12 +41,12 @@ body_class:
 <!--           -->
 <div class="container " id="opticon-faq">
   {{#with opticon_about.faq_section}}
-  <h3 class="">{{title}}</h3>
+  <h3 class="description-title adelle-sans">{{title}}</h3>
   <div class="faq-container flex-container">
     {{#each faqs}}
     <div class="faq-item">
-      <p class="question">{{this.question}}</p>
-      <p class="answer">{{this.answer}}</p>
+      <p class="question adelle-sans--bold">{{this.question}}</p>
+      <p class="answer adelle-sans">{{this.answer}}</p>
     </div>
     {{/each}}
     {{/with}}

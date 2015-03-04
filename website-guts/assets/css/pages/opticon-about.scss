@@ -8,12 +8,6 @@ body.opticon-about {
   }
   #opticon-faq {
     padding: 50px 0;
-    h3 {
-      font-family: AdelleSans-Regular;
-      font-weight: 100;
-      font-size: 1.875em;
-      color: $opticon-brand-blue;
-    }
   }
   .flex-container {
     flex-wrap: wrap;
@@ -21,14 +15,12 @@ body.opticon-about {
   .faq-item {
     padding: 20px 0;
     .question {
-      font-family: AdelleSans-Bold;
       font-size: 1.125em;
       color: $opticon-text-gray;
       letter-spacing: 0.5px;
       line-height: 28px;
     }
     .answer {
-      font-family: AdelleSans-Regular;
       font-size: 0.8125;
       color: $opticon-text-gray;
       letter-spacing: 0.4px;
@@ -37,7 +29,6 @@ body.opticon-about {
   }
   .left-paragraph,
   .right-paragraph {
-    width: 50%;
     padding: 4%;
   }
   .confetti-right {
@@ -55,6 +46,7 @@ body.opticon-about {
     .left-paragraph,
     .right-paragraph {
       padding: 10px 30px 10px 0;
+      width: 50%;
     }
     .description-text {
       text-align: left;

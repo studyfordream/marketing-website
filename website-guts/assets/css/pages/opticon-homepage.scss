@@ -4,7 +4,7 @@ body.opticon-homepage {
     padding: 50px 0;
   }
   .page-title {
-    font-size: 4em;
+    font-size: 3em;
     color: $opticon-light-blue;
     background: $opticon-brand-blue;
     padding: 0 15px 0 25px;
@@ -12,9 +12,8 @@ body.opticon-homepage {
   }
   .event-details {
     margin: 15px 0;
-    font-family: AdelleSans-Regular;
     font-weight: 100;
-    font-size: 20px;
+    font-size: 1.25em;
     color: $almost-black-text-color;
     letter-spacing: 0.41px;
   }
@@ -27,14 +26,6 @@ body.opticon-homepage {
   .speaker-blurb {
     text-align: left;
   }
-  .item-company {
-    font-family: AdelleSans-Regular;
-    font-size: 12px;
-    color: #979797;
-    letter-spacing: 1.79px;
-    line-height: 28px;
-    margin: 0;
-  }
   .subtitle {
     text-align: center;
   }
@@ -43,7 +34,6 @@ body.opticon-homepage {
   }
   .content-container {
     text-align: right;
-    padding: 0 5%;
     h1,
     h4 {
       text-align: right;
@@ -59,7 +49,6 @@ body.opticon-homepage {
     padding: 50px 0 80px 0;
   }
   .track-container {
-    width: 25%;
     padding: 75px 10px 10px 10px;
     text-align: center;
     background-repeat: no-repeat;
@@ -68,7 +57,7 @@ body.opticon-homepage {
       text-align: left;
     }
   }
-  .developer { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/developer-icon.svg'); }
+  .platform { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/developer-icon.svg'); }
   .strategy { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/strategy-icon.svg'); }
   .culture { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/culture-icon.svg'); }
   .action { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/action-icon.svg'); }
@@ -89,6 +78,16 @@ body.opticon-homepage {
     }
     .description-title {
       padding: 0 18%;
+    }
+    .track-container {
+      width: 25%;
+      padding: 75px 10px 10px 10px;
+    }
+    .content-container {
+      padding: 0 5%;
+    }
+    .page-title {
+      font-size: 4em;
     }
   }
 }

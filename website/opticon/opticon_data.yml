@@ -18,10 +18,10 @@ tracks:
   sub_title: "Experience Tracks"
   track_list:
     -
-      title: "Developer"
+      title: "Platform"
       blurb: "How to integrate Optimizely with the products you already use as well as find new ways to enhance your current workflow."
       image: ""
-      class: "developer"
+      class: "platform"
     -
       title: "Culture"
       blurb: "How to create a culture that values and practices experience optimization every day."

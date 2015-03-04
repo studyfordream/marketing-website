@@ -4,9 +4,6 @@ seo_title: Opticon
 no_container: true
 no_header: true
 no_footer: true
-page_script:
-- opticon.js
-footer_style: grey
 body_class:
 - opticon
 - opticon-homepage
@@ -19,13 +16,13 @@ body_class:
 <!--             -->
 <section class="title-section">
   <div class="content-container container">
-    <h1 class="page-title first-title">{{title_section.title1}}</h1>
+    <h1 class="page-title first-title adelle-sans--bold">{{title_section.title1}}</h1>
     <br>
-    <h1 class="page-title second-title">{{title_section.title2}}</h1>
-    <h4 class="event-details">{{title_section.date}} | {{title_section.location}}</h4>
-    <p class="optimizely-host">{{{title_section.sub_title}}}</p>
+    <h1 class="page-title second-title adelle-sans--bold">{{title_section.title2}}</h1>
+    <h4 class="event-details adelle-sans">{{title_section.date}} | {{title_section.location}}</h4>
+    <p class="optimizely-host adelle-sans">{{{title_section.sub_title}}}</p>
     <a class="arrow-button" href="https://www.eventbrite.com/e/opticon-2015-tickets-14328636337">
-      <div class="cta-text">{{title_section.cta}}</div>
+      <div class="cta-text adelle-sans">{{title_section.cta}}</div>
       <div class="cta-arrow">→</div>
     </a>
   </div>
@@ -36,8 +33,8 @@ body_class:
 <!--Description Section-->
 <!--                   -->
 <section class="description container">
-  <h3 class="description-title">{{opticon_data.description.title}}</h3>
-  <p class="description-text">{{opticon_data.description.blurb}}</p>
+  <h3 class="description-title adelle-sans">{{opticon_data.description.title}}</h3>
+  <p class="description-text adelle-sans">{{opticon_data.description.blurb}}</p>
   <div class="button-container">
     <a class="body-button" href="{{linkPath}}/opticon/about">{{opticon_data.description.cta}}</a>
   </div>
@@ -52,13 +49,13 @@ body_class:
 <!--Tracks Section-->
 <!--              -->
 <section class="tracks container">
-  <h3 class="description-title">{{tracks.title}}</h3>
-  <p class="subtitle">{{tracks.sub_title}}</p>
+  <h3 class="description-title adelle-sans">{{tracks.title}}</h3>
+  <p class="subtitle adelle-sans">{{tracks.sub_title}}</p>
   <div class="tracks-container flex-container">
     {{#each tracks.track_list}}
       <div class="track-container {{this.class}}">
-        <p class="item-title">{{this.title}}</p>
-        <p class="detail-text">{{this.blurb}}</p>
+        <p class="item-title adelle-sans--bold">{{this.title}}</p>
+        <p class="detail-text adelle-sans">{{this.blurb}}</p>
       </div>
     {{/each}}
   </div>

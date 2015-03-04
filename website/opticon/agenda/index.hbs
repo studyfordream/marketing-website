@@ -12,26 +12,26 @@ body_class:
 <div class="confetti-right"></div>
 {{#with agenda_data}}
 <div class="content-container container">
-  <h1 class="page-title common-page-title">{{title}}</h1>
-  <p class="subtitle">{{sub_title}}</p>
+  <h1 class="page-title common-page-title adelle-sans">{{title}}</h1>
+  <p class="subtitle adelle-sans">{{sub_title}}</p>
 
   <div class="agenda-container flex-container">
     <div class="agenda-day">
-      <h3 class="description-title">{{first_day.title}}</h3>
+      <h3 class="description-title adelle-sans">{{first_day.title}}</h3>
       {{#each first_day.times}}
-      <div class="agenda-row">
-        <p class="agenda-time">{{{this.time}}}</p>
-        <p class="agenda-event">{{this.event}}</p>
+      <div class="agenda-row flex-container">
+        <p class="agenda-time adelle-sans">{{{this.time}}}</p>
+        <p class="agenda-event adelle-sans">{{this.event}}</p>
     </div>
       {{/each}}
     </div>
 
     <div class="agenda-day">
-      <h3 class="description-title">{{second_day.title}}</h3>
+      <h3 class="description-title adelle-sans">{{second_day.title}}</h3>
       {{#each second_day.times}}
-      <div class="agenda-row">
-        <p class="agenda-time">{{{this.time}}}</p>
-        <p class="agenda-event">{{this.event}}</p>
+      <div class="agenda-row flex-container">
+        <p class="agenda-time adelle-sans">{{{this.time}}}</p>
+        <p class="agenda-event adelle-sans">{{this.event}}</p>
       </div>
       {{/each}}
     </div>
