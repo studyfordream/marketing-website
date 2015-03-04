@@ -379,7 +379,7 @@ w.optly.mrkt.changePlanHelper = {
 
 		*/
 
-		if(event.XHR.status === 200){
+		if(event.target.status === 200){
 
 			d.body.classList.add('change-plan-success');
 
