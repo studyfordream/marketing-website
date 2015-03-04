@@ -31,6 +31,7 @@ module.exports = function (grunt) {
     assemble.data(options.data);
 
     assemble.option('environment', options.environment);
+    assemble.set('data.subfoldersRoot', options.subfoldersRoot);
     assemble.set('data.basename', options.basename);
     assemble.set('data.websiteRoot', options.websiteRoot);
     assemble.set('data.locales', options.locales);
@@ -48,9 +49,9 @@ module.exports = function (grunt) {
     assemble.helpers(options.helpers);
 
     assemble.transform('page-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}', options.websiteRoot);
-    options.locales.forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}'));
-    assemble.transform('modal-translations', require('./transforms/load-translations'), '**/*.hbs', options.modalsDir);
-    assemble.transform('layout-translations', require('./transforms/load-translations'), '**/*.hbs', layoutPath);
+    Object.keys(options.locales).forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}'));
+    //assemble.transform('modal-translations', require('./transforms/load-translations'), '**/*.hbs', options.modalsDir);
+    //assemble.transform('layout-translations', require('./transforms/load-translations'), '**/*.hbs', layoutPath);
 
     function normalizeSrc (cwd, sources) {
       sources = Array.isArray(sources) ? sources : [sources];
@@ -62,7 +63,7 @@ module.exports = function (grunt) {
       });
     }
 
-    customSubfolders(assemble, options.locales, process.env.lastRunTime);
+    customSubfolders(assemble, Object.keys(options.locales), process.env.lastRunTime);
 
     // create custom template type `modals`
     assemble.create('modal', 'modals', {
@@ -96,7 +97,7 @@ module.exports = function (grunt) {
     var resourceFiles = config.resources.files[0];
     assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
 
-    var allRoots = options.locales.concat([
+    var allRoots = Object.keys(options.locales).concat([
                         options.websiteRoot,
                         options.websiteGuts
                       ]);
@@ -135,7 +136,7 @@ module.exports = function (grunt) {
         });
     });
 
-    assemble.task('subfolders', ['pages'], function () {
+    assemble.task('subfolders', ['prep-smartling'],  function () {
       var start = process.hrtime();
       var files = config.pages.files[0];
 
@@ -156,7 +157,7 @@ module.exports = function (grunt) {
       });
     });
 
-    assemble.run(['prep-smartling', 'pages'], function (err) {
+    assemble.run(['prep-smartling', 'subfolders'], function (err) {
     // assemble.run(['prep-smartling'], function (err) {
       if (err) {
         return done(err);

@@ -3,15 +3,17 @@ var extend = require('extend-shallow');
 var _ = require('lodash');
 var Plasma = require('plasma');
 
-module.exports = function(patterns, locale) {
+module.exports = function(patterns, locale, root) {
   var plasma = new Plasma();
   var iterator = 0;
   var keysCache = [];
   var pagesNamespace = 'page_data';
   var lastKey, data;
-  plasma.option('cwd', locale);
+  var cwd = root ? root : locale;
+  plasma.option('cwd', cwd);
   plasma.option('namespace', function(fp) {
-    var key = path.dirname(fp).split('/').slice(-1)[0];
+    var key = path.join( path.dirname(fp), 'index').replace(process.cwd(), '');
+
     //for consitency with translation plugin root hompage key is `index`
     if(locale.indexOf(key) !== -1) {
       //if we want to make root YAML global should do it here
@@ -42,7 +44,7 @@ module.exports = function(patterns, locale) {
         re = new RegExp(lastKey);
 
         if( re.test(matched) ) {
-          o[matched] = extend(o[matched], data[key]);
+          extend(o[matched], data[key]);
           delete data[key];
         }
       } else {

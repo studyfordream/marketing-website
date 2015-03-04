@@ -45,15 +45,15 @@ module.exports = function(assemble) {
         if(ignoreKeys.indexOf(key) === -1) {
 
           //apply translation for the layout YFM
-          if(translated[locale] && translated[locale][page] && translated[locale][page].hasOwnProperty(key)) {
-            if(_.isPlainObject(val)) {
-              mergeTranslated(val, translated[locale][page][key]);
-            } else if(Array.isArray(val)) {
-              val = mergeTranslated(val, translated[locale][page][key]);
-            } else {
-              val = translated[locale][page][key];
-            }
-          }
+          //if(translated[locale] && translated[locale][page] && translated[locale][page].hasOwnProperty(key)) {
+            //if(_.isPlainObject(val)) {
+              //mergeTranslated(val, translated[locale][page][key]);
+            //} else if(Array.isArray(val)) {
+              //val = mergeTranslated(val, translated[locale][page][key]);
+            //} else {
+              //val = translated[locale][page][key];
+            //}
+          //}
 
           data[key] = val;
         }

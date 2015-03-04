@@ -37,7 +37,7 @@ module.exports = function (assemble) {
     var linkPath = assemble.get('data.linkPath');
     var data = fileData.data || fileData;
 
-    if(locales.indexOf(locale) !== -1) {
+    if(Object.keys(locales).indexOf(locale) !== -1) {
       linkPath = path.join(linkPath, locale);
     }
 

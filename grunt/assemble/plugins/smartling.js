@@ -21,6 +21,13 @@ if(smartlingConfig){
   smartlingConfig = JSON.parse(smartlingConfig);
 }
 
+function isIndex(fp, testStr) {
+  if(fp[0] !== '/') {
+    fp = '/' + fp;
+  }
+  return fp.indexOf('/' + testStr + '/') !== -1;
+}
+
 
 module.exports = function (assemble) {
   var lang = assemble.get('lang') || {};
@@ -28,26 +35,30 @@ module.exports = function (assemble) {
   var environment = assemble.option('environment');
   var websiteRoot = assemble.get('data.websiteRoot');
   var locales = assemble.get('data.locales');
-  var localeCodes = ['de_DE', 'fr_FR', 'es_ES', 'ja_JP'];
+  var localeCodes = Object.keys(locales).map(function(subfolder) {
+    return locales[subfolder];
+  });
   var createTranslationDict = require('../utils/create-dictionary')(assemble);
-  var locale;
+  var locale, dictKey;
 
   return through.obj(function (file, enc, cb) {
+    var subfoldersRoot = assemble.get('data.subfoldersRoot');
     // instead of middleware
     // load file.data information onto `assemble.get('lang')` here
-    var page, data, modalData, parsedTranslations;
-    var allRoots = locales.concat(websiteRoot);
+    var page, data, modalData, parsedTranslations, localeIndex;
+    var allRoots = Object.keys(locales).concat(websiteRoot);
     var rootIndex = file.path.indexOf('/' + websiteRoot + '/');
-    var localeIndex = _.findIndex(locales, function(locale) {
-      var re = new RegExp(locale);
-      return re.test(file.path);
-    });
     var pagePath = true;
+    var dataKey = path.join( path.dirname(file.path), path.basename(file.path, path.extname(file.path)) ).replace(process.cwd(), '');
 
-    if(rootIndex !== -1) {
+    if( isIndex(file.path, websiteRoot) ) {
       locale = websiteRoot;
-    } else if(localeIndex !== -1) {
-      locale = locales[localeIndex];
+    } else if( isIndex(file.path, subfoldersRoot) ) {
+      localeIndex = _.findIndex(Object.keys(locales), function(locale) {
+        var split = file.path.replace(process.cwd(), '').replace(subfoldersRoot, '').split('/');
+        return split.indexOf(locale) !== -1;
+      });
+      locale = Object.keys(locales)[localeIndex];
     } else {
       pagePath = false;
       locale = path.dirname(file.path).split('/').slice(-1)[0];
@@ -55,24 +66,24 @@ module.exports = function (assemble) {
     }
 
     if(pagePath) {
-      //if it's a page file other than the root homepage the path is the dirname
-      page = path.dirname(file.path).split('/').slice(-1)[0];
+      ////if it's a page file other than the root homepage the path is the dirname
+      //page = path.dirname(file.path).split('/').slice(-1)[0];
 
-      //if the page is the root homepage normalize it's key to `index`
-      if(allRoots.indexOf(page) !== -1) {
-        page = path.basename(file.path, path.extname(file.path));
-      }
+      ////if the page is the root homepage normalize it's key to `index`
+      //if(allRoots.indexOf(page) !== -1) {
+        //page = path.basename(file.path, path.extname(file.path));
+      //}
 
       //must extend local page data (i.e. from YML file) before parsing for translation
-      if(pageData[locale][page]) {
-        extend(file.data, pageData[locale][page]);
-      }
+      //if(pageData[locale][page]) {
+        //extend(file.data, pageData[locale][page]);
+      //}
 
       parsedTranslations = createTranslationDict(file, locale);
 
       if(Object.keys(parsedTranslations).length > 0) {
         lang[locale] = lang[locale] || {};
-        lang[locale][page] = extend({}, lang[locale][page], parsedTranslations);
+        lang[locale][dataKey] = extend({}, lang[locale][dataKey], parsedTranslations);
       }
 
       //parse the file.data for TR and MD and put it on lang
@@ -84,7 +95,7 @@ module.exports = function (assemble) {
       parsedTranslations = createTranslationDict(file, locale);
       if(Object.keys(parsedTranslations).length > 0) {
         lang[locale] = lang[locale] || {};
-        lang[locale][page] = parsedTranslations;
+        lang[locale][dataKey] = parsedTranslations;
       }
     }
 
