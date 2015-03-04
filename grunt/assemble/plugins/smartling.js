@@ -134,7 +134,7 @@ module.exports = function (assemble) {
     //console.log('send to smartling', phrases);
 
     smartling.send(smartling.generatePO(phrases), smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, DICT_FNAME).then(function(){
-      var translations = [];
+      var translations = {};
       var defers = localeCodes.map(function(code){
         return smartling.fetch(smartlingConfig.URL, code, DICT_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID).then(function(body){
           //fs.writeFileSync(code + '-' + DICT_FNAME, body);
@@ -145,10 +145,6 @@ module.exports = function (assemble) {
 
       // when all translations are fetched - call callback
       q.all(defers).then(function(){
-        console.log(translations);  // this logs the translations array to the console
-        console.log(_.isArray(translations), translations.length); // this lenght is zero and when I try to write the file it's an empty array
-        console.log('path', path.join(process.cwd(), 'translations', 'translations.js'));
-        fs.writeFileSync(path.join(process.cwd(), 'translations', 'translations.js'), JSON.stringify(translations), {encoding: 'utf8'});
         assemble.set('translated', translations);
         cb();
       });
