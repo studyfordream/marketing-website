@@ -159,8 +159,8 @@ signupForm.on('error', function() {
   });
 }.bind(signupHelper));
 
-signupForm.on('load', function(event, data) {
-  signupHelper.pricingSignupSuccess(event, data);
+signupForm.on('load', function(event) {
+  signupHelper.pricingSignupSuccess(event);
 }.bind(signupHelper));
 
 signupForm.on('done', function() {
