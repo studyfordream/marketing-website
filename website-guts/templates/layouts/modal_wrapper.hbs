@@ -1,6 +1,6 @@
 <div id="{{page.wrapper_id}}" class="modal-dialog-container{{#if page.wrapper_class}} {{page.wrapper_class}}{{/if}} optly-hide" data-optly-modal="{{ page.data_modal_id }}" data-modal-name="{{ page.data_modal_name }}">
   <div {{#if page.dialog_id}}id="{{page.dialog_id}}"{{/if}}class="dialog narrow">
-      <form novalidate autocomplete="off"{{#if page.form_id}} id="{{page.form_id}}"{{/if}}{{#if page.form_action}} action="{{page.form_action}}"{{/if}}{{#if page.form_method}} method="{{page.form_method}}"{{/if}}>
+      <form novalidate autocomplete="off"{{#if page.form_id}} id="{{page.form_id}}"{{/if}}{{#if page.form_action}} action="{{#if page.api_domain}}{{apiDomain}}{{/if}}{{page.form_action}}"{{/if}}{{#if page.form_method}} method="{{page.form_method}}"{{/if}}>
             <div class="modal-header">
               {{#if page.modal_title}}<p class="normal-header header-h1">{{page.modal_title}}</p>{{/if}}
               {{#if page.modal_sub_header}}<p>{{page.modal_sub_header}}</p>{{/if}}

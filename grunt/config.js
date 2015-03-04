@@ -20,6 +20,7 @@ var config = function(grunt, options) {
         variables: {
           environment: 'production',
           environmentData: 'website-guts/data/environments/production/environmentVariables.json',
+          apiDomain: '//www.optimizely.com',
           assetsDir: '/dist/assets',
           link_path: '',
           sassImagePath: '/img',
@@ -30,6 +31,7 @@ var config = function(grunt, options) {
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
             '  window.linkPath = "" \n\n' +
+            '  window.apiDomain = "//www.optimizely.com"; \n\n' +
             '  try { \n\n',
           concat_footer: '  } catch(error){ \n\n' +
             '    console.error(error, targetName);\n\n' +
@@ -48,6 +50,7 @@ var config = function(grunt, options) {
           aws: creds,
           environment: 'staging',
           exclude_from_assemble: 'bobloblaw.hbs',
+          apiDomain: '//app.optimizely.com',
           environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
           assetsDir: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets',
           link_path: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
@@ -58,6 +61,7 @@ var config = function(grunt, options) {
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
             '  window.linkPath = "<%= gitinfo.local.branch.current.name %>"; \n\n' +
+            '  window.apiDomain = "//app.optimizely.com"; \n\n' +
             '  try { \n\n',
           concat_footer: '  } catch(error){ \n\n' +
             '    console.error(error, targetName);\n\n' +
@@ -77,6 +81,7 @@ var config = function(grunt, options) {
           environment: 'staging',
           exclude_from_assemble: '**/fixture.hbs',
           environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
+          apiDomain: '//app.optimizely.com',
           assetsDir: '/assets',
           link_path: '',
           sassImagePath: '/assets/img',
@@ -86,6 +91,7 @@ var config = function(grunt, options) {
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
             '  window.linkPath = "<%= gitinfo.local.branch.current.name %>"; \n\n' +
+            '  window.apiDomain = "//app.optimizely.com"; \n\n' +
             '  try { \n\n',
           concat_footer: '  } catch(error){ \n\n' +
             '  //report errors to GA \n\n' +
@@ -101,6 +107,7 @@ var config = function(grunt, options) {
           environment: 'dev',
           exclude_from_assemble: 'bobloblaw.hbs',
           environmentData: 'website-guts/data/environments/development/environmentVariables.json',
+          apiDomain: '',
           assetsDir: '/dist/assets',
           link_path: '/dist',
           sassSourceMap: true,
@@ -110,7 +117,8 @@ var config = function(grunt, options) {
           concat_banner: '(function($, w, d){ \n\n' +
                          '  window.optly = window.optly || {}; \n\n' +
                          '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-                         '  window.linkPath = "/dist"; \n\n',
+                         '  window.linkPath = "/dist"; \n\n' +
+                         '  window.apiDomain = ""; \n\n',
           concat_footer: '})(jQuery, window, document);'
         }
       }
