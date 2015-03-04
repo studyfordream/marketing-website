@@ -98,7 +98,7 @@ w.optly.mrkt.trialForm = new Oform({
       response;
   xhrElapsedTime = new Date() - xhrInitiationTime;
   try {
-    response = JSON.parse(event.target.responseText);
+    response = JSON.parse(event.XHR.responseText);
   } catch(error){
     w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
       category: 'api error',
@@ -117,7 +117,7 @@ w.optly.mrkt.trialForm = new Oform({
     'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   });
   if(response){
-    if(event.target.status === 200){
+    if(event.XHR.status === 200){
       var pageData = {
         email: d.getElementById('email').value,
         url: d.getElementById('url').value,
@@ -127,8 +127,8 @@ w.optly.mrkt.trialForm = new Oform({
       //remove error class from body?
       w.optly.mrkt.Oform.trackLead({
         formElm: '#seo-form',
-        pageData: pageData,
-        XHRevent: event
+        pageData: event.requestPayload,
+        XHRevent: event.XHR
       });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
@@ -164,7 +164,7 @@ w.optly.mrkt.trialForm = new Oform({
       if(!w.optly.mrkt.automatedTest()){
         setTimeout(function(){
           var redirectURL, domain;
-          domain = window.location.hostname;
+          domain = w.location.hostname;
           if(/^www\.optimizely\./.test(domain)){
             //production
             redirectURL = '/edit?url=';
@@ -179,7 +179,7 @@ w.optly.mrkt.trialForm = new Oform({
     } else {
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
-        label: 'status not 200: ' + event.target.status
+        label: 'status not 200: ' + event.XHR.status
       }, {
         integrations: {
           'Marketo': false

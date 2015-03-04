@@ -23,8 +23,8 @@ var mobileMvppHelper = {
     if(resp) {
       w.optly.mrkt.Oform.trackLead({
         formElm: this.formElm,
-        pageData: pageData, 
-        XHRevent: e
+        pageData: e.requestPayload,
+        XHRevent: e.XHR
       });
 
       w.Munchkin.munchkinFunction('visitWebPage', {url: '/event/ios-form-signup'});

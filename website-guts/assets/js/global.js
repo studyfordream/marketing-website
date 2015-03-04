@@ -379,7 +379,7 @@ w.optly.mrkt.changePlanHelper = {
 
 		*/
 
-		if(event.target.status === 200){
+		if(event.XHR.status === 200){
 
 			d.body.classList.add('change-plan-success');
 
@@ -434,7 +434,7 @@ w.optly.mrkt.changePlanHelper = {
 			//to do: update the ui for the error
 			w.analytics.track('/pricing/change_plan', {
 				category: 'api error',
-				label: 'pricing change plan status not 200: ' + event.target.status
+				label: 'pricing change plan status not 200: ' + event.XHR.status
 			}, {
 				integrations: {
 					Marketo: false

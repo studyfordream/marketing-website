@@ -131,8 +131,8 @@ w.optly.mrkt.trialForm = new Oform({
       };
       w.optly.mrkt.Oform.trackLead({
         formElm: '#seo-form',
-        pageData: pageData,
-        XHRevent: loadEvent
+        pageData: loadEvent.requestPayload,
+        XHRevent: loadEvent.XHR
       });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
@@ -187,7 +187,7 @@ w.optly.mrkt.trialForm = new Oform({
       //window.alert('non 200 response');
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
-        label: 'status not 200: ' + event.target.status
+        label: 'status not 200: ' + event.XHR.status
       }, {
         integrations: {
           'Marketo': false
