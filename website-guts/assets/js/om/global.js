@@ -40,17 +40,17 @@ var BrowserDetect = {
 
 BrowserDetect.init();
 
-window.optly.mrkt.browser = BrowserDetect.browser;
+w.optly.mrkt.browser = BrowserDetect.browser;
 
-window.optly.mrkt.browserVersion = BrowserDetect.version;
+w.optly.mrkt.browserVersion = BrowserDetect.version;
 
-window.optly.mrkt.automatedTest = function(){
+w.optly.mrkt.automatedTest = function(){
 
   var uiTest, stagingDomain;
 
-  uiTest = window.optly.mrkt.utils.getURLParameter('uiTest') === 'true';
+  uiTest = w.optly.mrkt.utils.getURLParameter('uiTest') === 'true';
 
-  stagingDomain = window.location.hostname !== 'www.optimizely.com';
+  stagingDomain = w.location.hostname !== 'www.optimizely.com';
 
   if(uiTest && stagingDomain){
     return true;
@@ -60,7 +60,7 @@ window.optly.mrkt.automatedTest = function(){
 
 };
 
-window.optly.mrkt.inlineFormLabels = function(){
+w.optly.mrkt.inlineFormLabels = function(){
 
   if(w.optly.mrkt.browser !== 'Explorer'){
 
@@ -83,3 +83,25 @@ window.optly.mrkt.inlineFormLabels = function(){
   }
 
 };
+
+//call the utility function to unregister archived experiments from the mixpanel cookie
+w.analytics.ready(w.optly.mrkt.utils.trimMixpanelCookie);
+
+//report optimizely load time
+if(w.monitorTiming){
+	var reportOptimizelyTiming = setInterval(function(){
+		if(w.optimizelyLoadTime){
+			if(w.ga){
+				w.ga('send', {
+			    'hitType': 'timing',
+			    'timingCategory': 'external script timing',
+			    'timingVar': 'cdn.optimizely.com',
+			    'timingValue': w.optimizelyLoadTime,
+					'timeingLabel': 'Optimizely',
+			    'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+			  });
+				clearInterval(reportOptimizelyTiming);
+			}
+		}
+	}, 1000);
+}

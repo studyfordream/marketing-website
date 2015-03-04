@@ -112,18 +112,23 @@ var createAccountHelper = {
 
   load: function(e) {
     var resp = this.parseResponse(e),
-      formElm = this.formElm;
-
-    if(resp) {
-      w.optly.mrkt.Oform.trackLead({
+      formElm = this.formElm,
+      pageData = {
         name: formElm.querySelector('[name="name"]').value || '',
         email: formElm.querySelector('[name="email"]').value || '',
         phone: formElm.querySelector('[name="phone_number"]').value || '',
-        Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
-        Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
-        iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
-        Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
-      }, e);
+        Web__c: $(formElm).find('input[type="checkbox"][name="web"]').is(':checked') + '',
+        Mobile_Web__c: $(formElm).find('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+        iOS__c: $(formElm).find('input[type="checkbox"][name="ios"]').is(':checked') + '',
+        Android__c: $(formElm).find('input[type="checkbox"][name="android"]').is(':checked') + ''
+      };
+
+    if(resp) {
+      w.optly.mrkt.Oform.trackLead({
+        formElm: '#signup-form',
+        pageData: pageData,
+        XHRevent: e
+      });
 
       this.redirectHelper({
         redirectPath: '/welcome',
@@ -205,8 +210,8 @@ var createAccountHelper = {
     }, 500);
   },
 
-  pricingSignupSuccess: function(event, data){
-    var resp = this.parseResponse(data.event),
+  pricingSignupSuccess: function(event){
+    var resp = this.parseResponse(event),
       plan;
 
     if(resp){
@@ -215,17 +220,14 @@ var createAccountHelper = {
 
       w.analytics.identify(resp.unique_user_id, {
         Email: resp.email,
-        Last_Experiment_URL__c: data.data['url-input'],
-        LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
-        ExperimentsCreated: '1',
         FirstName: resp.first_name || '',
         LastName: resp.last_name || '',
         otm_Medium__c: w.optly.mrkt.source.otm.medium || '',
         utm_Medium__c: w.optly.mrkt.source.utm.medium || '',
-        Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
-        Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
-        iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
-        Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
+        Web__c: $('#signup-form input[type="checkbox"][name="web"]').is(':checked') + '',
+        Mobile_Web__c: $('#signup-form input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
+        iOS__c: $('#signup-form input[type="checkbox"][name="ios"]').is(':checked') + '',
+        Android__c: $('#signup-form input[type="checkbox"][name="android"]').is(':checked') + ''
       }, {
         integrations: {Marketo: true}
       });

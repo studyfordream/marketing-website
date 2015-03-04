@@ -8,12 +8,7 @@ body_class:
 - opticon
 - opticon-speakers
 ---
-
-<section class="title-container container">
-  <h1 class="page-title common-page-title">{{speakers_data.page_title}}</h1>
-  <h5 class="subtitle">{{speakers_data.sub_title}}</h5>
-</section><!-- /.title-container -->
-
-{{> opticon_keynote_speakers }}
-
-</div><!-- /.row-->
+<div class="message-container container">
+  <h1>{{speakers_data.title}}</h1>
+  <p>{{{speakers_data.description}}}</p>
+</div>

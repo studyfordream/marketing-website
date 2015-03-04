@@ -27,10 +27,9 @@
 @import 'pages/mvt';
 @import 'pages/non-profits';
 @import 'pages/opt-out';
-@import 'pages/opticon-homepage';
 @import 'pages/opticon-about';
 @import 'pages/opticon-agenda';
-@import 'pages/opticon-confirmation';
+@import 'pages/opticon-homepage';
 @import 'pages/opticon-speakers';
 @import 'pages/partners';
 @import 'pages/press';
@@ -48,6 +47,7 @@
 /* layouts */
 @import 'layouts/benefits';
 @import 'layouts/jobs';
+@import 'layouts/seo-layout';
 @import 'layouts/simple';
 @import 'layouts/trial-form';
 @import 'layouts/opticon';

@@ -25,10 +25,10 @@
     </div>
     <div class="table-body">
       {{#each this.features}}
-        <div class="table-row row">
+      <div {{#is this.title "Mobile Developer Tools"}}id="SL_mobile-dev-cont" {{/is}}class="table-row row{{#is this.title "Mobile Developer Tools"}} SL_swap{{/is}}">
           <div class="columns four row-title">
             {{#if this.tooltip}}
-              <p><span title="{{this.tooltip}}" data-tooltip>{{this.title}}</span></p>
+            <p><span {{#is this.title "Multichannel Experiments"}}id="SL_multichannel-text" class="SL_swap" {{/is}}title="{{this.tooltip}}" data-tooltip>{{this.title}}</span></p>
             {{else}}
               <p>{{this.title}}</p>
             {{/if}}

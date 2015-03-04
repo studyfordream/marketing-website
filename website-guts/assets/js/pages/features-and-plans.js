@@ -111,7 +111,7 @@ var updatePlanInfo = function(){
 };
 
 w.optly_q.push([updatePlanInfo]);
-w.optly.mrkt.activeModals.signup.remove();
+w.optly.mrkt.activeModals['signup-form'].remove();
 var signupHelper = w.optly.mrkt.form.createAccount({formId: 'signup-form', dialogId: 'signup-dialog'});
 w.optly.mrkt.activeModals = w.optly.mrkt.activeModals || {};
 
@@ -159,8 +159,8 @@ signupForm.on('error', function() {
   });
 }.bind(signupHelper));
 
-signupForm.on('load', function(event, data) {
-  signupHelper.pricingSignupSuccess(event, data);
+signupForm.on('load', function(event) {
+  signupHelper.pricingSignupSuccess(event);
 }.bind(signupHelper));
 
 signupForm.on('done', function() {

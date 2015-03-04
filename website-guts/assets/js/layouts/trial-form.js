@@ -42,6 +42,30 @@ $('#seo-form input:not([type="hidden"])').each(function(){
   });
 });
 
+//track change on form fields
+$('#seo-form input:not([type="hidden"])').each(function(){
+  var element = this;
+  var continuallyCheckForValue = setInterval(function(){
+    if($(element).val()){
+      clearInterval(continuallyCheckForValue);
+      w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' value changed', {
+        category: 'forms'
+      },{
+        integrations: {
+          'Marketo': false
+        }
+      });
+      w.analytics.track($(element).closest('form').attr('id') + ' value engagement', {
+        category: 'forms'
+      },{
+          integrations: {
+            'Marketo': false
+          }
+      });
+    }
+  }, 1000);
+});
+
 //form
 w.optly.mrkt.trialForm = new Oform({
   selector: '#seo-form',
@@ -94,13 +118,18 @@ w.optly.mrkt.trialForm = new Oform({
   });
   if(response){
     if(event.target.status === 200){
-      //remove error class from body?
-      w.optly.mrkt.Oform.trackLead({
+      var pageData = {
         email: d.getElementById('email').value,
         url: d.getElementById('url').value,
         name: d.getElementById('name').value,
         phone: d.getElementById('phone').value
-      }, event);
+      };
+      //remove error class from body?
+      w.optly.mrkt.Oform.trackLead({
+        formElm: '#seo-form',
+        pageData: pageData,
+        XHRevent: event
+      });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
       }, {
@@ -194,20 +223,22 @@ w.optly.mrkt.trialForm = new Oform({
 });
 
 var validateOnBlur = function(isValid, element){
-  w.optly.mrkt.trialForm.options.adjustClasses(element, isValid);
-  var elementValue = $(element).val();
-  var elementHasValue = elementValue ? 'has value' : 'no value';
-  if(!isValid){
-    w.optly.mrkt.formHadError = true;
-    w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' error blur', {
-      category: 'form error',
-      label: elementHasValue,
-      value: elementValue.length
-    }, {
-      integrations: {
-        Marketo: false
-      }
-    });
+  if($(element).val()){
+    w.optly.mrkt.trialForm.options.adjustClasses(element, isValid);
+    var elementValue = $(element).val();
+    var elementHasValue = elementValue ? 'has value' : 'no value';
+    if(!isValid){
+      w.optly.mrkt.formHadError = true;
+      w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' error blur', {
+        category: 'form error',
+        label: elementHasValue,
+        value: elementValue.length
+      }, {
+        integrations: {
+          Marketo: false
+        }
+      });
+    }
   }
 };
 
