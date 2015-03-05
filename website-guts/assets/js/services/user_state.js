@@ -124,14 +124,13 @@ window.optly.mrkt.Optly_Q.prototype = {
 };
 
 window.optly.mrkt.services.xhr = {
-  makeRequest: function(request, xhrFields) {
+  makeRequest: function(request) {
     var deferreds = [], deferredPromise;
 
     // check if multiple requests are present
     if ( Array.isArray(request) ) {
       for (var i = 0; i < request.length; i += 1) {
         if (typeof request[i] === 'object') {
-          debugger;
           deferredPromise = $.ajax({
             type: request[i].type,
             url: request[i].url,

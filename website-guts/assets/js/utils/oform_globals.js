@@ -76,7 +76,7 @@
     source = w.optly.mrkt.source;
 
     try {
-      response = JSON.parse(XHRevent.target.responseText);
+      response = JSON.parse(XHRevent.responseText);
     } catch(error) {
       if(typeof error === 'object') {
         try {
@@ -86,7 +86,7 @@
         }
       }
       w.analytics.ready(function() {
-        w.analytics.track(window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname) + ':trackLead', {
+        w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname) + ':trackLead', {
             category: 'api error',
             label: error
           }, {
@@ -172,7 +172,7 @@
 
     w.analytics.track('/account/create/success', {
       category: 'account',
-      label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
       integrations: {
         Marketo: false
@@ -185,7 +185,7 @@
 
     w.analytics.track('/account/signin', {
       category: 'account',
-      label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
       integrations: {
         'Marketo': false
@@ -233,10 +233,10 @@
     })
     .on('validationerror', w.optly.mrkt.Oform.validationError)
     .on('load', function(event){
-      if(event.target.status === 200){
+      if(event.XHR.status === 200){
         //identify user
         $('body').addClass('oform-success');
-        var response = JSON.parse(event.target.responseText),
+        var response = JSON.parse(event.XHR.responseText),
             email = d.querySelector('[name="email"]').value,
             traffic = d.querySelector('#traffic');
         w.analytics.identify(response.unique_user_id, {
@@ -246,8 +246,8 @@
           phone: d.querySelector('[name="phone"]').value || '',
           company: d.querySelector('[name="company"]').value || '',
           website: d.querySelector('[name="website"]').value || '',
-          utm_Medium__c: window.optly.mrkt.source.utm.medium,
-          otm_Medium__c: window.optly.mrkt.source.otm.medium,
+          utm_Medium__c: w.optly.mrkt.source.utm.medium,
+          otm_Medium__c: w.optly.mrkt.source.otm.medium,
           Demo_Request_Monthly_Traffic__c: traffic.options[traffic.selectedIndex].value || '',
           Inbound_Lead_Form_Type__c: d.querySelector('[name="inboundFormLeadType"]').value,
           token: response.token
@@ -259,7 +259,7 @@
         //track the event
         w.analytics.track('demo requested', {
           category: 'contact form',
-          label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+          label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
         }, {
           integrations: {
             Marketo: true

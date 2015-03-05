@@ -1,5 +1,5 @@
 <li class="first">
-  <a href="/dashboard?project_id={{account_id}}">Dashboard</a>
+  <a href="{{apiDomain}}/dashboard?project_id={{account_id}}">Dashboard</a>
 </li>
 <li id="experiment-nav-item" class="hide-in-mobile " data-show-user-state="logged-in">
     <a href="" class="dropdown-arrow experiments" data-dropdown="experiments">Experiments</a>
@@ -9,12 +9,12 @@
         <span class="experiment-container hide-in-mobile">
           <li>
           <a class="edit{{#unless can_edit}} disabled{{/unless}}"
-              {{#if can_edit}}href="{{apiDomain}}/edit?experiment_id={{id}}"{{/if}}
+              {{#if can_edit}}href="{{../apiDomain}}/edit?experiment_id={{id}}"{{/if}}
               {{#unless has_started}}style="width: auto;"{{/unless}}>
               <span class="experiment-description">{{description}}</span>
             </a>
             <a class="experiment-results"
-              href="{{apiDomain}}/results?experiment_id={{id}}"
+              href="{{../apiDomain}}/results?experiment_id={{id}}"
               {{#unless has_started}}style="display: none;"{{/unless}}>
               {{#if has_started}}
               Results
@@ -51,7 +51,7 @@
   <a id="mobile-email-nav" class="customer-email" href="/account">{{email.mobile}}</a>
   <ul id="account-dropdown" class="dropdown-menu-top" data-show-dropdown="account">
       <li class="hide-in-mobile">
-        <a href="/account">Account Settings</a>
+        <a href="{{apiDomain}}/account">Account Settings</a>
       </li>
       <li>
         <a data-logout>Log Out</a>

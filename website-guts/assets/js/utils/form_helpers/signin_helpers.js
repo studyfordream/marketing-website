@@ -78,7 +78,7 @@ var signinHelper = {
     //track signin
     w.analytics.track('acount sign-in', {
       category: 'account',
-      label: window.location.pathname
+      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
     }, {
       integrations: {
         Marketo: false
@@ -92,9 +92,9 @@ var signinHelper = {
     //track customer type
     if(resp.subscription_plan) {
       /* legacy reportin - to be deprecated */
-      window.analytics.track('/customer/signed-in', {
+      w.analytics.track('/customer/signed-in', {
         category: 'account',
-        label: w.location.pathname
+        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
       }, {
         integrations: {
           Marketo: false
@@ -104,9 +104,9 @@ var signinHelper = {
         url: '/customer/signed-in'
       });
       /* new reporting */
-      window.analytics.track('customer sign in', {
+      w.analytics.track('customer sign in', {
         category: 'account',
-        label: w.location.pathname
+        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
       }, {
         integrations: {
           Marketo: false
