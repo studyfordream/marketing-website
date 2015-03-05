@@ -81,7 +81,8 @@ $(function(){
   $('#events').html(eventDisplayHTML);
 
   new Oform({
-    selector: '#webinar-registration-form'
+    selector: '#webinar-registration-form',
+    middleware: w.optly.mrkt.Oform.defaultMiddleware
   }).on('before', function(){
     var name = $('#name').val().split(' ');
     $('[name="FirstName"]').val( name[0] );

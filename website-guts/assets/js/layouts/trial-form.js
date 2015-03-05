@@ -74,7 +74,8 @@ w.optly.mrkt.trialForm = new Oform({
       var urlRegex = /.+\..+/;
       return urlRegex.test(element.value);
     }
-  }
+  },
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 })
 .on('before', function(){
   w.analytics.track('/free-trial/submit', {
