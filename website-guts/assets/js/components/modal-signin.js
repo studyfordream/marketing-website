@@ -7,7 +7,7 @@ var signinForm = new Oform({
       return signinDialogHelperInst.passwordValidation(elm);
     }
   },
-  middleware: middleware: w.optly.mrkt.Oform.defaultMiddleware
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 });
 
 signinForm.on('before', function() {
