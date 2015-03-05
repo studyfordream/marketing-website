@@ -7,6 +7,7 @@ var through = require('through2');
 var extend = require('extend-shallow');
 var htmlParser = require('l10n-tools/html-parser');
 var smartling = require('l10n-tools/smartling');
+var objParser = require('l10n-tools/object-extractor');
 var fs = require('fs');
 var q = require('q');
 var smartlingConfig;
@@ -66,44 +67,14 @@ module.exports = function (assemble) {
     var DICT_FNAME = 'marketing_website_yaml.pot';
     var phrases = [];
 
-    // if(environment === 'dev') {
-    //   assemble.set('translated', lang);
-    //   cb();
-    // } else if(environment === 'smartling-staging') {
-
-    // }
-    /*
-      Recursively go aroung object and group all of the text messages by filename
-     */
-    function addStrings(phrases, obj, key){
-      if(_.isString(obj)){
-
-        if(key.indexOf('MD_') === 0){
-          // parse given key as HTML page - try to extract simple messages from it
-          var list = htmlParser.extract(obj);
-          // append all the new messages into general array
-          phrases.push.apply(phrases, list);
-        } else {
-          phrases.push({msg: obj});
-        }
-
-      } else if (_.isArray(obj) || _.isPlainObject(obj)) {
-        _.forEach(obj, function(value, key){
-          addStrings(phrases, value, key);
-        });
-      }
-    }
-
-
     _.forEach(lang, function(pages){
-      _.forEach(pages, function(keys, fname){
-        var list = [];
+      _.forEach(pages, function(fileInfo, fname){
+        var list = objParser.extract(fileInfo);
         phrases.push({fname: fname, phrases: list});
-        addStrings(list, keys, fname);
       });
     });
 
-    //console.log('send to smartling', phrases);
+    console.log('send to smartling', phrases);
 
     smartling.send(smartling.generatePO(phrases), smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, DICT_FNAME).then(function(){
       var translations = {};
@@ -117,7 +88,7 @@ module.exports = function (assemble) {
 
       // when all translations are fetched - call callback
       q.all(defers).then(function(){
-        assemble.set('translated', translations);
+        assemble.set('dicts', translations);
         cb();
       });
     });

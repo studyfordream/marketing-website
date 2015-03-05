@@ -1,9 +1,10 @@
 var path = require('path');
 var extend = require('extend-shallow');
 var _ = require('lodash');
+var objParser = require('l10n-tools/object-extractor');
 
 module.exports = function(assemble) {
-  var mergeTranslated = require('../utils/merge-tranlated-dictionary');
+  //var mergeTranslated = require('../utils/merge-tranlated-dictionary');
   var parseFilePath = require('../utils/parse-file-path')(assemble);
   var extendFileData = require('../utils/extend-file-data')(assemble);
   var environment = assemble.option('environment');
@@ -15,7 +16,7 @@ module.exports = function(assemble) {
     var lang = assemble.get('lang');
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
     var pageData = assemble.get('pageData');
-    var translated = assemble.get('translated');
+    var dicts = assemble.get('dicts');
     var locale, dataKey, localeData, parsedTranslations, filePathData, dictKey;
 
     //get keys for accessing dictionary and locale type
@@ -46,7 +47,7 @@ module.exports = function(assemble) {
         file.content = file.HTML_page_content;
         delete file.HTML_page_content;
       }
-
+      file = objParser.translate(file, dicts[dictKey]);
     }
 
     next();
