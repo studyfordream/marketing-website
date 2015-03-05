@@ -48,7 +48,9 @@ body_class:
     {{#each faqs}}
     <div class="faq-item">
       <p class="question adelle-sans--bold">{{this.question}}</p>
-      <p class="answer adelle-sans">{{this.answer}}</p>
+      <div class="answer">
+        {{{this.answer}}}
+      </div>
     </div>
     {{/each}}
     {{/with}}
