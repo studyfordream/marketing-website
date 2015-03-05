@@ -369,11 +369,11 @@ window.optly.mrkt.services.xhr = {
   getLoginStatus: function(requestParams) {
     var deferreds;
 
-    if ( !!this.readCookie('optimizely_signed_in') ) {
+    //if ( !!this.readCookie('optimizely_signed_in') ) {
       deferreds = this.makeRequest(requestParams);
-    } else {
-      window.optly_q = window.optly.mrkt.Optly_Q();
-    }
+    //} else {
+    //  window.optly_q = window.optly.mrkt.Optly_Q();
+    //}
 
     return deferreds;
   }
