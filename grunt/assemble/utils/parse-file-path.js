@@ -25,9 +25,6 @@ module.exports = function (assemble) {
       dataKey: generateKey(fp)
     };
     var localeIndex;
-    if(data.dataKey[0] !== '/') {
-      data.dataKey = '/' + data.dataKey;
-    }
 
     if( isIndex(fp, websiteRoot) ) {
       data.locale = websiteRoot;
