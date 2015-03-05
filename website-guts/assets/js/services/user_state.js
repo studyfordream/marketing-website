@@ -124,7 +124,7 @@ window.optly.mrkt.Optly_Q.prototype = {
 };
 
 window.optly.mrkt.services.xhr = {
-  makeRequest: function(request) {
+  makeRequest: function(request, xhrFields) {
     var deferreds = [], deferredPromise;
 
     // check if multiple requests are present
@@ -133,7 +133,8 @@ window.optly.mrkt.services.xhr = {
         if (typeof request[i] === 'object') {
           deferredPromise = $.ajax({
             type: request[i].type,
-            url: request[i].url
+            url: request[i].url,
+            xhrFields: xhrFields ? xhrFields : {}
           });
           // parameters passed must be objects with a path and properties keys
           if (request[i].properties !== undefined) {
@@ -369,11 +370,11 @@ window.optly.mrkt.services.xhr = {
   getLoginStatus: function(requestParams) {
     var deferreds;
 
-    //if ( !!this.readCookie('optimizely_signed_in') ) {
+    if ( !!this.readCookie('optimizely_signed_in') || /^www.optimizelystaging.com/.test(window.location.hostname) ) {
       deferreds = this.makeRequest(requestParams);
-    //} else {
-    //  window.optly_q = window.optly.mrkt.Optly_Q();
-    //}
+    } else {
+      window.optly_q = window.optly.mrkt.Optly_Q();
+    }
 
     return deferreds;
   }
@@ -408,5 +409,5 @@ window.optly.mrkt.services.xhr = {
     }
   };
 
-  window.optly.mrkt.services.xhr.getLoginStatus([acctParams, expParams]);
+  window.optly.mrkt.services.xhr.getLoginStatus([acctParams, expParams], {withCredentials: true});
 }());
