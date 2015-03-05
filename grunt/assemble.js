@@ -3,6 +3,7 @@ module.exports = {
     layoutdir: '<%= config.guts %>/templates/layouts/',
     assetsDir: '<%= grunt.config.get("assetsDir") %>',
     linkPath: '<%= grunt.config.get("link_path") %>',
+    apiDomain: '<%= grunt.config.get("apiDomain") %>',
     sassImagePath: '<%= grunt.config.get("sassImagePath") %>',
     environment: '<%= grunt.config.get("environment") %>',
     data: ['<%= config.content %>/**/*.json', '<%= config.content %>/**/*.yml', '<%= grunt.config.get("environmentData") %>'],
