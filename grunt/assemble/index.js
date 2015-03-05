@@ -7,6 +7,7 @@ var createStack = require('layout-stack');
 var customSubfolders = require('./types/subfolders');
 var es = require('event-stream');
 var Plasma = require('plasma');
+var _ = require('lodash');
 
 module.exports = function (grunt) {
 
@@ -18,7 +19,9 @@ module.exports = function (grunt) {
     var mergeLayoutContext = require('./middleware/merge-layout-context');
     var collectionMiddleware = require('./middleware/onload-collection')(assemble);
     var mergeTranslatedData = require('./middleware/merge-translated-data');
+    var renderTypeHelper = require('./helpers/renderTypeHelper');
     var sendToSmartling = require('./plugins/smartling');
+    var typeLoader = require('./loaders/type-loader');
     var push = require('assemble-push')(assemble);
 
     var config = grunt.config.get('_assemble'); // old assemble config
@@ -44,8 +47,9 @@ module.exports = function (grunt) {
     assemble.set('data.environmentIsDev', options.environmentIsDev);
     assemble.set('data.layoutPath', layoutPath);
 
+    assemble.asyncHelper('partial', renderTypeHelper('partials'));
     assemble.layouts([options.layoutDir]);
-    assemble.partials(options.partials);
+    assemble.partials(options.partials, [typeLoader(assemble)]);
     assemble.helpers(options.helpers);
 
     assemble.transform('page-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}', options.websiteRoot);
@@ -70,6 +74,7 @@ module.exports = function (grunt) {
       isPartial: true,
       isRenderable: true
     });
+    assemble.asyncHelper('modal', renderTypeHelper('modals'));
 
     // create custom template type `resources`
     assemble.create('resource', 'resources', {
@@ -90,7 +95,7 @@ module.exports = function (grunt) {
     assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
 
     var modalFiles = config.modals.files[0];
-    assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src));
+    assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src), [typeLoader(assemble)]);
 
     assemble.option('renameKey', renameKeys.noExtPath);
 

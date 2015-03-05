@@ -86,6 +86,7 @@ module.exports = function (assemble) {
 
       // when all translations are fetched - call callback
       q.all(defers).then(function(){
+        translations.de_DE['/website-guts/templates/components/modals/signin_modal']['Sign in'] = 'DE-Sign in';
         assemble.set('dicts', translations);
         cb();
       });

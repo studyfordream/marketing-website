@@ -29,7 +29,6 @@ module.exports = function(assemble) {
       }
 
     } else if(fpData.isSubfolder) {
-      console.log('extend subfolder');
       parentPageData = ( pageData[websiteRoot] && pageData[websiteRoot][parentKey] ) || {};
       subfolderPageData = ( pageData[locale] && pageData[locale][dataKey] ) || {};
 

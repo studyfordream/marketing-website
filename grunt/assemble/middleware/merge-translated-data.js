@@ -27,9 +27,17 @@ module.exports = function(assemble) {
     //extend the file with the external YML content
     extendFileData(filePathData, file);
 
+    if (filePathData.isModal || filePathData.isPartial) {
+      console.log('locale', file.path, locale);
+      locale = file.data.locale;
+      console.log('locale', file.path, locale);
+      console.log();
+    }
+
     //TODO: problem this won't work for modals because they are not scoped to the locale???
     //put in custom function for replacing translated array values
     if(filePathData.isSubfolder) {
+      file.data.locale = locale;
       dictKey = locales[locale]; //this gives the dictionary key ex. de_DE from _assemble config
       parentKey = filePathData.parentKey;
 
