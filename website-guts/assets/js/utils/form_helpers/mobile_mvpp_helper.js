@@ -23,7 +23,7 @@ var mobileMvppHelper = {
     if(resp) {
       w.optly.mrkt.Oform.trackLead({
         formElm: this.formElm,
-        pageData: e.requestPayload,
+        pageData: pageData,
         XHRevent: e.XHR
       });
 

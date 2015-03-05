@@ -27,7 +27,7 @@ var seoHelper = {
       //remove error class from body?
       w.optly.mrkt.Oform.trackLead({
         formElm: this.formElm,
-        pageData: event.requestPayload,
+        pageData: pageData,
         XHRevent: event.XHR
       });
       //[> legacy reporting - to be deprecated <]

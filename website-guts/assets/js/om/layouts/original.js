@@ -131,7 +131,7 @@ w.optly.mrkt.trialForm = new Oform({
       };
       w.optly.mrkt.Oform.trackLead({
         formElm: '#seo-form',
-        pageData: loadEvent.requestPayload,
+        pageData: pageData,
         XHRevent: loadEvent.XHR
       });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
