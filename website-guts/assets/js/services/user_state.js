@@ -131,6 +131,7 @@ window.optly.mrkt.services.xhr = {
     if ( Array.isArray(request) ) {
       for (var i = 0; i < request.length; i += 1) {
         if (typeof request[i] === 'object') {
+          debugger;
           deferredPromise = $.ajax({
             type: request[i].type,
             url: request[i].url,
@@ -152,7 +153,8 @@ window.optly.mrkt.services.xhr = {
     else {
       deferredPromise = $.ajax({
         type: request.type,
-        url: request.url
+        url: request.url,
+        xhrFields: request.xhrFields ? request.xhrFields : {}
       });
       if (request.properties !== undefined) {
         this.handleErrors( deferredPromise, request.url, request.properties );
