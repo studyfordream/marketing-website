@@ -408,10 +408,10 @@ window.optly.mrkt.services.xhr = {
         description: 'string',
         has_started: 'boolean',
         can_edit: 'boolean'
-      },
-      xhrFields: {
-        withCredentials: true
       }
+    },
+    xhrFields: {
+      withCredentials: true
     }
   };
 
