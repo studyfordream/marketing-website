@@ -8,12 +8,12 @@ body.opticon {
     display: inline-block;
   }
   .adelle-sans {
-    font-family: AdelleSans-Regular;
+    font-family: $adelle-sans-font-family;
     font-weight: 100;
-  }
-  .adelle-sans--bold {
-    font-family: AdelleSans-Regular;
-    font-weight: 600;
+    &--bold {
+      font-family: $adelle-sans-font-family;
+      font-weight: 600;
+    }
   }
   .common-page-title {
     font-size: 3em;
@@ -121,6 +121,9 @@ body.opticon {
     background: #D8D8D8;
     margin: 3px;
   }
+  .confetti-container {
+    position: relative;
+  }
   .confetti-left {
     @include opticon-confetti('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pattern_left.svg', 450px, 450px);
     display: none;
@@ -142,9 +145,6 @@ body.opticon {
     .flex-container {
       display: flex;
     }
-  }
-  .flex-container {
-    display: flex;
   }
 }
 
