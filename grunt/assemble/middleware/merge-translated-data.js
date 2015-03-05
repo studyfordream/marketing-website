@@ -16,7 +16,7 @@ module.exports = function(assemble) {
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
     var pageData = assemble.get('pageData');
     var translated = assemble.get('translated');
-    var locale, dataKey, localeData, parsedTranslations, filePathData;
+    var locale, dataKey, localeData, parsedTranslations, filePathData, dictKey;
 
     //get keys for accessing dictionary and locale type
     filePathData = parseFilePath(file.path);
@@ -29,6 +29,7 @@ module.exports = function(assemble) {
     //TODO: problem this won't work for modals because they are not scoped to the locale???
     //put in custom function for replacing translated array values
     if(filePathData.isSubfolder) {
+      dictKey = locales[locale]; //this gives the dictionary key ex. de_DE from _assemble config
 
       /**
        *
