@@ -97,7 +97,10 @@ window.optly.mrkt.signOut = function(redirectPath) {
 
   var deferred = window.optly.mrkt.services.xhr.makeRequest({
     type: 'GET',
-    url: window.apiDomain + '/account/signout'
+    url: window.apiDomain + '/account/signout',
+    xhrFields: {
+      withCredentials: true
+    }
   });
 
   // Close the dropdown
