@@ -17,7 +17,7 @@ module.exports = function(assemble) {
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
     var pageData = assemble.get('pageData');
     var dicts = assemble.get('dicts');
-    var locale, dataKey, localeData, parsedTranslations, filePathData, dictKey, mergedDict, parentKey;
+    var locale, dataKey, localeData, parsedTranslations, filePathData, dictKey, mergedDict, parentKey, parentDict, subfolderDict;
 
     //get keys for accessing dictionary and locale type
     filePathData = parseFilePath(file.path);

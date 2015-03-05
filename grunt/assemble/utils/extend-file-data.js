@@ -10,7 +10,10 @@ module.exports = function(assemble) {
     var pageData = assemble.get('pageData');
     var dataKey = fpData.dataKey;
     var locale = fpData.locale;
-    var parentKey;
+    var parentKey = fpData.parentKey;
+    var parentPageData;
+    var subfolderPageData;
+    var htmlBodyContent;
 
     //append the HTML content onto the file for translation swap
     if(lang[locale] && lang[locale][dataKey] && lang[locale][dataKey].HTML_page_content) {
@@ -26,16 +29,21 @@ module.exports = function(assemble) {
       }
 
     } else if(fpData.isSubfolder) {
-      parentKey = fpData.parentKey;
-      //check the parent folder for body content to be translated
-      if(!fileData.hasOwnTemplate && lang[websiteRoot] && lang[websiteRoot][parentKey] && lang[websiteRoot][parentKey].HTML_page_content) {
-        //otherwise check if the root file potentially inherits from has body content that needs translating
-        fileData.HTML_page_content = lang[websiteRoot][parentKey].HTML_page_content;
-      }
+      console.log('extend subfolder');
+      parentPageData = ( pageData[websiteRoot] && pageData[websiteRoot][parentKey] ) || {};
+      subfolderPageData = ( pageData[locale] && pageData[locale][dataKey] ) || {};
+
       //extend the locale specific data and potentially website root data
       //this is what allows for swaps
-      if(pageData[locale] && pageData[locale][dataKey]) {
-        extend(fileData.data, pageData[websiteRoot][parentKey] || {}, pageData[locale][dataKey]);
+      if(fileData.hasOwnTemplate) {
+        extend(fileData.data, subfolderPageData);
+      } else {
+        //check the parent folder for body content to be translated
+        if(lang[websiteRoot] && lang[websiteRoot][parentKey] && lang[websiteRoot][parentKey].HTML_page_content) {
+          fileData.HTML_page_content = lang[websiteRoot][parentKey].HTML_page_content;
+        }
+
+        extend(fileData.data, parentPageData, subfolderPageData);
       }
 
     }
