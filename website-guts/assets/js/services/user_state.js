@@ -134,7 +134,7 @@ window.optly.mrkt.services.xhr = {
           deferredPromise = $.ajax({
             type: request[i].type,
             url: request[i].url,
-            xhrFields: xhrFields ? xhrFields : {}
+            xhrFields: request[i].xhrFields ? request[i].xhrFields : {}
           });
           // parameters passed must be objects with a path and properties keys
           if (request[i].properties !== undefined) {
@@ -393,6 +393,9 @@ window.optly.mrkt.services.xhr = {
     properties: {
       email: 'string',
       account_id: 'number'
+    },
+    xhrFields: {
+      withCredentials: true
     }
   };
 
@@ -405,9 +408,12 @@ window.optly.mrkt.services.xhr = {
         description: 'string',
         has_started: 'boolean',
         can_edit: 'boolean'
+      },
+      xhrFields: {
+        withCredentials: true
       }
     }
   };
 
-  window.optly.mrkt.services.xhr.getLoginStatus([acctParams, expParams], {withCredentials: true});
+  window.optly.mrkt.services.xhr.getLoginStatus([acctParams, expParams]);
 }());
