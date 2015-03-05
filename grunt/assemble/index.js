@@ -136,7 +136,7 @@ module.exports = function (grunt) {
         });
     });
 
-    assemble.task('subfolders', ['prep-smartling'],  function () {
+    assemble.task('subfolders', ['pages'],  function () {
       var start = process.hrtime();
       var files = config.pages.files[0];
 
@@ -157,7 +157,7 @@ module.exports = function (grunt) {
       });
     });
 
-    assemble.run(['prep-smartling', 'subfolders'], function (err) {
+    assemble.run(['prep-smartling', 'pages', 'subfolders'], function (err) {
     // assemble.run(['prep-smartling'], function (err) {
       if (err) {
         return done(err);

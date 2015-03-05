@@ -13,11 +13,8 @@ module.exports = function(patterns, locale, root) {
   plasma.option('cwd', cwd);
   plasma.option('namespace', function(fp) {
     var key = path.join( path.dirname(fp), 'index').replace(process.cwd(), '');
-
-    //for consitency with translation plugin root hompage key is `index`
-    if(locale.indexOf(key) !== -1) {
-      //if we want to make root YAML global should do it here
-      key = 'index';
+    if(key[0] !== '/') {
+      key = '/' + key;
     }
 
     if(keysCache.length && keysCache.indexOf(key) !== -1) {

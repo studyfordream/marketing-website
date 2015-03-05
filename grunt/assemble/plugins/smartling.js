@@ -39,69 +39,30 @@ module.exports = function (assemble) {
     return locales[subfolder];
   });
   var createTranslationDict = require('../utils/create-dictionary')(assemble);
-  var locale, dictKey;
+  var parseFilePath = require('../utils/parse-file-path')(assemble);
+  var locale, dictKey, dataKey;
 
   return through.obj(function (file, enc, cb) {
-    var subfoldersRoot = assemble.get('data.subfoldersRoot');
     // instead of middleware
     // load file.data information onto `assemble.get('lang')` here
-    var page, data, modalData, parsedTranslations, localeIndex;
-    var allRoots = Object.keys(locales).concat(websiteRoot);
-    var rootIndex = file.path.indexOf('/' + websiteRoot + '/');
-    var pagePath = true;
-    var dataKey = path.join( path.dirname(file.path), path.basename(file.path, path.extname(file.path)) ).replace(process.cwd(), '');
+    var data,parsedTranslations, filePathData, locale;
 
-    if( isIndex(file.path, websiteRoot) ) {
-      locale = websiteRoot;
-    } else if( isIndex(file.path, subfoldersRoot) ) {
-      localeIndex = _.findIndex(Object.keys(locales), function(locale) {
-        var split = file.path.replace(process.cwd(), '').replace(subfoldersRoot, '').split('/');
-        return split.indexOf(locale) !== -1;
-      });
-      locale = Object.keys(locales)[localeIndex];
-    } else {
-      pagePath = false;
-      locale = path.dirname(file.path).split('/').slice(-1)[0];
-      page = path.join(locale, path.basename(file.path, path.extname(file.path)));
-    }
+    //here were merge the file data with local YML data
+    filePathData = parseFilePath(file.path);
+    locale = filePathData.locale;
+    dataKey = filePathData.dataKey;
 
-    if(pagePath) {
-      ////if it's a page file other than the root homepage the path is the dirname
-      //page = path.dirname(file.path).split('/').slice(-1)[0];
+    parsedTranslations = createTranslationDict(file, locale);
 
-      ////if the page is the root homepage normalize it's key to `index`
-      //if(allRoots.indexOf(page) !== -1) {
-        //page = path.basename(file.path, path.extname(file.path));
-      //}
-
-      //must extend local page data (i.e. from YML file) before parsing for translation
-      //if(pageData[locale][page]) {
-        //extend(file.data, pageData[locale][page]);
-      //}
-
-      parsedTranslations = createTranslationDict(file, locale);
-
-      if(Object.keys(parsedTranslations).length > 0) {
-        lang[locale] = lang[locale] || {};
-        lang[locale][dataKey] = extend({}, lang[locale][dataKey], parsedTranslations);
-      }
-
-      //parse the file.data for TR and MD and put it on lang
-      //put the pageData on file.data
-
-    } else {
-      //can parse the file.data here for TR or MD instead of in the transform on put it on lang
-      //if there is page data (there shouldn't ever be YAML for layouts|modals|partials put it on the file.data
-      parsedTranslations = createTranslationDict(file, locale);
-      if(Object.keys(parsedTranslations).length > 0) {
-        lang[locale] = lang[locale] || {};
-        lang[locale][dataKey] = parsedTranslations;
-      }
+    if(Object.keys(parsedTranslations).length > 0) {
+      lang[locale] = lang[locale] || {};
+      lang[locale][dataKey] = extend({}, lang[locale][dataKey], parsedTranslations);
     }
 
     this.push(file);
     cb();
   }, function (cb) {
+    assemble.set('lang', lang);
     var DICT_FNAME = 'marketing_website_yaml.pot';
     var phrases = [];
 
