@@ -24,7 +24,7 @@ module.exports = function (assemble) {
     var data = {
       dataKey: generateKey(fp)
     };
-    var localeIndex;
+    var localeIndex, parentKey, localePath;
 
     if( isIndex(fp, websiteRoot) ) {
       data.locale = websiteRoot;
@@ -35,6 +35,9 @@ module.exports = function (assemble) {
         return split.indexOf(locale) !== -1;
       });
       data.locale = Object.keys(locales)[localeIndex];
+      localePath = '/' + subfoldersRoot + '/' + data.locale + '/';
+      parentKey = data.dataKey.replace(localePath, '/' + websiteRoot + '/');
+      data.parentKey = parentKey;
       data.isSubfolder = true;
     } else {
       data.locale = path.dirname(fp).split('/').slice(-1)[0];

@@ -10,7 +10,7 @@ module.exports = function(assemble) {
     var pageData = assemble.get('pageData');
     var dataKey = fpData.dataKey;
     var locale = fpData.locale;
-    var parentKey, localePath;
+    var parentKey;
 
     //append the HTML content onto the file for translation swap
     if(lang[locale] && lang[locale][dataKey] && lang[locale][dataKey].HTML_page_content) {
@@ -26,8 +26,7 @@ module.exports = function(assemble) {
       }
 
     } else if(fpData.isSubfolder) {
-      localePath = '/' + subfoldersRoot + '/' + locale + '/';
-      parentKey = dataKey.replace(localePath, '/' + websiteRoot + '/');
+      parentKey = fpData.parentKey;
       //check the parent folder for body content to be translated
       if(lang[websiteRoot] && lang[websiteRoot][parentKey] && lang[websiteRoot][parentKey].HTML_page_content) {
         //otherwise check if the root file potentially inherits from has body content that needs translating

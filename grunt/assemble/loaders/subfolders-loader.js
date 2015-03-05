@@ -18,6 +18,7 @@ module.exports = function (assemble, locales, lastRunTime) {
     map[key] = matter(fs.readFileSync(readPath || langPath, 'utf8'));
     map[key].path = langPath;
     map[key].base = argsObj.base;
+    map[key].hasOwnTemplate = readPath ? false : true;
     return map;
   }
 
@@ -65,6 +66,7 @@ module.exports = function (assemble, locales, lastRunTime) {
       _.extend(collection, map);
 
     });
+    debugger;
 
     return collection;
   };

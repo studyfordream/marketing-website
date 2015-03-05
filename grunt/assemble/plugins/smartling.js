@@ -74,8 +74,6 @@ module.exports = function (assemble) {
       });
     });
 
-    console.log('send to smartling', phrases);
-
     smartling.send(smartling.generatePO(phrases), smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, DICT_FNAME).then(function(){
       var translations = {};
       var defers = localeCodes.map(function(code){

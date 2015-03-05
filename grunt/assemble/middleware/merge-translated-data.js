@@ -17,7 +17,7 @@ module.exports = function(assemble) {
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
     var pageData = assemble.get('pageData');
     var dicts = assemble.get('dicts');
-    var locale, dataKey, localeData, parsedTranslations, filePathData, dictKey;
+    var locale, dataKey, localeData, parsedTranslations, filePathData, dictKey, mergedDict, parentKey;
 
     //get keys for accessing dictionary and locale type
     filePathData = parseFilePath(file.path);
@@ -31,6 +31,7 @@ module.exports = function(assemble) {
     //put in custom function for replacing translated array values
     if(filePathData.isSubfolder) {
       dictKey = locales[locale]; //this gives the dictionary key ex. de_DE from _assemble config
+      parentKey = filePathData.parentKey;
 
       /**
        *
@@ -40,15 +41,24 @@ module.exports = function(assemble) {
        * must iterate through all keys as some TR/MD keys may be nested in non-TR/MD
        * we are not translating modals, layouts, or partials here -- only subfolders
        *
-      **/
+       **/
+      //TODO: add if condition from data applied in loader
+      // if page has it's own template don't merge dictionary, if not then merge dictionary
+      // also if this is the case need to extend the file data with the parent file data
+      // thought this was happening in extend-file-data function
+      if(!file.hasOwnTemplate) {
+        mergedDict = extend({}, dicts[dictKey][parentKey], dicts[dictKey][dataKey]);
+      }
 
+      // file.path should match value from smartling.js
+      file = objParser.translate(file, mergedDict || dicts[dictKey][dataKey]);
+      //
       //replace the content of the page if it has been flagged for translation
       if(file.HTML_page_content) {
         file.content = file.HTML_page_content;
         delete file.HTML_page_content;
       }
-      // file.path should match value from smartling.js
-      file = objParser.translate(file, dicts[dictKey][file.path]);
+
     }
 
     next();
