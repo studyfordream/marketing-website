@@ -59,8 +59,7 @@ faq_section:
         of the famous fog during the summer so be sure to bring a jacket</p>"
     -
       question: "What airport should I fly into?"
-      answer: "<p class='adelle-sans'>San Francisco is lucky enough to be situated between two major
-      airports: <a target='_blank' href='http://www.oaklandairport.com/'>Oakland International Airport</a> and <a target='_blank' href='http://www.flysfo.com/'>San Francisco International Airport</a>. The <a target='_blank' href='http://www.bart.gov/'>Bay Area Rapid Transit System</a> (BART) goes to both airports.</p>"
+      answer: "<p class='adelle-sans'>San Francisco is lucky enough to be situated between two major airports: <a target='_blank' href='http://www.oaklandairport.com/'>Oakland International Airport</a> and <a target='_blank' href='http://www.flysfo.com/'>San Francisco International Airport</a>. The <a target='_blank' href='http://www.bart.gov/'>Bay Area Rapid Transit System</a> (BART) goes to both airports.</p>"
     -
       question: "What should I wear?"
       answer: "<p class='adelle-sans'>Opticon is a business casual affair which means jeans, blazers, skirts, and t-shirts are all acceptable. Wear what you’re comfortable in and come dressed to have an amazing time.</p>"
@@ -82,10 +81,7 @@ faq_section:
       answer: "<p class='adelle-sans'>You can either call us directly at 1-800-252-9480 or send us an email (<a target='_blank' href='mailto:events@optimizely.com'>events@optimizely.com</a>) and we’ll help you set something up.</p>"
     -
       question: "Can I cancel?"
-      answer: "<p class='adelle-sans'>Our cancellation policy is listed below. This goes for Opticon and the Optimizely training sessions the day before the conference.</p>
-      <p class='adelle-sans'><b>Cancellation Policy</b>: Refund requests must be made in writing to <a target='_blank' href='mailto:events@optimizely.com'>events@optimizely.com</a>. No refunds will be given after April 15, 2015.</p>
-      <p class='adelle-sans'><b>100% refund</b>:     Requests must be received by March 18, 2015</p>
-      <p class='adelle-sans'><b>50% refund</b>:      Requests must be received by April 15, 2015</p>
+      answer: "<p class='adelle-sans'>Our cancellation policy is listed below. This goes for Opticon and the Optimizely training sessions the day before the conference.</p><p class='adelle-sans'><b>Cancellation Policy</b>: Refund requests must be made in writing to <a target='_blank' href='mailto:events@optimizely.com'>events@optimizely.com</a>. No refunds will be given after April 15, 2015.</p><p class='adelle-sans'><b>100% refund</b>: Requests must be received by March 18, 2015</p><p class='adelle-sans'><b>50% refund</b>: Requests must be received by April 15, 2015</p>
          "
     -
       question: "Can I bring a guest?"

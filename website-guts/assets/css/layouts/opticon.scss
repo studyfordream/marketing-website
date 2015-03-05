@@ -65,6 +65,7 @@ body.opticon {
   .page-title {
     background: $opticon-brand-blue;
     display: inline-block;
+    color: #fff;
   }
   .adelle-sans {
     font-family: $adelle-sans-font-family;
@@ -76,7 +77,6 @@ body.opticon {
   }
   .common-page-title {
     font-size: 3em;
-    color: #fff;
     display: inline;
     padding: 2px 15px;
   }
