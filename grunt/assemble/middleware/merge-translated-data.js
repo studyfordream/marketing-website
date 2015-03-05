@@ -47,7 +47,8 @@ module.exports = function(assemble) {
         file.content = file.HTML_page_content;
         delete file.HTML_page_content;
       }
-      file = objParser.translate(file, dicts[dictKey]);
+      // file.path should match value from smartling.js
+      file = objParser.translate(file, dicts[dictKey][file.path]);
     }
 
     next();
