@@ -388,7 +388,7 @@ window.optly.mrkt.services.xhr = {
 
   acctParams = {
     type: 'GET',
-    url: '/account/info',
+    url: window.apiDomain + '/account/info',
     properties: {
       email: 'string',
       account_id: 'number'
@@ -397,7 +397,7 @@ window.optly.mrkt.services.xhr = {
 
   expParams = {
     type: 'GET',
-    url: '/experiment/load_recent?max_experiments=5',
+    url: window.apiDomain + '/experiment/load_recent?max_experiments=5',
     properties: {
       experiments: {
         id: 'number',

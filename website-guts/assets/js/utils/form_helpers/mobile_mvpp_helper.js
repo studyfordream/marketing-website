@@ -23,14 +23,14 @@ var mobileMvppHelper = {
     if(resp) {
       w.optly.mrkt.Oform.trackLead({
         formElm: this.formElm,
-        pageData: pageData, 
+        pageData: pageData,
         XHRevent: e
       });
 
       w.Munchkin.munchkinFunction('visitWebPage', {url: '/event/ios-form-signup'});
 
       this.redirectHelper({
-        redirectPath: '/mobile/first-project',
+        redirectPath: w.apiDomain + '/mobile/first-project',
         bodyData: {
           formSuccess: this.formElm.getAttribute('action')
         }

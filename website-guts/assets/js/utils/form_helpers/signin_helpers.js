@@ -30,7 +30,7 @@ var signinHelper = {
 
     if (resp && !pricingPath) {
       this.redirectHelper({
-        redirectPath: '/dashboard',
+        redirectPath: w.apiDomain + '/dashboard',
         bodyClass: 'signed-in',
         bodyData: {
           formSuccess: this.formElm.getAttribute('action')

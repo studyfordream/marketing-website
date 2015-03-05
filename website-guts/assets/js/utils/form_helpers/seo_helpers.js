@@ -52,7 +52,7 @@ var seoHelper = {
       });
 
       this.redirectHelper({
-        redirectPath: w.linkPath + '/welcome',
+        redirectPath: w.apiDomain + '/welcome',
         bodyData: {
           formSuccess: document.getElementById('seo-form').getAttribute('action')
         }
