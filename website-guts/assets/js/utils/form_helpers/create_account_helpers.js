@@ -127,7 +127,7 @@ var createAccountHelper = {
       w.optly.mrkt.Oform.trackLead({
         formElm: '#signup-form',
         pageData: pageData,
-        XHRevent: e
+        XHRevent: e.XHR
       });
 
       this.redirectHelper({
