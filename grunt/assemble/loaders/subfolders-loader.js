@@ -66,7 +66,6 @@ module.exports = function (assemble, locales, lastRunTime) {
       _.extend(collection, map);
 
     });
-    debugger;
 
     return collection;
   };

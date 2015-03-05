@@ -28,14 +28,14 @@ module.exports = function(assemble) {
     } else if(fpData.isSubfolder) {
       parentKey = fpData.parentKey;
       //check the parent folder for body content to be translated
-      if(lang[websiteRoot] && lang[websiteRoot][parentKey] && lang[websiteRoot][parentKey].HTML_page_content) {
+      if(!fileData.hasOwnTemplate && lang[websiteRoot] && lang[websiteRoot][parentKey] && lang[websiteRoot][parentKey].HTML_page_content) {
         //otherwise check if the root file potentially inherits from has body content that needs translating
         fileData.HTML_page_content = lang[websiteRoot][parentKey].HTML_page_content;
       }
       //extend the locale specific data and potentially website root data
       //this is what allows for swaps
-      if(pageData[locale][dataKey]) {
-        extend(fileData.data, pageData[websiteRoot][dataKey] || {}, pageData[locale][dataKey]);
+      if(pageData[locale] && pageData[locale][dataKey]) {
+        extend(fileData.data, pageData[websiteRoot][parentKey] || {}, pageData[locale][dataKey]);
       }
 
     }
