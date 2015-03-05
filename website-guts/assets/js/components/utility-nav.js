@@ -56,8 +56,6 @@ window.optly.mrkt.showUtilityNav = function (acctData, expData) {
       }
     });
 
-    debugger;
-
     var handlebarsData = {
       apiDomain: w.apiDomain,
       account_id: acctData.account_id,

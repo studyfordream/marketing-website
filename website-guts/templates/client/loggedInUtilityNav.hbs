@@ -9,7 +9,7 @@
         <span class="experiment-container hide-in-mobile">
           <li>
           <a class="edit{{#unless can_edit}} disabled{{/unless}}"
-              {{#if can_edit}}href="{{../apiDomain}}/edit?experiment_id={{id}}"{{/if}}
+              {{#if can_edit}}href="{{../../apiDomain}}/edit?experiment_id={{id}}"{{/if}}
               {{#unless has_started}}style="width: auto;"{{/unless}}>
               <span class="experiment-description">{{description}}</span>
             </a>
