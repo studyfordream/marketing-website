@@ -95,11 +95,21 @@ w.optly.mrkt.trialForm = new Oform({
   $('body').addClass('oform-error').removeClass('oform-processing');
 })
 .on('load', function(returnData){
-  var parsedResp = this.parseResponse(returnData),
-      form = this.formElm.getAttribute('id'),
-      xhrElapsedTime;
-
+  var xhrElapsedTime,
+      parsedResp;
   xhrElapsedTime = new Date() - xhrInitiationTime;
+  try {
+    parsedResp = JSON.parse(returnData.XHR.responseText);
+  } catch(error){
+    w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
+      category: 'api error',
+      label: 'json parse error: ' + error,
+    }, {
+      integrations: {
+        'Marketo': false
+      }
+    });
+  }
   w.ga('send', {
     'hitType': 'timing',
     'timingCategory': 'api response time',
@@ -109,13 +119,11 @@ w.optly.mrkt.trialForm = new Oform({
   });
   if(parsedResp){
     if(returnData.XHR.status === 200){
-
       w.optly.mrkt.Oform.trackLead({
-        form: form,
+        form: $('#seo-form')[0],
         response: parsedResp,
         requestPayload: returnData.requestPayload
       });
-
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
       }, {
@@ -123,13 +131,21 @@ w.optly.mrkt.trialForm = new Oform({
           Marketo: false
         }
       });
-
       /* legacy reporting - to be deprecated */
       w.analytics.track('/free-trial/success', {
         category: 'account',
         label: w.location.pathname
+      }, {
+        'Marketo': false
       });
-
+      w.Munchkin.munchkinFunction('visitWebPage', {
+        url: '/free-trial/success'
+      });
+      w.analytics.page('/account/create/success', {
+        integrations: {
+          'Marketo': false
+        }
+      });
       w.analytics.page('/free-trial/success', {
         integrations: {
           'Marketo': false
