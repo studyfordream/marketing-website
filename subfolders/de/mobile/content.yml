@@ -4,3 +4,20 @@ hero:
   TR_vid_btn_txt: "German Watch Video"
   TR_signup_btn_txt: "German Get Started"
   TR_link_text: "German A single platform for iOS, Android, and the web."
+top_grid:
+  TR_title: "German Fast, powerful A/B testing"
+  TR_sub_title: "Germany for mobile apps"
+  TR_grid_content:
+  -
+    icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/01.svg"
+    TR_title: "Germany Optimize Everything"
+    TR_grid_content: "Germany coool Test and roll out entire features, no matter how custom your app is built. Deliver consistent experiences across web and mobile apps."
+  -
+    icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/02.svg"
+    TR_title: "Iterate Faster more German Stuff"
+    TR_grid_content: "I'm German Make visual changes to your app in real time. No App Store review required."
+  -
+    icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/03.svg"
+    TR_title: "Reliable and Trusted German Things"
+    TR_grid_content: "Optimize your app on the #1 experience optimization platform that is already delivering billions of experiences globally. -- Only in Germany"
+

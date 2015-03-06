@@ -91,6 +91,7 @@ module.exports = function (grunt) {
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
     assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
     assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
+    //localize link path after locale is appended in the translate data middleware
     assemble.preRender(pathRe, localizeLinkPath(assemble));
 
     var modalFiles = config.modals.files[0];
