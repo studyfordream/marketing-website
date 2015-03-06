@@ -10,7 +10,6 @@ module.exports = function(assemble) {
     if (locale && locale.length && locale !== websiteRoot) {
       file.data.linkPath += ('/' + locale);
     }
-    console.log('linkpath', file.data.linkPath); 
     next();
   };
 };
