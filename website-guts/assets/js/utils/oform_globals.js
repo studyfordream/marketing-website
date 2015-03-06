@@ -78,7 +78,7 @@
 
     var reportingObject,
         source,
-        payload = args.response,
+        payload = args.requestPayload,
         response = args.response;
 
     source = w.optly.mrkt.source;
@@ -93,13 +93,13 @@
       reportingObject.email = payload.email;
     }
     if(response.first_name){
-      reportingObject.FirstName = response.first_name;
+      reportingObject.firstName = response.first_name;
     }
     if(response.last_name){
-      reportingObject.LastName = response.last_name;
+      reportingObject.lastName = response.last_name;
     }
     if(response.phone_number){
-      reportingObject.phone_number = response.phone_number;
+      reportingObject.phone = response.phone_number;
     }
     if(payload.Web__c){
       reportingObject.Web__c = payload.Web__c;

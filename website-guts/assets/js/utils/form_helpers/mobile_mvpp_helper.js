@@ -12,22 +12,18 @@ var mobileMvppHelper = {
     return validationPassed;
   },
 
-  success: function(e) {
-    var resp = this.parseResponse(e),
-      pageData = {
-        Signup_Platform__c: 'ios',
-        iOS__c: 'true',
-        email: this.formElm.querySelector('[name="email"]').value
-      };
+  success: function(returnData) {
+    var parsedResp = this.parseResponse(returnData),
+        form = this.formElm.getAttribute('id');
 
-    if(resp) {
+    if(parsedResp) {
       w.optly.mrkt.Oform.trackLead({
-        formElm: this.formElm,
-        pageData: pageData,
-        XHRevent: e.XHR
+        form: form,
+        response: parsedResp,
+        requestPayload: returnData.requestPayload
       });
 
-      w.Munchkin.munchkinFunction('visitWebPage', {url: '/event/ios-form-signup'});
+      w.analytics.track('/event/ios-form-signup', {}, { 'All': false, 'Marketo': true });
 
       this.redirectHelper({
         redirectPath: w.apiDomain + '/mobile/first-project',

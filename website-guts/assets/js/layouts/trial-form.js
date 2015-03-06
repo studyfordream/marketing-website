@@ -94,22 +94,12 @@ w.optly.mrkt.trialForm = new Oform({
   $('#seo-form .error-message').text('An unknown error occured.');
   $('body').addClass('oform-error').removeClass('oform-processing');
 })
-.on('load', function(event){
-  var xhrElapsedTime,
-      response;
+.on('load', function(returnData){
+  var parsedResp = this.parseResponse(returnData),
+      form = this.formElm.getAttribute('id'),
+      xhrElapsedTime;
+
   xhrElapsedTime = new Date() - xhrInitiationTime;
-  try {
-    response = JSON.parse(event.XHR.responseText);
-  } catch(error){
-    w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
-      category: 'api error',
-      label: 'json parse error: ' + error,
-    }, {
-      integrations: {
-        'Marketo': false
-      }
-    });
-  }
   w.ga('send', {
     'hitType': 'timing',
     'timingCategory': 'api response time',
@@ -117,20 +107,15 @@ w.optly.mrkt.trialForm = new Oform({
     'timingValue': xhrElapsedTime,
     'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   });
-  if(response){
-    if(event.XHR.status === 200){
-      var pageData = {
-        email: d.getElementById('email').value,
-        url: d.getElementById('url').value,
-        name: d.getElementById('name').value,
-        phone: d.getElementById('phone').value
-      };
-      //remove error class from body?
+  if(parsedResp){
+    if(returnData.XHR.status === 200){
+
       w.optly.mrkt.Oform.trackLead({
-        formElm: '#seo-form',
-        pageData: pageData,
-        XHRevent: event.XHR
+        form: form,
+        response: parsedResp,
+        requestPayload: returnData.requestPayload
       });
+
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
       }, {
@@ -138,21 +123,13 @@ w.optly.mrkt.trialForm = new Oform({
           Marketo: false
         }
       });
+
       /* legacy reporting - to be deprecated */
       w.analytics.track('/free-trial/success', {
         category: 'account',
         label: w.location.pathname
-      }, {
-        'Marketo': false
       });
-      w.Munchkin.munchkinFunction('visitWebPage', {
-        url: '/free-trial/success'
-      });
-      w.analytics.page('/account/create/success', {
-        integrations: {
-          'Marketo': false
-        }
-      });
+
       w.analytics.page('/free-trial/success', {
         integrations: {
           'Marketo': false
@@ -186,13 +163,13 @@ w.optly.mrkt.trialForm = new Oform({
           'Marketo': false
         }
       });
-      if(response.error && typeof response.error === 'string'){
+      if(parsedResp.error && typeof parsedResp.error === 'string'){
         //update error message, apply error class to body
-        $('#seo-form .error-message').text(response.error);
+        $('#seo-form .error-message').text(parsedResp.error);
         $('body').addClass('oform-error').removeClass('oform-processing');
         w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
           category: 'api error',
-          label: 'response.error: ' + response.error
+          label: 'response.error: ' + parsedResp.error
         }, {
           integrations: {
             'Marketo': false
