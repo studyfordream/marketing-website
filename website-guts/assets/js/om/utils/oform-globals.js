@@ -62,7 +62,7 @@ w.optly.mrkt.Oform.trackLead = function(args){
   } catch(e) {
     if(typeof error === 'object') {
       try {
-        error = JSON.stringify(err, ['message', 'arguments', 'type', 'name']);
+        error = JSON.stringify(error, ['message', 'arguments', 'type', 'name']);
       } catch (innerErr) {
         error = innerErr.message || 'cannot parse error message';
       }
