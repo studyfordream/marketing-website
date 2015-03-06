@@ -9,6 +9,8 @@ body_class:
 - opticon-homepage
 og_title: "Opticon 2015"
 og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
+external_script:
+- //use.typekit.net/ucj0cgp.js
 ---
 
 {{#with opticon_data}}
@@ -21,7 +23,6 @@ og_description: "Join me at Opticon and learn why experience optimization is a m
 <section class="title-section">
   <div class="content-container container">
     <h1 class="page-title first-title adelle-sans--bold">{{title_section.title1}}</h1>
-    <br>
     <h1 class="page-title second-title adelle-sans--bold">{{title_section.title2}}</h1>
     <h4 class="event-details adelle-sans">{{title_section.date}} | {{title_section.location}}</h4>
     <p class="optimizely-host adelle-sans">{{{title_section.sub_title}}}</p>
@@ -71,5 +72,3 @@ og_description: "Join me at Opticon and learn why experience optimization is a m
 {{/with}}
 
 {{> opticon_register}}
-
-{{> opticon_sponsors}}

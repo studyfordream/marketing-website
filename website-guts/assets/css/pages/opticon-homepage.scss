@@ -92,5 +92,9 @@ body.opticon-homepage {
 
 @media only screen and (min-width: $desktop-min-width) {
   body.opticon-homepage {
+    .description {
+      padding: 5% 0;
+      width: 600px;
+    }
   }
 }
