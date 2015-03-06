@@ -110,24 +110,15 @@ var createAccountHelper = {
     return validationPassed;
   },
 
-  load: function(e) {
-    var resp = this.parseResponse(e),
-      formElm = this.formElm,
-      pageData = {
-        name: formElm.querySelector('[name="name"]').value || '',
-        email: formElm.querySelector('[name="email"]').value || '',
-        phone: formElm.querySelector('[name="phone_number"]').value || '',
-        Web__c: $(formElm).find('input[type="checkbox"][name="web"]').is(':checked') + '',
-        Mobile_Web__c: $(formElm).find('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
-        iOS__c: $(formElm).find('input[type="checkbox"][name="ios"]').is(':checked') + '',
-        Android__c: $(formElm).find('input[type="checkbox"][name="android"]').is(':checked') + ''
-      };
+  load: function(returnData) {
+    var parsedResp = this.parseResponse(returnData),
+        form = this.formElm.getAttribute('id');
 
-    if(resp) {
+    if(parsedResp) {
       w.optly.mrkt.Oform.trackLead({
-        formElm: '#signup-form',
-        pageData: pageData,
-        XHRevent: e.XHR
+        form: form,
+        response: parsedResp,
+        requestPayload: returnData.requestPayload
       });
 
       this.redirectHelper({
@@ -138,136 +129,24 @@ var createAccountHelper = {
 
   },
 
-  loadAnonymousWall: function(e) {
-    var resp = this.parseResponse(e);
+  pricingSignupSuccess: function(returnData){
+    var parsedResp = this.parseResponse(returnData),
+        form = this.formElm.getAttribute('id');
 
-    if (resp) {
-      var plan = resp.plan ? resp.plan : 'null';
-
-      w.analytics.identify(resp.unique_user_id, {
-        Email: resp.email,
-        Last_Experiment_URL__c: $('#url-input').val(),
-        LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
-        ExperimentsCreated: '1',
-        FirstName: resp.first_name,
-        LastName: resp.last_name,
-        Phone: resp.phone_number,
-        otm_Medium__c: w.optly.mrkt.source.otm.medium,
-        utm_Medium__c: w.optly.mrkt.source.utm.medium,
-        Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
-        Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
-        iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
-        Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
-      },
-      { integrations: { Marketo: true } });
-
-      w.Munchkin.munchkinFunction('visitWebPage', {
-        url: '/event/customer/signedin'
-      });
-      w.Munchkin.munchkinFunction('visitWebPage', {
-        url: '/event/account/signin'
-      });
-      w.Munchkin.munchkinFunction('visitWebPage', {
-        url: '/event/plan/' + plan
-      });
-
-      w.analytics.page('/account/create/success');
-      w.analytics.track('/account/create/success');
-      w.analytics.track('account created', {
-        category: 'account',
-        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-      }, {
-        integrations: {
-          Marketo: false
-        }
-      });
-
-      w.analytics.page('/account/signin');
-      w.analytics.track('account sign-in', {
-        category: 'account',
-        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-      }, {
-        integrations: {
-          Marketo: false
-        }
-      });
-
-      w.analytics.page('/customer/signedin');
-      w.analytics.track('customer sign in', {
-        category: 'account',
-        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-      }, {
-        integrations: {
-          Marketo: false
-        }
-      });
-      w.analytics.page('/plan/' + plan);
-    }
-
-    w.setTimeout(function() {
-      var inputVal = $('#test-it-out-form input[type="text"]').val();
-      w.optly.mrkt.index.testItOut( inputVal );
-    }, 500);
-  },
-
-  pricingSignupSuccess: function(event){
-    var resp = this.parseResponse(event),
-      plan;
-
-    if(resp){
+    if(parsedResp){
 
       document.body.classList.add('create-account-success');
 
-      w.analytics.identify(resp.unique_user_id, {
-        Email: resp.email,
-        FirstName: resp.first_name || '',
-        LastName: resp.last_name || '',
-        otm_Medium__c: w.optly.mrkt.source.otm.medium || '',
-        utm_Medium__c: w.optly.mrkt.source.utm.medium || '',
-        Web__c: $('#signup-form input[type="checkbox"][name="web"]').is(':checked') + '',
-        Mobile_Web__c: $('#signup-form input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
-        iOS__c: $('#signup-form input[type="checkbox"][name="ios"]').is(':checked') + '',
-        Android__c: $('#signup-form input[type="checkbox"][name="android"]').is(':checked') + ''
-      }, {
-        integrations: {Marketo: true}
+      w.optly.mrkt.Oform.trackLead({
+        form: form,
+        response: parsedResp,
+        requestPayload: returnData.requestPayload
       });
-
-      plan = resp.plan ? resp.plan : 'null';
 
       w.Munchkin.munchkinFunction('visitWebPage', {
         url: '/event/pricing/account/create/success'
       });
-      w.analytics.track('/event/pricing/account/create/success', {}, { Marketo: true });
-
-      w.Munchkin.munchkinFunction('visitWebPage', {
-        url: '/event/customer/signedin'
-      });
-      w.Munchkin.munchkinFunction('visitWebPage', {
-        url: '/event/account/signin'
-      });
-      w.Munchkin.munchkinFunction('visitWebPage', {
-        url: '/event/plan/' + plan
-      });
-
-      w.analytics.page('/account/create/success');
-      w.analytics.track('/account/create/success');
-      w.analytics.track('account created', {
-        category: 'account',
-        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-      });
-
-      w.analytics.page('/account/signin');
-      w.analytics.track('account sign-in', {
-        category: 'account',
-        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-      });
-
-      w.analytics.page('/customer/signedin');
-      w.analytics.track('customer sign in', {
-        category: 'account',
-        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-      });
-      w.analytics.page('/plan/' + plan);
+      w.analytics.track('/event/pricing/account/create/success', {}, { 'All': false, 'Marketo': true });
 
       //change the user's plan to free to get them started
       w.optly.mrkt.changePlanHelper.changePlan({
