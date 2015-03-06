@@ -13,6 +13,7 @@ $('#get-started').submit(function(e){
     });
     d.body.classList.add('test-it-out-success');
     $('input[type="email"]').val(inputVal);
+    $('#signup-form input[name="Initial_Form_Source__c"]').val('Test It Out Homepage');
   } else {
     $('input[type="email"]').focus();
   }
