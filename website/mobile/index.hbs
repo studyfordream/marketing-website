@@ -26,7 +26,7 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
   <h1>{{{title}}}</h1>
   {{/with}}
   {{#with mobile_page_mvpp_data.form_panel}}
-  <form action="/account/create" method="POST" id="mobile-signup-form-top" class="container" novalidate autocomplete="off">
+  <form action="{{apiDomain}}/account/create" method="POST" id="mobile-signup-form-top" class="container" novalidate autocomplete="off">
     <div class="row grid-cont">
       <div class="form-grid">
         <label>
@@ -129,7 +129,7 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
 {{#with mobile_page_mvpp_data.form_panel}}
   <h2><strong>{{title}}</strong></h2>
   <h2>{{subtitle}}</h2>
-  <form action="/account/create" method="POST" id="mobile-signup-form-bottom" class="container" novalidate autocomplete="off">
+  <form action="{{apiDomain}}/account/create" method="POST" id="mobile-signup-form-bottom" class="container" novalidate autocomplete="off">
     <div class="row grid-cont">
       <div class="form-grid">
         <label>
@@ -157,4 +157,3 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
   <p>{{link_text}}</p>
 {{/with}}
 </section>
-
