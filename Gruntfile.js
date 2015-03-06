@@ -104,9 +104,27 @@ module.exports = function(grunt) {
     'clean:postBuild'
   ]);
 
-  grunt.registerTask('ui-test', function(which) {
+  //staging grunt ui-test:/my/branchPath or grunt ui-test:<task_name>:/my/branchPath
+  grunt.registerTask('ui-test', function() {
     var task = 'jasmine_node';
-    if (which) task += ':' + which;
+    var which;
+    var branchPath;
+    if(arguments.length === 1 && arguments[0].indexOf('/') === -1) {
+      which = arguments[0];
+    } else if(arguments.length === 1) {
+      branchPath = arguments[0];
+    } else if(arguments.length === 2) {
+      which = arguments[0];
+      branchPath = arguments[1];
+    }
+
+    if(branchPath) {
+      global.branchPath = branchPath;
+    }
+
+    if (which) {
+      task += ':' + which;
+    }
 
     grunt.task.run([
       'config:dev',
