@@ -40,15 +40,18 @@ body.opticon-about {
   body.opticon-about {
     .top-paragraph {
       width: 72%;
-      padding: 0;
+      padding: 10px;;
     }
     .left-paragraph,
     .right-paragraph {
-      padding: 10px 30px 10px 0;
+      padding: 10px 30px 10px 10px;
       width: 50%;
     }
     .description-text {
       text-align: left;
+    }
+    .faq-container {
+      padding: 10px;
     }
     .faq-item {
       width: 50%;
