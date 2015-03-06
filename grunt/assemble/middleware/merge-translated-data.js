@@ -23,16 +23,12 @@ module.exports = function(assemble) {
     filePathData = parseFilePath(file.path);
     locale = filePathData.locale;
     dataKey = filePathData.dataKey;
+    if(/mobile\/index\.html/.test(file.path) && locale !== websiteRoot) {
+      debugger;
+    }
 
     //extend the file with the external YML content
     extendFileData(filePathData, file);
-
-    if (filePathData.isModal || filePathData.isPartial) {
-      console.log('locale', file.path, locale);
-      locale = file.data.locale;
-      console.log('locale', file.path, locale);
-      console.log();
-    }
 
     //TODO: problem this won't work for modals because they are not scoped to the locale???
     //put in custom function for replacing translated array values
@@ -54,6 +50,8 @@ module.exports = function(assemble) {
       // if page has it's own template don't merge dictionary, if not then merge dictionary
       // also if this is the case need to extend the file data with the parent file data
       // thought this was happening in extend-file-data function
+
+
       if(!file.hasOwnTemplate) {
         mergedDict = extend({}, dicts[dictKey][parentKey], dicts[dictKey][dataKey]);
       }
@@ -62,11 +60,19 @@ module.exports = function(assemble) {
       file = objParser.translate(file, mergedDict || dicts[dictKey][dataKey]);
       //
       //replace the content of the page if it has been flagged for translation
-      if(file.HTML_page_content) {
-        file.content = file.HTML_page_content;
-        delete file.HTML_page_content;
-      }
 
+    } else if (file.data.locale && file.data.locale !== websiteRoot && ( filePathData.isModal || filePathData.isPartial ) ) {
+      locale = file.data.locale;
+      dictKey = locales[locale];
+
+      //TODO: for now modals/partials are not locale specific, in future may have locale specific
+      //partials that possible overwrite parent partial data
+      file = objParser.translate(file, dicts[dictKey][dataKey]);
+    }
+
+    if(file.HTML_page_content) {
+      file.content = file.HTML_page_content;
+      delete file.HTML_page_content;
     }
 
     next();

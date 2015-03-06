@@ -19,7 +19,7 @@ module.exports = function (grunt) {
     var mergeLayoutContext = require('./middleware/merge-layout-context');
     var collectionMiddleware = require('./middleware/onload-collection')(assemble);
     var mergeTranslatedData = require('./middleware/merge-translated-data');
-    var renderTypeHelper = require('./helpers/renderTypeHelper');
+    var renderTypeHelper = require('./helpers/render-type-helper')(assemble);
     var sendToSmartling = require('./plugins/smartling');
     var typeLoader = require('./loaders/type-loader');
     var push = require('assemble-push')(assemble);
@@ -34,6 +34,7 @@ module.exports = function (grunt) {
     assemble.data(options.data);
 
     assemble.option('environment', options.environment);
+    assemble.set('data.pageContentNamespace', options.pageContentNamespace);
     assemble.set('data.subfoldersRoot', options.subfoldersRoot);
     assemble.set('data.basename', options.basename);
     assemble.set('data.websiteRoot', options.websiteRoot);
@@ -101,8 +102,12 @@ module.exports = function (grunt) {
 
     var resourceFiles = config.resources.files[0];
     assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
+    var localesPaths = Object.keys(options.locales).reduce(function(map, locale) {
+      map.push(path.join(options.subfoldersRoot, locale));
+      return map;
+    }, []);
 
-    var allRoots = Object.keys(options.locales).concat([
+    var allRoots = localesPaths.concat([
                         options.websiteRoot,
                         options.websiteGuts
                       ]);

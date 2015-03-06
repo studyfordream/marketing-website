@@ -20,6 +20,7 @@ module.exports = {
     websiteRoot: 'website',
     websiteGuts: '<%= config.guts %>',
     modalsDir: '<%= config.guts %>/templates/components/modals',
+    pageContentNamespace: 'page_data',
     subfoldersRoot: 'subfolders',
     locales: {
       'de': 'de_DE',

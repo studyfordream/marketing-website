@@ -18,7 +18,7 @@ module.exports = function translationTransform (assemble, args) {
   var translationType = args[0];
   var patterns = args[2];
   var locale = args[3];
-  var processYMLfile = require('./translation-helpers/yml-file-data');
+  var processYMLfile = require('./translation-helpers/yml-file-data')(assemble);
   var processFrontMatter = require('./translation-helpers/yml-front-matter-data')(assemble);
   var createTranslationDict = require('../utils/create-dictionary')(assemble);
   var data, parsedTranslations, root;

@@ -1,9 +1,11 @@
 var extend = require('extend-shallow');
+var _ = require('lodash');
 
 module.exports = function(assemble) {
   var websiteRoot = assemble.get('data.websiteRoot');
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var locales = assemble.get('data.locales');
+  var pagesNamespace = assemble.get('data.pageContentNamespace');
 
   return function mergeFileData(fpData, fileData) {
     var lang = assemble.get('lang');
@@ -25,7 +27,7 @@ module.exports = function(assemble) {
     if(fpData.isRoot) {
       //extend file data with external YML data
       if(pageData[locale][dataKey]) {
-        extend(fileData.data, pageData[locale][dataKey]);
+        fileData.data[pagesNamespace] = pageData[locale][dataKey][pagesNamespace];
       }
 
     } else if(fpData.isSubfolder) {
@@ -35,14 +37,16 @@ module.exports = function(assemble) {
       //extend the locale specific data and potentially website root data
       //this is what allows for swaps
       if(fileData.hasOwnTemplate) {
-        extend(fileData.data, subfolderPageData);
+        _.merge(fileData.data, subfolderPageData);
       } else {
         //check the parent folder for body content to be translated
         if(lang[websiteRoot] && lang[websiteRoot][parentKey] && lang[websiteRoot][parentKey].HTML_page_content) {
           fileData.HTML_page_content = lang[websiteRoot][parentKey].HTML_page_content;
         }
 
-        extend(fileData.data, parentPageData, subfolderPageData);
+        if (Object.keys(parentPageData).length > 0) {
+          fileData.data[pagesNamespace] = _.merge({}, parentPageData[pagesNamespace], subfolderPageData[pagesNamespace]);
+        }
       }
 
     }
