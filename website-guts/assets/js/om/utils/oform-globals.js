@@ -44,109 +44,121 @@ w.optly.mrkt.Oform.defaultMiddleware = function(XHR, data){
 
 };
 
-w.optly.mrkt.Oform.trackLead = function(args){
+w.optly.mrkt.Oform.trackLead = function(args) {
 
-  var pageData = args.pageData,
-    XHRevent = args.XHRevent,
-    formElm = args.formElm,
-    propertyName,
-    reportingObject,
-    source,
-    response,
-    token;
+  /*
+
+    REPORTS NEW LEADS TO VARIOUS TRACKING PLATFORMS
+
+      Accepts one argument (object) that should contains two properties:
+
+        - form (string): The ID of the lead form
+        - response (object): The parsed response from the parseResponse function
+        - requestPayload (object): the form fields and their values
+
+  */
+
+  var reportingObject,
+      source,
+      payload = args.requestPayload,
+      response = args.response;
 
   source = w.optly.mrkt.source;
 
-  try {
-    response = JSON.parse(XHRevent.XHR.responseText);
-  } catch(e) {
-    if(typeof error === 'object') {
-      try {
-        error = JSON.stringify(err, ['message', 'arguments', 'type', 'name']);
-      } catch (innerErr) {
-        error = innerErr.message || 'cannot parse error message';
-      }
-    }
-    w.analytics.ready(function() {
-      w.analytics.track(window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname) + ':trackLead', {
-          category: 'api error',
-          label: error
-        }, {
-          integrations: {
-            'All': false,
-            'Google Analytics': true
-          }
-        });
-    });
+  //start the reporting object with the required parameters
+  reportingObject = {};
+
+  //add only the values we have to the reporting object
+  if(response.email){
+    reportingObject.email = response.email;
+  } else if(payload.email){
+    reportingObject.email = payload.email;
+  }
+  if(response.first_name){
+    reportingObject.firstName = response.first_name;
+  }
+  if(response.last_name){
+    reportingObject.lastName = response.last_name;
+  }
+  if(response.phone_number){
+    reportingObject.phone = response.phone_number;
+  }
+  if(payload.Web__c){
+    reportingObject.Web__c = payload.Web__c;
+  }
+  if(payload.Mobile_Web__c){
+    reportingObject.Mobile_Web__c = payload.Mobile_Web__c;
+  }
+  if(payload.iOS__c){
+    reportingObject.iOS__c = payload.iOS__c;
+  }
+  if(payload.Android__c){
+    reportingObject.Android__c = payload.Android__c;
+  }
+  if(payload.Initial_Form_Source__c){
+    reportingObject.Initial_Form_Source__c = payload.Initial_Form_Source__c;
+  }
+  if(payload.Inbound_Lead_Form_Type__c){
+    reportingObject.Inbound_Lead_Form_Type__c = payload.Inbound_Lead_Form_Type__c;
+  }
+  //add source information
+  //source is usually url query params from ads
+  if(source.utm.campaign){
+    reportingObject.utm_Campaign__c = source.utm.campaign;
+  }
+  if(source.utm.content){
+    reportingObject.utm_Content__c = source.utm.content;
+  }
+  if(source.utm.medium){
+    reportingObject.utm_Medium__c = source.utm.medium;
+  }
+  if(source.utm.source){
+    reportingObject.utm_Source__c = source.utm.source;
+  }
+  if(source.utm.keyword){
+    reportingObject.utm_Keyword__c = source.utm.keyword;
+  }
+  if(source.otm.campaign){
+    reportingObject.otm_Campaign__c = source.otm.campaign;
+  }
+  if(source.otm.content){
+    reportingObject.otm_Content__c = source.otm.content;
+  }
+  if(source.otm.medium){
+    reportingObject.otm_Medium__c = source.otm.medium;
+  }
+  if(source.otm.source){
+    reportingObject.otm_Source__c = source.otm.source;
+  }
+  if(source.otm.keyword){
+    reportingObject.otm_Keyword__c = source.otm.keyword;
+  }
+  if(source.gclid){
+    reportingObject.GCLID__c = source.gclid;
+  }
+  if(payload.Signup_Platform__c){
+    reportingObject.Signup_Platform__c = payload.Signup_Platform__c;
   }
 
-  if(response.token){
-
-    token = response.token;
-
-  } else if(response.munchkin_token){
-
-    token = response.munchkin_token;
-
-  } else {
-
-    token = '';
-
-  }
-
-  reportingObject = {
-    utm_Campaign__c: source.utm.campaign || '',
-    utm_Content__c: source.utm.content || '',
-    utm_Medium__c: source.utm.medium || '',
-    utm_Source__c: source.utm.source || '',
-    utm_Keyword__c: source.utm.keyword || '',
-    otm_Campaign__c: source.otm.campaign || '',
-    otm_Content__c: source.otm.content || '',
-    otm_Medium__c: source.otm.medium || '',
-    otm_Source__c: source.otm.source || '',
-    otm_Keyword__c: source.otm.keyword || '',
-    GCLID__c: source.gclid || '',
-    Signup_Platform__c: pageData.Signup_Platform__c || source.Signup_Platform__c || '',
-    Email: response.email ? response.email : '',
-    FirstName: response.first_name || '',
-    LastName: response.last_name || '',
-    Phone: response.phone_number || '',
-    Web__c: $(formElm + ' input[type="checkbox"][name="web"]').is(':checked') + '',
-    Mobile_Web__c: $(formElm + ' input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
-    iOS__c: $(formElm + ' input[type="checkbox"][name="ios"]').is(':checked') + '',
-    Android__c: $(formElm + ' input[type="checkbox"][name="android"]').is(':checked') + ''
-  };
-
+  //set the source cookie so that the next page know where the visitor
+  //came from
   $.cookie('sourceCookie',
-  source.utm.campaign + '|||' +
-  source.utm.content + '|||' +
-  source.utm.medium + '|||' +
-  source.utm.source + '|||' +
-  source.utm.keyword + '|||' +
-  source.otm.campaign + '|||' +
-  source.otm.content + '|||' +
-  source.otm.medium + '|||' +
-  source.otm.source + '|||' +
-  source.otm.keyword + '|||' +
-  source.signup_platform + '|||');
-
-  function cap(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
-  //only add the pageData property if the property is not already in the reportingObject (with different case)
-  for(propertyName in pageData){
-    if(typeof reportingObject[cap(propertyName)] === 'undefined'){
-      reportingObject[propertyName] = pageData[propertyName];
-    }
-  }
-
-  //make a raw Munchkin associateLead Request
-  w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
+    source.utm.campaign + '|||' +
+    source.utm.content + '|||' +
+    source.utm.medium + '|||' +
+    source.utm.source + '|||' +
+    source.utm.keyword + '|||' +
+    source.otm.campaign + '|||' +
+    source.otm.content + '|||' +
+    source.otm.medium + '|||' +
+    source.otm.source + '|||' +
+    source.otm.keyword + '|||' +
+    source.signup_platform + '|||'
+  );
 
   w.analytics.identify(response.unique_user_id, reportingObject, {
     integrations: {
-      'Marketo': true
+      Marketo: true
     }
   });
 
@@ -154,34 +166,18 @@ w.optly.mrkt.Oform.trackLead = function(args){
 
   w.analytics.track('/account/create/success', {
     category: 'account',
-    label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-  }, {
-    integrations: {
-      'Marketo': false
-    }
-  });
-
-  w.Munchkin.munchkinFunction('visitWebPage', {
-    url: '/account/create/success'
+    label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   });
 
   w.analytics.track('/account/signin', {
     category: 'account',
-    label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+    label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   }, {
     integrations: {
       'Marketo': false
     }
   });
-  /*
-  temporarily commented out to decrease marketo queue
-  w.Munchkin.munchkinFunction('visitWebPage', {
-  url: '/event/account/signin'
-  });
-  w.Munchkin.munchkinFunction('visitWebPage', {
-  url: '/event/customer/signedin'
-  });
-  */
+
   w.Munchkin.munchkinFunction('visitWebPage', {
     url: '/event/plan/null'
   });
@@ -196,6 +192,7 @@ w.optly.mrkt.Oform.trackLead = function(args){
       Marketo: false
     }
   });
+
   w.analytics.track('account signin', {
     category: 'account',
     label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
@@ -204,5 +201,15 @@ w.optly.mrkt.Oform.trackLead = function(args){
       Marketo: false
     }
   });
+
+  if(typeof(response.plan) == 'string'){
+    w.analytics.track('/event/plan' + response.plan, {}, {
+      integrations: {
+        'All': false,
+        'Marketo': true
+      }
+    });
+    w.analytics.page('/plan/' + response.plan);
+  }
 
 };
