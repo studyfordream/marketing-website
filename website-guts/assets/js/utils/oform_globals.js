@@ -113,6 +113,12 @@
     if(payload.Android__c){
       reportingObject.Android__c = payload.Android__c;
     }
+    if(payload.Initial_Form_Source__c){
+      reportingObject.Initial_Form_Source__c = payload.Initial_Form_Source__c;
+    }
+    if(payload.Inbound_Lead_Form_Type__c){
+      reportingObject.Inbound_Lead_Form_Type__c = payload.Inbound_Lead_Form_Type__c;
+    }
     //add source information
     //source is usually url query params from ads
     if(source.utm.campaign){
