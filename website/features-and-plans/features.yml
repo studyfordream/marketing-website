@@ -20,14 +20,14 @@ benefits_section:
     -
       title: "Powerful"
       desc: "Create and deliver relevant experiences on web,
-             mobile web, iOS, and Android.*"
+             mobile web, iOS, and Android."
       icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/screens.svg"
     -
       title: "Trusted and Secure"
       desc: "The platform choice for over 8,000 businesses and counting."
       icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/trophy.svg"
 
-  asterisk: "* Android coming soon"
+
 
 feature_sections:
   -
