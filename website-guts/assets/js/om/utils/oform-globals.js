@@ -50,11 +50,11 @@ w.optly.mrkt.Oform.trackLead = function(args){
   source = w.optly.mrkt.source;
 
   try {
-    response = JSON.parse(XHRevent.XHR.responseText);
+    response = JSON.parse(XHRevent.responseText);
   } catch(e) {
     if(typeof error === 'object') { 
       try { 
-        error = JSON.stringify(err, ['message', 'arguments', 'type', 'name']); 
+        error = JSON.stringify(error, ['message', 'arguments', 'type', 'name']); 
       } catch (innerErr) { 
         error = innerErr.message || 'cannot parse error message'; 
       } 
@@ -132,9 +132,6 @@ w.optly.mrkt.Oform.trackLead = function(args){
       reportingObject[propertyName] = pageData[propertyName];
     }
   }
-
-  //make a raw Munchkin associateLead Request
-  w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
 
   w.analytics.identify(response.unique_user_id, reportingObject, {
     integrations: {
