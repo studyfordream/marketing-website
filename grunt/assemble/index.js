@@ -55,8 +55,6 @@ module.exports = function (grunt) {
 
     assemble.transform('page-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}', options.websiteRoot);
     Object.keys(options.locales).forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}'));
-    //assemble.transform('modal-translations', require('./transforms/load-translations'), '**/*.hbs', options.modalsDir);
-    //assemble.transform('layout-translations', require('./transforms/load-translations'), '**/*.hbs', layoutPath);
 
     function normalizeSrc (cwd, sources) {
       sources = Array.isArray(sources) ? sources : [sources];
@@ -91,9 +89,9 @@ module.exports = function (grunt) {
 
     //is this order dependent because we are merging page data for localization
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
-    assemble.preRender(pathRe, localizeLinkPath(assemble));
     assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
     assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
+    assemble.preRender(pathRe, localizeLinkPath(assemble));
 
     var modalFiles = config.modals.files[0];
     assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src), [typeLoader(assemble)]);
