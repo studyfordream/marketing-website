@@ -30,6 +30,12 @@ body.opticon-about {
   .left-paragraph,
   .right-paragraph {
     padding: 4%;
+    .description-title {
+      min-height: 122px;
+    }
+    .description-text {
+      min-height: 120px;
+    }
   }
   .confetti-right {
     top: 4em;
