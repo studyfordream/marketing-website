@@ -104,6 +104,7 @@ body.pricing {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
+      padding-bottom: 70px;
     }
     .benefit-item {
       text-align: center;
@@ -126,13 +127,6 @@ body.pricing {
         letter-spacing: 0.1px;
         line-height: 20px;
       }
-    }
-    .asterisk {
-      text-align: center;
-      font-size: 0.75em;
-      color: #979797;
-      line-height: 24px;
-      padding-bottom: 82px;
     }
   }
 }

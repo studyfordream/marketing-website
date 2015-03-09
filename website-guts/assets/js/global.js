@@ -521,6 +521,10 @@ w.optly_q.push([function(){
 
 w.optly.mrkt.formHadError = false;
 
+w.optly.mrkt.deleteCookie = function(name, options) {
+  $.removeCookie(name, options);
+};
+
 //call the utility function to unregister archived experiments from the mixpanel cookie
 w.analytics.ready(w.optly.mrkt.utils.trimMixpanelCookie);
 
@@ -541,4 +545,8 @@ if(w.monitorTiming){
 			}
 		}
 	}, 1000);
+}
+
+if( $.cookie('amplitude_idoptimizely.com') ) {
+  w.optly.mrkt.deleteCookie('amplitude_idoptimizely.com', { path: '/', expires: -5, domain: '.optimizely.com'} );
 }
