@@ -77,10 +77,10 @@ faq_section:
         <p class='adelle-sans'>We will be answering all of your Optimizely questions and possibly even giving away free certification test codes, so stop by the Innovation Station on-site for more information.</p>"
     -
       question: "How do I set up a meeting with someone from Optimizely?"
-      answer: "<p class='adelle-sans'>You can either call us directly at 1-800-252-9480 or send us an email (<a target='_blank' href='mailto:events@optimizely.com'>events@optimizely.com</a>) and we’ll help you set something up.</p>"
+      answer: "<p class='adelle-sans'>You can either call us directly at 1-800-252-9480 or send us an email (<a href='mailto:events@optimizely.com'>events@optimizely.com</a>) and we’ll help you set something up.</p>"
     -
       question: "Can I cancel?"
-      answer: "<p class='adelle-sans'>Our cancellation policy is listed below. This goes for Opticon and the Optimizely training sessions the day before the conference.</p><p class='adelle-sans'><b>Cancellation Policy</b>: Refund requests must be made in writing to <a target='_blank' href='mailto:events@optimizely.com'>events@optimizely.com</a>. No refunds will be given after April 15, 2015.</p><p class='adelle-sans'><b>100% refund</b>: Requests must be received by March 18, 2015</p><p class='adelle-sans'><b>50% refund</b>: Requests must be received by April 15, 2015</p>
+      answer: "<p class='adelle-sans'>Our cancellation policy is listed below. This goes for Opticon and the Optimizely training sessions the day before the conference.</p><p class='adelle-sans'><b>Cancellation Policy</b>: Refund requests must be made in writing to <a href='mailto:events@optimizely.com'>events@optimizely.com</a>. No refunds will be given after April 15, 2015.</p><p class='adelle-sans'><b>100% refund</b>: Requests must be received by March 18, 2015</p><p class='adelle-sans'><b>50% refund</b>: Requests must be received by April 15, 2015</p>
          "
     -
       question: "Can I bring a guest?"
@@ -90,7 +90,7 @@ faq_section:
         <p class='adelle-sans'>If you want to bring someone just for the Opticon bash,
         that’s ok too. We’ve got a special ticket add-on called “Opticon Bash Guest”
         for $150 that can be found on the registration check out page. If you got a
-        free pass to Opticon this option will not show up so <a target='_blank' href='mailto:events@optimizely.com'>email</a> us if you need help.</p>"
+        free pass to Opticon this option will not show up so <a href='mailto:events@optimizely.com'>email</a> us if you need help.</p>"
     -
       question: "How do I get to Pier 27?"
       answer: "<p class='adelle-sans'>Pier 27 is located right on the Embarcadero in San Francisco, which makes it easy to get to by car, walking, or public transportation. We recommend using <a target='_blank' href='https://www.google.com/maps/place/Pier+27/@37.8037149,-122.4045026,17z/data=!4m7!1m4!3m3!1s0x808580f62abd65a5:0xcdd8de76108b3b78!2sPier+27!3b1!3m1!1s0x808580f62abd65a5:0xcdd8de76108b3b78'>Google maps</a> to figure out the best transportation method for you.</p>"

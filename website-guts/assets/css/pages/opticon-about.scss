@@ -12,6 +12,9 @@ body.opticon-about {
   .flex-container {
     flex-wrap: wrap;
   }
+  .faq-container {
+    padding: 10px;
+  }
   .faq-item {
     padding: 20px 0;
     .question {
@@ -57,7 +60,7 @@ body.opticon-about {
       text-align: left;
     }
     .faq-container {
-      padding: 10px;
+      padding: 0;
     }
     .faq-item {
       width: 50%;

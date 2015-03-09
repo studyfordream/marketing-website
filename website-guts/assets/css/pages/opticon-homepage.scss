@@ -32,10 +32,10 @@ body.opticon-homepage {
     padding: 0 2%;
   }
   .content-container {
-    text-align: right;
+    text-align: center;
     h1,
     h4 {
-      text-align: right;
+      text-align: center;
     }
   }
   .description {
@@ -82,6 +82,11 @@ body.opticon-homepage {
       padding: 75px 10px 10px 10px;
     }
     .content-container {
+      h1,
+      h4 {
+        text-align: right;
+      }
+      text-align: right;
       padding: 0 5%;
     }
     .page-title {
