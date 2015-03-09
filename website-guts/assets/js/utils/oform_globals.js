@@ -159,9 +159,6 @@
       }
     }
 
-    //make a raw Munchkin associateLead Request
-    w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
-
     w.analytics.identify(response.unique_user_id, reportingObject, {
       integrations: {
         Marketo: true
