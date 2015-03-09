@@ -20,4 +20,31 @@ top_grid:
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/03.svg"
     TR_title: "Reliable and Trusted German Things"
     TR_grid_content: "Optimize your app on the #1 experience optimization platform that is already delivering billions of experiences globally. -- Only in Germany"
+TR_panels:
+-
+  TR_title: "German Visual Editor"
+  TR_text: "Change your interface on the fly without writing a line of code."
+  bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/01visual-editor-static.gif"
+  bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/visual-editor-1.gif"
+-
+  TR_title: "German Developer <br>Tools"
+  TR_text: "Optimize code-level variables and roll out entirely new features, no matter how custom your app."
+  bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/02developer-tools-static.gif"
+  bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/developer-tools-2.gif"
+-
+  TR_title: "German Instant <br>Rollout"
+  TR_text: "Make visual changes to your app immediately without waiting for App Store review."
+  bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/03instant-rollout-static.gif"
+  bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/instant-rollout-3.gif"
+-
+  TR_title: "German Multichannel <br>Experiences"
+  TR_text: "Deliver connected, targeted experiences across the web and mobile apps."
+  TR_beta_text: "Currently in beta"
+  bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/04multi-ex-static.gif"
+  bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/multi-exp-4.gif"
+-
+  TR_title: "German Mobile <br>Metrics"
+  TR_text: "Track the metrics that matter to mobile developers, with out-of-the-box support for retention metrics, revenue reports, and more."
+  bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/05mobile-metrics-static.gif"
+  bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/mobile-metrics-5.gif"
 
