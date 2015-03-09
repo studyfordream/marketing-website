@@ -75,10 +75,8 @@ for(i = 0; i < dateArray.length; i++){
 }
 
 $(function(){
-  var webinarEventDisplay = require('webinarEventDisplay');
-  var webinarEventDetail = require('webinarEventDetail');
 
-  eventDisplayHTML = webinarEventDisplay(templateContext);
+  eventDisplayHTML = window.optly.mrkt.templates.webinarEventDisplay(templateContext);
 
   $('#events').html(eventDisplayHTML);
 
@@ -90,7 +88,7 @@ $(function(){
     $('[name="LastName"]').val( name[1] );
     return true;
   }).on('load', function(event){
-    if(event.target.status === 200){
+    if(event.XHR.status === 200){
       w.optly.mrkt.modal.close({
         modalType: 'webinar-signup',
         track: false
@@ -119,7 +117,7 @@ $(function(){
 
     $('.webinar-detail-info').each(function(){
 
-      $(this).html( webinarEventDetail(templateContext.thursdays[index]) );
+      $(this).html( window.optly.mrkt.templates.webinarEventDetail(templateContext.thursdays[index]) );
 
     });
 

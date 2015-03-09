@@ -2,7 +2,7 @@ var path = require('path');
 var createStack = require('layout-stack');
 var extend = require('extend-shallow');
 var _ = require('lodash');
-//var mergeTranslated = require('../utils/merge-tranlated-dictionary');
+var mergeTranslated = require('../utils/merge-tranlated-dictionary');
 
 module.exports = function(assemble) {
   // transform the layout front matter into an object
@@ -16,7 +16,7 @@ module.exports = function(assemble) {
 
   // middleware to merge the layout context into the current page context
   return function mergeLayoutContext (file, next) {
-    //var translated = assemble.get('translated');
+    var translated = assemble.get('translated');
     var locale = 'layouts';
     //the layout for the current file
     var layout = file.layout || file.options.layout || file.data.layout;
@@ -45,15 +45,15 @@ module.exports = function(assemble) {
         if(ignoreKeys.indexOf(key) === -1) {
 
           //apply translation for the layout YFM
-          //if(translated[locale] && translated[locale][page] && translated[locale][page].hasOwnProperty(key)) {
-            //if(_.isPlainObject(val)) {
-              //mergeTranslated(val, translated[locale][page][key]);
-            //} else if(Array.isArray(val)) {
-              //val = mergeTranslated(val, translated[locale][page][key]);
-            //} else {
-              //val = translated[locale][page][key];
-            //}
-          //}
+          if(translated[locale] && translated[locale][page] && translated[locale][page].hasOwnProperty(key)) {
+            if(_.isPlainObject(val)) {
+              mergeTranslated(val, translated[locale][page][key]);
+            } else if(Array.isArray(val)) {
+              val = mergeTranslated(val, translated[locale][page][key]);
+            } else {
+              val = translated[locale][page][key];
+            }
+          }
 
           data[key] = val;
         }

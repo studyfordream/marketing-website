@@ -1,4 +1,4 @@
-var tr = require('translation');
+var tr = w.optly.tr;
 window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 window.optly.mrkt.form.HelperFactory = function(scopeObj) {

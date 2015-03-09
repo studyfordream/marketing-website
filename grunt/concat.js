@@ -43,6 +43,7 @@ var omBundlePaths = [
 ];
 
 var bundlePaths = [
+  'utils/translation.js',
   'utils/oform_globals.js',
   'utils/check_complex_password.js',
   'utils/equal_height_grid.js',

@@ -17,20 +17,17 @@ module.exports = function (assemble, locales, lastRunTime) {
     }
     map[key] = matter(fs.readFileSync(readPath || langPath, 'utf8'));
     map[key].path = langPath;
-    map[key].base = argsObj.base;
-    map[key].hasOwnTemplate = readPath ? false : true;
     return map;
   }
 
   return function langLoader(args) {
-    var subfoldersRoot = assemble.get('data.subfoldersRoot');
     var collection = {};
     var srcPattern = args.src;
     var fallbackPattern = args.fallback;
     var websiteRoot = assemble.get('data.websiteRoot');
     // collect an object with locale key mapping to all files for locale
     var localesCollection = locales.reduce(function(o, locale) {
-      o[path.join(subfoldersRoot, locale)] = globby.sync(srcPattern, {cwd: path.join(subfoldersRoot, locale)});
+      o[locale] = globby.sync(srcPattern, {cwd: locale});
       return o;
     }, {});
     var fallbackFiles = globby.sync(fallbackPattern, {cwd: websiteRoot});
@@ -49,8 +46,7 @@ module.exports = function (assemble, locales, lastRunTime) {
         return createMap({
           map: map,
           readPath: readPath,
-          langPath: path.join(base, fp),
-          base: subfoldersRoot
+          langPath: path.join(base, fp)
         });
       }, {});
 
@@ -58,8 +54,7 @@ module.exports = function (assemble, locales, lastRunTime) {
       srcFiles.forEach(function(fp) {
         createMap({
           map: map,
-          langPath: path.join(base, fp),
-          base: subfoldersRoot
+          langPath: path.join(base, fp)
         });
       });
 

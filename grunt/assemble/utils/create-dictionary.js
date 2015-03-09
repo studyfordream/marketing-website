@@ -37,7 +37,7 @@ module.exports = function (assemble) {
     var linkPath = assemble.get('data.linkPath');
     var data = fileData.data || fileData;
 
-    if(Object.keys(locales).indexOf(locale) !== -1) {
+    if(locales.indexOf(locale) !== -1) {
       linkPath = path.join(linkPath, locale);
     }
 
@@ -66,7 +66,7 @@ module.exports = function (assemble) {
             }
             break;
           case 'TR':
-            if(suffix === 'page_content' && data[key] === 'MD') {
+            if(suffix === 'page_content') {
               pageContent = fileData.contents.toString();  //convert the buffer object
               switch(data[key]) {
                 case 'MD':
