@@ -542,3 +542,9 @@ if(w.monitorTiming){
 		}
 	}, 1000);
 }
+
+//TODO: remove this and compile through webpack when implemented
+window.Handlebars.registerHelper('tr', function () {
+  // just a proxy to send request to window.optly.tr
+  return arguments[0];
+});

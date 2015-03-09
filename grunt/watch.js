@@ -38,6 +38,10 @@ module.exports = {
     files: ['test/**/*.js'],
     tasks: ['jshint:test']
   },
+  clientHandlebarsTemplates: {
+    files: ['<%= config.guts %>/templates/client/**/*.hbs'],
+    tasks: ['config:dev', 'jshint', 'handlebars', 'concat', 'clean:postBuild']
+  },
   livereload: {
     options: {
       livereload: '<%= connect.options.livereload %>'

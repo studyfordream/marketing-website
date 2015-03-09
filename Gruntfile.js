@@ -35,14 +35,17 @@ module.exports = function(grunt) {
   grunt.registerTask('staging-deploy', [
     'gitinfo',
     'config:staging',
+    'jshint:clientDev',
+    'jshint:server',
     'clean:preBuild',
     'assemble',
+    'handlebars',
     'modernizr',
-    'webpack',
     'concat',
     'sass:prod',
     'autoprefixer',
     'copy',
+    'uglify',
     's3:staging',
     'clean:postBuild'
   ]);
@@ -50,25 +53,30 @@ module.exports = function(grunt) {
   grunt.registerTask('smartling-staging-deploy', [
     'gitinfo',
     'config:smartlingStaging',
+    'jshint:clientDev',
+    'jshint:server',
     'clean:preBuild',
     'assemble',
+    'handlebars',
     'modernizr',
-    'webpack',
     'concat',
     'sass:prod',
     'autoprefixer',
     'copy',
+    'uglify',
     's3:smartling',
     'clean:postBuild'
   ]);
-  
+
   grunt.registerTask('server', [
     'config:dev',
+    'jshint:clientDev',
+    'jshint:server',
     'jshint:test',
     'clean:preBuild',
     'assemble',
+    'handlebars',
     'modernizr',
-    'webpack',
     'concat',
     'sass:dev',
     'replace',
@@ -81,14 +89,17 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'config:production',
+    'jshint:clientProd',
+    'jshint:server',
     'clean:preBuild',
     'assemble',
+    'handlebars',
     'modernizr',
     'concat',
-    'webpack',
     'sass:prod',
     'autoprefixer',
     'copy',
+    'uglify',
     'filerev',
     'userevvd',
     'clean:postBuild'
@@ -109,11 +120,13 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'config:dev',
+    'jshint:clientProd',
+    'jshint:server',
     'jshint:test',
     'clean:preBuild',
     'assemble',
+    'handlebars',
     'modernizr',
-    'webpack',
     'concat',
     'sass:dev',
     'replace',
