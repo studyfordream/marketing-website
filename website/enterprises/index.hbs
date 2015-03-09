@@ -5,37 +5,68 @@ TR_visible_title: "Enterprises"
 body_class:
 - "enterprises-page"
 inbound_form_lead_type: "Optimizely for Enterprises"
+TR_page_h2: "Unlock visitor insights, generate leads, grow revenue"
+TR_page_h5: "Highlights:"
+TR_page_paragraphs:
+- "Optimizely's powerful enterprise a/b testing platform helps teams optimize demand generation, lead nurturing, and site engagement."
+- "Optimizely's enterprise testing environment is built to provide large enterprises and teams with fast, reliable, and easy-to-use tools that complement existing marketing and product strategies."
+- "Most people on our team found it hard to believe that a single word could really have a meaningful impact on user behavior. Prior to Optimizely, testing usually meant more people needed to be involved, which made for a longer process, and didn't typically allow for a quick and easy test; it didn't take more than a day to discover that the naysayers were totally wrong."
+- "- Irving Weiss, Vitals.com"
+-
+  TR_strong: "Learn More: "
+  link: "benefits"
+  TR_text: "Benefits of A/B and Multivariate Testing"
+TR_page_li:
+- "Revenue tracking and custom goal creation"
+- "Dedicated account management and support"
+- "One-click integration with Google Analytics, SiteCatalyst and more"
+- "Dynamic content and event-based testing"
+- "WYSIWYG, no-coding-required editor for building test variations"
+- "A/B and Multivariate testing"
+- "Real-time reporting tools and admin dashboards"
+- "Cross-browser testing, staging server support, uptime monitoring"
+- "Custom HTML/Javascript/CSS editor"
+- "And much more..."
 ---
-
-<h2 class="subheading">Unlock visitor insights, generate leads, grow revenue</h2>
+<h2 class="subheading">{{TR_page_h2}}</h2>
 
 <div class="row">
     <div class="columns seven">
-        <p>Optimizely's powerful enterprise a/b testing platform helps teams optimize demand generation, lead nurturing, and site engagement.</p>
-        <h5>Highlights:</h5>
+      {{#each TR_page_paragraphs}}
+        {{#is @index 0}}
+        <p>{{{.}}}</p>
+        {{/is}}
+        {{#is @index 1}}
+        <h5>{{../../TR_page_h5}}</h5>
         <ul class="benefits-list">
-            <li>Revenue tracking and custom goal creation</li>
-            <li>Dedicated account management and support</li>
-            <li>One-click integration with Google Analytics, SiteCatalyst and more</li>
-            <li>Dynamic content and event-based testing</li>
-            <li>WYSIWYG, no-coding-required editor for building test variations</li>
-            <li>A/B and Multivariate testing</li>
-            <li>Real-time reporting tools and admin dashboards</li>
-            <li>Cross-browser testing, staging server support, uptime monitoring</li>
-            <li>Custom HTML/Javascript/CSS editor</li>
-            <li><em>And much more...</em></li>
+          {{#each ../../TR_page_li}}
+          {{#if @last}}
+            <li><em>{{.}}</em></li>
+            {{else}}
+            <li>{{.}}</li>
+          {{/if}}
+          {{/each}}
         </ul>
-        <p>Optimizely's enterprise testing environment is built to provide large enterprises and teams with fast, reliable, and easy-to-use tools that complement
-    existing marketing and product strategies.</p>
-        <blockquote>
-            <p>Most people on our team found it hard to believe that a single word could really have a meaningful impact on user behavior. Prior to Optimizely, testing
-      usually meant more people needed to be involved, which made for a longer process, and didn't typically allow for a quick and easy test; it didn't take more
-      than a day to discover that the naysayers were totally wrong.</p>
-            <p class="by">- Irving Weiss, Vitals.com</p>
-        </blockquote>
-        <p><strong>Learn More: </strong><a href="{{linkPath}}/benefits">Benefits of A/B and Multivariate Testing</a>.</p>
+        <p>{{.}}</p>
+        {{/is}}
+        {{#if_gt @index compare=1}}
+        {{#if @last}}
+        <p><strong>{{TR_strong}}<strong><a href="{{../../../linkPath}}/{{link}}">{{TR_text}}</a></p>
+          {{else}}
+            {{#isnt @index 3}}
+              <blockquote>
+                <p>{{{.}}}</p>
+            {{/isnt}}
+            {{#is @index 3}}
+                <p class="by">{{{.}}}</p>
+              </blockquote>
+            {{/is}}
+        {{/if}}
+        {{/if_gt}}
+      {{/each}}
     </div>
     <div class="columns five">
-        {{> contact_form }}
+        {{partial "contact_form"}}
     </div>
 </div>
+

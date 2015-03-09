@@ -1,5 +1,5 @@
 <div id="contact-form-cont" class="box clearfix">
-    <h4 class="a-center">{{#if page.form_heading}}{{page.form_heading}}{{else}}Questions? Contact us.{{/if}}</h4>
+    <h4 class="a-center">{{#if page.form_heading}}{{this.TR_form_heading}}{{else}}Questions? Contact us.{{/if}}</h4>
     <form id="contact-form" class="standard" autocomplete="off" novalidate action="/contact/form" method="post">
       <ul class="list-unstyled">
         <li class="clearfix">
@@ -45,7 +45,7 @@
           <p>Thanks for contacting us! We'll be in touch shortly!</p>
         </li>
       </ul>
-      <input type="hidden" name="inboundFormLeadType" value="{{page.inbound_form_lead_type}}">
+      <input type="hidden" name="inboundFormLeadType" value="{{this.inbound_form_lead_type}}">
       <input type="hidden" name="hidden" value="">
     </form>
   </div>
