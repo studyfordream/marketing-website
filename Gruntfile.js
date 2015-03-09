@@ -21,7 +21,8 @@ module.exports = function(grunt) {
         resemble: 'grunt-resemble-cli',
         sass: 'grunt-sass',
         connect: 'grunt-contrib-connect',
-        jasmine_node: 'grunt-jasmine-node'
+        jasmine_node: 'grunt-jasmine-node',
+        open: 'grunt-open'
       }
     },
     data: {
@@ -30,6 +31,10 @@ module.exports = function(grunt) {
     },
     init: true
   });
+
+  grunt.registerTask('om-test', [
+    'open'
+  ]);
 
   grunt.registerTask('staging-deploy', [
     'gitinfo',
@@ -104,33 +109,26 @@ module.exports = function(grunt) {
     'clean:postBuild'
   ]);
 
-  //staging grunt ui-test:/my/branchPath or grunt ui-test:<task_name>:/my/branchPath
-  grunt.registerTask('ui-test', function() {
-    var task = 'jasmine_node';
-    var which;
-    var branchPath;
-    if(arguments.length === 1 && arguments[0].indexOf('/') === -1) {
-      which = arguments[0];
-    } else if(arguments.length === 1) {
-      branchPath = arguments[0];
-    } else if(arguments.length === 2) {
-      which = arguments[0];
-      branchPath = arguments[1];
+  grunt.registerTask('ui-test', function(which) {
+    var jasminTest = 'jasmine_node',
+        tasks = [
+          'config:dev',
+          'jshint:test'
+        ];
+
+    if(which){
+      if(which !== 'om'){
+        jasminTest += ':' + which;
+        tasks.push(jasminTest);
+      } else if(which === 'om'){
+        tasks.push('om-test');
+      }
+    } else {
+      tasks.push('om-test');
+      tasks.push(jasminTest);
     }
 
-    if(branchPath) {
-      global.branchPath = branchPath;
-    }
-
-    if (which) {
-      task += ':' + which;
-    }
-
-    grunt.task.run([
-      'config:dev',
-      'jshint:test',
-      task
-    ]);
+    grunt.task.run(tasks);
   });
 
   grunt.registerTask('test', [
@@ -148,6 +146,7 @@ module.exports = function(grunt) {
     'autoprefixer',
     'copy',
     'clean:postBuild',
+    'om-test',
     'connect:resemble',
     'jasmine_node',
     'resemble'
@@ -172,7 +171,7 @@ module.exports = function(grunt) {
     var prepare = ['prompt', 'build']
     var compress = ['compress'];
     var git_release_tasks = ['gitfetch', 'forceon', 'gittag', 'gitpush', 'forceoff', 'github-release'];
-    
+
     grunt.task.run(prepare);
     grunt.task.run(compress);
     grunt.task.run(git_release_tasks);
