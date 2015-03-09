@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var path = require('path');
 
 var secondLastSlash = function(path) {
@@ -154,4 +155,17 @@ module.exports = function(grunt, options){
       }
     }
   };
+=======
+module.exports = {
+  jqueryModernizr: {
+    src: [
+      '<%= config.guts %>/assets/js/libraries/jquery-2.1.1.min.js',
+      '<%= config.temp %>/assets/js/libraries/modernizr.2.8.3.min.js'
+    ],
+    expand: false,
+    flatten: true,
+    isFile: true,
+    dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr.min.js'
+  }
+>>>>>>> 13368c38f9c17893c3887363a4494ddfcf91ee25
 };

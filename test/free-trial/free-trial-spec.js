@@ -52,6 +52,16 @@ describe('testing form on the free trial page', function() {
       new Nightmare({phantomPath: phantomPath})
       .viewport(1024, 1000)
       .goto(freeTrialPath)
+      .evaluate(function() {
+        //return document.body.classList.contains('oform-error');
+        var inputs = document.getElementById('seo-form').querySelectorAll('input');
+        for(var i = 0; i < inputs.length; i++) {
+          inputs[i].value = '';
+        }
+        return inputs.length;
+      }, function(inputsLength) {
+        expect(inputsLength).toBe(6);
+      })
       .click('#seo-form #submit')
       .wait(1000)
       .screenshot(config.screenshot({ imgName: 'free-trial-error-no-form-info' }))
@@ -59,7 +69,8 @@ describe('testing form on the free trial page', function() {
         return document.body.classList.contains('oform-error');
       }, function(bodyClassError) {
         expect(bodyClassError).toBe(true);
-      }).run(done);
+      })
+      .run(done);
     });
   });
 

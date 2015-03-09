@@ -6,9 +6,6 @@
     "Kyle Rush <kylerrush@gmail.com>"
   ],
   "description": "optimizely marketing website",
-  "moduleType": [
-    "node"
-  ],
   "license": "MIT",
   "private": true,
   "ignore": [
@@ -19,14 +16,14 @@
     "tests"
   ],
   "dependencies": {
-    "normalize-css": "3.0.1",
+    "fastclick": "1.0.2",
+    "history.js": "1.8.0",
     "jquery": "2.1.1",
     "momentjs": "2.6.0",
-    "yepnope": "1.5.4",
-    "fastclick": "1.0.2",
-    "jquery-cookie": "1.4.1",
-    "history.js": "1.8.0",
-    "oform": "2.3.2",
-    "fitvids": "1.1.0"
+    "normalize-css": "3.0.1",
+    "oform": "2.3.2"
+  },
+  "devDependencies": {
+    "jquery": "~2.1.3"
   }
 }

@@ -29,16 +29,17 @@ $('#view-all-jobs').click(function() {
 window.optly.mrkt.jobsPage.testimonials();
 
 function getGreenhouseData(data) {
-      if(typeof data === 'object'){
+  var jobList = require('jobList');
+  if(typeof data === 'object'){
 
-        for(var i = 0; i < data.departments.length; i++){
-          if(data.departments[i].jobs.length === 0){
-            delete data.departments[i];
-          }
-        }
-
-        $('#job-list-cont').append( window.optly.mrkt.templates.jobList(data) );
+    for(var i = 0; i < data.departments.length; i++){
+      if(data.departments[i].jobs.length === 0){
+        delete data.departments[i];
       }
+    }
+
+    $('#job-list-cont').append( jobList(data) );
+  }
 }
 
 var deferred = $.getJSON('https://api.greenhouse.io/v1/boards/optimizely7/embed/departments?callback=?');

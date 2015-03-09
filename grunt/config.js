@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 //get configs
 var config = function(grunt, options) {
   var creds;
@@ -13,6 +14,7 @@ var config = function(grunt, options) {
 
   return {
     options: {
+<<<<<<< HEAD
       logOutput: false
     },
     production: {
@@ -68,6 +70,58 @@ var config = function(grunt, options) {
             '  } \n' +
             '})(jQuery, window, document);'
         }
+=======
+      variables: {
+        environment: 'production',
+        environmentData: 'website-guts/data/environments/production/environmentVariables.json',
+        assetsDir: '/dist/assets',
+        link_path: '',
+        sassImagePath: '/img',
+        compress_js: true,
+        drop_console: true,
+        concat_banner: '(function($, w, d){ \n\n' +
+                       '  window.optly = window.optly || {}; \n\n' +
+                       '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
+                       '  window.linkPath = "" \n\n' +
+                       '  try { \n\n',
+        concat_footer: '  } catch(error){ \n\n' +
+                       '    console.error(error, targetName);\n\n' +
+                       '    if(typeof error === "object") { error = JSON.stringify(error) }; \n\n' +
+                       '    if (typeof targetName === "undefined" || targetName === null) { var targetName = "unknown target" }; \n\n' +
+                       '    var path = window.location.pathname;\n\n' +
+                       '    var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
+                       '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " + targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
+                       '  } \n' +
+                       '})(jQuery, window, document);'
+      }
+    }
+  },
+  staging: {
+    options: {
+      variables: {
+        aws: creds,
+        environment: 'staging',
+        environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
+        assetsDir: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets',
+        link_path: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
+        sassImagePath: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets/img',
+        compress_js: true,
+        drop_console: false,
+        concat_banner: '(function($, w, d){ \n\n' +
+                       '  window.optly = window.optly || {}; \n\n' +
+                       '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
+                       '  window.linkPath = "<%= gitinfo.local.branch.current.name %>"; \n\n' +
+                       '  try { \n\n',
+        concat_footer: '  } catch(error){ \n\n' +
+                       '    console.error(error, targetName);\n\n' +
+                       '    if(typeof error === "object") { error = JSON.stringify(error) }; \n\n' +
+                       '    if (typeof targetName === "undefined" || targetName === null) { var targetName = "unknown target" }; \n\n' +
+                       '    var path = window.location.pathname;\n\n' +
+                       '    var trimpath = path.lastIndexOf("/") === path.length - 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
+                       '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " + targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
+                       '  } \n' +
+                       '})(jQuery, window, document);'
+>>>>>>> 13368c38f9c17893c3887363a4494ddfcf91ee25
       }
     },
     smartlingStaging: {
