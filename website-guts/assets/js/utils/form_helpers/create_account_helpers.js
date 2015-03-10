@@ -116,7 +116,6 @@ var createAccountHelper = {
 
     if(parsedResp) {
       w.optly.mrkt.Oform.trackLead({
-        form: form,
         response: parsedResp,
         requestPayload: returnData.requestPayload
       });
@@ -138,7 +137,6 @@ var createAccountHelper = {
       document.body.classList.add('create-account-success');
 
       w.optly.mrkt.Oform.trackLead({
-        form: form,
         response: parsedResp,
         requestPayload: returnData.requestPayload
       });

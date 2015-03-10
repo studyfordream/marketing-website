@@ -125,7 +125,6 @@ w.optly.mrkt.trialForm = new Oform({
   if(response){
     if(loadEvent.XHR.status === 200){
       w.optly.mrkt.Oform.trackLead({
-        form: $('#seo-form')[0],
         response: response,
         requestPayload: loadEvent.requestPayload
       });

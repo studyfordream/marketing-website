@@ -18,7 +18,6 @@ var mobileMvppHelper = {
 
     if(parsedResp) {
       w.optly.mrkt.Oform.trackLead({
-        form: form,
         response: parsedResp,
         requestPayload: returnData.requestPayload
       });
