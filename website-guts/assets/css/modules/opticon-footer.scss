@@ -37,6 +37,7 @@
 
 @media only screen and (min-width: $tablet-min-width) {
   #opticon-footer {
+    height: 200px;
     padding: 10px 0;
     border-bottom: 1px solid #ccc;
     .opticon-flex-container {
