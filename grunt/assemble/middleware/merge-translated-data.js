@@ -11,6 +11,7 @@ module.exports = function(assemble) {
   var websiteRoot = assemble.get('data.websiteRoot');
   var basename = assemble.get('data.basename');
   var locales = assemble.get('data.locales');
+  var removeTranslationKeys = require('../utils/remove-translation-keys');
 
   return function mergeTranslatedData (file, next) {
     var lang = assemble.get('lang');
@@ -70,10 +71,7 @@ module.exports = function(assemble) {
       file = objParser.translate(file, dicts[dictKey][dataKey]);
     }
 
-    if(file.HTML_page_content) {
-      file.content = file.HTML_page_content;
-      delete file.HTML_page_content;
-    }
+    removeTranslationKeys(file);
 
     next();
   };
