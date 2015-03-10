@@ -181,7 +181,7 @@ w.optly.mrkt.trialForm = new Oform({
       //window.alert('non 200 response');
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
-        label: 'status not 200: ' + event.XHR.status
+        label: 'status not 200: ' + loadEvent.XHR.status
       }, {
         integrations: {
           'Marketo': false
