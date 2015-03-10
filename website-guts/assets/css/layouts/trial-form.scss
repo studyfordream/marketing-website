@@ -13,6 +13,7 @@ body.trial-form-layout {
       }
     }
     input {
+      width: 100%;
       margin-bottom: 10px;
       text-align: center;
       &.button {
@@ -127,7 +128,7 @@ body.trial-form-layout {
     }
 
     .ppc-form-cont {
-      width: 400px;
+      /*width: 400px;*/
       float: right;
     }
 
