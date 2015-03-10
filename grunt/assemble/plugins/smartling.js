@@ -5,7 +5,6 @@ var fs = require('fs');
 var _ = require('lodash');
 var through = require('through2');
 var extend = require('extend-shallow');
-var smartlingMock = require('../mocks').smartling;
 var htmlParser = require('l10n-tools/html-parser');
 var smartling = require('l10n-tools/smartling');
 var objParser = require('l10n-tools/object-extractor');
@@ -13,7 +12,6 @@ var fs = require('fs');
 var q = require('q');
 var crypto = require('crypto');
 var smartlingConfig;
-var i = 1;
 
 try{
   smartlingConfig = fs.readFileSync(path.join(process.cwd(), 'configs/smartlingConfig.json'), {encoding: 'utf8'});
@@ -22,13 +20,6 @@ try{
 }
 if(smartlingConfig){
   smartlingConfig = JSON.parse(smartlingConfig);
-}
-
-function isIndex(fp, testStr) {
-  if(fp[0] !== '/') {
-    fp = '/' + fp;
-  }
-  return fp.indexOf('/' + testStr + '/') !== -1;
 }
 
 module.exports = function (assemble) {
@@ -68,71 +59,59 @@ module.exports = function (assemble) {
     var DICT_FNAME = 'marketing_website_yaml.pot';
     var phrases = [];
 
-    if(environment === 'dev') {
-      smartlingMock.upload(lang, function (err, translated) {
-        if (err) {
-          return cb(err);
-        }
-        //console.log(Object.keys(lang.website));
-        //logKeys(translated[locale]);
-        assemble.set('translated', translated);
-        cb();
+    _.forEach(lang, function(pages){
+      _.forEach(pages, function(fileInfo, fname){
+        var list = objParser.extract(fileInfo);
+        phrases.push({fname: fname, phrases: list});
       });
-    } else if(environment === 'smartling-staging') {
-      _.forEach(lang, function(pages){
-        _.forEach(pages, function(fileInfo, fname){
-          var list = objParser.extract(fileInfo);
-          phrases.push({fname: fname, phrases: list});
-        });
-      });
+    });
 
-      var content = smartling.generatePO(phrases);
-      var hash = crypto.createHash('sha1');
+    var content = smartling.generatePO(phrases);
+    var hash = crypto.createHash('sha1');
+    hash.setEncoding('hex');
+    hash.write(content);
+    hash.end();
+    var newSum = hash.read();
+
+    var latestSum = null;
+    if(fs.existsSync('tmp/upload/' + DICT_FNAME)){
+      // now compare with latest uploaded catalogue checksum
+      hash = crypto.createHash('sha1');
       hash.setEncoding('hex');
-      hash.write(content);
+      hash.write(fs.readFileSync('tmp/upload/' + DICT_FNAME, {encoding: 'UTF8'}));
       hash.end();
-      var newSum = hash.read();
-
-      var latestSum = null;
-      if(fs.existsSync('tmp/upload/' + DICT_FNAME)){
-        // now compare with latest uploaded catalogue checksum
-        hash = crypto.createHash('sha1');
-        hash.setEncoding('hex');
-        hash.write(fs.readFileSync('tmp/upload/' + DICT_FNAME, {encoding: 'UTF8'}));
-        hash.end();
-        latestSum = hash.read();
-      }
-      if(newSum === latestSum){
-        console.log('Master catalog didn\'t since last upload - using cached dictionaries.');
+      latestSum = hash.read();
+    }
+    if(newSum === latestSum){
+      console.log('Master catalog didn\'t since last upload - using cached dictionaries.');
+      var translations = {};
+      localeCodes.map(function(code){
+        var body = fs.readFileSync('tmp/download/' + code + '-' + DICT_FNAME, {encoding: 'UTF8'});
+        translations[code] = smartling.parsePOWithContext(body);
+      });
+      assemble.set('dicts', translations);
+      cb();
+    } else {
+      fs.mkdirSync('tmp/upload');
+      fs.mkdirSync('tmp/download');
+      fs.writeFile('tmp/upload/' + DICT_FNAME, content);
+      smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, DICT_FNAME).then(function(){
         var translations = {};
-        localeCodes.map(function(code){
-          var body = fs.readFileSync('tmp/download/' + code + '-' + DICT_FNAME, {encoding: 'UTF8'});
-          translations[code] = smartling.parsePOWithContext(body);
-        });
-        assemble.set('dicts', translations);
-        cb();
-      } else {
-        fs.mkdirSync('tmp/upload');
-        fs.mkdirSync('tmp/download');
-        fs.writeFile('tmp/upload/' + DICT_FNAME, content);
-        smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, DICT_FNAME).then(function(){
-          var translations = {};
-          var defers = localeCodes.map(function(code){
-            return smartling.fetch(smartlingConfig.URL, code, DICT_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID).then(function(body){
-              fs.writeFile('tmp/download/' + code + '-' + DICT_FNAME, body);
-              translations[code] = smartling.parsePOWithContext(body);
-            });
+        var defers = localeCodes.map(function(code){
+          return smartling.fetch(smartlingConfig.URL, code, DICT_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID).then(function(body){
+            fs.writeFile('tmp/download/' + code + '-' + DICT_FNAME, body);
+            translations[code] = smartling.parsePOWithContext(body);
           });
+        });
 
-          // when all translations are fetched - call callback
-          q.all(defers).then(function(){
-            translations.de_DE['/website-guts/templates/components/modals/signin_modal']['Sign in'] = 'DE-Sign in';
-            assemble.set('dicts', translations);
-            cb();
-          });
+        // when all translations are fetched - call callback
+        q.all(defers).then(function(){
+          translations.de_DE['/website-guts/templates/components/modals/signin_modal']['Sign in'] = 'DE-Sign in';
+          assemble.set('dicts', translations);
+          cb();
         });
-      }
+      });
     }
 
-  }); //end through
+  });
 };
