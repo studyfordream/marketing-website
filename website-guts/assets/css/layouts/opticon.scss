@@ -98,13 +98,14 @@ body.opticon {
     color: $opticon-text-gray;
     letter-spacing: 0.56px;
     line-height: 31px;
-    text-align: left;
+    text-align: center;
   }
   .detail-text {
     font-size: 0.8125em;
     color: $opticon-text-gray;
     letter-spacing: 0.4px;
     line-height: 24px;
+    text-align: center;
   }
   .button-container {
     text-align: center;
@@ -202,6 +203,12 @@ body.opticon {
     }
     .flex-container {
       display: flex;
+    }
+    .description-text {
+      text-align: left;
+    }
+    .detail-text {
+      text-align: left;
     }
   }
 }
