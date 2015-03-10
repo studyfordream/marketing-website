@@ -66,7 +66,9 @@ w.optly.mrkt.Oform.trackLead = function(args) {
   source = w.optly.mrkt.source;
 
   //start the reporting object with the required parameters
-  reportingObject = {};
+  reportingObject = {
+    leadSource: 'Website'
+  };
 
   //add only the values we have to the reporting object
   if(response.email){
@@ -100,6 +102,15 @@ w.optly.mrkt.Oform.trackLead = function(args) {
   }
   if(payload.Inbound_Lead_Form_Type__c){
     reportingObject.Inbound_Lead_Form_Type__c = payload.Inbound_Lead_Form_Type__c;
+  }
+  if(payload.leadSource){
+    reportingObject.leadSource = payload.leadSource;
+  }
+  if(payload.LeadSource_Category__c){
+    reportingObject.LeadSource_Category__c = payload.LeadSource_Category__c;
+  }
+  if(payload.Lead_Source_Subcategory__c){
+    reportingObject.Lead_Source_Subcategory__c = payload.Lead_Source_Subcategory__c;
   }
   //add source information
   //source is usually url query params from ads
@@ -158,7 +169,7 @@ w.optly.mrkt.Oform.trackLead = function(args) {
 
   w.analytics.identify(response.unique_user_id, reportingObject, {
     integrations: {
-      Marketo: true
+      'Marketo': true
     }
   });
 
@@ -178,9 +189,21 @@ w.optly.mrkt.Oform.trackLead = function(args) {
     }
   });
 
-  w.Munchkin.munchkinFunction('visitWebPage', {
-    url: '/event/plan/null'
+  var reportingPlan;
+
+  if(typeof(response.plan) == 'string'){
+    reportingPlan = response.plan;
+  } else {
+    reportingPlan = 'null';
+  }
+
+  w.analytics.track('/event/plan' + reportingPlan, {}, {
+    integrations: {
+      'All': false,
+      'Marketo': true
+    }
   });
+  w.analytics.page('/plan/' + response.plan);
 
   /* new reporting */
 
