@@ -1010,84 +1010,6 @@ msgid "Terms of Service Agreement"
 msgctxt "/website/terms/05/30/2013/index"
 msgstr ""
 
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "About"
-msgctxt "/website/about/index"
-msgstr ""
-
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "About"
-msgctxt "/website/about/index"
-msgstr ""
-
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "Optimizely is the #1 website optimization platform in the world."
-msgctxt "/website/about/index"
-msgstr ""
-
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "Optimizely was founded by two former Google product managers, Dan Siroker and Pete Koomen. Dan served as the Director of Analytics during the Obama 2008 presidential campaign. While there, his team relied on the use of A/B and <a href=\"{{linkPath}}/resources/multivariate-test-vs-ab-test\">multivariate testing</a> to maximize e-mail sign-ups, volunteers, and donations to raise more than $100 million in additional revenue for the campaign."
-msgctxt "/website/about/index"
-msgstr ""
-
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "But optimization was hard — you needed technical skills and know-how to run even the simplest of tests. After the campaign, Siroker teamed up with Koomen to create a world-class optimization platform that was easy to use in an effort to provide a platform for businesses to be able to conceive and run experiments that helped them make better data-driven decisions."
-msgctxt "/website/about/index"
-msgstr ""
-
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "Since completing YCombinator in the winter of 2010, Optimizely has seen strong and growing demand."
-msgctxt "/website/about/index"
-msgstr ""
-
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "The Highlights"
-msgctxt "/website/about/index"
-msgstr ""
-
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "In less than two years, our first product has passed established players to become the leading A/B and <a href=\"{{linkPath}}/resources/multivariate-test-vs-ab-test\">multivariate testing</a> platform in the world."
-msgctxt "/website/about/index"
-msgstr ""
-
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "More than 8,000 enterprises have adopted Optimizely including Sony, Disney, and Salesforce."
-msgctxt "/website/about/index"
-msgstr ""
-
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "From March 2012 to March 2013, the company increased its revenue by more than 400% percent year-over-year. It first reached cash flow positive in 2011."
-msgctxt "/website/about/index"
-msgstr ""
-
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "We're Hiring!"
-msgctxt "/website/about/index"
-msgstr ""
-
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "Our happy customer base is growing and so are we. We are actively looking for spectacular people to join our team."
-msgctxt "/website/about/index"
-msgstr ""
-
-#. Filename: /website/about/index
-# smartling.string_format = html
-msgid "View Job Openings"
-msgctxt "/website/about/index"
-msgstr ""
-
 #. Filename: /website/ab-testing/index
 # smartling.string_format = html
 msgid "What is A/B Testing?"
@@ -1170,6 +1092,84 @@ msgstr ""
 # smartling.string_format = html
 msgid "What assumptions are you making about your site right now? Load your site into the <a href=\"/dist/\">Optimizely editor</a>, click “Test it Out” and see how simple it is to set up an AB test or <a href=\"/dist/resources/multivariate-test-vs-ab-test\">multivariate test</a> with Optimizely. Your improved site is the only outcome."
 msgctxt "/website/ab-testing/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "About"
+msgctxt "/website/about/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "About"
+msgctxt "/website/about/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "Optimizely is the #1 website optimization platform in the world."
+msgctxt "/website/about/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "Optimizely was founded by two former Google product managers, Dan Siroker and Pete Koomen. Dan served as the Director of Analytics during the Obama 2008 presidential campaign. While there, his team relied on the use of A/B and <a href=\"{{linkPath}}/resources/multivariate-test-vs-ab-test\">multivariate testing</a> to maximize e-mail sign-ups, volunteers, and donations to raise more than $100 million in additional revenue for the campaign."
+msgctxt "/website/about/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "But optimization was hard — you needed technical skills and know-how to run even the simplest of tests. After the campaign, Siroker teamed up with Koomen to create a world-class optimization platform that was easy to use in an effort to provide a platform for businesses to be able to conceive and run experiments that helped them make better data-driven decisions."
+msgctxt "/website/about/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "Since completing YCombinator in the winter of 2010, Optimizely has seen strong and growing demand."
+msgctxt "/website/about/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "The Highlights"
+msgctxt "/website/about/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "In less than two years, our first product has passed established players to become the leading A/B and <a href=\"{{linkPath}}/resources/multivariate-test-vs-ab-test\">multivariate testing</a> platform in the world."
+msgctxt "/website/about/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "More than 8,000 enterprises have adopted Optimizely including Sony, Disney, and Salesforce."
+msgctxt "/website/about/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "From March 2012 to March 2013, the company increased its revenue by more than 400% percent year-over-year. It first reached cash flow positive in 2011."
+msgctxt "/website/about/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "We're Hiring!"
+msgctxt "/website/about/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "Our happy customer base is growing and so are we. We are actively looking for spectacular people to join our team."
+msgctxt "/website/about/index"
+msgstr ""
+
+#. Filename: /website/about/index
+# smartling.string_format = html
+msgid "View Job Openings"
+msgctxt "/website/about/index"
 msgstr ""
 
 #. Filename: /website/benefits/index
@@ -2186,22 +2186,22 @@ msgid "What is Split Testing?"
 msgctxt "/website/split-testing/index"
 msgstr ""
 
-#. Filename: /website/success/index
-# smartling.string_format = html
-msgid "Customer Success"
-msgctxt "/website/success/index"
-msgstr ""
-
-#. Filename: /website/success/index
-# smartling.string_format = html
-msgid "Customer Success"
-msgctxt "/website/success/index"
-msgstr ""
-
 #. Filename: /website/statistics/index
 # smartling.string_format = html
 msgid "Optimizely Stats Engine"
 msgctxt "/website/statistics/index"
+msgstr ""
+
+#. Filename: /website/success/index
+# smartling.string_format = html
+msgid "Customer Success"
+msgctxt "/website/success/index"
+msgstr ""
+
+#. Filename: /website/success/index
+# smartling.string_format = html
+msgid "Customer Success"
+msgctxt "/website/success/index"
 msgstr ""
 
 #. Filename: /website/terms/index
