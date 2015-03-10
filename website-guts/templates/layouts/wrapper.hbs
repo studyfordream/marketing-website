@@ -53,6 +53,11 @@ layout_modals:
         })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
         </script>
         {{/if}}
+        {{#if page.external_script}}
+        {{#each page.external_script}}
+        <script  src="{{.}}"></script>
+        {{/each}}
+        {{/if}}
         {{#if page.external_stylesheets}}
         {{#each page.external_stylesheets}}
         <link rel="stylesheet" type="text/css" href="{{.}}">
@@ -146,6 +151,7 @@ layout_modals:
                 </header>
                 {{/unless}}
                 {{> body }}
+                {{#unless no_footer}}
                 <footer {{#if page.footer_style}}class="{{page.footer_style}}"{{/if}}>
                     <div class="container footer-wrapper">
                         <p><a class="logo" href="{{linkPath}}/">Optimizely</a></p>
@@ -240,6 +246,7 @@ layout_modals:
                         </div><!--/#footer-nav-cont-->
                     </div><!--/.container-->
                 </footer>
+                {{/unless}}
             </div><!--/#inner-wrapper-->
         </div><!--/#outer-wrapper-->
         <!-- <div class="optly-hide" data-tooltip="default"></div> -->

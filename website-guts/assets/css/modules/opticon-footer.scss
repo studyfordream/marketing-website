@@ -1,0 +1,62 @@
+#opticon-footer {
+  background: #EAF4F3;
+  height: 400px;
+  width: 100%;
+  .nav-text-item {
+    margin: 15px 0;
+    font-size: 0.938em;
+    letter-spacing: 0.46px;
+    line-height: 23px;
+    color: $light-text-color;
+    display: block;
+    &:hover {
+      text-decoration: none;
+    }
+    &.body-button {
+      color: $opticon-brand-blue;
+    }
+  }
+  .social {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 35px;
+    height: 35px;
+    margin: 10px;
+  }
+  .social-container {
+    display: flex;
+    justify-content: center;
+  }
+  .facebook {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/facebook-icon.svg');
+  }
+  .twitter {
+    background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/twitter-icon.svg');
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  #opticon-footer {
+    height: 200px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    .opticon-flex-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .social-container {
+      justify-content: flex-end;
+    }
+    .opticon-logo {
+      flex: 1;
+    }
+    .nav-text-item {
+      margin: 0 30px;
+      font-size: 1.338em;
+    }
+    .twitter {
+      margin-right: 35px;
+    }
+  }
+}

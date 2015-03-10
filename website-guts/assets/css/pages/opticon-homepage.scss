@@ -1,0 +1,102 @@
+body.opticon-homepage {
+  .title-section {
+    background: $opticon-light-blue;
+    padding: 50px 0;
+  }
+  .page-title {
+    font-size: 3em;
+    background: $opticon-brand-blue;
+    padding: 0 15px 0 25px;
+    margin: 0;
+  }
+  .event-details {
+    margin: 15px 0;
+    font-weight: 100;
+    font-size: 1.25em;
+    color: $almost-black-text-color;
+    letter-spacing: 0.41px;
+  }
+  .speaker-container {
+    padding: 200px 2% 0 2%;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  .speaker-blurb {
+    text-align: left;
+  }
+  .subtitle {
+    text-align: center;
+  }
+  .description-title {
+    padding: 0 2%;
+  }
+  .content-container {
+    text-align: center;
+    h1,
+    h4 {
+      text-align: center;
+    }
+  }
+  .description {
+    padding: 5% 13%;
+    .description-title {
+      padding: 0;
+    }
+  }
+  .tracks {
+    padding: 50px 0 80px 0;
+  }
+  .track-container {
+    padding: 75px 10px 10px 10px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  .platform { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/developer-icon.svg'); }
+  .strategy { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/strategy-icon.svg'); }
+  .culture { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/culture-icon.svg'); }
+  .action { background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/action-icon.svg'); }
+  .confetti-left {
+    left: 0;
+    top: 7em;
+  }
+  .confetti-right {
+    top: 12em;
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  body.opticon-homepage {
+    .speaker-container {
+      width: 33%;
+    }
+    .description-title {
+      padding: 0 18%;
+    }
+    .track-container {
+      width: 25%;
+      padding: 75px 10px 10px 10px;
+    }
+    .content-container {
+      h1,
+      h4 {
+        text-align: right;
+      }
+      text-align: right;
+      padding: 0 5%;
+    }
+    .page-title {
+      font-size: 4em;
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.opticon-homepage {
+    .description {
+      padding: 5% 0;
+      width: 600px;
+    }
+  }
+}

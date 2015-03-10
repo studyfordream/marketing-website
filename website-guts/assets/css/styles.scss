@@ -1,12 +1,7 @@
 @import 'variables';
 @import 'mixins';
 @import 'normalize';
-@import 'modules/type';
 @import 'smart-grid/smart-grid';
-@import 'modules/header';
-@import 'modules/opticon-header';
-@import 'modules/footer';
-@import 'modules/forms';
 @import 'main';
 @import 'helper-classes';
 
@@ -32,7 +27,9 @@
 @import 'pages/mvt';
 @import 'pages/non-profits';
 @import 'pages/opt-out';
-@import 'pages/opticon';
+@import 'pages/opticon-about';
+@import 'pages/opticon-agenda';
+@import 'pages/opticon-homepage';
 @import 'pages/opticon-speakers';
 @import 'pages/partners';
 @import 'pages/press';
@@ -53,6 +50,15 @@
 @import 'layouts/seo-layout';
 @import 'layouts/simple';
 @import 'layouts/trial-form';
+@import 'layouts/opticon';
+
+/* modules */
+@import 'modules/footer';
+@import 'modules/forms';
+@import 'modules/header';
+@import 'modules/opticon-footer';
+@import 'modules/opticon-header';
+@import 'modules/type';
 
 /* components */
 @import 'components/companies-panel';

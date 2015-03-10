@@ -3,14 +3,12 @@ layout: opticon.hbs
 seo_title: Opticon Speakers
 no_container: true
 no_header: true
-page_script: opticon.js
-footer_style: grey
+no_footer: true
 body_class:
+- opticon
 - opticon-speakers
-external_stylesheets:
-- //cloud.typography.com/7838232/736966/css/fonts.css
 ---
-<div class="message-container">
+<div class="message-container container">
   <h1>{{speakers_data.title}}</h1>
   <p>{{{speakers_data.description}}}</p>
 </div>
