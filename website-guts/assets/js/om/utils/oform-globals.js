@@ -86,16 +86,16 @@ w.optly.mrkt.Oform.trackLead = function(args) {
     reportingObject.phone = response.phone_number;
   }
   if(payload.Web_Interest__c){
-    reportingObject.Web__c = payload.Web__c;
+    reportingObject.Web_Interest__c = 'true';
   }
   if(payload.Mobile_Web_Interest__c){
-    reportingObject.Mobile_Web__c = payload.Mobile_Web__c;
+    reportingObject.Mobile_Web_Interest__c = 'true';
   }
   if(payload.iOS_Interest__c){
-    reportingObject.iOS__c = payload.iOS__c;
+    reportingObject.iOS_Interest__c = 'true';
   }
   if(payload.Android_Interest__c){
-    reportingObject.Android__c = payload.Android__c;
+    reportingObject.Android_Interest__c = 'true';
   }
   if(payload.Initial_Form_Source__c){
     reportingObject.Initial_Form_Source__c = payload.Initial_Form_Source__c;
@@ -172,6 +172,10 @@ w.optly.mrkt.Oform.trackLead = function(args) {
       'Marketo': true
     }
   });
+
+  if(w.optly.mrkt.automatedTest){
+    $('body').attr('data-reporting-object', JSON.stringify(reportingObject));
+  }
 
   /* legacy reporting - to be deprecated */
 

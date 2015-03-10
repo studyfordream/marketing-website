@@ -111,8 +111,7 @@ var createAccountHelper = {
   },
 
   load: function(returnData) {
-    var parsedResp = this.parseResponse(returnData),
-        form = this.formElm.getAttribute('id');
+    var parsedResp = this.parseResponse(returnData);
 
     if(parsedResp) {
       w.optly.mrkt.Oform.trackLead({
@@ -129,8 +128,7 @@ var createAccountHelper = {
   },
 
   pricingSignupSuccess: function(returnData){
-    var parsedResp = this.parseResponse(returnData),
-        form = this.formElm.getAttribute('id');
+    var parsedResp = this.parseResponse(returnData);
 
     if(parsedResp){
 

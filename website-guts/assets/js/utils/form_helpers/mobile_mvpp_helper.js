@@ -13,8 +13,7 @@ var mobileMvppHelper = {
   },
 
   success: function(returnData) {
-    var parsedResp = this.parseResponse(returnData),
-        form = this.formElm.getAttribute('id');
+    var parsedResp = this.parseResponse(returnData);
 
     if(parsedResp) {
       w.optly.mrkt.Oform.trackLead({
