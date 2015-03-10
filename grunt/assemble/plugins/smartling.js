@@ -2,6 +2,7 @@
 
 var path = require('path');
 var fs = require('fs');
+var mkdirp = require('mkdirp');
 var _ = require('lodash');
 var through = require('through2');
 var extend = require('extend-shallow');
@@ -92,8 +93,8 @@ module.exports = function (assemble) {
       assemble.set('dicts', translations);
       cb();
     } else {
-      fs.mkdirSync('tmp/upload');
-      fs.mkdirSync('tmp/download');
+      mkdirp.sync('tmp/upload');
+      mkdirp.sync('tmp/download');
       fs.writeFile('tmp/upload/' + DICT_FNAME, content);
       smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, DICT_FNAME).then(function(){
         var translations = {};
