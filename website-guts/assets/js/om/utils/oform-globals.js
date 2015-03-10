@@ -83,16 +83,16 @@ w.optly.mrkt.Oform.trackLead = function(args) {
   if(response.phone_number){
     reportingObject.phone = response.phone_number;
   }
-  if(payload.Web__c){
+  if(payload.Web_Interest__c){
     reportingObject.Web__c = payload.Web__c;
   }
-  if(payload.Mobile_Web__c){
+  if(payload.Mobile_Web_Interest__c){
     reportingObject.Mobile_Web__c = payload.Mobile_Web__c;
   }
-  if(payload.iOS__c){
+  if(payload.iOS_Interest__c){
     reportingObject.iOS__c = payload.iOS__c;
   }
-  if(payload.Android__c){
+  if(payload.Android_Interest__c){
     reportingObject.Android__c = payload.Android__c;
   }
   if(payload.Initial_Form_Source__c){
