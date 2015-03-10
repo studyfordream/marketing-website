@@ -30,7 +30,7 @@ var mobileMvppHelper = {
       w.Munchkin.munchkinFunction('visitWebPage', {url: '/event/ios-form-signup'});
 
       this.redirectHelper({
-        redirectPath: '/mobile/first-project',
+        redirectPath: w.apiDomain + '/mobile/first-project',
         bodyData: {
           formSuccess: this.formElm.getAttribute('action')
         }

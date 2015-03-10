@@ -78,7 +78,8 @@ w.optly.mrkt.trialForm = new Oform({
       var urlRegex = /.+\..+/;
       return urlRegex.test(element.value);
     }
-  }
+  },
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 })
 .on('before', function(){
   w.analytics.track('/free-trial/submit', {
@@ -174,10 +175,10 @@ w.optly.mrkt.trialForm = new Oform({
           queryParams = queryParams ? '&' + queryParams : queryParams;
           if(/^www\.optimizely\./.test(domain)){
             //production
-            redirectURL = '/edit?url=';
+            redirectURL = w.apiDomain + '/edit?url=';
           } else {
             //local dev
-            redirectURL = 'https://www.optimizely.com/edit?url=';
+            redirectURL = 'https://app.optimizely.com/edit?url=';
           }
           w.location = redirectURL + encodeURIComponent(d.getElementById('url').value) + queryParams;
         }, 1000);

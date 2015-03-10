@@ -364,7 +364,7 @@ w.optly.mrkt.changePlanHelper = {
 
 			}, false);
 
-			setPlan.open('post', '/pricing/change_plan', true);
+			setPlan.open('post', w.apiDomain + '/pricing/change_plan', true);
 			setPlan.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 			setPlan.send('plan_id=' + args.plan);
 

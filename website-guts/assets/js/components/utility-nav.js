@@ -57,6 +57,7 @@ window.optly.mrkt.showUtilityNav = function (acctData, expData) {
     });
 
     var handlebarsData = {
+      apiDomain: w.apiDomain,
       account_id: acctData.account_id,
       email: emailObj,
       admin: acctData.is_admin,
@@ -97,7 +98,10 @@ window.optly.mrkt.signOut = function(redirectPath) {
 
   var deferred = window.optly.mrkt.services.xhr.makeRequest({
     type: 'GET',
-    url: '/account/signout'
+    url: window.apiDomain + '/account/signout',
+    xhrFields: {
+      withCredentials: true
+    }
   });
 
   // Close the dropdown

@@ -20,6 +20,14 @@
 
   };
 
+  w.optly.mrkt.Oform.defaultMiddleware = function(XHR, data){
+
+    XHR.withCredentials = true;
+
+    return data;
+
+  };
+
   w.optly.mrkt.Oform.validationError = function(element){
 
     w.optly.mrkt.formHadError = true;
@@ -217,7 +225,8 @@
   w.optly.mrkt.Oform.initContactForm = function(arg){
 
     new Oform({
-      selector: arg.selector
+      selector: arg.selector,
+      middleware: w.optly.mrkt.Oform.defaultMiddleware
     })
     .on('validationerror', w.optly.mrkt.Oform.validationError)
     .on('load', function(event){

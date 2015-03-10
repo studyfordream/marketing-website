@@ -36,6 +36,14 @@ w.optly.mrkt.Oform.validationError = function(element){
 
 };
 
+w.optly.mrkt.Oform.defaultMiddleware = function(XHR, data){
+
+  XHR.withCredentials = true;
+
+  return data;
+
+};
+
 w.optly.mrkt.Oform.trackLead = function(args){
 
   var pageData = args.pageData,
@@ -52,23 +60,23 @@ w.optly.mrkt.Oform.trackLead = function(args){
   try {
     response = JSON.parse(XHRevent.responseText);
   } catch(e) {
-    if(typeof error === 'object') { 
-      try { 
-        error = JSON.stringify(error, ['message', 'arguments', 'type', 'name']); 
-      } catch (innerErr) { 
-        error = innerErr.message || 'cannot parse error message'; 
-      } 
+    if(typeof error === 'object') {
+      try {
+        error = JSON.stringify(error, ['message', 'arguments', 'type', 'name']);
+      } catch (innerErr) {
+        error = innerErr.message || 'cannot parse error message';
+      }
     }
-    w.analytics.ready(function() { 
+    w.analytics.ready(function() {
       w.analytics.track(window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname) + ':trackLead', {
           category: 'api error',
           label: error
-        }, { 
+        }, {
           integrations: {
-            'All': false, 
+            'All': false,
             'Google Analytics': true
-          } 
-        }); 
+          }
+        });
     });
   }
 

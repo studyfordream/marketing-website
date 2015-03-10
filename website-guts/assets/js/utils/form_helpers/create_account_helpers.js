@@ -131,7 +131,7 @@ var createAccountHelper = {
       });
 
       this.redirectHelper({
-        redirectPath: '/welcome',
+        redirectPath: w.apiDomain + '/welcome',
         bodyClass: 'signed-in'
       });
     }
