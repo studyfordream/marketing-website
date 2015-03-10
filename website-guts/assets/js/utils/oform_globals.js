@@ -210,7 +210,7 @@
     w.analytics.track('/event/plan/null', {}, {
       integrations: {
         'All': false,
-        'Marketo': true;
+        'Marketo': true
       }
     });
 
