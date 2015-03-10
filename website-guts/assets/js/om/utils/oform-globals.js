@@ -36,6 +36,14 @@ w.optly.mrkt.Oform.validationError = function(element){
 
 };
 
+w.optly.mrkt.Oform.defaultMiddleware = function(XHR, data){
+
+  XHR.withCredentials = true;
+
+  return data;
+
+};
+
 w.optly.mrkt.Oform.trackLead = function(args){
 
   var pageData = args.pageData,
@@ -50,25 +58,25 @@ w.optly.mrkt.Oform.trackLead = function(args){
   source = w.optly.mrkt.source;
 
   try {
-    response = JSON.parse(XHRevent.XHR.responseText);
+    response = JSON.parse(XHRevent.responseText);
   } catch(e) {
-    if(typeof error === 'object') { 
-      try { 
-        error = JSON.stringify(err, ['message', 'arguments', 'type', 'name']); 
-      } catch (innerErr) { 
-        error = innerErr.message || 'cannot parse error message'; 
-      } 
+    if(typeof error === 'object') {
+      try {
+        error = JSON.stringify(error, ['message', 'arguments', 'type', 'name']);
+      } catch (innerErr) {
+        error = innerErr.message || 'cannot parse error message';
+      }
     }
-    w.analytics.ready(function() { 
+    w.analytics.ready(function() {
       w.analytics.track(window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname) + ':trackLead', {
           category: 'api error',
           label: error
-        }, { 
+        }, {
           integrations: {
-            'All': false, 
+            'All': false,
             'Google Analytics': true
-          } 
-        }); 
+          }
+        });
     });
   }
 
@@ -132,9 +140,6 @@ w.optly.mrkt.Oform.trackLead = function(args){
       reportingObject[propertyName] = pageData[propertyName];
     }
   }
-
-  //make a raw Munchkin associateLead Request
-  w.Munchkin.munchkinFunction('associateLead', reportingObject, token);
 
   w.analytics.identify(response.unique_user_id, reportingObject, {
     integrations: {

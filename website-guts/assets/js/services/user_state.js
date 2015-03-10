@@ -128,12 +128,13 @@ window.optly.mrkt.services.xhr = {
     var deferreds = [], deferredPromise;
 
     // check if multiple requests are present
-    if ( Array.isArray(request) ) {
+    if ( $.isArray(request) ) {
       for (var i = 0; i < request.length; i += 1) {
         if (typeof request[i] === 'object') {
           deferredPromise = $.ajax({
             type: request[i].type,
-            url: request[i].url
+            url: request[i].url,
+            xhrFields: request[i].xhrFields ? request[i].xhrFields : {}
           });
           // parameters passed must be objects with a path and properties keys
           if (request[i].properties !== undefined) {
@@ -151,7 +152,8 @@ window.optly.mrkt.services.xhr = {
     else {
       deferredPromise = $.ajax({
         type: request.type,
-        url: request.url
+        url: request.url,
+        xhrFields: request.xhrFields ? request.xhrFields : {}
       });
       if (request.properties !== undefined) {
         this.handleErrors( deferredPromise, request.url, request.properties );
@@ -198,7 +200,7 @@ window.optly.mrkt.services.xhr = {
     var errorMessage,
       propertyType;
     // if the property maps to an array
-    if ( Array.isArray(data) ) {
+    if ( $.isArray(data) ) {
 
       $.each(data, function(index, innerProperties) {
 
@@ -369,7 +371,7 @@ window.optly.mrkt.services.xhr = {
   getLoginStatus: function(requestParams) {
     var deferreds;
 
-    if ( !!this.readCookie('optimizely_signed_in') ) {
+    if ( !!this.readCookie('optimizely_signed_in') || /^www.optimizelystaging.com/.test(window.location.hostname) ) {
       deferreds = this.makeRequest(requestParams);
     } else {
       window.optly_q = window.optly.mrkt.Optly_Q();
@@ -388,16 +390,19 @@ window.optly.mrkt.services.xhr = {
 
   acctParams = {
     type: 'GET',
-    url: '/account/info',
+    url: window.apiDomain + '/account/info',
     properties: {
       email: 'string',
       account_id: 'number'
+    },
+    xhrFields: {
+      withCredentials: true
     }
   };
 
   expParams = {
     type: 'GET',
-    url: '/experiment/load_recent?max_experiments=5',
+    url: window.apiDomain + '/experiment/load_recent?max_experiments=5',
     properties: {
       experiments: {
         id: 'number',
@@ -405,6 +410,9 @@ window.optly.mrkt.services.xhr = {
         has_started: 'boolean',
         can_edit: 'boolean'
       }
+    },
+    xhrFields: {
+      withCredentials: true
     }
   };
 

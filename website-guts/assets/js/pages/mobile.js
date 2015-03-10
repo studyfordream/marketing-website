@@ -196,7 +196,8 @@ $(function() {
       password1: function(elm) {
         return signupMobileMvppTopHelperInst.passwordValidate(elm);
       }
-    }
+    },
+    middleware: w.optly.mrkt.Oform.defaultMiddleware
   });
 
   signupFormTop.on('before', function() {
@@ -254,7 +255,8 @@ $(function() {
       password1: function(elm) {
         return signupMobileMvppBottomHelperInst.passwordValidate(elm);
       }
-    }
+    },
+    middleware: w.optly.mrkt.Oform.defaultMiddleware
   });
 
   signupFormBottom.on('before', function() {

@@ -114,7 +114,8 @@ var signupForm  = new Oform({
     password2: function(elm) {
       return signupHelper.password2Validate(elm);
     }
-  }
+  },
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 });
 
 signupForm.on('before', function() {

@@ -124,7 +124,8 @@ var signupForm  = new Oform({
     password2: function(elm) {
       return signupHelper.password2Validate(elm);
     }
-  }
+  },
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 });
 
 signupForm.on('before', function() {
@@ -159,8 +160,8 @@ signupForm.on('error', function() {
   });
 }.bind(signupHelper));
 
-signupForm.on('load', function(event, data) {
-  signupHelper.pricingSignupSuccess(event, data);
+signupForm.on('load', function(event) {
+  signupHelper.pricingSignupSuccess(event);
 }.bind(signupHelper));
 
 signupForm.on('done', function() {

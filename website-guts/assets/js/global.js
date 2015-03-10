@@ -364,7 +364,7 @@ w.optly.mrkt.changePlanHelper = {
 
 			}, false);
 
-			setPlan.open('post', '/pricing/change_plan', true);
+			setPlan.open('post', w.apiDomain + '/pricing/change_plan', true);
 			setPlan.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 			setPlan.send('plan_id=' + args.plan);
 
@@ -434,7 +434,7 @@ w.optly.mrkt.changePlanHelper = {
 			//to do: update the ui for the error
 			w.analytics.track('/pricing/change_plan', {
 				category: 'api error',
-				label: 'pricing change plan status not 200: ' + event.target.status
+				label: 'pricing change plan status not 200: ' + event.XHR.status
 			}, {
 				integrations: {
 					Marketo: false
@@ -521,6 +521,10 @@ w.optly_q.push([function(){
 
 w.optly.mrkt.formHadError = false;
 
+w.optly.mrkt.deleteCookie = function(name, options) {
+  $.removeCookie(name, options);
+};
+
 //call the utility function to unregister archived experiments from the mixpanel cookie
 w.analytics.ready(w.optly.mrkt.utils.trimMixpanelCookie);
 
@@ -534,11 +538,15 @@ if(w.monitorTiming){
 			    'timingCategory': 'external script timing',
 			    'timingVar': 'cdn.optimizely.com',
 			    'timingValue': w.optimizelyLoadTime,
-					'timeingLabel': 'Optimizely',
+					'timingLabel': 'Optimizely',
 			    'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
 			  });
 				clearInterval(reportOptimizelyTiming);
 			}
 		}
 	}, 1000);
+}
+
+if( $.cookie('amplitude_idoptimizely.com') ) {
+  w.optly.mrkt.deleteCookie('amplitude_idoptimizely.com', { path: '/', expires: -5, domain: '.optimizely.com'} );
 }

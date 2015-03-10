@@ -81,14 +81,15 @@ $(function(){
   $('#events').html(eventDisplayHTML);
 
   new Oform({
-    selector: '#webinar-registration-form'
+    selector: '#webinar-registration-form',
+    middleware: w.optly.mrkt.Oform.defaultMiddleware
   }).on('before', function(){
     var name = $('#name').val().split(' ');
     $('[name="FirstName"]').val( name[0] );
     $('[name="LastName"]').val( name[1] );
     return true;
   }).on('load', function(event){
-    if(event.target.status === 200){
+    if(event.XHR.status === 200){
       w.optly.mrkt.modal.close({
         modalType: 'webinar-signup',
         track: false

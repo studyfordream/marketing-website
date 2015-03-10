@@ -17,7 +17,8 @@ $('#seo-form input:not([type="hidden"])').each(function(){
 var seoFormHelperInst = window.optly.mrkt.form.seoForm({formId: 'seo-form'});
 
 new Oform({
-  selector: '#seo-form'
+  selector: '#seo-form',
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 })
 .on('before', function(){
   seoFormHelperInst.before();

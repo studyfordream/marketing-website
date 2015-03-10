@@ -2,21 +2,18 @@ var resetPassDialogHelperInst = window.optly.mrkt.form.resetPassword({formId: 'r
 
 var resetPassForm = new Oform({
   selector: '#reset-password-form',
-  middleware: function(XhrObj, data){
-    window.analytics.track('password reset submit', {
-      category: 'account',
-      label: w.location.pathname
-    }, {
-      integrations: {
-        Marketo: false
-      }
-    });
-
-    return data;
-  }
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 });
 
 resetPassForm.on('before', function() {
+  window.analytics.track('password reset submit', {
+    category: 'account',
+    label: w.location.pathname
+  }, {
+    integrations: {
+      Marketo: false
+    }
+  });
   resetPassDialogHelperInst.removeErrors();
   resetPassDialogHelperInst.processingAdd();
 }.bind(resetPassDialogHelperInst));

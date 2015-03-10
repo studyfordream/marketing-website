@@ -165,7 +165,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         responseSuccess = true;
 
       try {
-        resp = JSON.parse(e.target.responseText);
+        resp = JSON.parse(e.XHR.responseText);
       } catch(err) {
         var action = this.formElm.getAttribute('action');
         window.analytics.track(action, {
@@ -178,10 +178,10 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         });
       }
 
-      if(e.target && e.target.status !== 200) {
+      if(e.XHR && e.XHR.status !== 200) {
         w.analytics.track(this.formElm.getAttribute('action'), {
           category: 'api error',
-          label: 'status not 200: ' + e.target.status
+          label: 'status not 200: ' + e.XHR.status
         }, {
           integrations: {
             Marketo: false

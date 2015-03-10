@@ -78,7 +78,8 @@ w.optly.mrkt.trialForm = new Oform({
       var urlRegex = /.+\..+/;
       return urlRegex.test(element.value);
     }
-  }
+  },
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 })
 .on('before', function(){
   w.analytics.track('/free-trial/submit', {
@@ -132,7 +133,7 @@ w.optly.mrkt.trialForm = new Oform({
       w.optly.mrkt.Oform.trackLead({
         formElm: '#seo-form',
         pageData: pageData,
-        XHRevent: loadEvent
+        XHRevent: loadEvent.XHR
       });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
@@ -174,10 +175,10 @@ w.optly.mrkt.trialForm = new Oform({
           queryParams = queryParams ? '&' + queryParams : queryParams;
           if(/^www\.optimizely\./.test(domain)){
             //production
-            redirectURL = '/edit?url=';
+            redirectURL = w.apiDomain + '/edit?url=';
           } else {
             //local dev
-            redirectURL = 'https://www.optimizely.com/edit?url=';
+            redirectURL = 'https://app.optimizely.com/edit?url=';
           }
           w.location = redirectURL + encodeURIComponent(d.getElementById('url').value) + queryParams;
         }, 1000);
@@ -187,7 +188,7 @@ w.optly.mrkt.trialForm = new Oform({
       //window.alert('non 200 response');
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
-        label: 'status not 200: ' + event.target.status
+        label: 'status not 200: ' + event.XHR.status
       }, {
         integrations: {
           'Marketo': false

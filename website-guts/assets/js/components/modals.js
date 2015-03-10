@@ -169,6 +169,10 @@ window.optly.mrkt.modal.open = function(modalArgs) {
     }
   });
 
+  w.optly.mrkt.modalTiming = {};
+
+  w.optly.mrkt.modalTiming[modalName] = (new Date()).getTime();
+
   if(typeof modalArgs.callback === 'function'){
     modalArgs.callback();
   }
@@ -213,6 +217,19 @@ window.optly.mrkt.modal.close = function(modalArgs) {
           Marketo: false
         }
       });
+    }
+
+    if(w.optly.mrkt.modalTiming[modalName]){
+      if(w.ga){
+        var timePassed = (new Date()).getTime() - w.optly.mrkt.modalTiming[modalName];
+        w.ga('send', {
+			    'hitType': 'timing',
+			    'timingCategory': 'time passed at modal close',
+			    'timingVar': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname) + ' ' + modalName,
+			    'timingValue': timePassed,
+			    'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+			  });
+      }
     }
 
   }, 0);

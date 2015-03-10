@@ -28,7 +28,7 @@ var seoHelper = {
       w.optly.mrkt.Oform.trackLead({
         formElm: this.formElm,
         pageData: pageData,
-        XHRevent: event
+        XHRevent: event.XHR
       });
       //[> legacy reporting - to be deprecated <]
       w.analytics.track('/free-trial/success', {
@@ -52,7 +52,7 @@ var seoHelper = {
       });
 
       this.redirectHelper({
-        redirectPath: w.linkPath + '/welcome',
+        redirectPath: w.apiDomain + '/welcome',
         bodyData: {
           formSuccess: document.getElementById('seo-form').getAttribute('action')
         }
@@ -60,7 +60,7 @@ var seoHelper = {
     } else {
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
-        label: 'status not 200: ' + event.target.status
+        label: 'status not 200: ' + event.XHR.status
       }, {
         integrations: {
           'Marketo': false

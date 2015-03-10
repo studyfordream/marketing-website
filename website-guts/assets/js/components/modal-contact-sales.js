@@ -5,7 +5,8 @@ var contactSalesHelperInst = window.optly.mrkt.form.contactSales({formId: 'conta
 
 w.optly.mrkt.activeModals.contactSales = new Oform({
 
-  selector: 'form#contact-sales-form'
+  selector: 'form#contact-sales-form',
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 
 });
 

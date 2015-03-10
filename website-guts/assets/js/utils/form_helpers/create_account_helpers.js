@@ -127,11 +127,11 @@ var createAccountHelper = {
       w.optly.mrkt.Oform.trackLead({
         formElm: '#signup-form',
         pageData: pageData,
-        XHRevent: e
+        XHRevent: e.XHR
       });
 
       this.redirectHelper({
-        redirectPath: '/welcome',
+        redirectPath: w.apiDomain + '/welcome',
         bodyClass: 'signed-in'
       });
     }
@@ -210,8 +210,8 @@ var createAccountHelper = {
     }, 500);
   },
 
-  pricingSignupSuccess: function(event, data){
-    var resp = this.parseResponse(data.event),
+  pricingSignupSuccess: function(event){
+    var resp = this.parseResponse(event),
       plan;
 
     if(resp){
@@ -220,9 +220,6 @@ var createAccountHelper = {
 
       w.analytics.identify(resp.unique_user_id, {
         Email: resp.email,
-        Last_Experiment_URL__c: data.data['url-input'],
-        LastExperimentCreatedDate: moment().format('YYYY-MM-DD HH:mm:ss'),
-        ExperimentsCreated: '1',
         FirstName: resp.first_name || '',
         LastName: resp.last_name || '',
         otm_Medium__c: w.optly.mrkt.source.otm.medium || '',
