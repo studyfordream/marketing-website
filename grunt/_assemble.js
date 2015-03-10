@@ -20,12 +20,14 @@ module.exports = {
     websiteRoot: 'website',
     websiteGuts: '<%= config.guts %>',
     modalsDir: '<%= config.guts %>/templates/components/modals',
-    locales: [
-      'website-de',
-      'website-fr',
-      'website-es',
-      'website-jp'
-    ],
+    pageContentNamespace: 'page_data',
+    subfoldersRoot: 'subfolders',
+    locales: {
+      'de': 'de_DE',
+      'fr': 'fr_FR',
+      'es': 'es_ES',
+      'jp': 'ja_JP'
+    },
     modals: [
       'error_modal',
       'reset_password',

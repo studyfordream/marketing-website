@@ -263,8 +263,8 @@ layout_modals:
         <script src="{{assetsDir}}/js/pages/{{this.page_script}}" defer></script>
         {{/if}}
 
-        {{#if environmentVariables.production}}
-        {{> ad_tags }}
-        {{/if}}
+        {{!#if environmentVariables.production}}
+        {{partial "ad_tags" }}
+        {{!/if}}
     </body>
 </html>

@@ -1,10 +1,35 @@
 'use strict';
 
 var path = require('path');
+var fs = require('fs');
 var _ = require('lodash');
 var through = require('through2');
 var extend = require('extend-shallow');
-var smartling = require('../mocks').smartling;
+var smartlingMock = require('../mocks').smartling;
+var htmlParser = require('l10n-tools/html-parser');
+var smartling = require('l10n-tools/smartling');
+var objParser = require('l10n-tools/object-extractor');
+var fs = require('fs');
+var q = require('q');
+var crypto = require('crypto');
+var smartlingConfig;
+var i = 1;
+
+try{
+  smartlingConfig = fs.readFileSync(path.join(process.cwd(), 'configs/smartlingConfig.json'), {encoding: 'utf8'});
+} catch(err){
+  console.error('Cannot read Smartling config: ', err);
+}
+if(smartlingConfig){
+  smartlingConfig = JSON.parse(smartlingConfig);
+}
+
+function isIndex(fp, testStr) {
+  if(fp[0] !== '/') {
+    fp = '/' + fp;
+  }
+  return fp.indexOf('/' + testStr + '/') !== -1;
+}
 
 module.exports = function (assemble) {
   var lang = assemble.get('lang') || {};
@@ -12,80 +37,39 @@ module.exports = function (assemble) {
   var environment = assemble.option('environment');
   var websiteRoot = assemble.get('data.websiteRoot');
   var locales = assemble.get('data.locales');
+  var localeCodes = Object.keys(locales).map(function(subfolder) {
+    return locales[subfolder];
+  });
   var createTranslationDict = require('../utils/create-dictionary')(assemble);
-  var locale;
+  var parseFilePath = require('../utils/parse-file-path')(assemble);
+  var locale, dictKey, dataKey;
 
   return through.obj(function (file, enc, cb) {
     // instead of middleware
     // load file.data information onto `assemble.get('lang')` here
-    var page, data, modalData, parsedTranslations;
-    var allRoots = locales.concat(websiteRoot);
-    var rootIndex = file.path.indexOf('/' + websiteRoot + '/');
-    var localeIndex = _.findIndex(locales, function(locale) {
-      var re = new RegExp(locale);
-      return re.test(file.path);
-    });
-    var pagePath = true;
+    var data,parsedTranslations, filePathData, locale;
 
-    if(/layout/.test(file.path)) {
-      debugger;
-    }
+    //here were merge the file data with local YML data
+    filePathData = parseFilePath(file.path);
+    locale = filePathData.locale;
+    dataKey = filePathData.dataKey;
 
-    if(rootIndex !== -1) {
-      locale = websiteRoot;
-    } else if(localeIndex !== -1) {
-      locale = locales[localeIndex];
-    } else {
-      pagePath = false;
-      locale = path.dirname(file.path).split('/').slice(-1)[0];
-      page = path.join(locale, path.basename(file.path, path.extname(file.path)));
-    }
+    parsedTranslations = createTranslationDict(file, locale);
 
-    if(pagePath) {
-      //if it's a page file other than the root homepage the path is the dirname
-      page = path.dirname(file.path).split('/').slice(-1)[0];
-
-      //if the page is the root homepage normalize it's key to `index`
-      if(allRoots.indexOf(page) !== -1) {
-        page = path.basename(file.path, path.extname(file.path));
-      }
-
-      //must extend local page data (i.e. from YML file) before parsing for translation
-      if(pageData[locale][page]) {
-        extend(file.data, pageData[locale][page]);
-      }
-
-      parsedTranslations = createTranslationDict(file, locale);
-
-      if(Object.keys(parsedTranslations).length > 0) {
-        lang[locale] = lang[locale] || {};
-        lang[locale][page] = extend({}, lang[locale][page], parsedTranslations);
-      }
-
-      //parse the file.data for TR and MD and put it on lang
-      //put the pageData on file.data
-
-    } else {
-      //can parse the file.data here for TR or MD instead of in the transform on put it on lang
-      //if there is page data (there shouldn't ever be YAML for layouts|modals|partials put it on the file.data
-      parsedTranslations = createTranslationDict(file, locale);
-      if(Object.keys(parsedTranslations).length > 0) {
-        lang[locale] = lang[locale] || {};
-        lang[locale][page] = parsedTranslations;
-      }
+    if(Object.keys(parsedTranslations).length > 0) {
+      lang[locale] = lang[locale] || {};
+      lang[locale][dataKey] = extend({}, lang[locale][dataKey], parsedTranslations);
     }
 
     this.push(file);
     cb();
   }, function (cb) {
-    //don't forget that lang.modals is defined here
-    console.log('send to smartling');
+    assemble.set('lang', lang);
+    var DICT_FNAME = 'marketing_website_yaml.pot';
+    var phrases = [];
+
     if(environment === 'dev') {
-      //potentially have a cached translated object somewhere
-      //assemble.set('translated', lang);
-      //cb();
-
-      smartling.upload(lang, function (err, translated) {
+      smartlingMock.upload(lang, function (err, translated) {
         if (err) {
           return cb(err);
         }
@@ -94,22 +78,61 @@ module.exports = function (assemble) {
         assemble.set('translated', translated);
         cb();
       });
-
-    }
-    else if(environment === 'smartling-staging') {
-      smartling.upload(lang, function (err, translated) {
-        if (err) {
-          return cb(err);
-        }
-        //console.log(Object.keys(lang.website));
-        //logKeys(translated[locale]);
-        assemble.set('translated', translated);
-        cb();
+    } else if(environment === 'smartling-staging') {
+      _.forEach(lang, function(pages){
+        _.forEach(pages, function(fileInfo, fname){
+          var list = objParser.extract(fileInfo);
+          phrases.push({fname: fname, phrases: list});
+        });
       });
-    } else if (environment === 'production' || environment === 'staging') {
-      //retrieve translated object from smartling or potentially have a cached object somewhere
-      console.log('environment is: ' + environment);
-      cb();
+
+      var content = smartling.generatePO(phrases);
+      var hash = crypto.createHash('sha1');
+      hash.setEncoding('hex');
+      hash.write(content);
+      hash.end();
+      var newSum = hash.read();
+
+      var latestSum = null;
+      if(fs.existsSync('tmp/upload/' + DICT_FNAME)){
+        // now compare with latest uploaded catalogue checksum
+        hash = crypto.createHash('sha1');
+        hash.setEncoding('hex');
+        hash.write(fs.readFileSync('tmp/upload/' + DICT_FNAME, {encoding: 'UTF8'}));
+        hash.end();
+        latestSum = hash.read();
+      }
+      if(newSum === latestSum){
+        console.log('Master catalog didn\'t since last upload - using cached dictionaries.');
+        var translations = {};
+        localeCodes.map(function(code){
+          var body = fs.readFileSync('tmp/download/' + code + '-' + DICT_FNAME, {encoding: 'UTF8'});
+          translations[code] = smartling.parsePOWithContext(body);
+        });
+        assemble.set('dicts', translations);
+        cb();
+      } else {
+        fs.mkdirSync('tmp/upload');
+        fs.mkdirSync('tmp/download');
+        fs.writeFile('tmp/upload/' + DICT_FNAME, content);
+        smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, DICT_FNAME).then(function(){
+          var translations = {};
+          var defers = localeCodes.map(function(code){
+            return smartling.fetch(smartlingConfig.URL, code, DICT_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID).then(function(body){
+              fs.writeFile('tmp/download/' + code + '-' + DICT_FNAME, body);
+              translations[code] = smartling.parsePOWithContext(body);
+            });
+          });
+
+          // when all translations are fetched - call callback
+          q.all(defers).then(function(){
+            translations.de_DE['/website-guts/templates/components/modals/signin_modal']['Sign in'] = 'DE-Sign in';
+            assemble.set('dicts', translations);
+            cb();
+          });
+        });
+      }
     }
-  });
+
+  }); //end through
 };
