@@ -1,6 +1,6 @@
 <div id="contact-form-cont" class="box clearfix">
     <h4 class="a-center">{{#if page.form_heading}}{{page.form_heading}}{{else}}Questions? Contact us.{{/if}}</h4>
-    <form id="contact-form" class="standard" autocomplete="off" novalidate action="/contact/form" method="post">
+    <form id="contact-form" class="standard" autocomplete="off" novalidate action="{{apiDomain}}/contact/form" method="post">
       <ul class="list-unstyled">
         <li class="clearfix">
           <label for="name" class="required" >Name</label>

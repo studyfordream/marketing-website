@@ -21,7 +21,8 @@ module.exports = function(grunt) {
         resemble: 'grunt-resemble-cli',
         sass: 'grunt-sass',
         connect: 'grunt-contrib-connect',
-        jasmine_node: 'grunt-jasmine-node'
+        jasmine_node: 'grunt-jasmine-node',
+        open: 'grunt-open'
       }
     },
     data: {
@@ -30,6 +31,10 @@ module.exports = function(grunt) {
     },
     init: true
   });
+
+  grunt.registerTask('om-test', [
+    'open'
+  ]);
 
   grunt.registerTask('staging-deploy', [
     'gitinfo',
@@ -105,14 +110,25 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('ui-test', function(which) {
-    var task = 'jasmine_node';
-    if (which) task += ':' + which;
+    var jasminTest = 'jasmine_node',
+        tasks = [
+          'config:dev',
+          'jshint:test'
+        ];
 
-    grunt.task.run([
-      'config:dev',
-      'jshint:test',
-      task
-    ]);
+    if(which){
+      if(which !== 'om'){
+        jasminTest += ':' + which;
+        tasks.push(jasminTest);
+      } else if(which === 'om'){
+        tasks.push('om-test');
+      }
+    } else {
+      tasks.push('om-test');
+      tasks.push(jasminTest);
+    }
+
+    grunt.task.run(tasks);
   });
 
   grunt.registerTask('test', [
@@ -130,6 +146,7 @@ module.exports = function(grunt) {
     'autoprefixer',
     'copy',
     'clean:postBuild',
+    'om-test',
     'connect:resemble',
     'jasmine_node',
     'resemble'
@@ -154,7 +171,7 @@ module.exports = function(grunt) {
     var prepare = ['prompt', 'build']
     var compress = ['compress'];
     var git_release_tasks = ['gitfetch', 'forceon', 'gittag', 'gitpush', 'forceoff', 'github-release'];
-    
+
     grunt.task.run(prepare);
     grunt.task.run(compress);
     grunt.task.run(git_release_tasks);

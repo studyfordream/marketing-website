@@ -128,7 +128,7 @@ window.optly.mrkt.services.xhr = {
     var deferreds = [], deferredPromise;
 
     // check if multiple requests are present
-    if ( Array.isArray(request) ) {
+    if ( $.isArray(request) ) {
       for (var i = 0; i < request.length; i += 1) {
         if (typeof request[i] === 'object') {
           deferredPromise = $.ajax({
@@ -200,7 +200,7 @@ window.optly.mrkt.services.xhr = {
     var errorMessage,
       propertyType;
     // if the property maps to an array
-    if ( Array.isArray(data) ) {
+    if ( $.isArray(data) ) {
 
       $.each(data, function(index, innerProperties) {
 

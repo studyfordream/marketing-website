@@ -59,7 +59,7 @@ var config = function(grunt, options) {
           concat_banner: '(function($, w, d){ \n\n' +
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-            '  window.linkPath = "<%= gitinfo.local.branch.current.name %>"; \n\n' +
+            '  window.linkPath = "/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>"; \n\n' +
             '  try { \n\n',
           concat_footer: '  } catch(error){ \n\n' +
             '    console.error(error, targetName);\n\n' +
