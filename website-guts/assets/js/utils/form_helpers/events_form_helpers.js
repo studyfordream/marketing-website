@@ -16,15 +16,15 @@ var eventsFormHelper = {
       });
       //reporting to GA goes here
     }
+    window.setTimeout(function() {
+      document.location.reload();
+    }, 1000);
   },
 
   error: function() {
     this.showOptionsError({error: 'UNEXPECTED'});
     $('body').addClass('oform-error').removeClass('oform-processing');
   },
-
-  done: function() {
-  }
 };
 
 window.optly.mrkt.form.eventsForm = function(argumentsObj) {
