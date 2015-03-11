@@ -10,10 +10,11 @@ var eventsFormHelper = {
 
     if(parsedResp){
       w.optly.mrkt.Oform.trackLead({
-        form: form,
+        //form: form,
         response: parsedResp,
         requestPayload: returnData.requestPayload
       });
+      //reporting to GA goes here
     }
   },
 

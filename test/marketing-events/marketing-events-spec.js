@@ -17,10 +17,9 @@ describe('event marketing page', function() {
         .type('#events-form input[name="email"]', config.email)
         .click('#events-form #ops4')
         .screenshot(config.screenshot({ imgName: 'marketing-events-form-filled' }))
-        .click('#signup-dialog button[type="submit"]')
+        .click('#events-form button[type="submit"]')
         .wait('body.create-account-success')
         .wait(300)
-
         .screenshot(config.screenshot({ imgName: 'marketing-event-lead-create-success'}))
         .evaluate(function() {
           return document.body.getAttribute('class');
