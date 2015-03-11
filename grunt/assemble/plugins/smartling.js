@@ -68,7 +68,7 @@ module.exports = function (assemble) {
     });
 
     var content = smartling.generatePO(phrases);
-    var hash = crypto.createHash('sha1');
+    var hash = crypto.createHash('md5');
     hash.setEncoding('hex');
     hash.write(content);
     hash.end();
@@ -77,7 +77,7 @@ module.exports = function (assemble) {
     var latestSum = null;
     if(fs.existsSync('tmp/upload/' + DICT_FNAME)){
       // now compare with latest uploaded catalogue checksum
-      hash = crypto.createHash('sha1');
+      hash = crypto.createHash('md5');
       hash.setEncoding('hex');
       hash.write(fs.readFileSync('tmp/upload/' + DICT_FNAME, {encoding: 'UTF8'}));
       hash.end();
