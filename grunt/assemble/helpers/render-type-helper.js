@@ -6,6 +6,7 @@ module.exports = function(assemble) {
 
   return function (type) {
     return function (key, locals, options, next) {
+      var isTest = assemble.get('env');
       var app = this.app;
 
       if (typeof options === 'function') {
@@ -13,7 +14,8 @@ module.exports = function(assemble) {
         options = locals;
       }
       var locale = this.context.locale || websiteRoot;
-      if (locale !== websiteRoot) {
+
+      if (isTest === 'test' || locale !== websiteRoot) {
         key = locale + '_' + key;
       }
       var partial = app.views[type][key];

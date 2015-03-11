@@ -20,6 +20,7 @@ function processTransArray(arr) {
     }
 
   });
+  return arr;
 }
 
 function removeTranslationKeys(fileData) {
@@ -32,7 +33,8 @@ function removeTranslationKeys(fileData) {
     if(_.isPlainObject(val)) {
       removeTranslationKeys(val);
     } else if(_.isArray(val) && parsedKey) {
-      processTransArray(val);
+      fileData[ parsedKey[1] ] = processTransArray(val);
+      delete fileData[key];
     } else if( ( _.isString(val) || _.isNumber(val) ) && parsedKey ) {
       if(parsedKey[0] === 'HTML' && fileData.content) {
         //account for replacing file content

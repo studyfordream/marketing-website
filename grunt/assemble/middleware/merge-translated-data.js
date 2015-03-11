@@ -12,6 +12,7 @@ module.exports = function(assemble) {
   var basename = assemble.get('data.basename');
   var locales = assemble.get('data.locales');
   var removeTranslationKeys = require('../utils/remove-translation-keys');
+  var isTest = assemble.get('env');
 
   return function mergeTranslatedData (file, next) {
     var lang = assemble.get('lang');
@@ -24,19 +25,23 @@ module.exports = function(assemble) {
     filePathData = parseFilePath(file.path);
     locale = filePathData.locale;
     dataKey = filePathData.dataKey;
-    if(/mobile\/index\.html/.test(file.path) && locale !== websiteRoot) {
+    if(/ab\-testing/.test(file.path) && locale !== websiteRoot) {
       debugger;
     }
+
 
     //extend the file with the external YML content
     extendFileData(filePathData, file);
 
     //TODO: problem this won't work for modals because they are not scoped to the locale???
     //put in custom function for replacing translated array values
-    if(filePathData.isSubfolder) {
+    if(filePathData.isSubfolder || ( filePathData.isRoot && isTest === 'test' )) {
       file.data.locale = locale;
       dictKey = locales[locale]; //this gives the dictionary key ex. de_DE from _assemble config
       parentKey = filePathData.parentKey;
+      if(filePathData.isRoot) {
+        dictKey = 'de_DE';
+      }
 
       /**
        *
@@ -52,8 +57,7 @@ module.exports = function(assemble) {
       // also if this is the case need to extend the file data with the parent file data
       // thought this was happening in extend-file-data function
 
-
-      if(!file.hasOwnTemplate) {
+      if(!file.hasOwnTemplate && !filePathData.isRoot) {
         mergedDict = extend({}, dicts[dictKey][parentKey], dicts[dictKey][dataKey]);
       }
 

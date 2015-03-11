@@ -74,7 +74,7 @@ module.exports = function(grunt) {
     'jshint:server',
     'jshint:test',
     'clean:preBuild',
-    'assemble',
+    'assemble:test',
     'handlebars',
     'modernizr',
     'concat',

@@ -2,9 +2,14 @@ var path = require('path');
 var createStack = require('layout-stack');
 var extend = require('extend-shallow');
 var _ = require('lodash');
+var objParser = require('l10n-tools/object-extractor');
+
 //var mergeTranslated = require('../utils/merge-tranlated-dictionary');
 
 module.exports = function(assemble) {
+  var parseFilePath = require('../utils/parse-file-path')(assemble);
+  var generateKey = require('../utils/generate-key');
+
   // transform the layout front matter into an object
   // that `layout-stack` requires
   var mapLayouts = function (layouts) {
@@ -16,8 +21,18 @@ module.exports = function(assemble) {
 
   // middleware to merge the layout context into the current page context
   return function mergeLayoutContext (file, next) {
-    //var translated = assemble.get('translated');
-    var locale = 'layouts';
+    var isTest = assemble.get('env');
+    var lang = assemble.get('lang');
+    var locales = assemble.get('data.locales');
+    var filePathData = parseFilePath(file.path);
+    var locale = filePathData.locale;
+    var dictKey = locales[locale];
+    var dataKey = 'layouts';
+    var dicts = assemble.get('dicts');
+    if(isTest === 'test') {
+      dictKey = 'de_DE';
+    }
+
     //the layout for the current file
     var layout = file.layout || file.options.layout || file.data.layout;
     // => partners
@@ -32,6 +47,7 @@ module.exports = function(assemble) {
     var data = {};
     var name = null;
     var page;
+    var dict;
     var ignoreKeys = [
       'src',
       'dest',
@@ -39,26 +55,27 @@ module.exports = function(assemble) {
     ];
     /* jshint ignore:start */
     while (name = stack.shift()) {
+      //get the dictionary key represented by the file path
+      page = generateKey(layouts[name].src.path);
+
+      //append layouts paths on context for tr handlebars helper
+      if(filePathData.isSubfolder || (filePathData.isRoot && isTest === 'test')) {
+        file.data.layouts = file.data.layouts || {};
+        file.data.layouts[name] = page;
+      }
+
       _.forEach(layouts[name], function(val, key) {
-        page = path.join(locale, name);
         //here swap the keys
         if(ignoreKeys.indexOf(key) === -1) {
-
-          //apply translation for the layout YFM
-          //if(translated[locale] && translated[locale][page] && translated[locale][page].hasOwnProperty(key)) {
-            //if(_.isPlainObject(val)) {
-              //mergeTranslated(val, translated[locale][page][key]);
-            //} else if(Array.isArray(val)) {
-              //val = mergeTranslated(val, translated[locale][page][key]);
-            //} else {
-              //val = translated[locale][page][key];
-            //}
-          //}
-
           data[key] = val;
         }
 
       });
+
+      dict = dicts[dictKey] && dicts[dictKey][page];
+      if(dict) {
+        objParser.translate(data, dict);
+      }
     }
 
     /* jshint ignore:end */

@@ -13,7 +13,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('assemble', 'Assemble', function (target) {
     var done = this.async();
-
     var assemble = require('assemble');
     var localizeLinkPath = require('./middleware/localize-link-path');
     var mergeLayoutContext = require('./middleware/merge-layout-context');
@@ -32,6 +31,9 @@ module.exports = function (grunt) {
     var layoutPath = options.layoutDir.substring(0, options.layoutDir.indexOf('*') - 1);
 
     assemble.data(options.data);
+    if(target === 'test') {
+     assemble.set('env', target);
+    }
 
     assemble.option('environment', options.environment);
     assemble.set('data.pageContentNamespace', options.pageContentNamespace);
@@ -91,6 +93,7 @@ module.exports = function (grunt) {
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
     assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
     assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
+
     //localize link path after locale is appended in the translate data middleware
     assemble.preRender(pathRe, localizeLinkPath(assemble));
 
@@ -166,7 +169,7 @@ module.exports = function (grunt) {
       });
     });
 
-    assemble.run(['prep-smartling', 'pages', 'subfolders'], function (err) {
+    assemble.run(['prep-smartling', 'pages'], function (err) {
     // assemble.run(['prep-smartling'], function (err) {
       if (err) {
         return done(err);
