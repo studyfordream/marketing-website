@@ -6,6 +6,8 @@ var eventsFormHelper = {
     var parsedResp = this.parseResponse(returnData),
         form = this.formElm.getAttribute('id');
 
+    document.body.classList.add('marketing-event-lead-create-success');
+
     if(parsedResp){
       w.optly.mrkt.Oform.trackLead({
         form: form,
