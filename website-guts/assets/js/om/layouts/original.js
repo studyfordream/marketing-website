@@ -160,21 +160,23 @@ w.optly.mrkt.trialForm = new Oform({
       //document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
       $('body').attr('data-form-success', $('#seo-form').attr('action') );
 
+      var createRedirectURL = function(){
+        var redirectURL, domain, queryParams;
+        domain = window.location.hostname;
+        queryParams = window.location.href.split(/\?(.+)?/)[1] || '';
+        queryParams = queryParams ? '&' + queryParams : queryParams;
+        redirectURL = w.apiDomain + '/edit?url=' + encodeURIComponent(d.getElementById('url').value) + queryParams;
+        return redirectURL;
+      };
+
+      var redirectURL = createRedirectURL();
+
       if(!w.optly.mrkt.automatedTest()){
         setTimeout(function(){
-          var redirectURL, domain, queryParams;
-          domain = window.location.hostname;
-          queryParams = window.location.href.split(/\?(.+)?/)[1] || '';
-          queryParams = queryParams ? '&' + queryParams : queryParams;
-          if(/^www\.optimizely\./.test(domain)){
-            //production
-            redirectURL = w.apiDomain + '/edit?url=';
-          } else {
-            //local dev
-            redirectURL = 'https://app.optimizely.com/edit?url=';
-          }
-          w.location = redirectURL + encodeURIComponent(d.getElementById('url').value) + queryParams;
+          w.location = redirectURL;
         }, 1000);
+      } else {
+        w.redirectURL = redirectURL;
       }
 
     } else {
