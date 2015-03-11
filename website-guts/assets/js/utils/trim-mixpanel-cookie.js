@@ -1,7 +1,7 @@
 w.optly.mrkt.utils.trimMixpanelCookie = function trimMixpanelCookie(){
   //method to check for and unregister any archived experiments previously registered as super properties.
   //First, get a list of all active and paused experiments (should not include archived or deleted experiments)
-  var allExperiments = w['optimizely'].data.experiments,
+  var allExperiments = w['optimizely'].data.experiments || [],
     allExperimentNames = [],
     cookieIsDefined;
 
