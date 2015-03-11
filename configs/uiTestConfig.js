@@ -5,7 +5,6 @@ var createQueryString = function(params) {
       queryString += ('&' + key + '=' + params[key]);
     }
   }
-  console.log('query strings: ' + queryString);
   return queryString;
 };
 

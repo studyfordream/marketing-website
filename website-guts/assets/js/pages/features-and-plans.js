@@ -47,6 +47,8 @@ var updatePlanInfo = function(){
   }
 
   $('#starter-cta').on('click', function(e){
+    $('#signup-form input[name="Initial_Form_Source__c"]').val('Pricing Signup form');
+    $('#signup-form input[name="Inbound_Lead_Form_Type__c"]').val('Pricing Signup form');
     if(typeof w.optly.mrkt.user.acctData === 'object'){
 
       //user is signed in
