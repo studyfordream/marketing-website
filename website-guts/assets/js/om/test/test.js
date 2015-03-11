@@ -192,7 +192,7 @@ $(function(){
 
       QUnit.assert.equal(reportingObject.utm_Source__c, 'utm_source_uitest', 'utm source');
 
-      QUnit.assert.equal(window.redirectURL, 'https://app.optimizely.com/edit?url=kylerush.net&uiTest=true&utm_campaign=utm_campaign_uitest&utm_content=utm_content_uitest&utm_medium=utm_medium_uitest&utm_source=utm_source_uitest&utm_keyword=utm_keyword_uitest&otm_campaign=otm_campaign_uitest&otm_content=btt&otm_medium=otm_medium_uitest&otm_source=otm_source_uitest&otm_keyword=otm_keyword_uitest&signup_platform=signup_platform_uitest', 'redirect url is correct');
+      QUnit.assert.equal(window.redirectURL, '/edit?url=kylerush.net&uiTest=true&utm_campaign=utm_campaign_uitest&utm_content=utm_content_uitest&utm_medium=utm_medium_uitest&utm_source=utm_source_uitest&utm_keyword=utm_keyword_uitest&otm_campaign=otm_campaign_uitest&otm_content=btt&otm_medium=otm_medium_uitest&otm_source=otm_source_uitest&otm_keyword=otm_keyword_uitest&signup_platform=signup_platform_uitest', 'redirect url is correct');
 
       QUnit.start();
 

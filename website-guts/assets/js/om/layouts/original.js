@@ -165,14 +165,7 @@ w.optly.mrkt.trialForm = new Oform({
         domain = window.location.hostname;
         queryParams = window.location.href.split(/\?(.+)?/)[1] || '';
         queryParams = queryParams ? '&' + queryParams : queryParams;
-        if(/^www\.optimizely\./.test(domain)){
-          //production
-          redirectURL = w.apiDomain + '/edit?url=';
-        } else {
-          //local dev
-          redirectURL = 'https://app.optimizely.com/edit?url=';
-        }
-        redirectURL = redirectURL + encodeURIComponent(d.getElementById('url').value) + queryParams;
+        redirectURL = w.apiDomain + '/edit?url=' + encodeURIComponent(d.getElementById('url').value) + queryParams;
         return redirectURL;
       };
 
