@@ -79,7 +79,7 @@
     var reportingObject,
         source,
         payload = args.requestPayload,
-        response = args.response;
+        response = args.response || {};
 
     source = w.optly.mrkt.source;
 
@@ -96,12 +96,27 @@
     }
     if(response.first_name){
       reportingObject.firstName = response.first_name;
+    } else if(payload.first_name){
+      reportingObject.firstName = payload.first_name;
     }
     if(response.last_name){
       reportingObject.lastName = response.last_name;
+    } else if(payload.last_name) {
+      reportingObject.lastName = payload.last_name;
     }
     if(response.phone_number){
       reportingObject.phone = response.phone_number;
+    } else if(payload.phone_number){
+      reportingObject.phone = payload.phone_number;
+    }
+    if(payload.company){
+      reportingObject.company = payload.company;
+    }
+    if(payload.title){
+      reportingObject.title = payload.title;
+    }
+    if(payload.website){
+      reportingObject.website = payload.website;
     }
     if(payload.Web_Interest__c){
       reportingObject.Web_Interest__c = 'true';
@@ -185,7 +200,9 @@
       source.signup_platform + '|||'
     );
 
-    w.analytics.identify(response.unique_user_id, reportingObject, {
+    var anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
+
+    w.analytics.identify(response.unique_user_id || anonymousVisitorIdentifier, reportingObject, {
       integrations: {
         Marketo: true
       }
