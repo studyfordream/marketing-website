@@ -22,6 +22,7 @@ module.exports = function (grunt) {
     var sendToSmartling = require('./plugins/smartling');
     var typeLoader = require('./loaders/type-loader');
     var push = require('assemble-push')(assemble);
+    var assembleTasks = ['prep-smartling', 'pages', 'subfolders'];
 
     var config = grunt.config.get('_assemble'); // old assemble config
     var options = config.options; // global options
@@ -32,7 +33,8 @@ module.exports = function (grunt) {
 
     assemble.data(options.data);
     if(target === 'test') {
-     assemble.set('env', target);
+      assemble.set('env', target);
+      assembleTasks.splice(assembleTasks.length - 1);
     }
 
     assemble.option('environment', options.environment);
@@ -169,7 +171,7 @@ module.exports = function (grunt) {
       });
     });
 
-    assemble.run(['prep-smartling', 'pages'], function (err) {
+    assemble.run(assembleTasks, function (err) {
     // assemble.run(['prep-smartling'], function (err) {
       if (err) {
         return done(err);

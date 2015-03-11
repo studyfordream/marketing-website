@@ -68,13 +68,13 @@ module.exports = function(grunt) {
     'clean:postBuild'
   ]);
 
-  grunt.registerTask('server', [
+  var serverTasks = [
     'config:dev',
     'jshint:clientDev',
     'jshint:server',
     'jshint:test',
     'clean:preBuild',
-    'assemble:test',
+    'assemble',
     'handlebars',
     'modernizr',
     'concat',
@@ -85,7 +85,16 @@ module.exports = function(grunt) {
     'clean:postBuild',
     'connect:livereload',
     'watch'
-  ]);
+  ];
+
+  grunt.registerTask('server', function(which) {
+    var assembleIndex = serverTasks.indexOf('assemble');
+    if(which === 'test') {
+      serverTasks[assembleIndex] += (':' + which);
+    }
+
+    grunt.task.run(serverTasks);
+  });
 
   grunt.registerTask('build', [
     'config:production',
@@ -157,7 +166,7 @@ module.exports = function(grunt) {
     var prepare = ['prompt', 'build'];
     var compress = ['compress'];
     var git_release_tasks = ['gitfetch', 'forceon', 'gittag', 'gitpush', 'forceoff', 'github-release'];
-    
+
     grunt.task.run(prepare);
     grunt.task.run(compress);
     grunt.task.run(git_release_tasks);
