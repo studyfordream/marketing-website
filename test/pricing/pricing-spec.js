@@ -175,7 +175,6 @@ describe('pricing page', function() {
               it('otm source', function(){
                 expect(reportingObject.otm_Source__c).toBe('google');
               });
-
               it('phone', function(){
                 expect(reportingObject.phone).toBe('999999999');
               });
