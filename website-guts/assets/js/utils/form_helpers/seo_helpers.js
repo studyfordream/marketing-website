@@ -14,75 +14,21 @@ var seoHelper = {
     return w.optly.mrkt.Oform.before();
   },
 
-  success: function(event) {
-    var response = this.parseResponse(event);
-    var pageData = {
-      email: this.formElm.email.value,
-      url: this.formElm.url.value,
-      name: this.formElm.name.value,
-      phone: this.formElm.phone.value
-    };
+  success: function(returnData) {
+    var parsedResp = this.parseResponse(returnData);
 
-    if(response){
-      //remove error class from body?
+    if(parsedResp){
       w.optly.mrkt.Oform.trackLead({
-        formElm: this.formElm,
-        pageData: pageData,
-        XHRevent: event.XHR
-      });
-      //[> legacy reporting - to be deprecated <]
-      w.analytics.track('/free-trial/success', {
-        category: 'account',
-        label: w.location.pathname
-      }, {
-        'Marketo': false
-      });
-      w.Munchkin.munchkinFunction('visitWebPage', {
-        url: '/free-trial/success'
-      });
-      w.analytics.page('/account/create/success', {
-        integrations: {
-          'Marketo': false
-        }
-      });
-      w.analytics.page('/free-trial/success', {
-        integrations: {
-          'Marketo': false
-        }
+        response: parsedResp,
+        requestPayload: returnData.requestPayload
       });
 
       this.redirectHelper({
-        redirectPath: w.linkPath + '/welcome',
+        redirectPath: w.apiDomain + '/welcome',
         bodyData: {
           formSuccess: document.getElementById('seo-form').getAttribute('action')
         }
       });
-    } else {
-      w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
-        category: 'api error',
-        label: 'status not 200: ' + event.XHR.status
-      }, {
-        integrations: {
-          'Marketo': false
-        }
-      });
-
-      if(response.error && typeof response.error === 'string'){
-        //update error message, apply error class to body
-        this.showOptionsError({serverMessage: response.error});
-        $('body').addClass('oform-error').removeClass('oform-processing');
-        w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
-          category: 'api error',
-          label: 'response.error: ' + response.error
-        }, {
-          integrations: {
-            'Marketo': false
-          }
-        });
-      } else {
-        this.showOptionsError({error: 'UNEXPECTED'});
-        $('body').addClass('oform-error').removeClass('oform-processing');
-      }
     }
   },
 

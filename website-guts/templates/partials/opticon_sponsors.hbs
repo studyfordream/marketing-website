@@ -1,0 +1,22 @@
+<!--                -->
+<!--Sponsor Section-->
+<!--                -->
+<section class="sponsors-section container">
+  {{#with opticon_data.sponsors}}
+  <p class="subtitle adelle-sans">{{title}}</p>
+  <div class="large-sponsors-container flex-container">
+    {{#each large_sponsors}}
+      <div class="large-sponsor"></div>
+    {{/each}}
+  </div>
+
+  <div class="small-sponsors-container flex-container">
+    {{#each small_sponsors}}
+      <div class="small-sponsor"></div>
+    {{/each}}
+  </div>
+
+  <p class="optimizely-host adelle-sans">{{{sub_title}}}</p>
+
+  {{/with}}
+</section>

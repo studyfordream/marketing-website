@@ -6,7 +6,8 @@ var signinForm = new Oform({
     password: function(elm) {
       return signinDialogHelperInst.passwordValidation(elm);
     }
-  }
+  },
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 });
 
 signinForm.on('before', function() {

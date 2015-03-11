@@ -31,7 +31,7 @@ var createExpHelper = {
       var inputName = inputElm.getAttribute('name');
       if(!!inputElm.value) {
         params[ inputName ] = inputElm.value;
-        
+
         if(orderQ.indexOf(inputName) === -1) {
           orderQ.push(inputName);
         }
@@ -39,7 +39,7 @@ var createExpHelper = {
       }
     });
 
-    return window.optly.mrkt.utils.param('/edit', params, orderQ);
+    return window.optly.mrkt.utils.param(w.apiDomain + '/edit', params, orderQ);
 
   }
 

@@ -31,7 +31,7 @@ layout_body_class:
           <h4 class="seo-form-heading">{{page.form_header}}</h4>
           {{/if}}
           <p class="seo-form-subheader">{{{page.form_text}}}</p>
-          <form id="seo-form" method="POST" class="seo-form inline-labels" action="/account/free_trial_create" autocomplete="off" novalidate="novalidate">
+          <form id="seo-form" method="POST" class="seo-form inline-labels" action="{{apiDomain}}/account/free_trial_create" autocomplete="off" novalidate="novalidate">
             <div class="options">
               <p class="error-message oform-error-show"></p>
             </div>

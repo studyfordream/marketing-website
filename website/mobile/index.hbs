@@ -26,7 +26,7 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
   <h1>{{{title}}}</h1>
   {{/with}}
   {{#with mobile_page_mvpp_data.form_panel}}
-  <form action="/account/create" method="POST" id="mobile-signup-form-top" class="container" novalidate autocomplete="off">
+  <form action="{{../apiDomain}}/account/create" method="POST" id="mobile-signup-form-top" class="container" novalidate autocomplete="off">
     <div class="row grid-cont">
       <div class="form-grid">
         <label>
@@ -44,9 +44,10 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
         <button title="{{submit_button}}" data-success="{{submit_success}}" type="submit" class="submit-btn"></button>
       </div>
     </div>
-    <input type="hidden" name="hidden" value="" />
+    <input type="hidden" name="hidden" value="">
     <input type="hidden" name="flow" value="nux">
     <input type="hidden" name="platform" value="ios">
+    <input type="hidden" name="Initial_Form_Source__c" value="Create Account - Mobile">
     <div class="options">
         <p class="error-message error-hide">Please Correct Form Errors</p>
     </div>
@@ -129,7 +130,7 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
 {{#with mobile_page_mvpp_data.form_panel}}
   <h2><strong>{{title}}</strong></h2>
   <h2>{{subtitle}}</h2>
-  <form action="/account/create" method="POST" id="mobile-signup-form-bottom" class="container" novalidate autocomplete="off">
+  <form action="{{../apiDomain}}/account/create" method="POST" id="mobile-signup-form-bottom" class="container" novalidate autocomplete="off">
     <div class="row grid-cont">
       <div class="form-grid">
         <label>
@@ -147,9 +148,10 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
         <button title="{{submit_button}}" data-success="{{submit_success}}" type="submit" class="submit-btn"></button>
       </div>
     </div>
-    <input type="hidden" name="hidden" value="" />
+    <input type="hidden" name="hidden" value="">
     <input type="hidden" name="flow" value="nux">
     <input type="hidden" name="platform" value="ios">
+    <input type="hidden" name="Initial_Form_Source__c" value="Create Account - Mobile">
     <div class="options">
         <p class="error-message error-hide">Please Correct Form Errors</p>
     </div>
@@ -157,4 +159,3 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
   <p>{{link_text}}</p>
 {{/with}}
 </section>
-

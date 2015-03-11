@@ -211,7 +211,7 @@ w.optly_q.push([function(){
 
 		});
 
-              var anonymousVisitorIdentifier = w.optly.mrkt.utils.randomString();
+    var anonymousVisitorIdentifier = w.optly.mrkt.utils.randomString();
 		w.analytics.identify(anonymousVisitorIdentifier, {
 			name: w.optly_q.acctData.name,
 			email: w.optly_q.acctData.email,
@@ -364,7 +364,7 @@ w.optly.mrkt.changePlanHelper = {
 
 			}, false);
 
-			setPlan.open('post', '/pricing/change_plan', true);
+			setPlan.open('post', w.apiDomain + '/pricing/change_plan', true);
 			setPlan.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 			setPlan.send('plan_id=' + args.plan);
 

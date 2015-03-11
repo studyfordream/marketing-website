@@ -1,0 +1,219 @@
+@mixin opticon-confetti($url, $width, $height) {
+  background-image: url(#{$url});
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: $width;
+  height: $height;
+}
+
+.opticon-button {
+  font-size: 1em;
+  color: $brand-blue;
+  background-color: #fff;
+  letter-spacing: 0.38px;
+  border: 1px solid $brand-blue;
+  border-radius: 3px;
+  padding: 11px 35px;
+  display: inline-block;
+  margin: 30px 0;
+  background-color: #fff;
+  &:hover {
+    text-decoration: none;
+    background: #E9F3F4;
+  }
+}
+
+.anim-opticon-button {
+  @extend .opticon-button;
+  transition: all 0.5s ease-out;
+  position: relative;
+  overflow: hidden;
+  padding: 26px 100px;
+  .cta-arrow {
+    transition: all 0.5s ease-out;
+    height: 52px;
+    width: 60px;
+    position: absolute;
+    right: -60px;
+    top: 0;
+    padding-top: 18px;
+    border-left: 1px solid $brand-blue;
+    text-align: center;
+  }
+  .cta-text {
+    transition: all 0.5s ease-out;
+    position: absolute;
+    top: 18px;
+    left: 50px;
+  }
+  &:hover {
+    .cta-arrow {
+      right: 0px;
+    }
+    .cta-text {
+      left: 20px;
+    }
+    background-color: #E9F3F4;
+  }
+}
+
+body.opticon {
+  background-color: white;
+  .page-content {
+    padding: 40px 0;
+  }
+  .page-title {
+    background: $opticon-brand-blue;
+    display: inline-block;
+    color: #fff;
+  }
+  .adelle-sans {
+    font-family: $adelle-sans-font-family;
+    font-weight: 100;
+    &--bold {
+      font-family: $adelle-sans-font-family;
+      font-weight: 600;
+    }
+  }
+  .common-page-title {
+    font-size: 3em;
+    display: inline;
+    padding: 2px 15px;
+  }
+  .subtitle {
+    font-size: 1.25em;
+    color: $almost-black-text-color;
+    letter-spacing: 0.41px;
+    line-height: 38px;
+  }
+  .description-title {
+    font-size: 1.875em;
+    color: $opticon-brand-blue;
+    letter-spacing: 0.57px;
+    line-height: 41px;
+  }
+  .description-text {
+    font-size: 1em;
+    color: $opticon-text-gray;
+    letter-spacing: 0.56px;
+    line-height: 31px;
+    text-align: center;
+  }
+  .detail-text {
+    font-size: 0.8125em;
+    color: $opticon-text-gray;
+    letter-spacing: 0.4px;
+    line-height: 24px;
+    text-align: center;
+  }
+  .button-container {
+    text-align: center;
+  }
+  .flex-container {
+    // Only for mobile
+    display: block;
+  }
+  .item-title {
+    font-size: 0.875em;
+    color: $almost-black-text-color;
+    letter-spacing: 1.07px;
+    line-height: 28px;
+    margin: 0;
+  }
+  .item-company {
+    font-size: 0.75em;
+    color: #979797;
+    letter-spacing: 0.9px;
+    line-height: 28px;
+    margin: 0;
+  }
+  .body-button {
+    @extend .opticon-button;
+  }
+  .optimizely-host {
+    font-size: 0.8125em;
+    color: $almost-black-text-color;
+    letter-spacing: 0.39px;
+    line-height: 28px;
+  }
+  .disabled {
+    font-size: 0.9375em;
+    color: #979797;
+    letter-spacing: 0.46px;
+    line-height: 23px;
+    display: inline-block;
+    margin-top: 40px;
+  }
+  .register-section {
+    padding: 30px 0;
+    background: $opticon-brand-blue;
+    border: 1px solid #DADADA;
+    text-align: center;
+    .register-title {
+      font-weight: 100;
+      font-size: 2em;
+      color: #fff;
+      letter-spacing: 0.61px;
+      line-height: 41px;
+      text-align: center;
+      margin: 15px 0;
+    }
+  }
+  .sponsors-section {
+    padding: 30px 0 5px 0;
+    text-align: center;
+  }
+  .small-sponsors-container {
+    margin: 3px 0 80px 0;
+  }
+  .large-sponsor {
+    width: 23%;
+    height: 58px;
+    background: #D8D8D8;
+    margin: 10px;
+  }
+  .small-sponsor {
+    width: 12%;
+    height: 50px;
+    background: #D8D8D8;
+    margin: 3px;
+  }
+  .confetti-container {
+    position: relative;
+  }
+  .confetti-left {
+    @include opticon-confetti('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pattern_left.svg', 450px, 450px);
+    display: none;
+  }
+  .confetti-right {
+    @include opticon-confetti('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/pattern_right.svg', 227px, 400px);
+    right: 0;
+    display: none;
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  body.opticon {
+    .confetti-left {
+      display: block;
+    }
+    .confetti-right {
+      display: block;
+    }
+    .flex-container {
+      display: flex;
+    }
+    .description-text {
+      text-align: left;
+    }
+    .detail-text {
+      text-align: left;
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.opticon {
+  }
+}

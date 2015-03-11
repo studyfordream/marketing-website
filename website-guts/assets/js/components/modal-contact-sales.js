@@ -5,7 +5,8 @@ var contactSalesHelperInst = window.optly.mrkt.form.contactSales({formId: 'conta
 
 w.optly.mrkt.activeModals.contactSales = new Oform({
 
-  selector: 'form#contact-sales-form'
+  selector: 'form#contact-sales-form',
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 
 });
 
@@ -31,9 +32,9 @@ contactSalesForm.on('before', function(){
 
   w.optly.mrkt.Oform.validationError(element);
 
-}).on('success', function(){
+}).on('success', function(returnData){
 
-  contactSalesHelperInst.success();
+  contactSalesHelperInst.success(returnData);
 
 }.bind(contactSalesHelperInst)).on('done', function() {
   if(document.body.classList.contains('oform-error')) {

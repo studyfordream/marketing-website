@@ -5,6 +5,7 @@ wrapper_class: webinar-modal
 data_modal_id: webinar-signup
 data_modal_name: webinar-signup
 form_action: /webinar/register
+api_domain: true
 form_id: webinar-registration-form
 modal_title: Webinar Signup
 form_method: POST
@@ -35,6 +36,10 @@ negative_button_text: Cancel
             <input type="hidden" name="subId" value="56">
             <input type="hidden" name="FirstName" value="">
             <input type="hidden" name="LastName" value="">
+            <input type="hidden" name="Initial_Form_Source__c" value="Live Demo Signup">
+            <input type="hidden" name="leadSource" value="Website">
+            <input type="hidden" name="Lead_Source_Category__c" value="Content">
+            <input type="hidden" name="Lead_Source_Subcategory__c" value="Live Demo">
           </div>
           <div class="privacy-policy">
             <a href="{{linkPath}}/privacy">Privacy Policy</a>

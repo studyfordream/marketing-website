@@ -1,26 +1,14 @@
 window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 var contactSalesHelpers = {
-  success: function() {
+  success: function(returnData) {
 
     d.body.classList.add('contact-sales-success');
 
-    var anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
-    w.analytics.identify(anonymousVisitorIdentifier, {
-      Email: $('#contact-sales-form [name="email_address"]').val(),
-      FirstName: $('#contact-sales-form [name="first_name"]').val(),
-      LastName: $('#contact-sales-form [name="last_name"]').val(),
-      Company: $('#contact-sales-form [name="company_name"]').val(),
-      Title: $('#contact-sales-form [name="title"]').val(),
-      Phone: $('#contact-sales-form [name="phone_number"]').val(),
-      Website: $('#contact-sales-form [name="website"]').val(),
-      Inbound_Lead_Form_Type__c: 'Contact Sales',
-      Web__c: $('input[type="checkbox"][name="web"]').is(':checked') + '',
-      Mobile_Web__c: $('input[type="checkbox"][name="mobile_web"]').is(':checked') + '',
-      iOS__c: $('input[type="checkbox"][name="ios"]').is(':checked') + '',
-      Android__c: $('input[type="checkbox"][name="android"]').is(':checked') + ''
-    }, {
-      integrations: {Marketo: true}
+    //var anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
+
+    w.optly.mrkt.Oform.trackLead({
+      requestPayload: returnData.requestPayload
     });
 
     w.analytics.track('contact sales succcess', {
