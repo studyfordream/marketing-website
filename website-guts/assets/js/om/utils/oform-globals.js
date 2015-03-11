@@ -111,6 +111,9 @@ w.optly.mrkt.Oform.trackLead = function(args) {
   if(payload.Android_Interest__c){
     reportingObject.Android_Interest__c = 'true';
   }
+  if(payload.leadSource){
+    reportingObject.leadSource = payload.leadSource;
+  }
   if(payload.Initial_Form_Source__c){
     reportingObject.Initial_Form_Source__c = payload.Initial_Form_Source__c;
   }
