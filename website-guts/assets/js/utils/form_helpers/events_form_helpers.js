@@ -5,15 +5,16 @@ var eventsFormHelper = {
   success: function(returnData) {
     document.body.classList.add('marketing-event-lead-create-success');
 
-    if(parsedResp){
-      w.optly.mrkt.Oform.trackLead({
-        requestPayload: returnData.requestPayload
-      });
-      //reporting to GA goes here
-    }
+    w.optly.mrkt.Oform.trackLead({
+      requestPayload: returnData.requestPayload
+    });
+    //reporting to GA goes here
+
+    w.optly.mrkt.modal.open({ modalType: 'external-events-thank-you' });
+
     window.setTimeout(function() {
       document.location.reload();
-    }, 1000);
+    }, 8000);
   },
 
   error: function() {
