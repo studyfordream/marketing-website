@@ -211,7 +211,7 @@ w.optly_q.push([function(){
 
 		});
 
-              var anonymousVisitorIdentifier = w.optly.mrkt.utils.randomString();
+    var anonymousVisitorIdentifier = w.optly.mrkt.utils.randomString();
 		w.analytics.identify(anonymousVisitorIdentifier, {
 			name: w.optly_q.acctData.name,
 			email: w.optly_q.acctData.email,

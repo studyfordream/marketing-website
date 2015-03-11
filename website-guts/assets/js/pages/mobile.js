@@ -202,8 +202,6 @@ $(function() {
 
   signupFormTop.on('before', function() {
     signupMobileMvppTopHelperInst.formElm.querySelector('input[name="hidden"]').value = 'touched';
-    signupMobileMvppTopHelperInst.formElm.querySelector('input[name="flow"]').value = 'nux';
-    signupMobileMvppTopHelperInst.formElm.querySelector('input[name="platform"]').value = 'ios';
     signupMobileMvppTopHelperInst.processingAdd();
     signupMobileMvppTopHelperInst.removeErrors();
     signupMobileMvppTopHelperInst.optionsErrorElm.innerHTML = signupMobileMvppTopHelperInst.errorMessages.DEFAULT;
@@ -261,8 +259,6 @@ $(function() {
 
   signupFormBottom.on('before', function() {
     signupMobileMvppBottomHelperInst.formElm.querySelector('input[name="hidden"]').value = 'touched';
-    signupMobileMvppBottomHelperInst.formElm.querySelector('input[name="flow"]').value = 'nux';
-    signupMobileMvppBottomHelperInst.formElm.querySelector('input[name="platform"]').value = 'ios';
     signupMobileMvppBottomHelperInst.processingAdd();
     signupMobileMvppBottomHelperInst.removeErrors();
     signupMobileMvppBottomHelperInst.optionsErrorElm.innerHTML = signupMobileMvppBottomHelperInst.errorMessages.DEFAULT;

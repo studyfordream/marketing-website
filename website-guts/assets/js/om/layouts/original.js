@@ -124,16 +124,9 @@ w.optly.mrkt.trialForm = new Oform({
   });
   if(response){
     if(loadEvent.XHR.status === 200){
-      var pageData = {
-        email: d.getElementById('email').value,
-        url: d.getElementById('url').value,
-        name: d.getElementById('name').value,
-        phone: d.getElementById('phone').value
-      };
       w.optly.mrkt.Oform.trackLead({
-        formElm: '#seo-form',
-        pageData: pageData,
-        XHRevent: loadEvent.XHR
+        response: response,
+        requestPayload: loadEvent.requestPayload
       });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
@@ -188,7 +181,7 @@ w.optly.mrkt.trialForm = new Oform({
       //window.alert('non 200 response');
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
-        label: 'status not 200: ' + event.XHR.status
+        label: 'status not 200: ' + loadEvent.XHR.status
       }, {
         integrations: {
           'Marketo': false
