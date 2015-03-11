@@ -1,0 +1,28 @@
+---
+layout: opticon.hbs
+seo_title: Opticon About
+no_container: true
+no_header: true
+no_footer: true
+body_class:
+- opticon
+- opticon-about
+og_title: "Opticon 2015"
+og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
+external_script:
+- //use.typekit.net/ucj0cgp.js
+---
+
+{{#with opticon-2014}}
+<div class="container">
+  <h2 class="page-title common-page-title adelle-sans--bold">{{page_title}}</h2>
+  <p class="subtitle adelle-sans">{{subtitle}}</p>
+  <p class="description-text adelle-sans">{{blurb}}</p>
+</div>
+{{/with}}
+
+<div class="gallery-section container">
+  <h3 class="description-title adelle-sans">Gallery</h3>
+  <div class="gallery-container"></div>
+</div>
+{{> opticon_register}}
