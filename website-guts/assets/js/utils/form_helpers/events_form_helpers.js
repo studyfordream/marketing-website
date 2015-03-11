@@ -3,15 +3,10 @@ window.optly.mrkt.form = window.optly.mrkt.form || {};
 var eventsFormHelper = {
 
   success: function(returnData) {
-    var parsedResp = this.parseResponse(returnData),
-        form = this.formElm.getAttribute('id');
-
     document.body.classList.add('marketing-event-lead-create-success');
 
     if(parsedResp){
       w.optly.mrkt.Oform.trackLead({
-        //form: form,
-        response: parsedResp,
         requestPayload: returnData.requestPayload
       });
       //reporting to GA goes here
