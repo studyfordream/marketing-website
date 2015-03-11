@@ -70,8 +70,7 @@
 
         Accepts one argument (object) that should contains two properties:
 
-          - form (string): The ID of the lead form
-          - response (object): The parsed response from the parseResponse function
+          - response (object - optional): The parsed response from the parseResponse function
           - requestPayload (object): the form fields and their values
 
     */
@@ -135,9 +134,6 @@
     }
     if(payload.Inbound_Lead_Form_Type__c){
       reportingObject.Inbound_Lead_Form_Type__c = payload.Inbound_Lead_Form_Type__c;
-    }
-    if(payload.leadSource){
-      reportingObject.leadSource = payload.leadSource;
     }
     if(payload.LeadSource_Category__c){
       reportingObject.LeadSource_Category__c = payload.LeadSource_Category__c;

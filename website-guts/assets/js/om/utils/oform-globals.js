@@ -52,8 +52,7 @@ w.optly.mrkt.Oform.trackLead = function(args) {
 
       Accepts one argument (object) that should contains two properties:
 
-        - form (string): The ID of the lead form
-        - response (object): The parsed response from the parseResponse function
+        - response (object - optional): The parsed response from the parseResponse function
         - requestPayload (object): the form fields and their values
 
   */
@@ -61,7 +60,7 @@ w.optly.mrkt.Oform.trackLead = function(args) {
   var reportingObject,
       source,
       payload = args.requestPayload,
-      response = args.response;
+      response = args.response || {};
 
   source = w.optly.mrkt.source;
 
@@ -78,12 +77,27 @@ w.optly.mrkt.Oform.trackLead = function(args) {
   }
   if(response.first_name){
     reportingObject.firstName = response.first_name;
+  } else if(payload.first_name){
+    reportingObject.firstName = payload.first_name;
   }
   if(response.last_name){
     reportingObject.lastName = response.last_name;
+  } else if(payload.last_name) {
+    reportingObject.lastName = payload.last_name;
   }
   if(response.phone_number){
     reportingObject.phone = response.phone_number;
+  } else if(payload.phone_number){
+    reportingObject.phone = payload.phone_number;
+  }
+  if(payload.company){
+    reportingObject.company = payload.company;
+  }
+  if(payload.title){
+    reportingObject.title = payload.title;
+  }
+  if(payload.website){
+    reportingObject.website = payload.website;
   }
   if(payload.Web_Interest__c){
     reportingObject.Web_Interest__c = 'true';
@@ -102,9 +116,6 @@ w.optly.mrkt.Oform.trackLead = function(args) {
   }
   if(payload.Inbound_Lead_Form_Type__c){
     reportingObject.Inbound_Lead_Form_Type__c = payload.Inbound_Lead_Form_Type__c;
-  }
-  if(payload.leadSource){
-    reportingObject.leadSource = payload.leadSource;
   }
   if(payload.LeadSource_Category__c){
     reportingObject.LeadSource_Category__c = payload.LeadSource_Category__c;
@@ -167,9 +178,11 @@ w.optly.mrkt.Oform.trackLead = function(args) {
     source.signup_platform + '|||'
   );
 
-  w.analytics.identify(response.unique_user_id, reportingObject, {
+  var anonymousVisitorIdentifier = window.optly.mrkt.utils.randomString();
+
+  w.analytics.identify(response.unique_user_id || anonymousVisitorIdentifier, reportingObject, {
     integrations: {
-      'Marketo': true
+      Marketo: true
     }
   });
 
@@ -190,6 +203,13 @@ w.optly.mrkt.Oform.trackLead = function(args) {
   }, {
     integrations: {
       'Marketo': false
+    }
+  });
+
+  w.analytics.track('/event/plan/null', {}, {
+    integrations: {
+      'All': false,
+      'Marketo': true
     }
   });
 
@@ -216,7 +236,7 @@ w.optly.mrkt.Oform.trackLead = function(args) {
     label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   }, {
     integrations: {
-      Marketo: false
+      'Marketo': false
     }
   });
 
@@ -225,18 +245,8 @@ w.optly.mrkt.Oform.trackLead = function(args) {
     label: window.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   }, {
     integrations: {
-      Marketo: false
+      'Marketo': false
     }
   });
-
-  if(typeof(response.plan) == 'string'){
-    w.analytics.track('/event/plan' + response.plan, {}, {
-      integrations: {
-        'All': false,
-        'Marketo': true
-      }
-    });
-    w.analytics.page('/plan/' + response.plan);
-  }
 
 };

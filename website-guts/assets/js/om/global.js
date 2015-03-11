@@ -44,6 +44,18 @@ w.optly.mrkt.browser = BrowserDetect.browser;
 
 w.optly.mrkt.browserVersion = BrowserDetect.version;
 
+w.optly.mrkt.utils.randomString = function() {
+
+  var text = '';
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  for(var i=0; i < 8; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+
+  return text;
+};
+
 w.optly.mrkt.automatedTest = function(){
 
   var uiTest, stagingDomain;

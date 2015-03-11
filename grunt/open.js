@@ -3,5 +3,9 @@ module.exports = {
   firefox: {
     url: 'http://localhost:9000/dist/om/free-trial/fixture.html' + queryStrings,
     app: 'Firefox'
+  },
+  firefox: {
+    url: 'http://localhost:9000/dist/free-trial',
+    app: 'Google Chrome'
   }
 };
