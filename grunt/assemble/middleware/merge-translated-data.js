@@ -25,10 +25,6 @@ module.exports = function(assemble) {
     filePathData = parseFilePath(file.path);
     locale = filePathData.locale;
     dataKey = filePathData.dataKey;
-    if(/ab\-testing/.test(file.path) && locale !== websiteRoot) {
-      debugger;
-    }
-
 
     //extend the file with the external YML content
     extendFileData(filePathData, file);
@@ -57,6 +53,10 @@ module.exports = function(assemble) {
       // also if this is the case need to extend the file data with the parent file data
       // thought this was happening in extend-file-data function
 
+      if(/feature\-list/.test(file.path)) {
+        debugger;
+      }
+
       if(!file.hasOwnTemplate && !filePathData.isRoot) {
         mergedDict = extend({}, dicts[dictKey][parentKey], dicts[dictKey][dataKey]);
       }
@@ -75,10 +75,10 @@ module.exports = function(assemble) {
       file = objParser.translate(file, dicts[dictKey][dataKey]);
     }
 
-    if(/mobile/.test(file.path) || /ab\-testing/.test(file.path)) {
+    removeTranslationKeys(file);
+    if(/feature\-list/.test(file.path)) {
       debugger;
     }
-    removeTranslationKeys(file);
 
     next();
   };

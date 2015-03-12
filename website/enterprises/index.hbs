@@ -28,18 +28,18 @@ TR_page_li:
 - "Custom HTML/Javascript/CSS editor"
 - "And much more..."
 ---
-<h2 class="subheading">{{TR_page_h2}}</h2>
+<h2 class="subheading">{{page_h2}}</h2>
 
 <div class="row">
     <div class="columns seven">
-      {{#each TR_page_paragraphs}}
+      {{#each page_paragraphs}}
         {{#is @index 0}}
         <p>{{{.}}}</p>
         {{/is}}
         {{#is @index 1}}
-        <h5>{{../../TR_page_h5}}</h5>
+        <h5>{{../../page_h5}}</h5>
         <ul class="benefits-list">
-          {{#each ../../TR_page_li}}
+          {{#each ../../page_li}}
           {{#if @last}}
             <li><em>{{.}}</em></li>
             {{else}}
@@ -51,7 +51,7 @@ TR_page_li:
         {{/is}}
         {{#if_gt @index compare=1}}
         {{#if @last}}
-        <p><strong>{{TR_strong}}<strong><a href="{{../../../linkPath}}/{{link}}">{{TR_text}}</a></p>
+        <p><strong>{{strong}}<strong><a href="{{../../../linkPath}}/{{link}}">{{text}}</a></p>
           {{else}}
             {{#isnt @index 3}}
               <blockquote>

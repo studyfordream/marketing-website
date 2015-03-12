@@ -89,9 +89,9 @@ body_class:
 </div>
 <div class="testimonials-container">
   <ul>
-    {{#each page_data.TR_slides}}
+    {{#each page_data.slides}}
     <li {{#isnt @index 0}}class="optly-hide"{{/isnt}}data-slides={{@index}}>
-      <q>{{TR_header}}</q>
+      <q>{{header}}</q>
       <div class="logo-border">
         <img src="{{../assetsDir}}{{logo}}" alt="Customer Quote Logos">
       </div>

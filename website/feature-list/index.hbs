@@ -1,19 +1,19 @@
 ---
-layout: no-sub-nav.hbs
+layout: no-sub-nav
 TR_visible_title: Full Feature List
 body_class:
 - feature-list
 page_script: feature-list.js
 modals:
-- contact_sales_thank_you_compiled
-- downgrade_plan_compiled
-- downgrade_plan_confirm_compiled
-- pricing_plan_signup_thank_you_compiled
+- contact_sales_thank_you
+- downgrade_plan
+- downgrade_plan_confirm
+- pricing_plan_signup_thank_you
 TR_seo_title: Full Feature List
-og_title: "Full Feature List"
+TR_og_title: "Full Feature List"
 ---
 
 
 <a href="{{linkPath}}/features-and-plans" class="back">{{feature_list.back}}</a>
-{{> feature_list }}
+{{partial "feature_list"}}
 <a href="{{linkPath}}/features-and-plans" class="back">{{feature_list.back}}</a>

@@ -8,9 +8,9 @@
             <div class="modal-body">
                 {% body %}
             </div><!--/.modal-body-->
-            <div class="modal-footer{{#unless this.TR_primary_button_text}} no-primary-button{{/unless}}">
-                {{#if this.TR_primary_button_text}}
-                <button type="submit" class="primary-button submit-btn translate">{{this.TR_primary_button_text}} &raquo;</button>
+            <div class="modal-footer{{#unless this.primary_button_text}} no-primary-button{{/unless}}">
+                {{#if this.primary_button_text}}
+                <button type="submit" class="primary-button submit-btn translate">{{this.primary_button_text}} &raquo;</button>
                 {{/if}}
                 {{#if this.hidden_button_text}}
                 <button type="button" data-modal-btn="{{this.hidden_button_action}}" class="{{#if this.hide}}hide-button {{/if}}right-button secondary-button close-btn jqmClose translate">{{this.hidden_button_text}}</button>
