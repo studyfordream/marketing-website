@@ -8,7 +8,15 @@ var eventsFormHelper = {
     w.optly.mrkt.Oform.trackLead({
       requestPayload: returnData.requestPayload
     });
-    //reporting to GA goes here
+
+    w.analytics.track('lead success', {
+      category: 'external event',
+      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+    }, {
+      integrations: {
+        'Marketo': false
+      }
+    });
 
     w.optly.mrkt.modal.open({ modalType: 'external-events-thank-you' });
 
