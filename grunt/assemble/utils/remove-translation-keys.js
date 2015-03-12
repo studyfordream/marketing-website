@@ -15,11 +15,12 @@ function processTransArray(arr, parser) {
 }
 
 module.exports = function removeTranslationKeys(fileData) {
-  var key, parsedKey, val;
+  var key, parsedKey, val, split;
 
   for(key in fileData) {
     val = fileData[key];
-    parsedKey = splitKey(key);
+    split = splitKey(key);
+    parsedKey = _.isArray(split) ? split : undefined;
 
     if(_.isPlainObject(val)) {
       removeTranslationKeys(val);

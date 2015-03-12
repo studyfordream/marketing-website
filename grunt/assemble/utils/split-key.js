@@ -10,5 +10,6 @@ module.exports = function splitKey(str) {
       }
     });
   }
+
   return split || str;
 };

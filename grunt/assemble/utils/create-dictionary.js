@@ -38,11 +38,11 @@ module.exports = function (assemble) {
     var prefix = split[0];
     var suffix = split[1];
     var pageContent, val;
-    if(fileObj[key] && suffix === 'page_content') {
-      console.log(fileObj);
+    var isPageContent = fileObj.data && fileObj.data[key] && suffix === 'page_content';
+    if(isPageContent) {
       pageContent = fileObj.contents.toString();  //convert the buffer object
       val = ( prefix === 'MD' ) ? mdParser(pageContent) : pageContent;
-      key = 'HTML_' + suffix; //set the key so it later overwrites `file.content` in middleware
+      delete fileObj.data[key];
 
       return val;
     } else {
@@ -52,7 +52,7 @@ module.exports = function (assemble) {
 
   var createDictionary = function createDictionary(fileData, locale) {
     var linkPath = assemble.get('data.linkPath');
-    var data = fileData;
+    var data = fileData.data || fileData;
     var translationKeys = [
       'TR',
       'MD',
@@ -71,22 +71,25 @@ module.exports = function (assemble) {
 
     return Object.keys(data).reduce(function(o, key){
       var split = splitKey(key);
-      console.log(key, split);
       var prefix = split[0];
       var suffix = split[1];
       var val;
       var recursed;
       var pageContent;
-      var isPageContent = translatePageContent(key, split, data, marked);
+      var isPageContent = translatePageContent(key, split, fileData, marked);
 
       if( translationKeys.indexOf(prefix) !== -1 && isPageContent ) {
         //key will get mutated to have an HTML prefix inside the translatePageContent function
         val = isPageContent;
+        key = 'HTML_' + suffix;
       } else if( ( translationKeys.indexOf(prefix) !== -1 ) && ( data[key] !== 'object' || Array.isArray(data[key]) ) ) {
         //if it's an array remember the key
         if(Array.isArray(data[key])) {
           val = processArray(data[key], prefix, createDictionary);
         } else {
+          //if(prefix === 'MD') {
+            //console.log(data[key], isPageContent);
+          //}
           val = (prefix === 'MD') ? marked(data[key]) : data[key];
         }
         //fucking null....are you kidding me!!!!
