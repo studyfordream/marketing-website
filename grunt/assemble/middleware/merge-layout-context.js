@@ -58,12 +58,6 @@ module.exports = function(assemble) {
       //get the dictionary key represented by the file path
       page = generateKey(layouts[name].src.path);
 
-      //append layouts paths on context for tr handlebars helper
-      if(filePathData.isSubfolder || (filePathData.isRoot && isTest === 'test')) {
-        file.data.layouts = file.data.layouts || {};
-        file.data.layouts[name] = page;
-      }
-
       _.forEach(layouts[name], function(val, key) {
         //here swap the keys
         if(ignoreKeys.indexOf(key) === -1) {
@@ -73,9 +67,17 @@ module.exports = function(assemble) {
       });
 
       dict = dicts[dictKey] && dicts[dictKey][page];
-      if(dict) {
-        objParser.translate(data, dict);
+
+      //append layouts paths on context for tr handlebars helper
+      //and translate layout YFM
+      if(filePathData.isSubfolder || (filePathData.isRoot && isTest === 'test')) {
+        file.data.layouts = file.data.layouts || {};
+        file.data.layouts[name] = page;
+        if(dict) {
+          objParser.translate(data, dict);
+        }
       }
+
     }
 
     /* jshint ignore:end */
