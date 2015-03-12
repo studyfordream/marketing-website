@@ -53,6 +53,7 @@
     "body-parser": "1.8.3",
     "event-stream": "^3.2.2",
     "extend-shallow": "^0.2.0",
+    "glob": "^5.0.1",
     "grunt-contrib-compress": "0.13.0",
     "grunt-contrib-connect": "0.8.0",
     "grunt-contrib-watch": "0.6.1",

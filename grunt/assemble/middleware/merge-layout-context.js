@@ -71,8 +71,8 @@ module.exports = function(assemble) {
       //append layouts paths on context for tr handlebars helper
       //and translate layout YFM
       if(filePathData.isSubfolder || (filePathData.isRoot && isTest === 'test')) {
-        file.data.layouts = file.data.layouts || {};
-        file.data.layouts[name] = page;
+        file.data.layouts = file.data.layouts || [];
+        file.data.layouts.push(page);
         if(dict) {
           objParser.translate(data, dict);
         }
