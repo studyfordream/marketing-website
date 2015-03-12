@@ -58,6 +58,11 @@ layout_modals:
         <script  src="{{.}}"></script>
         {{/each}}
         {{/if}}
+        {{#if page.meta_tags}}
+        {{#each page.meta_tags}}
+        {{this}}
+        {{/each}}
+        {{/if}}
         {{#if page.external_stylesheets}}
         {{#each page.external_stylesheets}}
         <link rel="stylesheet" type="text/css" href="{{.}}">
