@@ -11,4 +11,4 @@ new Oform({
 })
 .on('validationerror', w.optly.mrkt.Oform.validationError)
 .on('error', eventsFormHelperInst.error.bind(eventsFormHelperInst))
-.on('load', eventsFormHelperInst.success.bind(eventsFormHelperInst));
+.on('success', eventsFormHelperInst.success.bind(eventsFormHelperInst));
