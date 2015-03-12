@@ -11,6 +11,7 @@ var smartling = require('l10n-tools/smartling');
 var objParser = require('l10n-tools/object-extractor');
 var fs = require('fs');
 var q = require('q');
+var glob = require('glob');
 var crypto = require('crypto');
 var smartlingConfig;
 
@@ -21,6 +22,42 @@ try{
 }
 if(smartlingConfig){
   smartlingConfig = JSON.parse(smartlingConfig);
+}
+
+var jsParser = require('l10n-tools/js-parser');
+var hbsParser = require('l10n-tools/hbs-parser');
+var smartling = require('l10n-tools/smartling');
+var Q = require('q');
+var fs = require('fs');
+
+try{
+  var smartlingConfig = fs.readFileSync('./configs/smartlingConfig.json', {encoding: 'utf-8'});
+} catch(err){
+  console.error('Cannot read Smartling config: ', err);
+}
+if(smartlingConfig){
+  smartlingConfig = JSON.parse(smartlingConfig);
+}
+
+
+function checksumChanged(content, fname){
+  var hash = crypto.createHash('md5');
+  hash.setEncoding('hex');
+  hash.write(content);
+  hash.end();
+  var newSum = hash.read();
+
+  var latestSum = null;
+  if(fs.existsSync(fname))
+  {
+    // now compare with latest uploaded catalogue checksum
+    hash = crypto.createHash('md5');
+    hash.setEncoding('hex');
+    hash.write(fs.readFileSync(fname, {encoding: 'UTF8'}));
+    hash.end();
+    latestSum = hash.read();
+  }
+  return newSum === latestSum;
 }
 
 module.exports = function (assemble) {
@@ -34,7 +71,6 @@ module.exports = function (assemble) {
   });
   var createTranslationDict = require('../utils/create-dictionary')(assemble);
   var parseFilePath = require('../utils/parse-file-path')(assemble);
-  var locale, dictKey, dataKey;
 
   return through.obj(function (file, enc, cb) {
     // instead of middleware
@@ -44,7 +80,7 @@ module.exports = function (assemble) {
     //here were merge the file data with local YML data
     filePathData = parseFilePath(file.path);
     locale = filePathData.locale;
-    dataKey = filePathData.dataKey;
+    var dataKey = filePathData.dataKey;
 
     parsedTranslations = createTranslationDict(file, locale);
 
@@ -58,6 +94,7 @@ module.exports = function (assemble) {
   }, function (cb) {
     assemble.set('lang', lang);
     var DICT_FNAME = 'marketing_website_yaml.pot';
+    var JS_DICT_FNAME = 'marketing_website_js.pot';
     var phrases = [];
 
     _.forEach(lang, function(pages){
@@ -67,23 +104,25 @@ module.exports = function (assemble) {
       });
     });
 
-    var content = smartling.generatePO(phrases);
-    var hash = crypto.createHash('md5');
-    hash.setEncoding('hex');
-    hash.write(content);
-    hash.end();
-    var newSum = hash.read();
-
-    var latestSum = null;
-    if(fs.existsSync('tmp/upload/' + DICT_FNAME)){
-      // now compare with latest uploaded catalogue checksum
-      hash = crypto.createHash('md5');
-      hash.setEncoding('hex');
-      hash.write(fs.readFileSync('tmp/upload/' + DICT_FNAME, {encoding: 'UTF8'}));
-      hash.end();
-      latestSum = hash.read();
+    function extractFrom(srcs, parser){
+      return glob.sync(srcs).map(function (fname) {
+        var phrases = parser.extract(fs.readFileSync(fname));
+        return {
+          fname: '/' + fname.replace(/\.hbs$/, ''),
+          phrases: phrases
+        };
+      });
     }
-    if(newSum === latestSum){
+
+    mkdirp.sync('tmp/upload');
+    mkdirp.sync('tmp/download');
+    mkdirp.sync('dist/assets/js');
+
+    var hbsPhrases = extractFrom('website-guts/templates/**/*.hbs', hbsParser);
+    phrases = phrases.concat(hbsPhrases);
+    var content = smartling.generatePO(phrases);
+    var yamlDefer = Q.defer();
+    if(checksumChanged(content, 'tmp/upload/' + DICT_FNAME)){
       console.log('Master catalog didn\'t since last upload - using cached dictionaries.');
       var translations = {};
       localeCodes.map(function(code){
@@ -91,10 +130,8 @@ module.exports = function (assemble) {
         translations[code] = smartling.parsePOWithContext(body);
       });
       assemble.set('dicts', translations);
-      cb();
+      yamlDefer.resolve();
     } else {
-      mkdirp.sync('tmp/upload');
-      mkdirp.sync('tmp/download');
       fs.writeFile('tmp/upload/' + DICT_FNAME, content);
       smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, DICT_FNAME).then(function(){
         var translations = {};
@@ -108,10 +145,50 @@ module.exports = function (assemble) {
         // when all translations are fetched - call callback
         q.all(defers).then(function(){
           assemble.set('dicts', translations);
-          cb();
+          yamlDefer.resolve();
         });
       });
     }
 
+    var jsPhrases = extractFrom('website-guts/assets/js/**/*.js', jsParser);
+    content = smartling.generatePO(jsPhrases);
+    var jsDefer = Q.defer();
+    function deployJSDict(locale, body) {
+      var dict = smartling.parsePO2dict(body);
+      content = 'window.optlyDict = ' + JSON.stringify(dict);
+      var outputFname = './dist/assets/js/dict.' + locale + '.js';
+      fs.writeFileSync(outputFname, content);
+    }
+
+    if(checksumChanged(content, 'tmp/upload/' + JS_DICT_FNAME)){
+      console.log('Master catalog didn\'t since last upload - using cached dictionaries for JS.');
+      localeCodes.map(function(code){
+        var body = fs.readFileSync('tmp/download/' + code + '-' + JS_DICT_FNAME, {encoding: 'UTF8'});
+        deployJSDict(code, body);
+      });
+      jsDefer.resolve();
+    } else {
+      mkdirp.sync('tmp/upload');
+      mkdirp.sync('tmp/download');
+      fs.writeFile('tmp/upload/' + JS_DICT_FNAME, content);
+      smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, JS_DICT_FNAME).then(function(){
+        var defers = localeCodes.map(function(code){
+          return smartling.fetch(smartlingConfig.URL, code, JS_DICT_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID).then(function(body){
+            fs.writeFile('tmp/download/' + code + '-' + JS_DICT_FNAME, body);
+            deployJSDict(code, body);
+          });
+        });
+
+        // when all translations are fetched - call callback
+        Q.all(defers).then(function(){
+          jsDefer.resolve();
+        });
+      });
+    }
+
+    Q.all([yamlDefer.promise, jsDefer.promise]).then(function(){
+      cb();
+    });
   });
+
 };
