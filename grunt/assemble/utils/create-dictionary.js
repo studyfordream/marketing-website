@@ -1,6 +1,7 @@
 var path = require('path');
 var _ = require('lodash');
 var marked = require('optimizely-marked');
+var splitKey = require('./split-key');
 
 //need to have a way to recognize markdown in page content in hbs template outside of front matter
 //when putting data back in must recognize arrays and sub out strings in objects accordingly
@@ -33,9 +34,30 @@ module.exports = function (assemble) {
     return reduced;
   }
 
+  function translatePageContent(key, split, fileObj, mdParser) {
+    var prefix = split[0];
+    var suffix = split[1];
+    var pageContent, val;
+    if(fileObj[key] && suffix === 'page_content') {
+      console.log(fileObj);
+      pageContent = fileObj.contents.toString();  //convert the buffer object
+      val = ( prefix === 'MD' ) ? mdParser(pageContent) : pageContent;
+      key = 'HTML_' + suffix; //set the key so it later overwrites `file.content` in middleware
+
+      return val;
+    } else {
+      return false;
+    }
+  }
+
   var createDictionary = function createDictionary(fileData, locale) {
     var linkPath = assemble.get('data.linkPath');
-    var data = fileData.data || fileData;
+    var data = fileData;
+    var translationKeys = [
+      'TR',
+      'MD',
+      'HTML'
+    ];
 
     if(Object.keys(locales).indexOf(locale) !== -1) {
       linkPath = path.join(linkPath, locale);
@@ -48,44 +70,24 @@ module.exports = function (assemble) {
     });
 
     return Object.keys(data).reduce(function(o, key){
-      var split = key.split('_');
+      var split = splitKey(key);
+      console.log(key, split);
       var prefix = split[0];
-      var suffix = split[1] + '_' + split[2];
+      var suffix = split[1];
       var val;
       var recursed;
       var pageContent;
+      var isPageContent = translatePageContent(key, split, data, marked);
 
-      if( ( prefix === 'MD' || prefix === 'TR' ) && ( data[key] !== 'object' || Array.isArray(data[key]) ) ) {
-        switch(prefix) {
-          case 'MD':
-            //if it's an array remember the key
-            if(Array.isArray(data[key])) {
-              val = processArray(data[key], prefix, createDictionary);
-            } else {
-              val = marked(data[key]);
-            }
-            break;
-          case 'TR':
-            if(suffix === 'page_content') {
-              pageContent = fileData.contents.toString();  //convert the buffer object
-              switch(data[key]) {
-                case 'MD':
-                  val = marked(pageContent);
-                  break;
-                default:
-                  val = pageContent;
-                  break;
-              }
-              key = 'HTML_' + suffix; //set the key so it later overwrites `file.content` in middleware
-              break; //break out early if this key is for page content translation
-            }
-            //if it's an array remember the key
-            if(Array.isArray(data[key])) {
-              val = processArray(data[key], prefix, createDictionary);
-            } else {
-              val = data[key];
-            }
-            break;
+      if( translationKeys.indexOf(prefix) !== -1 && isPageContent ) {
+        //key will get mutated to have an HTML prefix inside the translatePageContent function
+        val = isPageContent;
+      } else if( ( translationKeys.indexOf(prefix) !== -1 ) && ( data[key] !== 'object' || Array.isArray(data[key]) ) ) {
+        //if it's an array remember the key
+        if(Array.isArray(data[key])) {
+          val = processArray(data[key], prefix, createDictionary);
+        } else {
+          val = (prefix === 'MD') ? marked(data[key]) : data[key];
         }
         //fucking null....are you kidding me!!!!
       } else if( _.isPlainObject(data[key]) ) {
@@ -95,9 +97,6 @@ module.exports = function (assemble) {
           o[key] = recursed;
         }
       }
-      //else if( Array.isArray(data[key]) ) {
-      //val = processArray(data[key], prefix, createDictionary);
-      //}
 
       if(val) {
         o[key] = val;

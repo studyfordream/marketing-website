@@ -75,6 +75,9 @@ module.exports = function(assemble) {
       file = objParser.translate(file, dicts[dictKey][dataKey]);
     }
 
+    if(/mobile/.test(file.path)) {
+      debugger;
+    }
     removeTranslationKeys(file);
 
     next();

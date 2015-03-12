@@ -1,20 +1,11 @@
 var _ = require('lodash');
+var splitKey = require('./split-key');
 
-function splitKey(str) {
-  var split;
-
-  if( /^(MD|TR|HTML)_/.test(str) ) {
-    split = str.split(/_(.+)?/);
-  }
-  return split;
-}
-
-/* jshint ignore:start */
-function processTransArray(arr) {
+function processTransArray(arr, parser) {
   arr.forEach(function(item) {
 
     if(_.isPlainObject(item)) {
-      removeTranslationKeys(item);
+      parser(item);
     } else if(_.isArray(item)) {
       processTransArray(item);
     }
@@ -23,7 +14,7 @@ function processTransArray(arr) {
   return arr;
 }
 
-function removeTranslationKeys(fileData) {
+module.exports = function removeTranslationKeys(fileData) {
   var key, parsedKey, val;
 
   for(key in fileData) {
@@ -33,10 +24,10 @@ function removeTranslationKeys(fileData) {
     if(_.isPlainObject(val)) {
       removeTranslationKeys(val);
     } else if(_.isArray(val) && parsedKey) {
-      fileData[ parsedKey[1] ] = processTransArray(val);
+      fileData[ parsedKey[1] ] = processTransArray(val, removeTranslationKeys);
       delete fileData[key];
     } else if( ( _.isString(val) || _.isNumber(val) ) && parsedKey ) {
-      if(parsedKey[0] === 'HTML' && fileData.content) {
+      if(parsedKey[0] === 'HTML' && parsedKey[1] === 'page_content' && fileData.content) {
         //account for replacing file content
         fileData.content = val;
       } else {
@@ -45,7 +36,4 @@ function removeTranslationKeys(fileData) {
       delete fileData[key];
     }
   }
-}
-
-module.exports = removeTranslationKeys;
-/* jshint ignore:end */
+};
