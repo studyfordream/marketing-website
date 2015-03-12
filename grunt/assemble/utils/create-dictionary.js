@@ -87,9 +87,6 @@ module.exports = function (assemble) {
         if(Array.isArray(data[key])) {
           val = processArray(data[key], prefix, createDictionary);
         } else {
-          //if(prefix === 'MD') {
-            //console.log(data[key], isPageContent);
-          //}
           val = (prefix === 'MD') ? marked(data[key]) : data[key];
         }
         //fucking null....are you kidding me!!!!

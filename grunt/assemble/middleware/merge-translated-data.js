@@ -53,10 +53,6 @@ module.exports = function(assemble) {
       // also if this is the case need to extend the file data with the parent file data
       // thought this was happening in extend-file-data function
 
-      if(/feature\-list/.test(file.path)) {
-        debugger;
-      }
-
       if(!file.hasOwnTemplate && !filePathData.isRoot) {
         mergedDict = extend({}, dicts[dictKey][parentKey], dicts[dictKey][dataKey]);
       }
@@ -66,19 +62,24 @@ module.exports = function(assemble) {
       //
       //replace the content of the page if it has been flagged for translation
 
-    } else if (file.data.locale && file.data.locale !== websiteRoot && ( filePathData.isModal || filePathData.isPartial ) ) {
+    } else if ( (isTest === 'test' || file.data.locale && file.data.locale !== websiteRoot ) && ( filePathData.isModal || filePathData.isPartial ) ) {
+      if(/faq/.test(file.path)) {
+        console.log(dataKey);
+        debugger;
+      }
+
       locale = file.data.locale;
-      dictKey = locales[locale];
+      dictKey = isTest === 'test' ? 'de_DE' : locales[locale];
 
       //TODO: for now modals/partials are not locale specific, in future may have locale specific
       //partials that possible overwrite parent partial data
-      file = objParser.translate(file, dicts[dictKey][dataKey]);
+      if(dicts[dictKey] && dicts[dictKey][dataKey]) {
+        file = objParser.translate(file, dicts[dictKey][dataKey]);
+        console.log('translated', dataKey);
+      }
     }
 
     removeTranslationKeys(file);
-    if(/feature\-list/.test(file.path)) {
-      debugger;
-    }
 
     next();
   };
