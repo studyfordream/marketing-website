@@ -6,7 +6,7 @@ no_header: true
 no_footer: true
 body_class:
 - opticon
-- opties
+- opticon-opties
 og_title: "Opticon 2015"
 og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
 external_script:
@@ -33,18 +33,47 @@ external_script:
 <!--                 -->
 <!--Opties Categories-->
 <!--                 -->
-<div class="container ">
+<div class="container section-padding">
   {{#with opties_data.award_categories}}
   <h3 class="description-title adelle-sans">{{title}}</h3>
-  <div class="flex-container">
+  <div class="award-categories flex-container">
     {{#each categories}}
-    <div class="">
+    <div class="category-item">
       <p class="adelle-sans--bold">{{this.title}}</p>
-      <div class="">
-        {{this.blurb}}
-      </div>
+      <p class="adelle-sans">{{this.blurb}}</p>
     </div>
     {{/each}}
     {{/with}}
   </div>
 </div>
+
+<!--          -->
+<!--Guidelines-->
+<!--          -->
+<div class="container guidelines">
+  {{#with opties_data.guidelines}}
+  <div class="flex-container">
+    <h3 class="guidelines__title description-title adelle-sans">{{title}}</h3>
+     <ul class="guidelines__list">
+      {{#each list}}
+      <li class="adelle-sans">{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  {{/with}}
+</div>
+
+
+<!--               -->
+<!--Applcation Form-->
+<!--               -->
+<section class="application-form">
+  {{#with opties_data.application_form}}
+  <div class="container">
+    <h3 class="description-title--apply adelle-sans">{{title}}</h3>
+    <h4 class="description-title--apply adelle-sans">{{subtitle}}</h4>
+    <form action="">
+    </form>
+  </div>
+  {{/with}}
+</section>

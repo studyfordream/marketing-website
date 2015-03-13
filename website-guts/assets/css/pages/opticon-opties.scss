@@ -1,0 +1,43 @@
+body.opticon-opties {
+  .flex-container {
+    flex-wrap: wrap;
+  }
+  .top-paragraph {
+    width: 60%;
+  }
+  .category-item {
+    width: 50%;
+    padding-right: 50px;
+  }
+  .section-padding {
+    padding: 100px 0;
+  }
+  .guidelines {
+    border-top: 1px solid #ccc;
+    padding: 40px 0 155px 0;
+  }
+  .guidelines__title {
+    width: 30%;
+  }
+  .guidelines__list {
+    width: 70%;
+    margin: 30px 0;
+  }
+  .application-form {
+    background: $opticon-brand-blue;
+  }
+  .description-title--apply {
+    color: white;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  body.opticon-opties {
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.opticon-opties {
+  }
+}
