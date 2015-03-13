@@ -12,13 +12,14 @@ module.exports = function(assemble) {
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var locales = assemble.get('data.locales');
   var pagesNamespace = assemble.get('data.pageContentNamespace');
+  var lang = assemble.get('lang');
+  var ogPageData = assemble.get('pageData');
 
   return function mergeFileData(fpData, fileData) {
-    var lang = assemble.get('lang');
-    var pageData = assemble.get('pageData');
     var dataKey = fpData.dataKey;
     var locale = fpData.locale;
     var parentKey = fpData.parentKey;
+    var pageData = _.merge({}, ogPageData);
     var parentPageData;
     var subfolderPageData;
     var htmlBodyContent;

@@ -51,7 +51,7 @@ module.exports = function (assemble) {
     }
   }
 
-  var createDictionary = function createDictionary(fileData, locale, mutate) {
+  var createDictionary = function createDictionary(fileData, locale) {
     var linkPath = assemble.get('data.linkPath');
     var data = fileData.data || fileData;
     var translationKeys = [
@@ -87,17 +87,17 @@ module.exports = function (assemble) {
         //if it's an array remember the key
         if(Array.isArray(data[key])) {
           val = processArray(data[key], prefix, createDictionary);
-        } else {
-          val = (prefix === 'MD') ? marked(data[key]) : data[key];
-
-          if(prefix === 'MD') {
+        } else if(prefix === 'MD') {
+            val = marked(data[key]);
             //mutate the original object for later page data extension
             //with parsed markdown
             delete data[key];
             key = 'HTML_' + suffix;
             data[key] = val;
-          }
+        } else {
+          val = data[key];
         }
+
         //fucking null....are you kidding me!!!!
       } else if( _.isPlainObject(data[key]) ) {
         recursed = createDictionary(data[key]);
