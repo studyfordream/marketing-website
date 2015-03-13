@@ -14,12 +14,12 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
 <section id="hero" class="panel bg-img" style="background-image: url('{{page_data.hero.bg_img}}')">
   {{#with page_data.hero}}
     <div id="cta-variation">
-      <h1>{{{TR_title}}}</h1>
+      <h1>{{{title}}}</h1>
       <div class="flex-responsive">
-        <a href="#" class="outline-button" data-show-video><span class="circle-arrow"></span>{{TR_vid_btn_txt}}</a>
-        <a href="#signup-form-panel-b" class="outline-button slide-button" smooth-scroll>{{TR_signup_btn_txt}}</a>
+        <a href="#" class="outline-button" data-show-video><span class="circle-arrow"></span>{{vid_btn_txt}}</a>
+        <a href="#signup-form-panel-b" class="outline-button slide-button" smooth-scroll>{{signup_btn_txt}}</a>
       </div>
-      <p>{{link_text}} <a href="{{../linkPath}}/android">{{TR_link_anchor_text}}</a></p>
+      <p>{{link_text}} <a href="{{../linkPath}}/android">{{link_anchor_text}}</a></p>
       <a href="#signup-form-panel-b" class="scroll-down-icon" smooth-scroll></a>
     </div>
   <div id="signup-form-panel-top">
@@ -31,17 +31,17 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
       <div class="form-grid">
         <label>
             <span class="email-related error-hide error-right">Required</span>
-            <input type="email" name="email" placeholder="{{TR_email}}" required>
+            <input type="email" name="email" placeholder="{{email}}" required>
         </label>
       </div>
       <div class="form-grid">
         <label>
             <span class="password1-related error-hide error-right">Required</span>
-            <input type="password" name="password1" placeholder="{{TR_password}}" required>
+            <input type="password" name="password1" placeholder="{{password}}" required>
         </label>
       </div>
       <div class="form-grid">
-        <button title="{{TR_submit_button}}" data-success="{{TR_submit_success}}" type="submit" class="submit-btn"></button>
+        <button title="{{submit_button}}" data-success="{{submit_success}}" type="submit" class="submit-btn"></button>
       </div>
     </div>
     <input type="hidden" name="hidden" value="" />
@@ -51,40 +51,40 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
         <p class="error-message error-hide">Please Correct Form Errors</p>
     </div>
   </form>
-  <p>{{TR_link_text}}</p>
-  <a href="#" class="video-link" data-show-video><span class="circle-arrow"></span>{{TR_video_link_text}}</a>
+  <p>{{link_text}}</p>
+  <a href="#" class="video-link" data-show-video><span class="circle-arrow"></span>{{video_link_text}}</a>
   {{/with}}
   </div>
 </section>
 {{#with page_data.top_grid}}
 <section id="fast-powerful-panel"class="panel">
   <div class="container">
-    <h2><strong>{{TR_title}}</strong></h2>
-    <h2>{{TR_sub_title}}</h2>
+    <h2><strong>{{title}}</strong></h2>
+    <h2>{{sub_title}}</h2>
     <div class="flex-cont">
-      {{#each TR_grid_content}}
+      {{#each grid_content}}
       <div class="flex-content">
         <div class="grid-icon bg-img" style="background-image: url('{{icon}}')"></div>
-        <h5><strong>{{TR_title}}</strong></h5>
-        <p>{{TR_grid_content}}</p>
+        <h5><strong>{{title}}</strong></h5>
+        <p>{{grid_content}}</p>
       </div>
       {{/each}}
     </div>
   </div>
 </section>
 {{/with}}
-{{#each page_data.TR_panels}}
+{{#each page_data.panels}}
 <section id="panel-{{add @index 1}}" class="panel editor-demo" data-interactive-panel>
   <div class="container flex-cont">
     <div class="flex-img-cont{{#is_odd @index}} order-2{{/is_odd}}">
       <img src="{{bg_img_static}}" data-img-index="{{@index}}" data-static="{{bg_img_static}}" data-dynamic="{{bg_img_dynamic}}"/>
     </div>
     <div class="flex-1-content">
-      <h3>{{{TR_title}}}</h3>
+      <h3>{{{title}}}</h3>
       <p>
-        {{TR_text}}
-        {{#if TR_beta_text}}
-          <span class="beta">{{TR_beta_text}}</span>
+        {{text}}
+        {{#if beta_text}}
+          <span class="beta">{{beta_text}}</span>
         {{/if}}
       </p>
     </div>
@@ -96,7 +96,7 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
   <div class="container">
     <div class="section-container">
       <!--markdown parsed automatically by translation-->
-      {{{TR_customer_logos.body}}}
+      {{{customer_logos.body}}}
     </div>
     <div class="icon-cont">
       {{#each customer_logos.icons}}
@@ -109,17 +109,17 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
   </div>
 </section>
 <section id="ideas" class="panel">
-  <h2>{{{testing_ideas.TR_header}}}</h2>
+  <h2>{{{testing_ideas.header}}}</h2>
   <div class="ideas-cont flex-cont">
-    {{#each testing_ideas.TR_ideas_grid}}
+    {{#each testing_ideas.ideas_grid}}
     <div class="single-idea-cont flex-cont">
       <div class="idea-icon">
         <div class="bg-img static" style="background-image: url('{{icon_static}}')"></div>
         <div class="bg-img dynamic" style="background-image: url('{{icon_dynamic}}')"></div>
       </div>
       <div class="idea-content">
-        <h4>{{TR_title}}</h4>
-        <p>{{TR_text}}</p>
+        <h4>{{title}}</h4>
+        <p>{{text}}</p>
       </div>
     </div>
     {{/each}}
@@ -128,24 +128,24 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
 {{/with}}
 <section id="signup-form-panel-bottom" class="panel bg-img" style="background-image: url('{{page_data.form_panel.bg_img}}')">
 {{#with page_data.form_panel}}
-  <h2><strong>{{TR_title}}</strong></h2>
-  <h2>{{TR_subtitle}}</h2>
+  <h2><strong>{{title}}</strong></h2>
+  <h2>{{subtitle}}</h2>
   <form action="/account/create" method="POST" id="mobile-signup-form-bottom" class="container" novalidate autocomplete="off">
     <div class="row grid-cont">
       <div class="form-grid">
         <label>
             <span class="email-related error-hide error-right">Required</span>
-            <input type="email" name="email" placeholder="{{TR_email}}" required>
+            <input type="email" name="email" placeholder="{{email}}" required>
         </label>
       </div>
       <div class="form-grid">
         <label>
             <span class="password1-related error-hide error-right">Required</span>
-            <input type="password" name="password1" placeholder="{{TR_password}}" required>
+            <input type="password" name="password1" placeholder="{{password}}" required>
         </label>
       </div>
       <div class="form-grid">
-        <button title="{{TR_submit_button}}" data-success="{{TR_submit_success}}" type="submit" class="submit-btn"></button>
+        <button title="{{submit_button}}" data-success="{{submit_success}}" type="submit" class="submit-btn"></button>
       </div>
     </div>
     <input type="hidden" name="hidden" value="" />
@@ -155,6 +155,6 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
         <p class="error-message error-hide">Please Correct Form Errors</p>
     </div>
   </form>
-  <p>{{TR_link_text}}</p>
+  <p>{{link_text}}</p>
 {{/with}}
 </section>

@@ -7,6 +7,7 @@ var splitKey = require('./split-key');
 //when putting data back in must recognize arrays and sub out strings in objects accordingly
 module.exports = function (assemble) {
   var locales = assemble.get('data.locales');
+  var generateKey = require('./generate-key');
 
   //array will only be translated if key defining the array has a TR or MD flag
   //otherwise keys like layout_body_class or src containing arrays will be put into
@@ -50,7 +51,7 @@ module.exports = function (assemble) {
     }
   }
 
-  var createDictionary = function createDictionary(fileData, locale) {
+  var createDictionary = function createDictionary(fileData, locale, mutate) {
     var linkPath = assemble.get('data.linkPath');
     var data = fileData.data || fileData;
     var translationKeys = [
@@ -88,6 +89,14 @@ module.exports = function (assemble) {
           val = processArray(data[key], prefix, createDictionary);
         } else {
           val = (prefix === 'MD') ? marked(data[key]) : data[key];
+
+          if(prefix === 'MD') {
+            //mutate the original object for later page data extension
+            //with parsed markdown
+            delete data[key];
+            key = 'HTML_' + suffix;
+            data[key] = val;
+          }
         }
         //fucking null....are you kidding me!!!!
       } else if( _.isPlainObject(data[key]) ) {

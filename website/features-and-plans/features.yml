@@ -7,8 +7,8 @@ page_header:
 
 title_section:
   TR_title: "Powerful features.<br>Custom tailored to your needs."
-  learn_cta: "Learn More"
-  plans_cta: "View Plans"
+  TR_learn_cta: "Learn More"
+  TR_plans_cta: "View Plans"
 
 benefits_section:
   TR_title: "Included in all plans:"

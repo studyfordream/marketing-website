@@ -1,6 +1,6 @@
 hero: 
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/hero-img-comp.jpg"
-  HTML_title: "Make your app <br><strong>more engaging</strong>"
+  TR_title: "Make your app <br><strong>more engaging</strong>"
   TR_vid_btn_txt: "Watch Video"
   TR_signup_btn_txt: "Get Started"
   TR_link_text: "A single platform for iOS, Android, and the web."
