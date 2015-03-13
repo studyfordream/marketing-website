@@ -13,10 +13,13 @@ module.exports = {
       }
     ]
   },
-  fastclick: {
+  libs: {
     files: [
       {
         '<%= config.dist %>/assets/js/libraries/fastclick.js': ['<%= config.bowerDir %>/fastclick/lib/fastclick.js']
+      },
+      {
+        '<%= config.dist %>/assets/js/libraries/magnific.js': ['<%= config.guts %>/assets/js/libraries/magnific.js']
       }
     ]
   },
