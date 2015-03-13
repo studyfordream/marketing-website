@@ -108,6 +108,15 @@ module.exports = function(grunt, options){
       isFile: true,
       dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr.min.js'
     },
+    magnific: {
+      src: [
+        '<%= config.guts %>/assets/js/libraries/magnific.js',
+      ],
+      expand: false,
+      flatten: true,
+      isFile: true,
+      dest: '<%= config.dist %>/assets/js/libraries/magnific.min.js'
+    },
     omBundle: {
       options: {
         banner: '<%= grunt.config.get("concat_banner") %>',

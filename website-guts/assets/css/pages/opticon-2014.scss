@@ -1,0 +1,36 @@
+body.opticon-2014 {
+  .copy-half {
+    width: 50%;
+    padding-right: 50px;
+  }
+  .video-image-half {
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .gallery {
+    padding: 90px 0;
+    &__image-cont {
+      flex-wrap: wrap;
+      &__item {
+        width: 25%;
+        padding: 5px;
+        &__bg {
+          padding-top: 150px;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  body.opticon-2014 {
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.opticon-2014 {
+  }
+}

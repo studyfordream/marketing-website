@@ -6,7 +6,10 @@ no_header: true
 no_footer: true
 body_class:
 - opticon
-- opticon-about
+- opticon-2014
+page_script: opticon-2014.js
+modals:
+- video_modal_compiled
 og_title: "Opticon 2015"
 og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
 external_script:
@@ -14,15 +17,25 @@ external_script:
 ---
 
 {{#with opticon-2014}}
-<div class="container">
-  <h2 class="page-title common-page-title adelle-sans--bold">{{page_title}}</h2>
-  <p class="subtitle adelle-sans">{{subtitle}}</p>
-  <p class="description-text adelle-sans">{{blurb}}</p>
+<div class="container content-container flex-container">
+  <div class="copy-half">
+    <h2 class="page-title common-page-title adelle-sans--bold">{{page_title}}</h2>
+    <p class="subtitle adelle-sans">{{subtitle}}</p>
+    <p class="description-text adelle-sans">{{blurb}}</p>
+  </div>
+  <a class="video-image-half" href="#" style="background-image: url('{{video_image}}')" data-show-video>
+  </a>
+</div>
+
+<div class="gallery container">
+  <h3 class="description-title adelle-sans">Gallery</h3>
+  <div class="gallery__image-cont flex-container">
+    {{#each gallery_images}}
+    <a class="gallery__image-cont__item" href="{{this}}" >
+      <div class="gallery__image-cont__item__bg" style="background-image: url('{{this}}')"></div>
+    </a>
+    {{/each}}
+  </div>
 </div>
 {{/with}}
-
-<div class="gallery-section container">
-  <h3 class="description-title adelle-sans">Gallery</h3>
-  <div class="gallery-container"></div>
-</div>
 {{> opticon_register}}
