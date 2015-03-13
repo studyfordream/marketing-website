@@ -1,0 +1,50 @@
+---
+layout: opticon.hbs
+seo_title: Opties 2015
+no_container: true
+no_header: true
+no_footer: true
+body_class:
+- opticon
+- opties
+og_title: "Opticon 2015"
+og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
+external_script:
+- //use.typekit.net/ucj0cgp.js
+---
+
+<!--              -->
+<!-- Title Section-->
+<!--              -->
+<div class="confetti-container">
+  <div class="confetti-right"></div>
+</div>
+<div class="page-content paragraphs-container container">
+  {{#with opties_data}}
+  <h2 class="page-title common-page-title adelle-sans--bold">{{page_title}}</h2>
+  <div class="top-paragraph">
+    <h3 class="description-title adelle-sans">{{top_paragraph.title}}</h3>
+    <p class="description-text adelle-sans">{{top_paragraph.deadline}}</p>
+    <p class="description-text adelle-sans">{{top_paragraph.blurb}}</p>
+  </div>
+  {{/with}}
+</div>
+
+<!--                 -->
+<!--Opties Categories-->
+<!--                 -->
+<div class="container ">
+  {{#with opties_data.award_categories}}
+  <h3 class="description-title adelle-sans">{{title}}</h3>
+  <div class="flex-container">
+    {{#each categories}}
+    <div class="">
+      <p class="adelle-sans--bold">{{this.title}}</p>
+      <div class="">
+        {{this.blurb}}
+      </div>
+    </div>
+    {{/each}}
+    {{/with}}
+  </div>
+</div>
