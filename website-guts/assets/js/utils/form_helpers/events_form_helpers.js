@@ -22,7 +22,7 @@ var eventsFormHelper = {
 
     if(typeof returnData.requestPayload.ops === 'string'){
       var eventID = returnData.requestPayload.Lead_Source_Subcategory__c,
-          opsScore = parseInt(returnData.requestPayload.ops);
+          opsScore = parseInt(returnData.requestPayload.ops) * 1000;
       w.ga('send', {
         'hitType': 'timing',
         'timingCategory': 'External event OPS',
