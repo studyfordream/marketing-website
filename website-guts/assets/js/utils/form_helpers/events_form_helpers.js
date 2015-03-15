@@ -20,6 +20,18 @@ var eventsFormHelper = {
 
     w.optly.mrkt.modal.open({ modalType: 'external-events-thank-you' });
 
+    if(typeof returnData.requestPayload.ops === 'string'){
+      var eventID = returnData.requestPayload.Lead_Source_Subcategory__c,
+          opsScore = parseInt(returnData.requestPayload.ops);
+      w.ga('send', {
+        'hitType': 'timing',
+        'timingCategory': 'External event OPS',
+        'timingVar': eventID,
+        'timingValue': opsScore,
+        'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      });
+    }
+
     window.setTimeout(function() {
       document.location.reload();
     }, 8000);
