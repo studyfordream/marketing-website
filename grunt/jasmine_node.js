@@ -32,7 +32,7 @@ module.exports = {
   'features-and-plans': {
     src: ['test/features-and-plans/**/*.js']
   },
-  'external-marketing-events': {
+  'marketing-events': {
     src: ['test/marketing-events/**/*.js']
   }
 };
