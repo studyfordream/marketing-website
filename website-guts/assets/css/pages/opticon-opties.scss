@@ -30,6 +30,28 @@ body.opticon-opties {
     color: white;
     text-align: center;
   }
+  label {
+    display: block;
+  }
+  input,
+  textarea {
+    width: 100%;
+  }
+  textarea {
+    height: 100px;
+  }
+  .label-title {
+    font-size: 1.25em;
+    color: #fff;
+  }
+  .input-instruction {
+    font-size: 0.8125em;
+    color: #fff;
+    margin: 0;
+  }
+  .no-overflow {
+    overflow: hidden;
+  }
 }
 
 @media only screen and (min-width: $tablet-min-width) {

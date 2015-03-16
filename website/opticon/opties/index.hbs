@@ -72,8 +72,107 @@ external_script:
   <div class="container">
     <h3 class="description-title--apply adelle-sans">{{title}}</h3>
     <h4 class="description-title--apply adelle-sans">{{subtitle}}</h4>
-    <form action="">
+
+
+    <form id="speaker-form" name="form1" method="post" class="columns eight offset-two" action="https://stewsmith.wufoo.com/forms/zs0or104f6dyj/#public" novalidate>
+      <div>
+        {{! Award Category }}
+        <div class="half left">
+          <label class="label-title adelle-sans" for="">Award Category</label>
+          <input id="" name="" type="text" required>
+        </div>
+
+        {{! Industry }}
+        <div class="half left">
+          <label class="label-title adelle-sans" for="">Industry</label>
+          <input id="Field9" name="Field9" type="text" required>
+        </div>
+      </div>
+
+      {{! Nominee }}
+      <label class="label-title adelle-sans" for="" class="required">Nominee</label>
+      <p class="input-instruction">Include both company name and agency name if applicable.</p>
+      <input id="Field3" name= "Field3" type="text" required>
+
+      {{! Challenge }}
+      <label for="" class="label-title adelle-sans" class="required">Challenge</label>
+      <p class="input-instruction">Share with us the challenge that this nominee faced. What issues and pain points contributed to the challenge? Provide specific timelines and details.</p>
+      <textarea id="Field19" name="Field19"></textarea>
+
+      {{! Highlights }}
+      <label for="" class="label-title adelle-sans" class="required">Highlights</label>
+      <p class="input-instruction">Use bullets to summarize the key information in this submission including key points, metrics, or relevant information.</p>
+      <textarea id="Field19" name="Field19"></textarea>
+
+      {{! Solution }}
+      <label for="" class="label-title adelle-sans" class="required">Solution</label>
+      <p class="input-instruction">Describe in detail how this problem was solved, including what steps were taken as well as the tests or experiences ran to meet this challenge.</p>
+      <textarea id="Field19" name="Field19"></textarea>
+
+      {{! Results }}
+      <label for="" class="label-title adelle-sans" class="required">Results</label>
+      <p class="input-instruction">Share with us how this nominee experienced success (higher conversion rates, cultural transformation, strategy validation, increased revenues). Feel free to describe both quantitative and qualitative benefits the nominee achieved.</p>
+      <textarea id="Field19" name="Field19"></textarea>
+
+      {{! Contributors }}
+      <label for="" class="label-title adelle-sans" class="required">Contributors</label>
+      <p class="input-instruction">List the names and emails of everyone who contributed to the challenge.</p>
+      <textarea id="Field19" name="Field19"></textarea>
+
+      <div class="no-overflow">
+        {{! Attachments }}
+        <div class="half left">
+          <label for="" class="label-title adelle-sans" class="required">Attachments</label>
+          <p class="input-instruction">Please attach creative assets, presentations, or documents that are in support of your submission here.</p>
+        </div>
+        {{! Showcase }}
+        <div class="half right">
+          <label for="" class="label-title adelle-sans" class="required">Showcase</label>
+          <p class="input-instruction">Optimizely is always looking to showcase our customers' successes. Please check the box(es) where we can highlight this submission:</p>
+        </div>
+      </div>
+
+      <div class="no-overflow">
+        {{! Nominator Name }}
+        <div class="half left">
+          <label class="label-title adelle-sans" for="">Nominator Name</label>
+          <input id="" name="" type="text" required>
+        </div>
+
+        {{! Nominator Company }}
+        <div class="half right">
+          <label class="label-title adelle-sans" for="">Nominator Company</label>
+          <input id="Field9" name="Field9" type="text" required>
+        </div>
+      </div>
+
+      <div class="no-overflow">
+        {{! Nominator Email }}
+        <div class="half left">
+          <label class="label-title adelle-sans" for="">Nominator Email</label>
+          <input id="" name="" type="text" required>
+        </div>
+
+        {{! Approval Checkbox }}
+        <div class="half right">
+          <label class="input-instruction adelle-sans" for="">I have approval to submit this application on behalf of a nominee.</label>
+        </div>
+      </div>
+
+      <div class="hidden">
+        <label for="comment">Do Not Fill This Out</label>
+        <textarea name="comment" id="comment" rows="1" cols="1"></textarea>
+        <input type="hidden" id="idstamp" name="idstamp" value="zjItgiPW8JAmJOBwwdI6Jygm4ermRhFuyHM51zFikLw=" />
+      </div>
+
+      <div class="button-container">
+        <button type="submit" class="submit-button">
+          <span class="sbmt-btn-text">Submit</span>
+          <span class="sbmt-btn-icon"></span>
+        </button>
+      </div>
     </form>
+
   </div>
   {{/with}}
 </section>
