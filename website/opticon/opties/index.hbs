@@ -74,103 +74,159 @@ external_script:
     <h4 class="description-title--apply adelle-sans">{{subtitle}}</h4>
 
 
-    <form id="speaker-form" name="form1" method="post" class="columns eight offset-two" action="https://stewsmith.wufoo.com/forms/zs0or104f6dyj/#public" novalidate>
-      <div>
+    <form id="form2" name="form2" class="columns eight offset-two" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="https://stewsmith.wufoo.com/forms/m1oycu1o1x0yrs3/#public">
+      <div class="no-overflow">
         {{! Award Category }}
         <div class="half left">
-          <label class="label-title adelle-sans" for="">Award Category</label>
-          <input id="" name="" type="text" required>
+          <label class="label-title adelle-sans" id="title1" for="Field1">Award Category</label>
+          <div>
+            <select id="Field1" name="Field1" class="field select medium" tabindex="1" >
+            <option value="" selected="selected"></option>
+            <option value="Most Dramatic Business Impact" >Most Dramatic Business Impact</option>
+            <option value="Data-Driven Culture Award" >Data-Driven Culture Award</option>
+            <option value="Optimization Champion of the Year" >Optimization Champion of the Year</option>
+            <option value="Solutions Partner of the Year" >Solutions Partner of the Year</option>
+            <option value="Most Impactful Use of Personalization" >Most Impactful Use of Personalization</option>
+            <option value="Mobile Pioneer Award" >Mobile Pioneer Award</option>
+            <option value="People&rsquo;s Choice: Experiment of the Year" >People’s Choice: Experiment of the Year</option>
+            <option value="Developer Extraordinaire Award" >Developer Extraordinaire Award</option>
+            <option value="The Better Together Award" >The Better Together Award</option>
+            </select>
+          </div>
         </div>
 
         {{! Industry }}
-        <div class="half left">
-          <label class="label-title adelle-sans" for="">Industry</label>
-          <input id="Field9" name="Field9" type="text" required>
+        <div class="half right">
+          <label class="label-title adelle-sans" id="title3" for="Field3">Industry</label>
+          <div>
+            <select id="Field3" name="Field3" class="field select medium" tabindex="2" >
+              <option value="" selected="selected"></option>
+              <option value="Ecommerce" >Ecommerce</option>
+              <option value="Media" >Media</option>
+              <option value="B2B" >B2B</option>
+              <option value="Travel" >Travel</option>
+              <option value="Non-profit" >Non-profit</option>
+              <option value="Other" >Other</option>
+            </select>
+          </div>
         </div>
       </div>
 
       {{! Nominee }}
-      <label class="label-title adelle-sans" for="" class="required">Nominee</label>
+      <label class="label-title adelle-sans" id="title112" for="Field112">Nominee</label>
       <p class="input-instruction">Include both company name and agency name if applicable.</p>
-      <input id="Field3" name= "Field3" type="text" required>
+      <input id="Field112" name="Field112" type="text" value="" maxlength="255" tabindex="3"/>
 
       {{! Challenge }}
-      <label for="" class="label-title adelle-sans" class="required">Challenge</label>
+      <label class="label-title adelle-sans" id="title5" for="Field5">Challenge</label>
       <p class="input-instruction">Share with us the challenge that this nominee faced. What issues and pain points contributed to the challenge? Provide specific timelines and details.</p>
-      <textarea id="Field19" name="Field19"></textarea>
+      <textarea id="Field5" name="Field5"  spellcheck="true" rows="10" cols="50" tabindex="4"></textarea>
 
       {{! Highlights }}
-      <label for="" class="label-title adelle-sans" class="required">Highlights</label>
+      <label  class="label-title adelle-sans" id="title6" for="Field6">Highlights</label>
       <p class="input-instruction">Use bullets to summarize the key information in this submission including key points, metrics, or relevant information.</p>
-      <textarea id="Field19" name="Field19"></textarea>
+      <textarea id="Field6" name="Field6" spellcheck="true" rows="10" cols="50" tabindex="5"></textarea>
 
       {{! Solution }}
-      <label for="" class="label-title adelle-sans" class="required">Solution</label>
+      <label class="label-title adelle-sans" id="title7" for="Field7">Solution</label>
       <p class="input-instruction">Describe in detail how this problem was solved, including what steps were taken as well as the tests or experiences ran to meet this challenge.</p>
-      <textarea id="Field19" name="Field19"></textarea>
+      <textarea id="Field7" name="Field7" spellcheck="true" rows="10" cols="50" tabindex="6"></textarea>
 
       {{! Results }}
-      <label for="" class="label-title adelle-sans" class="required">Results</label>
+      <label class="label-title adelle-sans" id="title8" for="Field8">Results</label>
       <p class="input-instruction">Share with us how this nominee experienced success (higher conversion rates, cultural transformation, strategy validation, increased revenues). Feel free to describe both quantitative and qualitative benefits the nominee achieved.</p>
-      <textarea id="Field19" name="Field19"></textarea>
+      <textarea id="Field8" name="Field8" spellcheck="true" rows="10" cols="50" tabindex="7"></textarea>
 
       {{! Contributors }}
-      <label for="" class="label-title adelle-sans" class="required">Contributors</label>
+      <label class="label-title adelle-sans" id="title9" for="Field9">Contributors</label>
       <p class="input-instruction">List the names and emails of everyone who contributed to the challenge.</p>
-      <textarea id="Field19" name="Field19"></textarea>
+      <textarea id="Field9" name="Field9" spellcheck="true" rows="10" cols="50" tabindex="8"></textarea>
 
       <div class="no-overflow">
         {{! Attachments }}
         <div class="half left">
-          <label for="" class="label-title adelle-sans" class="required">Attachments</label>
+          <label class="label-title adelle-sans" id="title10" for="Field10">Attachments</label>
           <p class="input-instruction">Please attach creative assets, presentations, or documents that are in support of your submission here.</p>
+          <input id="Field10" name="Field10" type="file" class="" size="12" tabindex="9" />
         </div>
         {{! Showcase }}
         <div class="half right">
           <label for="" class="label-title adelle-sans" class="required">Showcase</label>
           <p class="input-instruction">Optimizely is always looking to showcase our customers' successes. Please check the box(es) where we can highlight this submission:</p>
+          <fieldset>
+            <div>
+              <span>
+                <input id="Field11" name="Field11" type="checkbox" class="field checkbox" value="All of the below" tabindex="10"/>
+                <label class="choice" for="Field11">All of the below</label>
+              </span>
+              <span>
+                <input id="Field12" name="Field12" type="checkbox" class="field checkbox" value="Customer Story" tabindex="11"/>
+                <label class="choice" for="Field12">Customer Story</label>
+              </span>
+              <span>
+                <input id="Field13" name="Field13" type="checkbox" class="field checkbox" value="Press release" tabindex="12"/>
+                <label class="choice" for="Field13">Press release</label>
+              </span>
+              <span>
+                <input id="Field14" name="Field14" type="checkbox" class="field checkbox" value="Peer to peer calls" tabindex="13"/>
+                <label class="choice" for="Field14">Peer to peer calls</label>
+              </span>
+              <span>
+                <input id="Field15" name="Field15" type="checkbox" class="field checkbox" value="Blog post" tabindex="14"/>
+                <label class="choice" for="Field15">Blog post</label>
+              </span>
+            </div>
+          </fieldset>
         </div>
       </div>
 
       <div class="no-overflow">
         {{! Nominator Name }}
         <div class="half left">
-          <label class="label-title adelle-sans" for="">Nominator Name</label>
-          <input id="" name="" type="text" required>
+          <label class="label-title adelle-sans" id="title113" for="Field113">Nominator Name</label>
+          <input id="Field113" name="Field113" type="text" value="" maxlength="255" tabindex="15" />
         </div>
 
         {{! Nominator Company }}
         <div class="half right">
-          <label class="label-title adelle-sans" for="">Nominator Company</label>
-          <input id="Field9" name="Field9" type="text" required>
+          <label class="label-title adelle-sans" id="title114" for="Field114">Nominator Company</label>
+          <input id="Field114" name="Field114" type="text" value="" maxlength="255" tabindex="16" />
         </div>
       </div>
 
       <div class="no-overflow">
         {{! Nominator Email }}
         <div class="half left">
-          <label class="label-title adelle-sans" for="">Nominator Email</label>
-          <input id="" name="" type="text" required>
+          <label class="label-title adelle-sans" id="title115" for="Field115">Nominator Email</label>
+          <input id="Field115" name="Field115" type="text" value="" maxlength="255" tabindex="17" />
         </div>
 
         {{! Approval Checkbox }}
         <div class="half right">
           <label class="input-instruction adelle-sans" for="">I have approval to submit this application on behalf of a nominee.</label>
+          <fieldset>
+            <div>
+              <input id="radioDefault_116" name="Field116" type="hidden" value="" />
+              <span>
+                <input id="Field116_0" name="Field116" type="radio" class="field radio" value="Yes" tabindex="18" checked="checked"     />
+                <label class="choice" for="Field116_0" >Yes</label>
+              </span>
+              <span>
+                <input id="Field116_1" name="Field116" type="radio" class="field radio" value="No" tabindex="19"     />
+                <label class="choice" for="Field116_1" >No</label>
+              </span>
+            </div>
+          </fieldset>
         </div>
       </div>
 
       <div class="hidden">
         <label for="comment">Do Not Fill This Out</label>
         <textarea name="comment" id="comment" rows="1" cols="1"></textarea>
-        <input type="hidden" id="idstamp" name="idstamp" value="zjItgiPW8JAmJOBwwdI6Jygm4ermRhFuyHM51zFikLw=" />
+        <input type="hidden" id="idstamp" name="idstamp" value="Of033ci3lHVN4Oo0Iszazt8O3D5dVGoFJJt2Bzy22Xc=" />
       </div>
 
-      <div class="button-container">
-        <button type="submit" class="submit-button">
-          <span class="sbmt-btn-text">Submit</span>
-          <span class="sbmt-btn-icon"></span>
-        </button>
-      </div>
+      <input id="saveForm" name="saveForm" class="btTxt submit" type="submit" value="Submit"/>
     </form>
 
   </div>
