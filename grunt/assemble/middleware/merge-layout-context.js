@@ -66,18 +66,20 @@ module.exports = function(assemble) {
 
       });
 
-      dict = dicts[dictKey] && dicts[dictKey][page];
+      //only do translation if not the om/ppc directory
+      if(!file.data.isPpc) {
+        dict = dicts[dictKey] && dicts[dictKey][page];
 
-      //append layouts paths on context for tr handlebars helper
-      //and translate layout YFM
-      if(filePathData.isSubfolder || (filePathData.isRoot && isTest === 'test')) {
-        file.data.layouts = file.data.layouts || [];
-        file.data.layouts.push(page);
-        if(dict) {
-          objParser.translate(data, dict);
+        //append layouts paths on context for tr handlebars helper
+        //and translate layout YFM
+        if(filePathData.isSubfolder || (filePathData.isRoot && isTest === 'test')) {
+          file.data.layouts = file.data.layouts || [];
+          file.data.layouts.push(page);
+          if(dict) {
+            objParser.translate(data, dict);
+          }
         }
       }
-
     }
 
     /* jshint ignore:end */

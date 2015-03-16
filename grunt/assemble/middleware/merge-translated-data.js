@@ -30,7 +30,7 @@ module.exports = function(assemble) {
 
     //TODO: problem this won't work for modals because they are not scoped to the locale???
     //put in custom function for replacing translated array values
-    if(filePathData.isSubfolder || ( filePathData.isRoot && isTest )) {
+    if(filePathData.isSubfolder || ( filePathData.isRoot && isTest && !file.data.isPpc )) {
       //set the locale on the page context for modal|partial translation
       file.data.locale = locale;
       file.data.dataKey = dataKey;
@@ -53,7 +53,7 @@ module.exports = function(assemble) {
 
       //TODO: for now modals/partials are not locale specific, in future may have locale specific
       //partials that possible overwrite parent partial data
-      if(dicts[dictKey] && dicts[dictKey][dataKey]) {
+      if(!file.data.isPpc && dicts[dictKey] && dicts[dictKey][dataKey]) {
         file = objParser.translate(file, dicts[dictKey][dataKey]);
       }
     }

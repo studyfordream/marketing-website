@@ -4,12 +4,12 @@ layout_script: original.js
 ---
 <div class="top-section">
   <div class="container hero clearfix">
-    {{#if page.hero}}
+    {{#if this.hero}}
     <div class="social-proof-cont">
-      {{#if page.hero.graphic}}
-      <div class="SL_swap"{{#if page.hero.graphic_swap_id}} id="SL-{{page.hero.graphic_swap_id}}"{{/if}}><img src="{{page.hero.graphic}}"{{#if page.hero.graphic_description}}alt="{{page.hero.graphic_description}}"{{/if}}></div>
+      {{#if this.hero.graphic}}
+      <div class="SL_swap"{{#if this.hero.graphic_swap_id}} id="SL-{{this.hero.graphic_swap_id}}"{{/if}}><img src="{{this.hero.graphic}}"{{#if this.hero.graphic_description}}alt="{{this.hero.graphic_description}}"{{/if}}></div>
       {{/if}}
-      {{#if page.hero.experiment_count}}
+      {{#if this.hero.experiment_count}}
       <div id="social-proof-cont">
         <div class="social-numbers visitors-tested-cont">
           <p class="social-number" id="visitors-tested-number">1,306,200,329</p>
@@ -23,40 +23,40 @@ layout_script: original.js
       {{/if}}
     </div><!--/.social-proof-cont-->
     {{/if}}
-    <div class="form-cont{{#unless page.hero}} center{{/unless}}">
+    <div class="form-cont{{#unless this.hero}} center{{/unless}}">
       <div id="ppc-form" class="landing-page-form">
-        {{#if page.form_heading}}<h4 class="seo-form-heading">{{page.form_heading}}</h4>{{/if}}
-        {{#if page.form_body}}{{#omarkdown}}{{{page.form_body}}}{{/omarkdown}}{{/if}}
+        {{#if this.form_heading}}<h4 class="seo-form-heading">{{this.form_heading}}</h4>{{/if}}
+        {{#if this.form_body}}{{#omarkdown}}{{{this.form_body}}}{{/omarkdown}}{{/if}}
         <form id="seo-form" method="POST" class="seo-form inline-labels" action="/account/free_trial_create" autocomplete="off" novalidate="novalidate">
           <p class="error-message oform-error-show"></p>
           <input id="utm_medium" type="hidden" name="utm_medium" value="">
           <input id="hidden" type="hidden" name="hidden" value="">
           <ul>
             <li class="url-input-related">
-              <label for="url">{{tr 'Type in a URL to try it out'}}</label>
+              <label for="url">Type in a URL to try it out</label>
               <input id="url" required name="url-input" type="url">
             </li>
             <li class="name-related">
-            <label for="name">{{tr 'Your Name'}}</label>
+            <label for="name">Your Name</label>
               <input id="name" required data-validation="name" name="name" type="text">
             </li>
             <li id="phone-email-cont" class="clearfix">
               <div class="label half left email-related">
-                <label for="email">{{tr 'Email - no spam'}}</label>
+                <label for="email">Email - no spam</label>
                 <input id="email" required name="email" type="email">
               </div>
 
               <div class="label half right phone_number-related">
-                <label for="phone">{{tr 'Phone Number'}}</label>
+                <label for="phone">Phone Number</label>
                 <input id="phone" name="phone_number" type="tel">
               </div>
             </li>
             <li class="terms">
-              <small>{{tr 'By clicking the'}} <q>{{tr 'Test it Out'}}</q> {{tr 'button below I agree to the'}} <br><a href="{{linkPath}}/terms" target="_blank">{{tr 'Terms of Service'}}</a> {{tr 'and'}} <a href="{{linkPath}}/privacy" target="_blank">{{tr 'Privacy Policy'}}</a>.</small>
+              <small>By clicking the <q>Test it Out</q> button below I agree to the <br><a href="{{linkPath}}/terms" target="_blank">Terms of Service</a> and <a href="{{linkPath}}/privacy" target="_blank">Privacy Policy</a>.</small>
             </li>
             <li class="a-center">
               <button type="submit" id="submit" class="button oform-processing-hide">Test it Out</button>
-              <p class="oform-processing-show processing-message">{{tr 'Processing'}}...</p>
+              <p class="oform-processing-show processing-message">Processing...</p>
             </li>
           </ul>
         </form>
@@ -64,35 +64,35 @@ layout_script: original.js
     </div>
   </div><!--/#hero-->
 </div><!--/.top-section-->
-{{#if page.product_details}}
+{{#if this.product_details}}
 <div class="light-gray-section">
   <div class="container clearfix" id="product-detail-cont">
-    {{#each page.product_details}}
+    {{#each this.product_details}}
     <div class="product-detail{{#unless graphic}} no-graphic{{/unless}}" style="background-image: url({{graphic}});">
       {{#if heading}}<p><strong>{{heading}}</strong></p>{{/if}}
-      {{#omarkdown}}{{{details}}}{{/omarkdown}}
+      {{#omarkdown}}{{{../details}}}{{/omarkdown}}
     </div>
     {{/each}}
   </div>
 </div><!--/.light-gray-section-->
 {{/if}}
-{{#if page.customer_quote}}
+{{#if this.customer_quote}}
 <div class="textured-section customer-quote">
   <div class="container">
     <div class="row">
       <div class="columns ten offset-one">
-        <q class="pull-quote" cite="http://www.sliderocket.com">{{page.customer_quote}}</q>
-        <img src="{{page.customer_quote_logo}}">
+        <q class="pull-quote" cite="http://www.sliderocket.com">{{this.customer_quote}}</q>
+        <img src="{{this.customer_quote_logo}}">
       </div>
     </div>
   </div>
 </div><!--/.textured-section-->
 {{/if}}
-{{#if page.customer_logos}}
+{{#if this.customer_logos}}
 <div class="seo-customers container">
   <div class="row">
     <div class="columns four">
-      <h4>{{tr 'Happy Customers'}} <br>{{tr 'testing with Optimizely'}}</h4>
+      <h4>Happy Customers <br>testing with Optimizely</h4>
     </div>
     <div class="columns eight SL_swap" id="seo-customer-images">
       <img src="{{assetsDir}}/img/resources/free-trial-logos-bw.png" alt="Happy customer logos" />

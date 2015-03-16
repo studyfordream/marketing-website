@@ -120,6 +120,7 @@ module.exports = function (grunt) {
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
     var ppcRe = new RegExp(path.join(options.websiteRoot, ppcKey));
     assemble.onLoad(ppcRe, function(file, next) {
+      file.data.isPpc = true;
       file.data.layout = ppcKey + '-' + file.data.layout;
       next();
     });
