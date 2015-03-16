@@ -76,6 +76,11 @@ module.exports = function (assemble) {
   var phrases = [];
 
   return through.obj(function (file, enc, cb) {
+    var ppcRe = new RegExp(path.join(websiteRoot, 'om'));
+    if(ppcRe.test(file.path)) {
+      console.log(file.path);
+    }
+
     // instead of middleware
     // load file.data information onto `assemble.get('lang')` here
     var data,parsedTranslations, filePathData, locale, pagePhrases;

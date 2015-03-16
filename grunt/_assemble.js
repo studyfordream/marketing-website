@@ -1,6 +1,7 @@
 var path = require('path');
+var ppcKey = 'om';
 
-module.exports = {
+var config = {
   options: {
     layoutDir: '<%= config.guts %>/templates/layouts/**/*.hbs',
     assetsDir: '<%= grunt.config.get("assetsDir") %>',
@@ -28,30 +29,7 @@ module.exports = {
       'es': 'es_ES',
       'jp': 'ja_JP'
     },
-    modals: [
-      'error_modal',
-      'reset_password',
-      'create_experiment',
-      'signup_modal',
-      'signin_modal',
-      'contact_sales',
-      'negative_button_text',
-      'nonprofits_video_modal',
-      'pricing_plan_signup_thank_you',
-      'downgrade_plan',
-      'contact_sales_thank_you'
-    ],
-    modalYamlWhitelist: [
-      'modal_title',
-      'modal_sub_header',
-      'primary_button_text',
-      'negative_button_text',
-      'hidden_button_text'
-    ],
-    layoutYamlWhitelist: [
-      'faq_navigation',
-      'menu_items'
-    ]
+    ppcKey: ppcKey
   },
   modals: {
     options: {
@@ -127,18 +105,21 @@ module.exports = {
         expand: true
       }
     ]
-  },
-  om: {
-    options: {
-      layoutdir: '<%= config.guts %>/templates/om/layouts/'
-    },
-    files: [
-      {
-        src: ['om/**/*.hbs', '!<%= grunt.config.get("exclude_from_assemble") %>'],
-        dest: '<%= config.dist %>/',
-        cwd: '<%= config.content %>/',
-        expand: true
-      }
-    ]
   }
 };
+
+config[ppcKey] = {
+  options: {
+    layoutdir: '<%= config.guts %>/templates/' + ppcKey + '/layouts/'
+  },
+  files: [
+    {
+      src: [ppcKey + '/**/*.hbs', '!<%= grunt.config.get("exclude_from_assemble") %>'],
+      dest: '<%= config.dist %>/',
+      cwd: '<%= config.content %>/',
+      expand: true
+    }
+  ]
+};
+
+module.exports = config;

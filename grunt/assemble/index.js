@@ -14,6 +14,7 @@ module.exports = function (grunt) {
   grunt.registerTask('assemble', 'Assemble', function (target) {
     var done = this.async();
     var assemble = require('assemble');
+    var parseKey = require('rename-keys');
     var localizeLinkPath = require('./middleware/localize-link-path');
     var mergeLayoutContext = require('./middleware/merge-layout-context');
     var collectionMiddleware = require('./middleware/onload-collection')(assemble);
@@ -22,21 +23,42 @@ module.exports = function (grunt) {
     var sendToSmartling = require('./plugins/smartling');
     var typeLoader = require('./loaders/type-loader');
     var push = require('assemble-push')(assemble);
-    var assembleTasks = ['prep-smartling', 'pages', 'subfolders'];
+    var assembleTasks = [
+      'om-pages',
+      'prep-smartling',
+      'pages',
+      'subfolders'
+    ];
+
+    var normalizeSrc = function normalizeSrc (cwd, sources) {
+      sources = Array.isArray(sources) ? sources : [sources];
+      return sources.map(function (src) {
+        if (src[0] === '!') {
+          return path.join('!' + cwd, src.substring(1));
+        }
+        return path.join(cwd, src);
+      });
+    };
 
     var config = grunt.config.get('_assemble'); // old assemble config
     var options = config.options; // global options
-
+    var omLayouts = path.join(config.om.options.layoutdir, '**/*.hbs');
+    var omFiles = config.om.files[0];
+    var omSrc = normalizeSrc(omFiles.cwd, omFiles.src).filter(function(src) {
+      if(src.indexOf('!') === -1) {
+        return true;
+      }
+    })[0];
     var renameKey = assemble.option('renameKey');
     var renameKeys = require('./utils/rename-keys')(renameKey);
     var layoutPath = options.layoutDir.substring(0, options.layoutDir.indexOf('*') - 1);
 
-    assemble.data(options.data);
     if(target === 'test') {
       assemble.set('env', target);
       assembleTasks.splice(assembleTasks.length - 1);
     }
 
+    assemble.data(options.data);
     assemble.option('environment', options.environment);
     assemble.set('data.pageContentNamespace', options.pageContentNamespace);
     assemble.set('data.subfoldersRoot', options.subfoldersRoot);
@@ -55,21 +77,26 @@ module.exports = function (grunt) {
 
     assemble.asyncHelper('partial', renderTypeHelper('partials'));
     assemble.layouts([options.layoutDir]);
+
+    var ppcKey = options.ppcKey;
+    //append special path for ppc layouts
+    assemble.layouts([omLayouts], [function (layouts, options) {
+      return Object.keys(layouts).reduce(function (o, key) {
+        var layout = layouts[key];
+        var concatKey = ppcKey + '-';
+        if(layout.data && layout.data.layout) {
+          layout.data.layout = concatKey + layout.data.layout;
+        }
+
+        o[concatKey + key] = layout;
+        return o;
+      }, {});
+    }]);
     assemble.partials(options.partials, [typeLoader(assemble)]);
     assemble.helpers(options.helpers);
 
     assemble.transform('page-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}', options.websiteRoot);
     Object.keys(options.locales).forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}'));
-
-    function normalizeSrc (cwd, sources) {
-      sources = Array.isArray(sources) ? sources : [sources];
-      return sources.map(function (src) {
-        if (src[0] === '!') {
-          return path.join('!' + cwd, src.substring(1));
-        }
-        return path.join(cwd, src);
-      });
-    }
 
     customSubfolders(assemble, Object.keys(options.locales), process.env.lastRunTime);
 
@@ -91,6 +118,11 @@ module.exports = function (grunt) {
     assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
+    var ppcRe = new RegExp(path.join(options.websiteRoot, ppcKey));
+    assemble.onLoad(ppcRe, function(file, next) {
+      file.data.layout = ppcKey + '-' + file.data.layout;
+      next();
+    });
 
     //is this order dependent because we are merging page data for localization
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
@@ -121,12 +153,30 @@ module.exports = function (grunt) {
                           var pattern = '**/*.hbs';
                           map.push(path.join(root, pattern));
                           return map;
-                      }, []);
+                      }, [])
+                      .concat([
+                        '!' + options.client,
+                        '!' + omSrc,
+                        '!' + omLayouts
+                      ]);
 
-    assemble.task('prep-smartling', function () {
+    assemble.task('om-pages', function () {
+      var start = process.hrtime();
+      var files = config[ppcKey].files[0];
+
+      return assemble.src([omSrc])
+        .pipe(ext())
+        .pipe(assemble.dest(path.join(files.dest, ppcKey)))
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished rendering pages om', end);
+        });
+    });
+
+    assemble.task('prep-smartling', ['om-pages'], function () {
       var start = process.hrtime();
 
-      return assemble.src(hbsPaths.concat(['!' + options.client]))
+      return assemble.src(hbsPaths)
         .pipe(sendToSmartling(assemble))
         .on('end', function () {
           var end = process.hrtime(start);
@@ -136,13 +186,13 @@ module.exports = function (grunt) {
 
     assemble.task('pages', ['prep-smartling'], function () {
       var start = process.hrtime();
-      //assemble.option('renameKey', renameKeys.dirnamePageKey('website'));
 
       var files = config.pages.files[0];
       var opts = {
         since: (process.env.lastRunTime ? new Date(process.env.lastRunTime) : null)
       };
-      return assemble.src(normalizeSrc(files.cwd, files.src), opts)
+      //this excludes om pages && resources-list pages
+      return assemble.src(normalizeSrc(files.cwd, files.src).concat('!' + omSrc[0]), opts)
         .pipe(ext())
         .pipe(assemble.dest(files.dest))
         .on('end', function () {
