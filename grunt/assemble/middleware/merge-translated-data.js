@@ -33,6 +33,7 @@ module.exports = function(assemble) {
     if(filePathData.isSubfolder || ( filePathData.isRoot && isTest )) {
       //set the locale on the page context for modal|partial translation
       file.data.locale = locale;
+      file.data.dataKey = dataKey;
 
       //get the parent key for extending subfolder data allowing for conent swaps
       parentKey = filePathData.parentKey;
@@ -48,6 +49,7 @@ module.exports = function(assemble) {
 
     } else if ( (isTest || ( file.data.locale && file.data.locale !== websiteRoot ) ) && ( filePathData.isModal || filePathData.isPartial ) ) {
       locale = file.data.locale;
+      file.data.dataKey = dataKey;
 
       //TODO: for now modals/partials are not locale specific, in future may have locale specific
       //partials that possible overwrite parent partial data

@@ -41,6 +41,7 @@ module.exports = function (grunt) {
     assemble.set('data.pageContentNamespace', options.pageContentNamespace);
     assemble.set('data.subfoldersRoot', options.subfoldersRoot);
     assemble.set('data.basename', options.basename);
+    assemble.set('data.websiteGuts', options.websiteGuts);
     assemble.set('data.websiteRoot', options.websiteRoot);
     assemble.set('data.locales', options.locales);
     assemble.set('data.modalYamlWhitelist', options.modalYamlWhitelist);

@@ -65,24 +65,39 @@ module.exports = function (assemble) {
   var pageData = assemble.get('pageData');
   var environment = assemble.option('environment');
   var websiteRoot = assemble.get('data.websiteRoot');
+  var websiteGuts = assemble.get('data.websiteGuts');
   var locales = assemble.get('data.locales');
   var localeCodes = Object.keys(locales).map(function(subfolder) {
     return locales[subfolder];
   });
   var createTranslationDict = require('../utils/create-dictionary')(assemble);
   var parseFilePath = require('../utils/parse-file-path')(assemble);
+  var generateKey = require('../utils/generate-key');
+  var phrases = [];
 
   return through.obj(function (file, enc, cb) {
     // instead of middleware
     // load file.data information onto `assemble.get('lang')` here
-    var data,parsedTranslations, filePathData, locale;
+    var data,parsedTranslations, filePathData, locale, pagePhrases;
 
     //here were merge the file data with local YML data
     filePathData = parseFilePath(file.path);
     locale = filePathData.locale;
     var dataKey = filePathData.dataKey;
 
+    //create lang dictionary from TR prefixes
     parsedTranslations = createTranslationDict(file, locale);
+
+    //parse file contents for tr helper phrases
+    if(!file.HTML_page_content && file.contents) {
+      pagePhrases = hbsParser.extract(file.contents.toString());
+      if(pagePhrases.length) {
+        phrases.push({
+          fname: dataKey,
+          phrases: pagePhrases
+        });
+      }
+    }
 
     if(Object.keys(parsedTranslations).length > 0) {
       lang[locale] = lang[locale] || {};
@@ -95,7 +110,6 @@ module.exports = function (assemble) {
     assemble.set('lang', lang);
     var DICT_FNAME = 'marketing_website_yaml.pot';
     var JS_DICT_FNAME = 'marketing_website_js.pot';
-    var phrases = [];
 
     _.forEach(lang, function(pages){
       _.forEach(pages, function(fileInfo, fname){
@@ -108,7 +122,7 @@ module.exports = function (assemble) {
       return glob.sync(srcs).map(function (fname) {
         var phrases = parser.extract(fs.readFileSync(fname));
         return {
-          fname: '/' + fname.replace(/\.hbs$/, ''),
+          fname: generateKey(fname),
           phrases: phrases
         };
       });
@@ -118,8 +132,8 @@ module.exports = function (assemble) {
     mkdirp.sync('tmp/download');
     mkdirp.sync('dist/assets/js');
 
-    var hbsPhrases = extractFrom('website-guts/templates/**/*.hbs', hbsParser);
-    phrases = phrases.concat(hbsPhrases);
+    var clientHbsPhrases = extractFrom(path.join(websiteGuts, 'templates/client/**/*.hbs'), hbsParser);
+    phrases = phrases.concat(clientHbsPhrases);
     var content = smartling.generatePO(phrases);
     var yamlDefer = Q.defer();
     if(checksumChanged(content, 'tmp/upload/' + DICT_FNAME)){

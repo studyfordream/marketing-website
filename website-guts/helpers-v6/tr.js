@@ -1,14 +1,16 @@
 module.exports = function tr(key) {
   var tr = require('l10n-tools/tr');
   var app = this.app;
+  var websiteRoot = app.get('data.websiteRoot');
+  var isTest = app.get('env') === 'test';
   var dicts = app.get('dicts');
-  var locale = this.context.locale || 'website';
-  if (locale === 'website') {
+  var locale = this.context.locale || websiteRoot;
+  if (locale === websiteRoot && !isTest) {
     return key;
   }
   var dataKey = this.context.dataKey;
   var locales = app.get('data.locales');
-  var dictKey = locales[locale];
+  var dictKey = isTest ? 'de_DE' : locales[locale];
   if (dicts[dictKey] && dicts[dictKey][dataKey]) {
     tr.setDict(dicts[dictKey][dataKey]);
   } else {
