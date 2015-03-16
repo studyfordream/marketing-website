@@ -17,9 +17,13 @@
       text-decoration: none;
     }
   }
-  .body-button {
+  .body-button--nav {
     margin: 0;
     color: $opticon-brand-blue;
+    font-size: 0.87em;
+    padding: 5px 17px;
+    border: 1px solid $brand-blue;
+    border-radius: 3px;
   }
 }
 
@@ -34,7 +38,7 @@
       flex: 1;
     }
     .nav-text-item {
-      margin: 0 30px;
+      margin: 0 22px;
     }
   }
 }

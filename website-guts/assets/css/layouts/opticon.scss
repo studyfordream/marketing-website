@@ -20,7 +20,6 @@
   background-color: #fff;
   &:hover {
     text-decoration: none;
-    background: #E9F3F4;
   }
 }
 
@@ -41,6 +40,7 @@
     border-left: 1px solid $brand-blue;
     text-align: center;
   }
+
   .cta-text {
     transition: all 0.5s ease-out;
     position: absolute;
@@ -54,7 +54,6 @@
     .cta-text {
       left: 20px;
     }
-    background-color: #E9F3F4;
   }
 }
 
@@ -77,9 +76,9 @@ body.opticon {
     }
   }
   .common-page-title {
-    font-size: 3em;
+    font-size: 2.75em;
     display: inline;
-    padding: 2px 15px;
+    padding: 15px 20px 5px 20px;
   }
   .subtitle {
     font-size: 1.25em;
@@ -104,7 +103,7 @@ body.opticon {
     font-size: 0.8125em;
     color: $opticon-text-gray;
     letter-spacing: 0.4px;
-    line-height: 24px;
+    line-height: 22px;
     text-align: center;
   }
   .button-container {
@@ -115,7 +114,7 @@ body.opticon {
     display: block;
   }
   .item-title {
-    font-size: 0.875em;
+    font-size: 1em;
     color: $almost-black-text-color;
     letter-spacing: 1.07px;
     line-height: 28px;
@@ -157,7 +156,7 @@ body.opticon {
       letter-spacing: 0.61px;
       line-height: 41px;
       text-align: center;
-      margin: 15px 0;
+      margin: 15px auto;
     }
   }
   .sponsors-section {
@@ -200,6 +199,9 @@ body.opticon {
     }
     .confetti-right {
       display: block;
+    }
+    .common-page-title {
+      font-size: 3em;
     }
     .flex-container {
       display: flex;
