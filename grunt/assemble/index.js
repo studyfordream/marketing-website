@@ -135,8 +135,8 @@ module.exports = function (grunt) {
       next();
     });
 
-    //is this order dependent because we are merging page data for localization
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
+    //order is important here because we want to merge layouts before translating
     assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
     assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
 

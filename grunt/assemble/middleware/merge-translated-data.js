@@ -21,9 +21,6 @@ module.exports = function(assemble) {
     var dataKey = filePathData.dataKey;
     var dictKey = isTest ? 'de_DE' : locales[locale];
     var mergedDict, parentKey;
-    if(/website\/partners/.test(file.path)) {
-      debugger;
-    }
 
     //extend the file with the external YML content
     extendFileData(filePathData, file);

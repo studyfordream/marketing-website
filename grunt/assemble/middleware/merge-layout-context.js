@@ -4,8 +4,6 @@ var extend = require('extend-shallow');
 var _ = require('lodash');
 var objParser = require('l10n-tools/object-extractor');
 
-//var mergeTranslated = require('../utils/merge-tranlated-dictionary');
-
 module.exports = function(assemble) {
   var parseFilePath = require('../utils/parse-file-path')(assemble);
   var generateKey = require('../utils/generate-key');
@@ -83,14 +81,8 @@ module.exports = function(assemble) {
     }
 
     /* jshint ignore:end */
-    //which way should extend be to overwrite file.data with data
-    //data from layout YFM would overwrite page YFM if the keys match
-    extend(file.data, data);
-
-    //puts the data from the YAML front matter of layouts onto file.data
-    //can be accessed with this[property] in hbs template
-    //ex. this.body_class in the wrapper layout
-    //file.data = data;
+    //non mutating merge is important here because translation keys were being mutated
+    file.data = _.merge({}, file.data, data);
     next();
   };
 };
