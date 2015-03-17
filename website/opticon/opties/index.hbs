@@ -39,7 +39,7 @@ external_script:
   <div class="award-categories flex-container">
     {{#each categories}}
     <div class="category-item">
-      <p class="adelle-sans--bold">{{this.title}}</p>
+      <p class="adelle-sans category-title">{{this.title}}</p>
       <p class="adelle-sans">{{this.blurb}}</p>
     </div>
     {{/each}}
@@ -88,7 +88,7 @@ external_script:
             <option value="Solutions Partner of the Year" >Solutions Partner of the Year</option>
             <option value="Most Impactful Use of Personalization" >Most Impactful Use of Personalization</option>
             <option value="Mobile Pioneer Award" >Mobile Pioneer Award</option>
-            <option value="People&rsquo;s Choice: Experiment of the Year" >People’s Choice: Experiment of the Year</option>
+            <option value="People's Choice: Experiment of the Year" >People’s Choice: Experiment of the Year</option>
             <option value="Developer Extraordinaire Award" >Developer Extraordinaire Award</option>
             <option value="The Better Together Award" >The Better Together Award</option>
             </select>
@@ -147,7 +147,7 @@ external_script:
         <div class="half left">
           <label class="label-title adelle-sans" id="title10" for="Field10">Attachments</label>
           <p class="input-instruction">Please attach creative assets, presentations, or documents that are in support of your submission here.</p>
-          <input id="Field10" name="Field10" type="file" class="" size="12" tabindex="9" />
+          <input id="Field10" name="Field10" type="file" class="adelle-sans input-instruction" size="12" tabindex="9" />
         </div>
         {{! Showcase }}
         <div class="half right">
@@ -155,32 +155,32 @@ external_script:
           <p class="input-instruction">Optimizely is always looking to showcase our customers' successes. Please check the box(es) where we can highlight this submission:</p>
           <fieldset>
             <div>
-              <span>
+              <div>
                 <input id="Field11" name="Field11" type="checkbox" class="field checkbox" value="All of the below" tabindex="10"/>
-                <label class="choice" for="Field11">All of the below</label>
-              </span>
-              <span>
+                <label class="input-instruction inline" for="Field11">All of the below</label>
+              </div>
+              <div>
                 <input id="Field12" name="Field12" type="checkbox" class="field checkbox" value="Customer Story" tabindex="11"/>
-                <label class="choice" for="Field12">Customer Story</label>
-              </span>
-              <span>
+                <label class="input-instruction inline" for="Field12">Customer Story</label>
+              </div>
+              <div>
                 <input id="Field13" name="Field13" type="checkbox" class="field checkbox" value="Press release" tabindex="12"/>
-                <label class="choice" for="Field13">Press release</label>
-              </span>
-              <span>
+                <label class="input-instruction inline" for="Field13">Press release</label>
+              </div>
+              <div>
                 <input id="Field14" name="Field14" type="checkbox" class="field checkbox" value="Peer to peer calls" tabindex="13"/>
-                <label class="choice" for="Field14">Peer to peer calls</label>
-              </span>
-              <span>
+                <label class="input-instruction inline" for="Field14">Peer to peer calls</label>
+              </div>
+              <div>
                 <input id="Field15" name="Field15" type="checkbox" class="field checkbox" value="Blog post" tabindex="14"/>
-                <label class="choice" for="Field15">Blog post</label>
-              </span>
+                <label class="input-instruction inline" for="Field15">Blog post</label>
+              </div>
             </div>
           </fieldset>
         </div>
       </div>
 
-      <div class="no-overflow">
+      <div class="no-overflow nominator">
         {{! Nominator Name }}
         <div class="half left">
           <label class="label-title adelle-sans" id="title113" for="Field113">Nominator Name</label>
@@ -203,17 +203,17 @@ external_script:
 
         {{! Approval Checkbox }}
         <div class="half right">
-          <label class="input-instruction adelle-sans" for="">I have approval to submit this application on behalf of a nominee.</label>
+          <label class="input-instruction adelle-sans approval" for="">I have approval to submit this application on behalf of a nominee.</label>
           <fieldset>
             <div>
               <input id="radioDefault_116" name="Field116" type="hidden" value="" />
               <span>
-                <input id="Field116_0" name="Field116" type="radio" class="field radio" value="Yes" tabindex="18" checked="checked"     />
-                <label class="choice" for="Field116_0" >Yes</label>
+                <input id="Field116_0" name="Field116" type="radio" class="field radio" value="Yes" tabindex="18" />
+                <label class="input-instruction inline" for="Field116_0" >Yes</label>
               </span>
               <span>
-                <input id="Field116_1" name="Field116" type="radio" class="field radio" value="No" tabindex="19"     />
-                <label class="choice" for="Field116_1" >No</label>
+                <input id="Field116_1" name="Field116" type="radio" class="field radio" value="No" tabindex="19" />
+                <label class="input-instruction inline" for="Field116_1" >No</label>
               </span>
             </div>
           </fieldset>

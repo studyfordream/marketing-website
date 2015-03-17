@@ -2,12 +2,8 @@ body.opticon-opties {
   .flex-container {
     flex-wrap: wrap;
   }
-  .top-paragraph {
-    width: 60%;
-  }
   .category-item {
-    width: 50%;
-    padding-right: 50px;
+    padding: 25px 10px 25px 10px;
   }
   .section-padding {
     padding: 100px 0;
@@ -16,12 +12,8 @@ body.opticon-opties {
     border-top: 1px solid #ccc;
     padding: 40px 0 155px 0;
   }
-  .guidelines__title {
-    width: 30%;
-  }
   .guidelines__list {
-    width: 70%;
-    margin: 30px 0;
+    margin: 30px 10px;
   }
   .application-form {
     background: $opticon-brand-blue;
@@ -33,9 +25,17 @@ body.opticon-opties {
   label {
     display: block;
   }
-  input,
+  input:not([type="checkbox"]):not([type="radio"]),
   textarea {
     width: 100%;
+  }
+  .category-title {
+    font-size: 1.25em;
+    color: #444B4F;
+  }
+  .category-desc {
+    font-size: 13px;
+    color: #444B4F;
   }
   textarea {
     height: 100px;
@@ -50,13 +50,38 @@ body.opticon-opties {
     color: #fff;
     margin: 0;
   }
+  .inline {
+    display: inline;
+  }
   .no-overflow {
     overflow: hidden;
+  }
+  .approval {
+    margin-top: 27px;
+  }
+  .nominator {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top : 1px solid rgba(255,255,255,0.23);
   }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon-opties {
+    .top-paragraph {
+      width: 60%;
+    }
+    .category-item {
+      width: 50%;
+      padding: 0 50px 0 0;
+    }
+    .guidelines__title {
+      width: 30%;
+    }
+    .guidelines__list {
+      width: 70%;
+      margin: 30px 0;
+    }
   }
 }
 
