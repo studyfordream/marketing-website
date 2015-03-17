@@ -7,22 +7,6 @@
   height: $height;
 }
 
-.opticon-button {
-  font-size: 1em;
-  color: $brand-blue;
-  background-color: #fff;
-  letter-spacing: 0.38px;
-  border: 1px solid $brand-blue;
-  border-radius: 3px;
-  padding: 11px 35px;
-  display: inline-block;
-  margin: 30px 0;
-  background-color: #fff;
-  &:hover {
-    text-decoration: none;
-  }
-}
-
 .anim-opticon-button {
   @extend .opticon-button;
   transition: all 0.5s ease-out;
@@ -127,8 +111,46 @@ body.opticon {
     line-height: 28px;
     margin: 0;
   }
-  .body-button {
-    @extend .opticon-button;
+  .nav-text-item {
+    margin: 15px 0;
+    font-size: 0.87em;
+    letter-spacing: 0.46px;
+    line-height: 23px;
+    display: block;
+    &--internal-page {
+      color: $light-text-color;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .opticon-button {
+    font-size: 1em;
+    color: $brand-blue;
+    background-color: #fff;
+    letter-spacing: 0.38px;
+    border: 1px solid $brand-blue;
+    border-radius: 3px;
+    padding: 11px 35px;
+    display: inline-block;
+    margin: 30px 0;
+    background-color: #fff;
+    &:hover {
+      text-decoration: none;
+    }
+    &--nav {
+      margin: 0 0 0 15px;
+      padding: 4px 17px;
+      border-radius: 3px;
+      &--footer {
+        color: $light-text-color;
+        border: 1px solid $light-text-color;
+      }
+      &--header {
+        color: $opticon-brand-blue;
+        border: 1px solid $opticon-brand-blue;
+      }
+    }
   }
   .optimizely-host {
     font-size: 0.8125em;

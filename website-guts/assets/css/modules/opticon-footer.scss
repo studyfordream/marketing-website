@@ -3,24 +3,6 @@
   height: 285px;
   width: 100%;
   border-top: solid 1px $faint-gray-border;
-  .nav-text-item {
-    margin: 15px 0;
-    font-size: 0.938em;
-    letter-spacing: 0.46px;
-    line-height: 23px;
-    color: $light-text-color;
-    display: block;
-    &:hover {
-      text-decoration: none;
-    }
-    &.body-button--nav {
-    margin: 0 0 0 15px;
-    color: $light-text-color;
-    padding: 5px 17px;
-    border: 1px solid $light-text-color;
-    border-radius: 3px;
-    }
-  }
   .social {
     background-repeat: no-repeat;
     background-size: contain;
