@@ -115,39 +115,39 @@ external_script:
       {{! Nominee }}
       <label class="label-title adelle-sans" id="title112" for="Field112">Nominee</label>
       <p class="input-instruction">Include both company name and agency name if applicable.</p>
-      <input id="Field112" name="Field112" type="text" value="" maxlength="255" tabindex="3"/>
+      <input class="full-width" id="Field112" name="Field112" type="text" value="" maxlength="255" tabindex="3"/>
 
       {{! Challenge }}
       <label class="label-title adelle-sans" id="title5" for="Field5">Challenge</label>
       <p class="input-instruction">Share with us the challenge that this nominee faced. What issues and pain points contributed to the challenge? Provide specific timelines and details.</p>
-      <textarea id="Field5" name="Field5"  spellcheck="true" rows="10" cols="50" tabindex="4"></textarea>
+      <textarea class="full-width" id="Field5" name="Field5"  spellcheck="true" rows="10" cols="50" tabindex="4"></textarea>
 
       {{! Highlights }}
       <label  class="label-title adelle-sans" id="title6" for="Field6">Highlights</label>
       <p class="input-instruction">Use bullets to summarize the key information in this submission including key points, metrics, or relevant information.</p>
-      <textarea id="Field6" name="Field6" spellcheck="true" rows="10" cols="50" tabindex="5"></textarea>
+      <textarea class="full-width" id="Field6" name="Field6" spellcheck="true" rows="10" cols="50" tabindex="5"></textarea>
 
       {{! Solution }}
       <label class="label-title adelle-sans" id="title7" for="Field7">Solution</label>
       <p class="input-instruction">Describe in detail how this problem was solved, including what steps were taken as well as the tests or experiences ran to meet this challenge.</p>
-      <textarea id="Field7" name="Field7" spellcheck="true" rows="10" cols="50" tabindex="6"></textarea>
+      <textarea class="full-width" id="Field7" name="Field7" spellcheck="true" rows="10" cols="50" tabindex="6"></textarea>
 
       {{! Results }}
       <label class="label-title adelle-sans" id="title8" for="Field8">Results</label>
       <p class="input-instruction">Share with us how this nominee experienced success (higher conversion rates, cultural transformation, strategy validation, increased revenues). Feel free to describe both quantitative and qualitative benefits the nominee achieved.</p>
-      <textarea id="Field8" name="Field8" spellcheck="true" rows="10" cols="50" tabindex="7"></textarea>
+      <textarea class="full-width" id="Field8" name="Field8" spellcheck="true" rows="10" cols="50" tabindex="7"></textarea>
 
       {{! Contributors }}
       <label class="label-title adelle-sans" id="title9" for="Field9">Contributors</label>
       <p class="input-instruction">List the names and emails of everyone who contributed to the challenge.</p>
-      <textarea id="Field9" name="Field9" spellcheck="true" rows="10" cols="50" tabindex="8"></textarea>
+      <textarea class="full-width" id="Field9" name="Field9" spellcheck="true" rows="10" cols="50" tabindex="8"></textarea>
 
       <div class="no-overflow">
         {{! Attachments }}
         <div class="half left">
           <label class="label-title adelle-sans" id="title10" for="Field10">Attachments</label>
           <p class="input-instruction">Please attach creative assets, presentations, or documents that are in support of your submission here.</p>
-          <input id="Field10" name="Field10" type="file" class="adelle-sans input-instruction" size="12" tabindex="9" />
+          <input id="Field10" name="Field10" type="file" class="adelle-sans input-instruction full-width" size="12" tabindex="9" />
         </div>
         {{! Showcase }}
         <div class="half right">
@@ -184,13 +184,13 @@ external_script:
         {{! Nominator Name }}
         <div class="half left">
           <label class="label-title adelle-sans" id="title113" for="Field113">Nominator Name</label>
-          <input id="Field113" name="Field113" type="text" value="" maxlength="255" tabindex="15" />
+          <input class="full-width" id="Field113" name="Field113" type="text" value="" maxlength="255" tabindex="15" />
         </div>
 
         {{! Nominator Company }}
         <div class="half right">
           <label class="label-title adelle-sans" id="title114" for="Field114">Nominator Company</label>
-          <input id="Field114" name="Field114" type="text" value="" maxlength="255" tabindex="16" />
+          <input class="full-width" id="Field114" name="Field114" type="text" value="" maxlength="255" tabindex="16" />
         </div>
       </div>
 
@@ -198,7 +198,7 @@ external_script:
         {{! Nominator Email }}
         <div class="half left">
           <label class="label-title adelle-sans" id="title115" for="Field115">Nominator Email</label>
-          <input id="Field115" name="Field115" type="text" value="" maxlength="255" tabindex="17" />
+          <input class="full-width" id="Field115" name="Field115" type="text" value="" maxlength="255" tabindex="17" />
         </div>
 
         {{! Approval Checkbox }}
@@ -226,7 +226,9 @@ external_script:
         <input type="hidden" id="idstamp" name="idstamp" value="Of033ci3lHVN4Oo0Iszazt8O3D5dVGoFJJt2Bzy22Xc=" />
       </div>
 
-      <input id="saveForm" name="saveForm" class="btTxt submit" type="submit" value="Submit"/>
+      <div class="button-container">
+        <input id="saveForm" name="saveForm" class="submit-button adelle-sans" type="submit" value="Submit"/>
+      </div>
     </form>
 
   </div>

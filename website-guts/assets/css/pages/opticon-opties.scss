@@ -16,6 +16,7 @@ body.opticon-opties {
     margin: 30px 10px;
   }
   .application-form {
+    padding: 20px 0;
     background: $opticon-brand-blue;
   }
   .description-title--apply {
@@ -25,8 +26,7 @@ body.opticon-opties {
   label {
     display: block;
   }
-  input:not([type="checkbox"]):not([type="radio"]),
-  textarea {
+  .full-width {
     width: 100%;
   }
   .category-title {
@@ -63,6 +63,19 @@ body.opticon-opties {
     margin-top: 40px;
     padding-top: 25px;
     border-top : 1px solid rgba(255,255,255,0.23);
+  }
+  .button-container {
+    margin: 80px 0;
+  }
+  .submit-button {
+    padding: 6px 30px;
+    background: white;
+    font-size: 16px;
+    color: $opticon-brand-blue;
+    letter-spacing: 0.38px;
+    line-height: 28px;
+    border: 1px solid $opticon-brand-blue;
+    border-radius: 2px;
   }
 }
 
