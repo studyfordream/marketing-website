@@ -55,7 +55,7 @@ layout_modals:
         {{/if}}
         {{#if page.external_script}}
         {{#each page.external_script}}
-        <script  src="{{.}}"></script>
+        <script  src="{{#hasAssetPath .}}{{../../assetsDir}}/{{/hasAssetPath}}{{.}}"></script>
         {{/each}}
         {{/if}}
         {{#if page.external_stylesheets}}
