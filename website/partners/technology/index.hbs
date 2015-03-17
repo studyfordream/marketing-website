@@ -10,11 +10,11 @@ body_class:
 
   <div class="row">
     <div class="columns seven">
-      <p>{{{technology_data.page_intro}}}</p>
+      <p>{{{page_data.page_intro}}}</p>
     </div>
     <div class="columns five learn-more">
-      {{{technology_data.dev_link_intro}}}
-      <a class="big" href="{{technology_data.dev_link_url}}">{{{technology_data.dev_link_text}}} &gt;</a>
+      {{{page_data.dev_link_intro}}}
+      <a class="big" href="{{page_data.dev_link_url}}">{{{page_data.dev_link_text}}} &gt;</a>
     </div>
   </div>
 
@@ -31,7 +31,7 @@ body_class:
               <p>{{ this.summary }}</p>
             </div>
             <div class="button-container">
-              <a href="{{relativeDir this.dest ../linkPath}}" class="button">{{{../technology_data.more}}} &gt;</a>
+              <a href="{{relativeDir this.dest ../linkPath}}" class="button">{{{../page_data.more}}} &gt;</a>
             </div>
           </div> <!-- .partner-grid-elm -->
         {{/collection}}

@@ -66,8 +66,6 @@ module.exports = function (grunt) {
     assemble.set('data.websiteGuts', options.websiteGuts);
     assemble.set('data.websiteRoot', options.websiteRoot);
     assemble.set('data.locales', options.locales);
-    assemble.set('data.modalYamlWhitelist', options.modalYamlWhitelist);
-    assemble.set('data.layoutYamlWhitelist', options.layoutYamlWhitelist);
     assemble.set('data.assetsDir', options.assetsDir);
     assemble.set('data.linkPath', options.linkPath);
     assemble.set('data.sassImagePath', options.sassImagePath);
@@ -118,6 +116,18 @@ module.exports = function (grunt) {
     assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
+    assemble.preRender(/partners\/solutions\/index/, function(file, next) {
+      var col = assemble.get('solutions');
+      var tags = Object.keys(col).reduce(function(map, key) {
+        var o = col[key];
+        if(_.isArray(o.tags)) {
+          map.push.apply(map, o.tags);
+        }
+        return map;
+      }, []);
+      file.data.tags = _.uniq(tags).filter(function(tag) { return !!tag; });
+      next();
+    });
     var ppcRe = new RegExp(path.join(options.websiteRoot, ppcKey));
     assemble.onLoad(ppcRe, function(file, next) {
       file.data.isPpc = true;

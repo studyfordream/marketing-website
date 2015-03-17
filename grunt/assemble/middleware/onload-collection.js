@@ -1,12 +1,19 @@
 var extend = require('extend-shallow');
+var _ = require('lodash');
 var path = require('path');
 
 module.exports = function(assemble) {
+  function filterTags(arr) {
+    return arr.filter(function(tag) {
+      return !!tag;
+    });
+  }
   //sets a key on the assemble instance equal to the collection name
   //this object contains keys of the dirname using dirnameKey rename key function
   //and then the collection is accessed in the template using the collection
   //handlebars helper
   return function collectionMiddleware(collection) {
+
     return function (file, next) {
       if (!file.data[collection]) {
         return next();
@@ -28,7 +35,7 @@ module.exports = function(assemble) {
       if(col[key]) {
         return next();
       }
-      col[key] = extend({}, col[key], file.data);
+      col[key] = _.merge({}, col[key], file.data);
       assemble.set(collection, col);
       next();
     };

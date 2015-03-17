@@ -21,7 +21,7 @@ module.exports = function(assemble) {
     var dataKey = filePathData.dataKey;
     var dictKey = isTest ? 'de_DE' : locales[locale];
     var mergedDict, parentKey;
-    if(/communities/.test(file.path)) {
+    if(/website\/partners/.test(file.path)) {
       debugger;
     }
 
