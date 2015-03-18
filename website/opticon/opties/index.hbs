@@ -4,6 +4,7 @@ seo_title: Opties 2015
 no_container: true
 no_header: true
 no_footer: true
+page_script: opties.js
 body_class:
 - opticon
 - opticon-opties
@@ -24,7 +25,7 @@ external_script:
   <h2 class="page-title common-page-title adelle-sans--bold">{{page_title}}</h2>
   <div class="top-paragraph">
     <h3 class="description-title adelle-sans">{{top_paragraph.title}}</h3>
-    <p class="description-text adelle-sans">{{top_paragraph.deadline}}</p>
+    <p class="subtitle deadline adelle-sans">{{top_paragraph.deadline}}</p>
     <p class="description-text adelle-sans">{{top_paragraph.blurb}}</p>
   </div>
   {{/with}}
@@ -41,6 +42,7 @@ external_script:
     <div class="category-item">
       <p class="adelle-sans category-title">{{this.title}}</p>
       <p class="adelle-sans">{{this.blurb}}</p>
+      <a class="adelle-sans js-category-cta" href="#js-opties-application" data-category="{{this.title}}">{{this.cta}}</a>
     </div>
     {{/each}}
     {{/with}}
@@ -63,17 +65,14 @@ external_script:
   {{/with}}
 </div>
 
-
 <!--               -->
 <!--Applcation Form-->
 <!--               -->
-<section class="application-form">
+<section class="application-form" id="js-opties-application">
   {{#with opties_data.application_form}}
   <div class="container">
     <h3 class="description-title--apply adelle-sans">{{title}}</h3>
     <h4 class="description-title--apply adelle-sans">{{subtitle}}</h4>
-
-
     <form id="form2" name="form2" class="columns eight offset-two" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="https://stewsmith.wufoo.com/forms/m1oycu1o1x0yrs3/#public">
       <div class="no-overflow">
         {{! Award Category }}
@@ -147,7 +146,7 @@ external_script:
         <div class="half left">
           <label class="label-title adelle-sans" id="title10" for="Field10">Attachments</label>
           <p class="input-instruction">Please attach creative assets, presentations, or documents that are in support of your submission here.</p>
-          <input id="Field10" name="Field10" type="file" class="adelle-sans input-instruction full-width" size="12" tabindex="9" />
+          <input id="Field10" name="Field10" type="file" class="adelle-sans input-instruction" size="12" tabindex="9" />
         </div>
         {{! Showcase }}
         <div class="half right">
