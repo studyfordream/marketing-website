@@ -1,7 +1,6 @@
 $('.gallery__image-cont').magnificPopup({
-  delegate: 'a',
+  delegate: '.gallery__image-cont__item',
   type: 'image',
-  tLoading: '',
   gallery:{enabled:true}
 });
 

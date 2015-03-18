@@ -3,7 +3,9 @@ body.opticon-2014 {
     padding: 0 5px;
   }
   .video-image-half {
-    width: 100%;
+    width: 300px;
+    height: 200px;
+    margin: 20px auto;
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -12,13 +14,12 @@ body.opticon-2014 {
     &__image-cont {
       flex-wrap: wrap;
       &__item {
-        width: 25%;
-        padding: 5px;
-        &__bg {
-          padding-top: 150px;
-          background-size: contain;
-          background-repeat: no-repeat;
-        }
+        margin: 10px auto;
+        width: 250px;
+        padding-top: 167px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: block;
       }
     }
   }
@@ -74,6 +75,11 @@ body.opticon-2014 {
     }
     .video-image-half {
       width: 50%;
+      height: auto;
+    }
+    .gallery__image-cont__item {
+      width: 25%;
+      padding: 150px 5px 0;
     }
   }
 }
