@@ -2,7 +2,7 @@
 layout_modals:
 - signin_modal_compiled
 - signup_modal_compiled
-- create_experiment_compiled
+- create_experiment_compiledf
 - reset_password_compiled
 - error_modal_compiled
 - contact_sales_compiled
@@ -168,10 +168,11 @@ layout_modals:
                                     <li><a href="{{linkPath}}/privacy/">Privacy Policy</a> &nbsp;<span class="separater">|</span></li>
                                     <li class="security"><a href="{{linkPath}}/security/">Security</a></li>
                                 </ul>
-                                <ul class="social-links">
-                                    <li><a href="http://twitter.com/optimizely" class="twitter">Twitter</a></li>
-                                    <li><a href="http://www.facebook.com/optimizely" class="facebook">Facebook</a></li>
-                                    <li><a href="https://plus.google.com/+optimizely/posts" class="google-plus">Google+</a></li>
+                                <ul class="social-links" itemscope itemtype="http://schema.org/Organization">
+                                    <link itemprop="url" href="http://www.your-company-site.com">
+                                    <li><a itemprop="sameAs" href="http://twitter.com/optimizely" class="twitter">Twitter</a></li>
+                                    <li><a itemprop="sameAs" href="http://www.facebook.com/optimizely" class="facebook">Facebook</a></li>
+                                    <li><a itemprop="sameAs" href="https://plus.google.com/+optimizely/posts" class="google-plus">Google+</a></li>
                                 </ul>
                             </div><!--/.left-->
                             <div class="right-nav">
