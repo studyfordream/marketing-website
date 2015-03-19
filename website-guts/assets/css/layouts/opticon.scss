@@ -7,39 +7,6 @@
   height: $height;
 }
 
-.anim-opticon-button {
-  @extend .opticon-button;
-  transition: all 0.5s ease-out;
-  position: relative;
-  overflow: hidden;
-  padding: 26px 100px;
-  .cta-arrow {
-    transition: all 0.5s ease-out;
-    height: 52px;
-    width: 60px;
-    position: absolute;
-    right: -60px;
-    top: 0;
-    padding-top: 18px;
-    border-left: 1px solid $brand-blue;
-    text-align: center;
-  }
-
-  .cta-text {
-    transition: all 0.5s ease-out;
-    position: absolute;
-    top: 18px;
-    left: 50px;
-  }
-  &:hover {
-    .cta-arrow {
-      right: 0px;
-    }
-    .cta-text {
-      left: 20px;
-    }
-  }
-}
 
 body.opticon {
   background-color: white;
@@ -149,6 +116,39 @@ body.opticon {
       &--header {
         color: $opticon-brand-blue;
         border: 1px solid $opticon-brand-blue;
+      }
+    }
+  }
+  .anim-opticon-button {
+    @extend .opticon-button;
+    transition: all 0.5s ease-out;
+    position: relative;
+    overflow: hidden;
+    padding: 26px 100px !important;
+    .cta-arrow {
+      transition: all 0.5s ease-out;
+      height: 52px;
+      width: 60px;
+      position: absolute;
+      right: -60px;
+      top: 0;
+      padding-top: 18px;
+      border-left: 1px solid $brand-blue;
+      text-align: center;
+    }
+
+    .cta-text {
+      transition: all 0.5s ease-out;
+      position: absolute;
+      top: 18px;
+      left: 50px;
+    }
+    &:hover {
+      .cta-arrow {
+        right: 0px;
+      }
+      .cta-text {
+        left: 20px;
       }
     }
   }
