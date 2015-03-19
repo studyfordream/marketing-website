@@ -69,19 +69,8 @@ module.exports = function (grunt) {
         return path.basename(fp, path.extname(fp));
       }
     });
-    assemble.option('environment', options.environment);
-    assemble.set('data.pageContentNamespace', options.pageContentNamespace);
-    assemble.set('data.subfoldersRoot', options.subfoldersRoot);
-    assemble.set('data.basename', options.basename);
-    assemble.set('data.websiteGuts', options.websiteGuts);
-    assemble.set('data.websiteRoot', options.websiteRoot);
-    assemble.set('data.locales', options.locales);
-    assemble.set('data.assetsDir', options.assetsDir);
-    assemble.set('data.linkPath', options.linkPath);
-    assemble.set('data.sassImagePath', options.sassImagePath);
-    assemble.set('data.environmentIsProduction', options.environmentIsProduction);
-    assemble.set('data.environmentIsDev', options.environmentIsDev);
-    assemble.set('data.layoutPath', layoutPath);
+    var addOptions = _.omit(options, 'data');
+    assemble.data(addOptions);
 
     assemble.asyncHelper('partial', renderTypeHelper('partials'));
     assemble.layouts([options.layoutDir]);
