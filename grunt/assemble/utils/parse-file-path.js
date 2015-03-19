@@ -4,6 +4,13 @@ var path = require('path');
 var fs = require('fs');
 var _ = require('lodash');
 var extend = require('extend-shallow');
+/**
+ * Use to parse info from filepath such as what type of file object it is
+ * local (website|de|jp)
+ * @param {String} `fp` filepath from file data object
+ * @return {Object} Utility object with keys isRoot, isSubfolder, isModal, isLayout, dataKey, and locale
+ *
+ */
 
 function isIndex(fp, testStr) {
   if(fp[0] !== '/') {

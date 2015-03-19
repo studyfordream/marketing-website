@@ -1,5 +1,13 @@
 var path = require('path');
 
+
+/**
+ * Different rename keys for Assemble loaders
+ *
+ * @param {Function} `defaultKey` defualt Assemble rename key
+ * @return {Type} Description
+ *
+ */
 module.exports = function(defaultKey) {
   return {
     dirnameKey: function (search) {

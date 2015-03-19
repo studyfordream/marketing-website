@@ -23,43 +23,6 @@ module.exports = function(assemble) {
     var parentPageData;
     var subfolderPageData;
     var htmlBodyContent;
-    //var generateKey = require('./utils/generate-key');
-    //var dicts = assemble.get('dicts');
-    //var pageData = assemble.get('pageData');
-    //var data, key, split, name, o = {}, translated;
-    //if(!/partners\/(solutions|technology)\/index/.test(file.path) && /partners\/(solutions|technology)\//.test(file.path) ) {
-      //split = generateKey(file.path).split('/');
-      //name = split[1];
-      //key = path.join(split.splice(0, split.length - 2).join('/'), 'index');
-      //data = pageData[options.websiteRoot][key];
-      //o.TR_page_heading = data.page_heading;
-      //o.TR_sub_head = data.sub_head;
-      //console.log(data);
-
-      ////if(file.data.locale !== options.websiteRoot) {
-        ////objParser.translate(o, dicts[options.locales[file.data.locale]][key]);
-        ////console.log(data);
-      ////}
-    //}
-
-    function appendColData(name, fileData) {
-      var key = name + '_data';
-      var col = assemble.get(key) || {};
-      var o = {
-        page_heading: fileData.page_data.page_heading,
-        sub_head: fileData.page_data.sub_head
-      };
-      assemble.set(key, o);
-    }
-
-    //append the HTML content onto the file for translation swap
-    //or if page content is markdown and has been parsed
-    //if(lang[locale] && lang[locale][dataKey] && lang[locale][dataKey].HTML_page_content) {
-
-      ////check if the specific file has body content that was translated
-      ////and replace the file content because string will match in dictionary
-      //fileData.content = lang[locale][dataKey].HTML_page_content;
-    //}
 
     if(fpData.isRoot) {
       //replace page content with that from the root dictionary
@@ -81,10 +44,6 @@ module.exports = function(assemble) {
         //merge external page data from YML onto the locale file data
         _.merge(fileData.data, subfolderPageData);
       } else {
-        //if(lang[websiteRoot] && lang[websiteRoot][parentKey] && lang[websiteRoot][parentKey].HTML_page_content) {
-          //fileData.HTML_page_content = lang[websiteRoot][parentKey].HTML_page_content;
-        //}
-
         //check the parent folder for body content to be translated
         replacePageContent(fileData, lang, websiteRoot, parentKey);
 

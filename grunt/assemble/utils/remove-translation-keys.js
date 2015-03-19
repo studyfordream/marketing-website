@@ -13,6 +13,13 @@ function processTransArray(arr, parser) {
   });
   return arr;
 }
+/**
+ * Utility function for removing TR|MD|HTML YML translation prefixes
+ *
+ * @param {Object} `fileData` Assemble File data object
+ * @return {undefined} Mutates the data object passed to it
+ *
+ */
 
 module.exports = function removeTranslationKeys(fileData) {
   var key, parsedKey, val, split;

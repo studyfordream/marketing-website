@@ -1,4 +1,5 @@
 'use strict';
+
 var ext = require('gulp-extname');
 var through = require('through2');
 var path = require('path');
@@ -14,7 +15,6 @@ module.exports = function (grunt) {
   grunt.registerTask('assemble', 'Assemble', function (target) {
     var done = this.async();
     var assemble = require('assemble');
-    var parseKey = require('rename-keys');
     var localizeLinkPath = require('./middleware/localize-link-path');
     var mergeLayoutContext = require('./middleware/merge-layout-context');
     var collectionMiddleware = require('./middleware/onload-collection')(assemble);
@@ -51,14 +51,16 @@ module.exports = function (grunt) {
     })[0];
     var generateKey = require('./utils/generate-key');
     var renameKey = assemble.option('renameKey');
-    var renameKeys = require('./utils/rename-keys')(renameKey);
     var layoutPath = options.layoutDir.substring(0, options.layoutDir.indexOf('*') - 1);
+    var ppcKey = options.ppcKey;
 
     if(target === 'test') {
       assemble.set('env', target);
       assembleTasks.splice(assembleTasks.length - 1);
     }
 
+    //set the global data from external YML & env config
+    //special key for YML data for translation dictionary retrieval
     assemble.data(options.data, {
       namespace: function(fp) {
         if(/global\_/.test(fp)) {
@@ -83,9 +85,10 @@ module.exports = function (grunt) {
 
     assemble.asyncHelper('partial', renderTypeHelper('partials'));
     assemble.layouts([options.layoutDir]);
+    assemble.partials(options.partials, [typeLoader(assemble)]);
+    assemble.helpers(options.helpers);
 
-    var ppcKey = options.ppcKey;
-    //append special path for ppc layouts
+    //append special path for ppc layouts in order to prevent naming conflicts between layouts
     assemble.layouts([omLayouts], [function (layouts, options) {
       return Object.keys(layouts).reduce(function (o, key) {
         var layout = layouts[key];
@@ -98,12 +101,12 @@ module.exports = function (grunt) {
         return o;
       }, {});
     }]);
-    assemble.partials(options.partials, [typeLoader(assemble)]);
-    assemble.helpers(options.helpers);
 
+    //load external YML files and scope locally, while omitting global YML
     assemble.transform('page-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}'], options.websiteRoot);
     Object.keys(options.locales).forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}']));
 
+    //load the custom subolders
     customSubfolders(assemble, Object.keys(options.locales), process.env.lastRunTime);
 
     // create custom template type `modals`
@@ -124,6 +127,9 @@ module.exports = function (grunt) {
     assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
+
+    //expose the partners pages takes on the root index partner page
+    //for use in dropdown menu
     assemble.preRender(/partners\/solutions\/index/, function(file, next) {
       var col = assemble.get('solutions');
       var tags = Object.keys(col).reduce(function(map, key) {
@@ -136,6 +142,8 @@ module.exports = function (grunt) {
       file.data.tags = _.uniq(tags).filter(function(tag) { return !!tag; });
       next();
     });
+
+    //change the layout name reference to that created in the ppc layout loader
     var ppcRe = new RegExp(path.join(options.websiteRoot, ppcKey));
     assemble.onLoad(ppcRe, function(file, next) {
       file.data.isPpc = true;
@@ -143,21 +151,29 @@ module.exports = function (grunt) {
       next();
     });
 
-    var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
+    //merge layout YFM on file context, attach external YML data and translate
     //order is important here because we want to merge layouts before translating
     assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
     assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
 
     //localize link path after locale is appended in the translate data middleware
+    var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
     assemble.preRender(pathRe, localizeLinkPath(assemble));
 
+    //load the modals
     var modalFiles = config.modals.files[0];
     assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src), [typeLoader(assemble)]);
 
-    assemble.option('renameKey', renameKeys.noExtPath);
+    //set rename key to longer format, fp without extension
+    assemble.option('renameKey', function(fp) {
+      return path.join(path.dirname(fp), path.basename(fp, path.extname(fp)));
+    });
 
+    //load the files for the resources collection
     var resourceFiles = config.resources.files[0];
     assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
+
+
     var localesPaths = Object.keys(options.locales).reduce(function(map, locale) {
       map.push(path.join(options.subfoldersRoot, locale));
       return map;
@@ -224,8 +240,6 @@ module.exports = function (grunt) {
       var start = process.hrtime();
       var files = config.pages.files[0];
 
-      //resources seems to be happening successfully in here
-      //assemble.option('renameKey', renameKeys.dirnameLangKey(config.locales));
       /* jshint ignore:start */
       assemble['subfolder']({
         src: [
