@@ -9,9 +9,7 @@ var config = {
     sassImagePath: '<%= grunt.config.get("sassImagePath") %>',
     environment: '<%= grunt.config.get("environment") %>',
     data: [
-      '<%= config.content %>/**/*.json',
-      //this is only one level deep intentionally
-      '<%= config.content %>/*.yml',
+      '<%= config.content %>/**/global_*.{yml,yaml,json}',
       '<%= grunt.config.get("environmentData") %>'
     ],
     partials: ['<%= config.guts %>/templates/partials/*.hbs'],

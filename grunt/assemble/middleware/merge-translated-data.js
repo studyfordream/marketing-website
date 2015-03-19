@@ -10,6 +10,15 @@ module.exports = function(assemble) {
   var locales = assemble.get('data.locales');
   var removeTranslationKeys = require('../utils/remove-translation-keys');
   var isTest = assemble.get('env') === 'test';
+  var globalData = _.clone(assemble.get('data'));
+  var globalYml = Object.keys(globalData).reduce(function(o, key) {
+    if(/global\_/.test(key)) {
+      o[key] = globalData[key];
+      delete globalData[key];
+    }
+    return o;
+  }, {});
+  var lastLocale;
 
   return function mergeTranslatedData (file, next) {
     var lang = assemble.get('lang');
@@ -17,9 +26,9 @@ module.exports = function(assemble) {
     var pageData = assemble.get('pageData');
     var dicts = assemble.get('dicts');
     var filePathData = parseFilePath(file.path);
-    var locale = filePathData.locale;
+    var locale = isTest ? 'de' : filePathData.locale;
     var dataKey = filePathData.dataKey;
-    var dictKey = isTest ? 'de_DE' : locales[locale];
+    var dictKey = locales[locale];
     var mergedDict, parentKey;
 
     //extend the file with the external YML content
@@ -54,10 +63,27 @@ module.exports = function(assemble) {
         file = objParser.translate(file, dicts[dictKey][dataKey]);
       }
     }
+    //deal with global data
+    //this assumes that modals and partials don't access global data
+    var clone, setGlobal;
+    if(!filePathData.isModal && !filePathData.isPartial && locale !== lastLocale && !file.data.isPpc) {
+      clone = _.clone(globalYml);
+      Object.keys(clone).forEach(function(key) {
+        var basenameKey = path.basename(key, path.extname(key));
+        if((isTest || locale !== websiteRoot) && dicts[dictKey] && dicts[dictKey][key]) {
+          objParser.translate(clone[key], dicts[dictKey][key]);
+        }
+        clone[basenameKey] = clone[key];
+        delete clone[key];
+      });
+      setGlobal = _.merge({}, globalData, clone);
+      removeTranslationKeys(setGlobal);
+      assemble.set('data', setGlobal);
+      lastLocale = locale;
+    }
 
     //remove all the TR|MD|HTML prefixes
     removeTranslationKeys(file);
-
     next();
   };
 };

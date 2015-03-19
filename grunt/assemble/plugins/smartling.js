@@ -77,13 +77,10 @@ module.exports = function (assemble) {
 
   return through.obj(function (file, enc, cb) {
     var ppcRe = new RegExp(path.join(websiteRoot, 'om'));
-    if(ppcRe.test(file.path)) {
-      console.log(file.path);
-    }
 
     // instead of middleware
     // load file.data information onto `assemble.get('lang')` here
-    var data,parsedTranslations, filePathData, locale, pagePhrases;
+    var data, parsedTranslations, filePathData, locale, pagePhrases;
 
     //here were merge the file data with local YML data
     filePathData = parseFilePath(file.path);
@@ -112,7 +109,16 @@ module.exports = function (assemble) {
     this.push(file);
     cb();
   }, function (cb) {
+    var globalData = assemble.get('data');
+    var globalYml = Object.keys(globalData).reduce(function(o, key) {
+      if(/global\_/.test(key)) {
+        o[key] = globalData[key];
+      }
+      return o;
+    }, {});
+    lang.global = createTranslationDict(globalYml, 'global');
     assemble.set('lang', lang);
+
     var DICT_FNAME = 'marketing_website_yaml.pot';
     var JS_DICT_FNAME = 'marketing_website_js.pot';
 

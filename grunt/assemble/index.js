@@ -49,6 +49,7 @@ module.exports = function (grunt) {
         return true;
       }
     })[0];
+    var generateKey = require('./utils/generate-key');
     var renameKey = assemble.option('renameKey');
     var renameKeys = require('./utils/rename-keys')(renameKey);
     var layoutPath = options.layoutDir.substring(0, options.layoutDir.indexOf('*') - 1);
@@ -58,7 +59,14 @@ module.exports = function (grunt) {
       assembleTasks.splice(assembleTasks.length - 1);
     }
 
-    assemble.data(options.data);
+    assemble.data(options.data, {
+      namespace: function(fp) {
+        if(/global\_/.test(fp)) {
+          return generateKey(fp);
+        }
+        return path.basename(fp, path.extname(fp));
+      }
+    });
     assemble.option('environment', options.environment);
     assemble.set('data.pageContentNamespace', options.pageContentNamespace);
     assemble.set('data.subfoldersRoot', options.subfoldersRoot);
@@ -93,8 +101,8 @@ module.exports = function (grunt) {
     assemble.partials(options.partials, [typeLoader(assemble)]);
     assemble.helpers(options.helpers);
 
-    assemble.transform('page-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}', options.websiteRoot);
-    Object.keys(options.locales).forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), '**/*.{yml,yaml}'));
+    assemble.transform('page-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}'], options.websiteRoot);
+    Object.keys(options.locales).forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}']));
 
     customSubfolders(assemble, Object.keys(options.locales), process.env.lastRunTime);
 
@@ -220,7 +228,10 @@ module.exports = function (grunt) {
       //assemble.option('renameKey', renameKeys.dirnameLangKey(config.locales));
       /* jshint ignore:start */
       assemble['subfolder']({
-        src: [ '**/*.hbs' ],
+        src: [
+          '**/*.hbs',
+          '!' + omSrc
+        ],
         fallback: [ '**/*.hbs', '!resources/resources-list/**/*' ]
       });
       /* jshint ignore:end */
@@ -229,12 +240,11 @@ module.exports = function (grunt) {
       .pipe(assemble.dest(files.dest))
       .on('end', function () {
         var end = process.hrtime(start);
-        console.log('finished rendering pages-de', end);
+        console.log('finished rendering subfolder', end);
       });
     });
 
     assemble.run(assembleTasks, function (err) {
-    // assemble.run(['prep-smartling'], function (err) {
       if (err) {
         return done(err);
       }

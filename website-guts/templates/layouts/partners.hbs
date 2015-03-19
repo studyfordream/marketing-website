@@ -8,11 +8,11 @@ layout_body_class:
   <div id="page-header">
     <div class="container">
       {{#if this.solutions }}
-        <h1>{{solutions_data.page_heading}}</h1>
-        {{#if solutions_data.sub_head}}<p>{{solutions_data.sub_head}}</p>{{/if}}
+        <h1>{{global_solutions_data.page_heading}}</h1>
+        {{#if global_solutions_data.sub_head}}<p>{{global_solutions_data.sub_head}}</p>{{/if}}
       {{else}}
-        <h1>{{technology_data.page_heading}}</h1>
-        {{#if technology_data.sub_head}}<p>{{technology_data.sub_head}}</p>{{/if}}
+        <h1>{{global_technology_data.page_heading}}</h1>
+        {{#if global_techology_data.sub_head}}<p>{{global_techology_data.sub_head}}</p>{{/if}}
       {{/if}}
     </div><!--/.container-->
   </div><!--/#page-header-->
@@ -24,9 +24,9 @@ layout_body_class:
           <div class="columns four">
             <div class="partners-back">
               {{#if this.solutions }}
-                <a href="{{linkPath}}/partners/solutions/">&lt; {{{solutions_data.see_all}}}</a>
+                <a href="{{linkPath}}/partners/solutions/">&lt; {{{global_solutions_data.see_all}}}</a>
               {{else}}
-                <a href="{{linkPath}}/partners/technology/">&lt; {{{technology_data.see_all}}}</a>
+                <a href="{{linkPath}}/partners/technology/">&lt; {{{global_technology_data.see_all}}}</a>
               {{/if}}
             </div>
 
@@ -57,7 +57,7 @@ layout_body_class:
             {{#if this.languages}}
               <div class="partners-languages">
                 <p>
-                  <strong>{{{solutions_data.languages}}}</strong> <br />
+                  <strong>{{{global_solutions_data.languages}}}</strong> <br />
                   {{#eachNoTrailing this.languages ", "}}{{.}}, {{/eachNoTrailing}}
                 </p>
               </div>
@@ -69,16 +69,14 @@ layout_body_class:
             <div class="level">
               {{#if this.solutions }}
                 {{#if stars}}
-                  <div class="level-heading">{{{solutions_data.filter.stars}}}: <span data-tooltip title="{{{solutions_data.partner_tooltip}}}"></span></div>
+                  <div class="level-heading">{{{global_solutions_data.filter.stars}}}: <span data-tooltip title="{{{global_solutions_data.partner_tooltip}}}"></span></div>
                   <div class="star-cont {{#if stars}}star-cont--{{stars}}{{/if}} star-left"></div>
                 {{/if}}
               {{/if}}
             </div>
 
             <div class="notranslate">
-              {{#omarkdown path=linkPath}}
-                {% body %}
-              {{/omarkdown}}
+              {% body %}
             </div>
 
             {{#if this.tags}}
@@ -89,7 +87,7 @@ layout_body_class:
 
             {{#if kb_article}}
             <a class="button" href="{{kb_article}}">
-              {{{solutions_data.kb_article}}}
+              {{{global_solutions_data.kb_article}}}
             </a>
             {{/if}}
           </div>
