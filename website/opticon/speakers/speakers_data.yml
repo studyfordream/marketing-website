@@ -8,7 +8,6 @@ description: "Thank you for your interest in submitting your session for Opticon
 speakers:
   title: "Engage with heads of industry and world-renown thought leaders."
   keynote:
-    title: "Keynote Speakers"
     speaker_list:
       -
         name: "Dan Siroker"
