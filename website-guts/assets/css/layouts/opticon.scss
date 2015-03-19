@@ -106,7 +106,7 @@ body.opticon {
       text-decoration: none;
     }
     &--nav {
-      margin: 0 0 0 15px;
+      margin: 0 75px;
       padding: 4px 17px;
       border-radius: 3px;
       &--footer {
@@ -236,6 +236,9 @@ body.opticon {
     }
     .register-title {
       width: 50%;
+    }
+    opticon-button--nav {
+      margin: 0 0 0 15px;
     }
   }
 }
