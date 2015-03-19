@@ -1,17 +1,15 @@
+/* Image Gallery Modal */
 $('.gallery__image-cont').magnificPopup({
   delegate: '.gallery__image-cont__item',
   type: 'image',
   gallery:{enabled:true}
 });
 
-/*
-* Video Player
-*
-*/
+/* Video Player */
 var player;
 var tag = document.createElement('script');
 
-tag.src = 'https://www.youtube.com/iframe_api';
+tag.src = '//www.youtube.com/iframe_api';
 var scriptTags = document.getElementsByTagName('script');
 var lastScriptTag = scriptTags[scriptTags.length - 1];
 lastScriptTag.parentNode.insertBefore(tag, lastScriptTag.nextSibling);
@@ -23,7 +21,6 @@ window.onYouTubeIframeAPIReady = function () {
     videoId: '16bCgEd0cw0'
   });
 };
-
 
 $(function() {
    var videoPlayed = false,
@@ -50,7 +47,7 @@ $(function() {
         $('#player').css({display: 'none'});
         $('.fallback-player').addClass('show-fallback');
       }
-      $('.fallback-player').attr('src', 'https://www.youtube.com/embed/pjnHonrJykg?autoplay=1');
+      $('.fallback-player').attr('src', '//www.youtube.com/embed/16bCgEd0cw0?autoplay=1');
     }
     if(!videoPlayed) {
       videoPlayed = true;
