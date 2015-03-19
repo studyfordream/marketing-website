@@ -6,9 +6,10 @@ visible_title: Optimizely API Terms for Customers
 <div class="row">
   <div class="columns ten offset-one">
     {{#with api_terms}}
-    <p>{{top_paragraph}}</p>
     {{#each terms}}
+    {{#isnt @index 0}}
     <h4 class="padding-top">{{this.title}}</h4>
+    {{/isnt}}
     <p>{{this.paragraph}}</p>
     {{/each}}
     {{/with}}
