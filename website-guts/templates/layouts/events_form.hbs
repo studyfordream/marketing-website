@@ -1,0 +1,91 @@
+---
+layout: wrapper.hbs
+layout_script: events-form.js
+layout_body_class:
+- marketing_events
+---
+<div id="main">
+  <div class="header-wrapper">
+    <h1 class="page-title">{{page.title}}</h1>
+    <div class="container">
+      <div class="row">
+        <div class="columns six offset-three">
+          <p page="subtitle">{{page.subtitle}}</p>
+          <form id="events-form" class="event-form" autocomplete="off" novalidate="novalidate">
+            <p class="error-message oform-error-show"></p>
+            <input type="hidden" name="Lead_Source_Category__c" value="External Event">
+            <input type="hidden" name="Lead_Source_Subcategory__c" value="{{page.lead_source_subcategory}}">
+            <input type="hidden" name="leadSource" value="Events">
+            <input type="hidden" name="Initial_Form_Source__c" value="External Events Capture">
+            <input type="hidden" name="Inbound_Lead_Form_Type__c" value="External Events Capture">
+            <div class="">
+              <div class="label half left">
+                <label for="first_name">First name</label>
+                <input id="first_name" required name="first_name" type="text" placeholder="First name">
+              </div>
+              <div class="label half right">
+                <label for="last_name">Last name</label>
+                <input id="last_name" required name="last_name" type="text" placeholder="Last name">
+              </div>
+            </div>
+            <div class="label">
+              <label for="company">Company name</label>
+              <input id="company" required class="full-width" name="company" type="text" placeholder="Company name">
+            </div>
+            <div class="label">
+              <label for="email">Work email</label>
+              <input id="email" class="full-width" required name="email" type="text" placeholder="Work email">
+            </div>
+            <p class="radio-question">Based on your experience at the booth, on a scale of 1-10 how likely are you to recommend
+            Optimizely to a friend or colleague?</p>
+            <div class="radio-container">
+              <div class="radio-option-container">
+                <input type="radio" name="ops" value="1" id="ops1">
+                <label class="radio-label" for="ops1">1</label>
+              </div>
+              <div class="radio-option-container">
+                <input type="radio" name="ops" value="2" id="ops2">
+                <label class="radio-label" for="ops2">2</label>
+              </div>
+              <div class="radio-option-container">
+                <input type="radio" name="ops" value="3" id="ops3">
+                <label class="radio-label" for="ops3">3</label>
+              </div>
+              <div class="radio-option-container">
+                <input type="radio" name="ops" value="4" id="ops4">
+                <label class="radio-label" for="ops4">4</label>
+              </div>
+              <div class="radio-option-container">
+                <input type="radio" name="ops" value="5" id="ops5">
+                <label class="radio-label" for="ops5">5</label>
+              </div>
+              <div class="radio-option-container">
+                <input type="radio" name="ops" value="6" id="ops6">
+                <label class="radio-label" for="ops6">6</label>
+              </div>
+              <div class="radio-option-container">
+                <input type="radio" name="ops" value="7" id="ops7">
+                <label class="radio-label" for="ops7">7</label>
+              </div>
+              <div class="radio-option-container">
+                <input type="radio" name="ops" value="8" id="ops8">
+                <label class="radio-label" for="ops8">8</label>
+              </div>
+              <div class="radio-option-container">
+                <input type="radio" name="ops" value="9" id="ops9">
+                <label class="radio-label" for="ops9">9</label>
+              </div>
+              <div class="radio-option-container">
+                <input type="radio" name="ops" value="10" id="ops10">
+                <label class="radio-label" for="ops10">10</label>
+              </div>
+            </div><!--/.radio-container-->
+            <div class="a-center">
+              <button type="submit" id="submit" class="button oform-processing-hide">Submit info</button>
+            </div>
+          </form>
+        </div>
+      </div><!--/.row-->
+    </div>
+  </div><!--/.header-wrapper-->
+</div><!--/#main-->

@@ -1,0 +1,49 @@
+body.marketing_events {
+  #inner-wrapper {
+    background: #fff;
+  }
+  .header-wrapper {
+    background: $light-blue-bg;
+  }
+  .event-form {
+    padding: 0 0 50px 0;
+  }
+  .page-title {
+    text-align: center;
+    background: #fff;
+    padding: 25px 0;
+    margin: 0;
+    color: $dark-blue;
+  }
+  label {
+    display: none;
+  }
+  .full-width {
+    width: 100%;
+  }
+  .radio-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 60px;
+    padding: 25px 0 15px 0;
+    /*border: 1px solid#f3b6b3;*/
+    label {
+      display: inline;
+      position: absolute;
+      top: -17px;
+      left: 2px;
+    }
+  }
+  .radio-option-container {
+    display: inline;
+    position: relative;
+  }
+  .radio-question {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1em;
+  }
+  .radio-label {
+    color: $light-text-color;
+  }
+}
