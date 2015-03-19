@@ -61,8 +61,7 @@ body.opticon {
     text-align: center;
   }
   .flex-container {
-    // Only for mobile
-    display: block;
+    display: block; // Only for mobile
   }
   .item-title {
     font-size: 1em;
@@ -237,7 +236,7 @@ body.opticon {
     .register-title {
       width: 50%;
     }
-    opticon-button--nav {
+    .opticon-button--nav {
       margin: 0 0 0 15px;
     }
   }
