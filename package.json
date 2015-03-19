@@ -21,7 +21,10 @@
     "test": "grunt assemble"
   },
   "dependencies": {
+    "assemble": "^0.6.0-beta.4",
     "bower": "1.3.8",
+    "globby": "^1.1.0",
+    "gray-matter": "^1.1.2",
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "1.0.0",
     "grunt-config": "0.2.1",
@@ -38,15 +41,12 @@
     "grunt-s3": "0.2.0-alpha.3",
     "grunt-sass": "0.14.0",
     "grunt-userevvd": "0.1.4",
+    "helper-moment": "0.1.3",
     "load-grunt-config": "0.16.0",
     "optimizely-marked": "0.0.4",
-    "time-grunt": "0.3.2",
-    "uglify-js": "2.4.15",
-    "globby": "^1.1.0",
-    "gray-matter": "^1.1.2",
-    "helper-moment": "0.1.3",
     "rename-keys": "^1.1.2",
-    "assemble": "^0.6.0-beta.3"
+    "time-grunt": "0.3.2",
+    "uglify-js": "2.4.15"
   },
   "devDependencies": {
     "assemble-push": "^0.1.1",
