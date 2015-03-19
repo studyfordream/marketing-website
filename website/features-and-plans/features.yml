@@ -12,7 +12,6 @@ title_section:
 
 benefits_section:
   TR_title: "Included in all plans:"
-  TR_asterisk: "* Android coming soon"
   TR_benefits:
     -
       TR_title: "Fast and Easy"
@@ -21,14 +20,12 @@ benefits_section:
     -
       TR_title: "Powerful"
       TR_desc: "Create and deliver relevant experiences on web,
-             mobile web, iOS, and Android.*"
+             mobile web, iOS, and Android."
       icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/screens.svg"
     -
       TR_title: "Trusted and Secure"
       TR_desc: "The platform choice for over 8,000 businesses and counting."
       icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/pricing-and-features/trophy.svg"
-
-TR_feature_sections_title: "Features"
 TR_feature_sections:
   -
     TR_title: "Create & Launch Experiments"

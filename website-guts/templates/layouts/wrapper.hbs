@@ -24,11 +24,10 @@ layout_modals:
         {{/if}}
         <script src="{{assetsDir}}/js/libraries/jquery-modernizr.min.js"></script>
         <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>
-        <script>
+        <script type="text/javascript">
+            window.apiDomain = '{{apiDomain}}';
             window.optly_q = [];
             window.optly = {};
-        </script>
-        <script type="text/javascript">
             window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
             window.analytics.load('{{environmentVariables.segmentProjectID}}');
             window.analytics.page();
@@ -53,6 +52,16 @@ layout_modals:
           fs.parentNode.insertBefore(t, fs);
         })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
         </script>
+        {{/if}}
+        {{#if this.external_script}}
+        {{#each this.external_script}}
+        <script  src="{{.}}"></script>
+        {{/each}}
+        {{/if}}
+        {{#if this.meta_tags}}
+        {{#each this.meta_tags}}
+        {{{this}}}
+        {{/each}}
         {{/if}}
         {{#if this.external_stylesheets}}
         {{#each this.external_stylesheets}}
@@ -146,7 +155,10 @@ layout_modals:
                     </div><!--/#main-nav-cont-->
                 </header>
                 {{/unless}}
+
                 {% body %}
+
+                {{#unless no_footer}}
                 <footer {{#if this.footer_style}}class="{{this.footer_style}}"{{/if}}>
                     <div class="container footer-wrapper">
                         <p><a class="logo" href="{{linkPath}}/">Optimizely</a></p>
@@ -158,10 +170,11 @@ layout_modals:
                                     <li><a href="{{linkPath}}/privacy/" id="SL-link-privacy" class="SL_swap">{{tr 'Privacy Policy'}}</a> &nbsp;<span class="separater">|</span></li>
                                     <li class="security"><a href="{{linkPath}}/security/">{{tr 'Security'}}</a></li>
                                 </ul>
-                                <ul class="social-links">
-                                    <li><a href="http://twitter.com/optimizely" id="SL-link-twitter" class="twitter SL_swap">{{tr 'Twitter'}}</a></li>
-                                    <li><a href="http://www.facebook.com/optimizely" id="SL-link-facebook" class="facebook SL_swap">{{tr 'Facebook'}}</a></li>
-                                    <li><a href="https://plus.google.com/+optimizely/posts" id="SL-link-gplus" class="google-plus SL_swap">{{tr 'Google+'}}</a></li>
+                                <ul class="social-links" itemscope itemtype="http://schema.org/Organization">
+                                    <link itemprop="url" href="https://www.optimizely.com/">
+                                    <li><a itemprop="sameAs" href="http://twitter.com/optimizely" class="twitter">Twitter</a></li>
+                                    <li><a itemprop="sameAs" href="http://www.facebook.com/optimizely" class="facebook">Facebook</a></li>
+                                    <li><a itemprop="sameAs" href="https://plus.google.com/+optimizely/posts" class="google-plus">Google+</a></li>
                                 </ul>
                             </div><!--/.left-->
                             <div class="right-nav">
@@ -236,6 +249,7 @@ layout_modals:
                         </div><!--/#footer-nav-cont-->
                     </div><!--/.container-->
                 </footer>
+                {{/unless}}
             </div><!--/#inner-wrapper-->
         </div><!--/#outer-wrapper-->
         <!-- <div class="optly-hide" data-tooltip="default"></div> -->

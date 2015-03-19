@@ -1,60 +1,60 @@
               <ul class="contact-sales-fields clearfix">
                 <li>
                   <label id="first-name-label">
-                      <span>{{tr 'First name:'}}</span>
+                      <span>{{tr 'First name'}}:</span>
                       <span class="name-related error-hide error-right first_name-related">{{tr 'Required'}}</span>
                       <input type="text" name="first_name" autofocus required>
                   </label>
-                </li>
+                </li>'}}
                 <li>
                   <label id="last-name-label">
-                      <span>{{tr 'Last name:'}}</span>
+                      <span>{{tr 'Last name'}}:</span>
                       <span class="last_name-related error-hide error-right">{{tr 'Required'}}</span>
                       <input type="text" name="last_name" required>
                   </label>
                 </li>
                 <li class="form-row">
                   <label id="company-name-label">
-                      <span>{{tr 'Company name:'}}</span>
+                      <span>{{tr 'Company name'}}:</span>
                       <span class="company_name-related error-hide error-right">{{tr 'Required'}}</span>
-                      <input type="text" name="company_name" required>
+                      <input type="text" name="company" required>
                   </label>
                 </li>
                 <li>
                   <label id="job-title-label">
-                      <span>{{tr 'Job title:'}}</span>
+                      <span>{{tr 'Job title'}}:</span>
                       <span class="title-related error-hide error-right">{{tr 'Required'}}</span>
                       <input type="text" name="title" required>
                   </label>
                 </li>
                 <li class="form-row">
                   <label id="email-address-label">
-                      <span>{{tr 'Email address:'}}</span>
+                      <span>{{tr 'Email address'}}:</span>
                       <span class="email_address-related error-hide error-right">{{tr 'Required'}}</span>
-                      <input type="email" name="email_address" required>
+                      <input type="email" name="email" required>
                   </label>
                 </li>
                 <li>
                   <label id="phone-number-label">
-                      <span>{{tr 'Phone number:'}}</span>
+                      <span>{{tr 'Phone number'}}:</span>
                       <span class="phone_number-related error-hide error-right">{{tr 'Required'}}</span>
                       <input type="tel" name="phone_number" required>
                   </label>
                 </li>
                 <li class="form-row">
                   <label id="website-label">
-                      <span>{{tr 'Website:'}}</span>
+                      <span>{{tr 'Website'}}:</span>
                       <span class="website-related error-hide error-right">{{tr 'Required'}}</span>
                       <input type="text" name="website" required>
                   </label>
                 </li>
                 <li>
-                  <label id="channels"><span>{{tr 'Channels You\'d Like to Test:'}}</span></label>
+                  <label id="channels"><span>{{tr "Channels You'd Like to Test"}}:</span></label>
                   <div class="checkboxes">
-                    <div><span><input type="checkbox" name="web" value="true"> {{tr 'Web'}}</span></div>
-                    <div><span><input type="checkbox" name="mobile_web" value="true"> {{tr 'Mobile Web'}}</span></div>
-                    <div><span><input type="checkbox" name="ios" value="true"> {{tr 'iOS'}}</span></div>
-                    <div><span><input type="checkbox" name="android" value="true"> {{tr 'Android'}}</span></div>
+                    <div><span><input type="checkbox" name="Web_Interest__c"> Web</span></div>
+                    <div><span><input type="checkbox" name="Mobile_Web_Interest__c"> Mobile Web</span></div>
+                    <div><span><input type="checkbox" name="iOS_Interest__c"> iOS</span></div>
+                    <div><span><input type="checkbox" name="Android_Interest__c"> Android</span></div>
                   </div><!--/.checkboxes-->
                 </li>
                 <input type="hidden" value="Contact Sales" name="Inbound_Lead_Form_Type__c">

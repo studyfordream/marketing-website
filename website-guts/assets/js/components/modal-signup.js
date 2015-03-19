@@ -11,7 +11,8 @@ w.optly.mrkt.activeModals['signup-form'] = new Oform({
     password2: function(elm) {
       return signupDialogHelperInst.password2Validate(elm);
     }
-  }
+  },
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 });
 
 w.optly.mrkt.activeModals['signup-form'].on('before', function() {

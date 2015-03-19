@@ -15,8 +15,18 @@ module.exports = function(options){
     basePath: function(opts) {
       var queryString = createQueryString(opts.queryParams);
       if(!cachedPath) {
-        cachedPath = 'http://0.0.0.0:9000' + global.linkPath + opts.path + '?uiTest=true';
+        if(global.branchPath) {
+          global.branchPath = global.branchPath[0] === '/' ? global.branchPath.substr(1) : global.branchPath;
+          if(global.branchPath.lastIndexOf('/') === global.branchPath.length -1) {
+            global.branchPath = global.branchPath.substring(0, global.branchPath.length - 1);
+          }
+
+          cachedPath = 'https://www.optimizelystaging.com/' + global.branchPath + opts.path + '?uiTest=true';
+        } else {
+          cachedPath = 'http://localhost:9000' + global.linkPath + opts.path + '?uiTest=true';
+        }
       }
+      console.log('Testing: ', cachedPath + queryString);
       return  cachedPath + queryString;
     },
     firstName: 'David',

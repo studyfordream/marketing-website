@@ -1,6 +1,6 @@
 ---
 layout: mobile
-TR_seo_title: Make your app more engaging
+TR_seo_title: "Make your app more engaging"
 compact_header: false
 modals:
 - video_modal
@@ -26,7 +26,7 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
   <h1>{{{title}}}</h1>
   {{/with}}
   {{#with page_data.form_panel}}
-  <form action="/account/create" method="POST" id="mobile-signup-form-top" class="container" novalidate autocomplete="off">
+  <form action="{{../apiDomain}}/account/create" method="POST" id="mobile-signup-form-top" class="container" novalidate autocomplete="off">
     <div class="row grid-cont">
       <div class="form-grid">
         <label>
@@ -44,16 +44,17 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
         <button title="{{submit_button}}" data-success="{{submit_success}}" type="submit" class="submit-btn"></button>
       </div>
     </div>
-    <input type="hidden" name="hidden" value="" />
+    <input type="hidden" name="hidden" value="">
     <input type="hidden" name="flow" value="nux">
     <input type="hidden" name="platform" value="ios">
+    <input type="hidden" name="Initial_Form_Source__c" value="Create Account - Mobile">
     <div class="options">
         <p class="error-message error-hide">Please Correct Form Errors</p>
     </div>
   </form>
   <p>{{link_text}}</p>
-  <a href="#" class="video-link" data-show-video><span class="circle-arrow"></span>{{video_link_text}}</a>
   {{/with}}
+  <a href="#" class="video-link" data-show-video><span class="circle-arrow"></span>Watch Video</a>
   </div>
 </section>
 {{#with page_data.top_grid}}
@@ -95,8 +96,7 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
 <section id="customer-logos" class="panel">
   <div class="container">
     <div class="section-container">
-      <!--markdown parsed automatically by translation-->
-      {{{customer_logos.body}}}
+      {{#omarkdown}}{{{customer_logos.body}}}{{/omarkdown}}
     </div>
     <div class="icon-cont">
       {{#each customer_logos.icons}}
@@ -112,7 +112,7 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
   <h2>{{{testing_ideas.header}}}</h2>
   <div class="ideas-cont flex-cont">
     {{#each testing_ideas.ideas_grid}}
-    <div class="single-idea-cont flex-cont">
+    <a {{#isnt article_link "#"}}href="{{article_link}}" target="_blank"{{/isnt}} class="single-idea-cont flex-cont{{#isnt article_link "#"}} hover-underline{{/isnt}}">
       <div class="idea-icon">
         <div class="bg-img static" style="background-image: url('{{icon_static}}')"></div>
         <div class="bg-img dynamic" style="background-image: url('{{icon_dynamic}}')"></div>
@@ -121,7 +121,7 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
         <h4>{{title}}</h4>
         <p>{{text}}</p>
       </div>
-    </div>
+    </a>
     {{/each}}
   </div>
 </section>
@@ -130,7 +130,7 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
 {{#with page_data.form_panel}}
   <h2><strong>{{title}}</strong></h2>
   <h2>{{subtitle}}</h2>
-  <form action="/account/create" method="POST" id="mobile-signup-form-bottom" class="container" novalidate autocomplete="off">
+  <form action="{{../apiDomain}}/account/create" method="POST" id="mobile-signup-form-bottom" class="container" novalidate autocomplete="off">
     <div class="row grid-cont">
       <div class="form-grid">
         <label>
@@ -148,9 +148,10 @@ TR_og_description: "Learn how to optimize your app for acquisition, engagement, 
         <button title="{{submit_button}}" data-success="{{submit_success}}" type="submit" class="submit-btn"></button>
       </div>
     </div>
-    <input type="hidden" name="hidden" value="" />
+    <input type="hidden" name="hidden" value="">
     <input type="hidden" name="flow" value="nux">
     <input type="hidden" name="platform" value="ios">
+    <input type="hidden" name="Initial_Form_Source__c" value="Create Account - Mobile">
     <div class="options">
         <p class="error-message error-hide">Please Correct Form Errors</p>
     </div>

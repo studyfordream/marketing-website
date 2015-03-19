@@ -47,6 +47,8 @@ var updatePlanInfo = function(){
   }
 
   $('#starter-cta').on('click', function(e){
+    $('#signup-form input[name="Initial_Form_Source__c"]').val('Pricing Signup form');
+    $('#signup-form input[name="Inbound_Lead_Form_Type__c"]').val('Pricing Signup form');
     if(typeof w.optly.mrkt.user.acctData === 'object'){
 
       //user is signed in
@@ -104,6 +106,8 @@ var updatePlanInfo = function(){
     } else {
       //user is not signed in
       w.optly.mrkt.modal.open({ modalType: 'signup' });
+      $('#signup-form input[name="Initial_Form_Source__c"]').val('Pricing Signup form');
+      $('#signup-form input[name="Inbound_Lead_Form_Type__c"]').val('Pricing Signup form');
     }
 
     e.preventDefault();
@@ -124,7 +128,8 @@ var signupForm  = new Oform({
     password2: function(elm) {
       return signupHelper.password2Validate(elm);
     }
-  }
+  },
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 });
 
 signupForm.on('before', function() {
@@ -159,8 +164,8 @@ signupForm.on('error', function() {
   });
 }.bind(signupHelper));
 
-signupForm.on('load', function(event, data) {
-  signupHelper.pricingSignupSuccess(event, data);
+signupForm.on('load', function(event) {
+  signupHelper.pricingSignupSuccess(event);
 }.bind(signupHelper));
 
 signupForm.on('done', function() {

@@ -9,6 +9,7 @@ form_method: POST
 form_action: /account/signin
 TR_primary_button_text: Sign in
 TR_negative_button_text: Cancel
+api_domain: true
 ---
               <label>
                   <span>{{tr 'Email address'}}</span>
@@ -29,6 +30,6 @@ TR_negative_button_text: Cancel
               <div class="options">
                   <p><a href="{{linkPath}}/privacy" target="_blank">{{tr 'Privacy Policy'}}</a></p>
                   <p><a class="show-forgot-password" data-modal-click="reset-password">{{tr 'Forgot your password?'}}</a></p>
-                  <p>No account? <a class="show-create-account" data-modal-click="signup">{{tr 'Register here'}}</a></p>
+                  <p>{{tr 'No account?'}} <a class="show-create-account" data-modal-click="signup">{{tr 'Register here'}}</a></p>
                   <p class="error-message error-hide">{{tr 'Incorrect email or password'}}</p>
               </div>

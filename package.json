@@ -18,11 +18,9 @@
     "node": "0.10.26"
   },
   "scripts": {
-    "test": "grunt assemble",
-    "postinstall": "rm -fr node_modules/assemble/node_modules/vinyl-fs"
+    "test": "grunt assemble"
   },
   "dependencies": {
-    "assemble": "git://github.com/assemble/assemble#v0.6.0",
     "bower": "1.3.8",
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "1.0.0",
@@ -47,7 +45,8 @@
     "globby": "^1.1.0",
     "gray-matter": "^1.1.2",
     "helper-moment": "0.1.3",
-    "rename-keys": "^1.1.2"
+    "rename-keys": "^1.1.2",
+    "assemble": "^0.6.0-beta.3"
   },
   "devDependencies": {
     "assemble-push": "^0.1.1",
@@ -73,11 +72,12 @@
     "mkdirp": "^0.5.0",
     "nightmare": "git+ssh://git@github.com:dtothefp/nightmare.git",
     "parser-front-matter": "^1.1.2",
-    "phantomjs": "~1.9.12",
     "plasma": "^0.6.1",
     "q": "^1.1.2",
     "through2": "^0.6.3",
-    "vinyl-fs": "git://github.com/wearefractal/vinyl-fs"
+    "vinyl-fs": "git://github.com/wearefractal/vinyl-fs",
+    "phantomjs": "~1.9.12",
+    "grunt-open": "^0.2.3"
   },
   "licenses": [
     {

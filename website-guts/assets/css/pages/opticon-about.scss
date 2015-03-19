@@ -1,0 +1,75 @@
+body.opticon-about {
+  .paragraphs-container {
+    margin-bottom: 100px;
+  }
+  .top-paragraph {
+    padding: 4%;
+    margin: 62px 0;
+  }
+  #opticon-faq {
+    padding: 50px 0;
+  }
+  .flex-container {
+    flex-wrap: wrap;
+  }
+  .faq-container {
+    padding: 10px;
+  }
+  .faq-item {
+    padding: 20px 0;
+    .question {
+      font-size: 1.125em;
+      color: $opticon-text-gray;
+      letter-spacing: 0.5px;
+      line-height: 28px;
+    }
+    .answer {
+      font-size: 0.8125;
+      color: $opticon-text-gray;
+      letter-spacing: 0.4px;
+      line-height: 24px;
+    }
+  }
+  .left-paragraph,
+  .right-paragraph {
+    padding: 4%;
+    .description-title {
+      min-height: 86px;
+    }
+    .description-text {
+      min-height: 153px;
+    }
+  }
+  .confetti-right {
+    top: 4em;
+  }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  body.opticon-about {
+    .top-paragraph {
+      width: 72%;
+      padding: 10px;;
+    }
+    .left-paragraph,
+    .right-paragraph {
+      padding: 10px 30px 10px 10px;
+      width: 50%;
+    }
+    .description-text {
+      text-align: left;
+    }
+    .faq-container {
+      padding: 0;
+    }
+    .faq-item {
+      width: 50%;
+      padding: 20px 35px 0 0;
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.opticon-about {
+  }
+}

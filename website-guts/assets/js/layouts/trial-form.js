@@ -74,7 +74,8 @@ w.optly.mrkt.trialForm = new Oform({
       var urlRegex = /.+\..+/;
       return urlRegex.test(element.value);
     }
-  }
+  },
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 })
 .on('before', function(){
   w.analytics.track('/free-trial/submit', {
@@ -93,12 +94,12 @@ w.optly.mrkt.trialForm = new Oform({
   $('#seo-form .error-message').text('An unknown error occured.');
   $('body').addClass('oform-error').removeClass('oform-processing');
 })
-.on('load', function(event){
+.on('load', function(returnData){
   var xhrElapsedTime,
-      response;
+      parsedResp;
   xhrElapsedTime = new Date() - xhrInitiationTime;
   try {
-    response = JSON.parse(event.target.responseText);
+    parsedResp = JSON.parse(returnData.XHR.responseText);
   } catch(error){
     w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
       category: 'api error',
@@ -116,19 +117,11 @@ w.optly.mrkt.trialForm = new Oform({
     'timingValue': xhrElapsedTime,
     'page': w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
   });
-  if(response){
-    if(event.target.status === 200){
-      var pageData = {
-        email: d.getElementById('email').value,
-        url: d.getElementById('url').value,
-        name: d.getElementById('name').value,
-        phone: d.getElementById('phone').value
-      };
-      //remove error class from body?
+  if(parsedResp){
+    if(returnData.XHR.status === 200){
       w.optly.mrkt.Oform.trackLead({
-        formElm: '#seo-form',
-        pageData: pageData,
-        XHRevent: event
+        response: parsedResp,
+        requestPayload: returnData.requestPayload
       });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
@@ -164,13 +157,13 @@ w.optly.mrkt.trialForm = new Oform({
       if(!w.optly.mrkt.automatedTest()){
         setTimeout(function(){
           var redirectURL, domain;
-          domain = window.location.hostname;
+          domain = w.location.hostname;
           if(/^www\.optimizely\./.test(domain)){
             //production
-            redirectURL = '/edit?url=';
+            redirectURL = w.apiDomain + '/edit?url=';
           } else {
             //local dev
-            redirectURL = 'https://www.optimizely.com/edit?url=';
+            redirectURL = 'https://app.optimizely.com/edit?url=';
           }
           w.location = redirectURL + encodeURIComponent(d.getElementById('url').value);
         }, 1000);
@@ -179,19 +172,19 @@ w.optly.mrkt.trialForm = new Oform({
     } else {
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
-        label: 'status not 200: ' + event.target.status
+        label: 'status not 200: ' + returnData.XHR.status
       }, {
         integrations: {
           'Marketo': false
         }
       });
-      if(response.error && typeof response.error === 'string'){
+      if(parsedResp.error && typeof parsedResp.error === 'string'){
         //update error message, apply error class to body
-        $('#seo-form .error-message').text(response.error);
+        $('#seo-form .error-message').text(parsedResp.error);
         $('body').addClass('oform-error').removeClass('oform-processing');
         w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
           category: 'api error',
-          label: 'response.error: ' + response.error
+          label: 'response.error: ' + parsedResp.error
         }, {
           integrations: {
             'Marketo': false
@@ -223,20 +216,22 @@ w.optly.mrkt.trialForm = new Oform({
 });
 
 var validateOnBlur = function(isValid, element){
-  w.optly.mrkt.trialForm.options.adjustClasses(element, isValid);
-  var elementValue = $(element).val();
-  var elementHasValue = elementValue ? 'has value' : 'no value';
-  if(!isValid){
-    w.optly.mrkt.formHadError = true;
-    w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' error blur', {
-      category: 'form error',
-      label: elementHasValue,
-      value: elementValue.length
-    }, {
-      integrations: {
-        Marketo: false
-      }
-    });
+  if($(element).val()){
+    w.optly.mrkt.trialForm.options.adjustClasses(element, isValid);
+    var elementValue = $(element).val();
+    var elementHasValue = elementValue ? 'has value' : 'no value';
+    if(!isValid){
+      w.optly.mrkt.formHadError = true;
+      w.analytics.track($(element).closest('form').attr('id') + ' ' + $(element).attr('name') + ' error blur', {
+        category: 'form error',
+        label: elementHasValue,
+        value: elementValue.length
+      }, {
+        integrations: {
+          Marketo: false
+        }
+      });
+    }
   }
 };
 

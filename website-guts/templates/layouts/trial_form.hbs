@@ -37,7 +37,7 @@ layout_body_class:
             <h4 class="seo-form-heading">{{this.form_header}}</h4>
             {{/if}}
             <p class="seo-form-subheader">{{{this.form_text}}}</p>
-            <form id="seo-form" method="POST" class="seo-form inline-labels" action="/account/free_trial_create" autocomplete="off" novalidate="novalidate">
+            <form id="seo-form" method="POST" class="seo-form inline-labels" action="{{apiDomain}}/account/free_trial_create" autocomplete="off" novalidate="novalidate">
               <p class="error-message oform-error-show"></p>
               <input id="utm_medium" type="hidden" name="utm_medium" value="">
               <input id="hidden" type="hidden" name="hidden" value="">
@@ -69,6 +69,8 @@ layout_body_class:
                   <p class="oform-processing-show">{{tr 'Processing...'}}</p>
                 </li>
               </ul>
+              <input type="hidden" name="Initial_Form_Source__c" value="Free Trial PPC">
+              <input type="hidden" name="Inbound_Lead_Form_Type__c" value="Free Trial Signup Form">
             </form>
           </div><!--/#ppc-form-->
         </div>

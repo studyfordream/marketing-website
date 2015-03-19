@@ -23,20 +23,20 @@
     <span>{{tr 'Phone number'}}</span>
     <input type="text" name="phone_number">
 </label>
-<div id="channels">
-  <label><span>{{tr 'Channels You\'d Like to Test'}}</span></label>
-  <div class="checkboxes">
-    <label for="web"><input type="checkbox" name="web"> {{tr 'Web'}}</label>
-    <label for="mobile_web"><input type="checkbox" name="mobile_web"> {{tr 'Mobile web'}}</label>
-    <label for="ios"><input type="checkbox" name="ios"> {{tr 'iOS'}}</label>
-    <label for="android"><input type="checkbox" name="android"> {{tr 'Android'}}</label>
-  </div><!--/.checkboxes-->
-</div><!--/#channels-->
+<div class="checkboxes">
+    <label for="web"><input type="checkbox" name="Web_Interest__c">{{tr 'Web'}}</label>
+    <label for="mobile_web"><input type="checkbox" name="Mobile_Web_Interest__c">{{tr 'Mobile web'}}</label>
+    <label for="ios"><input type="checkbox" name="iOS_Interest__c">{{tr 'iOS'}}</label>
+    <label for="android"><input type="checkbox" name="Android_Interest__c">{{tr 'Android'}}</label>
+</div><!--/.checkboxes--></div><!--/#channels-->
 <div class="terms">
   <p>{{{tr 'By clicking the <q>Create account</q> button below I agree to the <br><a href="{0}/terms" target="_blank">Terms of Service</a> and <a href="{0}/privacy" target="_blank">Privacy Policy</a>.' linkPath}}}</p>
 </div>
 <input id="hidden" type="hidden" name="hidden" value="" />
 <input type="hidden" name="flow" value="nux"></input>
+<input type="hidden" name="leadSource" value="Website">
+<input type="hidden" name="Lead_Source_Category__c" value="Create Account">
+<input type="hidden" name="Lead_Source_Subcategory__c" value="Optimizely">
 <div class="options">
   <p>{{tr 'Already have an Optimizely account?'}} <br><a class="show-sign-in" data-modal-click="signin">{{tr 'Sign in here'}}</a></p>
     <p class="error-message error-hide">{{tr 'Create Account Error'}}</p>

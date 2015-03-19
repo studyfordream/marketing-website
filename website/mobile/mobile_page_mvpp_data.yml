@@ -1,4 +1,4 @@
-hero: 
+hero:
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/hero-img-comp.jpg"
   TR_title: "Make your app <br><strong>more engaging</strong>"
   TR_vid_btn_txt: "Watch Video"
@@ -36,17 +36,6 @@ TR_panels:
   TR_text: "Make visual changes to your app immediately without waiting for App Store review."
   bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/03instant-rollout-static.gif"
   bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/instant-rollout-3.gif"
--
-  TR_title: "Multichannel <br>Experiences"
-  TR_text: "Deliver connected, targeted experiences across the web and mobile apps."
-  TR_beta_text: "Currently in beta"
-  bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/04multi-ex-static.gif"
-  bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/multi-exp-4.gif"
--
-  TR_title: "Mobile <br>Metrics"
-  TR_text: "Track the metrics that matter to mobile developers, with out-of-the-box support for retention metrics, revenue reports, and more."
-  bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/05mobile-metrics-static.gif"
-  bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/mobile-metrics-5.gif"
 customer_logos:
  MD_body: |
   ## Already loved by these<br><strong>awesome apps</strong>
@@ -75,7 +64,7 @@ customer_logos:
   -
     url: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/8.png"
     name: "HomeFinder"
-testing_ideas: 
+testing_ideas:
   TR_header: "Try out these <strong>testing ideas</strong>"
   TR_ideas_grid:
   -
@@ -83,31 +72,37 @@ testing_ideas:
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/onboard.gif"
     TR_title: "Onboarding Flow"
     TR_text: "More than 80% of apps are deleted after their first use. That’s why it’s so important to test how you onboard users and show the value of your app."
+    article_link: "//help.optimizely.com/hc/en-us/articles/203430454"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/permission-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/permission.gif"
     TR_title: "Requesting Permissions"
     TR_text: "With more access, you can offer a better experience. Try testing the right way to ask your users for permissions."
+    article_link: "//help.optimizely.com/hc/en-us/articles/203476374"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/feature-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/feature.gif"
     TR_title: "Feature Discovery"
     TR_text: "Should users search? Should they use your menu? You have the opportunity to optimize your users’ flow through your app."
+    article_link: "#"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/input-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/input.gif"
     TR_title: "Inputs and Interactions"
     TR_text: "Every chance for a user to interact with your app is a chance for you to optimize. Test different types of forms and inputs."
+    article_link: "#"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/re-engage-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/re-engage-2.gif"
     TR_title: "Re-engagement"
     TR_text: "Acquisition is tough. Re-acquisition is tougher. You can optimize the ways you re-engage your users to keep them active."
+    article_link: "#"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/rollout-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/rollout-2.gif"
     TR_title: "Phase Rollouts"
     TR_text: "Mobile A/B testing gives you an easy way to test new features and quickly remove the ones that don’t work."
+    article_link: "#"
 form_panel:
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/bottom-img-comp.jpg"
   TR_title: "Start optimizing"

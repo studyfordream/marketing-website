@@ -1,3 +1,5 @@
+w.pageID = '/free-trial';
+
 if(Modernizr.placeholder){
   w.optly.mrkt.inlineFormLabels();
 }
@@ -12,7 +14,6 @@ var xhrInitiationTime;
 
 w.optly.mrkt.formHadError = false;
 
-//track focus on form fields
 //track focus on form fields
 $('#seo-form input:not([type="hidden"])').each(function(){
   $(this).one('focus', function(){
@@ -77,7 +78,8 @@ w.optly.mrkt.trialForm = new Oform({
       var urlRegex = /.+\..+/;
       return urlRegex.test(element.value);
     }
-  }
+  },
+  middleware: w.optly.mrkt.Oform.defaultMiddleware
 })
 .on('before', function(){
   w.analytics.track('/free-trial/submit', {
@@ -122,16 +124,9 @@ w.optly.mrkt.trialForm = new Oform({
   });
   if(response){
     if(loadEvent.XHR.status === 200){
-      var pageData = {
-        email: d.getElementById('email').value,
-        url: d.getElementById('url').value,
-        name: d.getElementById('name').value,
-        phone: d.getElementById('phone').value
-      };
       w.optly.mrkt.Oform.trackLead({
-        formElm: '#seo-form',
-        pageData: pageData,
-        XHRevent: loadEvent
+        response: response,
+        requestPayload: loadEvent.requestPayload
       });
       w.analytics.track('seo-form success after error ' + w.optly.mrkt.formHadError, {
         category: 'form'
@@ -165,28 +160,30 @@ w.optly.mrkt.trialForm = new Oform({
       //document.body.dataset.formSuccess = document.getElementById('seo-form').getAttribute('action');
       $('body').attr('data-form-success', $('#seo-form').attr('action') );
 
+      var createRedirectURL = function(){
+        var redirectURL, domain, queryParams;
+        domain = window.location.hostname;
+        queryParams = window.location.href.split(/\?(.+)?/)[1] || '';
+        queryParams = queryParams ? '&' + queryParams : queryParams;
+        redirectURL = w.apiDomain + '/edit?url=' + encodeURIComponent(d.getElementById('url').value) + queryParams;
+        return redirectURL;
+      };
+
+      var redirectURL = createRedirectURL();
+
       if(!w.optly.mrkt.automatedTest()){
         setTimeout(function(){
-          var redirectURL, domain, queryParams;
-          domain = window.location.hostname;
-          queryParams = window.location.href.split(/\?(.+)?/)[1] || '';
-          queryParams = queryParams ? '&' + queryParams : queryParams;
-          if(/^www\.optimizely\./.test(domain)){
-            //production
-            redirectURL = '/edit?url=';
-          } else {
-            //local dev
-            redirectURL = 'https://www.optimizely.com/edit?url=';
-          }
-          w.location = redirectURL + encodeURIComponent(d.getElementById('url').value) + queryParams;
+          w.location = redirectURL;
         }, 1000);
+      } else {
+        w.redirectURL = redirectURL;
       }
 
     } else {
       //window.alert('non 200 response');
       w.analytics.track(w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname), {
         category: 'api error',
-        label: 'status not 200: ' + event.target.status
+        label: 'status not 200: ' + loadEvent.XHR.status
       }, {
         integrations: {
           'Marketo': false

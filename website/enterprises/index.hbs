@@ -4,7 +4,6 @@ TR_seo_title: "Enterprises"
 TR_visible_title: "Enterprises"
 body_class:
 - "enterprises-page"
-inbound_form_lead_type: "Optimizely for Enterprises"
 TR_page_h2: "Unlock visitor insights, generate leads, grow revenue"
 TR_page_h5: "Highlights:"
 TR_page_paragraphs:
@@ -13,7 +12,7 @@ TR_page_paragraphs:
 - "Most people on our team found it hard to believe that a single word could really have a meaningful impact on user behavior. Prior to Optimizely, testing usually meant more people needed to be involved, which made for a longer process, and didn't typically allow for a quick and easy test; it didn't take more than a day to discover that the naysayers were totally wrong."
 - "- Irving Weiss, Vitals.com"
 -
-  TR_strong: "Learn More: "
+  TR_strong: "Learn More"
   link: "benefits"
   TR_text: "Benefits of A/B and Multivariate Testing"
 TR_page_li:
@@ -27,6 +26,9 @@ TR_page_li:
 - "Cross-browser testing, staging server support, uptime monitoring"
 - "Custom HTML/Javascript/CSS editor"
 - "And much more..."
+inbound_form_lead_type: "Optimizely for Enterprises"
+initial_form_source: "Optimizely for Enterprises"
+lead_source_subcategory: "Optimizely for Enterprises form"
 ---
 <h2 class="subheading">{{page_h2}}</h2>
 
@@ -51,7 +53,7 @@ TR_page_li:
         {{/is}}
         {{#if_gt @index compare=1}}
         {{#if @last}}
-        <p><strong>{{strong}}<strong><a href="{{../../../linkPath}}/{{link}}">{{text}}</a></p>
+        <p><strong>{{strong}}: <strong><a href="{{../../../linkPath}}/{{link}}">{{text}}</a></p>
           {{else}}
             {{#isnt @index 3}}
               <blockquote>

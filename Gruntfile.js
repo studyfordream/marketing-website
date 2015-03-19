@@ -22,7 +22,8 @@ module.exports = function(grunt) {
         sass: 'grunt-sass',
         connect: 'grunt-contrib-connect',
         jasmine_node: 'grunt-jasmine-node',
-        assemble: 'grunt/assemble/'
+        assemble: 'grunt/assemble/',
+        open: 'grunt-open'
       }
     },
     data: {
@@ -31,6 +32,10 @@ module.exports = function(grunt) {
     },
     init: true
   });
+
+  grunt.registerTask('om-test', [
+    'open'
+  ]);
 
   grunt.registerTask('staging-deploy', [
     'gitinfo',
@@ -115,16 +120,25 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('ui-test', function(which) {
-    var task = 'jasmine_node';
-    if (which) {
-      task += ':' + which;
+    var jasminTest = 'jasmine_node',
+        tasks = [
+          'config:dev',
+          'jshint:test'
+        ];
+
+    if(which){
+      if(which !== 'om'){
+        jasminTest += ':' + which;
+        tasks.push(jasminTest);
+      } else if(which === 'om'){
+        tasks.push('om-test');
+      }
+    } else {
+      tasks.push('om-test');
+      tasks.push(jasminTest);
     }
 
-    grunt.task.run([
-      'config:dev',
-      'jshint:test',
-      task
-    ]);
+    grunt.task.run(tasks);
   });
 
   grunt.registerTask('test', [
@@ -142,6 +156,7 @@ module.exports = function(grunt) {
     'autoprefixer',
     'copy',
     'clean:postBuild',
+    'om-test',
     'connect:resemble',
     'jasmine_node',
     'resemble'

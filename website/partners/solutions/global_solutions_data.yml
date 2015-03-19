@@ -12,7 +12,7 @@ TR_kb_article: "Get Implementation Guide"
 TR_partner_tooltip: "Optimizely Solutions Partner level indicates the degree of expertise a partner has working with Optimizely customers"
 filter:
   TR_region: "Region"
-  TR_title: "Filter By"
+  title: "Filter By"
   TR_stars: "Partner Level"
   TR_vertical: "Industry"
   TR_reset: "Reset"

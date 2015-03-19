@@ -26,8 +26,8 @@ layout_script: original.js
     <div class="form-cont{{#unless this.hero}} center{{/unless}}">
       <div id="ppc-form" class="landing-page-form">
         {{#if this.form_heading}}<h4 class="seo-form-heading">{{this.form_heading}}</h4>{{/if}}
-        {{#if this.form_body}}{{#omarkdown}}{{{this.form_body}}}{{/omarkdown}}{{/if}}
-        <form id="seo-form" method="POST" class="seo-form inline-labels" action="/account/free_trial_create" autocomplete="off" novalidate="novalidate">
+        {{#if this.form_body}}{{{this.form_body}}}{{/if}}
+        <form id="seo-form" method="POST" class="seo-form inline-labels" action="{{apiDomain}}/account/free_trial_create" autocomplete="off" novalidate="novalidate">
           <p class="error-message oform-error-show"></p>
           <input id="utm_medium" type="hidden" name="utm_medium" value="">
           <input id="hidden" type="hidden" name="hidden" value="">
@@ -59,6 +59,8 @@ layout_script: original.js
               <p class="oform-processing-show processing-message">Processing...</p>
             </li>
           </ul>
+          <input type="hidden" name="Inbound_Lead_Form_Type__c" value="Free Trial Signup Form">
+          <input type="hidden" name="Initial_Form_Source__c" value="Free Trial PPC">
         </form>
       </div><!--/#ppc-form-->
     </div>

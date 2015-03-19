@@ -3,99 +3,72 @@ layout: opticon
 TR_seo_title: Opticon
 no_container: true
 no_header: true
-page_script:
-- opticon.js
-footer_style: grey
+no_footer: true
 body_class:
 - opticon
-external_stylesheets:
-- //cloud.typography.com/7838232/736966/css/fonts.css
+- opticon-homepage
+og_title: "Opticon 2015"
+og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
+external_script:
+- //use.typekit.net/ucj0cgp.js
 ---
 
-<div class="row">
-  {{#with opticon_data}}
-
-  <!--             -->
-  <!--Title Section-->
-  <!--             -->
-  <section class="welcome-container">
-    <h1 class="title section-title">{{title}}</h1>
-    <h4 class="event-details">{{date}} | {{location}}</h4>
-  </section>
-
-  <!--                   -->
-  <!--Description Section-->
-  <!--                   -->
-  <section class="description-panel container">
-    <h1 class="section-title">{{description.title}}</h1>
-    <div class="flex-container">
-      <div class="andreeseen-container">
-        <div class="andreeseen"></div>
-        <p class="caption">{{description.caption}}</p>
-      </div>
-      <div>
-        <p class="description">{{description.blurb_1}}</p>
-        <p class="description">{{description.blurb_2}}</p>
-      </div>
-    </div>
-  </section>
-
-  <!--                -->
-  <!--Register Section-->
-  <!--                -->
-  <section id="register" class="register-panel">
-    <a class="justify-your-trip" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Justify_Your_Trip.pdf">{{register.jyt}}</a>
-    <h1 class="section-title">{{register.title}}</h1>
-    <div class="container">
-      <p class="blurb">{{{register.blurb}}}</p>
-      <div class="button-container">
-        <a class="cta" href="https://opticon2015.eventbrite.com/?ref=elink" target="_blank">{{register.cta}}</a>
-      </div>
-    </div>
-  </section>
-
-
-  <!--               -->
-  <!--Sponsor Section-->
-  <!--               -->
-  <section id="call-for-sponsors" class="call-for-sponsors-panel">
-    <h1 class="blue-headline section-title container">{{call_for_sponsors.title}}</h1>
-    <p class="blurb container">{{call_for_sponsors.blurb}}</p>
-    <div class="button-container">
-      <a class="cta" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Sponsorship_Prospectus.pdf">{{call_for_sponsors.cta}}</a>
-    </div>
-  </section>
-
-
-  <!--                         -->
-  <!--Call for Speakers Section-->
-  <!--                         -->
-  <section id="call-for-speakers" class="call-for-speakers-panel">
-    <h1 class="section-title">{{call_for_speakers.title}}</h1>
-    <p class="blurb">{{{call_for_speakers.blurb}}}</p>
-  <div class="button-container desktop">
-    <a class="cta" href="{{linkPath}}/opticon/speakers">{{call_for_speakers.cta.desktop}}</a>
+{{#with opticon_data}}
+<div class="confetti-container">
+  <div class="confetti-left"></div>
+</div>
+<!--             -->
+<!--Title Section-->
+<!--             -->
+<section class="title-section">
+  <div class="content-container container">
+    <h1 class="page-title first-title adelle-sans--bold">{{title_section.title1}}</h1>
+    <h1 class="page-title second-title adelle-sans--bold">{{title_section.title2}}</h1>
+    <h4 class="event-details adelle-sans">{{title_section.date}} | {{title_section.location}}</h4>
+    <p class="optimizely-host adelle-sans">{{{title_section.sub_title}}}</p>
+    <a class="anim-opticon-button opticon-button register-link" href="https://www.eventbrite.com/e/opticon-2015-tickets-14328636337">
+      <div class="cta-text adelle-sans">{{title_section.cta}}</div>
+      <div class="cta-arrow">→</div>
+    </a>
   </div>
-  <div class="button-container mobile">
-    <a class="cta" href="{{linkPath}}/opticon/speakers">{{call_for_speakers.cta.mobile}}</a>
+</section>
+{{/with}}
+
+<div class="confetti-container">
+  <div class="confetti-right"></div>
+</div>
+
+<!--                   -->
+<!--Description Section-->
+<!--                   -->
+<section class="description container">
+  <h3 class="description-title adelle-sans">{{opticon_data.description.title}}</h3>
+  <p class="description-text adelle-sans">{{opticon_data.description.blurb}}</p>
+  <div class="button-container">
+    <a class="body-button adelle-sans" href="{{linkPath}}/opticon/about">{{opticon_data.description.cta}}</a>
   </div>
-  </section>
+</section>
 
-  <!--                -->
-  <!--Training Section-->
-  <!--                -->
-  <section class="training-panel">
-    <h1 class="blue-headline section-title">{{training.title}}</h1>
-    <div class="container">
-      <p class="blurb">{{{training.blurb}}}</p>
-      <div class="button-container desktop">
-        <a href="https://opticon2015.eventbrite.com" target="_blank">{{training.cta_desktop}}</a>
-      </div>
-      <div class="button-container mobile">
-        <a href="https://opticon2015.eventbrite.com" target="_blank">{{training.cta_mobile}}</a>
-      </div>
-    </div>
-  </section>
 
-  {{/with}}
-</div><!-- /.row-->
+{{> opticon_keynote_speakers}}
+{{#with opticon_data}}
+
+<!--              -->
+<!--Tracks Section-->
+<!--              -->
+<section class="tracks container">
+  <h3 class="description-title adelle-sans">{{tracks.title}}</h3>
+  <p class="subtitle adelle-sans">{{tracks.sub_title}}</p>
+  <div class="tracks-container flex-container">
+    {{#each tracks.track_list}}
+      <div class="track-container {{this.class}}">
+        <p class="item-title adelle-sans--bold">{{this.title}}</p>
+        <p class="detail-text adelle-sans">{{this.blurb}}</p>
+      </div>
+    {{/each}}
+  </div>
+</section>
+
+{{/with}}
+
+{{> opticon_register}}

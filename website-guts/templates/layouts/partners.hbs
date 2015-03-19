@@ -85,11 +85,11 @@ layout_body_class:
             </div>
             {{/if}}
 
-            {{#if kb_article}}
+            {{#isUrlLike page.kb_article}}
             <a class="button" href="{{kb_article}}">
               {{{global_solutions_data.kb_article}}}
             </a>
-            {{/if}}
+            {{/isUrlLike}}
           </div>
         </div>
       </div>
