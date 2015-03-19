@@ -111,10 +111,12 @@ body.opticon {
       &--footer {
         color: $light-text-color;
         border: 1px solid $light-text-color;
+        font-size: 0.87em;
       }
       &--header {
         color: $opticon-brand-blue;
         border: 1px solid $opticon-brand-blue;
+        font-size: 0.87em;
       }
     }
   }
@@ -239,10 +241,16 @@ body.opticon {
     .opticon-button--nav {
       margin: 0 0 0 15px;
     }
+    .opticon-button--nav--footer {
+      font-size: 1em;
+    }
   }
 }
 
 @media only screen and (min-width: $desktop-min-width) {
   body.opticon {
+    .opticon-button--nav--footer {
+      font-size: 1.338em;
+    }
   }
 }

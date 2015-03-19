@@ -58,6 +58,11 @@ layout_modals:
         <script  src="{{.}}"></script>
         {{/each}}
         {{/if}}
+        {{#if page.meta_tags}}
+        {{#each page.meta_tags}}
+        {{{this}}}
+        {{/each}}
+        {{/if}}
         {{#if page.external_stylesheets}}
         {{#each page.external_stylesheets}}
         <link rel="stylesheet" type="text/css" href="{{.}}">
@@ -163,10 +168,11 @@ layout_modals:
                                     <li><a href="{{linkPath}}/privacy/">Privacy Policy</a> &nbsp;<span class="separater">|</span></li>
                                     <li class="security"><a href="{{linkPath}}/security/">Security</a></li>
                                 </ul>
-                                <ul class="social-links">
-                                    <li><a href="http://twitter.com/optimizely" class="twitter">Twitter</a></li>
-                                    <li><a href="http://www.facebook.com/optimizely" class="facebook">Facebook</a></li>
-                                    <li><a href="https://plus.google.com/+optimizely/posts" class="google-plus">Google+</a></li>
+                                <ul class="social-links" itemscope itemtype="http://schema.org/Organization">
+                                    <link itemprop="url" href="https://www.optimizely.com/">
+                                    <li><a itemprop="sameAs" href="http://twitter.com/optimizely" class="twitter">Twitter</a></li>
+                                    <li><a itemprop="sameAs" href="http://www.facebook.com/optimizely" class="facebook">Facebook</a></li>
+                                    <li><a itemprop="sameAs" href="https://plus.google.com/+optimizely/posts" class="google-plus">Google+</a></li>
                                 </ul>
                             </div><!--/.left-->
                             <div class="right-nav">
