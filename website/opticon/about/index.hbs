@@ -22,18 +22,18 @@ external_script:
   <div class="top-paragraph">
     <h3 class="description-title adelle-sans">{{top_paragraph.title}}</h3>
     <p class="description-text adelle-sans">{{top_paragraph.blurb}}</p>
-    <a class="body-button adelle-sans" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Justify_Your_Trip.pdf">{{top_paragraph.cta}}</a>
+    <a class="opticon-button adelle-sans" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Justify_Your_Trip.pdf">{{top_paragraph.cta}}</a>
   </div>
   <div class="flex-container">
     <div class="left-paragraph">
       <h3 class="description-title adelle-sans">{{left_paragraph.title}}</h3>
       <p class="description-text adelle-sans">{{left_paragraph.blurb}}</p>
-      <a class="body-button adelle-sans" href="https://opticon2015.eventbrite.com/">{{left_paragraph.cta}}</a>
+      <a class="opticon-button adelle-sans" href="https://opticon2015.eventbrite.com/">{{left_paragraph.cta}}</a>
     </div>
     <div class="right-paragraph">
       <h3 class="description-title adelle-sans">{{right_paragraph.title}}</h3>
       <p class="description-text adelle-sans">{{right_paragraph.blurb}}</p>
-      <a class="body-button adelle-sans" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Sponsorship_Prospectus.pdf">{{right_paragraph.cta}}</a>
+      <a class="opticon-button adelle-sans" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Sponsorship_Prospectus.pdf">{{right_paragraph.cta}}</a>
     </div>
   </div>
   {{/with}}
@@ -50,8 +50,8 @@ external_script:
   <div class="faq-container flex-container">
     {{#each faqs}}
     <div class="faq-item">
-      <p class="question adelle-sans--bold">{{this.question}}</p>
-      <div class="answer">
+      <p class="question adelle-sans">{{this.question}}</p>
+      <div class="answer adelle-sans">
         {{{this.answer}}}
       </div>
     </div>

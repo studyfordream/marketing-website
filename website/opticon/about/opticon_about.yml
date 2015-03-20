@@ -3,15 +3,15 @@ page_title: "About"
 top_paragraph:
   title: "From incredible speakers to creative networking, Opticon is all about the experience."
   blurb: "In 2015 Opticon will be an unforgettable experience, taking place on San Francisco’s scenic waterfront at Pier 27 with twice as much content, double the number of attendees, and visionary speakers like Marc Andreessen, the General Partner of Andreessen Horowitz."
-  cta: "Justify your trip"
+  cta: "Justify Your Trip"
 
 left_paragraph:
   title: "Join us for hands-on training sessions."
   blurb: "Optimizely training is a great hands-on way to learn best practices for building an optimization strategy and expanding your technical knowledge."
-  cta: "Learn more"
+  cta: "Learn More"
 
 right_paragraph:
-  title: "Become an Opticon Sponsor."
+  title: "Become an Opticon sponsor."
   blurb: "Opticon sponsors have a unique opportunity to engage with 1,000 leaders in the optimization community, grow their business, and set the tone for what will be accomplished in the emergent space of experience optimization."
   cta: "Download Prospectus"
 
@@ -55,7 +55,7 @@ faq_section:
         the actual source of these words is unknown.</p>
         <p class='adelle-sans'>While it won’t be balmy, San Francisco usually has a wonderfully
         <a target='_blank' href='http://www.wunderground.com/history/airport/KSFO/2015/3/5/DailyHistory.html?req_city=San+Francisco+International&req_state=CA&req_statename=California&reqdb.zip=94128&reqdb.magic=6&reqdb.wmo=99999'>moderate climate</a> all year long. The average daily temperature is 62.5 degrees. Expect some
-        of the famous fog during the summer so be sure to bring a jacket</p>"
+        of the famous fog during the summer so be sure to bring a jacket.</p>"
     -
       question: "What airport should I fly into?"
       answer: "<p class='adelle-sans'>San Francisco is lucky enough to be situated between two major airports: <a target='_blank' href='http://www.oaklandairport.com/'>Oakland International Airport</a> and <a target='_blank' href='http://www.flysfo.com/'>San Francisco International Airport</a>. The <a target='_blank' href='http://www.bart.gov/'>Bay Area Rapid Transit System</a> (BART) goes to both airports.</p>"

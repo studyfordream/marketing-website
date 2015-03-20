@@ -1,27 +1,15 @@
 #opticon-footer {
-  background: #EAF4F3;
-  height: 400px;
+  background: $faint-gray-bg;
+  height: 285px;
   width: 100%;
-  .nav-text-item {
-    margin: 15px 0;
-    font-size: 0.938em;
-    letter-spacing: 0.46px;
-    line-height: 23px;
-    color: $light-text-color;
-    display: block;
-    &:hover {
-      text-decoration: none;
-    }
-    &.body-button {
-      color: $opticon-brand-blue;
-    }
-  }
+  border-top: solid 1px $faint-gray-border;
   .social {
     background-repeat: no-repeat;
     background-size: contain;
     width: 35px;
     height: 35px;
     margin: 10px;
+    display: none;
   }
   .social-container {
     display: flex;
@@ -37,8 +25,8 @@
 
 @media only screen and (min-width: $tablet-min-width) {
   #opticon-footer {
-    height: 200px;
-    padding: 10px 0;
+    height: 140px;
+    padding: 25px 0;
     border-bottom: 1px solid #ccc;
     .opticon-flex-container {
       display: flex;
@@ -52,11 +40,19 @@
       flex: 1;
     }
     .nav-text-item {
-      margin: 0 30px;
-      font-size: 1.338em;
+      margin: 0 15px;
+      font-size: 1em;
     }
     .twitter {
       margin-right: 35px;
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  #opticon-footer {
+    .nav-text-item {
+      font-size: 1.338em;
     }
   }
 }
