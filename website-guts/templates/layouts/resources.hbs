@@ -16,12 +16,12 @@ layout_body_class: false
   <div id="page-content">
     {{#unless this.no_container}}<div class="container">{{/unless}}
       <div class="pill container">
-        <div class="heading">{{resources-page.filter.dropdown_label}}:</div>
+        <div class="heading">{{page_data.filter.dropdown_label}}:</div>
         <div class="dropdown-cont">
-          <div class="selected-option">{{resources-page.filter.filter_options.[0]}} &#9662;</div>
+          <div class="selected-option">{{page_data.filter.filter_options.[0].name}} &#9662;</div>
           <ul>
-            {{#each resources-page.filter.filter_options}}
-              <li class="filter-item" data-filter="{{ createClassList this }}">{{this}}</li>
+            {{#each page_data.filter.filter_options}}
+              <li class="filter-item" data-filter="{{this.attr}}">{{this.name}}</li>
             {{/each}}
           </ul>
         </div>

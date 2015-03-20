@@ -241,9 +241,9 @@ module.exports = function (grunt) {
       return push('subfolders')
       .pipe(ext())
       .pipe(assemble.dest(files.dest))
-      .on('data', function(d) {
-        console.log('data', d.path);
-      })
+      //.on('data', function(d) {
+        //console.log('data', d.path);
+      //})
       .on('end', function () {
         var end = process.hrtime(start);
         console.log('finished rendering subfolder', end);

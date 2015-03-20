@@ -3,7 +3,7 @@ layout: resources
 TR_seo_title: Resources
 TR_visible_title: "Resources"
 no_container: true
-sub_head: Everything you need to learn about Experience Optimization
+TR_sub_head: Everything you need to learn about Experience Optimization
 page_script: resources.js
 body_class:
 - resources-page
@@ -16,7 +16,7 @@ script_dependencies:
     <div class="resources-grid">
       {{#collection "resources"}}
         <a href="{{this.url}}" target="_blank">
-          <div class="resources-grid-elm {{#toLowerCase this.type}}{{/toLowerCase}}">
+          <div class="resources-grid-elm {{matchType this.type ../page_data.filter.filter_options}}">
             <div class="resources-image">
               <img src="{{this.photo}}">
             </div>
@@ -27,7 +27,7 @@ script_dependencies:
       {{/collection}}
     </div><!-- /.resources-grid -->
     <div class="integrations-message">
-      <p>{{{resources-page.filter.no_results}}}</p>
+      <p>{{{page_data.filter.no_results}}}</p>
     </div>
   </div><!-- /.row-->
 </div><!-- /.container-->
