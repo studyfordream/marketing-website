@@ -1,8 +1,7 @@
 body.seo-layout {
   #seo-form {
-    .oform-error-message, .oform-processing-show {
-      display: none;
-    }
+    .oform-error-message,
+    .oform-processing-show {display: none;}
   }
   &.oform-processing {
     #seo-form {
@@ -10,9 +9,9 @@ body.seo-layout {
       .oform-processing-hide {display: none;}
     }
   }
+  label {display: block;}
+  input {width: 100%;}
   .shadow-cta {
-    h4 {
-      margin: 0;
-    }
+    h4 {margin: 0;}
   }
 }
