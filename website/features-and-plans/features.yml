@@ -41,8 +41,6 @@ feature_sections:
         "A/B and multivariate testing"
       -
         "Multi-page funnel testing"
-      -
-        "Multichannel experiments"
   -
     title: "Discover Visitor Insights"
     desc: "Analyze the unique visitors that connect with
