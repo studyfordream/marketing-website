@@ -1,0 +1,25 @@
+---
+layout: opticon.hbs
+seo_title: Opties 2015
+no_container: true
+no_header: true
+no_footer: true
+page_script: opties.js
+body_class:
+- opticon
+- opticon-opties-success
+og_title: "Opticon 2015"
+og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
+external_script:
+- //use.typekit.net/ucj0cgp.js
+---
+
+<div class="confetti-container">
+  <div class="confetti-right"></div>
+</div>
+<div class="container page-content">
+  {{#with opties_success}}
+  <h2 class="page-title common-page-title adelle-sans--bold">{{page_title}}</h2>
+    <p class="description-text adelle-sans">{{blurb}}</p>
+  {{/with}}
+</div>
