@@ -23,6 +23,8 @@ bower_components/*
 node_modules/*
 .DS_Store
 temp/*
+tmp
 configs/s3Config.json
+configs/smartlingConfig.json
 test/**/screenshots/*
 *.map
