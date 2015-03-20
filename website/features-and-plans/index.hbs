@@ -26,7 +26,7 @@ TR_og_description:
     <div class="page-subheader-cont">
       <h1>{{this.visible_title}}</h1>
       <div class="header-cta-container">
-        {{#with page_data.page_header}}
+        {{#with global_features.page_header}}
         <a class="talk-button" id="talk-to-us" href="#">{{cta}}</a>
         <p>{{or_word}}</p>
         <p id="SL-pricing-phone-number-1" class="SL_swap">
@@ -43,7 +43,7 @@ TR_og_description:
 <!--             -->
 <!--Title Section-->
 <!--             -->
-{{#with page_data.title_section}}
+{{#with global_features.title_section}}
 <section class="title-section">
   <h1 class="title-copy">{{{title}}}</h1>
   <div class="buttons-container">
@@ -57,7 +57,7 @@ TR_og_description:
 <!--                -->
 <!--Benefits Section-->
 <!--                -->
-{{#with page_data.benefits_section}}
+{{#with global_features.benefits_section}}
 <section class="benefits-section" id="benefits">
   <h2 class="title-copy">{{title}}</h2>
   <div class="benefit-items-container container">
@@ -75,7 +75,7 @@ TR_og_description:
 <!--                -->
 <!--Feature Sections-->
 <!--                -->
-{{#with page_data}}
+{{#with global_features}}
   {{#each feature_sections}}
     {{#is_even @index}}
     <section class="feature-section even">
@@ -109,7 +109,7 @@ TR_og_description:
 <!--                  -->
 <!--Enterprise Section-->
 <!--                  -->
-{{#with page_data}}
+{{#with global_features}}
 <section class="enterprise-section" id="enterprise">
   <h2 class="title-copy">{{enterprise_section.title}}</h2>
   <p class="subtitle">{{enterprise_section.subtitle}}</p>
@@ -125,7 +125,7 @@ TR_og_description:
 <!--               -->
 <!--Starter Section-->
 <!--               -->
-{{#with page_data}}
+{{#with global_features}}
 <section class="starter-section" id="starter-cta-cont">
   <h2 class="title-copy">{{starter_section.title}}</h2>
   <p class="subtitle">{{{starter_section.subtitle}}}</p>

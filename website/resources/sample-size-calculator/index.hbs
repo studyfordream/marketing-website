@@ -7,7 +7,7 @@ body_class:
 page_script: sample-size-calculator.js
 ---
 
-{{#with sample_size_calculator.calculator_content}}
+{{#with page_data.calculator_content}}
 <div class="callout calc-wrapper">
 
   {{#each conversion}}
@@ -57,18 +57,18 @@ page_script: sample-size-calculator.js
 {{/with}}
 
 <div class="calc-faq-wrapper">
-  {{#with sample_size_calculator.faq_content}}
+  {{#with page_data.faq_content}}
   <h3>{{title}}</h3>
   <div class="calc-faq-cont">
     {{#each sections}}
     <div class="calc-faq-subtitle">{{sub_title}}</div>
-    {{#omarkdown}}{{description}}{{/omarkdown}}
+    {{{description}}}
     {{/each}}
   </div>
   {{/with}}
 </div>
 
-{{#with sample_size_calculator.cta}}
+{{#with page_data.cta}}
 <div class="shadow-cta">
   <h4>{{title}}</h4>
   <a href="{{button.path}}" target="_blank" class="primary-button">{{button.text}}</a>

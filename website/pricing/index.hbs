@@ -12,8 +12,8 @@ modals:
 - downgrade_plan
 - downgrade_plan_confirm
 - pricing_plan_signup_thank_you
-og_title: "Plans and Pricing"
-og_description: "Get started optimizing instantly, or build a custom plan for your business."
+TR_og_title: "Plans and Pricing"
+TR_og_description: "Get started optimizing instantly, or build a custom plan for your business."
 ---
 
 <!--           -->
@@ -22,9 +22,9 @@ og_description: "Get started optimizing instantly, or build a custom plan for yo
 <div id="page-header">
   <div class="container">
     <div class="page-subheader-cont">
-      <h1>{{page.TR_visible_title}}</h1>
+      <h1>{{this.visible_title}}</h1>
       <div class="header-cta-container">
-        {{#with pricing.page_header}}
+        {{#with page_data.page_header}}
         <a class="talk-button" id="talk-to-us" href="#">{{cta}}</a>
         <p>{{or_word}}</p>
         <p id="SL-pricing-phone-number-1" class="SL_swap">
@@ -41,7 +41,7 @@ og_description: "Get started optimizing instantly, or build a custom plan for yo
 <!--             -->
 <!--Title Section-->
 <!--             -->
-{{#with pricing.title_section}}
+{{#with page_data.title_section}}
 <section class="title-section">
   <h1 class="title-copy">{{{title}}}</h1>
   <div class="buttons-container">
@@ -56,7 +56,7 @@ og_description: "Get started optimizing instantly, or build a custom plan for yo
 <!--                -->
 <!--Benefits Section-->
 <!--                -->
-{{#with features.benefits_section}}
+{{#with global_features.benefits_section}}
 <section class="benefits-section">
   <h2 class="title-copy">{{title}}</h2>
   <div class="benefit-items-container container">
@@ -75,17 +75,17 @@ og_description: "Get started optimizing instantly, or build a custom plan for yo
 <!---Feature List-->
 <!--             -->
 <div class="container">
-  {{> feature_list}}
+  {{partial "feature_list"}}
 </div>
 
 
 <!--               -->
 <!--Companies Panel-->
 <!--               -->
-{{> companies_panel}}
+{{partial "companies_panel"}}
 
 
 <!--           -->
 <!--FAQ Section-->
 <!--           -->
-{{> faq_section}}
+{{partial "faq_section"}}

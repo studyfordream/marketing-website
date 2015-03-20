@@ -13,7 +13,7 @@ external_script:
 - //use.typekit.net/ucj0cgp.js
 ---
 
-{{#with opticon_data}}
+{{#with global_opticon_data}}
 <div class="confetti-container">
   <div class="confetti-left"></div>
 </div>
@@ -42,16 +42,16 @@ external_script:
 <!--Description Section-->
 <!--                   -->
 <section class="description container">
-  <h3 class="description-title adelle-sans">{{opticon_data.description.title}}</h3>
-  <p class="description-text adelle-sans">{{opticon_data.description.blurb}}</p>
+  <h3 class="description-title adelle-sans">{{global_opticon_data.description.title}}</h3>
+  <p class="description-text adelle-sans">{{global_opticon_data.description.blurb}}</p>
   <div class="button-container">
-    <a class="body-button adelle-sans" href="{{linkPath}}/opticon/about">{{opticon_data.description.cta}}</a>
+    <a class="body-button adelle-sans" href="{{linkPath}}/opticon/about">{{global_opticon_data.description.cta}}</a>
   </div>
 </section>
 
 
-{{> opticon_keynote_speakers}}
-{{#with opticon_data}}
+{{partial "opticon_keynote_speakers"}}
+{{#with global_opticon_data}}
 
 <!--              -->
 <!--Tracks Section-->
@@ -71,4 +71,4 @@ external_script:
 
 {{/with}}
 
-{{> opticon_register}}
+{{partial "opticon_register"}}

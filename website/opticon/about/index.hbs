@@ -17,7 +17,7 @@ external_script:
   <div class="confetti-right"></div>
 </div>
 <div class="page-content paragraphs-container container">
-  {{#with opticon_about}}
+  {{#with page_data}}
   <h2 class="page-title common-page-title adelle-sans--bold">{{page_title}}</h2>
   <div class="top-paragraph">
     <h3 class="description-title adelle-sans">{{top_paragraph.title}}</h3>
@@ -39,13 +39,13 @@ external_script:
   {{/with}}
 </div>
 
-{{> opticon_register}}
+{{partial "opticon_register"}}
 
 <!--           -->
 <!--Opticon FAQ-->
 <!--           -->
 <div class="container " id="opticon-faq">
-  {{#with opticon_about.faq_section}}
+  {{#with page_data.faq_section}}
   <h3 class="description-title adelle-sans">{{title}}</h3>
   <div class="faq-container flex-container">
     {{#each faqs}}

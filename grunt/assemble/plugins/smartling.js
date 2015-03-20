@@ -78,6 +78,9 @@ module.exports = function (assemble) {
   return through.obj(function (file, enc, cb) {
     var ppcRe = new RegExp(path.join(websiteRoot, 'om'));
 
+    if(/conversion\-optimization/.test(file.path)) {
+      debugger;
+    }
     // instead of middleware
     // load file.data information onto `assemble.get('lang')` here
     var data, parsedTranslations, filePathData, locale, pagePhrases;
