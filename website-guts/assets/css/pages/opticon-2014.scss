@@ -22,6 +22,21 @@ body.opticon-2014 {
         display: block;
       }
     }
+    &__iframe-cont {
+      display: block;
+      margin: 30px auto;
+      position: relative;
+      padding-top: 42%;
+      width: 80%;
+      height: 0;
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
   #video-modal {
     &.modal-dialog-container {
@@ -80,6 +95,14 @@ body.opticon-2014 {
     .gallery__image-cont__item {
       width: 25%;
       padding: 150px 5px 0;
+    }
+    .gallery {
+      &__iframe-cont {
+        display: inline-block;
+        padding-top: 29%;
+        width: 48%;
+        margin: 5px;
+      }
     }
   }
 }

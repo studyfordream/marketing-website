@@ -3,6 +3,10 @@ module.exports = {
     src: '<%= config.temp %>/css/styles.css.map',
     dest: '<%= config.dist %>/assets/css/styles.css.map'
   },
+  libraryCSS: {
+    src: '<%= config.bowerDir %>/magnific-popup/dist/magnific-popup.css',
+    dest: '<%= config.dist %>/assets/css/magnific-popup.css'
+  },
   fonts: {
     files: [
       {

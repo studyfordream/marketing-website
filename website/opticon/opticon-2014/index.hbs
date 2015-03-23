@@ -16,7 +16,7 @@ external_script:
 - //use.typekit.net/ucj0cgp.js
 - js/libraries/magnific.js
 external_stylesheets:
-- js/libraries/magnific.js
+- css/magnific-popup.css
 ---
 
 {{#with opticon-2014}}
@@ -30,6 +30,23 @@ external_stylesheets:
   </a>
 </div>
 
+<div id="ytplayer"></div>
+
+<!--      -->
+<!--Videos-->
+<!--      -->
+<div class="gallery container">
+  <h3 class="description-title adelle-sans">Opticon 2014 Sessions</h3>
+  {{#each gallery_videos}}
+  <div class="gallery__iframe-cont">
+    <iframe width="450" height="315" src="{{this}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+  {{/each}}
+</div>
+
+<!--      -->
+<!--Photos-->
+<!--      -->
 <div class="gallery container">
   <h3 class="description-title adelle-sans">Gallery</h3>
   <div class="gallery__image-cont flex-container">
