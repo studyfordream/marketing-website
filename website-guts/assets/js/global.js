@@ -559,7 +559,7 @@ w.optly.mrkt.setAttributeCookie = function(){
 		typeof w.optly.mrkt.user.acctData.plan_id === 'string'
 	){
 
-		var planMap = w.planMap,
+		var planMap = w.optly.planMap,
 				plan,
 				planCode,
 				existingVisitorAttributeCookieValues = $.cookie('visitorAttributes'),
