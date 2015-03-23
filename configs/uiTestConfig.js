@@ -1,3 +1,4 @@
+var phantomPath = require('phantomjs').path;
 var createQueryString = function(params) {
   var queryString = '';
   if(params) {
@@ -38,7 +39,7 @@ module.exports = function(options){
     email: 'testing@optimizely.com',
     retrievePasswordEmail: 'david.fox-powell@optimizely.com',
     password: '1800EatBurritos',
-    phantomPath: require('phantomjs').path,
+    phantomPath: phantomPath.substring(0, phantomPath.lastIndexOf('/') + 1),
     screenshot: function(opts) {
       return options.dirname + '/screenshots/' + opts.imgName + '.jpg';
     },
