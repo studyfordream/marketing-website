@@ -6,15 +6,15 @@ layout_body_class:
 ---
 <div id="main">
   <div class="header-wrapper">
-    <h1 class="page-title">{{page.title}}</h1>
+    <h1 class="page-title">{{this.title}}</h1>
     <div class="container">
       <div class="row">
         <div class="columns six offset-three">
-          <p page="subtitle">{{page.subtitle}}</p>
+          <p page="subtitle">{{this.subtitle}}</p>
           <form id="events-form" class="event-form" autocomplete="off" novalidate="novalidate">
             <p class="error-message oform-error-show"></p>
             <input type="hidden" name="Lead_Source_Category__c" value="External Event">
-            <input type="hidden" name="Lead_Source_Subcategory__c" value="{{page.lead_source_subcategory}}">
+            <input type="hidden" name="Lead_Source_Subcategory__c" value="{{this.lead_source_subcategory}}">
             <input type="hidden" name="leadSource" value="Events">
             <input type="hidden" name="Initial_Form_Source__c" value="External Events Capture">
             <input type="hidden" name="Inbound_Lead_Form_Type__c" value="External Events Capture">

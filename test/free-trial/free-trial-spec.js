@@ -105,15 +105,18 @@ describe('testing form on the free trial page', function() {
       .evaluate(function() {
         //return document.body.classList.contains('oform-error');
         var inputs = document.getElementById('seo-form').querySelectorAll('input');
+        inputs = Array.prototype.slice.call(inputs).filter(function(input) {
+          return input.type !== 'hidden';
+        });
         for(var i = 0; i < inputs.length; i++) {
           inputs[i].value = '';
         }
         return inputs.length;
       }, function(inputsLength) {
-        expect(inputsLength).toBe(6);
+        expect(inputsLength).toBe(4);
       })
       .click('#seo-form #submit')
-      .wait(1000)
+      .wait('body.oform-error')
       .screenshot(config.screenshot({ imgName: 'free-trial-error-no-form-info' }))
       .evaluate(function() {
         return document.body.classList.contains('oform-error');
