@@ -62,6 +62,8 @@ var signinHelper = {
       });
     }
 
+    window.optly.identifyVisitorAttributes();
+
     w.analytics.identify(resp.unique_user_id, {
       email: resp.email,
       Email: resp.email

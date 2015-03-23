@@ -27,8 +27,43 @@ layout_modals:
         <script type="text/javascript">
             window.apiDomain = '{{apiDomain}}';
             window.optly_q = [];
-            window.optly = {};
-            window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
+            window.optly = {}; window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
+            window.optly.identifyVisitorAttributes = function(){
+              window.optly.planMap = {
+          			'free_light': 				'1',
+          			'bronze-monthly': 		'2',
+          			'bronze-oneyear': 		'2',
+          			'bronze-twoyear': 		'2',
+          			'silver-monthly': 		'3',
+          			'silver-oneyear': 		'3',
+          			'silver-twoyear': 		'3',
+          			'gold-monthly': 			'4',
+          			'gold-oneyear': 			'4',
+          			'gold-twoyear': 			'4',
+          			'enterprise-monthly': '5',
+          			'enterprise-oneyear': '5',
+          			'enterprise-twoyear': '5',
+                '1':                  'free',
+                '2':                  'bronze',
+                '3':                  'silver',
+                '4':                  'gold',
+                '5':                  'enterprise'
+          		};
+              window.optly.visitorAttributes = $.cookie('visitorAttributes');
+              if(window.optly.visitorAttributes){
+                window.optly.visitorAttributes = window.optly.visitorAttributes.split('|');
+                var plan;
+                if(typeof window.optly.planMap[window.optly.visitorAttributes[0]] === 'string'){
+                  plan = window.optly.planMap[window.optly.visitorAttributes[0]];
+                } else {
+                  plan = 'none';
+                }
+                window.analytics.identify({
+                  'Customer plan': plan
+                });
+              }
+            };
+            window.optly.identifyVisitorAttributes();
             window.analytics.load('{{environmentVariables.segmentProjectID}}');
             window.analytics.page();
         </script>

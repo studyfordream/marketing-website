@@ -550,3 +550,55 @@ if(w.monitorTiming){
 if( $.cookie('amplitude_idoptimizely.com') ) {
   w.optly.mrkt.deleteCookie('amplitude_idoptimizely.com', { path: '/', expires: -5, domain: '.optimizely.com'} );
 }
+
+w.optly.mrkt.setAttributeCookie = function(){
+
+	if(
+		typeof w.optly.mrkt.user === 'object' &&
+		typeof w.optly.mrkt.user.acctData === 'object' &&
+		typeof w.optly.mrkt.user.acctData.plan_id === 'string'
+	){
+
+		var planMap = w.planMap,
+				plan,
+				planCode,
+				existingVisitorAttributeCookieValues = $.cookie('visitorAttributes'),
+				newVisitorAttributeCookieValues = [];
+
+		plan = w.optly.mrkt.user.acctData.plan_id;
+
+		if(existingVisitorAttributeCookieValues){
+			existingVisitorAttributeCookieValues = existingVisitorAttributeCookieValues.split('|');
+		}
+
+		if(typeof planMap[plan] === 'string'){
+
+			planCode = planMap.plan;
+
+			if(existingVisitorAttributeCookieValues){
+
+				if(planCode !== existingVisitorAttributeCookieValues[0]){
+
+					newVisitorAttributeCookieValues.push(planMap[plan]);
+
+				}
+
+			} else {
+
+				newVisitorAttributeCookieValues.push(planMap[plan]);
+
+			}
+
+		}
+
+		$.cookie('visitorAttributes', newVisitorAttributeCookieValues.join('|'), {expires: 90, path: '/'});
+
+	} else {
+
+		$.removeCookie('visitorAttributes', {path: '/'});
+
+	}
+
+};
+
+w.optly.mrkt.setAttributeCookie();
