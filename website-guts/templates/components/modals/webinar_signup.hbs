@@ -7,14 +7,14 @@ data_modal_name: webinar-signup
 form_action: /webinar/register
 api_domain: true
 form_id: webinar-registration-form
-modal_title: Webinar Signup
+TR_modal_title: "Webinar Signup"
 form_method: POST
-primary_button_text: Register
-negative_button_text: Cancel
+TR_primary_button_text: Register
+TR_negative_button_text: Cancel
 ---
           <div class="webinar-info-cont">
             <div class="left">
-              <p>{{tr 'Selected date:'}}</p>
+              <p>{{tr 'Selected date'}}:</p>
             </div>
             <div class="right webinar-info">
               <div class="webinar-detail-info"></div>
@@ -22,12 +22,12 @@ negative_button_text: Cancel
           </div>
           <div class="clearfix" style="clear: both;">
             <label>
-              <span>{{tr 'Name: '}}</span>
+              <span>{{tr 'Name'}}:</span>
               <span class="name-related error-hide error-right">{{tr 'Name is required'}}</span>
               <input type="text" id="name" name="name" required></input>
             </label>
             <label>
-              <span>{{tr 'Email:'}}</span>
+              <span>{{tr 'Email'}}:</span>
               <span class="email-related error-hide error-right">{{tr 'Email is required'}}</span>
               <input type="email" id="email" name="Email" required></input>
             </label>
