@@ -3,17 +3,17 @@ page_title: "About"
 top_paragraph:
   title: "From incredible speakers to creative networking, Opticon is all about the experience."
   blurb: "In 2015 Opticon will be an unforgettable experience, taking place on San Francisco’s scenic waterfront at Pier 27 with twice as much content, double the number of attendees, and visionary speakers like Marc Andreessen, the General Partner of Andreessen Horowitz."
-  cta: "Justify your trip"
+  cta: "Justify Your Trip"
 
 left_paragraph:
-  title: "Up your Optimizely game - join us for hands-on training sessions."
+  title: "Join us for hands-on training sessions."
   blurb: "Optimizely training is a great hands-on way to learn best practices for building an optimization strategy and expanding your technical knowledge."
-  cta: "Learn more"
+  cta: "Learn More"
 
 right_paragraph:
-  title: "Be a part of the Optimizely customer hero awards."
-  blurb: "The Optie Awards recognize and celebrate customers who create impactful online experiences and empower organizations to turn data into action. Nominate someone today for a 2015 Optie Award!"
-  cta: "Nomination page coming soon."
+  title: "Become an Opticon sponsor."
+  blurb: "Opticon sponsors have a unique opportunity to engage with 1,000 leaders in the optimization community, grow their business, and set the tone for what will be accomplished in the emergent space of experience optimization."
+  cta: "Download Prospectus"
 
 faq_section:
   title: "FAQs"
@@ -42,7 +42,7 @@ faq_section:
       answer: "
         <ol>
         <li class='adelle-sans'>Start your day off right with breakfast at <a target='_blank' href='http://www.mamas-sf.com/'>Mama’s</a> (the best breakfast in town).</li>
-        <li class='adelle-sans'>Explore the <a target='_blank' href='http://www.nps.gov/prsf/index.htm>Presidio</a> and the Golden Gate Bridge.</li>
+        <li class='adelle-sans'>Explore the <a target='_blank' href='http://www.nps.gov/prsf/index.htm'>Presidio</a> and the Golden Gate Bridge.</li>
         <li class='adelle-sans'>Visit <a target='_blank' href='http://www.golden-gate-park.com/'>Golden Gate Park</a>–there’s so much to do here, including a visit to the <a target='_blank' href='http://www.conservatoryofflowers.org/'>Conservatory of Flowers</a>, an exploration of the <a target='_blank' href='http://www.calacademy.org/'>California Academy of Sciences</a>, and saying hello to the <a target='_blank' href='http://www.golden-gate-park.com/buffalo-paddock.html'>local Bison</a>.</li>
         <li class='adelle-sans'><a target='_blank' href='http://sanfrancisco.giants.mlb.com/schedule/?c_id=sf#y=2015&m=6&calendar=DEFAULT'>Catch a ball game</a> at AT&T Park, home of the San Francisco Giants.</li>
         <li class='adelle-sans'>Wander through San Francisco’s “most famous landmark”–the marketplace at the <a href='http://www.ferrybuildingmarketplace.com/'>Ferry Building</a>.</li>
@@ -55,7 +55,7 @@ faq_section:
         the actual source of these words is unknown.</p>
         <p class='adelle-sans'>While it won’t be balmy, San Francisco usually has a wonderfully
         <a target='_blank' href='http://www.wunderground.com/history/airport/KSFO/2015/3/5/DailyHistory.html?req_city=San+Francisco+International&req_state=CA&req_statename=California&reqdb.zip=94128&reqdb.magic=6&reqdb.wmo=99999'>moderate climate</a> all year long. The average daily temperature is 62.5 degrees. Expect some
-        of the famous fog during the summer so be sure to bring a jacket</p>"
+        of the famous fog during the summer so be sure to bring a jacket.</p>"
     -
       question: "What airport should I fly into?"
       answer: "<p class='adelle-sans'>San Francisco is lucky enough to be situated between two major airports: <a target='_blank' href='http://www.oaklandairport.com/'>Oakland International Airport</a> and <a target='_blank' href='http://www.flysfo.com/'>San Francisco International Airport</a>. The <a target='_blank' href='http://www.bart.gov/'>Bay Area Rapid Transit System</a> (BART) goes to both airports.</p>"

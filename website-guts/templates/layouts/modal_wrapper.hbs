@@ -19,6 +19,8 @@
                 <button type="button" data-modal-btn="{{#unless page.negative_button_action}}close{{/unless}}{{page.negative_button_action}}" class="secondary-button close-btn jqmClose translate">{{page.negative_button_text}}</button>
                 {{/if}}
             </div><!--/.modal-footer-->
+            {{#if page.initial_form_source}}<input type="hidden" name="Initial_Form_Source__c" value="{{page.initial_form_source}}">{{/if}}
+            {{#if page.inbound_form_lead_type}}<input type="hidden" name="Inbound_Lead_Form_Type__c" value="{{page.inbound_form_lead_type}}">{{/if}}
         </form>
     </div><!--/.dialog.narrow-->
 </div> <!-- end .modal-dialog-container -->

@@ -14,19 +14,25 @@ module.exports = {
       linkPath: '<%= grunt.config.get("link_path") %>'
     }
   },
-  pricing: {
+  'pricing': {
     src: ['test/{pricing,features-and-plans}/**/*.js']
   },
-  dialogs: {
+  'dialogs': {
     src: ['test/dialogs/**/*.js']
   },
   'free-trial': {
-    src: ['test/free-trial/**/*']
+    src: ['test/free-trial/**/*.js']
   },
   'mobile-mvpp': {
     src: ['test/mobile-mvpp/**/*.js']
   },
   'homepage': {
-    src: ['test/homepage/**/*']
+    src: ['test/homepage/**/*.js']
+  },
+  'features-and-plans': {
+    src: ['test/features-and-plans/**/*.js']
+  },
+  'marketing-events': {
+    src: ['test/marketing-events/**/*.js']
   }
 };

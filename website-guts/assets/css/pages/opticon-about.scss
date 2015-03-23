@@ -18,26 +18,26 @@ body.opticon-about {
   .faq-item {
     padding: 20px 0;
     .question {
-      font-size: 1.125em;
-      color: $opticon-text-gray;
+      font-size: 1.250em;
+      color: $almost-black-text-color;
       letter-spacing: 0.5px;
       line-height: 28px;
     }
-    .answer {
-      font-size: 0.8125;
+    .answer li, .answer p {
       color: $opticon-text-gray;
       letter-spacing: 0.4px;
-      line-height: 24px;
+      line-height: 26px;
     }
   }
+
   .left-paragraph,
   .right-paragraph {
     padding: 4%;
     .description-title {
-      min-height: 122px;
+      min-height: 86px;
     }
     .description-text {
-      min-height: 120px;
+      min-height: 153px;
     }
   }
   .confetti-right {

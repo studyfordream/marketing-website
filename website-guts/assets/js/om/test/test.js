@@ -135,7 +135,7 @@ $(function(){
 
   QUnit.asyncTest('check a valid submission', function(){
 
-    QUnit.expect(2);
+    QUnit.expect(20);
 
     $('#seo-form #url').val('kylerush.net');
     $('#seo-form #name').val('kyle rush test');
@@ -155,6 +155,44 @@ $(function(){
       QUnit.assert.equal($('body').attr('data-form-success'), '/account/free_trial_create', 'form successfully submitted');
 
       QUnit.assert.equal($.cookie('sourceCookie'), 'utm_campaign_uitest|||utm_content_uitest|||utm_medium_uitest|||utm_source_uitest|||utm_keyword_uitest|||otm_campaign_uitest|||btt|||otm_medium_uitest|||otm_source_uitest|||otm_keyword_uitest|||undefined|||', 'source cookie is set properly');
+
+      var reportingObject = JSON.parse($('body').attr('data-reporting-object'));
+
+      QUnit.assert.equal(reportingObject.Inbound_Lead_Form_Type__c, 'Free Trial Signup Form', 'Inbound lead form type');
+
+      QUnit.assert.equal(reportingObject.Initial_Form_Source__c, 'Free Trial PPC', 'Initial form source');
+
+      QUnit.assert.equal(reportingObject.leadSource, 'Website', 'lead source');
+
+      QUnit.assert.equal(reportingObject.email, 'david+test2015117154242@optimizely.com', 'email');
+
+      QUnit.assert.equal(reportingObject.firstName, 'david', 'first name');
+
+      QUnit.assert.equal(reportingObject.lastName, 'fox-powell test', 'last name');
+
+      QUnit.assert.equal(reportingObject.otm_Campaign__c, 'otm_campaign_uitest', 'otm campaign');
+
+      QUnit.assert.equal(reportingObject.otm_Content__c, 'btt', 'otm content');
+
+      QUnit.assert.equal(reportingObject.otm_Keyword__c, 'otm_keyword_uitest', 'otm keyword');
+
+      QUnit.assert.equal(reportingObject.otm_Medium__c, 'otm_medium_uitest', 'otm medium');
+
+      QUnit.assert.equal(reportingObject.otm_Source__c, 'otm_source_uitest', 'otm source');
+
+      QUnit.assert.equal(reportingObject.phone, '9172315327', 'phone');
+
+      QUnit.assert.equal(reportingObject.utm_Campaign__c, 'utm_campaign_uitest', 'utm campaign');
+
+      QUnit.assert.equal(reportingObject.utm_Content__c, 'utm_content_uitest', 'utm content');
+
+      QUnit.assert.equal(reportingObject.utm_Keyword__c, 'utm_keyword_uitest', 'utm keyword');
+
+      QUnit.assert.equal(reportingObject.utm_Medium__c, 'utm_medium_uitest', 'utm medium');
+
+      QUnit.assert.equal(reportingObject.utm_Source__c, 'utm_source_uitest', 'utm source');
+
+      QUnit.assert.equal(window.redirectURL, '/edit?url=kylerush.net&uiTest=true&utm_campaign=utm_campaign_uitest&utm_content=utm_content_uitest&utm_medium=utm_medium_uitest&utm_source=utm_source_uitest&utm_keyword=utm_keyword_uitest&otm_campaign=otm_campaign_uitest&otm_content=btt&otm_medium=otm_medium_uitest&otm_source=otm_source_uitest&otm_keyword=otm_keyword_uitest&signup_platform=signup_platform_uitest', 'redirect url is correct');
 
       QUnit.start();
 

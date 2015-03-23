@@ -32,9 +32,9 @@ contactSalesForm.on('before', function(){
 
   w.optly.mrkt.Oform.validationError(element);
 
-}).on('success', function(){
+}).on('success', function(returnData){
 
-  contactSalesHelperInst.success();
+  contactSalesHelperInst.success(returnData);
 
 }.bind(contactSalesHelperInst)).on('done', function() {
   if(document.body.classList.contains('oform-error')) {
