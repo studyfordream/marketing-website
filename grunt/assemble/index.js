@@ -6,8 +6,6 @@ var path = require('path');
 var extend = require('extend-shallow');
 var createStack = require('layout-stack');
 var customSubfolders = require('./types/subfolders');
-var es = require('event-stream');
-var Plasma = require('plasma');
 var _ = require('lodash');
 
 module.exports = function (grunt) {
