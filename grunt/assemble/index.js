@@ -24,8 +24,7 @@ module.exports = function (grunt) {
     var assembleTasks = [
       'om-pages',
       'prep-smartling',
-      'pages',
-      'subfolders'
+      'pages'
     ];
 
     var normalizeSrc = function normalizeSrc (cwd, sources) {
@@ -52,9 +51,8 @@ module.exports = function (grunt) {
     var layoutPath = options.layoutDir.substring(0, options.layoutDir.indexOf('*') - 1);
     var ppcKey = options.ppcKey;
 
-    if(target === 'test') {
+    if(target) {
       assemble.set('env', target);
-      assembleTasks.splice(assembleTasks.length - 1);
     }
 
     //set the global data from external YML & env config
@@ -221,31 +219,6 @@ module.exports = function (grunt) {
           var end = process.hrtime(start);
           console.log('finished rendering pages', end);
         });
-    });
-
-    assemble.task('subfolders', ['pages'],  function () {
-      var start = process.hrtime();
-      var files = config.pages.files[0];
-
-      /* jshint ignore:start */
-      assemble['subfolder']({
-        src: [
-          '**/*.hbs',
-          '!' + omSrc
-        ],
-        fallback: [ '**/*.hbs', '!resources/resources-list/**/*' ]
-      });
-      /* jshint ignore:end */
-      return push('subfolders')
-      .pipe(ext())
-      .pipe(assemble.dest(files.dest))
-      //.on('data', function(d) {
-        //console.log('data', d.path);
-      //})
-      .on('end', function () {
-        var end = process.hrtime(start);
-        console.log('finished rendering subfolder', end);
-      });
     });
 
     assemble.run(assembleTasks, function (err) {

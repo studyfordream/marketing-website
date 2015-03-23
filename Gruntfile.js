@@ -61,7 +61,7 @@ module.exports = function(grunt) {
     'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
-    'assemble',
+    'assemble:smartling-staging-deploy',
     'handlebars',
     'modernizr',
     'concat',
