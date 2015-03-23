@@ -77,22 +77,16 @@ module.exports = function (assemble) {
 
   return through.obj(function (file, enc, cb) {
     var ppcRe = new RegExp(path.join(websiteRoot, 'om'));
+    var filePathData = parseFilePath(file.path);
+    var locale = filePathData.locale;
+    var dataKey = filePathData.dataKey;
+    //create lang dictionary from TR prefixes
+    var parsedTranslations = createTranslationDict(file, locale);
+    var pagePhrases;
 
-    if(/conversion\-optimization/.test(file.path)) {
+    if(/success/.test(file.path)) {
       debugger;
     }
-    // instead of middleware
-    // load file.data information onto `assemble.get('lang')` here
-    var data, parsedTranslations, filePathData, locale, pagePhrases;
-
-    //here were merge the file data with local YML data
-    filePathData = parseFilePath(file.path);
-    locale = filePathData.locale;
-    var dataKey = filePathData.dataKey;
-
-    //create lang dictionary from TR prefixes
-    parsedTranslations = createTranslationDict(file, locale);
-
     //parse file contents for tr helper phrases
     if(!file.HTML_page_content && file.contents) {
       pagePhrases = hbsParser.extract(file.contents.toString());
@@ -142,9 +136,17 @@ module.exports = function (assemble) {
       });
     }
 
-    mkdirp.sync('tmp/upload');
-    mkdirp.sync('tmp/download');
-    mkdirp.sync('dist/assets/js');
+    var createDirs = [
+      'tmp/upload',
+      'tmp/download',
+      'dist/assets/js'
+    ];
+
+    createDirs.forEach(function(dir) {
+      if(!fs.existsSync(dir)) {
+        mkdirp.sync(dir);
+      }
+    });
 
     var clientHbsPhrases = extractFrom(path.join(websiteGuts, 'templates/client/**/*.hbs'), hbsParser);
     phrases = phrases.concat(clientHbsPhrases);
@@ -196,8 +198,6 @@ module.exports = function (assemble) {
       });
       jsDefer.resolve();
     } else {
-      mkdirp.sync('tmp/upload');
-      mkdirp.sync('tmp/download');
       fs.writeFile('tmp/upload/' + JS_DICT_FNAME, content);
       smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, JS_DICT_FNAME).then(function(){
         var defers = localeCodes.map(function(code){

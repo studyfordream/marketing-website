@@ -2,58 +2,12 @@
 layout: page_success
 TR_seo_title: Customer Success
 TR_visible_title: Customer Success
-layout_body_class:
-- success
-
-TR_services:
--
- TR_title: "Support"
- icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/success/support-icon.png"
- TR_headline: "High quality answers in no time."
- MD_description: |
-  High quality answers to technical issues or questions about how to use certain features. We have a standard 1 day response SLA for enterprise organizations, with premium support plans available for faster responses.
--
- TR_title: "Education"
- icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/success/education-icon.png"
- TR_headline: "A massive library of optimization strategy and product resources at your fingertips."
- MD_description: |
-  Whether you’re just getting started with learning the basics or expanding to advanced areas, we’ve built a massive library of [learning resources](http://learn.optimizely.com) to guide your testing strategy and product learning needs.
--
- TR_title: "Enablement"
- icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/success/enablement-icon.png"
- TR_headline: "Your success starts on day one."
- MD_description: |
-  With the help of our Customer Success organization, our customers are changing the way business is done.  The enterprise enablement program will walk you through advanced product training, testing strategy and optimization best practices.
-
--
- TR_title: "Solutions Partners"
- TR_headline: "Network of partner agencies to provide strategy and execution."
- icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/success/solutions-partners-icon.png"
- MD_description: |
-  Solutions Partners provide a range of short and long term fee based services which can help achieve insights and business results quicker. Learn more about our [Solutions Partners](http://www.optimizely.com/partners).
--
- TR_title: "Certification"
- TR_headline: "Showcase your optimization expertise."
- icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/success/certification-icon.jpg"
- MD_description: |
-  Be recognized for your experience and knowledge of the Optimizely platform and conversion rate optimization. Increase your credibility and further your career goals. Learn more about the [Optimizely Certification Program](http://certification.optimizely.com/).
--
- TR_title: "Optiverse"
- TR_headline: "A space for experimenters to unite, explore & optimize."
- icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/success/optiverse-logo.png"
- MD_description: |
-  Leverage Optiverse to build a network of optimization peers, get product support, and explore new optimization techniques and testing ideas. Explore the [Optiverse](http://community.optimizely.com/).
-
-team:
- TR_headline: "Our team of experts will help you achieve your optimization goals."
- photo: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/success/team.jpg"
- MD_description: |
-  We live, work and play in Denver, San Francisco and Amsterdam.
-
-  Our professional experiences span amazing organizations including Accenture, Apple, Bear Stearns, Causes.com, Charles Schwab, Hilton Hotels, KPMG, NASA Jet Propulsion Laboratory, Nordstroms, Salesforce.com, Space Frontier Foundation, Vail Resorts, US Embassy, U.S. House of Representatives, World Food Programme and building startups.
+body_class:
+- "success"
 ---
 
-{{#each this.services}}
+{{#with page_data}}
+{{#each services}}
 <div class="success-row">
   <div class="success-image">
     <img src="{{icon}}">
@@ -61,7 +15,7 @@ team:
   <div class="success-content">
     <h1 class="text-blue header-text">{{title}}</h1>
     <h2>{{headline}}</h2>
-    {{#markdown}}{{{description}}}{{/markdown}}
+    {{{description}}}
   </div>
 </div>
 {{/each}}
@@ -72,8 +26,9 @@ team:
     <img src="{{assetsDir}}/img/success/{{success.team.photo}}">
   </div>
   <div class="success-content">
-    {{#if this.team.headline}}<h2>{{this.team.headline}}</h2>{{/if}}
-    {{{this.team.description}}}
+    {{#if team.headline}}<h2>{{team.headline}}</h2>{{/if}}
+    {{{team.description}}}
   </div>
 </div>
 {{/if}}
+{{/with}}

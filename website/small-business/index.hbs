@@ -2,7 +2,7 @@
 layout: benefits
 TR_seo_title: Small Business
 TR_visible_title: Small Business
-TR_page_h2: ""Make more, Spend less, Grow Faster
+TR_page_h2: "Make more, Spend less, Grow Faster"
 TR_page_h5: "Highlights:"
 TR_page_paragraphs:
 - "Optimizely's SMB solutions offer fast, powerful and affordable website optimization tools that virtually eliminate the need for technical web development resources in the a/b testing process."
@@ -22,7 +22,6 @@ TR_page_li:
 - "Fast and reliable tools and technology"
 - "Custom HTML/CSS/Javascript editor"
 - "And much more..."
-
 body_class:
 - small-business-page
 inbound_form_lead_type: "Optimizely for Small Business"
@@ -34,7 +33,6 @@ lead_source_subcategory: "Optimizely for Small Business form"
 <div class="row">
     <div class="columns seven">
       {{#each page_paragraphs}}
-      {{debug this}}
         {{#is @index 0}}
         <p>{{{.}}}</p>
         {{/is}}
@@ -71,4 +69,3 @@ lead_source_subcategory: "Optimizely for Small Business form"
         {{partial "contact_form"}}
     </div>
 </div>
-
