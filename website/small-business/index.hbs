@@ -2,37 +2,73 @@
 layout: benefits
 TR_seo_title: Small Business
 TR_visible_title: Small Business
+TR_page_h2: ""Make more, Spend less, Grow Faster
+TR_page_h5: "Highlights:"
+TR_page_paragraphs:
+- "Optimizely's SMB solutions offer fast, powerful and affordable website optimization tools that virtually eliminate the need for technical web development resources in the a/b testing process."
+- "Optimizely's SMB solutions maximize the a/b testing benefits for SMBs, while relieving the strain on technical and financial resources."
+- "Testing is a way of life for us. We're increasing our testing resources, and building testing into our long-term, strategic plans."
+- "- Shayne Tilley, Avalanche Technology Group"
+-
+  TR_strong: "Learn More"
+  link: "benefits"
+  TR_text: "Benefits of A/B and Multivariate Testing"
+TR_page_li:
+- "WYSIWYG, no-coding required editor for building test variations"
+- "Unlimited experiment and variation creation"
+- "Image hosting, traffic allocation, and test scheduling"
+- "Out of the box integration with popular analytics tools"
+- "World-class online support and resources for on-going training"
+- "Fast and reliable tools and technology"
+- "Custom HTML/CSS/Javascript editor"
+- "And much more..."
+
 body_class:
 - small-business-page
 inbound_form_lead_type: "Optimizely for Small Business"
 initial_form_source: "Optimizely for Small Business"
 lead_source_subcategory: "Optimizely for Small Business form"
 ---
-
-<h2 class="subheading">Make more, Spend less, Grow Faster</h2>
+<h2 class="subheading">{{page_h2}}</h2>
 
 <div class="row">
     <div class="columns seven">
-        <p>Optimizely's SMB solutions offer fast, powerful and affordable website optimization tools that virtually eliminate the need for technical web development resources in the a/b testing process.</p>
-        <h5>Highlights:</h5>
+      {{#each page_paragraphs}}
+      {{debug this}}
+        {{#is @index 0}}
+        <p>{{{.}}}</p>
+        {{/is}}
+        {{#is @index 1}}
+        <h5>{{../../page_h5}}</h5>
         <ul class="benefits-list">
-            <li>WYSIWYG, no-coding required editor for building test variations</li>
-            <li>Unlimited experiment and variation creation</li>
-            <li>Image hosting, traffic allocation, and test scheduling</li>
-            <li>Out of the box integration with popular analytics tools</li>
-            <li>World-class online support and resources for on-going training</li>
-            <li>Fast and reliable tools and technology</li>
-            <li>Custom HTML/CSS/Javascript editor</li>
-            <li><em>And much more...</em></li>
+          {{#each ../../page_li}}
+          {{#if @last}}
+            <li><em>{{.}}</em></li>
+            {{else}}
+            <li>{{.}}</li>
+          {{/if}}
+          {{/each}}
         </ul>
-        <p>Optimizely's SMB solutions maximize the a/b testing benefits for SMBs, while relieving the strain on technical and financial resources.</p>
-        <blockquote>
-            <p>Testing is a way of life for us. We're increasing our testing resources, and building testing into our long-term, strategic plans."</p>
-            <p class="by">- Shayne Tilley, Avalanche Technology Group</p>
-        </blockquote>
-        <p><strong>Learn More: </strong><a href="{{linkPath}}/benefits">Benefits of A/B and Multivariate Testing</a>.</p>
+        <p>{{.}}</p>
+        {{/is}}
+        {{#if_gt @index compare=1}}
+        {{#if @last}}
+        <p><strong>{{strong}}: <strong><a href="{{../../../linkPath}}/{{link}}">{{text}}</a></p>
+          {{else}}
+            {{#isnt @index 3}}
+              <blockquote>
+                <p>{{{.}}}</p>
+            {{/isnt}}
+            {{#is @index 3}}
+                <p class="by">{{{.}}}</p>
+              </blockquote>
+            {{/is}}
+        {{/if}}
+        {{/if_gt}}
+      {{/each}}
     </div>
     <div class="columns five">
-        {{> contact_form }}
+        {{partial "contact_form"}}
     </div>
 </div>
+
