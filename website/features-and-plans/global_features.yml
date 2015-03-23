@@ -40,8 +40,6 @@ TR_feature_sections:
         "A/B and multivariate testing"
       -
         "Multi-page funnel testing"
-      -
-        "Multichannel experiments"
   -
     TR_title: "Discover Visitor Insights"
     TR_desc: "Analyze the unique visitors that connect with

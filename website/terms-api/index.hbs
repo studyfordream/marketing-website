@@ -1,0 +1,17 @@
+---
+layout: page.hbs
+seo_title: Optimizely API Terms
+visible_title: Optimizely API Terms for Customers
+---
+<div class="row">
+  <div class="columns ten offset-one">
+    {{#with api_terms}}
+    {{#each terms}}
+    {{#isnt @index 0}}
+    <h4 class="padding-top">{{this.title}}</h4>
+    {{/isnt}}
+    <p>{{this.paragraph}}</p>
+    {{/each}}
+    {{/with}}
+  </div>
+</div>

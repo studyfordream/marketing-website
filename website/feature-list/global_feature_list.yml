@@ -45,11 +45,6 @@ TR_tables:
         enterprise_bool: true
         TR_tooltip: "Test and personalize experiences throughout your funnel."
       -
-        TR_title: "Multichannel Experiments"
-        boolean: true
-        starter_bool: false
-        enterprise_bool: true
-        TR_tooltip: "Connect experiences across your websites and mobile applciations."
   -
     TR_title: "Discover Visitor Insights"
     TR_desc: "Learn more about the visitors that connect with you on your websites and mobile apps."

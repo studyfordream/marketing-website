@@ -159,7 +159,6 @@ module.exports = function(grunt) {
     'om-test',
     'connect:resemble',
     'jasmine_node',
-    'resemble'
   ]);
 
   grunt.registerTask('default', [

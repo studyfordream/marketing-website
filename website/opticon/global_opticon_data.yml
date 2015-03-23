@@ -15,7 +15,6 @@ speakers_cta: "See Speakers"
 
 tracks:
   title: "Participate in a wide range of discussion topics relating to experience optimization."
-  sub_title: "Experience Tracks"
   track_list:
     -
       title: "Platform"
