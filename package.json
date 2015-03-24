@@ -49,7 +49,6 @@
     "grunt-userevvd": "0.1.4",
     "gulp-extname": "^0.2.0",
     "handlebars": "^3.0.0",
-    "helper-moment": "0.1.3",
     "js-yaml": "^3.2.6",
     "l10n-tools": "git+ssh://git@github.com/optimizely/l10n-tools.git",
     "layout-stack": "^0.1.1",

@@ -16,7 +16,7 @@ module.exports = function tr(key) {
   } else {
     tr.setDict({});
   }
-  var translation = tr(key);
+  var translation = tr.apply(tr, arguments);
   // if key is not translated - try to do lookup in layout dictionary
   if(this.context.layouts) {
     var ii = 0;
@@ -24,7 +24,7 @@ module.exports = function tr(key) {
       var layout = this.context.layouts[ii];
 
       tr.setDict(dicts[dictKey][layout]);
-      translation = tr(key);
+      translation = tr.apply(tr, arguments);
       ii += 1;
     }
   }

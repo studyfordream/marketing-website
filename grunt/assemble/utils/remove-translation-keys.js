@@ -13,6 +13,7 @@ function processTransArray(arr, parser) {
   });
   return arr;
 }
+
 /**
  * Utility function for removing TR|MD|HTML YML translation prefixes
  *
@@ -35,6 +36,10 @@ module.exports = function removeTranslationKeys(fileData) {
       fileData[ parsedKey[1] ] = processTransArray(val, removeTranslationKeys);
       delete fileData[key];
     } else if( ( _.isString(val) || _.isNumber(val) ) && parsedKey ) {
+      //if(val.lastIndexOf(' ') === val.length - 1) {
+        //val[val.length - 1] = '\n';
+        //console.log(val);
+      //}
       if(parsedKey[0] === 'HTML' && parsedKey[1] === 'page_content' && fileData.content) {
         //account for replacing file content
         fileData.content = val;

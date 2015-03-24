@@ -20,10 +20,10 @@ body_class:
 </div>
 {{/each}}
 
-{{#if success.team}}
+{{#if team}}
 <div class="success-row divided">
   <div class="success-image">
-    <img src="{{assetsDir}}/img/success/{{success.team.photo}}">
+    <img src="{{team.photo}}">
   </div>
   <div class="success-content">
     {{#if team.headline}}<h2>{{team.headline}}</h2>{{/if}}

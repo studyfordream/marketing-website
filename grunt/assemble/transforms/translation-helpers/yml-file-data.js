@@ -40,17 +40,17 @@ module.exports = function(assemble){
         var matched, re;
         if(lastKey && key.indexOf('~') !== -1) {
           matched = key.split('~')[0];
-          re = new RegExp(lastKey);
 
-          if( re.test(matched) ) {
+          if( matched === lastKey.split('~')[0] ) {
             extend(o[matched], data[key]);
             delete data[key];
           }
+
         } else {
           o[key] = data[key];
         }
 
-        lastKey = key;
+        lastKey = matched ? matched : key;
         return o;
       }, {});
     }
