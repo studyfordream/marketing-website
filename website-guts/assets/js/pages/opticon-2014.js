@@ -42,12 +42,6 @@ $(function() {
           }
         }, 10);
       }
-    } else {
-      if(!videoPlayed) {
-        $('#player').css({display: 'none'});
-        $('.fallback-player').addClass('show-fallback');
-      }
-      $('.fallback-player').attr('src', '//www.youtube.com/embed/16bCgEd0cw0?autoplay=1');
     }
     if(!videoPlayed) {
       videoPlayed = true;
