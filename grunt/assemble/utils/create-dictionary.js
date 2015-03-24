@@ -51,6 +51,10 @@ module.exports = function (assemble) {
     }
   }
 
+  function trimNewLine(val) {
+    return val.replace(/\s\S*$/, '');
+  }
+
   var createDictionary = function createDictionary(fileData, locale) {
     var linkPath = assemble.get('data.linkPath');
     var data = fileData.data || fileData;

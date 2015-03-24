@@ -5,6 +5,6 @@ module.exports = function debug (optionalValue) {
   if (optionalValue) {
     console.log('Value');
     console.log('====================');
-    console.log(optionalValue);
+    console.log({val: optionalValue});
   }
 };
