@@ -3,6 +3,7 @@ java_script:
 
 scss:
   enabled: true
+  config_file: .scss-style.yml
 
 ruby:
   enabled: false
