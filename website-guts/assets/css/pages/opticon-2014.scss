@@ -39,6 +39,9 @@ body.opticon-2014 {
       }
     }
   }
+  .quote .item-source {
+    font-style: normal;
+  }
   #video-modal {
     &.modal-dialog-container {
       background: transparent;
@@ -110,5 +113,9 @@ body.opticon-2014 {
 
 @media only screen and (min-width: $desktop-min-width) {
   body.opticon-2014 {
+    .quote .item-source {
+      float: right;
+      margin-right: 116px;
+    }
   }
 }
