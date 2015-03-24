@@ -20,6 +20,10 @@ external_script:
 <div class="container page-content">
   {{#with opties_success}}
   <h2 class="page-title common-page-title adelle-sans--bold">{{page_title}}</h2>
-  <p class="description-text adelle-sans">{{{blurb}}}</p>
+  <div class="thanks-cont">
+    <p class="description-text adelle-sans">{{first_content}}<a href="{{linkPath}}/opticon/opties">{{link_text}}</a></br>
+    {{second_content}}
+    </p>
+  </div>
   {{/with}}
 </div>

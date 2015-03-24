@@ -1,7 +1,5 @@
 body.opticon-opties-success {
-  .description-text {
-    padding: 5px;
-  }
+  .description-text { padding: 5px; }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
@@ -9,17 +7,19 @@ body.opticon-opties-success {
     .confetti-container .confetti-right {
       display: none;
     }
-    .description-text {
+    .page-content .description-text {
       padding: 25px;
+      text-align: center;
     }
   }
 }
 
 @media only screen and (min-width: $desktop-min-width) {
   body.opticon-opties-success {
-    .description-text {
+    .page-content .description-text {
       width: 75%;
-      padding: 0 0 300px 0;
+      padding: 40px 0 300px 0;
+      text-align: left;
     }
     .confetti-container .confetti-right {
       display: block;

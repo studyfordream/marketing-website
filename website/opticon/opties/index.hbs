@@ -45,7 +45,7 @@ external_script:
       {{#if this.email}}
       <a class="adelle-sans" href="mailto:{{this.email}}">{{this.cta}}</a>
       {{else}}
-      <a class="adelle-sans js-category-cta" href="#js-opties-application" data-category="{{this.title}}">{{this.cta}}</a>
+      <a class="adelle-sans js-category-cta" href="#js-opties-application" data-category="{{this.title}}">{{this.cta}} →</a>
       {{/if}}
     </div>
     {{/each}}
@@ -69,15 +69,15 @@ external_script:
   {{/with}}
 </div>
 
-<!--               -->
-<!--Applcation Form-->
-<!--               -->
+<!--                -->
+<!--Application Form-->
+<!--                -->
 <section class="application-form" id="js-opties-application">
   {{#with opties_data.application_form}}
   <div class="container">
-    <h3 class="description-title--apply adelle-sans">{{title}}</h3>
-    <h4 class="description-title--apply adelle-sans">{{subtitle}}</h4>
     <form id="form2" name="form2" class="columns eight offset-two" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="https://stewsmith.wufoo.com/forms/m1oycu1o1x0yrs3/#public">
+      <h3 class="description-title--apply adelle-sans">{{title}}</h3>
+      <h4 class="description-title--apply adelle-sans">{{subtitle}}</h4>
       <div class="no-overflow">
         {{! Award Category }}
         <div class="half left">
@@ -91,7 +91,7 @@ external_script:
             <option value="Solutions Partner of the Year" >Solutions Partner of the Year</option>
             <option value="Most Impactful Use of Personalization" >Most Impactful Use of Personalization</option>
             <option value="Mobile Pioneer Award" >Mobile Pioneer Award</option>
-            <option value="People's Choice: Experiment of the Year" >People’s Choice: Experiment of the Year</option>
+            <option value="People’s Choice: Experience of the Year" >People’s Choice: Experience of the Year</option>
             <option value="Developer Extraordinaire Award" >Developer Extraordinaire Award</option>
             <option value="The Better Together Award" >The Better Together Award</option>
             </select>

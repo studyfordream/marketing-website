@@ -11,40 +11,40 @@ award_categories:
     -
       title: "Most Dramatic Business Impact"
       blurb: "Has your optimization program delivered a transformative impact to your business? If you’ve uncovered key business insights and demonstrated incredible value through your optimization strategy, we want to hear about it. Tell us how your results have become a cornerstone of the business. We want to hear how your company will never be the same again!"
-      cta: "APPLY →"
+      cta: "APPLY"
     -
       title: "Data-Driven Culture Award"
       blurb: "Has experience optimization transformed the way your team makes decisions? This Optie will be awarded to the company who has implemented the strongest optimization culture across the organization. Tell us about an increase in productivity and engagement, forward-thinking and data-driven teams, or increased organizational readiness for tackling goals."
-      cta: "APPLY →"
+      cta: "APPLY"
     -
       title: "Optimization Champion of the Year"
       blurb: "Do you or one of your colleagues exemplify testing culture at your organization? This Optie will be awarded to an individual who embodies the impactful transformation enabled by experience optimization. He/she will have demonstrated an appetite for increasing their technical know-how and driving organizational change through data, while also boosting their personal career path."
-      cta: "APPLY →"
+      cta: "APPLY"
     -
       title: "Solutions Partner of the Year"
       blurb: "Optimizely partners with the best optimization experts in the world. This award recognizes the partner who has gone above and beyond to implement impactful optimization campaigns, launch creative test ideas and optimization strategies, and produce impressive business value for our customers. Selection criteria includes number of new enterprise customers, # of experiments run and value driven to the customer (determined by customer NPS score).To learn more, contact your partner manager."
-      cta: "CONTACT YOUR PARTNER MANAGER →"
+      cta: "CONTACT YOUR PARTNER MANAGER"
       email: "partners@optimizely.com"
     -
       title: "Most Impactful Use of Personalization"
       blurb: "Did you turn your testing data into powerful personalized experiences? Tell us how you incorporated third-party data, created interesting audience segments, and targeted the right experience. We want to hear about your impactful personalization campaigns!"
-      cta: "APPLY →"
+      cta: "APPLY"
     -
       title: "Mobile Pioneer Award"
       blurb: "Are you leading the charge for mobile optimization? Winners of this award are transforming the ways we work with mobile apps, whether it’s through feature roll out, testing velocity, personalized experiences, or more. You’ve introduced the vitality of incorporating a mobile optimization strategy."
-      cta: "APPLY →"
+      cta: "APPLY"
     -
       title: "People’s Choice: Experience of the Year"
       blurb: "What is the experiment you ran this year that really knocked your socks off? Nominate a single test that you are extremely proud of and tell us why. Maybe it defied your expectations, baffled you and your colleagues, or gave you bragging rights for a year. Don’t be shy. This is a celebration! (Voting for the People’s Choice award will be done through our Optiverse community. Please note that your submissions will be posted in Optiverse.)"
-      cta: "APPLY →"
+      cta: "APPLY"
     -
       title: "Developer Extraordinaire Award"
       blurb: "Did you build a “must-have” integration or enhancement to Optimizely using the Optimizely API? Have you supercharged the analysis of your results, improved your team's workflow or taken action on your data, no matter where it lives? Show us how your creative developer skills have helped your team take a massive leap in your optimization efforts."
-      cta: "APPLY →"
+      cta: "APPLY"
     -
       title: "The Better Together Award"
       blurb: "Much like peanut butter and jelly, Optimizely is better when used together with another platform. Show us a glowing example of how you are getting more from your optimization program by integrating Optimizely with one of our technology partners, such as Google Analytics, WordPress, BlueKai, and many more."
-      cta: "APPLY →"
+      cta: "APPLY"
 
 guidelines:
   title: "Guidelines"
