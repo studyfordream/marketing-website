@@ -1,7 +1,5 @@
 body.opticon-2014 {
-  .copy-half {
-    padding: 0 5px;
-  }
+  .copy-half { padding: 0 5px; }
   .video-image-half {
     display: block;
     width: 300px;
@@ -39,9 +37,7 @@ body.opticon-2014 {
       }
     }
   }
-  .quote .item-source {
-    font-style: normal;
-  }
+  .quote .item-source { font-style: normal; }
   #video-modal {
     &.modal-dialog-container {
       background: transparent;
@@ -59,14 +55,13 @@ body.opticon-2014 {
       transform: translate(-50%, -50%);
       background-color: #000;
     }
-    .modal-header {
-      display: none;
-    }
+    .modal-header { display: none; }
     .modal-body {
       width: 100%;
       padding-top: 56%;
       position: relative;
     }
+    .modal-footer { display: none; }
     iframe {
       position: absolute;
       top: 0;
@@ -79,9 +74,6 @@ body.opticon-2014 {
       &.show-fallback {
         display: block;
       }
-    }
-    .modal-footer {
-      display: none;
     }
   }
 }
