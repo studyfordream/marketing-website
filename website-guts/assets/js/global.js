@@ -551,12 +551,19 @@ if( $.cookie('amplitude_idoptimizely.com') ) {
   w.optly.mrkt.deleteCookie('amplitude_idoptimizely.com', { path: '/', expires: -5, domain: '.optimizely.com'} );
 }
 
-w.optly.mrkt.setAttributeCookie = function(){
+w.optly.mrkt.setAttributeCookie = function(resp){
+
+	w.console.log('setAttributeCookieRunning');
+
+	if(resp){
+		w.console.log('resp: ', resp);
+	}
 
 	if(
 		typeof w.optly.mrkt.user === 'object' &&
 		typeof w.optly.mrkt.user.acctData === 'object' &&
-		typeof w.optly.mrkt.user.acctData.plan_id === 'string'
+		typeof w.optly.mrkt.user.acctData.plan_id === 'string' ||
+		typeof resp === 'object'
 	){
 
 		var planMap = w.optly.planMap,
@@ -565,7 +572,9 @@ w.optly.mrkt.setAttributeCookie = function(){
 				existingVisitorAttributeCookieValues = $.cookie('visitorAttributes'),
 				newVisitorAttributeCookieValues = [];
 
-		plan = w.optly.mrkt.user.acctData.plan_id;
+		debugger;
+
+		plan = w.optly.mrkt.user.acctData.plan_id || resp.plan_id;
 
 		if(existingVisitorAttributeCookieValues){
 			existingVisitorAttributeCookieValues = existingVisitorAttributeCookieValues.split('|');

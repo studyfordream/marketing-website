@@ -50,18 +50,22 @@ layout_modals:
                 '5':                  'enterprise'
           		};
               window.optly.visitorAttributes = $.cookie('visitorAttributes');
+              var plan;
               if(window.optly.visitorAttributes){
                 window.optly.visitorAttributes = window.optly.visitorAttributes.split('|');
-                var plan;
                 if(typeof window.optly.planMap[window.optly.visitorAttributes[0]] === 'string'){
                   plan = window.optly.planMap[window.optly.visitorAttributes[0]];
                 } else {
+                  debugger;
                   plan = 'none';
                 }
-                window.analytics.identify({
-                  'Customer plan': plan
-                });
+              } else {
+                plan = 'none';
               }
+              window.console.log('setting plan to: ' + plan);
+              window.analytics.identify({
+                'Customer plan': plan
+              });
             };
             window.optly.identifyVisitorAttributes();
             window.analytics.load('{{environmentVariables.segmentProjectID}}');
