@@ -13,34 +13,29 @@ external_script:
 - //use.typekit.net/ucj0cgp.js
 ---
 
-<div class="confetti-container">
-  <div class="confetti-right"></div>
-</div>
 {{#with agenda_data}}
 <div class="content-container container">
   <h1 class="page-title common-page-title adelle-sans--bold">{{title}}</h1>
-  <p class="subtitle adelle-sans">{{sub_title}}</p>
-
-  <div class="agenda-container flex-container">
-    <div class="agenda-day">
-      <h3 class="description-title adelle-sans">{{first_day.title}}</h3>
-      {{#each first_day.times}}
-      <div class="agenda-row flex-container">
-        <p class="agenda-time adelle-sans">{{{this.time}}}</p>
-        <p class="agenda-event adelle-sans">{{this.event}}</p>
-    </div>
-      {{/each}}
-    </div>
-
-    <div class="agenda-day">
-      <h3 class="description-title adelle-sans">{{second_day.title}}</h3>
-      {{#each second_day.times}}
-      <div class="agenda-row flex-container">
-        <p class="agenda-time adelle-sans">{{{this.time}}}</p>
-        <p class="agenda-event adelle-sans">{{this.event}}</p>
+  {{#each days}}
+    <h3 class="description-title adelle-sans">{{this.title}}</h3>
+    {{#each this.time_slots}}
+      <div class="time-slot">
+        <h4 class="time-slot__time">{{this.start_time}}</h4>
+        <div class="time-slot__content">
+          {{#if this.title}}
+            <h5>{{this.title}}</h5>
+          {{/if}}
+          {{#each this.events}}
+            <h5>{{this.title}}</h5>
+            {{#each this.speakers}}
+              <h6>{{this.name}}, {{this.job_title}}, {{this.company}}</h6>
+            {{/each}}
+            <h6>Time: {{this.time}} | Location: {{this.location}}</h6>
+            <h6>{{this.description}}</h6>
+          {{/each}}
+        </div>
       </div>
-      {{/each}}
-    </div>
-  </div>
+    {{/each}}
+  {{/each}}
 </div>
 {{/with}}
