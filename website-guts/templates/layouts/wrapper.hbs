@@ -55,7 +55,7 @@ layout_modals:
         {{/if}}
         {{#if page.external_script}}
         {{#each page.external_script}}
-        <script  src="{{.}}"></script>
+        <script  src="{{#hasAssetPath .}}{{../../assetsDir}}/{{/hasAssetPath}}{{.}}"></script>
         {{/each}}
         {{/if}}
         {{#if page.meta_tags}}
@@ -65,7 +65,7 @@ layout_modals:
         {{/if}}
         {{#if page.external_stylesheets}}
         {{#each page.external_stylesheets}}
-        <link rel="stylesheet" type="text/css" href="{{.}}">
+        <link rel="stylesheet" type="text/css" href="{{#hasAssetPath .}}{{../../assetsDir}}/{{/hasAssetPath}}{{.}}">
         {{/each}}
         {{/if}}
         <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7838232/684744/css/fonts.css">

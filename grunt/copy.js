@@ -3,6 +3,10 @@ module.exports = {
     src: '<%= config.temp %>/css/styles.css.map',
     dest: '<%= config.dist %>/assets/css/styles.css.map'
   },
+  libraryCSS: {
+    src: '<%= config.bowerDir %>/magnific-popup/dist/magnific-popup.css',
+    dest: '<%= config.dist %>/assets/css/magnific-popup.css'
+  },
   fonts: {
     files: [
       {
@@ -13,10 +17,13 @@ module.exports = {
       }
     ]
   },
-  fastclick: {
+  libs: {
     files: [
       {
         '<%= config.dist %>/assets/js/libraries/fastclick.js': ['<%= config.bowerDir %>/fastclick/lib/fastclick.js']
+      },
+      {
+        '<%= config.dist %>/assets/js/libraries/magnific.js': ['<%= config.guts %>/assets/js/libraries/magnific.js']
       }
     ]
   },
