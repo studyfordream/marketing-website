@@ -24,7 +24,6 @@ module.exports = function (grunt) {
     var assembleTasks = [
       'om-pages',
       'prep-smartling',
-      'resources',
       'partners',
       'pages'
     ];
@@ -68,12 +67,13 @@ module.exports = function (grunt) {
           return path.basename(fp, path.extname(fp));
         }
       });
+      //add the additonal data options with the standard key
+      var addOptions = _.omit(options, 'data');
+      assemble.data(addOptions);
+
     };
 
-    loadGlobalData();
-    //add the additonal data options with the standard key
-    var addOptions = _.omit(options, 'data');
-    assemble.data(addOptions);
+
 
     assemble.asyncHelper('partial', renderTypeHelper('partials'));
 
@@ -118,12 +118,6 @@ module.exports = function (grunt) {
       }]);
     }
 
-    loader([
-      loadLayouts,
-      loadPartials,
-      loadOmLayouts
-    ]);
-
     assemble.helpers(options.helpers);
 
     //load the custom subolders
@@ -157,10 +151,8 @@ module.exports = function (grunt) {
       assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
     };
 
-    //load the modals
-    loadModals();
-    //load the files for the resources collection
-    loadResources();
+
+
 
     var loadPageYml = function loadPageYml() {
       assemble.transform('page-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}'], options.websiteRoot);
@@ -170,9 +162,25 @@ module.exports = function (grunt) {
       Object.keys(options.locales).forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}']));
     };
 
-    //load external YML files and scope locally, while omitting global YML
-    loadPageYml();
-    loadSubfolderYml();
+    var loadAll = function loadAll() {
+      loadGlobalData();
+
+      loader([
+        loadLayouts,
+        loadPartials,
+        loadOmLayouts,
+        loadModals
+      ]);
+
+      //load the files for the resources collection
+      loadResources();
+
+      //load external YML files and scope locally, while omitting global YML
+      loadPageYml();
+      loadSubfolderYml();
+    };
+
+    loadAll();
 
     // custom middleware for `resources` to add front-matter (`data`)
     // to the assemble cache. (`assemble.get('resources').foo`)
@@ -238,7 +246,18 @@ module.exports = function (grunt) {
                         '!' + omLayouts
                       ]);
 
-    assemble.task('om-pages', function () {
+    assemble.task('prep-smartling', function () {
+      var start = process.hrtime();
+
+      return assemble.src(hbsPaths)
+        .pipe(sendToSmartling(assemble))
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished translating pages', end);
+        });
+    });
+
+    function buildOm() {
       var start = process.hrtime();
       var files = config[ppcKey].files[0];
 
@@ -252,18 +271,7 @@ module.exports = function (grunt) {
           var end = process.hrtime(start);
           console.log('finished rendering pages om', end);
         });
-    });
-
-    assemble.task('prep-smartling', function () {
-      var start = process.hrtime();
-
-      return assemble.src(hbsPaths)
-        .pipe(sendToSmartling(assemble))
-        .on('end', function () {
-          var end = process.hrtime(start);
-          console.log('finished translating pages', end);
-        });
-    });
+    }
 
     function buildPages (reload) {
       return function () {
@@ -271,17 +279,16 @@ module.exports = function (grunt) {
 
         var files = config.pages.files[0];
         var opts = {
-          since: (Boolean(process.env.lastRunTime) ? new Date(process.env.lastRunTime) : null)
+          //since: (Boolean(process.env.lastRunTime) ? new Date(process.env.lastRunTime) : null)
         };
-        if (reload) {
-          opts.since = null;
-        }
+        //if (reload) {
+          //opts.since = null;
+        //}
         console.log(opts);
         //this excludes om pages && resources-list pages
         return assemble.src(normalizeSrc(files.cwd, files.src).concat([
             '!' + omSrc[0],
-            '!website/partners/**/*.hbs',
-            '!website/resources/index.hbs'
+            '!website/partners/**/*.hbs'
           ]), opts)
           .pipe(ext())
           .pipe(assemble.dest(files.dest))
@@ -296,23 +303,7 @@ module.exports = function (grunt) {
       };
     }
 
-    // build the `resources` page
-    assemble.task('resources', ['prep-smartling'], function () {
-      var start = process.hrtime();
-      var files = config.resources.files[0];
-      return assemble.src('website/resources/index.hbs')
-        .pipe(ext())
-        .pipe(assemble.dest(path.join(files.dest, 'resources')))
-        .on('data', function(file) {
-           console.log(file.path, 'resources rendered');
-        })
-        .on('end', function () {
-          var end = process.hrtime(start);
-          console.log('finished rendering resources', end);
-        });
-    });
-
-    assemble.task('partners', ['prep-smartling'], function () {
+    function buildPartners() {
       var start = process.hrtime();
 
       var files = config.partners.files[0];
@@ -326,14 +317,25 @@ module.exports = function (grunt) {
           var end = process.hrtime(start);
           console.log('finished rendering partners', end);
         });
+    }
+
+
+    assemble.task('loadAll', ['resetLastRunTime'], loadAll);
+
+    assemble.task('om-pages', buildOm);
+    assemble.task('pages', ['prep-smartling'], buildPages(false));
+    assemble.task('partners', ['prep-smartling'], buildPartners);
+
+    assemble.task('layouts:pages', ['loadAll', 'prep-smartling'], buildPages(true));
+    assemble.task('layouts:partners', ['loadAll', 'prep-smartling'], buildPartners);
+    assemble.task('layouts:om', ['loadAll'], buildOm);
+    assemble.task('build:all', ['loadAll'], function() {
+      buildOm();
+      buildPages(true);
+      buildPartners();
     });
 
-    assemble.task('loadLayouts', ['resetLastRunTime'], loader(loadLayouts));
-    assemble.task('pages', ['prep-smartling'], buildPages(false));
-    assemble.task('layouts:pages', ['prep-smartling', 'loadLayouts'], buildPages(true));
-
-
-    assemble.task('watch', ['resources', 'partners', 'pages'], function () {
+    assemble.task('watch', ['om-pages', 'partners', 'pages'], function () {
 
       //only build om if anything om related changes
       assemble.watch([
@@ -345,23 +347,18 @@ module.exports = function (grunt) {
       assemble.watch([
         'website-guts/templates/layouts/**/*.hbs',
         '!website-guts/templates/layouts/partners.hbs'
-      ], [
-        'layouts:pages',
-        'resources'
-      ]);
+      ], ['layouts:pages']);
 
       //rebuild a single page
       assemble.watch([
         'website/**/*.hbs',
         '!website/partners/**/*.hbs',
-        '!website/resources/{index.hbs,resources-list/*.hbs}'
       ], ['pages']);
 
       //rebuild all pages and layouts if yml changes
       assemble.watch([
         'website/**/*.{yml,yaml,json}',
         '!website/partners/**/*.{yml,yaml,json}',
-        '!website/resources/*.{yml,yaml,json}'
       ], ['layouts:pages']);
 
       //rebuild all partners pages if a partners page or partners layout changes
@@ -370,16 +367,10 @@ module.exports = function (grunt) {
         'website-guts/templates/layouts/partners.hbs'
       ], ['partners']);
 
-      //rebuild resources if anything resources related changes
-      assemble.watch([
-        'website/resources/*.{hbs,yml,yaml,json}',
-        'website/resources/resources-list/*.{hbs,yml,yaml,json}',
-      ], ['resources']);
-
       //if partials or components change then rebuild everything
       assemble.watch([
         'website-guts/templates/{partials,components}/**/*.hbs'
-      ], assembleTasks);
+      ], ['build:all']);
 
     });
 
@@ -393,13 +384,7 @@ module.exports = function (grunt) {
     });
 
     assemble.run(assembleTasks.concat(['watch', 'done']));
-    // assemble.run(assembleTasks.concat(['watch']), function (err) {
-    //   if (err) {
-    //     return done(err);
-    //   }
-    //   process.env.lastRunTime = new Date();
-    //   done();
-    // });
+
   });
   return {};
 };
