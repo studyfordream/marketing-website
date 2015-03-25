@@ -551,63 +551,85 @@ if( $.cookie('amplitude_idoptimizely.com') ) {
   w.optly.mrkt.deleteCookie('amplitude_idoptimizely.com', { path: '/', expires: -5, domain: '.optimizely.com'} );
 }
 
-w.optly.mrkt.setAttributeCookie = function(resp){
+w.optly.mrkt.setAttributeCookie = function(signInResponse){
 
 	w.console.log('setAttributeCookieRunning');
 
-	if(resp){
-		w.console.log('resp: ', resp);
+	if(signInResponse){
+		w.console.log('resp: ', signInResponse);
 	}
 
-	if(
-		typeof w.optly.mrkt.user === 'object' &&
-		typeof w.optly.mrkt.user.acctData === 'object' &&
-		typeof w.optly.mrkt.user.acctData.plan_id === 'string' ||
-		typeof resp === 'object'
-	){
+	var setCookieValue = function(args){
 
-		var planMap = w.optly.planMap,
-				plan,
+		var userAtrributeValues = [],
+				planMap = w.optly.planMap,
 				planCode,
-				existingVisitorAttributeCookieValues = $.cookie('visitorAttributes'),
-				newVisitorAttributeCookieValues = [];
+				plan;
 
-		debugger;
+		if(typeof args === 'object'){
 
-		plan = w.optly.mrkt.user.acctData.plan_id || resp.plan_id;
+			//the first value is the user's plan
+			if(typeof args.plan === 'string'){
 
-		if(existingVisitorAttributeCookieValues){
-			existingVisitorAttributeCookieValues = existingVisitorAttributeCookieValues.split('|');
-		}
+				plan = args.plan;
 
-		if(typeof planMap[plan] === 'string'){
+				//see if the value for plan is an actual plan in the planMap
+				if(typeof planMap[plan] === 'string'){
 
-			planCode = planMap.plan;
-
-			if(existingVisitorAttributeCookieValues){
-
-				if(planCode !== existingVisitorAttributeCookieValues[0]){
-
-					newVisitorAttributeCookieValues.push(planMap[plan]);
+					planCode = planMap[plan];
 
 				}
 
-			} else {
-
-				newVisitorAttributeCookieValues.push(planMap[plan]);
-
 			}
+
+			userAtrributeValues.push(planCode);
+
+			//set the cookie values
+			$.cookie('visitorAttributes', userAtrributeValues.join('|'), {expires: 90, path: '/'});
 
 		}
 
-		$.cookie('visitorAttributes', newVisitorAttributeCookieValues.join('|'), {expires: 90, path: '/'});
+	};
+
+	var removeCookieValue = function(){
+
+		$.removeCookie('visitorAttributes', {expires: 90, path: '/'});
+
+	};
+
+	if(typeof signInResponse === 'object'){
+
+		//get user information from the sign in response
+		if(typeof signInResponse.plan_id === 'string'){
+
+			setCookieValue({plan: signInResponse.plan_id});
+
+		}
 
 	} else {
 
-		$.removeCookie('visitorAttributes', {path: '/'});
+		//try get the plan from the user's account info if they are signed in
+		if(
+			typeof w.optly.mrkt.user === 'object' &&
+			typeof w.optly.mrkt.user.acctData === 'object'
+		){
+
+			if(typeof w.optly.mrkt.user.acctData.plan_id === 'string'){
+
+				setCookieValue({plan: w.optly.mrkt.user.acctData.plan_id});
+
+			}
+
+
+		} else {
+
+			//delete the cookie
+			removeCookieValue();
+
+		}
 
 	}
 
 };
 
-w.optly.mrkt.setAttributeCookie();
+w.optly_q.push([w.optly.mrkt.setAttributeCookie]);
