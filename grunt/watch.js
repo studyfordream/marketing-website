@@ -47,8 +47,8 @@ module.exports = {
       livereload: '<%= connect.options.livereload %>'
     },
     files: [
-      '<%= config.dist %>/**/*.{html}',
-      '<%= config.dist %>/assets/**/*.{,css,js}'
-    ].concat(exclude)
+      '<%= config.dist %>/**/*.html',
+      '<%= config.dist %>/assets/**/*.{css,js}'
+    ]
   }
 };

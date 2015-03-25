@@ -59,43 +59,50 @@ module.exports = function (grunt) {
 
     //set the global data from external YML & env config
     //special key for YML data for translation dictionary retrieval
-    assemble.data(options.data, {
-      namespace: function(fp) {
-        if(/global\_/.test(fp)) {
-          return generateKey(fp);
+    var loadGlobalData = function loadGlobalData() {
+      assemble.data(options.data, {
+        namespace: function(fp) {
+          if(/global\_/.test(fp)) {
+            return generateKey(fp);
+          }
+          return path.basename(fp, path.extname(fp));
         }
-        return path.basename(fp, path.extname(fp));
-      }
-    });
+      });
+    };
+
+    loadGlobalData();
+    //add the additonal data options with the standard key
     var addOptions = _.omit(options, 'data');
     assemble.data(addOptions);
 
     assemble.asyncHelper('partial', renderTypeHelper('partials'));
 
-    function loadLayouts (cb) {
+    var loader = function loader(typeFn, cb) {
       var currentRenameKey = assemble.option('renameKey');
       assemble.option('renameKey', renameKey);
+      if(Array.isArray(typeFn)) {
+        typeFn.forEach(function(fn) {
+          fn();
+        });
+      } else {
+        typeFn();
+      }
+      assemble.option('renameKey', currentRenameKey);
+      if (cb) {
+        cb();
+      }
+    };
+
+    function loadLayouts () {
       assemble.layouts([options.layoutDir]);
-      assemble.option('renameKey', currentRenameKey);
-      if (cb) {
-        cb();
-      }
     }
-    function loadPartials (cb) {
-      var currentRenameKey = assemble.option('renameKey');
-      assemble.option('renameKey', renameKey);
+
+    function loadPartials () {
       assemble.partials(options.partials, [typeLoader(assemble)]);
-      assemble.option('renameKey', currentRenameKey);
-      if (cb) {
-        cb();
-      }
     }
 
 
-    function loadOmLayouts (cb) {
-      var currentRenameKey = assemble.option('renameKey');
-      assemble.option('renameKey', renameKey);
-
+    function loadOmLayouts () {
       //append special path for ppc layouts in order to prevent naming conflicts between layouts
       assemble.layouts([omLayouts], [function (layouts, options) {
         return Object.keys(layouts).reduce(function (o, key) {
@@ -109,21 +116,15 @@ module.exports = function (grunt) {
           return o;
         }, {});
       }]);
-
-      assemble.option('renameKey', currentRenameKey);
-      if (cb) {
-        cb();
-      }
     }
 
-    loadLayouts();
-    loadPartials();
-    assemble.helpers(options.helpers);
-    loadOmLayouts();
+    loader([
+      loadLayouts,
+      loadPartials,
+      loadOmLayouts
+    ]);
 
-    //load external YML files and scope locally, while omitting global YML
-    assemble.transform('page-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}'], options.websiteRoot);
-    Object.keys(options.locales).forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}']));
+    assemble.helpers(options.helpers);
 
     //load the custom subolders
     customSubfolders(assemble, Object.keys(options.locales), process.env.lastRunTime);
@@ -140,6 +141,38 @@ module.exports = function (grunt) {
       isPartial: true,
       isRenderable: false,
     });
+
+    var loadModals = function loadModals() {
+      var modalFiles = config.modals.files[0];
+      assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src), [typeLoader(assemble)]);
+    };
+
+    var loadResources = function loadResources() {
+      //set rename key to longer format, fp without extension
+      assemble.option('renameKey', function(fp) {
+        return path.join(path.dirname(fp), path.basename(fp, path.extname(fp)));
+      });
+
+      var resourceFiles = config.resources.files[0];
+      assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
+    };
+
+    //load the modals
+    loadModals();
+    //load the files for the resources collection
+    loadResources();
+
+    var loadPageYml = function loadPageYml() {
+      assemble.transform('page-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}'], options.websiteRoot);
+    };
+
+    var loadSubfolderYml = function loadSubfolderYml() {
+      Object.keys(options.locales).forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}']));
+    };
+
+    //load external YML files and scope locally, while omitting global YML
+    loadPageYml();
+    loadSubfolderYml();
 
     // custom middleware for `resources` to add front-matter (`data`)
     // to the assemble cache. (`assemble.get('resources').foo`)
@@ -179,19 +212,10 @@ module.exports = function (grunt) {
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
     assemble.preRender(pathRe, localizeLinkPath(assemble));
 
-    //load the modals
-    var modalFiles = config.modals.files[0];
-    assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src), [typeLoader(assemble)]);
-
     //set rename key to longer format, fp without extension
     assemble.option('renameKey', function(fp) {
       return path.join(path.dirname(fp), path.basename(fp, path.extname(fp)));
     });
-
-    //load the files for the resources collection
-    var resourceFiles = config.resources.files[0];
-    assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
-
 
     var localesPaths = Object.keys(options.locales).reduce(function(map, locale) {
       map.push(path.join(options.subfoldersRoot, locale));
@@ -221,13 +245,16 @@ module.exports = function (grunt) {
       return assemble.src([omSrc])
         .pipe(ext())
         .pipe(assemble.dest(path.join(files.dest, ppcKey)))
+        .on('data', function(file) {
+           console.log(file.path, 'om-pages rendered');
+        })
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished rendering pages om', end);
         });
     });
 
-    assemble.task('prep-smartling', ['om-pages'], function () {
+    assemble.task('prep-smartling', function () {
       var start = process.hrtime();
 
       return assemble.src(hbsPaths)
@@ -253,11 +280,14 @@ module.exports = function (grunt) {
         //this excludes om pages && resources-list pages
         return assemble.src(normalizeSrc(files.cwd, files.src).concat([
             '!' + omSrc[0],
-            '!partners/**/*.hbs',
-            '!resources/index.hbs'
+            '!website/partners/**/*.hbs',
+            '!website/resources/index.hbs'
           ]), opts)
           .pipe(ext())
           .pipe(assemble.dest(files.dest))
+          .on('data', function(file) {
+             console.log(file.path, 'pages rendered');
+          })
           .on('end', function () {
             var end = process.hrtime(start);
             console.log('finished rendering pages', end);
@@ -273,6 +303,9 @@ module.exports = function (grunt) {
       return assemble.src('website/resources/index.hbs')
         .pipe(ext())
         .pipe(assemble.dest(path.join(files.dest, 'resources')))
+        .on('data', function(file) {
+           console.log(file.path, 'resources rendered');
+        })
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished rendering resources', end);
@@ -286,27 +319,68 @@ module.exports = function (grunt) {
       return assemble.src(normalizeSrc(files.cwd, files.src))
         .pipe(ext())
         .pipe(assemble.dest(path.join(files.dest, 'partners')))
+        .on('data', function(file) {
+           console.log(file.path, 'partners rendered');
+        })
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished rendering partners', end);
         });
     });
 
-    assemble.task('loadLayouts', ['resetLastRunTime'], loadLayouts);
+    assemble.task('loadLayouts', ['resetLastRunTime'], loader(loadLayouts));
     assemble.task('pages', ['prep-smartling'], buildPages(false));
     assemble.task('layouts:pages', ['prep-smartling', 'loadLayouts'], buildPages(true));
 
 
-    assemble.task('watch', ['pages'], function () {
-      // assemble.watch('website-guts/templates/layouts/**/*.hbs', function() {
+    assemble.task('watch', ['resources', 'partners', 'pages'], function () {
 
-      //   console.log('reloaded');
-      // });
-    assemble.watch('website-guts/templates/layouts/**/*.hbs', [
-        'layouts:pages'
+      //only build om if anything om related changes
+      assemble.watch([
+        'website-guts/templates/om/**/*.hbs',
+        'website/om/**/*.hbs'
+      ], ['om-pages']);
+
+      //rebuild all pages if layout changes that isn't partners layout
+      assemble.watch([
+        'website-guts/templates/layouts/**/*.hbs',
+        '!website-guts/templates/layouts/partners.hbs'
+      ], [
+        'layouts:pages',
+        'resources'
       ]);
-      assemble.watch('website/**/*.hbs', assembleTasks);
-      // assemble.watch('website-guts/**/*.hbs', assembleTasks);
+
+      //rebuild a single page
+      assemble.watch([
+        'website/**/*.hbs',
+        '!website/partners/**/*.hbs',
+        '!website/resources/{index.hbs,resources-list/*.hbs}'
+      ], ['pages']);
+
+      //rebuild all pages and layouts if yml changes
+      assemble.watch([
+        'website/**/*.{yml,yaml,json}',
+        '!website/partners/**/*.{yml,yaml,json}',
+        '!website/resources/*.{yml,yaml,json}'
+      ], ['layouts:pages']);
+
+      //rebuild all partners pages if a partners page or partners layout changes
+      assemble.watch([
+        'website/partners/**/*.{hbs,yml,yaml,json}',
+        'website-guts/templates/layouts/partners.hbs'
+      ], ['partners']);
+
+      //rebuild resources if anything resources related changes
+      assemble.watch([
+        'website/resources/*.{hbs,yml,yaml,json}',
+        'website/resources/resources-list/*.{hbs,yml,yaml,json}',
+      ], ['resources']);
+
+      //if partials or components change then rebuild everything
+      assemble.watch([
+        'website-guts/templates/{partials,components}/**/*.hbs'
+      ], assembleTasks);
+
     });
 
     assemble.task('resetLastRunTime', function (cb) {
@@ -314,10 +388,11 @@ module.exports = function (grunt) {
       cb();
     });
 
-    assemble.task('done', ['pages'], function () {
+    assemble.task('done', ['pages', 'partners'], function () {
       done();
     });
 
+    assemble.run(assembleTasks.concat(['watch', 'done']));
     // assemble.run(assembleTasks.concat(['watch']), function (err) {
     //   if (err) {
     //     return done(err);

@@ -20,18 +20,6 @@ module.exports = function(assemble) {
   }, {});
   var lastLocale;
 
-  function logTest(str, file) {
-    var testContent;
-    if(/communities/.test(file.path)) {
-      testContent = file.data.page_data.TR_groups[0].HTML_text_content;
-      console.log('**********************START ' + str + '***********************');
-      console.log('CONTENT LENGTH', testContent.length);
-      console.log('CONTENT OBJ', {val: testContent});
-      console.log('CONTENT STRINGIFY', JSON.stringify(testContent));
-      console.log('**********************END ' + str + '***********************');
-    }
-  }
-
   return function mergeTranslatedData (file, next) {
     var lang = assemble.get('lang');
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
@@ -44,9 +32,6 @@ module.exports = function(assemble) {
     var mergedDict, parentKey;
     //extend the file with the external YML content
     extendFileData(filePathData, file);
-    
-    logTest('BEFORE', file);
-
 
     //TODO: problem this won't work for modals because they are not scoped to the locale???
     //put in custom function for replacing translated array values
@@ -66,8 +51,6 @@ module.exports = function(assemble) {
 
       //replace the content of the page if it has been flagged for translation
       file = objParser.translate(file, mergedDict || dicts[dictKey][dataKey]);
-
-      logTest('AFTER', file);
 
     } else if ( (isTest || ( file.data.locale && file.data.locale !== websiteRoot ) ) && ( filePathData.isModal || filePathData.isPartial ) ) {
       locale = file.data.locale;
