@@ -24,6 +24,8 @@ module.exports = function (grunt) {
     var assembleTasks = [
       'om-pages',
       'prep-smartling',
+      //'resources',
+      //'partners',
       'pages'
     ];
 
@@ -204,6 +206,32 @@ module.exports = function (grunt) {
         });
     });
 
+    // build the `resources` page
+    assemble.task('resources', ['prep-smartling'], function () {
+      var start = process.hrtime();
+      var files = config.resources.files[0];
+      return assemble.src('website/resources/index.hbs')
+        .pipe(ext())
+        .pipe(assemble.dest(path.join(files.dest, 'resources')))
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished rendering resources', end);
+        });
+    });
+
+    assemble.task('partners', ['prep-smartling'], function () {
+      var start = process.hrtime();
+
+      var files = config.partners.files[0];
+      return assemble.src(normalizeSrc(files.cwd, files.src))
+        .pipe(ext())
+        .pipe(assemble.dest(path.join(files.dest, 'partners')))
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished rendering partners', end);
+        });
+    });
+
     assemble.task('pages', ['prep-smartling'], function () {
       var start = process.hrtime();
 
@@ -212,7 +240,11 @@ module.exports = function (grunt) {
         since: (process.env.lastRunTime ? new Date(process.env.lastRunTime) : null)
       };
       //this excludes om pages && resources-list pages
-      return assemble.src(normalizeSrc(files.cwd, files.src).concat('!' + omSrc[0]), opts)
+      return assemble.src(normalizeSrc(files.cwd, files.src).concat([
+        '!' + omSrc[0],
+        //'!partners/**/*.hbs',
+        //'!resources/index.hbs'
+      ]), opts)
         .pipe(ext())
         .pipe(assemble.dest(files.dest))
         .on('end', function () {
