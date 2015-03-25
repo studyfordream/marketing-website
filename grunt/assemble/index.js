@@ -238,11 +238,34 @@ module.exports = function (grunt) {
         });
     });
 
-<<<<<<< HEAD
     function buildPages (reload) {
       return function () {
         var start = process.hrtime();
-=======
+
+        var files = config.pages.files[0];
+        var opts = {
+          since: (Boolean(process.env.lastRunTime) ? new Date(process.env.lastRunTime) : null)
+        };
+        if (reload) {
+          opts.since = null;
+        }
+        console.log(opts);
+        //this excludes om pages && resources-list pages
+        return assemble.src(normalizeSrc(files.cwd, files.src).concat([
+            '!' + omSrc[0],
+            '!partners/**/*.hbs',
+            '!resources/index.hbs'
+          ]), opts)
+          .pipe(ext())
+          .pipe(assemble.dest(files.dest))
+          .on('end', function () {
+            var end = process.hrtime(start);
+            console.log('finished rendering pages', end);
+            process.env.lastRunTime = new Date();
+          });
+      };
+    }
+
     // build the `resources` page
     assemble.task('resources', ['prep-smartling'], function () {
       var start = process.hrtime();
@@ -256,7 +279,7 @@ module.exports = function (grunt) {
         });
     });
 
-    assemble.task('partners', ['resources'], function () {
+    assemble.task('partners', ['prep-smartling'], function () {
       var start = process.hrtime();
 
       var files = config.partners.files[0];
@@ -269,31 +292,6 @@ module.exports = function (grunt) {
         });
     });
 
-    assemble.task('pages', ['partners'], function () {
-      var start = process.hrtime();
->>>>>>> dfoxpowell/upgrade-assemble
-
-        var files = config.pages.files[0];
-        var opts = {
-          since: (Boolean(process.env.lastRunTime) ? new Date(process.env.lastRunTime) : null)
-        };
-        if (reload) {
-          opts.since = null;
-        }
-        console.log(opts);
-        //this excludes om pages && resources-list pages
-        return assemble.src(normalizeSrc(files.cwd, files.src).concat('!' + omSrc[0]), opts)
-          .pipe(ext())
-          .pipe(assemble.dest(files.dest))
-          .on('end', function () {
-            var end = process.hrtime(start);
-            console.log('finished rendering pages', end);
-            process.env.lastRunTime = new Date();
-          });
-      };
-<<<<<<< HEAD
-    }
-
     assemble.task('loadLayouts', ['resetLastRunTime'], loadLayouts);
     assemble.task('pages', ['prep-smartling'], buildPages(false));
     assemble.task('layouts:pages', ['prep-smartling', 'loadLayouts'], buildPages(true));
@@ -304,25 +302,11 @@ module.exports = function (grunt) {
 
       //   console.log('reloaded');
       // });
-      assemble.watch('website-guts/templates/layouts/**/*.hbs', [
+    assemble.watch('website-guts/templates/layouts/**/*.hbs', [
         'layouts:pages'
       ]);
       assemble.watch('website/**/*.hbs', assembleTasks);
       // assemble.watch('website-guts/**/*.hbs', assembleTasks);
-=======
-      //this excludes om pages && resources-list pages
-      return assemble.src(normalizeSrc(files.cwd, files.src).concat([
-        '!' + omSrc[0],
-        '!partners/**/*.hbs',
-        '!resources/index.hbs'
-      ]), opts)
-        .pipe(ext())
-        .pipe(assemble.dest(files.dest))
-        .on('end', function () {
-          var end = process.hrtime(start);
-          console.log('finished rendering pages', end);
-        });
->>>>>>> dfoxpowell/upgrade-assemble
     });
 
     assemble.task('resetLastRunTime', function (cb) {
@@ -333,8 +317,6 @@ module.exports = function (grunt) {
     assemble.task('done', ['pages'], function () {
       done();
     });
-
-    assemble.run(assembleTasks.concat(['watch', 'done']));
 
     // assemble.run(assembleTasks.concat(['watch']), function (err) {
     //   if (err) {
