@@ -2,14 +2,14 @@ body.opticon-2014 {
   .copy-half { padding: 0 5px; }
   .video-image-half {
     display: block;
-    width: 300px;
-    height: 200px;
+    width: 90%;
+    padding-top: 66%;
     margin: 20px auto;
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center center;
   }
   .gallery {
-    padding: 90px 0;
     &__image-cont {
       flex-wrap: wrap;
       &__item {
@@ -86,13 +86,14 @@ body.opticon-2014 {
     }
     .video-image-half {
       width: 50%;
-      height: auto;
+      padding-top: 33%;
     }
     .gallery__image-cont__item {
       width: 25%;
       padding: 150px 5px 0;
     }
     .gallery {
+      padding: 90px 0;
       &__iframe-cont {
         display: inline-block;
         padding-top: 29%;
