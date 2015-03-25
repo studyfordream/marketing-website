@@ -24,6 +24,8 @@ module.exports = function (grunt) {
     var assembleTasks = [
       'om-pages',
       'prep-smartling',
+      'resources',
+      'partners',
       'pages'
     ];
 
@@ -236,9 +238,40 @@ module.exports = function (grunt) {
         });
     });
 
+<<<<<<< HEAD
     function buildPages (reload) {
       return function () {
         var start = process.hrtime();
+=======
+    // build the `resources` page
+    assemble.task('resources', ['prep-smartling'], function () {
+      var start = process.hrtime();
+      var files = config.resources.files[0];
+      return assemble.src('website/resources/index.hbs')
+        .pipe(ext())
+        .pipe(assemble.dest(path.join(files.dest, 'resources')))
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished rendering resources', end);
+        });
+    });
+
+    assemble.task('partners', ['resources'], function () {
+      var start = process.hrtime();
+
+      var files = config.partners.files[0];
+      return assemble.src(normalizeSrc(files.cwd, files.src))
+        .pipe(ext())
+        .pipe(assemble.dest(path.join(files.dest, 'partners')))
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished rendering partners', end);
+        });
+    });
+
+    assemble.task('pages', ['partners'], function () {
+      var start = process.hrtime();
+>>>>>>> dfoxpowell/upgrade-assemble
 
         var files = config.pages.files[0];
         var opts = {
@@ -258,6 +291,7 @@ module.exports = function (grunt) {
             process.env.lastRunTime = new Date();
           });
       };
+<<<<<<< HEAD
     }
 
     assemble.task('loadLayouts', ['resetLastRunTime'], loadLayouts);
@@ -275,6 +309,20 @@ module.exports = function (grunt) {
       ]);
       assemble.watch('website/**/*.hbs', assembleTasks);
       // assemble.watch('website-guts/**/*.hbs', assembleTasks);
+=======
+      //this excludes om pages && resources-list pages
+      return assemble.src(normalizeSrc(files.cwd, files.src).concat([
+        '!' + omSrc[0],
+        '!partners/**/*.hbs',
+        '!resources/index.hbs'
+      ]), opts)
+        .pipe(ext())
+        .pipe(assemble.dest(files.dest))
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished rendering pages', end);
+        });
+>>>>>>> dfoxpowell/upgrade-assemble
     });
 
     assemble.task('resetLastRunTime', function (cb) {
