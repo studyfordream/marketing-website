@@ -4,16 +4,16 @@ var exclude = [
 ];
 
 module.exports = {
-  assemble: {
-    files: [
-      '<%= config.content %>/**/*.{hbs,yml}',
-      '<%= config.guts %>/templates/**/*.hbs',
-      '!<%= config.guts %>/templates/client/**/*.hbs',
-      '<%= config.guts %>/assets/js/services/user_state.js',
-      '<%= config.guts %>/helpers-v6/**/*.js'
-    ].concat(exclude),
-    tasks: ['config:dev', 'assemble']
-  },
+  //assemble: {
+    //files: [
+      //'<%= config.content %>/**/*.{hbs,yml}',
+      //'<%= config.guts %>/templates/**/*.hbs',
+      //'!<%= config.guts %>/templates/client/**/*.hbs',
+      //'<%= config.guts %>/assets/js/services/user_state.js',
+      //'<%= config.guts %>/helpers-v6/**/*.js'
+    //].concat(exclude),
+    //tasks: ['config:dev', 'assemble']
+  //},
   sassom: {
     files: '<%= config.guts %>/assets/css/om/**/*.{css,scss}',
     tasks: ['config:dev', 'sass:dev', 'replace', 'autoprefixer', 'clean:postBuild']
