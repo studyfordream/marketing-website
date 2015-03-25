@@ -153,7 +153,7 @@ module.exports = function (assemble) {
       var content = smartling.generatePO(phrases);
       var yamlDefer = Q.defer();
       if(checksumChanged(content, 'tmp/upload/' + DICT_FNAME)){
-        console.log('Master catalog didn\'t since last upload - using cached dictionaries.');
+        console.log('Master catalog didn\'t update since last upload - using cached dictionaries.');
         var translations = {};
         localeCodes.map(function(code){
           var body = fs.readFileSync('tmp/download/' + code + '-' + DICT_FNAME, {encoding: 'UTF8'});

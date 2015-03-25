@@ -24,8 +24,8 @@ module.exports = function (grunt) {
     var assembleTasks = [
       'om-pages',
       'prep-smartling',
-      //'resources',
-      //'partners',
+      'resources',
+      'partners',
       'pages'
     ];
 
@@ -219,7 +219,7 @@ module.exports = function (grunt) {
         });
     });
 
-    assemble.task('partners', ['prep-smartling'], function () {
+    assemble.task('partners', ['resources'], function () {
       var start = process.hrtime();
 
       var files = config.partners.files[0];
@@ -232,7 +232,7 @@ module.exports = function (grunt) {
         });
     });
 
-    assemble.task('pages', ['prep-smartling'], function () {
+    assemble.task('pages', ['partners'], function () {
       var start = process.hrtime();
 
       var files = config.pages.files[0];
@@ -242,8 +242,8 @@ module.exports = function (grunt) {
       //this excludes om pages && resources-list pages
       return assemble.src(normalizeSrc(files.cwd, files.src).concat([
         '!' + omSrc[0],
-        //'!partners/**/*.hbs',
-        //'!resources/index.hbs'
+        '!partners/**/*.hbs',
+        '!resources/index.hbs'
       ]), opts)
         .pipe(ext())
         .pipe(assemble.dest(files.dest))
