@@ -55,7 +55,7 @@ layout_modals:
         {{/if}}
         {{#if this.external_script}}
         {{#each this.external_script}}
-        <script  src="{{.}}"></script>
+          <script  src="{{#hasAssetPath .}}{{../../assetsDir}}/{{/hasAssetPath}}{{.}}"></script>
         {{/each}}
         {{/if}}
         {{#if this.meta_tags}}
@@ -65,7 +65,7 @@ layout_modals:
         {{/if}}
         {{#if this.external_stylesheets}}
         {{#each this.external_stylesheets}}
-        <link rel="stylesheet" type="text/css" href="{{.}}">
+          <link rel="stylesheet" type="text/css" href="{{#hasAssetPath .}}{{../../assetsDir}}/{{/hasAssetPath}}{{.}}">
         {{/each}}
         {{/if}}
         <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7838232/684744/css/fonts.css">
@@ -172,9 +172,10 @@ layout_modals:
                                 </ul>
                                 <ul class="social-links" itemscope itemtype="http://schema.org/Organization">
                                     <link itemprop="url" href="https://www.optimizely.com/">
-                                    <li><a itemprop="sameAs" href="http://twitter.com/optimizely" class="twitter">Twitter</a></li>
-                                    <li><a itemprop="sameAs" href="http://www.facebook.com/optimizely" class="facebook">Facebook</a></li>
-                                    <li><a itemprop="sameAs" href="https://plus.google.com/+optimizely/posts" class="google-plus">Google+</a></li>
+                                    <li><a itemprop="sameAs" href="http://twitter.com/optimizely" target="_blank" class="twitter">Twitter</a></li>
+                                    <li><a itemprop="sameAs" href="http://www.facebook.com/optimizely" target="_blank" class="facebook">Facebook</a></li>
+                                    <li><a itemprop="sameAs" href="https://www.linkedin.com/company/optimizely" target="_blank" class="linkedin">LinkedIn</a></li>
+                                    <li><a itemprop="sameAs" href="https://plus.google.com/+optimizely/posts" target="_blank" class="google-plus">Google+</a></li>
                                 </ul>
                             </div><!--/.left-->
                             <div class="right-nav">

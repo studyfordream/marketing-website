@@ -57,6 +57,7 @@ body.opticon {
     line-height: 24px;
     text-align: center;
   }
+  .content-container { padding: 50px 0; }
   .button-container {
     text-align: center;
   }
@@ -70,7 +71,7 @@ body.opticon {
     line-height: 28px;
     margin: 0;
   }
-  .item-company {
+  .item-source {
     font-size: 0.7em;
     color: #979797;
     letter-spacing: 1.5px;
@@ -118,6 +119,7 @@ body.opticon {
         color: $opticon-brand-blue;
         border: 1px solid $opticon-brand-blue;
         font-size: 0.87em;
+        margin-bottom: 20px;
       }
     }
   }
@@ -218,40 +220,20 @@ body.opticon {
 
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon {
-    .confetti-left {
-      display: block;
-    }
-    .confetti-right {
-      display: block;
-    }
-    .common-page-title {
-      font-size: 3em;
-    }
-    .flex-container {
-      display: flex;
-    }
-    .description-text {
-      text-align: left;
-    }
-    .detail-text {
-      text-align: left;
-    }
-    .register-title {
-      width: 50%;
-    }
-    .opticon-button--nav {
-      margin: 0 0 0 15px;
-    }
-    .opticon-button--nav--footer {
-      font-size: 1em;
-    }
+    .confetti-left,
+    .confetti-right { display: block; }
+    .common-page-title { font-size: 3em; }
+    .flex-container { display: flex; }
+    .description-text { text-align: left; }
+    .detail-text { text-align: left; }
+    .register-title { width: 50%; }
+    .opticon-button--nav { margin: 0 0 0 15px; }
+    .opticon-button--nav--footer { font-size: 1em; }
   }
 }
 
 @media only screen and (min-width: $desktop-min-width) {
   body.opticon {
-    .opticon-button--nav--footer {
-      font-size: 1.338em;
-    }
+    .opticon-button--nav--footer { font-size: 1.338em; }
   }
 }

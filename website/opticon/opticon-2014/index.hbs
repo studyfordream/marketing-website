@@ -1,0 +1,68 @@
+---
+layout: opticon
+seo_title: Opticon About
+no_container: true
+no_header: true
+no_footer: true
+body_class:
+- opticon
+- opticon-2014
+page_script: opticon-2014.js
+modals:
+- video_modal
+og_title: "Opticon 2015"
+og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
+external_script:
+- //use.typekit.net/ucj0cgp.js
+- js/libraries/magnific.js
+external_stylesheets:
+- css/magnific-popup.css
+---
+
+{{#with opticon-2014}}
+<div class="container content-container flex-container">
+  <div class="copy-half">
+    <h2 class="page-title common-page-title adelle-sans--bold">{{page_title}}</h2>
+    <p class="subtitle adelle-sans">{{subtitle}}</p>
+    <p class="description-text adelle-sans">{{blurb}}</p>
+  </div>
+  <a class="video-image-half" href="#" style="background-image: url('{{video_image}}')" data-show-video>
+  </a>
+</div>
+
+<!--      -->
+<!--Videos-->
+<!--      -->
+<div class="gallery container">
+  <h3 class="description-title adelle-sans">Opticon 2014 Sessions</h3>
+  {{#each gallery_videos}}
+  <div class="gallery__iframe-cont">
+    <iframe width="450" height="315" src="{{this}}" frameborder="0" allowfullscreen></iframe>
+  </div>
+  {{/each}}
+</div>
+
+<!--     -->
+<!--Quote-->
+<!--     -->
+<div class="quote container">
+  <blockquote>
+    <p class="description-title">“My mind is blown; the amount of talent and creativity and amazing talks at Optimizely’s inaugural user conference was staggering.”</p>
+    <cite class="item-source">CHRIS WARD, PRODUCT ANALYST</cite>
+  </blockquote>
+</div>
+
+<!--      -->
+<!--Photos-->
+<!--      -->
+<div class="gallery container">
+  <h3 class="description-title adelle-sans">Gallery</h3>
+  <div class="gallery__image-cont flex-container">
+    {{#each gallery_images}}
+    <a href="{{this}}" class="gallery__image-cont__item" style="background-image: url('{{this}}')"></a>
+    {{/each}}
+  </div>
+</div>
+{{/with}}
+
+{{> opticon_register}}

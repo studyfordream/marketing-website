@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "homepage": "https://github.com/optimizely/marketing-website",
   "authors": [
-    "Kyle Rush <kylerrush@gmail.com>"
+    "Kyle Rush <kylerrush@gmail.com>",
+    "Stewart Smith <stewart@optimizely.com>"
   ],
   "description": "optimizely marketing website",
   "moduleType": [
@@ -27,6 +28,7 @@
     "jquery-cookie": "1.4.1",
     "history.js": "1.8.0",
     "oform": "4.0.0",
-    "fitvids": "1.1.0"
+    "fitvids": "1.1.0",
+    "magnific-popup": "~1.0.0"
   }
 }

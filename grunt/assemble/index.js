@@ -264,9 +264,9 @@ module.exports = function (grunt) {
       return assemble.src([omSrc])
         .pipe(ext())
         .pipe(assemble.dest(path.join(files.dest, ppcKey)))
-        .on('data', function(file) {
-           console.log(file.path, 'om-pages rendered');
-        })
+        //.on('data', function(file) {
+           //console.log(file.path, 'om-pages rendered');
+        //})
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished rendering pages om', end);
@@ -284,12 +284,12 @@ module.exports = function (grunt) {
         //if (reload) {
           //opts.since = null;
         //}
-        console.log(opts);
+        //console.log(opts);
         //this excludes om pages && resources-list pages
         return assemble.src(normalizeSrc(files.cwd, files.src).concat([
             '!' + omSrc[0],
             '!website/partners/**/*.hbs'
-          ]), opts)
+          ]))
           .pipe(ext())
           .pipe(assemble.dest(files.dest))
           .on('data', function(file) {
@@ -310,9 +310,9 @@ module.exports = function (grunt) {
       return assemble.src(normalizeSrc(files.cwd, files.src))
         .pipe(ext())
         .pipe(assemble.dest(path.join(files.dest, 'partners')))
-        .on('data', function(file) {
-           console.log(file.path, 'partners rendered');
-        })
+        //.on('data', function(file) {
+           //console.log(file.path, 'partners rendered');
+        //})
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished rendering partners', end);
@@ -380,6 +380,7 @@ module.exports = function (grunt) {
     });
 
     assemble.task('done', ['pages', 'partners'], function () {
+      console.log('DONE');
       done();
     });
 
