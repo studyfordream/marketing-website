@@ -1,0 +1,36 @@
+---
+layout: partners.hbs
+title: "Smart Internet Media"
+solutions: true
+priority: 25
+summary:
+logo: ""
+website_link: "http://www.smart-im.nl/conversie-optimalisatie/"
+website_display: "www.smart-im.nl"
+kb_article:
+stars: 1
+industry: "Test development, Execution and Management, Strategic consulting, Executive Consulting"
+locations:
+- location:
+    phone: "+31356912237"
+    email: "info@smart-im.nl"
+    region: "The Netherlands"
+    city: "Bussum"
+    address1: "Brinklaan 21"
+    address2:
+    zip: "1404 EP"
+    country: "The Netherlands"
+contact:
+languages:
+- "Dutch"
+- "English"
+tags:
+- "E-Commerce / Retail"
+- "Media"
+- "B2B / SaaS"
+- "Lead gen"
+- "Travel"
+- "Telecommunications"
+- "Mobile"
+---
+Smart Internet Media is a conversion optimization agency with a broad knowledge of the Digital Marketing arena. We help our clients utilizing their Online position to increase ROI and to improve the experience of their customers. With a no nonsense attitude and focus to deliver, we offer excellent value, a team of highly motivated professionals and a trusted partner to exceed expectations and results.
