@@ -1,11 +1,62 @@
 body.opticon-agenda {
-  .time-slot {
-    &__time {
-      display: table-cell;
-      min-width: 100px;
+  .row {
+    padding: 50px 0;
+  }
+  .agenda-day {
+    display: inline;
+    margin-right: 50px;
+    color: #ccc;
+    line-height: 38px;
+    font-size: 1.25em;
+    &--active {
+      color: #0081BA;
+      text-decoration: underline;
     }
-    &__content {
-      display: table-cell;
+  }
+  .pill--opticon {
+    float: right;
+    border-radius: 0;
+    & > * {
+      padding: 9px 15px;
+    }
+    & > *:first-child,
+        *:last-child  {
+          border-radius: 0;
+        }
+  }
+  .dropdown-cont ul li:before {
+    border-radius: 0;
+    height: 9px;
+    width: 9px;
+  }
+  .time-slot {
+    display: flex;
+    margin: 50px 0;
+    &__time {
+      min-width: 100px;
+      margin: 0;
+    }
+  }
+  .time-slot__content {
+  }
+  .event-title {
+    font-size: 20px;
+    color: #444B4F;
+    line-height: 30px;
+    margin: 50px 0 15px 0;
+    &--everyone {
+      color: #AAAAAA;
+    }
+  }
+  .event-text {
+    font-size: .8125em;
+    color: #444B4F;
+    letter-spacing: 0.4px;
+    line-height: 24px;
+  }
+  .speaker-cont {
+    &__speaker {
+      margin: 0;
     }
   }
 }

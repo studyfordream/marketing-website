@@ -1,4 +1,27 @@
 title: "Agenda"
+
+day_one: "Day 1"
+day_two: "Day 2"
+
+filter_box:
+  title: "Filter by:"
+  track_section:
+    title: "Track"
+    tracks:
+      - "Strategy"
+      - "Platform"
+      - "Action"
+      - "Culture"
+  role_section:
+    title: "Role"
+    roles:
+      - "Marketer"
+      - "Developer"
+      - "Product Manager"
+      - "Executive"
+  reset: "Reset"
+
+
 days:
   -
     title: "Wednesday, June 17"

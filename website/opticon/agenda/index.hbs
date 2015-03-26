@@ -16,6 +16,32 @@ external_script:
 {{#with agenda_data}}
 <div class="content-container container">
   <h1 class="page-title common-page-title adelle-sans--bold">{{title}}</h1>
+
+  <div class="row">
+    <h4 class="agenda-day agenda-day--active adelle-sans">{{day_one}}</h4>
+    <h4 class="agenda-day adelle-sans">{{day_two}}</h4>
+    {{! Filter Pill }}
+    <div class="pill pill--opticon">
+      <div class="adelle-sans">{{filter_box.title}}</div>
+      <div class="dropdown-cont active">{{filter_box.track_section.title}} &#9662;
+        <ul>
+          {{#each filter_box.track_section.tracks}}
+          <li class="filter-item adelle-sans" data-filter="{{ createClassList this }}">{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="dropdown-cont">{{filter_box.role_section.title}} &#9662;
+        <ul>
+          {{#each filter_box.role_section.roles}}
+          <li class="filter-item adelle-sans" data-filter="{{ createClassList this }}">{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <a href="#" class="filter--reset tooltip-hover adelle-sans" data-content="Reset filters">{{filter_box.reset}}</a>
+    </div>{{! pill }}
+  </div>
+
+  {{! Agenda }}
   {{#each days}}
     <h3 class="description-title adelle-sans">{{this.title}}</h3>
     {{#each this.time_slots}}
@@ -23,18 +49,20 @@ external_script:
         <h4 class="time-slot__time">{{this.start_time}}</h4>
         <div class="time-slot__content">
           {{#if this.title}}
-            <h5>{{this.title}}</h5>
+            <h5 class="event-title event-title--everyone">{{this.title}}</h5>
           {{/if}}
           {{#each this.events}}
-            <h5>{{this.title}}</h5>
-            {{#each this.speakers}}
-              <h6>{{this.name}}, {{this.job_title}}, {{this.company}}</h6>
-            {{/each}}
-            <h6>Time: {{this.time}} | Location: {{this.location}}</h6>
-            <h6>{{this.description}}</h6>
+            <h5 class="event-title">{{this.title}}</h5>
+            <div class="speaker-cont">
+              {{#each this.speakers}}
+                <p class="speaker-cont__speaker event-text adelle-sans">{{this.name}}, {{this.job_title}}, {{this.company}}</p>
+              {{/each}}
+            </div>
+            <p class="event-text adelle-sans--bold">Time: {{this.time}} | Location: {{this.location}}</p>
+            <p class="event-text adelle-sans">{{this.description}}</p>
           {{/each}}
         </div>
-      </div>
+      </div>{{! time-slot }}
     {{/each}}
   {{/each}}
 </div>
