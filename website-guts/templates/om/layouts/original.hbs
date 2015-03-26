@@ -26,7 +26,7 @@ layout_script: original.js
     <div class="form-cont{{#unless this.hero}} center{{/unless}}">
       <div id="ppc-form" class="landing-page-form">
         {{#if this.form_heading}}<h4 class="seo-form-heading">{{this.form_heading}}</h4>{{/if}}
-        {{#if this.form_body}}{{{this.form_body}}}{{/if}}
+        {{#if this.form_body}}{{#omarkdown}}{{{this.form_body}}}{{/omarkdown}}{{/if}}
         <form id="seo-form" method="POST" class="seo-form inline-labels" action="{{apiDomain}}/account/free_trial_create" autocomplete="off" novalidate="novalidate">
           <p class="error-message oform-error-show"></p>
           <input id="utm_medium" type="hidden" name="utm_medium" value="">

@@ -79,19 +79,21 @@ module.exports = function (grunt) {
     assemble.asyncHelper('partial', renderTypeHelper('partials'));
 
     var loader = function loader(typeFn, cb) {
-      var currentRenameKey = assemble.option('renameKey');
-      assemble.option('renameKey', renameKey);
-      if(Array.isArray(typeFn)) {
-        typeFn.forEach(function(fn) {
-          fn();
-        });
-      } else {
-        typeFn();
-      }
-      assemble.option('renameKey', currentRenameKey);
-      if (cb) {
-        cb();
-      }
+      return function() {
+        var currentRenameKey = assemble.option('renameKey');
+        assemble.option('renameKey', renameKey);
+        if(Array.isArray(typeFn)) {
+          typeFn.forEach(function(fn) {
+            fn();
+          });
+        } else {
+          typeFn();
+        }
+        assemble.option('renameKey', currentRenameKey);
+        if (cb) {
+          cb();
+        }
+      };
     };
 
     function loadLayouts () {
@@ -171,7 +173,7 @@ module.exports = function (grunt) {
         loadPartials,
         loadOmLayouts,
         loadModals
-      ]);
+      ])();
 
       //load the files for the resources collection
       loadResources();
@@ -331,12 +333,37 @@ module.exports = function (grunt) {
         });
     }
 
+    //var loadAll = function loadAll() {
+      //loadGlobalData();
+
+      //loader([
+        //loadLayouts,
+        //loadPartials,
+        //loadOmLayouts,
+        //loadModals
+      //])();
+
+      ////load the files for the resources collection
+      //loadResources();
+
+      ////load external YML files and scope locally, while omitting global YML
+      //loadPageYml();
+      //loadSubfolderYml();
+    //};
 
     assemble.task('loadAll', ['resetLastRunTime'], loadAll);
+    assemble.task('loadOm', loader(loadOmLayouts));
 
     assemble.task('om-pages', buildOm);
     assemble.task('pages', ['prep-smartling'], buildPages(false));
     assemble.task('partners', ['prep-smartling'], buildPartners);
+
+    assemble.task('resetLastRunTime', function (cb) {
+      process.env.lastRunTime = 0;
+      cb();
+    });
+
+    assemble.task('done', ['pages', 'partners'], done);
 
     assemble.task('layouts:pages', ['loadAll', 'prep-smartling'], buildPages(true));
     assemble.task('layouts:partners', ['loadAll', 'prep-smartling'], buildPartners);
@@ -353,7 +380,7 @@ module.exports = function (grunt) {
       assemble.watch([
         'website-guts/templates/om/**/*.hbs',
         'website/om/**/*.hbs'
-      ], ['om-pages']);
+      ], ['layouts:om']);
 
       //rebuild all pages if layout changes that isn't partners layout
       assemble.watch([
@@ -384,16 +411,6 @@ module.exports = function (grunt) {
         'website-guts/templates/{partials,components}/**/*.hbs'
       ], ['build:all']);
 
-    });
-
-    assemble.task('resetLastRunTime', function (cb) {
-      process.env.lastRunTime = 0;
-      cb();
-    });
-
-    assemble.task('done', ['pages', 'partners'], function () {
-      console.log('DONE');
-      done();
     });
 
     var addTasks = ['done'];

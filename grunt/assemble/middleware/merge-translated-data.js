@@ -36,6 +36,7 @@ module.exports = function(assemble) {
     //TODO: problem this won't work for modals because they are not scoped to the locale???
     //put in custom function for replacing translated array values
     if(filePathData.isSubfolder || ( filePathData.isRoot && isTest && !file.data.isPpc )) {
+    //console.log(file.path);
       //set the locale on the page context for modal|partial translation
       file.data.locale = locale;
       file.data.dataKey = dataKey;
