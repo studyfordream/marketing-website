@@ -93,9 +93,24 @@ module.exports = function(grunt) {
   ];
 
   grunt.registerTask('server', function(which) {
-    var assembleIndex = serverTasks.indexOf('assemble');
+    var cachedI;
+    var assembleTask = serverTasks.filter(function(task, i) {
+      if(/assemble/.test(task)) {
+        cachedI = i;
+        return true;
+      }
+    })[0];
+
     if(which === 'test') {
-      serverTasks[assembleIndex] += (':' + which);
+      switch(assembleTask.indexOf(':')) {
+        case -1:
+          assembleTask += (':' + which);
+          break;
+        default:
+          assembleTask += ('@@' + which);
+          break;
+      }
+      serverTasks[cachedI] = assembleTask;
     }
 
     grunt.task.run(serverTasks);

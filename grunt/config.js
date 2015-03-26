@@ -123,7 +123,7 @@ var config = function(grunt, options) {
     guts: 'website-guts',
     dist: 'dist',
     temp: 'temp',
-    helpers: 'website-guts/helpers-v6',
+    helpers: 'website-guts/helpers',
     bowerDir: 'bower_components',
   };
 

@@ -11,7 +11,7 @@ var _ = require('lodash');
 
 module.exports = function (grunt) {
 
-  grunt.registerTask('assemble', 'Assemble', function (target) {
+  grunt.registerTask('assemble', 'Assemble', function (target, target2) {
     var done = this.async();
     var assemble = require('assemble');
     var localizeLinkPath = require('./middleware/localize-link-path');
@@ -54,7 +54,16 @@ module.exports = function (grunt) {
     var ppcKey = options.ppcKey;
 
     if(target) {
-      assemble.set('env', target);
+      switch(target.indexOf('@@')) {
+        case -1:
+          assemble.set('env', target);
+          break;
+        default:
+          var split = target.split('@@');
+          target = split[0];
+          assemble.set('env', split[1]);
+          break;
+      }
     }
 
     //set the global data from external YML & env config
@@ -261,11 +270,10 @@ module.exports = function (grunt) {
     }
 
     assemble.task('prep-smartling', function () {
-      assemble.set('dicts', {});
       var start = process.hrtime();
 
       return assemble.src(hbsPaths, { since: (process.env.lastRunTime?new Date(process.env.lastRunTime):null)})
-        // .pipe(sendToSmartling(assemble))
+        .pipe(sendToSmartling(assemble))
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished translating pages', end);
@@ -296,10 +304,7 @@ module.exports = function (grunt) {
         var opts = {
           since: (process.env.lastRunTime ? new Date(process.env.lastRunTime) : null)
         };
-        // if (reload) {
-        //   opts.since = null;
-        // }
-        console.log(typeof opts.since, opts.since);
+
         //this excludes om pages && resources-list pages
         return assemble.src(normalizeSrc(files.cwd, files.src).concat([
             '!' + omSrc[0],
