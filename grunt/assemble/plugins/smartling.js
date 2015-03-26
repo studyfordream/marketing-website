@@ -40,25 +40,6 @@ if(smartlingConfig){
 }
 
 
-function checksumChanged(content, fname){
-  var hash = crypto.createHash('md5');
-  hash.setEncoding('hex');
-  hash.write(content);
-  hash.end();
-  var newSum = hash.read();
-
-  var latestSum = null;
-  if(fs.existsSync(fname))
-  {
-    // now compare with latest uploaded catalogue checksum
-    hash = crypto.createHash('md5');
-    hash.setEncoding('hex');
-    hash.write(fs.readFileSync(fname, {encoding: 'UTF8'}));
-    hash.end();
-    latestSum = hash.read();
-  }
-  return newSum === latestSum;
-}
 
 module.exports = function (assemble) {
   var lang = assemble.get('lang') || {};
@@ -76,6 +57,31 @@ module.exports = function (assemble) {
   var env = assemble.get('env');
   var runTranslations =  env === 'test' || env === 'smartling-staging-deploy';
   var phrases = [];
+
+  var checksumChanged = function checksumChanged(content, fname){
+    if(env === 'test' && glob.sync('tmp/download/*.pot').length) {
+      return true;
+    } else {
+      var hash = crypto.createHash('md5');
+      hash.setEncoding('hex');
+      hash.write(content);
+      hash.end();
+      var newSum = hash.read();
+
+      var latestSum = null;
+      if(fs.existsSync(fname))
+      {
+        // now compare with latest uploaded catalogue checksum
+        hash = crypto.createHash('md5');
+        hash.setEncoding('hex');
+        hash.write(fs.readFileSync(fname, {encoding: 'UTF8'}));
+        hash.end();
+        latestSum = hash.read();
+      }
+      return newSum === latestSum;
+    }
+  };
+
 
   return through.obj(function (file, enc, cb) {
     var ppcRe = new RegExp(path.join(websiteRoot, 'om'));
