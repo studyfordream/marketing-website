@@ -21,7 +21,7 @@ external_script:
   <div class="confetti-right"></div>
 </div>
 <div class="page-content paragraphs-container container">
-  {{#with opties_data}}
+  {{#with page_data}}
   <h2 class="page-title common-page-title adelle-sans--bold">{{page_title}}</h2>
   <div class="top-paragraph">
     <h3 class="description-title adelle-sans">{{top_paragraph.title}}</h3>
@@ -35,7 +35,7 @@ external_script:
 <!--Award Categories-->
 <!--                -->
 <div class="container section-padding">
-  {{#with opties_data.award_categories}}
+  {{#with page_data.award_categories}}
   <h3 class="description-title adelle-sans">{{title}}</h3>
   <div class="award-categories flex-container">
     {{#each categories}}
@@ -57,7 +57,7 @@ external_script:
 <!--Guidelines-->
 <!--          -->
 <div class="container guidelines">
-  {{#with opties_data.guidelines}}
+  {{#with page_data.guidelines}}
   <div class="flex-container">
     <h3 class="guidelines__title description-title adelle-sans">{{title}}</h3>
      <ul class="guidelines__list">
@@ -73,7 +73,7 @@ external_script:
 <!--Application Form-->
 <!--                -->
 <section class="application-form" id="js-opties-application">
-  {{#with opties_data.application_form}}
+  {{#with page_data.application_form}}
   <div class="container">
     <form id="form2" name="form2" class="columns eight offset-two" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="https://stewsmith.wufoo.com/forms/m1oycu1o1x0yrs3/#public">
       <h3 class="description-title--apply adelle-sans">{{title}}</h3>
