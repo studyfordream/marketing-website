@@ -102,7 +102,7 @@ testing_ideas:
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/rollout-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/rollout-2.gif"
     title: "Phase Rollouts"
-    text: "Mobile A/B testing and multivariate testing gives you an easy way to test new features and quickly remove the ones that don’t work."
+    text: "Mobile A/B testing and multivariate testing give you an easy way to test new features and quickly remove the ones that don’t work."
     article_link: "#"
 form_panel:
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/bottom-img-comp.jpg"
