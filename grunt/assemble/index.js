@@ -261,10 +261,11 @@ module.exports = function (grunt) {
     }
 
     assemble.task('prep-smartling', function () {
+      assemble.set('dicts', {});
       var start = process.hrtime();
 
-      return assemble.src(hbsPaths)
-        .pipe(sendToSmartling(assemble))
+      return assemble.src(hbsPaths, { since: (process.env.lastRunTime?new Date(process.env.lastRunTime):null)})
+        // .pipe(sendToSmartling(assemble))
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished translating pages', end);
@@ -293,19 +294,25 @@ module.exports = function (grunt) {
 
         var files = config.pages.files[0];
         var opts = {
-          //since: (Boolean(process.env.lastRunTime) ? new Date(process.env.lastRunTime) : null)
+          since: (process.env.lastRunTime ? new Date(process.env.lastRunTime) : null)
         };
-        //if (reload) {
-          //opts.since = null;
-        //}
-        //console.log(opts);
+        // if (reload) {
+        //   opts.since = null;
+        // }
+        console.log(typeof opts.since, opts.since);
         //this excludes om pages && resources-list pages
         return assemble.src(normalizeSrc(files.cwd, files.src).concat([
             '!' + omSrc[0],
             '!website/partners/**/*.hbs'
-          ]))
+          ]), opts)
+          .on('error', function (err) {
+            console.log('src error', err);
+          })
           .pipe(ext())
           .pipe(assemble.dest(files.dest))
+          .on('error', function (err) {
+            console.log('dest error', err);
+          })
           .on('data', function(file) {
              logData(file.path, 'pages');
           })
@@ -359,7 +366,7 @@ module.exports = function (grunt) {
     assemble.task('partners', ['prep-smartling'], buildPartners);
 
     assemble.task('resetLastRunTime', function (cb) {
-      process.env.lastRunTime = 0;
+      process.env.lastRunTime = void 0;
       cb();
     });
 
@@ -385,7 +392,8 @@ module.exports = function (grunt) {
       //rebuild all pages if layout changes that isn't partners layout
       assemble.watch([
         'website-guts/templates/layouts/**/*.hbs',
-        '!website-guts/templates/layouts/partners.hbs'
+        '!website-guts/templates/layouts/partners.hbs',
+        'website-guts/templates/om/**/*.hbs'
       ], ['layouts:pages']);
 
       //rebuild a single page

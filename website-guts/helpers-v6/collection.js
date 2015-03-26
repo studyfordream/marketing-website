@@ -12,6 +12,7 @@ module.exports = function collection (name, options) {
   var locales = this.app.get('data.locales');
   var locale = this.context.locale;
   var dictKey = locale && locales[locale];
+  console.log('name', name);
   var col = app.get(name);
   var collectionData = Object.keys(col).map(function (key) {
     var data = col[key];

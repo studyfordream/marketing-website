@@ -82,7 +82,16 @@ module.exports = function(assemble) {
 
     /* jshint ignore:end */
     //non mutating merge is important here because translation keys were being mutated
-    file.data = _.merge({}, file.data, data);
+
+    var keys = Object.keys(data);
+    var len = keys.length;
+    var i = 0;
+    while (len--) {
+      var key = keys[i++];
+      var val = data[key];
+      file.data[key] = val;
+    }
+    // _.extend(file.data, data);
     next();
   };
 };
