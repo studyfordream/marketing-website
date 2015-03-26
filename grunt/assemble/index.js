@@ -249,8 +249,13 @@ module.exports = function (grunt) {
 
     function logData(fp, type) {
       var key = generateKey(fp);
+      var o = {
+        'om-pages': 'magenta',
+        pages: 'blue',
+        partners: 'red'
+      };
 
-      console.log(chalk.blue('rendered ' + type) + '=>' + chalk.green(key));
+      console.log(chalk[ o[type] ].bold('rendered ' + type) + ' => ' + chalk.green(key));
     }
 
     assemble.task('prep-smartling', function () {
@@ -391,7 +396,13 @@ module.exports = function (grunt) {
       done();
     });
 
-    assemble.run(assembleTasks.concat(['watch', 'done']));
+    var addTasks = ['done'];
+
+    if(target === 'dev') {
+      addTasks.unshift('watch');
+    }
+
+    assemble.run(assembleTasks.concat(addTasks));
 
   });
   return {};
