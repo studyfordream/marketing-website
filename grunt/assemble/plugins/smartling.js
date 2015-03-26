@@ -42,6 +42,8 @@ if(smartlingConfig){
 
 
 module.exports = function (assemble) {
+  //var parseFilePath = require('../utils/plugin-parse-file-path')(assemble);
+  //var extendFileData = require('../utils/plugin-extend-file-data')(assemble);
   var lang = assemble.get('lang') || {};
   var pageData = assemble.get('pageData');
   var environment = assemble.option('environment');
@@ -222,6 +224,30 @@ module.exports = function (assemble) {
       }
 
       Q.all([yamlDefer.promise, jsDefer.promise]).then(function(){
+        //lang has `global` object
+        var translated = {};
+        Object.keys(locales).forEach(function(localeKey) {
+          var dictKey = locales[localeKey];
+
+          translated[dictKey] = Object.keys(lang).reduce(function(o, key){
+            //lang object global|layout|partial|modals|website
+            var langO = lang[key];
+            //get the dict key de_DE|fr_FR|es_ES|jp_JP
+            _.forEach(langO, function(val, key){
+              //console.log(dictKey)
+              o[key] = objParser.translate(langO[key], translations[dictKey][key]);
+            });
+
+            return o;
+          }, {});
+        });
+
+        _.forEach(translated.de_DE, function(val, key) {
+          if(/modals/.test(key)) {
+            console.log(val);
+          }
+        });
+
         cb();
       });
     } else {
