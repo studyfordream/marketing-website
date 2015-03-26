@@ -15,7 +15,7 @@ module.exports = function (grunt) {
     var done = this.async();
     var assemble = require('assemble');
     var localizeLinkPath = require('./middleware/localize-link-path');
-    var mergeLayoutContext = require('./middleware/merge-layout-context');
+    //var mergeLayoutContext = require('./middleware/merge-layout-context');
     var collectionMiddleware = require('./middleware/onload-collection')(assemble);
     var mergeTranslatedData = require('./middleware/merge-translated-data');
     var renderTypeHelper = require('./helpers/render-type-helper')(assemble);
@@ -225,7 +225,7 @@ module.exports = function (grunt) {
 
     //merge layout YFM on file context, attach external YML data and translate
     //order is important here because we want to merge layouts before translating
-    assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
+    //assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
     assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
 
     //localize link path after locale is appended in the translate data middleware

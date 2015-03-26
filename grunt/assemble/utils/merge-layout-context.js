@@ -18,7 +18,7 @@ module.exports = function(assemble) {
   };
 
   // middleware to merge the layout context into the current page context
-  return function mergeLayoutContext (file, next) {
+  return function mergeLayoutContext (file) {
     var isTest = assemble.get('env');
     var lang = assemble.get('lang');
     var locales = assemble.get('data.locales');
@@ -82,16 +82,15 @@ module.exports = function(assemble) {
 
     /* jshint ignore:end */
     //non mutating merge is important here because translation keys were being mutated
-
+    //may only see this problem in subfolders
     var keys = Object.keys(data);
     var len = keys.length;
     var i = 0;
+    //extend the file data YFM with layout YFM
     while (len--) {
       var key = keys[i++];
       var val = data[key];
       file.data[key] = val;
     }
-    // _.extend(file.data, data);
-    next();
   };
 };

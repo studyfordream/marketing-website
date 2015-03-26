@@ -225,7 +225,6 @@ module.exports = function (assemble) {
         cb();
       });
     } else {
-      console.log('not translated');
       assemble.set('dicts', {});
       cb();
     }
