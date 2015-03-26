@@ -66,6 +66,7 @@
     "vinyl-fs": "git://github.com/wearefractal/vinyl-fs"
   },
   "devDependencies": {
+    "chalk": "^1.0.0",
     "grunt-contrib-connect": "0.8.0",
     "grunt-contrib-watch": "0.6.1",
     "grunt-git": "0.3.3",

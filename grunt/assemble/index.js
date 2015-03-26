@@ -2,6 +2,7 @@
 
 var ext = require('gulp-extname');
 var through = require('through2');
+var chalk = require('chalk');
 var path = require('path');
 var extend = require('extend-shallow');
 var createStack = require('layout-stack');
@@ -246,6 +247,12 @@ module.exports = function (grunt) {
                         '!' + omLayouts
                       ]);
 
+    function logData(fp, type) {
+      var key = generateKey(fp);
+
+      console.log(chalk.blue('rendered ' + type) + '=>' + chalk.green(key));
+    }
+
     assemble.task('prep-smartling', function () {
       var start = process.hrtime();
 
@@ -265,7 +272,7 @@ module.exports = function (grunt) {
         .pipe(ext())
         .pipe(assemble.dest(path.join(files.dest, ppcKey)))
         .on('data', function(file) {
-           console.log(file.path, 'om-pages rendered');
+           logData(file.path, 'om-pages');
         })
         .on('end', function () {
           var end = process.hrtime(start);
@@ -293,7 +300,7 @@ module.exports = function (grunt) {
           .pipe(ext())
           .pipe(assemble.dest(files.dest))
           .on('data', function(file) {
-             console.log(file.path, 'pages rendered');
+             logData(file.path, 'pages');
           })
           .on('end', function () {
             var end = process.hrtime(start);
@@ -311,7 +318,7 @@ module.exports = function (grunt) {
         .pipe(ext())
         .pipe(assemble.dest(path.join(files.dest, 'partners')))
         .on('data', function(file) {
-           console.log(file.path, 'partners rendered');
+           logData(file.path, 'partners');
         })
         .on('end', function () {
           var end = process.hrtime(start);
