@@ -53,6 +53,9 @@ describe('event marketing page', function() {
               it('lastName', function(){
                 expect(reportingObject.lastName).toBe('Fox test');
               });
+              it('Most Recent External Events Ops', function(){
+                expect(reportingObject['Most Recent External Events Ops']).toBe('4');
+              });
               it('leadSource', function(){
                 expect(reportingObject.leadSource).toBe('Events');
               });

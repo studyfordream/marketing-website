@@ -144,6 +144,9 @@
     if(payload.Lead_Source_Subcategory__c){
       reportingObject.Lead_Source_Subcategory__c = payload.Lead_Source_Subcategory__c;
     }
+    if(payload['Most Recent External Events Ops']){
+      reportingObject['Most Recent External Events Ops'] = payload['Most Recent External Events Ops'];
+    }
     //add source information
     //source is usually url query params from ads
     if(source.utm.campaign){
