@@ -24,10 +24,16 @@ body.opticon-agenda {
           border-radius: 0;
         }
   }
-  .dropdown-cont ul li:before {
-    border-radius: 0;
-    height: 9px;
-    width: 9px;
+  .dropdown-cont ul li {
+    &:before {
+      border-radius: 0;
+      height: 9px;
+      width: 9px;
+    }
+    &:hover {
+      background: none;
+      color: $text-color;
+    }
   }
   .time-slot {
     display: flex;
@@ -52,6 +58,7 @@ body.opticon-agenda {
     top: 3px;
     color: $opticon-brand-blue;
     transition: transform 5ms ease-in;
+    cursor: pointer;
     &--open {
       transform: rotate(90deg);
     }
@@ -61,6 +68,9 @@ body.opticon-agenda {
     color: #444B4F;
     line-height: 30px;
     margin: 0;
+    &--choice {
+      cursor: pointer;
+    }
     &--everyone {
       color: #AAAAAA;
     }
