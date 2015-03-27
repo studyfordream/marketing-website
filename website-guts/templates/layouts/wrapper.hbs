@@ -62,6 +62,9 @@ layout_modals:
                 plan = 'none';
               }
               window.console.log('setting plan to: ' + plan);
+              $(function(){
+                $('body').attr('data-plan', plan);
+              });
               window.analytics.identify({
                 'Customer plan': plan
               });

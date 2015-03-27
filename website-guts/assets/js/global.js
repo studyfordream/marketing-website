@@ -553,12 +553,6 @@ if( $.cookie('amplitude_idoptimizely.com') ) {
 
 w.optly.mrkt.setAttributeCookie = function(signInResponse){
 
-	w.console.log('setAttributeCookieRunning');
-
-	if(signInResponse){
-		w.console.log('resp: ', signInResponse);
-	}
-
 	var setCookieValue = function(args){
 
 		var userAtrributeValues = [],
@@ -591,12 +585,6 @@ w.optly.mrkt.setAttributeCookie = function(signInResponse){
 
 	};
 
-	var removeCookieValue = function(){
-
-		$.removeCookie('visitorAttributes', {expires: 90, path: '/'});
-
-	};
-
 	if(typeof signInResponse === 'object'){
 
 		//get user information from the sign in response
@@ -619,12 +607,6 @@ w.optly.mrkt.setAttributeCookie = function(signInResponse){
 				setCookieValue({plan: w.optly.mrkt.user.acctData.plan_id});
 
 			}
-
-
-		} else {
-
-			//delete the cookie
-			removeCookieValue();
 
 		}
 

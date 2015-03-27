@@ -34,5 +34,8 @@ module.exports = {
   },
   'marketing-events': {
     src: ['test/marketing-events/**/*.js']
+  },
+  'misc': {
+    src: ['test/misc/**/*.js']
   }
 };
