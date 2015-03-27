@@ -9,6 +9,7 @@ var extend = require('extend-shallow');
 var htmlParser = require('l10n-tools/html-parser');
 var smartling = require('l10n-tools/smartling');
 var objParser = require('l10n-tools/object-extractor');
+var removeTranslationKeys = require('../utils/plugin-remove-translation-keys');
 var fs = require('fs');
 var q = require('q');
 var glob = require('glob');
@@ -167,7 +168,7 @@ module.exports = function (assemble) {
           var body = fs.readFileSync('tmp/download/' + code + '-' + DICT_FNAME, {encoding: 'UTF8'});
           translations[code] = smartling.parsePOWithContext(body);
         });
-        assemble.set('dicts', translations);
+        //assemble.set('dicts', translations);
         yamlDefer.resolve();
       } else {
         fs.writeFile('tmp/upload/' + DICT_FNAME, content);
@@ -182,7 +183,7 @@ module.exports = function (assemble) {
 
           // when all translations are fetched - call callback
           q.all(defers).then(function(){
-            assemble.set('dicts', translations);
+            //assemble.set('dicts', translations);
             yamlDefer.resolve();
           });
         });
@@ -232,21 +233,27 @@ module.exports = function (assemble) {
           translated[dictKey] = Object.keys(lang).reduce(function(o, key){
             //lang object global|layout|partial|modals|website
             var langO = lang[key];
+            var pageDataO = pageData[key];
             //get the dict key de_DE|fr_FR|es_ES|jp_JP
             _.forEach(langO, function(val, key){
-              //console.log(dictKey)
               o[key] = objParser.translate(langO[key], translations[dictKey][key]);
+              if(pageDataO[key]) {
+                console.log('*******START***********');
+                console.log(o[key].page_data);
+                console.log('************************');
+                o[key] = _.merge({}, pageDataO[key], o[key]);
+                console.log(o[key].page_data);
+                console.log('******END************');
+              }
             });
 
             return o;
           }, {});
         });
 
-        _.forEach(translated.de_DE, function(val, key) {
-          if(/\/website\//.test(key)) {
-            console.log(val);
-          }
-        });
+        removeTranslationKeys(translated);
+
+        assemble.set('dicts', translated);
 
         cb();
       });

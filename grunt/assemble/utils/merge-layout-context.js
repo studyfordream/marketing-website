@@ -1,8 +1,9 @@
 var path = require('path');
 var createStack = require('layout-stack');
-var extend = require('extend-shallow');
 var _ = require('lodash');
 var objParser = require('l10n-tools/object-extractor');
+var splitKey = require('../utils/split-key');
+var extendWhile = require('../utils/extend-while');
 
 module.exports = function(assemble) {
   var parseFilePath = require('../utils/parse-file-path')(assemble);
@@ -44,8 +45,7 @@ module.exports = function(assemble) {
 
     var data = {};
     var name = null;
-    var page;
-    var dict;
+    var page, dict;
     var ignoreKeys = [
       'src',
       'dest',
@@ -59,7 +59,13 @@ module.exports = function(assemble) {
       _.forEach(layouts[name], function(val, key) {
         //here swap the keys
         if(ignoreKeys.indexOf(key) === -1) {
-          data[key] = val;
+          var split = splitKey(key);
+          if(Array.isArray(split)) {
+            data[split[1]] = val;
+            delete data[key];
+          } else {
+            data[key] = val;
+          }
         }
 
       });
@@ -74,7 +80,7 @@ module.exports = function(assemble) {
           file.data.layouts = file.data.layouts || [];
           file.data.layouts.push(page);
           if(dict) {
-            objParser.translate(data, dict);
+            extendWhile(data, dict);
           }
         }
       }
@@ -83,14 +89,10 @@ module.exports = function(assemble) {
     /* jshint ignore:end */
     //non mutating merge is important here because translation keys were being mutated
     //may only see this problem in subfolders
-    var keys = Object.keys(data);
-    var len = keys.length;
-    var i = 0;
-    //extend the file data YFM with layout YFM
-    while (len--) {
-      var key = keys[i++];
-      var val = data[key];
-      file.data[key] = val;
-    }
+    extendWhile(file.data, data);
+
+    //if(file.data.layout === 'about') {
+      ////console.log(file.data);
+    //}
   };
 };

@@ -32,6 +32,8 @@ module.exports = function(assemble) {
     var dictKey = locales[locale];
     var mergedDict, parentKey;
 
+    removeTranslationKeys(file.data);
+
     mergeLayoutContext(file);
     //extend the file with the external YML content
     extendFileData(filePathData, file);
