@@ -274,6 +274,9 @@ module.exports = function (grunt) {
 
       return assemble.src(hbsPaths, { since: (process.env.lastRunTime?new Date(process.env.lastRunTime):null)})
         .pipe(sendToSmartling(assemble))
+        .on('error', function (err) {
+          console.log('plugin error', err);
+        })
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished translating pages', end);

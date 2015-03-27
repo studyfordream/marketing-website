@@ -1,6 +1,7 @@
 'use strict';
 
 var path = require('path');
+var globby = require('globby');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
 var _ = require('lodash');
@@ -43,11 +44,11 @@ if(smartlingConfig){
 
 
 module.exports = function (assemble) {
-  //var parseFilePath = require('../utils/plugin-parse-file-path')(assemble);
   //var extendFileData = require('../utils/plugin-extend-file-data')(assemble);
   var lang = assemble.get('lang') || {};
   var pageData = assemble.get('pageData');
   var environment = assemble.option('environment');
+  var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var websiteRoot = assemble.get('data.websiteRoot');
   var websiteGuts = assemble.get('data.websiteGuts');
   var locales = assemble.get('data.locales');
@@ -85,7 +86,7 @@ module.exports = function (assemble) {
     }
   };
 
-
+  var subfolderTemplates = [];
   return through.obj(function (file, enc, cb) {
     var ppcRe = new RegExp(path.join(websiteRoot, 'om'));
     var filePathData = parseFilePath(file.path);
@@ -96,7 +97,7 @@ module.exports = function (assemble) {
     var pagePhrases;
 
     //parse file contents for tr helper phrases
-    if(!file.HTML_page_content && file.contents) {
+    if(file.contents) {
       pagePhrases = hbsParser.extract(file.contents.toString());
       if(pagePhrases.length) {
         phrases.push({
@@ -114,6 +115,18 @@ module.exports = function (assemble) {
     this.push(file);
     cb();
   }, function (cb) {
+    //console.log(subfolderTemplates);
+    var subfolderFiles = globby.sync('**/*.{hbs,yml}', {cwd: subfoldersRoot});
+    var subfolderO = subfolderFiles.reduce(function(o, fp) {
+      var key = '/' + path.join(websiteRoot, path.dirname(fp), 'index');
+      if(!o[key]) {
+        o[key] = [];
+      }
+      o[key].push(path.extname(fp).replace('.', ''));
+
+      return o;
+    }, {});
+
     var globalData = assemble.get('data');
     var globalYml = Object.keys(globalData).reduce(function(o, key) {
       if(/global\_/.test(key)) {
@@ -227,31 +240,49 @@ module.exports = function (assemble) {
       Q.all([yamlDefer.promise, jsDefer.promise]).then(function(){
         //lang has `global` object
         var translated = {};
-        Object.keys(locales).forEach(function(localeKey) {
-          var dictKey = locales[localeKey];
+        try{
+          localeCodes.forEach(function(dictKey) {
 
-          translated[dictKey] = Object.keys(lang).reduce(function(o, key){
-            //lang object global|layout|partial|modals|website
-            var langO = lang[key];
-            var pageDataO = pageData[key];
-            //get the dict key de_DE|fr_FR|es_ES|jp_JP
-            _.forEach(langO, function(val, key){
-              o[key] = objParser.translate(langO[key], translations[dictKey][key]);
-              if(pageDataO[key]) {
-                console.log('*******START***********');
-                console.log(o[key].page_data);
-                console.log('************************');
-                o[key] = _.merge({}, pageDataO[key], o[key]);
-                console.log(o[key].page_data);
-                console.log('******END************');
-              }
-            });
+            /**
+             * Object.keys(lang)
+             * = [ 'website', 'de', 'fr', 'es', 'jp', 'layouts', 'modals', 'global' ]
+             *
+             * subfolders may need to inherit yml data if they have no template
+             */
+            translated[dictKey] = Object.keys(lang).reduce(function(o, langKey){
+              //lang object global|layout|partial|modals|website
+              var langO = lang[langKey];
+              var pageDataO = pageData[langKey];
+              //get the dict key de_DE|fr_FR|es_ES|jp_JP
+                _.forEach(langO, function(val, fpKey){
 
-            return o;
-          }, {});
-        });
+                  var dict = translations[dictKey] && translations[dictKey][fpKey] || {};
 
-        removeTranslationKeys(translated);
+                  o[fpKey] = objParser.translate(langO[fpKey], dict);
+
+                  //if it's a subfolder check for parent content in the same locale
+                  //if(Object.keys(locales).indexOf(langKey) !== - 1) {
+                    //console.log(langKey);
+
+                  //}
+
+                  if(pageDataO && pageDataO[fpKey]) {
+                    //merge page data that was not flagged for translation
+                    o[fpKey] = _.merge({}, pageDataO[fpKey], o[fpKey]);
+                  }
+
+                });
+
+              return o;
+            }, {});
+
+          });
+
+          removeTranslationKeys(translated);
+          console.log('deferred finished');
+        } catch(err) {
+          this.emit('error', err);
+        }
 
         assemble.set('dicts', translated);
 
