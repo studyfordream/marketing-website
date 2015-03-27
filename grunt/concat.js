@@ -101,7 +101,8 @@ module.exports = function(grunt, options){
     jqueryModernizr: {
       src: [
         '<%= config.guts %>/assets/js/libraries/jquery-2.1.1.min.js',
-        '<%= config.temp %>/assets/js/libraries/modernizr.2.8.3.min.js'
+        '<%= config.temp %>/assets/js/libraries/modernizr.2.8.3.min.js',
+        '<%= config.bowerDir %>/jquery-cookie/jquery.cookie.js'
       ],
       expand: false,
       flatten: true,
@@ -141,7 +142,6 @@ module.exports = function(grunt, options){
     concatBundle: {
       files: {
         '<%= config.dist %>/assets/js/bundle.js': [
-          '<%= config.bowerDir %>/jquery-cookie/jquery.cookie.js',
           '<%= config.bowerDir %>/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js',
           '<%= config.guts %>/assets/js/libraries/handlebars-v1.3.0.js',
           '<%= config.bowerDir %>/momentjs/moment.js',

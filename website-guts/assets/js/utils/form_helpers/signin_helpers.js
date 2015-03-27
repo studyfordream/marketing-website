@@ -28,6 +28,9 @@ var signinHelper = {
     var resp = this.parseResponse(e),
       pricingPath = /pricing\-page/.test(document.body.getAttribute('class'));
 
+    w.optly.mrkt.setAttributeCookie(resp);
+    w.optly.identifyVisitorAttributes();
+
     if (resp && !pricingPath) {
       this.redirectHelper({
         redirectPath: w.apiDomain + '/dashboard',
