@@ -243,7 +243,7 @@ module.exports = function (assemble) {
         });
 
         _.forEach(translated.de_DE, function(val, key) {
-          if(/modals/.test(key)) {
+          if(/\/website\//.test(key)) {
             console.log(val);
           }
         });
