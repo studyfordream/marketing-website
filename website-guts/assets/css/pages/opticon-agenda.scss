@@ -32,18 +32,35 @@ body.opticon-agenda {
   .time-slot {
     display: flex;
     margin: 50px 0;
+    max-width: 83%;
     &__time {
       min-width: 100px;
       margin: 0;
     }
   }
-  .time-slot__content {
+  .time-slot__content .event-cont:not(:first-child) {
+    // Top titles should be horizontally even with times
+    // but we want spacing between talks
+    margin: 50px 0 15px 0;
+  }
+  .event-cont {
+    position: relative;
+  }
+  .expansion-arrow {
+    position: absolute;
+    right: -80px;
+    top: 3px;
+    color: $opticon-brand-blue;
+    transition: transform 5ms ease-in;
+    &--open {
+      transform: rotate(90deg);
+    }
   }
   .event-title {
     font-size: 20px;
     color: #444B4F;
     line-height: 30px;
-    margin: 50px 0 15px 0;
+    margin: 0;
     &--everyone {
       color: #AAAAAA;
     }

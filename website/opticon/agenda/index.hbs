@@ -7,6 +7,7 @@ no_footer: true
 body_class:
 - opticon
 - opticon-agenda
+page_script: opticon-agenda.js
 og_title: "Opticon 2015"
 og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
 external_script:
@@ -52,14 +53,19 @@ external_script:
             <h5 class="event-title event-title--everyone">{{this.title}}</h5>
           {{/if}}
           {{#each this.events}}
-            <h5 class="event-title">{{this.title}}</h5>
-            <div class="speaker-cont">
-              {{#each this.speakers}}
-                <p class="speaker-cont__speaker event-text adelle-sans">{{this.name}}, {{this.job_title}}, {{this.company}}</p>
-              {{/each}}
+            <div class="event-cont">
+              <h5 class="js-accordian-control event-title">{{this.title}}</h5>
+              <span class="expansion-arrow">&#10095;</span>
+              <div class="js-toggle-cont">
+                <div class="speaker-cont">
+                  {{#each this.speakers}}
+                    <p class="speaker-cont__speaker event-text adelle-sans">{{this.name}}, {{this.job_title}}, {{this.company}}</p>
+                  {{/each}}
+                </div>
+                <p class="event-text adelle-sans--bold">Time: {{this.time}} | Location: {{this.location}}</p>
+                <p class="event-text adelle-sans">{{this.description}}</p>
+              </div>{{! toggle-cont }}
             </div>
-            <p class="event-text adelle-sans--bold">Time: {{this.time}} | Location: {{this.location}}</p>
-            <p class="event-text adelle-sans">{{this.description}}</p>
           {{/each}}
         </div>
       </div>{{! time-slot }}
