@@ -34,11 +34,11 @@ external_script:
       <div class="dropdown-cont js-dropdown">{{filter_box.role_section.title}} &#9662;
         <ul>
           {{#each filter_box.role_section.roles}}
-          <li class="filter-item adelle-sans" data-filter="{{ createClassList this }}">{{this}}</li>
+          <li class="filter-item js-filter-item adelle-sans" data-filter="{{ createClassList this }}">{{this}}</li>
           {{/each}}
         </ul>
       </div>
-      <a href="#" class="filter--reset tooltip-hover adelle-sans" data-content="Reset filters">{{filter_box.reset}}</a>
+      <a href="#" class="filter--reset js-reset tooltip-hover adelle-sans" data-content="Reset filters">{{filter_box.reset}}</a>
     </div>{{! pill }}
   </div>
 
@@ -53,7 +53,7 @@ external_script:
             <h5 class="event-title event-title--everyone">{{this.title}}</h5>
           {{/if}}
           {{#each this.events}}
-          <div class="event-cont" data-track="{{this.track}}" data-roles="{{this.roles}}">
+          <div class="event-cont js-event" data-track="{{this.track}}" data-roles="{{this.roles}}">
               <h5 class="js-accordian-control event-title event-title--choice">{{this.title}}</h5>
               <span class="expansion-arrow js-arrow">&#10095;</span>
               <div class="js-toggle-cont">

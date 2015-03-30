@@ -30,9 +30,10 @@ body.opticon-agenda {
       height: 9px;
       width: 9px;
     }
-    &:hover {
-      background: none;
-      color: $text-color;
+    &.selected {
+      &:before {
+        background: $opticon-brand-blue;
+      }
     }
   }
   .time-slot {
