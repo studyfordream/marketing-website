@@ -19,6 +19,11 @@ body.opticon-agenda {
     & > * {
       padding: 9px 15px;
     }
+    & > .active {
+      background-color: white;
+      color: $text-color;
+      text-shadow: none;
+    }
     & > *:first-child,
         *:last-child  {
           border-radius: 0;

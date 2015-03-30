@@ -12,14 +12,13 @@ $('.js-arrow').click(function(event) {
   $(this).next().slideToggle('fast');
 });
 
+//Smoothscroll
+$('#day-one-link').on('click', w.optly.mrkt.utils.smoothScroll);
+$('#day-two-link').on('click', w.optly.mrkt.utils.smoothScroll);
 
-//Top Filter
-var $dropdownElems = $('.js-dropdown'),
-    $events = $('.js-event'),
-    filterList = [];
-
-/* If item is in array, remove it
-   else, add it
+/*
+  If item is in array, remove it
+  else, add it
 */
 function toggleArrayItem(array, item) {
   var itemIndex = $.inArray(item, array);
@@ -30,9 +29,10 @@ function toggleArrayItem(array, item) {
   }
 }
 
-/* Check that every item in arr1
-   is in arr2 i.e. arr1 is subset
-   of arr2
+/*
+  Check that every item in arr1
+  is in arr2 i.e. arr1 is subset
+  of arr2
 */
 function isSubset(arr1, arr2) {
   return arr1.every(function(val) {
@@ -40,26 +40,37 @@ function isSubset(arr1, arr2) {
   });
 }
 
+var $dropdownElems = $('.js-dropdown'),
+    $events = $('.js-event'),
+    filterList = [],
+    $filterListItem = $('.js-filter-item');
+
 //Top filter dropdown
 $dropdownElems.click(function(event) {
   var $this = $(this);
   $this.toggleClass('active');
   $dropdownElems.not( $this ).removeClass( 'active' );
+  $this.mouseleave(function(){
+    $this.removeClass( 'active' );
+  });
 });
 
 //Filter logic
-$('.js-filter-item').on('click', function(event) {
-  var selectedData = ($.trim($(this).attr('data-filter')));
+$filterListItem.on('click', function(event) {
+  event.stopPropagation();
+  var $this = $(this),
+      selectedData = ($.trim($this.attr('data-filter')));
+
   toggleArrayItem(filterList, selectedData);
-  $(this).toggleClass('selected');
+  $this.toggleClass('selected');
 
   if(filterList) {
-    $events.each(function(eIndex, eItem) {
-      var eventFilterList = ($(eItem).data('track') + ' ' + $(eItem).data('roles')).split(' ');
+    $events.each(function(eventIndex, eventItem) {
+      var eventFilterList = ($(eventItem).data('track') + ' ' + $(eventItem).data('roles')).split(' ');
       if(! isSubset(filterList, eventFilterList)) {
-        $(eItem).hide();
+        $(eventItem).hide();
       } else {
-        $(eItem).show();
+        $(eventItem).show();
       }
     });
   }
@@ -68,7 +79,10 @@ $('.js-filter-item').on('click', function(event) {
 // Reset -- clear all filters
 $('.js-reset').on('click', function(event) {
   filterList = [];
-  $events.each(function(eIndex, eItem) {
-    $(eItem).show();
+  $events.each(function(eIndex, eventItem) {
+    $(eventItem).show();
+  });
+  $filterListItem.each(function(eIndex, eventItem) {
+    $(this).removeClass('selected');
   });
 });

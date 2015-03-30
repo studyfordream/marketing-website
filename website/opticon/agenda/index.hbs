@@ -19,8 +19,8 @@ external_script:
   <h1 class="page-title common-page-title adelle-sans--bold">{{title}}</h1>
 
   <div class="row">
-    <h4 class="agenda-day agenda-day--active adelle-sans">{{day_one}}</h4>
-    <h4 class="agenda-day adelle-sans">{{day_two}}</h4>
+    <a id="day-one-link" href="#day-one"><h4 class="agenda-day agenda-day--active adelle-sans">{{day_one}}</h4></a>
+    <a id="day-two-link" href="#day-two"><h4 class="agenda-day adelle-sans">{{day_two}}</h4></a>
     {{! Filter Pill }}
     <div class="pill pill--opticon">
       <div class="adelle-sans">{{filter_box.title}}</div>
@@ -44,7 +44,7 @@ external_script:
 
   {{! Agenda }}
   {{#each days}}
-    <h3 class="description-title adelle-sans">{{this.title}}</h3>
+  <h3 id="{{this.html_id}}" class="description-title adelle-sans">{{this.title}}</h3>
     {{#each this.time_slots}}
       <div class="time-slot">
         <h4 class="time-slot__time">{{this.start_time}}</h4>
@@ -65,11 +65,11 @@ external_script:
                 <p class="event-text adelle-sans--bold">Time: {{this.time}} | Location: {{this.location}}</p>
                 <p class="event-text adelle-sans">{{this.description}}</p>
               </div>{{! toggle-cont }}
-            </div>
+            </div>{{! event-cont }}
           {{/each}}
-        </div>
+        </div>{{! time-slot__content }}
       </div>{{! time-slot }}
     {{/each}}
   {{/each}}
-</div>
+</div>{{! content-container }}
 {{/with}}

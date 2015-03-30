@@ -25,6 +25,7 @@ filter_box:
 days:
   -
     title: "Wednesday, June 17"
+    html_id: "day-one"
     time_slots:
       -
         start_time: "9:00"
@@ -688,6 +689,7 @@ days:
         title: "Opticon Bash!"
   -
     title: "Thursday, June 18"
+    html_id: "day-two"
     time_slots:
       -
         start_time: "9:00"
