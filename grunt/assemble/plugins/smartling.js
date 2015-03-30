@@ -130,10 +130,15 @@ module.exports = function (assemble) {
     var globalData = assemble.get('data');
     var globalYml = Object.keys(globalData).reduce(function(o, key) {
       if(/global\_/.test(key)) {
+        var basenameKey = path.basename(key, path.extname(key));
         o[key] = globalData[key];
+        globalData[basenameKey] = globalData[key];
+        //intentionally mutate the assemble.cached.data object
+        delete globalData[key];
       }
       return o;
     }, {});
+
     lang.global = createTranslationDict(globalYml, 'global');
     assemble.set('lang', lang);
 
@@ -337,15 +342,6 @@ module.exports = function (assemble) {
             }, {});
           });
 
-          var globalData = assemble.get('data');
-          var globalYml = Object.keys(globalData).reduce(function(o, key) {
-            if(/global\_/.test(key)) {
-              o[key] = globalData[key];
-            }
-            return o;
-          }, {});
-
-
           _.forEach(translated, function(localeDict, localeCode) {
             localeDict.global = localeDict.global || {};
 
@@ -358,6 +354,8 @@ module.exports = function (assemble) {
 
           });
 
+          removeTranslationKeys(globalData);
+
           console.log('deferred finished');
         } catch(err) {
           this.emit('error', err);
@@ -367,10 +365,12 @@ module.exports = function (assemble) {
 
         assemble.set('pageData', pageData[websiteRoot]);
         assemble.set('translated', translated);
+        assemble.set('data', globalData);
 
         cb();
       });
     } else {
+      removeTranslationKeys(assemble.get('data'));
       assemble.set('dicts', {});
       cb();
     }

@@ -11,20 +11,13 @@ module.exports = function(assemble) {
   var locales = assemble.get('data.locales');
   var removeTranslationKeys = require('../utils/remove-translation-keys');
   var isTest = assemble.get('env') === 'test';
-  var globalData = _.clone(assemble.get('data'));
-  var globalYml = Object.keys(globalData).reduce(function(o, key) {
-    if(/global\_/.test(key)) {
-      o[key] = globalData[key];
-      delete globalData[key];
-    }
-    return o;
-  }, {});
   var lastLocale;
 
   return function mergeTranslatedData (file, next) {
     var lang = assemble.get('lang');
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
     var pageData = assemble.get('pageData');
+    var translated = assemble.get('translated');
     var dicts = assemble.get('dicts');
     var filePathData = parseFilePath(file.path);
     var locale = isTest ? 'de' : filePathData.locale;
@@ -69,20 +62,18 @@ module.exports = function(assemble) {
     }
     //deal with global data
     //this assumes that modals and partials don't access global data
-    var clone, setGlobal;
-    if(!filePathData.isModal && !filePathData.isPartial && locale !== lastLocale && !file.data.isPpc) {
-      clone = _.clone(globalYml);
-      Object.keys(clone).forEach(function(key) {
-        var basenameKey = path.basename(key, path.extname(key));
-        if((isTest || locale !== websiteRoot) && dicts[dictKey] && dicts[dictKey][key]) {
-          objParser.translate(clone[key], dicts[dictKey][key]);
-        }
-        clone[basenameKey] = clone[key];
-        delete clone[key];
-      });
-      setGlobal = _.merge({}, globalData, clone);
-      removeTranslationKeys(setGlobal);
-      assemble.set('data', setGlobal);
+    if(locale !== lastLocale && !file.data.isPpc) {
+      var globalData = assemble.get('data');
+
+      if(isTest || locale !== websiteRoot) {
+        Object.keys(globalData).forEach(function(key) {
+          if(/global\_/.test(key)) {
+            //intentionally mutate assemble.cache.data
+            globalData[key] = translated[dictKey].global[key];
+          }
+        });
+      }
+
       lastLocale = locale;
     }
 
