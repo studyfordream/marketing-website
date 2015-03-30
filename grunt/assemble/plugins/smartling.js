@@ -239,6 +239,8 @@ module.exports = function (assemble) {
 
       Q.all([yamlDefer.promise, jsDefer.promise]).then(function(){
         //lang has `global` object
+        var translated = {};
+
         try{
 
           Object.keys(locales).forEach(function(locale) {
@@ -252,6 +254,7 @@ module.exports = function (assemble) {
               if(subfolderFiles.length > 1 && subfolderFiles.indexOf('hbs') !== -1) {
                 _.forEach(lang[locale][fp], function(val, key) {
                   if(key !== 'page_data') {
+                    val = _.clone(val);
                     pageData[locale][fp][key] = val;
                   }
                 });
@@ -260,6 +263,7 @@ module.exports = function (assemble) {
                 //website root data appropriately
                 _.forEach(lang[websiteRoot][parentKey], function(val, key) {
                   if(key !== 'page_data') {
+                    val = _.clone(val);
                     pageData[locale][fp][key] = val;
                   }
                 });
@@ -277,6 +281,7 @@ module.exports = function (assemble) {
             _.forEach(lang[websiteRoot], function(val, fp) {
               var subfolderPath = fp.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
               if(!pageData[locale][subfolderPath]) {
+                val = _.clone(val);
                 pageData[locale][subfolderPath] = val;
               }
             });
@@ -298,12 +303,70 @@ module.exports = function (assemble) {
           });
 
           removeTranslationKeys(pageData);
+
+          //add the page content to page data after parsing
+          _.forEach(lang[websiteRoot], function(val, fp) {
+            if(val.HTML_page_content) {
+              if(!pageData[websiteRoot][fp]) {
+                pageData[websiteRoot][fp] = {};
+              }
+              pageData[websiteRoot][fp].page_content = val.HTML_page_content;
+            }
+          });
+
+
+          /**
+           * Create a dictionary object for all pages
+           *
+           */
+          _.forEach(locales, function(localeCode, locale) {
+            var filteredLocales = Object.keys(pageData).filter(function(pageDataKey) {
+              if(locales[pageDataKey] === localeCode) {
+                return true;
+              }
+            });
+
+            translated[localeCode] = filteredLocales.reduce(function(o, pageDataKey) {
+              _.forEach(pageData[pageDataKey], function(val, fp) {
+                if(!o.hasOwnProperty(fp)) {
+                  o[fp] = val;
+                }
+              });
+
+              return o;
+            }, {});
+          });
+
+          var globalData = assemble.get('data');
+          var globalYml = Object.keys(globalData).reduce(function(o, key) {
+            if(/global\_/.test(key)) {
+              o[key] = globalData[key];
+            }
+            return o;
+          }, {});
+
+
+          _.forEach(translated, function(localeDict, localeCode) {
+            localeDict.global = localeDict.global || {};
+
+            _.forEach(globalYml, function(val, fp) {
+              var basenameKey = path.basename(fp, path.extname(fp));
+
+              localeDict.global[basenameKey] = objParser.translate(val, translations[localeCode][fp]);
+              removeTranslationKeys(localeDict.global[basenameKey]);
+            });
+
+          });
+
           console.log('deferred finished');
         } catch(err) {
           this.emit('error', err);
         }
 
-        assemble.set('pageData', pageData);
+        debugger;
+
+        assemble.set('pageData', pageData[websiteRoot]);
+        assemble.set('translated', translated);
 
         cb();
       });

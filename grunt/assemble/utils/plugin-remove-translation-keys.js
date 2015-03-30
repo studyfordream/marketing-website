@@ -40,7 +40,7 @@ module.exports = function removeTranslationKeys(fileData) {
         val = val.replace(/\\n+/g, '');
       }
       if(parsedKey[0] === 'HTML' && parsedKey[1] === 'page_content') {
-        fileData.content = val;
+        fileData.page_content = val;
         delete fileData[key];
       } else {
         fileData[ parsedKey[1] ] = val;

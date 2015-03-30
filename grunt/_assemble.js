@@ -24,6 +24,7 @@ var config = {
     subfoldersRoot: 'subfolders',
     locales: {
       'de': 'de_DE',
+      'test': 'de_DE',
       'fr': 'fr_FR',
       'es': 'es_ES',
       'jp': 'ja_JP'
