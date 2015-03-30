@@ -21,7 +21,7 @@ module.exports = function(assemble) {
   // middleware to merge the layout context into the current page context
   return function mergeLayoutContext (file) {
     var isTest = assemble.get('env');
-    var lang = assemble.get('lang');
+    var translated = assemble.get('translated');
     var locales = assemble.get('data.locales');
     var filePathData = parseFilePath(file.path);
     var locale = filePathData.locale;
@@ -60,6 +60,7 @@ module.exports = function(assemble) {
         //here swap the keys
         if(ignoreKeys.indexOf(key) === -1) {
           var split = splitKey(key);
+
           if(Array.isArray(split)) {
             data[split[1]] = val;
             delete data[key];
@@ -71,17 +72,15 @@ module.exports = function(assemble) {
       });
 
       //only do translation if not the om/ppc directory
-      if(!file.data.isPpc) {
-        dict = dicts[dictKey] && dicts[dictKey][page];
+      if(!file.data.isPpc && filePathData.isSubfolder || (filePathData.isRoot && isTest === 'test')) {
+        translations = translated[dictKey] && translated[dictKey][page];
 
         //append layouts paths on context for tr handlebars helper
         //and translate layout YFM
-        if(filePathData.isSubfolder || (filePathData.isRoot && isTest === 'test')) {
-          file.data.layouts = file.data.layouts || [];
-          file.data.layouts.push(page);
-          if(dict) {
-            extendWhile(data, dict);
-          }
+        file.data.layouts = file.data.layouts || [];
+        file.data.layouts.push(page);
+        if(translations) {
+          extendWhile(data, translations);
         }
       }
     }

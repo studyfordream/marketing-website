@@ -48,4 +48,6 @@ module.exports = function removeTranslationKeys(fileData) {
       delete fileData[key];
     }
   }
+
+  return fileData;
 };

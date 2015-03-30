@@ -1,6 +1,7 @@
 var extend = require('extend-shallow');
 var _ = require('lodash');
 var path = require('path');
+var removeTranslationKeys = require('../utils/plugin-remove-translation-keys.js');
 
 module.exports = function(assemble) {
   function filterTags(arr) {
@@ -36,6 +37,7 @@ module.exports = function(assemble) {
         return next();
       }
       col[key] = _.merge({}, col[key], file.data);
+      removeTranslationKeys(col[key]);
       assemble.set(collection, col);
       next();
     };

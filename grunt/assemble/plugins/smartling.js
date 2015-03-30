@@ -15,6 +15,7 @@ var fs = require('fs');
 var q = require('q');
 var glob = require('glob');
 var crypto = require('crypto');
+var extendWhile = require('../utils/extend-while');
 var smartlingConfig;
 
 try{
@@ -61,6 +62,12 @@ module.exports = function (assemble) {
   var env = assemble.get('env');
   var runTranslations =  env === 'test' || env === 'smartling-staging-deploy';
   var phrases = [];
+  var ignoreKeys = [
+    'src',
+    'dest',
+    'layout'
+  ];
+  var yfmSpecificData = {};
 
   var checksumChanged = function checksumChanged(content, fname){
     if(env === 'test' && glob.sync('tmp/download/*.pot').length) {
@@ -109,13 +116,20 @@ module.exports = function (assemble) {
 
     if(Object.keys(parsedTranslations).length > 0) {
       lang[locale] = lang[locale] || {};
+      yfmSpecificData[locale] = yfmSpecificData[locale] || {};
+      yfmSpecificData[locale][dataKey] = yfmSpecificData[locale][dataKey] || {};
+      yfmSpecificData[locale][dataKey] = Object.keys(file.data).reduce(function(o, key) {
+        if(ignoreKeys.indexOf(key) === -1) {
+          o[key] = file.data[key];
+        }
+        return o;
+      }, {});
       lang[locale][dataKey] = extend({}, lang[locale][dataKey], parsedTranslations);
     }
 
     this.push(file);
     cb();
   }, function (cb) {
-    //console.log(subfolderTemplates);
     var subfolderFiles = globby.sync('**/*.{hbs,yml}', {cwd: subfoldersRoot});
     var subfolderO = subfolderFiles.reduce(function(o, fp) {
       var key = '/' + path.join(subfoldersRoot, path.dirname(fp), 'index');
@@ -186,7 +200,7 @@ module.exports = function (assemble) {
           var body = fs.readFileSync('tmp/download/' + code + '-' + DICT_FNAME, {encoding: 'UTF8'});
           translations[code] = smartling.parsePOWithContext(body);
         });
-        //assemble.set('dicts', translations);
+        assemble.set('dicts', translations);
         yamlDefer.resolve();
       } else {
         fs.writeFile('tmp/upload/' + DICT_FNAME, content);
@@ -201,7 +215,7 @@ module.exports = function (assemble) {
 
           // when all translations are fetched - call callback
           q.all(defers).then(function(){
-            //assemble.set('dicts', translations);
+            assemble.set('dicts', translations);
             yamlDefer.resolve();
           });
         });
@@ -248,15 +262,28 @@ module.exports = function (assemble) {
 
         try{
 
+          //iterate through locales to create a `translated` object
+          /**
+           * tranlated = {
+           *  de_DE: {
+           *    fp: 'val'
+           *  },
+           *  fr_FR: {
+           *    fp: 'val'
+           *  }
+           * }
+           */
           Object.keys(locales).forEach(function(locale) {
             var dictKey = locales[locale];
 
+            try{
             _.forEach(pageData[locale], function(content, fp) {
               var subfolderFiles = subfolderO[fp];
               var parentKey = '/' + path.join(websiteRoot, fp.split('/' + locale + '/')[1]);
 
 
               if(subfolderFiles.length > 1 && subfolderFiles.indexOf('hbs') !== -1) {
+                //subfolder directory has it's own template and is not inherited
                 _.forEach(lang[locale][fp], function(val, key) {
                   if(key !== 'page_data') {
                     val = _.clone(val);
@@ -281,13 +308,17 @@ module.exports = function (assemble) {
                 objParser.translate(pageData[locale][fp], translations[dictKey][parentKey]);
               }
             });
+            } catch(e) {
+              console.log(e, locale);
+            }
 
-            //put in website data flagged for translation if template is no present in subfolder
+            //put in website data flagged for translation if template is not present in subfolder
             _.forEach(lang[websiteRoot], function(val, fp) {
               var subfolderPath = fp.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
               if(!pageData[locale][subfolderPath]) {
                 val = _.clone(val);
-                pageData[locale][subfolderPath] = val;
+                //have to merge here or lose values not flagged for translation
+                pageData[locale][subfolderPath] = _.merge({}, pageData[websiteRoot][fp] || {}, val);
               }
             });
 
@@ -303,6 +334,15 @@ module.exports = function (assemble) {
               } else if(translations[dictKey][parentPath]) {
                 objParser.translate(pageData[locale][fp], translations[dictKey][parentPath]);
               }
+            });
+
+            ['modals', 'layouts', 'partials'].forEach(function(type) {
+              _.forEach(yfmSpecificData[type], function(val, fp) {
+                var data = pageData[locale][fp];
+                if(data) {
+                  pageData[locale][fp] = _.merge({}, val, data);
+                }
+              });
             });
 
           });
@@ -356,12 +396,9 @@ module.exports = function (assemble) {
 
           removeTranslationKeys(globalData);
 
-          console.log('deferred finished');
         } catch(err) {
           this.emit('error', err);
         }
-
-        debugger;
 
         assemble.set('pageData', pageData[websiteRoot]);
         assemble.set('translated', translated);
@@ -370,8 +407,20 @@ module.exports = function (assemble) {
         cb();
       });
     } else {
-      removeTranslationKeys(assemble.get('data'));
+      //add the page content to page data after parsing
+      _.forEach(lang[websiteRoot], function(val, fp) {
+        if(val.HTML_page_content) {
+          if(!pageData[websiteRoot][fp]) {
+            pageData[websiteRoot][fp] = {};
+          }
+          pageData[websiteRoot][fp].page_content = val.HTML_page_content;
+        }
+      });
+
+      removeTranslationKeys(pageData);
+      removeTranslationKeys(globalData);
       assemble.set('dicts', {});
+      assemble.set('pageData', pageData[websiteRoot]);
       cb();
     }
   });

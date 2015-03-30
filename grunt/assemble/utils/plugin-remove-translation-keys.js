@@ -35,7 +35,7 @@ module.exports = function removeTranslationKeys(fileData) {
     } else if(_.isArray(val) && parsedKey) {
       fileData[ parsedKey[1] ] = processTransArray(val, removeTranslationKeys);
       delete fileData[key];
-    } else if( ( _.isString(val) || _.isNumber(val) ) && parsedKey ) {
+    } else if( ( _.isString(val) || _.isNumber(val) || _.isNull(val) ) && parsedKey ) {
       if (/\\n+/g.test(val)) {
         val = val.replace(/\\n+/g, '');
       }

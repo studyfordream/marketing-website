@@ -1,6 +1,7 @@
 var path = require('path');
 var _ = require('lodash');
 var objParser = require('l10n-tools/object-extractor');
+var extendWhile = require('../utils/extend-while');
 
 module.exports = function(assemble) {
   //var mergeTranslated = require('../utils/merge-tranlated-dictionary');
@@ -23,49 +24,71 @@ module.exports = function(assemble) {
     var locale = isTest ? 'de' : filePathData.locale;
     var dataKey = filePathData.dataKey;
     var dictKey = locales[locale];
-    var mergedDict, parentKey;
+    var mergedDict, parentKey, translatedDict, rootData;
+
+    if(file.data.isPpc) {
+      return next();
+    }
 
     removeTranslationKeys(file.data);
 
     mergeLayoutContext(file);
     //extend the file with the external YML content
-    extendFileData(filePathData, file);
+    //extendFileData(filePathData, file);
 
-    //TODO: problem this won't work for modals because they are not scoped to the locale???
-    //put in custom function for replacing translated array values
-    if(filePathData.isSubfolder || ( filePathData.isRoot && isTest && !file.data.isPpc )) {
+    if(filePathData.isRoot && !isTest && !file.data.isPpc) {
+      //extend the local yml data to the page
+      rootData = pageData[dataKey];
+
+      if(rootData) {
+
+        if(rootData.page_content) {
+          file.content = rootData.page_content;
+          delete rootData.page_content;
+        }
+
+        extendWhile(file.data, rootData);
+      }
+    }
+
+    else if(filePathData.isSubfolder || ( filePathData.isRoot && isTest && !file.data.isPpc )) {
+      if(isTest) {
+        dataKey = dataKey.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
+      }
       //set the locale on the page context for modal|partial translation
       file.data.locale = locale;
       file.data.dataKey = dataKey;
+      translatedDict = translated[dictKey] && translated[dictKey][dataKey];
 
-      //get the parent key for extending subfolder data allowing for conent swaps
-      parentKey = filePathData.parentKey;
-      // if page has it's own template don't merge dictionary, if not then merge dictionary
-      // also if this is the case need to extend the file data with the parent file data
-      // thought this was happening in extend-file-data function
-      if(!file.hasOwnTemplate && !filePathData.isRoot) {
-        mergedDict = _.merge({}, dicts[dictKey][parentKey], dicts[dictKey][dataKey]);
+      if(translatedDict) {
+
+        if(translatedDict.page_content) {
+          file.content = translatedDict.page_content;
+          delete translatedDict.page_content;
+        }
+
+        extendWhile(file.data, translatedDict);
       }
 
-      //replace the content of the page if it has been flagged for translation
-      file = objParser.translate(file, mergedDict || dicts[dictKey][dataKey]);
 
-    } else if ( (isTest || ( file.data.locale && file.data.locale !== websiteRoot ) ) && ( filePathData.isModal || filePathData.isPartial ) ) {
+    } else if ( locale !== websiteRoot || isTest  (filePathData.isModal || filePathData.isPartial) ) {
       locale = file.data.locale;
       file.data.dataKey = dataKey;
 
+      translatedDict = translated[dictKey] && translated[dictKey][dataKey];
+
       //TODO: for now modals/partials are not locale specific, in future may have locale specific
       //partials that possible overwrite parent partial data
-      if(!file.data.isPpc && dicts[dictKey] && dicts[dictKey][dataKey]) {
-        file = objParser.translate(file, dicts[dictKey][dataKey]);
+      if(translatedDict) {
+        extendWhile(file.data, translatedDict);
       }
     }
     //deal with global data
     //this assumes that modals and partials don't access global data
-    if(locale !== lastLocale && !file.data.isPpc) {
+    if(locale !== lastLocale && !file.data.isPpc && !filePathData.isModal && !filePathData.isPartial) {
       var globalData = assemble.get('data');
 
-      if(isTest || locale !== websiteRoot) {
+      if(isTest || filePathData.isSubfolder) {
         Object.keys(globalData).forEach(function(key) {
           if(/global\_/.test(key)) {
             //intentionally mutate assemble.cache.data
