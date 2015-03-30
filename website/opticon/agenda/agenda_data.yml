@@ -40,8 +40,8 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
+            track: "strategy platform action culture"
+            roles: "marketer developer productmanager executive"
             speakers:
               -
                 name: "Heather Watkins"
@@ -189,8 +189,8 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
+            track: "strategy platform action culture"
+            roles: "marketer developer productmanager executive"
             speakers:
               -
                 name: "Marc Andreessen"
@@ -271,7 +271,7 @@ days:
               with all of their other marketing applications to become more
               effective in their decision making."
             track: "strategy"
-            roles: "marketer developer"
+            roles: "executive"
             speakers:
               -
                 name: "Heather Watkins"
@@ -300,7 +300,7 @@ days:
               with all of their other marketing applications to become more
               effective in their decision making."
             track: "strategy"
-            roles: "marketer developer"
+            roles: "developer"
             speakers:
               -
                 name: "Heather Watkins"
@@ -334,8 +334,8 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
+            track: "platform"
+            roles: "productmanager developer"
             speakers:
               -
                 name: "Heather Watkins"
@@ -363,7 +363,7 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy"
+            track: "culture"
             roles: "marketer developer"
             speakers:
               -
@@ -456,7 +456,7 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy"
+            track: "culture"
             roles: "marketer developer"
             speakers:
               -
@@ -514,7 +514,7 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy"
+            track: "action"
             roles: "marketer developer"
             speakers:
               -
@@ -543,7 +543,7 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy"
+            track: "platform"
             roles: "marketer developer"
             speakers:
               -
@@ -579,7 +579,7 @@ days:
               with all of their other marketing applications to become more
               effective in their decision making."
             track: "strategy"
-            roles: "marketer developer"
+            roles: "developer"
             speakers:
               -
                 name: "Heather Watkins"
@@ -608,7 +608,7 @@ days:
               with all of their other marketing applications to become more
               effective in their decision making."
             track: "strategy"
-            roles: "marketer developer"
+            roles: "marketer"
             speakers:
               -
                 name: "Heather Watkins"
@@ -637,7 +637,7 @@ days:
               with all of their other marketing applications to become more
               effective in their decision making."
             track: "strategy"
-            roles: "marketer developer"
+            roles: "executive"
             speakers:
               -
                 name: "Heather Watkins"
@@ -666,7 +666,7 @@ days:
               with all of their other marketing applications to become more
               effective in their decision making."
             track: "strategy"
-            roles: "marketer developer"
+            roles: "productmanager"
             speakers:
               -
                 name: "Heather Watkins"
@@ -704,8 +704,8 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
+            track: "strategy platform action culture"
+            roles: "marketer developer productmanager executive"
             speakers:
               -
                 name: "Heather Watkins"
@@ -818,8 +818,8 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
+            track: "strategy platform action culture"
+            roles: "marketer developer productmanager executive"
             speakers:
               -
                 name: "Heather Watkins"
@@ -853,8 +853,8 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
+            track: "strategy platform action culture"
+            roles: "marketer developer productmanager executive"
             speakers:
               -
                 name: "Marc Andreessen"

@@ -12,9 +12,39 @@ $('.js-arrow').click(function(event) {
   $(this).next().slideToggle('fast');
 });
 
-//Smoothscroll
+w.optly.mrkt.utils.smoothScroll = function(event) {
+	var targetElmPos = $(this.getAttribute('href')).offset().top - 180;
+	event.preventDefault();
+	$('html,body').animate({
+		scrollTop: targetElmPos
+	}, 1000);
+};
+
+//Smoothscroll for Days
 $('#day-one-link').on('click', w.optly.mrkt.utils.smoothScroll);
 $('#day-two-link').on('click', w.optly.mrkt.utils.smoothScroll);
+
+//Make filter row fixed after scroll
+var $filterRow = $('#filter-row'),
+    $dayOne = $('#day-one-header'),
+    $dayTwo = $('#day-two-header'),
+    $window = $(window);
+$window.on('scroll', function(e) {
+  var scrollTop = $window.scrollTop();
+  if (scrollTop > 200) {
+    $filterRow.addClass('fixed-filter');
+  } else {
+    $filterRow.removeClass('fixed-filter');
+  }
+  if (scrollTop > 200 && $window.scrollTop < 1360 ) {
+    $dayOne.addClass('agenda-day--active up-arrow');
+    $dayTwo.removeClass('agenda-day--active up-arrow');
+  }
+  if (scrollTop > 1360) {
+    $dayTwo.addClass('agenda-day--active up-arrow');
+    $dayOne.removeClass('agenda-day--active up-arrow');
+  }
+});
 
 /*
   If item is in array, remove it

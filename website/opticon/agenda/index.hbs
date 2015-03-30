@@ -18,9 +18,13 @@ external_script:
 <div class="content-container container">
   <h1 class="page-title common-page-title adelle-sans--bold">{{title}}</h1>
 
-  <div class="row">
-    <a id="day-one-link" href="#day-one"><h4 class="agenda-day agenda-day--active adelle-sans">{{day_one}}</h4></a>
-    <a id="day-two-link" href="#day-two"><h4 class="agenda-day adelle-sans">{{day_two}}</h4></a>
+  <div class="row" id="filter-row">
+    <a id="day-one-link" href="#day-one">
+      <h4 class="agenda-day agenda-day--active up-arrow adelle-sans" id="day-one-header">{{day_one}}</h4>
+    </a>
+    <a id="day-two-link" href="#day-two">
+      <h4 class="agenda-day adelle-sans" id="day-two-header">{{day_two}}</h4>
+    </a>
     {{! Filter Pill }}
     <div class="pill pill--opticon">
       <div class="adelle-sans">{{filter_box.title}}</div>

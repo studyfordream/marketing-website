@@ -1,6 +1,6 @@
 body.opticon-agenda {
   .row {
-    padding: 50px 0;
+    padding: 25px 0;
   }
   .agenda-day {
     display: inline;
@@ -10,7 +10,12 @@ body.opticon-agenda {
     font-size: 1.25em;
     &--active {
       color: #0081BA;
-      text-decoration: underline;
+    }
+    &:hover { text-decoration: underline; }
+  }
+  .up-arrow {
+    &:after {
+      content: '   ↑';
     }
   }
   .pill--opticon {
@@ -41,6 +46,13 @@ body.opticon-agenda {
       }
     }
   }
+  .fixed-filter {
+    position: fixed;
+    background: white;
+    z-index: 100;
+    width: 68%;
+    top: 0;
+  }
   .time-slot {
     display: flex;
     margin: 50px 0;
@@ -49,11 +61,15 @@ body.opticon-agenda {
       min-width: 100px;
       margin: 0;
     }
-  }
-  .time-slot__content .event-cont:not(:first-child) {
-    // Top titles should be horizontally even with times
-    // but we want spacing between talks
-    margin: 50px 0 15px 0;
+    &__content {
+      display: inline-block;
+      width: 100%;
+      .event-cont:not(:first-child) {
+        // Top titles should be horizontally even with times
+        // but we want spacing between talks
+        margin: 50px 0 15px 0;
+      }
+    }
   }
   .event-cont {
     position: relative;
