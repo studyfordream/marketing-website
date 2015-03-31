@@ -364,6 +364,16 @@ module.exports = function (assemble) {
 
           });
 
+          //add all YFM front matter data to pageData.website
+          _.forEach(yfmSpecificData[websiteRoot], function(val, fp) {
+            var data = pageData[websiteRoot][fp];
+            if(data) {
+              pageData[websiteRoot][fp] = _.merge({}, val, data);
+            } else {
+              pageData[websiteRoot][fp] = val;
+            }
+          });
+
           removeTranslationKeys(pageData);
 
           try {
@@ -448,6 +458,16 @@ module.exports = function (assemble) {
             pageData[websiteRoot][fp] = {};
           }
           pageData[websiteRoot][fp].page_content = val.HTML_page_content;
+        }
+      });
+
+      //add all YFM front matter data to pageData.website
+      _.forEach(yfmSpecificData[websiteRoot], function(val, fp) {
+        var data = pageData[websiteRoot][fp];
+        if(data) {
+          pageData[websiteRoot][fp] = _.merge({}, val, data);
+        } else {
+          pageData[websiteRoot][fp] = val;
         }
       });
 

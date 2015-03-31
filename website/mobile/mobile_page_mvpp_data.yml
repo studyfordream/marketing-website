@@ -3,7 +3,7 @@ hero:
   TR_title: "Make your app <br><strong>more engaging</strong>"
   TR_vid_btn_txt: "Watch Video"
   TR_signup_btn_txt: "Get Started"
-  TR_link_text: "A single platform for iOS, Android, and the web."
+  TR_link_text: "A single A/B testing platform for iOS, Android, and the web."
 top_grid:
   TR_title: "Fast, powerful A/B testing"
   TR_sub_title: "for mobile apps"
@@ -15,7 +15,8 @@ top_grid:
   -
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/02.svg"
     TR_title: "Iterate Faster"
-    TR_grid_content: "Make visual changes to your app in real time. No App Store review required."
+    TR_grid_content: "Make visual changes to your app in real time. No App Store review required. Compatible with both iOS and Android."
+
   -
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/03.svg"
     TR_title: "Reliable and Trusted"
@@ -101,7 +102,7 @@ testing_ideas:
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/rollout-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/rollout-2.gif"
     TR_title: "Phase Rollouts"
-    TR_text: "Mobile A/B testing gives you an easy way to test new features and quickly remove the ones that don’t work."
+    TR_text: "Mobile split testing and multivariate testing give you an easy way to test new features and quickly remove the ones that don’t work."
     article_link: "#"
 form_panel:
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/bottom-img-comp.jpg"
@@ -113,5 +114,4 @@ form_panel:
   password_icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg"
   TR_submit_button: "Get Started"
   TR_submit_success: "Success"
-  TR_link_text: "A single platform for iOS, Android, and the web."
-  TR_video_link_text: "Watch Video"
+  TR_link_text: "A single A/B testing platform for iOS, Android, and the web."
