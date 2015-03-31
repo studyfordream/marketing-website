@@ -26,11 +26,13 @@ describe('check that custom dimension gets set correctly', function() {
         .evaluate(function() {
           return {
             initialPlanType: window.firstPlanType,
-            currentPlanType: window.$('body').attr('data-plan')
+            currentPlanType: window.$('body').attr('data-plan'),
+            signedIn: window.optly.signedIn
           };
         }, function(result) {
           expect(result.initialPlanType).toBe('none');
           expect(result.currentPlanType).toBe('free');
+          expect(result.signedIn).toBe(true);
         })
         .run(done);
     });
