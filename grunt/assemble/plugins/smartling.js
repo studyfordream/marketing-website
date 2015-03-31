@@ -283,17 +283,15 @@ module.exports = function (assemble) {
 
             try{
               /**
-               * Function that iterates over all pageData (at this point pageData represents files
-               * with associated external yml) and puts values only flagged for translation on the
-               * page data object. TODO: this only takes YFM data flagged for translation because 
-               * pageData already has external yml. Probably should only translate lang here rather
-               * than pageData
+               * Function that merges external yml and attaches it to the page data object. If a subfolder
+               * has external yml but not it's own template it must be translated on the fly from two different
+               * dictionary entries.
                *
                * case 1: locale template exists
-               * case 2: only external yml exists, must inherit YFM properties and external YML
+               * case 2: only external yml exists, must inherit external yml from parent and tranlsate on the fly
                *
                */
-              _.forEach(pageData[locale], function(content, fp) {
+              Object.keys(lang[locale]).forEach(function(fp) {
                 var subfolderFiles = subfolderO[fp];
                 var parentKey = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
                 var data;
@@ -311,12 +309,17 @@ module.exports = function (assemble) {
                 }
 
               });
+
             } catch(e) {
               console.log('ERROR 1', e, locale);
             }
 
             try {
-              //put in website data flagged for translation if template is not present in subfolder
+              /**
+               * Function for populating the page data object with filepath related objects inherited from the parent website
+               * if they do not have their own templates or yml files in subfolders.
+               *
+               */
               _.forEach(lang[websiteRoot], function(val, fp) {
                 var subfolderPath = fp.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
                 if(!pageData[locale][subfolderPath]) {
@@ -330,10 +333,27 @@ module.exports = function (assemble) {
               console.log('ERROR 2', e);
             }
 
-            ['modals', 'layouts', 'partials'].forEach(function(type) {
+            var specialTypes = [
+              'modals',
+              'layouts',
+              'partials'
+            ];
+
+            /**
+             * Utility Function for iterating through the special types in the lang object ['modals', 'layouts', 'partials']
+             * and merging their filepath/values into teh pageData locale object
+             */
+            specialTypes.forEach(function(type) {
               _.merge(pageData[locale], lang[type] || {});
             });
 
+
+            /**
+             * Function for iterating the completed pageData object and performing translations appropriately
+             *
+             * case 1: locale specific file is in the dictionary so use it
+             * case 2: file is inherited from the root website so must use a parent key in the dictionary to translate
+             */
             try {
 
               _.forEach(pageData[locale], function(val, fp) {
@@ -350,9 +370,14 @@ module.exports = function (assemble) {
               console.log('ERROR 3', e);
             }
 
+            /**
+             * Function is some sort of hack to get missing YFM on the page data object. Seems unnecessary but when
+             * I tried to attach this directly on the pageData object initially in the first through function I got errors
+             *
+             */
             try {
 
-              ['modals', 'layouts', 'partials'].forEach(function(type) {
+              specialTypes.forEach(function(type) {
                 _.forEach(yfmSpecificData[type], function(val, fp) {
                   var data = pageData[locale][fp];
                   if(data) {
@@ -367,7 +392,10 @@ module.exports = function (assemble) {
 
           });
 
-          //add all YFM front matter data to pageData.website
+          /**
+           * Function again some sort of hack to get missing YFM on the page data object.
+           *
+           */
           _.forEach(yfmSpecificData[websiteRoot], function(val, fp) {
             var data = pageData[websiteRoot][fp];
             if(data) {
