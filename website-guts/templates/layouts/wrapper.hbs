@@ -93,9 +93,9 @@ layout_modals:
         })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
         </script>
         {{/if}}
-        {{#if page.external_async_script}}
-        {{#each page.external_async_script}}
-        <script async="true" src="{{.}}"></script>
+        {{#if page.head_async_script}}
+        {{#each page.head_async_script}}
+        <script async="true" src="{{#hasAssetPath .}}{{../../assetsDir}}/{{/hasAssetPath}}{{.}}"></script>
         {{/each}}
         {{/if}}
         {{#if page.external_script}}
