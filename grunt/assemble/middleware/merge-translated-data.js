@@ -26,13 +26,14 @@ module.exports = function(assemble) {
     var dictKey = locales[locale];
     var mergedDict, parentKey, translatedDict, rootData;
 
-    if(file.data.isPpc) {
-      return next();
-    }
 
     removeTranslationKeys(file.data);
 
     mergeLayoutContext(file);
+
+    if(file.data.isPpc) {
+      return next();
+    }
 
     //extend the file with the external YML content
     if(filePathData.isRoot && !isTest && !file.data.isPpc) {
@@ -68,7 +69,7 @@ module.exports = function(assemble) {
       }
 
 
-    } else if ( (locale !== websiteRoot || isTest) &&  (filePathData.isModal || filePathData.isPartial) ) {
+    } else if ( (isTest || ( file.data.locale && file.data.locale !== websiteRoot ) ) && ( filePathData.isModal || filePathData.isPartial ) ) {
       locale = file.data.locale;
       file.data.dataKey = dataKey;
 
@@ -76,10 +77,12 @@ module.exports = function(assemble) {
 
       //TODO: for now modals/partials are not locale specific, in future may have locale specific
       //partials that possible overwrite parent partial data
-      if(translatedDict) {
+      if(!file.data.isPpc && translatedDict) {
         extendWhile(file.data, translatedDict);
       }
+
     }
+
     //deal with global data
     //this assumes that modals and partials don't access global data
     if(locale !== lastLocale && !file.data.isPpc && !filePathData.isModal && !filePathData.isPartial) {

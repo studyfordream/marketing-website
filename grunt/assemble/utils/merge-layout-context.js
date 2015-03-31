@@ -72,7 +72,7 @@ module.exports = function(assemble) {
       });
 
       //only do translation if not the om/ppc directory
-      if(!file.data.isPpc && filePathData.isSubfolder || (filePathData.isRoot && isTest === 'test')) {
+      if( filePathData.isSubfolder || (filePathData.isRoot && isTest === 'test' && !file.data.isPpc)) {
         translations = translated[dictKey] && translated[dictKey][page];
 
         //append layouts paths on context for tr handlebars helper

@@ -20,14 +20,16 @@ module.exports = function collection (name, options) {
     var translationKey;
     var data = col[key];
     var rootKey = generateKey(data.src.path);
-    var dataKey = rootKey.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
-    var translations = translated[dictKey] && translated[dictKey][dataKey];
-    if(dictKey && translations) {
-      _.forEach(translations, function(val, key) {
-        if(data.hasOwnProperty(key)) {
-          data[key] = val;
-        }
-      });
+    if(locale) {
+      var dataKey = rootKey.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
+      var translations = translated[dictKey] && translated[dictKey][dataKey];
+      if(dictKey && translations) {
+        _.forEach(translations, function(val, key) {
+          if(data.hasOwnProperty(key)) {
+            data[key] = val;
+          }
+        });
+      }
     }
     data.rootKey = rootKey;
 
