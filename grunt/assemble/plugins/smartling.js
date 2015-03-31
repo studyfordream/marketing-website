@@ -10,7 +10,7 @@ var extend = require('extend-shallow');
 var htmlParser = require('l10n-tools/html-parser');
 var smartling = require('l10n-tools/smartling');
 var objParser = require('l10n-tools/object-extractor');
-var removeTranslationKeys = require('../utils/plugin-remove-translation-keys');
+var removeTranslationKeys = require('../utils/remove-translation-keys');
 var fs = require('fs');
 var q = require('q');
 var glob = require('glob');
@@ -45,7 +45,6 @@ if(smartlingConfig){
 
 
 module.exports = function (assemble) {
-  //var extendFileData = require('../utils/plugin-extend-file-data')(assemble);
   var lang = assemble.get('lang') || {};
   var pageData = assemble.get('pageData');
   var environment = assemble.option('environment');

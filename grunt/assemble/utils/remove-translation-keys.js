@@ -35,19 +35,17 @@ module.exports = function removeTranslationKeys(fileData) {
     } else if(_.isArray(val) && parsedKey) {
       fileData[ parsedKey[1] ] = processTransArray(val, removeTranslationKeys);
       delete fileData[key];
-    } else if( ( _.isString(val) || _.isNumber(val) ) && parsedKey ) {
+    } else if( ( _.isString(val) || _.isNumber(val) || _.isNull(val) ) && parsedKey ) {
       if (/\\n+/g.test(val)) {
         val = val.replace(/\\n+/g, '');
       }
-      if(parsedKey[0] === 'HTML' && parsedKey[1] === 'page_content' && fileData.content) {
-        //account for replacing file content
-        fileData.content = val;
+      if(parsedKey[0] === 'HTML' && parsedKey[1] === 'page_content') {
+        fileData.page_content = val;
+        delete fileData[key];
       } else {
         fileData[ parsedKey[1] ] = val;
+        delete fileData[key];
       }
-      delete fileData[key];
     }
   }
-
-  return fileData;
 };

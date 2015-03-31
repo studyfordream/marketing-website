@@ -1,5 +1,4 @@
 module.exports = function (context)  {
-  var lang = this.app.get('lang');
   var pageData = this.app.get('pageData');
   var websiteRoot = this.app.get('data.websiteRoot');
   var locale = this.context.locale;
