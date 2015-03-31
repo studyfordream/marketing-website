@@ -24,25 +24,30 @@ w.optly.mrkt.utils.smoothScroll = function(event) {
 $('#day-one-link').on('click', w.optly.mrkt.utils.smoothScroll);
 $('#day-two-link').on('click', w.optly.mrkt.utils.smoothScroll);
 
-//Make filter row fixed after scroll
+//Scroll logic for day selection
 var $filterRow = $('#filter-row'),
     $dayOne = $('#day-one-header'),
     $dayTwo = $('#day-two-header'),
     $window = $(window);
 $window.on('scroll', function(e) {
   var scrollTop = $window.scrollTop();
-  if (scrollTop > 200) {
-    $filterRow.addClass('fixed-filter');
-  } else {
+  console.log(scrollTop);
+  if (scrollTop < 200) {
     $filterRow.removeClass('fixed-filter');
-  }
-  if (scrollTop > 200 && $window.scrollTop < 1360 ) {
-    $dayOne.addClass('agenda-day--active up-arrow');
-    $dayTwo.removeClass('agenda-day--active up-arrow');
-  }
-  if (scrollTop > 1360) {
-    $dayTwo.addClass('agenda-day--active up-arrow');
-    $dayOne.removeClass('agenda-day--active up-arrow');
+    $dayOne.removeClass('up-arrow');
+    $dayOne.addClass('agenda-day--active');
+  } else if (scrollTop >= 200) {
+    $filterRow.addClass('fixed-filter');
+    if (scrollTop < 2890) { // activate day one
+      $dayOne.addClass('agenda-day--active up-arrow');
+      $dayTwo.removeClass('agenda-day--active up-arrow');
+    } else if (scrollTop >= 2890) { // activate day two
+      $dayTwo.addClass('agenda-day--active');
+      $dayOne.removeClass('agenda-day--active up-arrow');
+      if (scrollTop >= 2980) {
+        $dayTwo.addClass('up-arrow');
+      }
+    }
   }
 });
 
