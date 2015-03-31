@@ -3,7 +3,7 @@ hero:
   title: "Make your app <br><strong>more engaging</strong>"
   vid_btn_txt: "Watch Video"
   signup_btn_txt: "Get Started"
-  link_text: "A single platform for iOS, Android, and the web."
+  link_text: "A single A/B testing platform for iOS, Android, and the web."
 top_grid: 
   title: "Fast, powerful A/B testing"
   sub_title: "for mobile apps"
@@ -15,7 +15,7 @@ top_grid:
   -
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/02.svg"
     title: "Iterate Faster"
-    grid_content: "Make visual changes to your app in real time. No App Store review required."
+    grid_content: "Make visual changes to your app in real time. No App Store review required. Compatible with both iOS and Android."
 
   -
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/03.svg"
@@ -102,7 +102,7 @@ testing_ideas:
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/rollout-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/rollout-2.gif"
     title: "Phase Rollouts"
-    text: "Mobile A/B testing gives you an easy way to test new features and quickly remove the ones that don’t work."
+    text: "Mobile split testing and multivariate testing give you an easy way to test new features and quickly remove the ones that don’t work."
     article_link: "#"
 form_panel:
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/bottom-img-comp.jpg"
@@ -114,5 +114,5 @@ form_panel:
   password_icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg"
   submit_button: "Get Started"
   submit_success: "Success"
-  link_text: "A single platform for iOS, Android, and the web."
+  link_text: "A single A/B testing platform for iOS, Android, and the web."
 
