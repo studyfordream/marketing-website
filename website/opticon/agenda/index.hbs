@@ -52,7 +52,7 @@ external_script:
     {{#each this.time_slots}}
       <div class="time-slot">
         <h4 class="time-slot__time">{{this.start_time}}</h4>
-        <div class="time-slot__content">
+        <div class="time-slot__content js-events">
           {{#if this.title}}
             <h5 class="event-title event-title--everyone">{{this.title}}</h5>
           {{/if}}

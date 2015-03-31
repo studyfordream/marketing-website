@@ -1,7 +1,8 @@
 //Accordian for talks
-var $accordianControls = $('.js-accordian-control');
+
 $('.js-toggle-cont').slideToggle('fast'); //all details closed to start
-$accordianControls.click(function(event) {
+
+$('.js-accordian-control').click(function(event) {
   event.preventDefault();
   //TODO Find correct selector for this line
   $(this).next().toggleClass('expansion-arrow--open');
@@ -78,7 +79,8 @@ function isSubset(arr1, arr2) {
 var $dropdownElems = $('.js-dropdown'),
     $events = $('.js-event'),
     filterList = [],
-    $filterListItem = $('.js-filter-item');
+    $filterListItem = $('.js-filter-item'),
+    $eventsContainers = $('.js-events');
 
 //Top filter dropdown
 $dropdownElems.click(function(event) {
@@ -99,16 +101,29 @@ $filterListItem.on('click', function(event) {
   toggleArrayItem(filterList, selectedData);
   $this.toggleClass('selected');
 
+  //$('#ham').children().each(function(index, item) { if($(item).css('display') !== 'none') {$(item).css('margin-top', 0) } })
   if(filterList) {
     $events.each(function(eventIndex, eventItem) {
+      // array of tracks and roles for each event
       var eventFilterList = ($(eventItem).data('track') + ' ' + $(eventItem).data('roles')).split(' ');
-      if(! isSubset(filterList, eventFilterList)) {
+      // if every item in filterlist isn't present on the event, hide it
+      if(!isSubset(filterList, eventFilterList)) {
         $(eventItem).hide();
       } else {
         $(eventItem).show();
       }
     });
   }
+  // The first child of each time slot shouldn't have margin-top
+  $eventsContainers.each(function(index, eventContainer) {
+    $(eventContainer).children().each(function(index, event) {
+      var $event = $(event);
+      if ($event.css('display') !== 'none') {
+        $event.css('margin-top', 0);
+        return;
+      }
+    });
+  });
 });
 
 // Reset -- clear all filters
