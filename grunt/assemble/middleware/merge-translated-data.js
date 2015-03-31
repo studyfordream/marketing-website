@@ -6,7 +6,6 @@ var extendWhile = require('../utils/extend-while');
 module.exports = function(assemble) {
   //var mergeTranslated = require('../utils/merge-tranlated-dictionary');
   var parseFilePath = require('../utils/parse-file-path')(assemble);
-  var extendFileData = require('../utils/extend-file-data')(assemble);
   var mergeLayoutContext = require('./merge-layout-context')(assemble);
   var websiteRoot = assemble.get('data.websiteRoot');
   var locales = assemble.get('data.locales');

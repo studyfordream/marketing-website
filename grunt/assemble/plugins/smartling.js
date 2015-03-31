@@ -83,6 +83,20 @@ module.exports = function (assemble) {
       }
     }
 
+    /**
+     * yfmSpecificData creates a mirror or file data YFM
+     * {
+     *   website: {
+     *     fp: yfmData
+     *   },
+     *   modals: {
+     *     fp: yfmData
+     *   },
+     *   de: {
+     *     fp: yfmData
+     *   }
+     * }
+     */
     if(Object.keys(parsedTranslations).length > 0) {
       lang[locale] = lang[locale] || {};
       yfmSpecificData[locale] = yfmSpecificData[locale] || {};
@@ -99,17 +113,18 @@ module.exports = function (assemble) {
     this.push(file);
     cb();
   }, function (cb) {
-    var subfolderFiles = globby.sync('**/*.{hbs,yml}', {cwd: subfoldersRoot});
-    var subfolderO = subfolderFiles.reduce(function(o, fp) {
-      var key = '/' + path.join(subfoldersRoot, path.dirname(fp), 'index');
-      if(!o[key]) {
-        o[key] = [];
-      }
-      o[key].push(path.extname(fp).replace('.', ''));
 
-      return o;
-    }, {});
-
+    /**
+     *
+     * Create an object of global yaml data and delete keys from globalData
+     * that reference file paths rather than file names
+     * this inentionally mutates the assemble.cache.data object as it is not immutable
+     *
+     * globalYml = {
+     *   fpBasenameNoExt: ymlDataObj
+     * }
+     *
+     */
     var globalData = assemble.get('data');
     var globalYml = Object.keys(globalData).reduce(function(o, key) {
       if(/global\_/.test(key)) {
@@ -122,6 +137,8 @@ module.exports = function (assemble) {
       return o;
     }, {});
 
+    //add the global yml keys flagged for translation to the lang object to be parsed
+    //and sent to smartling
     lang.global = createTranslationDict(globalYml, 'global');
     assemble.set('lang', lang);
 
@@ -159,6 +176,8 @@ module.exports = function (assemble) {
       });
 
       var clientHbsPhrases = extractFrom(path.join(websiteGuts, 'templates/client/**/*.hbs'), hbsParser);
+      //scope tranlations object outside of closure so it may be used in function below
+      //to create page specific ditionary
       var translations = {};
       phrases = phrases.concat(clientHbsPhrases);
       var content = smartling.generatePO(phrases);
@@ -223,8 +242,28 @@ module.exports = function (assemble) {
         jsDefer.resolve();
       }
       Q.all([yamlDefer.promise, jsDefer.promise]).then(function(){
-        //lang has `global` object
+        //this will become the dictionary for pages
         var translated = {};
+
+        /**
+         *
+         * Read subfolders directory to determin if template exists
+         * subfolderO = {
+         *   fp: ['yml', 'hbs],
+         *   fp: ['yml']
+         * }
+         *
+         */
+        var subfolderFiles = globby.sync('**/*.{hbs,yml}', {cwd: subfoldersRoot});
+        var subfolderO = subfolderFiles.reduce(function(o, fp) {
+          var key = '/' + path.join(subfoldersRoot, path.dirname(fp), 'index');
+          if(!o[key]) {
+            o[key] = [];
+          }
+          o[key].push(path.extname(fp).replace('.', ''));
+
+          return o;
+        }, {});
 
         try{
 
@@ -243,36 +282,34 @@ module.exports = function (assemble) {
             var dictKey = locales[locale];
 
             try{
+              /**
+               * Function that iterates over all pageData (at this point pageData represents files
+               * with associated external yml) and puts values only flagged for translation on the
+               * page data object. TODO: this only takes YFM data flagged for translation because 
+               * pageData already has external yml. Probably should only translate lang here rather
+               * than pageData
+               *
+               * case 1: locale template exists
+               * case 2: only external yml exists, must inherit YFM properties and external YML
+               *
+               */
               _.forEach(pageData[locale], function(content, fp) {
                 var subfolderFiles = subfolderO[fp];
-                var parentKey = '/' + path.join(websiteRoot, fp.split('/' + locale + '/')[1]);
+                var parentKey = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
+                var data;
 
-
-                if(subfolderFiles.length > 1 && subfolderFiles.indexOf('hbs') !== -1) {
-                  //subfolder directory has it's own template and is not inherited
-                  _.forEach(lang[locale][fp], function(val, key) {
-                    if(key !== 'page_data') {
-                      val = _.clone(val);
-                      pageData[locale][fp][key] = val;
-                    }
-                  });
-                } else {
-                  //check if YML with no template exists in subfolders and extend from
-                  //website root data appropriately
-                  _.forEach(lang[websiteRoot][parentKey], function(val, key) {
-                    if(key !== 'page_data') {
-                      val = _.clone(val);
-                      pageData[locale][fp][key] = val;
-                    }
-                  });
-
-                  if(subfolderFiles.length === 1 && subfolderFiles[0] === 'yml') {
-                    pageData[locale][fp] = _.merge({}, pageData[websiteRoot][parentKey], pageData[locale][fp]);
-                  }
-
+                if(subfolderFiles.length === 1 && subfolderFiles[0] === 'yml') {
+                  data = _.merge({}, lang[websiteRoot][parentKey], lang[locale][fp]);
                   //translate here because it is difficult to reconcile later
-                  objParser.translate(pageData[locale][fp], translations[dictKey][parentKey]);
+                  objParser.translate(data, translations[dictKey][fp]);
+                  objParser.translate(data, translations[dictKey][parentKey]);
+                  pageData[locale][fp] = _.merge({}, pageData[websiteRoot][parentKey], pageData[locale][fp], data);
+                } else {
+                  data = _.clone(lang[locale][fp]);
+                  objParser.translate(data, translations[dictKey][fp]);
+                  pageData[locale][fp] = _.merge({}, pageData[locale][fp], data);
                 }
+
               });
             } catch(e) {
               console.log('ERROR 1', e, locale);
