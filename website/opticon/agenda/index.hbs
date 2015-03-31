@@ -60,6 +60,9 @@ external_script:
           <div class="event-cont js-event" data-track="{{this.track}}" data-roles="{{this.roles}}">
               <h5 class="js-accordian-control event-title event-title--choice">{{this.title}}</h5>
               <span class="expansion-arrow js-arrow">&#10095;</span>
+              {{#if this.companies}}
+                <p class="speaker-companies adelle-sans">Featuring speakers from {{this.companies}}</p>
+              {{/if}}
               <div class="js-toggle-cont">
                 <div class="speaker-cont">
                   {{#each this.speakers}}

@@ -1,18 +1,16 @@
 //Accordian for talks
-
 $('.js-toggle-cont').slideToggle('fast'); //all details closed to start
-
 $('.js-accordian-control').click(function(event) {
-  event.preventDefault();
-  //TODO Find correct selector for this line
-  $(this).next().toggleClass('expansion-arrow--open');
-  $(this).next().next().slideToggle('fast');
+  $(this).nextAll('.js-arrow').toggleClass('expansion-arrow--open');
+  $(this).nextAll('.js-toggle-cont').slideToggle('fast');
 });
 $('.js-arrow').click(function(event) {
   $(this).toggleClass('expansion-arrow--open');
-  $(this).next().slideToggle('fast');
+  $(this).nextAll('.js-toggle-cont').slideToggle('fast');
 });
 
+// Override smoothScroll to subtrack 180
+// TODO: modify smoothscroll to accept optional argument
 w.optly.mrkt.utils.smoothScroll = function(event) {
 	var targetElmPos = $(this.getAttribute('href')).offset().top - 180;
 	event.preventDefault();
@@ -32,7 +30,6 @@ var $filterRow = $('#filter-row'),
     $window = $(window);
 $window.on('scroll', function(e) {
   var scrollTop = $window.scrollTop();
-  console.log(scrollTop);
   if (scrollTop < 200) {
     $filterRow.removeClass('fixed-filter');
     $dayOne.removeClass('up-arrow');
