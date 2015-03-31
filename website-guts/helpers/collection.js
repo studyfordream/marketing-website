@@ -19,7 +19,8 @@ module.exports = function collection (name, options) {
   var collectionData = Object.keys(col).map(function (key) {
     var translationKey;
     var data = col[key];
-    var dataKey = generateKey(data.src.path).replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
+    var rootKey = generateKey(data.src.path);
+    var dataKey = rootKey.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
     var translations = translated[dictKey] && translated[dictKey][dataKey];
     if(dictKey && translations) {
       _.forEach(translations, function(val, key) {
@@ -28,6 +29,7 @@ module.exports = function collection (name, options) {
         }
       });
     }
+    data.rootKey = rootKey;
 
     return data;
   });

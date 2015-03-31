@@ -71,7 +71,7 @@ module.exports = function(assemble) {
       }
 
 
-    } else if ( locale !== websiteRoot || isTest  (filePathData.isModal || filePathData.isPartial) ) {
+    } else if ( /*locale !== websiteRoot || isTest*/  (filePathData.isModal || filePathData.isPartial) ) {
       locale = file.data.locale;
       file.data.dataKey = dataKey;
 

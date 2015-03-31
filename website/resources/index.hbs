@@ -16,7 +16,7 @@ script_dependencies:
     <div class="resources-grid">
       {{#collection "resources"}}
         <a href="{{this.url}}" target="_blank">
-          <div class="resources-grid-elm {{matchType this.type ../page_data.filter.filter_options}}">
+          <div class="resources-grid-elm {{matchType this}}">
             <div class="resources-image">
               <img src="{{this.photo}}">
             </div>
