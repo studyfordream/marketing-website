@@ -1,8 +1,7 @@
 'use strict';
 var extend = require('extend-shallow');
 
-module.exports = function(assemble) {
-  var websiteRoot = assemble.get('data.websiteRoot');
+module.exports = function(assemble, websiteRoot) {
 
   return function (type) {
     return function (key, locals, options, next) {

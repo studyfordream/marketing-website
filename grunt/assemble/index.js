@@ -18,7 +18,6 @@ module.exports = function (grunt) {
     //var mergeLayoutContext = require('./middleware/merge-layout-context');
     var collectionMiddleware = require('./middleware/onload-collection')(assemble);
     var mergeTranslatedData = require('./middleware/merge-translated-data');
-    var renderTypeHelper = require('./helpers/render-type-helper')(assemble);
     var sendToSmartling = require('./plugins/smartling');
     var typeLoader = require('./loaders/type-loader');
     var push = require('assemble-push')(assemble);
@@ -48,6 +47,7 @@ module.exports = function (grunt) {
         return true;
       }
     })[0];
+    var renderTypeHelper = require('./helpers/render-type-helper')(assemble, options.websiteRoot);
     var generateKey = require('./utils/generate-key');
     var renameKey = assemble.option('renameKey');
     var layoutPath = options.layoutDir.substring(0, options.layoutDir.indexOf('*') - 1);
@@ -80,7 +80,6 @@ module.exports = function (grunt) {
       //add the additonal data options with the standard key
       var addOptions = _.omit(options, 'data');
       assemble.data(addOptions);
-
     };
 
 
