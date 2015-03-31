@@ -81,15 +81,15 @@ module.exports = function (assemble) {
 
       var latestSum = null;
       if(fs.existsSync(fname))
-      {
-        // now compare with latest uploaded catalogue checksum
-        hash = crypto.createHash('md5');
-        hash.setEncoding('hex');
-        hash.write(fs.readFileSync(fname, {encoding: 'UTF8'}));
-        hash.end();
-        latestSum = hash.read();
-      }
-      return newSum === latestSum;
+        {
+          // now compare with latest uploaded catalogue checksum
+          hash = crypto.createHash('md5');
+          hash.setEncoding('hex');
+          hash.write(fs.readFileSync(fname, {encoding: 'UTF8'}));
+          hash.end();
+          latestSum = hash.read();
+        }
+        return newSum === latestSum;
     }
   };
 
@@ -277,127 +277,161 @@ module.exports = function (assemble) {
             var dictKey = locales[locale];
 
             try{
-            _.forEach(pageData[locale], function(content, fp) {
-              var subfolderFiles = subfolderO[fp];
-              var parentKey = '/' + path.join(websiteRoot, fp.split('/' + locale + '/')[1]);
+              _.forEach(pageData[locale], function(content, fp) {
+                var subfolderFiles = subfolderO[fp];
+                var parentKey = '/' + path.join(websiteRoot, fp.split('/' + locale + '/')[1]);
 
 
-              if(subfolderFiles.length > 1 && subfolderFiles.indexOf('hbs') !== -1) {
-                //subfolder directory has it's own template and is not inherited
-                _.forEach(lang[locale][fp], function(val, key) {
-                  if(key !== 'page_data') {
-                    val = _.clone(val);
-                    pageData[locale][fp][key] = val;
+                if(subfolderFiles.length > 1 && subfolderFiles.indexOf('hbs') !== -1) {
+                  //subfolder directory has it's own template and is not inherited
+                  _.forEach(lang[locale][fp], function(val, key) {
+                    if(key !== 'page_data') {
+                      val = _.clone(val);
+                      pageData[locale][fp][key] = val;
+                    }
+                  });
+                } else {
+                  //check if YML with no template exists in subfolders and extend from
+                  //website root data appropriately
+                  _.forEach(lang[websiteRoot][parentKey], function(val, key) {
+                    if(key !== 'page_data') {
+                      val = _.clone(val);
+                      pageData[locale][fp][key] = val;
+                    }
+                  });
+
+                  if(subfolderFiles.length === 1 && subfolderFiles[0] === 'yml') {
+                    pageData[locale][fp] = _.merge({}, pageData[websiteRoot][parentKey], pageData[locale][fp]);
                   }
-                });
-              } else {
-                //check if YML with no template exists in subfolders and extend from
-                //website root data appropriately
-                _.forEach(lang[websiteRoot][parentKey], function(val, key) {
-                  if(key !== 'page_data') {
-                    val = _.clone(val);
-                    pageData[locale][fp][key] = val;
-                  }
-                });
 
-                if(subfolderFiles.length === 1 && subfolderFiles[0] === 'yml') {
-                  pageData[locale][fp] = _.merge({}, pageData[websiteRoot][parentKey], pageData[locale][fp]);
+                  //translate here because it is difficult to reconcile later
+                  objParser.translate(pageData[locale][fp], translations[dictKey][parentKey]);
                 }
-
-                //translate here because it is difficult to reconcile later
-                objParser.translate(pageData[locale][fp], translations[dictKey][parentKey]);
-              }
-            });
+              });
             } catch(e) {
-              console.log(e, locale);
+              console.log('ERROR 1', e, locale);
             }
 
-            //put in website data flagged for translation if template is not present in subfolder
-            _.forEach(lang[websiteRoot], function(val, fp) {
-              var subfolderPath = fp.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
-              if(!pageData[locale][subfolderPath]) {
-                val = _.clone(val);
-                //have to merge here or lose values not flagged for translation
-                pageData[locale][subfolderPath] = _.merge({}, pageData[websiteRoot][fp] || {}, val);
-              }
-            });
+            try {
+              //put in website data flagged for translation if template is not present in subfolder
+              _.forEach(lang[websiteRoot], function(val, fp) {
+                var subfolderPath = fp.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
+                if(!pageData[locale][subfolderPath]) {
+                  val = _.clone(val);
+                  //have to merge here or lose values not flagged for translation
+                  pageData[locale][subfolderPath] = _.merge({}, pageData[websiteRoot][fp] || {}, val);
+                }
+              });
+
+            } catch(e) {
+              console.log('ERROR 2', e);
+            }
 
             ['modals', 'layouts', 'partials'].forEach(function(type) {
               _.merge(pageData[locale], lang[type] || {});
             });
 
-            _.forEach(pageData[locale], function(val, fp) {
-              var parentPath = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
+            try {
 
-              if(translations[dictKey][fp]) {
-                objParser.translate(pageData[locale][fp], translations[dictKey][fp]);
-              } else if(translations[dictKey][parentPath]) {
-                objParser.translate(pageData[locale][fp], translations[dictKey][parentPath]);
-              }
-            });
+              _.forEach(pageData[locale], function(val, fp) {
+                var parentPath = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
 
-            ['modals', 'layouts', 'partials'].forEach(function(type) {
-              _.forEach(yfmSpecificData[type], function(val, fp) {
-                var data = pageData[locale][fp];
-                if(data) {
-                  pageData[locale][fp] = _.merge({}, val, data);
+                if(translations[dictKey][fp]) {
+                  objParser.translate(pageData[locale][fp], translations[dictKey][fp]);
+                } else if(translations[dictKey][parentPath]) {
+                  objParser.translate(pageData[locale][fp], translations[dictKey][parentPath]);
                 }
               });
-            });
+
+            } catch(e) {
+              console.log('ERROR 3', e);
+            }
+
+            try {
+
+              ['modals', 'layouts', 'partials'].forEach(function(type) {
+                _.forEach(yfmSpecificData[type], function(val, fp) {
+                  var data = pageData[locale][fp];
+                  if(data) {
+                    pageData[locale][fp] = _.merge({}, val, data);
+                  }
+                });
+              });
+
+            } catch(e) {
+              console.log('ERROR 4', e);
+            }
 
           });
 
           removeTranslationKeys(pageData);
 
-          //add the page content to page data after parsing
-          _.forEach(lang[websiteRoot], function(val, fp) {
-            if(val.HTML_page_content) {
-              if(!pageData[websiteRoot][fp]) {
-                pageData[websiteRoot][fp] = {};
+          try {
+            //add the page content to page data after parsing
+            _.forEach(lang[websiteRoot], function(val, fp) {
+              if(val.HTML_page_content) {
+                if(!pageData[websiteRoot][fp]) {
+                  pageData[websiteRoot][fp] = {};
+                }
+                pageData[websiteRoot][fp].page_content = val.HTML_page_content;
               }
-              pageData[websiteRoot][fp].page_content = val.HTML_page_content;
-            }
-          });
+            });
+
+          } catch(e) {
+            console.log('ERROR 5', e);
+          }
 
 
           /**
            * Create a dictionary object for all pages
            *
            */
-          _.forEach(locales, function(localeCode, locale) {
-            var filteredLocales = Object.keys(pageData).filter(function(pageDataKey) {
-              if(locales[pageDataKey] === localeCode) {
-                return true;
-              }
-            });
-
-            translated[localeCode] = filteredLocales.reduce(function(o, pageDataKey) {
-              _.forEach(pageData[pageDataKey], function(val, fp) {
-                if(!o.hasOwnProperty(fp)) {
-                  o[fp] = val;
+          try {
+            _.forEach(locales, function(localeCode, locale) {
+              var filteredLocales = Object.keys(pageData).filter(function(pageDataKey) {
+                if(locales[pageDataKey] === localeCode) {
+                  return true;
                 }
               });
 
-              return o;
-            }, {});
-          });
+              translated[localeCode] = filteredLocales.reduce(function(o, pageDataKey) {
+                _.forEach(pageData[pageDataKey], function(val, fp) {
+                  if(!o.hasOwnProperty(fp)) {
+                    o[fp] = val;
+                  }
+                });
 
-          _.forEach(translated, function(localeDict, localeCode) {
-            localeDict.global = localeDict.global || {};
-
-            _.forEach(globalYml, function(val, fp) {
-              var basenameKey = path.basename(fp, path.extname(fp));
-
-              localeDict.global[basenameKey] = objParser.translate(val, translations[localeCode][fp]);
-              removeTranslationKeys(localeDict.global[basenameKey]);
+                return o;
+              }, {});
             });
 
-          });
+          } catch(e) {
+            console.log('ERROR 6', e);
+          }
+
+
+          try {
+            _.forEach(translated, function(localeDict, localeCode) {
+              localeDict.global = localeDict.global || {};
+
+              _.forEach(globalYml, function(val, fp) {
+                var basenameKey = path.basename(fp, path.extname(fp));
+
+                localeDict.global[basenameKey] = objParser.translate(val, translations[localeCode][fp]);
+                removeTranslationKeys(localeDict.global[basenameKey]);
+              });
+
+            });
+
+          } catch(e) {
+            console.log('ERROR 7', e);
+          }
+
 
           removeTranslationKeys(globalData);
 
         } catch(err) {
-          this.emit('error', err);
+          this.emit('ERROR 8', err);
         }
 
         assemble.set('pageData', pageData[websiteRoot]);

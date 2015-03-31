@@ -163,9 +163,6 @@ module.exports = function (grunt) {
       assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
     };
 
-
-
-
     var loadPageYml = function loadPageYml() {
       assemble.transform('page-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}'], options.websiteRoot);
     };
@@ -348,29 +345,11 @@ module.exports = function (grunt) {
         });
     }
 
-    //var loadAll = function loadAll() {
-      //loadGlobalData();
-
-      //loader([
-        //loadLayouts,
-        //loadPartials,
-        //loadOmLayouts,
-        //loadModals
-      //])();
-
-      ////load the files for the resources collection
-      //loadResources();
-
-      ////load external YML files and scope locally, while omitting global YML
-      //loadPageYml();
-      //loadSubfolderYml();
-    //};
-
     assemble.task('loadAll', ['resetLastRunTime'], loadAll);
     assemble.task('loadOm', loader(loadOmLayouts));
 
     assemble.task('om-pages', buildOm);
-    assemble.task('pages', ['prep-smartling'], buildPages(false));
+    assemble.task('pages', ['prep-smartling'], buildPages());
     assemble.task('partners', ['prep-smartling'], buildPartners);
 
     assemble.task('resetLastRunTime', function (cb) {
@@ -380,12 +359,12 @@ module.exports = function (grunt) {
 
     assemble.task('done', ['pages', 'partners'], done);
 
-    assemble.task('layouts:pages', ['loadAll', 'prep-smartling'], buildPages(true));
+    assemble.task('layouts:pages', ['loadAll', 'prep-smartling'], buildPages());
     assemble.task('layouts:partners', ['loadAll', 'prep-smartling'], buildPartners);
     assemble.task('layouts:om', ['loadAll'], buildOm);
     assemble.task('build:all', ['loadAll'], function() {
       buildOm();
-      buildPages(true);
+      buildPages();
       buildPartners();
     });
 

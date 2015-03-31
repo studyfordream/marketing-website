@@ -33,9 +33,8 @@ module.exports = function(assemble) {
     removeTranslationKeys(file.data);
 
     mergeLayoutContext(file);
-    //extend the file with the external YML content
-    //extendFileData(filePathData, file);
 
+    //extend the file with the external YML content
     if(filePathData.isRoot && !isTest && !file.data.isPpc) {
       //extend the local yml data to the page
       rootData = pageData[dataKey];
@@ -49,9 +48,7 @@ module.exports = function(assemble) {
 
         extendWhile(file.data, rootData);
       }
-    }
-
-    else if(filePathData.isSubfolder || ( filePathData.isRoot && isTest && !file.data.isPpc )) {
+    } else if(filePathData.isSubfolder || ( filePathData.isRoot && isTest && !file.data.isPpc )) {
       if(isTest) {
         dataKey = dataKey.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
       }
@@ -71,7 +68,7 @@ module.exports = function(assemble) {
       }
 
 
-    } else if ( /*locale !== websiteRoot || isTest*/  (filePathData.isModal || filePathData.isPartial) ) {
+    } else if ( (locale !== websiteRoot || isTest) &&  (filePathData.isModal || filePathData.isPartial) ) {
       locale = file.data.locale;
       file.data.dataKey = dataKey;
 
@@ -100,8 +97,6 @@ module.exports = function(assemble) {
       lastLocale = locale;
     }
 
-    //remove all the TR|MD|HTML prefixes
-    removeTranslationKeys(file);
     next();
   };
 };
