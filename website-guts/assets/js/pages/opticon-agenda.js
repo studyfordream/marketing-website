@@ -1,12 +1,25 @@
+var dayTwoDistanceFromTop = 2890,
+    $dayTwo = $('#day-two');
+/*
+   Recalculate the distance from the top
+   in order to highlight the Days Nav
+*/
+function calculateDayTwoDistanceFromTop() {
+  dayTwoDistanceFromTop = $dayTwo.offset().top;
+  console.log(dayTwoDistanceFromTop);
+}
+
 //Accordian for talks
 $('.js-toggle-cont').slideToggle('fast'); //all details closed to start
 $('.js-accordian-control').click(function(event) {
   $(this).nextAll('.js-arrow').toggleClass('expansion-arrow--open');
   $(this).nextAll('.js-toggle-cont').slideToggle('fast');
+  calculateDayTwoDistanceFromTop();
 });
 $('.js-arrow').click(function(event) {
   $(this).toggleClass('expansion-arrow--open');
   $(this).nextAll('.js-toggle-cont').slideToggle('fast');
+  calculateDayTwoDistanceFromTop();
 });
 
 // Override smoothScroll to subtrack 180
@@ -25,25 +38,25 @@ $('#day-two-link').on('click', w.optly.mrkt.utils.smoothScroll);
 
 //Scroll logic for day selection
 var $filterRow = $('#filter-row'),
-    $dayOne = $('#day-one-header'),
-    $dayTwo = $('#day-two-header'),
-    $window = $(window);
+    $window = $(window),
+    $dayOneNav = $('#day-one-header'),
+    $dayTwoNav = $('#day-two-header');
 $window.on('scroll', function(e) {
   var scrollTop = $window.scrollTop();
   if (scrollTop < 200) {
     $filterRow.removeClass('fixed-filter');
-    $dayOne.removeClass('up-arrow');
-    $dayOne.addClass('agenda-day--active');
+    $dayOneNav.removeClass('up-arrow');
+    $dayOneNav.addClass('agenda-day--active');
   } else if (scrollTop >= 200) {
     $filterRow.addClass('fixed-filter');
-    if (scrollTop < 2890) { // activate day one
-      $dayOne.addClass('agenda-day--active up-arrow');
-      $dayTwo.removeClass('agenda-day--active up-arrow');
-    } else if (scrollTop >= 2890) { // activate day two
-      $dayTwo.addClass('agenda-day--active');
-      $dayOne.removeClass('agenda-day--active up-arrow');
-      if (scrollTop >= 2980) {
-        $dayTwo.addClass('up-arrow');
+    if (scrollTop < dayTwoDistanceFromTop) { // activate day one
+      $dayOneNav.addClass('agenda-day--active up-arrow');
+      $dayTwoNav.removeClass('agenda-day--active up-arrow');
+    } else if (scrollTop >= dayTwoDistanceFromTop) { // activate day two
+      $dayTwoNav.addClass('agenda-day--active');
+      $dayOneNav.removeClass('agenda-day--active up-arrow');
+      if (scrollTop >= dayTwoDistanceFromTop + 100) {
+        $dayTwoNav.addClass('up-arrow');
       }
     }
   }
@@ -98,7 +111,6 @@ $filterListItem.on('click', function(event) {
   toggleArrayItem(filterList, selectedData);
   $this.toggleClass('selected');
 
-  //$('#ham').children().each(function(index, item) { if($(item).css('display') !== 'none') {$(item).css('margin-top', 0) } })
   if(filterList) {
     $events.each(function(eventIndex, eventItem) {
       // array of tracks and roles for each event
@@ -121,6 +133,7 @@ $filterListItem.on('click', function(event) {
       }
     });
   });
+  calculateDayTwoDistanceFromTop();
 });
 
 // Reset -- clear all filters
