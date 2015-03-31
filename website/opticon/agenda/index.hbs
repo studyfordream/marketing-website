@@ -20,7 +20,7 @@ external_script:
 
   <div class="row" id="filter-row">
     <a id="day-one-link" href="#day-one">
-      <h4 class="agenda-day agenda-day--active up-arrow adelle-sans" id="day-one-header">{{day_one}}</h4>
+      <h4 class="agenda-day agenda-day--active adelle-sans" id="day-one-header">{{day_one}}</h4>
     </a>
     <a id="day-two-link" href="#day-two">
       <h4 class="agenda-day adelle-sans" id="day-two-header">{{day_two}}</h4>
@@ -54,11 +54,11 @@ external_script:
         <h4 class="time-slot__time">{{this.start_time}}</h4>
         <div class="time-slot__content js-events">
           {{#if this.title}}
-            <h5 class="event-title event-title--everyone">{{this.title}}</h5>
+            <h5 class="event-title event-title--everyone adelle-sans">{{this.title}}</h5>
           {{/if}}
           {{#each this.events}}
           <div class="event-cont js-event" data-track="{{this.track}}" data-roles="{{this.roles}}">
-              <h5 class="js-accordian-control event-title event-title--choice">{{this.title}}</h5>
+              <h5 class="js-accordian-control event-title event-title--choice adelle-sans">{{this.title}}</h5>
               <span class="expansion-arrow js-arrow">&#10095;</span>
               {{#if this.companies}}
                 <p class="speaker-companies adelle-sans">Featuring speakers from {{this.companies}}</p>
