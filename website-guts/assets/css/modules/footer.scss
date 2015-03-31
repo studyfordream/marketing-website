@@ -44,6 +44,9 @@ footer {
     .social-links {
         li {
             display: inline-block;
+            &:nth-of-type(3) {
+              display: none;
+            }
         }
         a {
             background-size: 25px,25px;
