@@ -62,7 +62,7 @@ customer_stories:
 - 
   header: "23% Lift in Sign-Ups"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/1800dentist-logo.png"
-  body: "1-800-Dentist ran a test on it's customer funnel to see if removing form fields from the first steps would increase conversions."
+  body: "1-800-Dentist ran a test on its customer funnel to see if removing form fields from the first steps would increase conversions."
   download_url: "https://s3.amazonaws.com/optimizely-marketing/customer-stories/1800dentist-casestudy.pdf"
 - 
   header: "24% lift in Revenue from SEM"
