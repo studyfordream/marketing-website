@@ -28,14 +28,14 @@ external_script:
     {{! Filter Pill }}
     <div class="pill pill--opticon">
       <div class="adelle-sans">{{filter_box.title}}</div>
-      <div class="dropdown-cont js-dropdown">{{filter_box.track_section.title}} &#9662;
+      <div class="dropdown-cont js-dropdown adelle-sans">{{filter_box.track_section.title}} &#9662;
         <ul>
           {{#each filter_box.track_section.tracks}}
           <li class="filter-item js-filter-item adelle-sans" data-filter="{{ createClassList this }}">{{this}}</li>
           {{/each}}
         </ul>
       </div>
-      <div class="dropdown-cont js-dropdown">{{filter_box.role_section.title}} &#9662;
+      <div class="dropdown-cont js-dropdown adelle-sans">{{filter_box.role_section.title}} &#9662;
         <ul>
           {{#each filter_box.role_section.roles}}
           <li class="filter-item js-filter-item adelle-sans" data-filter="{{ createClassList this }}">{{this}}</li>

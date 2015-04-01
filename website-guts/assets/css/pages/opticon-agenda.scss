@@ -1,38 +1,28 @@
 body.opticon-agenda {
-  .row {
-    padding: 25px 0;
-  }
+  .row { padding: 25px 0; }
   .agenda-day {
     display: inline;
     margin-right: 50px;
     color: #ccc;
     line-height: 38px;
     font-size: 1.25em;
-    &--active {
-      color: #0081BA;
-    }
+    &--active { color: #0081BA; }
     &:hover { text-decoration: underline; }
   }
   .up-arrow {
-    &:after {
-      content: '   ↑';
-    }
+    &:after { content: '   ↑'; }
   }
   .pill--opticon {
     float: right;
     border-radius: 0;
-    & > * {
-      padding: 9px 15px;
-    }
+    & > * { padding: 9px 15px; }
     & > .active {
       background-color: white;
       color: $text-color;
       text-shadow: none;
     }
     & > *:first-child,
-        *:last-child  {
-          border-radius: 0;
-        }
+        *:last-child  { border-radius: 0; }
   }
   .dropdown-cont ul li {
     &:before {
@@ -41,9 +31,7 @@ body.opticon-agenda {
       width: 9px;
     }
     &.selected {
-      &:before {
-        background: $opticon-brand-blue;
-      }
+      &:before { background: $opticon-brand-blue; }
     }
   }
   .fixed-filter {
@@ -71,9 +59,7 @@ body.opticon-agenda {
       }
     }
   }
-  .event-cont {
-    position: relative;
-  }
+  .event-cont { position: relative; }
   .speaker-companies {
     margin-top: 5px;
     font-size: .8125em;
@@ -86,21 +72,15 @@ body.opticon-agenda {
     color: $opticon-brand-blue;
     transition: transform 5ms ease-in;
     cursor: pointer;
-    &--open {
-      transform: rotate(90deg);
-    }
+    &--open { transform: rotate(90deg); }
   }
   .event-title {
     font-size: 20px;
     color: #444B4F;
     line-height: 30px;
     margin: 0;
-    &--choice {
-      cursor: pointer;
-    }
-    &--everyone {
-      color: #AAAAAA;
-    }
+    &--choice { cursor: pointer; }
+    &--everyone { color: #AAAAAA; }
   }
   .event-text {
     font-size: .8125em;
@@ -109,9 +89,7 @@ body.opticon-agenda {
     line-height: 24px;
   }
   .speaker-cont {
-    &__speaker {
-      margin: 0;
-    }
+    &__speaker { margin: 0; }
   }
 }
 

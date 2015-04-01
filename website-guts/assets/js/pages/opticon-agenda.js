@@ -102,6 +102,25 @@ $dropdownElems.click(function(event) {
   });
 });
 
+// The first child of each time slot shouldn't have margin-top
+// but every following item should
+function applyTopMargin() {
+  $eventsContainers.each(function(index, eventContainer) {
+    $(eventContainer).children()
+    .filter(function(index, item) {
+      return $(item).css('display') !== 'none';
+    })
+    .each(function(index, event) {
+      var $event = $(event);
+      if (index === 0) {
+        $event.css('margin-top', 0);
+      } else {
+        $event.css('margin-top', '50px');
+      }
+    });
+  });
+}
+
 //Filter logic
 $filterListItem.on('click', function(event) {
   event.stopPropagation();
@@ -123,22 +142,7 @@ $filterListItem.on('click', function(event) {
       }
     });
   }
-  // The first child of each time slot shouldn't have margin-top
-  // but every following item should
-  $eventsContainers.each(function(index, eventContainer) {
-    $(eventContainer).children()
-      .filter(function(index, item) {
-        return $(item).css('display') !== 'none';
-      })
-      .each(function(index, event) {
-        var $event = $(event);
-        if (index === 0) {
-          $event.css('margin-top', 0);
-        } else {
-          $event.css('margin-top', '50px');
-        }
-      });
-  });
+  applyTopMargin();
   calculateDayTwoDistanceFromTop();
 });
 
@@ -151,4 +155,5 @@ $('.js-reset').on('click', function(event) {
   $filterListItem.each(function(eIndex, eventItem) {
     $(this).removeClass('selected');
   });
+  applyTopMargin();
 });
