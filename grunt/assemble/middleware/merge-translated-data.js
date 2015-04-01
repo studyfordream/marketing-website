@@ -6,7 +6,6 @@ var extendWhile = require('../utils/extend-while');
 module.exports = function(assemble) {
   //var mergeTranslated = require('../utils/merge-tranlated-dictionary');
   var parseFilePath = require('../utils/parse-file-path')(assemble);
-  var mergeLayoutContext = require('./merge-layout-context')(assemble);
   var websiteRoot = assemble.get('data.websiteRoot');
   var locales = assemble.get('data.locales');
   var removeTranslationKeys = require('../utils/remove-translation-keys');
@@ -16,7 +15,7 @@ module.exports = function(assemble) {
   return function mergeTranslatedData (file, next) {
     var lang = assemble.get('lang');
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
-    var pageData = assemble.get('pageData');
+    var pageData = assemble.get('pageData')[websiteRoot];
     var translated = assemble.get('translated');
     var dicts = assemble.get('dicts');
     var filePathData = parseFilePath(file.path);
@@ -25,10 +24,7 @@ module.exports = function(assemble) {
     var dictKey = locales[locale];
     var mergedDict, parentKey, translatedDict, rootData;
 
-
     removeTranslationKeys(file.data);
-
-    mergeLayoutContext(file);
 
     if(file.data.isPpc) {
       return next();

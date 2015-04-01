@@ -54,7 +54,8 @@ module.exports = function (assemble) {
   var parseFilePath = require('../utils/parse-file-path')(assemble);
   var generateKey = require('../utils/generate-key');
   var env = assemble.get('env');
-  var runTranslations =  env === 'test' || env === 'smartling-staging-deploy';
+  var isTest = env === 'test';
+  var runTranslations =  isTest || env === 'smartling-staging-deploy';
   var phrases = [];
   var ignoreKeys = [
     'src',
@@ -62,11 +63,13 @@ module.exports = function (assemble) {
     'layout'
   ];
   var yfmSpecificData = {};
+  var layoutData = {};
 
   return through.obj(function (file, enc, cb) {
     var ppcRe = new RegExp(path.join(websiteRoot, 'om'));
     var filePathData = parseFilePath(file.path);
     var locale = filePathData.locale;
+    layoutData[locale] = layoutData[locale] || {};
     var dataKey = filePathData.dataKey;
     //create lang dictionary from TR prefixes
     var parsedTranslations = createTranslationDict(file, locale);
@@ -81,6 +84,10 @@ module.exports = function (assemble) {
           phrases: pagePhrases
         });
       }
+    }
+
+    if(filePathData.isSubfolder || filePathData.isRoot || isTest) {
+      layoutData[locale][dataKey] = file.data.layouts;
     }
 
     /**
@@ -502,10 +509,24 @@ module.exports = function (assemble) {
         }
       });
 
+      _.forEach(layoutData[websiteRoot], function(layoutObj, fp) {
+
+        _.forEach(layoutObj, function(val, layoutPath) {
+          var data = pageData[websiteRoot][fp];
+          //account for missing pages with no previous data
+          if(data) {
+            _.merge(pageData[websiteRoot][fp], val);
+          } else {
+            pageData[websiteRoot][fp] = val;
+          }
+        });
+
+      });
+
       removeTranslationKeys(pageData);
       removeTranslationKeys(globalData);
       assemble.set('dicts', {});
-      assemble.set('pageData', pageData[websiteRoot]);
+      assemble.set('pageData', pageData);
       cb();
     }
   });

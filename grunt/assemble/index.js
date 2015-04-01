@@ -15,7 +15,8 @@ module.exports = function (grunt) {
     var done = this.async();
     var assemble = require('assemble');
     var localizeLinkPath = require('./middleware/localize-link-path');
-    //var mergeLayoutContext = require('./middleware/merge-layout-context');
+    var extractLayoutContext = require('./plugins/extract-layout-context');
+    var mergeLayoutContext = require('./plugins/merge-layout-context');
     var collectionMiddleware = require('./middleware/onload-collection')(assemble);
     var mergeTranslatedData = require('./middleware/merge-translated-data');
     var sendToSmartling = require('./plugins/smartling');
@@ -132,7 +133,7 @@ module.exports = function (grunt) {
     assemble.helpers(options.helpers);
 
     //load the custom subolders
-    customSubfolders(assemble, Object.keys(options.locales), process.env.lastRunTime);
+    customSubfolders(assemble, Object.keys(options.locales), assemble.get('lastRunTime'));
 
     // create custom template type `modals`
     assemble.create('modal', 'modals', {
@@ -268,7 +269,8 @@ module.exports = function (grunt) {
     assemble.task('prep-smartling', function () {
       var start = process.hrtime();
 
-      return assemble.src(hbsPaths, { since: (process.env.lastRunTime?new Date(process.env.lastRunTime):null)})
+      return assemble.src(hbsPaths, { since: (assemble.get('lastRunTime')?new Date(assemble.get('lastRunTime')):null)})
+        .pipe(extractLayoutContext(assemble))
         .pipe(sendToSmartling(assemble))
         .on('error', function (err) {
           console.log('plugin error', err);
@@ -284,6 +286,8 @@ module.exports = function (grunt) {
       var files = config[ppcKey].files[0];
 
       return assemble.src([omSrc])
+        .pipe(extractLayoutContext(assemble))
+        .pipe(mergeLayoutContext())
         .pipe(ext())
         .pipe(assemble.dest(path.join(files.dest, ppcKey)))
         .on('data', function(file) {
@@ -300,9 +304,11 @@ module.exports = function (grunt) {
         var start = process.hrtime();
 
         var files = config.pages.files[0];
+        console.log({foo: assemble.get('lastRunTime')});
         var opts = {
-          since: (process.env.lastRunTime ? new Date(process.env.lastRunTime) : null)
+          since: (assemble.get('lastRunTime') ? new Date(assemble.get('lastRunTime')) : null)
         };
+        console.log(opts);
 
         //this excludes om pages && resources-list pages
         return assemble.src(normalizeSrc(files.cwd, files.src).concat([
@@ -323,7 +329,7 @@ module.exports = function (grunt) {
           .on('end', function () {
             var end = process.hrtime(start);
             console.log('finished rendering pages', end);
-            process.env.lastRunTime = new Date();
+            assemble.set('lastRunTime', new Date());
           });
       };
     }
@@ -349,16 +355,17 @@ module.exports = function (grunt) {
 
     assemble.task('om-pages', buildOm);
     assemble.task('pages', ['prep-smartling'], buildPages());
+    assemble.task('rebuild:pages', buildPages());
     assemble.task('partners', ['prep-smartling'], buildPartners);
 
     assemble.task('resetLastRunTime', function (cb) {
-      process.env.lastRunTime = void 0;
+      assemble.set('lastRunTime', null);
       cb();
     });
 
     assemble.task('done', ['pages', 'partners'], done);
 
-    assemble.task('layouts:pages', ['loadAll', 'prep-smartling'], buildPages());
+    assemble.task('layouts:pages', ['loadAll'], buildPages());
     assemble.task('layouts:partners', ['loadAll', 'prep-smartling'], buildPartners);
     assemble.task('layouts:om', ['loadAll'], buildOm);
     assemble.task('build:all', ['loadAll'], function() {
@@ -386,7 +393,7 @@ module.exports = function (grunt) {
       assemble.watch([
         'website/**/*.hbs',
         '!website/partners/**/*.hbs',
-      ], ['pages']);
+      ], ['rebuild:pages']);
 
       //rebuild all pages and layouts if yml changes
       assemble.watch([
