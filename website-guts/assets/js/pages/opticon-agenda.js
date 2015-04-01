@@ -124,14 +124,20 @@ $filterListItem.on('click', function(event) {
     });
   }
   // The first child of each time slot shouldn't have margin-top
+  // but every following item should
   $eventsContainers.each(function(index, eventContainer) {
-    $(eventContainer).children().each(function(index, event) {
-      var $event = $(event);
-      if ($event.css('display') !== 'none') {
-        $event.css('margin-top', 0);
-        return;
-      }
-    });
+    $(eventContainer).children()
+      .filter(function(index, item) {
+        return $(item).css('display') !== 'none';
+      })
+      .each(function(index, event) {
+        var $event = $(event);
+        if (index === 0) {
+          $event.css('margin-top', 0);
+        } else {
+          $event.css('margin-top', '50px');
+        }
+      });
   });
   calculateDayTwoDistanceFromTop();
 });

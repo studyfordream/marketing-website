@@ -99,7 +99,7 @@ days:
               effective in their decision making."
             companies: "Uber, IDEO, Birchbox, Disney"
             track: "strategy"
-            roles: "marketer developer"
+            roles: "marketer productmanager"
             speakers:
               -
                 name: "Heather Watkins"
@@ -887,18 +887,22 @@ days:
         start_time: "1:25"
         events:
           -
-            title: "Optimizing All the Things: How A Culture of Optimization Takes Shape Across Each Facet of your Business"
+            title: "Programmatic Ad Buying and Funnel Optimization"
             time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            location: "Main Room"
+            description: "Industry investment into real-time programmatic bidding is growing.
+              Without the proper tracking and monitoring setup, optimization efforts start to
+              lose their impact and even worse, can yield incorrect results. Managing the investment
+              into programmatic while maintaining reliable control over tracking and yield
+              management is difficult. This talk will help firms grow their programmatic efforts
+              in a controlled manner, while still maintaining A/B and conversion funnel optimization
+              rigor. Points of discussion: 1) Tracking and scaling a programmatic marketing program
+              via a variety of ad platforms (notably - Google and Facebook). 2) Customer and A/B
+              segmentation 3) Audience management through a DMP 4) Performance feedback of A/B and
+              its effect on bid optimization."
             companies: "Uber, IDEO, Birchbox, Disney"
-            track: "culture"
-            roles: "marketer developer"
+            track: "strategy"
+            roles: "marketer productmanager"
             speakers:
               -
                 name: "Heather Watkins"
