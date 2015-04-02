@@ -352,12 +352,12 @@ module.exports = function (assemble) {
                 if(subfolderFiles.length === 1 && subfolderFiles[0] === 'yml') {
                   data = _.merge({}, lang[websiteRoot][parentKey], lang[locale][fp]);
                   //translate here because it is difficult to reconcile later
-                  objParser.translate(data, translations[dictKey][fp]);
+                  //objParser.translate(data, translations[dictKey][fp]);
                   objParser.translate(data, translations[dictKey][parentKey]);
                   pageDataMap[locale][fp] = _.merge({}, pageData[websiteRoot][parentKey], pageData[locale][fp], data);
                 } else {
                   data = _.clone(lang[locale][fp]);
-                  objParser.translate(data, translations[dictKey][fp]);
+                  //objParser.translate(data, translations[dictKey][fp]);
                   pageDataMap[locale][fp] = _.merge({}, pageData[locale][fp], data);
                 }
 
