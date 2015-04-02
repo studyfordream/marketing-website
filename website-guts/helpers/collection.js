@@ -52,7 +52,6 @@ module.exports = function collection (name, options) {
       sortBool = true;
       break;
   }
-  console.log(name, sortParam, sortBool);
 
   var html = _.sortByOrder(collectionData, sortParam, sortBool).map(function(data) {
     return options.fn(data);
