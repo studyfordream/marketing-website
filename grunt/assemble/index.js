@@ -309,11 +309,9 @@ module.exports = function (grunt) {
         var start = process.hrtime();
 
         var files = config.pages.files[0];
-        console.log({foo: assemble.get('lastRunTime')});
         var opts = {
           since: (assemble.get('lastRunTime') ? new Date(assemble.get('lastRunTime')) : null)
         };
-        console.log(opts);
 
         //this excludes om pages && resources-list pages
         return assemble.src(normalizeSrc(files.cwd, files.src).concat([

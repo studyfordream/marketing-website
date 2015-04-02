@@ -96,11 +96,20 @@ module.exports = function (assemble) {
 
     pageDataMap[locale] = pageDataMap[locale] || {};
     pageDataMap[locale][dataKey] = pageDataMap[locale][dataKey] || {};
+    //if(layoutData[locale][dataKey]) {
+      //Object.keys(layoutData[locale][dataKey]).forEach(function(layoutPath){
+        //if(_.isPlainObject(pageDataMap[locale][dataKey].layouts) || !pageDataMap[locale][dataKey].layouts) {
+          //pageDataMap[locale][dataKey].layouts = [];
+        //}
+
+        //pageDataMap[locale][dataKey].layouts.push(layoutPath);
+      //});
+    //}
 
     _.forEach(file.data, function(val, key) {
       //TODO: figure out why values that are not flagged for translation are getting added to
       //pageDataMap object
-      if(ignoreKeys.indexOf(key) === -1 && !/^(MD|TR|HTML)_/.test(key)) {
+      if(ignoreKeys.indexOf(key) === -1 && /^(MD|TR|HTML)_/.test(key)) {
         pageDataMap[locale][dataKey][key] = val;
       }
     });
@@ -132,20 +141,9 @@ module.exports = function (assemble) {
     this.push(file);
     cb();
   }, function (cb) {
-
     //merge the external YML
     _.forEach(pageData[websiteRoot], function(val, fp) {
       pageDataMap[websiteRoot][fp] = _.merge({}, pageDataMap[websiteRoot][fp], val);
-    });
-
-    //add the page content to page data after parsing
-    _.forEach(lang[websiteRoot], function(val, fp) {
-      if(val.HTML_page_content) {
-        if(!pageDataMap[websiteRoot][fp]) {
-          pageDataMap[websiteRoot][fp] = {};
-        }
-        pageDataMap[websiteRoot][fp].page_content = val.HTML_page_content;
-      }
     });
 
     //add the layout data
@@ -315,6 +313,11 @@ module.exports = function (assemble) {
           return o;
         }, {});
 
+        //add the page content to page data after parsing
+        _.forEach(lang[websiteRoot], function(val, fp) {
+          _.merge(pageDataMap[websiteRoot][fp], _.clone(val));
+        });
+
         try{
 
           //iterate through locales to create a `translated` object
@@ -370,9 +373,9 @@ module.exports = function (assemble) {
                * if they do not have their own templates or yml files in subfolders.
                *
                */
-              _.forEach(lang[websiteRoot], function(val, fp) {
+              _.forEach(pageDataMap[websiteRoot], function(val, fp) {
                 var subfolderPath = fp.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
-                if(!pageData[locale][subfolderPath]) {
+                if(!pageDataMap[locale][subfolderPath]) {
                   val = _.clone(val);
                   //have to merge here or lose values not flagged for translation
                   pageDataMap[locale][subfolderPath] = _.merge({}, pageData[websiteRoot][fp] || {}, val);
@@ -538,6 +541,16 @@ module.exports = function (assemble) {
         cb();
       });
     } else {
+      //add the page content to page data after parsing
+      _.forEach(lang[websiteRoot], function(val, fp) {
+        if(val.HTML_page_content) {
+          if(!pageDataMap[websiteRoot][fp]) {
+            pageDataMap[websiteRoot][fp] = {};
+          }
+          pageDataMap[websiteRoot][fp].page_content = val.HTML_page_content;
+        }
+      });
+
       removeTranslationKeys(pageDataMap);
       removeTranslationKeys(globalData);
       assemble.set('dicts', {});
