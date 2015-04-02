@@ -157,7 +157,7 @@ module.exports = function (grunt) {
     var loadResources = function loadResources() {
       //set rename key to longer format, fp without extension
       assemble.option('renameKey', function(fp) {
-        return path.join(path.dirname(fp), path.basename(fp, path.extname(fp)));
+        return generateKey(fp);
       });
 
       var resourceFiles = config.resources.files[0];
@@ -303,6 +303,13 @@ module.exports = function (grunt) {
           console.log('finished rendering pages om', end);
         });
     }
+    var ignore = [
+      'src',
+      'dest',
+      'assets',
+      'public',
+      '_assets'
+    ];
 
     function buildPages (reload) {
       return function () {
@@ -328,6 +335,13 @@ module.exports = function (grunt) {
           })
           .on('data', function(file) {
              logData(file.path, 'pages');
+             var data = Object.keys(file.data).reduce(function(o, key) {
+               if(ignore.indexOf(key) === -1) {
+                 o[key] = file.data[key];
+               }
+               return o;
+             }, {});
+             console.log(Object.keys(data));
           })
           .on('end', function () {
             var end = process.hrtime(start);
@@ -346,6 +360,13 @@ module.exports = function (grunt) {
         .pipe(assemble.dest(path.join(files.dest, 'partners')))
         .on('data', function(file) {
            logData(file.path, 'partners');
+           var data = Object.keys(file.data).reduce(function(o, key) {
+              if(ignore.indexOf(key) === -1) {
+                o[key] = file.data[key];
+              }
+              return o;
+           }, {});
+           console.log(Object.keys(data));
         })
         .on('end', function () {
           var end = process.hrtime(start);
@@ -368,7 +389,7 @@ module.exports = function (grunt) {
 
     assemble.task('done', ['pages', 'partners'], done);
 
-    assemble.task('layouts:pages', ['loadAll'], buildPages());
+    assemble.task('layouts:pages', ['loadAll', 'prep-smartling'], buildPages());
     assemble.task('layouts:partners', ['loadAll', 'prep-smartling'], buildPartners);
     assemble.task('layouts:om', ['loadAll'], buildOm);
     assemble.task('build:all', ['loadAll'], function() {
