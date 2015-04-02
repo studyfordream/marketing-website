@@ -44,11 +44,11 @@ var $filterRow = $('#filter-row'),
 $window.on('scroll', function(e) {
   var scrollTop = $window.scrollTop();
   if (scrollTop < 200) {
-    $filterRow.removeClass('fixed-filter');
+    //$filterRow.removeClass('fixed-filter');
     $dayOneNav.removeClass('up-arrow');
     $dayOneNav.addClass('agenda-day--active');
   } else if (scrollTop >= 200) {
-    $filterRow.addClass('fixed-filter');
+    //$filterRow.addClass('fixed-filter');
     if (scrollTop < dayTwoDistanceFromTop) { // activate day one
       $dayOneNav.addClass('agenda-day--active up-arrow');
       $dayTwoNav.removeClass('agenda-day--active up-arrow');
@@ -104,13 +104,23 @@ $dropdownElems.click(function(event) {
 
 // The first child of each time slot shouldn't have margin-top
 // but every following item should
-function applyTopMargin() {
+function changeTalkVisibility() {
   $eventsContainers.each(function(index, eventContainer) {
-    $(eventContainer).children()
+    var visibleTalks = $(eventContainer).children()
     .filter(function(index, item) {
       return $(item).css('display') !== 'none';
-    })
-    .each(function(index, event) {
+    });
+
+
+    // If no talks match filter criteria,
+    // hide the time slot
+    if (visibleTalks.length === 0) {
+      $(this).parent().hide();
+    } else {
+      $(this).parent().show();
+    }
+
+    visibleTalks.each(function(index, event) {
       var $event = $(event);
       if (index === 0) {
         $event.css('margin-top', 0);
@@ -142,7 +152,7 @@ $filterListItem.on('click', function(event) {
       }
     });
   }
-  applyTopMargin();
+  changeTalkVisibility();
   calculateDayTwoDistanceFromTop();
 });
 
@@ -155,5 +165,5 @@ $('.js-reset').on('click', function(event) {
   $filterListItem.each(function(eIndex, eventItem) {
     $(this).removeClass('selected');
   });
-  applyTopMargin();
+  changeTalkVisibility();
 });

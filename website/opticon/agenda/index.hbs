@@ -50,7 +50,7 @@ external_script:
   {{#each days}}
   <h3 id="{{this.html_id}}" class="description-title adelle-sans">{{this.title}}</h3>
     {{#each this.time_slots}}
-      <div class="time-slot">
+      <div class="time-slot js-time-slot">
         <h4 class="time-slot__time adelle-sans">{{this.start_time}}</h4>
         <div class="time-slot__content js-events">
           {{#if this.title}}
