@@ -126,19 +126,12 @@ module.exports = function (assemble) {
      */
     if(Object.keys(parsedTranslations).length > 0) {
       lang[locale] = lang[locale] || {};
-      //pageDataMap[locale] = pageDataMap[locale] || {};
-      //pageDataMap[locale][dataKey] = pageDataMap[locale][dataKey] || {};
       lang[locale][dataKey] = extend({}, lang[locale][dataKey], parsedTranslations);
-
-      //pageDataMap only contains translations and layout data to append in middleware
-      //pageDataMap[locale][dataKey] = _.clone(lang[locale][dataKey]);
     }
 
     this.push(file);
     cb();
   }, function (cb) {
-    //console.log(pageDataMap);
-    //console.log(layoutData);
 
     //merge the external YML
     _.forEach(pageData[websiteRoot], function(val, fp) {
@@ -466,41 +459,7 @@ module.exports = function (assemble) {
               console.log('ERROR 3', e);
             }
 
-
-            /**
-             * Function is some sort of hack to get missing YFM on the page data object. Seems unnecessary but when
-             * I tried to attach this directly on the pageData object initially in the first through function I got errors
-             *
-             */
-            //try {
-
-              //specialTypes.forEach(function(type) {
-                //_.forEach(pageDataMap[type], function(val, fp) {
-                  //var data = pageData[locale][fp];
-                  //if(data) {
-                    //pageData[locale][fp] = _.merge({}, val, data);
-                  //}
-                //});
-              //});
-
-            //} catch(e) {
-              //console.log('ERROR 4', e);
-            //}
-
           });
-
-          /**
-           * Function again some sort of hack to get missing YFM on the page data object.
-           *
-           */
-          //_.forEach(pageDataMap[websiteRoot], function(val, fp) {
-            //var data = pageData[websiteRoot][fp];
-            //if(data) {
-              //pageData[websiteRoot][fp] = _.merge({}, val, data);
-            //} else {
-              //pageData[websiteRoot][fp] = val;
-            //}
-          //});
 
           removeTranslationKeys(pageDataMap);
 
@@ -579,37 +538,6 @@ module.exports = function (assemble) {
         cb();
       });
     } else {
-      //merge the external YML
-      //_.forEach(pageData[websiteRoot], function(val, fp) {
-        //pageDataMap[websiteRoot][fp] = _.merge({}, pageDataMap[websiteRoot][fp], val);
-      //});
-
-      ////add the page content to page data after parsing
-      //_.forEach(lang[websiteRoot], function(val, fp) {
-        //if(val.HTML_page_content) {
-          //if(!pageDataMap[websiteRoot][fp]) {
-            //pageDataMap[websiteRoot][fp] = {};
-          //}
-          //pageDataMap[websiteRoot][fp].page_content = val.HTML_page_content;
-        //}
-      //});
-
-      //add the layout data
-      //_.forEach(layoutData[websiteRoot], function(layoutObj, fp) {
-
-        //_.forEach(layoutObj, function(val, layoutPath) {
-          //var data = pageDataMap[websiteRoot][fp];
-          ////account for missing pages with no previous data
-          //if(data) {
-            //_.merge(pageDataMap[websiteRoot][fp], val);
-          //} else {
-            //pageDataMap[websiteRoot][fp] = val;
-          //}
-        //});
-
-        ////delete pageDataMap[websiteRoot][fp].layouts;
-      //});
-
       removeTranslationKeys(pageDataMap);
       removeTranslationKeys(globalData);
       assemble.set('dicts', {});
