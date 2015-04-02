@@ -36,7 +36,25 @@ module.exports = function collection (name, options) {
     return data;
   });
 
-  var html = _.sortBy(collectionData, 'priority').map(function(data) {
+  var sortParam, sortBool;
+
+  switch(name) {
+    case 'resources':
+      sortParam = 'priority';
+      sortBool = false;
+      break;
+    case 'solutions':
+      sortParam = 'stars';
+      sortBool = false;
+      break;
+    case 'integrations':
+      sortParam = 'title';
+      sortBool = true;
+      break;
+  }
+  console.log(name, sortParam, sortBool);
+
+  var html = _.sortByOrder(collectionData, sortParam, sortBool).map(function(data) {
     return options.fn(data);
   }).join('\n');
   return html;
