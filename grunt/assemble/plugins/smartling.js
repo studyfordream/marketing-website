@@ -536,7 +536,7 @@ module.exports = function (assemble) {
 
         assemble.set('rootData', pageDataMap[websiteRoot]);
         assemble.set('translated', translated);
-        assemble.set('data', globalData);
+        //assemble.set('data', globalData);
 
         cb();
       });

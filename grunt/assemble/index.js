@@ -68,6 +68,8 @@ module.exports = function (grunt) {
       }
     }
 
+    //assemble.option('mergePartials', require('./utils/merge-partials').bind(assemble));
+
     //set the global data from external YML & env config
     //special key for YML data for translation dictionary retrieval
     var loadGlobalData = function loadGlobalData() {
@@ -341,12 +343,13 @@ module.exports = function (grunt) {
                }
                return o;
              }, {});
-             console.log(Object.keys(data));
+             // console.log(Object.keys(data));
           })
           .on('end', function () {
             var end = process.hrtime(start);
             console.log('finished rendering pages', end);
             assemble.set('lastRunTime', new Date());
+            // console.log(assemble.get('data'));
           });
       };
     }
@@ -366,13 +369,38 @@ module.exports = function (grunt) {
               }
               return o;
            }, {});
-           console.log(Object.keys(data));
+           //console.log(Object.keys(data));
         })
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished rendering partners', end);
         });
     }
+
+    assemble.task('subfolders', ['pages'],  function () {
+      var start = process.hrtime();
+      var files = config.pages.files[0];
+
+      /* jshint ignore:start */
+      assemble['subfolder']({
+        src: [
+          '**/*.hbs',
+          '!' + omSrc
+        ],
+        fallback: [ '**/*.hbs', '!resources/resources-list/**/*' ]
+      });
+      /* jshint ignore:end */
+      return push('subfolders')
+      .pipe(ext())
+      .pipe(assemble.dest(files.dest))
+      //.on('data', function(d) {
+        //console.log('data', d.path);
+      //})
+      .on('end', function () {
+        var end = process.hrtime(start);
+        console.log('finished rendering subfolder', end);
+      });
+    });
 
     assemble.task('loadAll', ['resetLastRunTime'], loadAll);
     assemble.task('loadOm', loader(loadOmLayouts));

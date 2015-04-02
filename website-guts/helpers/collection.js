@@ -9,6 +9,7 @@ module.exports = function collection (name, options) {
   //template the data into the hbs and join the strings
   //sort the collection order by the priority key
   var app = this.app;
+  // console.log(this.context);
   var websiteRoot = this.app.get('data.websiteRoot');
   var subfoldersRoot = this.app.get('data.subfoldersRoot');
   var translated = this.app.get('translated');

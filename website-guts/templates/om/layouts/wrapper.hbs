@@ -189,7 +189,7 @@
         <script src="{{assetsDir}}/js/om/pages/{{this.page_script}}"></script>
         {{/if}}
         {{#if environmentVariables.production}}
-        {{partial 'ad_tags'}}
+        {{> ad_tags}}
         {{/if}}
     </body>
 </html>
