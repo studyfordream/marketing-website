@@ -19,6 +19,7 @@ module.exports = function (grunt) {
     var mergeLayoutContext = require('./plugins/merge-layout-context');
     var collectionMiddleware = require('./middleware/onload-collection')(assemble);
     var mergeTranslatedData = require('./middleware/merge-translated-data');
+    var resourceListType = require('./plugins/store-resource-list-types');
     var sendToSmartling = require('./plugins/smartling');
     var typeLoader = require('./loaders/type-loader');
     var push = require('assemble-push')(assemble);
@@ -224,6 +225,9 @@ module.exports = function (grunt) {
     //order is important here because we want to merge layouts before translating
     //assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
     assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
+    //assemble.preRender(/\/resources\-list\//, function(file, next) {
+      //next();
+    //});
 
     //localize link path after locale is appended in the translate data middleware
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
@@ -272,6 +276,7 @@ module.exports = function (grunt) {
       return assemble.src(hbsPaths, { since: (assemble.get('lastRunTime')?new Date(assemble.get('lastRunTime')):null)})
         .pipe(extractLayoutContext(assemble))
         .pipe(sendToSmartling(assemble))
+        .pipe(resourceListType(assemble))
         .on('error', function (err) {
           console.log('plugin error', err);
         })

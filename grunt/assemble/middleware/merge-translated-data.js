@@ -15,7 +15,7 @@ module.exports = function(assemble) {
   return function mergeTranslatedData (file, next) {
     var lang = assemble.get('lang');
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
-    var pageData = assemble.get('pageData')[websiteRoot];
+    var pageData = assemble.get('rootData');
     var translated = assemble.get('translated');
     var dicts = assemble.get('dicts');
     var filePathData = parseFilePath(file.path);

@@ -91,6 +91,7 @@ module.exports = function (assemble) {
       if(file.data.layouts) {
         layoutData[locale][dataKey] = file.data.layouts;
       }
+      delete file.data.layouts;
     }
 
     pageDataMap[locale] = pageDataMap[locale] || {};
@@ -410,6 +411,10 @@ module.exports = function (assemble) {
 
               _.forEach(layoutObj, function(val, layoutPath) {
                 var clone = _.clone(val);
+                if(_.isPlainObject(pageDataMap[locale][fp].layouts) || !pageDataMap[locale][fp].layouts) {
+                  pageDataMap[locale][fp].layouts = [];
+                }
+                pageDataMap[locale][fp].layouts.push(layoutPath);
                 //must translate here because need the layout key path
                 objParser.translate(clone, translations[dictKey][layoutPath]);
                 _.merge(pageDataMap[locale][fp], clone);
@@ -567,7 +572,7 @@ module.exports = function (assemble) {
         }
         //console.log(pageDataMap);
 
-        assemble.set('pageData', pageDataMap);
+        assemble.set('rootData', pageDataMap[websiteRoot]);
         assemble.set('translated', translated);
         assemble.set('data', globalData);
 
@@ -608,7 +613,7 @@ module.exports = function (assemble) {
       removeTranslationKeys(pageDataMap);
       removeTranslationKeys(globalData);
       assemble.set('dicts', {});
-      assemble.set('pageData', pageDataMap);
+      assemble.set('rootData', pageDataMap[websiteRoot]);
       cb();
     }
   });
