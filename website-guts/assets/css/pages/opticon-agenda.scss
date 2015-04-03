@@ -1,13 +1,22 @@
 body.opticon-agenda {
-  .row { padding: 25px 0; }
+  // necessary to get fixed bar on mobile
+  #inner-wrapper { transform: none; }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 25px 0;
+  }
   .agenda-day {
     display: inline;
-    margin-right: 50px;
     color: #ccc;
     line-height: 38px;
     font-size: 1.25em;
     &--active { color: #0081BA; }
     &:hover { text-decoration: underline; }
+  }
+  .day-link {
+    margin: 0 auto;
   }
   .up-arrow {
     &:after { content: '   ↑'; }
@@ -15,6 +24,7 @@ body.opticon-agenda {
   .pill--opticon {
     float: right;
     border-radius: 0;
+    margin: 0 30px;
     & > * { padding: 9px 15px; }
     & > .active {
       background-color: white;
@@ -38,13 +48,14 @@ body.opticon-agenda {
     position: fixed;
     background: white;
     z-index: 100;
-    width: 68%;
+    width: 100%;
     top: 0;
   }
   .time-slot {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 50px 0;
-    max-width: 83%;
     &__time {
       min-width: 100px;
       margin: 0;
@@ -95,10 +106,31 @@ body.opticon-agenda {
 
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon-agenda {
+    .row {
+      display: block;
+    }
+    .agenda-day {
+      margin-right: 50px;
+    }
+    .event-cont,
+    .event-title {
+      text-align: left;
+    }
+    .time-slot {
+      max-width: 83%;
+      flex-wrap: nowrap;
+      margin: 50px 5px;
+    }
+    .fixed-filter {
+      width: 100%;
+    }
   }
 }
 
  @media only screen and (min-width: $desktop-min-width) {
   body.opticon-agenda {
+    .fixed-filter {
+      width: 68%;
+    }
   }
  }
