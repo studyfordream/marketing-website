@@ -69,7 +69,7 @@ layout_script: benefits.js
         {% body %}
         <div class="attention center-desktop row">
           {{#with cta}}
-          <h3>{{h3}} <a href="{{linkPath}}/{{a.link}}" class="primary-button">{{a.text}}</a></h3>
+          <h3>{{h3}} <a href="{{../linkPath}}/{{a.link}}" class="primary-button">{{a.text}}</a></h3>
           {{/with}}
         </div>
         {{#unless this.no_container}}</div><!--/.container-->{{/unless}}
