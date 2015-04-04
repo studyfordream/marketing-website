@@ -70,20 +70,35 @@ module.exports = function (grunt) {
 
     //assemble.option('mergePartials', require('./utils/merge-partials').bind(assemble));
 
+    var globalKeyCache = [];
     //set the global data from external YML & env config
     //special key for YML data for translation dictionary retrieval
     var loadGlobalData = function loadGlobalData() {
       assemble.data(options.data, {
         namespace: function(fp) {
+          var filenameKey = path.basename(fp, path.extname(fp));
+
           if(/global\_/.test(fp)) {
+            if(globalKeyCache.indexOf(filenameKey) === -1) {
+             globalKeyCache.push(filenameKey);
+            }
             return generateKey(fp);
           }
-          return path.basename(fp, path.extname(fp));
+          return filenameKey;
         }
       });
+      var data = assemble.get('data');
+
+      for(var key in data) {
+        if(globalKeyCache.indexOf(key) !== -1) {
+          //remove mutations to global data
+          delete data[key];
+        }
+      }
       //add the additonal data options with the standard key
       var addOptions = _.omit(options, 'data');
       assemble.data(addOptions);
+      console.log(Object.keys(data));
     };
 
 
@@ -288,23 +303,24 @@ module.exports = function (grunt) {
         });
     });
 
-    function buildOm() {
-      var start = process.hrtime();
-      var files = config[ppcKey].files[0];
+    var buildOm = function buildOm() {
+        var start = process.hrtime();
+        var files = config[ppcKey].files[0];
 
-      return assemble.src([omSrc])
+        return assemble.src([omSrc])
         .pipe(extractLayoutContext(assemble))
         .pipe(mergeLayoutContext())
         .pipe(ext())
         .pipe(assemble.dest(path.join(files.dest, ppcKey)))
         .on('data', function(file) {
-           logData(file.path, 'om-pages');
+          logData(file.path, 'om-pages');
         })
         .on('end', function () {
           var end = process.hrtime(start);
           console.log('finished rendering pages om', end);
         });
-    }
+    };
+
     var ignore = [
       'src',
       'dest',
@@ -313,8 +329,7 @@ module.exports = function (grunt) {
       '_assets'
     ];
 
-    function buildPages (reload) {
-      return function () {
+    var buildPages = function buildPages (reload) {
         var start = process.hrtime();
 
         var files = config.pages.files[0];
@@ -351,31 +366,30 @@ module.exports = function (grunt) {
             assemble.set('lastRunTime', new Date());
             // console.log(assemble.get('data'));
           });
-      };
-    }
+    };
 
-    function buildPartners() {
-      var start = process.hrtime();
+    var buildPartners = function buildPartners() {
+        var start = process.hrtime();
 
-      var files = config.partners.files[0];
-      return assemble.src(normalizeSrc(files.cwd, files.src))
-        .pipe(ext())
-        .pipe(assemble.dest(path.join(files.dest, 'partners')))
-        .on('data', function(file) {
-           logData(file.path, 'partners');
-           var data = Object.keys(file.data).reduce(function(o, key) {
-              if(ignore.indexOf(key) === -1) {
-                o[key] = file.data[key];
-              }
-              return o;
-           }, {});
-           //console.log(Object.keys(data));
-        })
-        .on('end', function () {
-          var end = process.hrtime(start);
-          console.log('finished rendering partners', end);
-        });
-    }
+        var files = config.partners.files[0];
+        return assemble.src(normalizeSrc(files.cwd, files.src))
+          .pipe(ext())
+          .pipe(assemble.dest(path.join(files.dest, 'partners')))
+          .on('data', function(file) {
+             logData(file.path, 'partners');
+             var data = Object.keys(file.data).reduce(function(o, key) {
+                if(ignore.indexOf(key) === -1) {
+                  o[key] = file.data[key];
+                }
+                return o;
+             }, {});
+             //console.log(Object.keys(data));
+          })
+          .on('end', function () {
+            var end = process.hrtime(start);
+            console.log('finished rendering partners', end);
+          });
+    };
 
     assemble.task('subfolders', ['pages'],  function () {
       var start = process.hrtime();
@@ -406,8 +420,8 @@ module.exports = function (grunt) {
     assemble.task('loadOm', loader(loadOmLayouts));
 
     assemble.task('om-pages', buildOm);
-    assemble.task('pages', ['prep-smartling'], buildPages());
-    assemble.task('rebuild:pages', buildPages());
+    assemble.task('pages', ['prep-smartling'], buildPages);
+    assemble.task('rebuild:pages', buildPages);
     assemble.task('partners', ['prep-smartling'], buildPartners);
 
     assemble.task('resetLastRunTime', function (cb) {
@@ -417,13 +431,11 @@ module.exports = function (grunt) {
 
     assemble.task('done', ['pages', 'partners'], done);
 
-    assemble.task('layouts:pages', ['loadAll', 'prep-smartling'], buildPages());
+    assemble.task('layouts:pages', ['loadAll', 'prep-smartling'], buildPages);
     assemble.task('layouts:partners', ['loadAll', 'prep-smartling'], buildPartners);
-    assemble.task('layouts:om', ['loadAll'], buildOm);
-    assemble.task('build:all', ['loadAll'], function() {
-      buildOm();
-      buildPages();
-      buildPartners();
+    assemble.task('layouts:om', ['loadOm'], buildOm);
+    assemble.task('build:all', ['loadAll', 'om-pages', 'pages', 'partners'], function() {
+      console.log('BUILD COMPLETE');
     });
 
     assemble.task('watch', ['om-pages', 'partners', 'pages'], function () {
@@ -435,29 +447,43 @@ module.exports = function (grunt) {
       ], ['layouts:om']);
 
       //rebuild all pages if layout changes that isn't partners layout
+      //page layout references partners and pages
       assemble.watch([
         'website-guts/templates/layouts/**/*.hbs',
         '!website-guts/templates/layouts/partners.hbs',
-        'website-guts/templates/om/**/*.hbs'
+        '!website-guts/templates/layouts/page.hbs',
+        '!website-guts/templates/om/**/*.hbs'
       ], ['layouts:pages']);
+
+      assemble.watch([
+        'website-guts/templates/layouts/page.hbs',
+      ], ['build:all']);
 
       //rebuild a single page
       assemble.watch([
         'website/**/*.hbs',
         '!website/partners/**/*.hbs',
+        '!website/om/**/*.hbs'
       ], ['rebuild:pages']);
 
       //rebuild all pages and layouts if yml changes
       assemble.watch([
         'website/**/*.{yml,yaml,json}',
-        '!website/partners/**/*.{yml,yaml,json}',
+        '!website/**/global_*.{yml,yaml,json}',
+        '!website/partners/**/*.{yml,yaml,json}'
       ], ['layouts:pages']);
 
       //rebuild all partners pages if a partners page or partners layout changes
       assemble.watch([
         'website/partners/**/*.{hbs,yml,yaml,json}',
-        'website-guts/templates/layouts/partners.hbs'
-      ], ['partners']);
+        '!website/**/global_*.{yml,yaml,json}',
+        'website-guts/templates/layouts/partners.hbs',
+        'website-guts/templates/layouts/page.hbs',
+      ], ['layouts:partners']);
+
+      assemble.watch([
+        'website/**/global_*.{yml,yaml,json}',
+      ], ['build:all']);
 
       //if partials or components change then rebuild everything
       assemble.watch([

@@ -48,6 +48,7 @@ module.exports = {
     },
     files: [
       '<%= config.dist %>/**/*.html',
+      '!<%= config.dist %>/partners/**/*.html',
       '<%= config.dist %>/assets/**/*.{css,js}'
     ]
   }
