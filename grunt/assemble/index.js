@@ -98,7 +98,6 @@ module.exports = function (grunt) {
       //add the additonal data options with the standard key
       var addOptions = _.omit(options, 'data');
       assemble.data(addOptions);
-      console.log(Object.keys(data));
     };
 
 
@@ -358,7 +357,7 @@ module.exports = function (grunt) {
                }
                return o;
              }, {});
-             // console.log(Object.keys(data));
+              //console.log(Object.keys(data).length);
           })
           .on('end', function () {
             var end = process.hrtime(start);

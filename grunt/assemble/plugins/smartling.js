@@ -553,7 +553,6 @@ module.exports = function (assemble) {
 
       removeTranslationKeys(pageDataMap);
       removeTranslationKeys(globalData);
-      console.log(Object.keys(globalData));
       assemble.set('dicts', {});
       assemble.set('rootData', pageDataMap[websiteRoot]);
       cb();
