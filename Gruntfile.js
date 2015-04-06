@@ -79,7 +79,7 @@ module.exports = function(grunt) {
     'jshint:server',
     'jshint:test',
     'clean:preBuild',
-    'assemble:dev',
+    'assemble',
     'handlebars',
     'modernizr',
     'concat',
@@ -101,15 +101,8 @@ module.exports = function(grunt) {
       }
     })[0];
 
-    if(which === 'test') {
-      switch(assembleTask.indexOf(':')) {
-        case -1:
-          assembleTask += (':' + which);
-          break;
-        default:
-          assembleTask += ('@@' + which);
-          break;
-      }
+    if(which) {
+      assembleTask += (':' + which);
       serverTasks[cachedI] = assembleTask;
     }
 

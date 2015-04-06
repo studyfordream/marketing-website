@@ -23,6 +23,7 @@ module.exports = function (grunt) {
     var sendToSmartling = require('./plugins/smartling');
     var typeLoader = require('./loaders/type-loader');
     var push = require('assemble-push')(assemble);
+    var buildInitialized = false;
     var assembleTasks = [
       'om-pages',
       'prep-smartling',
@@ -56,16 +57,9 @@ module.exports = function (grunt) {
     var ppcKey = options.ppcKey;
 
     if(target) {
-      switch(target.indexOf('@@')) {
-        case -1:
-          assemble.set('env', target);
-          break;
-        default:
-          var split = target.split('@@');
-          target = split[0];
-          assemble.set('env', split[1]);
-          break;
-      }
+      assemble.set('env', target);
+    } else {
+      assemble.set('env', options.environment);
     }
 
     //assemble.option('mergePartials', require('./utils/merge-partials').bind(assemble));
@@ -171,6 +165,7 @@ module.exports = function (grunt) {
     };
 
     var loadResources = function loadResources() {
+      var currentRenameKey = assemble.option('renameKey');
       //set rename key to longer format, fp without extension
       assemble.option('renameKey', function(fp) {
         return generateKey(fp);
@@ -178,6 +173,8 @@ module.exports = function (grunt) {
 
       var resourceFiles = config.resources.files[0];
       assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
+
+      assemble.option('renameKey', currentRenameKey);
     };
 
     var loadPageYml = function loadPageYml() {
@@ -188,8 +185,12 @@ module.exports = function (grunt) {
       Object.keys(options.locales).forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}']));
     };
 
-    var loadAll = function loadAll() {
-      loadGlobalData();
+    var loadAll = function loadAll(watchRunning) {
+      //load the files for the resources collection
+      if(watchRunning) {
+        loadGlobalData();
+        loadResources();
+      }
 
       loader([
         loadLayouts,
@@ -198,19 +199,18 @@ module.exports = function (grunt) {
         loadModals
       ])();
 
-      //load the files for the resources collection
-      loadResources();
-
       //load external YML files and scope locally, while omitting global YML
       loadPageYml();
       loadSubfolderYml();
     };
 
-    loadAll();
+    loadGlobalData();
 
     // custom middleware for `resources` to add front-matter (`data`)
     // to the assemble cache. (`assemble.get('resources').foo`)
     assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
+    loadResources();
+
     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
 
@@ -415,13 +415,20 @@ module.exports = function (grunt) {
       });
     });
 
-    assemble.task('loadAll', ['resetLastRunTime'], loadAll);
+    assemble.task('loadAll', ['resetLastRunTime'], function() {
+      if(buildInitialized) {
+        loadAll(true);
+      } else {
+        buildInitialized = true;
+        loadAll();
+      }
+    });
     assemble.task('loadOm', loader(loadOmLayouts));
 
     assemble.task('om-pages', buildOm);
     assemble.task('pages', ['prep-smartling'], buildPages);
-    assemble.task('rebuild:pages', buildPages);
     assemble.task('partners', ['prep-smartling'], buildPartners);
+    assemble.task('rebuild:pages', buildPages);
 
     assemble.task('resetLastRunTime', function (cb) {
       assemble.set('lastRunTime', null);
@@ -433,9 +440,7 @@ module.exports = function (grunt) {
     assemble.task('layouts:pages', ['loadAll', 'prep-smartling'], buildPages);
     assemble.task('layouts:partners', ['loadAll', 'prep-smartling'], buildPartners);
     assemble.task('layouts:om', ['loadOm'], buildOm);
-    assemble.task('build:all', ['loadAll', 'om-pages', 'pages', 'partners'], function() {
-      console.log('BUILD COMPLETE');
-    });
+    assemble.task('build:all', ['loadAll', 'om-pages', 'pages', 'partners']);
 
     assemble.task('watch', ['om-pages', 'partners', 'pages'], function () {
 
@@ -449,13 +454,17 @@ module.exports = function (grunt) {
       //page layout references partners and pages
       assemble.watch([
         'website-guts/templates/layouts/**/*.hbs',
+        '!website-guts/templates/layouts/{modal_wrapper,wrapper}.hbs',
         '!website-guts/templates/layouts/partners.hbs',
         '!website-guts/templates/layouts/page.hbs',
         '!website-guts/templates/om/**/*.hbs'
       ], ['layouts:pages']);
 
       assemble.watch([
+        'website/**/global_*.{yml,yaml,json}',
+        'website-guts/templates/layouts/{modal_wrapper,wrapper}.hbs',
         'website-guts/templates/layouts/page.hbs',
+        'website-guts/templates/{partials,components}/**/*.hbs'
       ], ['build:all']);
 
       //rebuild a single page
@@ -463,7 +472,7 @@ module.exports = function (grunt) {
         'website/**/*.hbs',
         '!website/partners/**/*.hbs',
         '!website/om/**/*.hbs'
-      ], ['rebuild:pages']);
+      ], ['layouts:pages']);
 
       //rebuild all pages and layouts if yml changes
       assemble.watch([
@@ -475,29 +484,28 @@ module.exports = function (grunt) {
       //rebuild all partners pages if a partners page or partners layout changes
       assemble.watch([
         'website/partners/**/*.{hbs,yml,yaml,json}',
-        '!website/**/global_*.{yml,yaml,json}',
-        'website-guts/templates/layouts/partners.hbs',
-        'website-guts/templates/layouts/page.hbs',
+        '!website/partners/**/global_*.{yml,yaml,json}',
+        'website-guts/templates/layouts/partners.hbs'
       ], ['layouts:partners']);
-
-      assemble.watch([
-        'website/**/global_*.{yml,yaml,json}',
-      ], ['build:all']);
-
-      //if partials or components change then rebuild everything
-      assemble.watch([
-        'website-guts/templates/{partials,components}/**/*.hbs'
-      ], ['build:all']);
 
     });
 
-    var addTasks = ['done'];
+    var tasks, env = assemble.get('env');
 
-    if(target === 'dev') {
-      addTasks.unshift('watch');
+    if(env === 'dev' || env === 'test') {
+      tasks = [
+        'build:all',
+        'watch',
+        'done'
+      ];
+    } else {
+      tasks = [
+        'build:all',
+        'done'
+      ];
     }
 
-    assemble.run(assembleTasks.concat(addTasks));
+    assemble.run(tasks);
 
   });
   return {};
