@@ -1,0 +1,29 @@
+---
+layout: opticon.hbs
+seo_title: Opticon VIP
+no_container: true
+no_header: true
+no_footer: true
+body_class:
+- opticon
+- opticon-vip
+og_title: "Opticon 2015"
+og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
+external_script:
+- //use.typekit.net/ucj0cgp.js
+---
+
+<div class="page-content paragraphs-container container">
+  {{#with opticon_vip}}
+  <h2 class="page-title common-page-title adelle-sans--bold">{{{title}}}</h2>
+  <h3 class="description-title adelle-sans">{{subtitle}}</h3>
+  <p class="description-text adelle-sans">{{blurb}}</p>
+  <ul>
+    {{#each list_items}}
+    <li>{{this}}</li>
+    {{/each}}
+  </ul>
+  {{/with}}
+</div>
+
+{{> opticon_register}}
