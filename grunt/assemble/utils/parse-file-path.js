@@ -3,7 +3,6 @@
 var path = require('path');
 var fs = require('fs');
 var _ = require('lodash');
-var extend = require('extend-shallow');
 /**
  * Use to parse info from filepath such as what type of file object it is
  * local (website|de|jp)

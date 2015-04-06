@@ -62,8 +62,6 @@ module.exports = function (grunt) {
       assemble.set('env', options.environment);
     }
 
-    //assemble.option('mergePartials', require('./utils/merge-partials').bind(assemble));
-
     var globalKeyCache = [];
     //set the global data from external YML & env config
     //special key for YML data for translation dictionary retrieval
