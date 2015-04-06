@@ -12,8 +12,11 @@ body.opticon-agenda {
     color: #ccc;
     line-height: 38px;
     font-size: 1.25em;
-    &--active { color: #0081BA; }
-    &:hover { text-decoration: underline; }
+    &--active { color: $opticon-brand-blue; }
+    &:hover {
+      text-decoration: underline;
+      color: $opticon-brand-blue;
+    }
   }
   .day-link {
     margin: 0 auto;
@@ -24,7 +27,7 @@ body.opticon-agenda {
   .pill--opticon {
     float: right;
     border-radius: 0;
-    margin: 0 30px;
+    margin: 0 auto;
     & > * { padding: 9px 15px; }
     & > .active {
       background-color: white;
@@ -108,9 +111,10 @@ body.opticon-agenda {
   body.opticon-agenda {
     .row {
       display: block;
+      text-align: left;
     }
     .agenda-day {
-      margin-right: 50px;
+      margin: 0 50px;
     }
     .event-cont,
     .event-title {
@@ -131,6 +135,9 @@ body.opticon-agenda {
   body.opticon-agenda {
     .fixed-filter {
       width: 68%;
+    }
+    .agenda-day {
+      margin-left: 0;
     }
   }
  }

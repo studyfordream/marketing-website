@@ -179,7 +179,7 @@ days:
                 company: "Hipster Granola Long Words Here"
       -
         start_time: "11:00"
-        title: "Break"
+        title: "Break in Exhibit Hall"
       -
         start_time: "11:30"
         events:
@@ -328,7 +328,7 @@ days:
                 company: "Hipster Granola Long Words Here"
       -
         start_time: "2:15"
-        title: "Break"
+        title: "Break in Exhibit Hall"
       -
         start_time: "2:35"
         events:
@@ -453,7 +453,7 @@ days:
                 company: "Hipster Granola Long Words Here"
       -
         start_time: "3:20"
-        title: "Break"
+        title: "Break in Exhibit Hall"
       -
         start_time: "3:40"
         events:
@@ -578,7 +578,7 @@ days:
                 company: "Hipster Granola Long Words Here"
       -
         start_time: "4:25"
-        title: "Break"
+        title: "Break in Exhibit Hall"
       -
         start_time: "4:45"
         events:

@@ -43,8 +43,8 @@ external_script:
         </ul>
       </div>
       <a href="#" class="filter--reset js-reset tooltip-hover adelle-sans" data-content="Reset filters">{{filter_box.reset}}</a>
-    </div>{{! pill }}
-  </div>
+    </div>{{! /pill }}
+  </div>{{! /row }}
 
   {{! Agenda }}
   {{#each days}}
@@ -71,12 +71,12 @@ external_script:
                 </div>
                 <p class="event-text adelle-sans--bold">Time: {{this.time}} | Location: {{this.location}}</p>
                 <p class="event-text adelle-sans">{{this.description}}</p>
-              </div>{{! toggle-cont }}
-            </div>{{! event-cont }}
+              </div>{{! /toggle-cont }}
+            </div>{{! /event-cont }}
           {{/each}}
-        </div>{{! time-slot__content }}
-      </div>{{! time-slot }}
+        </div>{{! /time-slot__content }}
+      </div>{{! /time-slot }}
     {{/each}}
   {{/each}}
-</div>{{! content-container }}
+</div>{{! /content-container }}
 {{/with}}

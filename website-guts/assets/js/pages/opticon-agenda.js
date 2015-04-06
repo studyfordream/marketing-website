@@ -1,25 +1,23 @@
-var dayTwoDistanceFromTop = 2890,
+var dayTwoDistanceFromTop = 3319,
+    $window = $(window),
     $dayTwo = $('#day-two');
 /*
    Recalculate the distance from the top
    in order to highlight the Days Nav
 */
 function calculateDayTwoDistanceFromTop() {
-  dayTwoDistanceFromTop = $dayTwo.offset().top;
-  console.log(dayTwoDistanceFromTop);
+  dayTwoDistanceFromTop = $dayTwo.offset().top - $window.scrollTop();
 }
 
 //Accordian for talks
 $('.js-toggle-cont').slideToggle('fast'); //all details closed to start
 $('.js-accordian-control').click(function(event) {
   $(this).nextAll('.js-arrow').toggleClass('expansion-arrow--open');
-  $(this).nextAll('.js-toggle-cont').slideToggle('fast');
-  calculateDayTwoDistanceFromTop();
+  $(this).nextAll('.js-toggle-cont').slideToggle('fast', calculateDayTwoDistanceFromTop);
 });
 $('.js-arrow').click(function(event) {
   $(this).toggleClass('expansion-arrow--open');
-  $(this).nextAll('.js-toggle-cont').slideToggle('fast');
-  calculateDayTwoDistanceFromTop();
+  $(this).nextAll('.js-toggle-cont').slideToggle('fast', calculateDayTwoDistanceFromTop);
 });
 
 // Override smoothScroll to subtrack 180
@@ -38,24 +36,24 @@ $('#day-two-link').on('click', w.optly.mrkt.utils.smoothScroll);
 
 //Scroll logic for day selection
 var $filterRow = $('#filter-row'),
-    $window = $(window),
     $dayOneNav = $('#day-one-header'),
     $dayTwoNav = $('#day-two-header');
 $window.on('scroll', function(e) {
   var scrollTop = $window.scrollTop();
+  calculateDayTwoDistanceFromTop();
   if (scrollTop < 200) {
     $filterRow.removeClass('fixed-filter');
     $dayOneNav.removeClass('up-arrow');
     $dayOneNav.addClass('agenda-day--active');
   } else if (scrollTop >= 200) {
     $filterRow.addClass('fixed-filter');
-    if (scrollTop < dayTwoDistanceFromTop) { // activate day one
+    if (dayTwoDistanceFromTop >= 150) { // activate day one
       $dayOneNav.addClass('agenda-day--active up-arrow');
       $dayTwoNav.removeClass('agenda-day--active up-arrow');
-    } else if (scrollTop >= dayTwoDistanceFromTop) { // activate day two
+    } else if (dayTwoDistanceFromTop < 150) { // activate day two
       $dayTwoNav.addClass('agenda-day--active');
       $dayOneNav.removeClass('agenda-day--active up-arrow');
-      if (scrollTop >= dayTwoDistanceFromTop + 100) {
+      if (dayTwoDistanceFromTop < 25) {
         $dayTwoNav.addClass('up-arrow');
       }
     }
@@ -130,6 +128,7 @@ function changeTalkVisibility() {
       }
     });
   });
+  calculateDayTwoDistanceFromTop();
 }
 
 //Filter logic
@@ -154,7 +153,6 @@ $filterListItem.on('click', function(event) {
     });
   }
   changeTalkVisibility();
-  calculateDayTwoDistanceFromTop();
 });
 
 // Reset -- clear all filters
