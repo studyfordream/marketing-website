@@ -1,6 +1,7 @@
-var dayTwoDistanceFromTop = 3319,
-    $window = $(window),
-    $dayTwo = $('#day-two');
+var $dayTwo = $('#day-two');
+var dayTwoDistanceFromTop = $dayTwo.offset().top,
+    $window = $(window);
+
 /*
    Recalculate the distance from the top
    in order to highlight the Days Nav
@@ -65,7 +66,7 @@ $window.on('scroll', function(e) {
   else, add it
 */
 function toggleArrayItem(array, item) {
-  var itemIndex = $.inArray(item, array);
+  var itemIndex = array.indexOf(item);
   if(itemIndex !== -1) {
     array.splice(itemIndex,1);
   } else {
@@ -95,7 +96,7 @@ $dropdownElems.click(function(event) {
   var $this = $(this);
   $this.toggleClass('active');
   $dropdownElems.not( $this ).removeClass( 'active' );
-  $this.mouseleave(function(){
+  $this.one('mouseleave', function(){
     $this.removeClass( 'active' );
   });
 });
@@ -119,12 +120,11 @@ function changeTalkVisibility() {
       $(this).parent().show();
     }
 
-    visibleTalks.each(function(index, event) {
-      var $event = $(event);
+    visibleTalks.each(function(index, visibleTalk) {
       if (index === 0) {
-        $event.css('margin-top', 0);
+        visibleTalk.style.marginTop = 0;
       } else {
-        $event.css('margin-top', '50px');
+        visibleTalk.style.marginTop = '50px';
       }
     });
   });
@@ -146,13 +146,13 @@ $filterListItem.on('click', function(event) {
       var eventFilterList = ($(eventItem).data('track') + ' ' + $(eventItem).data('roles')).split(' ');
       // if every item in filterlist isn't present on the event, hide it
       if(!isSubset(filterList, eventFilterList)) {
-        $(eventItem).hide();
+        $(eventItem).hide(200, changeTalkVisibility);
       } else {
-        $(eventItem).show();
+        $(eventItem).show(200, changeTalkVisibility);
+        //$(eventItem).show();
       }
     });
   }
-  changeTalkVisibility();
 });
 
 // Reset -- clear all filters
