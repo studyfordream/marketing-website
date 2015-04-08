@@ -1,10 +1,10 @@
 var marked = require('optimizely-marked');
-module.exports.register = function (Handlebars)  {
-  Handlebars.registerHelper('omarkdown', function (options)  {
-    marked.setOptions({
-      linkPath: options.hash.path,
-      smartypants: true
-    });
-    return marked(options.fn(this));
+var extend = require('extend-shallow');
+
+module.exports = function omarkdown (options)  {
+  marked.setOptions({
+    linkPath: this.context.linkPath,
+    smartypants: true
   });
+  return marked(options.fn(this.context));
 };

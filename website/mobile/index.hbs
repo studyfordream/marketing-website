@@ -1,18 +1,18 @@
 ---
-layout: mobile.hbs
-seo_title: Make your app more engaging
+layout: mobile
+TR_seo_title: "Mobile A/B Testing - Optimizely"
 compact_header: false
 modals:
-- video_modal_compiled
+- video_modal
 body_class:
 - mobile-page
 page_script: mobile.js
 footer_style: grey
-og_title: "Make your app more engaging"
-og_description: "Learn how to optimize your app for acquisition, engagement, and retention."
+TR_og_title: "Mobile A/B Testing from Optimizely"
+TR_og_description: "Learn how to optimize your app for acquisition, engagement, and retention."
 ---
-<section id="hero" class="panel bg-img" style="background-image: url('{{mobile_page_mvpp_data.hero.bg_img}}')">
-  {{#with mobile_page_mvpp_data.hero}}
+<section id="hero" class="panel bg-img" style="background-image: url('{{page_data.hero.bg_img}}')">
+  {{#with page_data.hero}}
     <div id="cta-variation">
       <h1>{{{title}}}</h1>
       <div class="flex-responsive">
@@ -25,7 +25,7 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
   <div id="signup-form-panel-top">
   <h1>{{{title}}}</h1>
   {{/with}}
-  {{#with mobile_page_mvpp_data.form_panel}}
+  {{#with page_data.form_panel}}
   <form action="{{../apiDomain}}/account/create" method="POST" id="mobile-signup-form-top" class="container" novalidate autocomplete="off">
     <div class="row grid-cont">
       <div class="form-grid">
@@ -57,7 +57,7 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
   <a href="#" class="video-link" data-show-video><span class="circle-arrow"></span>Watch Video</a>
   </div>
 </section>
-{{#with mobile_page_mvpp_data.top_grid}}
+{{#with page_data.top_grid}}
 <section id="fast-powerful-panel"class="panel">
   <div class="container">
     <h2><strong>{{title}}</strong></h2>
@@ -74,7 +74,7 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
   </div>
 </section>
 {{/with}}
-{{#each mobile_page_mvpp_data.panels}}
+{{#each page_data.panels}}
 <section id="panel-{{add @index 1}}" class="panel editor-demo" data-interactive-panel>
   <div class="container flex-cont">
     <div class="flex-img-cont{{#is_odd @index}} order-2{{/is_odd}}">
@@ -92,11 +92,11 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
   </div>
 </section>
 {{/each}}
-{{#with mobile_page_mvpp_data}}
+{{#with page_data}}
 <section id="customer-logos" class="panel">
   <div class="container">
     <div class="section-container">
-      {{#omarkdown}}{{{customer_logos.body}}}{{/omarkdown}}
+      {{{customer_logos.body}}}
     </div>
     <div class="icon-cont">
       {{#each customer_logos.icons}}
@@ -126,8 +126,8 @@ og_description: "Learn how to optimize your app for acquisition, engagement, and
   </div>
 </section>
 {{/with}}
-<section id="signup-form-panel-bottom" class="panel bg-img" style="background-image: url('{{mobile_page_mvpp_data.form_panel.bg_img}}')">
-{{#with mobile_page_mvpp_data.form_panel}}
+<section id="signup-form-panel-bottom" class="panel bg-img" style="background-image: url('{{page_data.form_panel.bg_img}}')">
+{{#with page_data.form_panel}}
   <h2><strong>{{title}}</strong></h2>
   <h2>{{subtitle}}</h2>
   <form action="{{../apiDomain}}/account/create" method="POST" id="mobile-signup-form-bottom" class="container" novalidate autocomplete="off">

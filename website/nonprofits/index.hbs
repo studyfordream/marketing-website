@@ -1,6 +1,6 @@
 ---
-layout: non_profits.hbs
-seo_title: Optimizely.org
+layout: non_profits
+TR_seo_title: Optimizely.org
 compact_header: true
 footer_style: grey
 external_stylesheets:
@@ -8,14 +8,14 @@ external_stylesheets:
 body_class:
 - non-profits-page
 modals:
-- nonprofits_video_modal_compiled
+- nonprofits_video_modal
 page_script: non-profits.js
 ---
 
 
-<section id="panel-1" class="panel bg-img" style="background-image: url('{{non_profit_data.panel_1.bg_img}}')">
+<section id="panel-1" class="panel bg-img" style="background-image: url('{{page_data.panel_1.bg_img}}')">
   <div class="container">
-{{#with non_profit_data.panel_1}}
+{{#with page_data.panel_1}}
     <h1>{{{header}}}</h1>
     <p>{{text}}</p>
     <a href="#panel-5" class="outline-button slide-button" smooth-scroll>{{button_text}}</a>
@@ -25,16 +25,16 @@ page_script: non-profits.js
 <section id="panel-2" class="panel">
   <div class="container">
     <div class="row">
-      {{#with non_profit_data.panel_2}}
+      {{#with page_data.panel_2}}
       <div class="columns six left-content">
         <div class="show-mobile header-cont">
           <h3><i>{{header}}</i></h3>
           <h2>{{sub_header}}</h2>
         </div>
       {{/with}}
-        <img src="{{non_profit_data.panel_2.img}}" />
+        <img src="{{page_data.panel_2.img}}" />
       </div>
-      {{#with non_profit_data.panel_2}}
+      {{#with page_data.panel_2}}
       <div class="columns six right-content">
         <div class="hide-mobile header-cont">
           <h3><i>{{header}}</i></h3>
@@ -50,8 +50,8 @@ page_script: non-profits.js
     </div>
   </div>
 </section>
-<section id="panel-3" class="panel bg-img" style="background-image: url('{{non_profit_data.panel_3.bg_img}}')">
-  {{#with non_profit_data.panel_3}}
+<section id="panel-3" class="panel bg-img" style="background-image: url('{{page_data.panel_3.bg_img}}')">
+  {{#with page_data.panel_3}}
   <div class="container">
     <div class="header-cont">
       <h3><i>{{italic_title}}</i></h3>
@@ -67,7 +67,7 @@ page_script: non-profits.js
 <section id="panel-4" class="panel">
   <div class="container">
     <div class="row">
-      {{#with non_profit_data.panel_4}}
+      {{#with page_data.panel_4}}
       <div class="columns five left-content">
         <h3><i>{{header}}</i></h3>
         <h2>{{sub_header}}</h2>
@@ -75,29 +75,29 @@ page_script: non-profits.js
       </div>
       {{/with}}
       <div class="columns seven right-content">
-        <img src="{{non_profit_data.panel_4.logo_img}}" />
+        <img src="{{page_data.panel_4.logo_img}}" />
       </div>
     </div>
   </div>
 </section>
-<section id="panel-5" class="panel bg-img" style="background-image: url('{{non_profit_data.panel_5.bg_img}}')">
-  {{#with non_profit_data.panel_5}}
+<section id="panel-5" class="panel bg-img" style="background-image: url('{{page_data.panel_5.bg_img}}')">
+  {{#with page_data.panel_5}}
   <div class="container">
     <div class="row">
       <div class="columns six left-content">
         <h2>{{{header}}}</h2>
         <form id="org-form" action="https://pages.optimizely.com/index.php/leadCapture/save2" novalidate>
-          <label for="" class="required">First Name</label>
-            <span class="FirstName-related error-hide error-right">Required</span>
+          <label for="" class="required">{{tr 'First Name'}}</label>
+          <span class="FirstName-related error-hide error-right">{{tr 'Required'}}</span>
             <input type="text" name="FirstName" required>
-          <label for="" class="required">Last Name</label>
-            <span class="LastName-related error-hide error-right">Required</span>
+            <label for="" class="required">{{tr 'Last Name'}}</label>
+            <span class="LastName-related error-hide error-right">{{tr 'Required'}}</span>
             <input type="text" name="LastName" required>
-          <label for="" class="required">Email Address</label>
-            <span class="Email-related error-hide error-right">Required</span>
+            <label for="" class="required">{{tr 'Email Address'}}</label>
+            <span class="Email-related error-hide error-right">{{tr 'Required'}}</span>
             <input type="email" name="Email" required>
-          <label for="" class="required">Website</label>
-            <span class="Website-related error-hide error-right">Required</span>
+            <label for="" class="required">{{tr 'Website'}}</label>
+            <span class="Website-related error-hide error-right">{{tr 'Required'}}</span>
             <input type="text" name="Website" required>
           <input type="hidden" name='Industry' id='Industry' value="Not For Profit">
           <input type="hidden" name='LeadSource' id='LeadSource' value="Website">
@@ -105,7 +105,7 @@ page_script: non-profits.js
           <input type="hidden" name='Lead_Source_Subcategory__c' id='Lead_Source_Subcategory__c' value="Optimizely.org form">
           <input type="hidden" name="Inbound_Lead_Form_Type__c" value="Optimizely.org">
           <div class="options">
-            <p class="error-hide">Invalid Input</p>
+            <p class="error-hide">{{tr 'Invalid Input'}}</p>
           </div>
           <button type="submit" class="outline-button slide-button">
             <span class="sbmt-btn-text">{{button_text}}</span>

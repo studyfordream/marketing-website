@@ -1,48 +1,19 @@
+var exclude = [
+  '!node_modules/**/*',
+  '!bower_components/**/*'
+];
+
 module.exports = {
-  assemble: {
-    files: [
-      '<%= config.content %>/**/*.{hbs,yml}',
-      '!<%= config.content %>/partners/**/*.{hbs,yml}',
-      '!<%= config.content %>/resources/resources-list/**/*.{hbs,yml}',
-      '!<%= config.content %>/resources/index.hbs',
-      '!<%= config.content %>/om/**/*.hbs',
-      '<%= config.guts %>/templates/**/*.hbs',
-      '!<%= config.guts %>/templates/om/**/*.hbs',
-      '!<%= config.guts %>/templates/**/*_compiled.hbs',
-      '!<%= config.guts %>/templates/client/**/*.hbs',
-      '<%= config.guts %>/assets/js/services/user_state.js',
-      '<%= config.guts %>/helpers/**/*.js'
-    ],
-    tasks: ['config:dev', 'assemble:modals', 'assemble:pages']
-  },
-  assemblePartners: {
-    files: [
-      '<%= config.content %>/partners/**/*.{hbs,yml}',
-      '<%= config.guts %>/templates/**/*.hbs',
-      '!<%= config.guts %>/templates/om/**/*.hbs',
-      '!<%= config.guts %>/templates/**/*_compiled.hbs',
-      '!<%= config.guts %>/templates/client/**/*.hbs'
-    ],
-    tasks: ['config:dev', 'assemble:partners']
-  },
-  assembleResources: {
-    files: [
-      '<%= config.content %>/resources/resources-list/**/*.{hbs,yml}',
-      '<%= config.content %>/resources/*.{hbs,yml}',
-      '<%= config.guts %>/templates/**/*.hbs',
-      '!<%= config.guts %>/templates/om/**/*.hbs',
-      '!<%= config.guts %>/templates/**/*_compiled.hbs',
-      '!<%= config.guts %>/templates/client/**/*.hbs'
-    ],
-    tasks: ['config:dev', 'assemble:resources']
-  },
-  assembleOM: {
-    files: [
-      '<%= config.content %>/om/**/*.{hbs,yml}',
-      '<%= config.guts %>/templates/om/**/*.hbs'
-    ],
-    tasks: ['config:dev', 'assemble:om']
-  },
+  //assemble: {
+    //files: [
+      //'<%= config.content %>/**/*.{hbs,yml}',
+      //'<%= config.guts %>/templates/**/*.hbs',
+      //'!<%= config.guts %>/templates/client/**/*.hbs',
+      //'<%= config.guts %>/assets/js/services/user_state.js',
+      //'<%= config.guts %>/helpers-v6/**/*.js'
+    //].concat(exclude),
+    //tasks: ['config:dev', 'assemble']
+  //},
   sassom: {
     files: '<%= config.guts %>/assets/css/om/**/*.{css,scss}',
     tasks: ['config:dev', 'sass:dev', 'replace', 'autoprefixer', 'clean:postBuild']
@@ -76,7 +47,9 @@ module.exports = {
       livereload: '<%= connect.options.livereload %>'
     },
     files: [
-      '<%= config.dist %>/**/*.{html,css,js,png,jpg,svg}'
+      '<%= config.dist %>/**/*.html',
+      '!<%= config.dist %>/partners/**/*.html',
+      '<%= config.dist %>/assets/**/*.{css,js}'
     ]
   }
 };

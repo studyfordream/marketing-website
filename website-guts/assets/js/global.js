@@ -366,6 +366,7 @@ w.optly.mrkt.changePlanHelper = {
 
 			setPlan.open('post', w.apiDomain + '/pricing/change_plan', true);
 			setPlan.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      setPlan.withCredentials = true;
 			setPlan.send('plan_id=' + args.plan);
 
 		}
@@ -547,6 +548,77 @@ if(w.monitorTiming){
 	}, 1000);
 }
 
+//TODO: remove this and compile through webpack when implemented
+window.Handlebars.registerHelper('tr', function () {
+  // just a proxy to send request to window.optly.tr
+  return arguments[0];
+});
+
 if( $.cookie('amplitude_idoptimizely.com') ) {
   w.optly.mrkt.deleteCookie('amplitude_idoptimizely.com', { path: '/', expires: -5, domain: '.optimizely.com'} );
 }
+
+w.optly.mrkt.setAttributeCookie = function(signInResponse){
+
+	var setCookieValue = function(args){
+
+		var userAtrributeValues = [],
+				planMap = w.optly.planMap,
+				planCode,
+				plan;
+
+		if(typeof args === 'object'){
+
+			//the first value is the user's plan
+			if(typeof args.plan === 'string'){
+
+				plan = args.plan;
+
+				//see if the value for plan is an actual plan in the planMap
+				if(typeof planMap[plan] === 'string'){
+
+					planCode = planMap[plan];
+
+				}
+
+			}
+
+			userAtrributeValues.push(planCode);
+
+			//set the cookie values
+			$.cookie('visitorAttributes', userAtrributeValues.join('|'), {expires: 90, path: '/'});
+
+		}
+
+	};
+
+	if(typeof signInResponse === 'object'){
+
+		//get user information from the sign in response
+		if(typeof signInResponse.plan_id === 'string'){
+
+			setCookieValue({plan: signInResponse.plan_id});
+
+		}
+
+	} else {
+
+		//try get the plan from the user's account info if they are signed in
+		if(
+			typeof w.optly.mrkt.user === 'object' &&
+			typeof w.optly.mrkt.user.acctData === 'object'
+		){
+
+			if(typeof w.optly.mrkt.user.acctData.plan_id === 'string'){
+
+				setCookieValue({plan: w.optly.mrkt.user.acctData.plan_id});
+
+			}
+
+		}
+
+	}
+
+};
+
+w.optly_q.push([w.optly.mrkt.setAttributeCookie]);

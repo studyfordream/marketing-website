@@ -1,21 +1,36 @@
 ---
-layout: wrapper.hbs
-menu_items:
-- text: "Agencies"
-  url: "/partners"
-- text: "Developers"
-  url: "http://developers.optimizely.com/"
-- text: "E-commerce"
-  url: "/ecommerce"
-- text: "Enterprises"
-  url: "/enterprises"
-- text: "Publishers"
-  url: "/publishers"
-- text: "Small Business"
-  url: "/small-business"
-- text: "your website..."
-  url: "/benefits"
-  class: hide
+layout: wrapper
+TR_layout_h1: "Optimizely for"
+TR_sub_head_nav:
+-
+  link: "pricing"
+  TR_text: "Plans and Pricing"
+-
+  link: "benefits"
+  TR_text: "Benefits"
+menu:
+  TR_title: "Optimizely for"
+  TR_menu_items:
+  - TR_text: "Agencies"
+    url: "/partners"
+  - TR_text: "Developers"
+    url: "http://developers.optimizely.com/"
+  - TR_text: "E-commerce"
+    url: "/ecommerce"
+  - TR_text: "Enterprises"
+    url: "/enterprises"
+  - TR_text: "Publishers"
+    url: "/publishers"
+  - TR_text: "Small Business"
+    url: "/small-business"
+  - TR_text: "your website..."
+    url: "/benefits"
+    class: hide
+cta:
+  TR_h3: "Your improved site awaits"
+  a:
+    link: "pricing"
+    TR_text: "View Plans & Pricing"
 layout_body_class:
 - benefits-layout
 layout_script: benefits.js
@@ -25,18 +40,23 @@ layout_script: benefits.js
         <div class="container">
             <div class="clearfix page-subheader-cont">
                 <h1>
-                    {{#unless page.hide_h1_super}}<span class="super">Optimizely for</span>{{/unless}}
-                    {{page.visible_title}}
+                  {{#unless this.hide_h1_super}}<span class="super">{{layout_h1}}</span>{{/unless}}
+                    {{this.visible_title}}
                 </h1>
                 <ul class="sub-header-nav">
-                    <li><a href="{{linkPath}}/pricing" class="pricing">Plans and Pricing</a></li>
-                    <li><a href="{{linkPath}}/benefits" class="benefits">Benefits</a></li>
+                  {{#each sub_head_nav}}
+                    <li><a href="{{../linkPath}}/{{link}}" class="{{link}}">{{text}}</a></li>
+                  {{/each}}
                     <li class="dropdown">
-                        <span class="for-menu-label">Optimizely for: </span>
+                    <span class="for-menu-label">{{menu.title}}</span>
                         <ul class="for-menu" data-current="{{dirname}}">
-                            {{#menu_items}}
-                            <li><a href="{{#isUrl url}}{{../../linkPath}}{{/isUrl}}{{url}}"{{#class}} class="{{.}}"{{/class}}>{{text}}</a></li>
-                            {{/menu_items}}
+                            {{#each menu.menu_items}}
+                            <li>
+                              <a href="{{#isUrl url}}{{../../linkPath}}{{/isUrl}}{{url}}"{{#isCurrentDest ../this.dest url true}} class="active hide"{{/isCurrentDest}}>
+                                {{text}}
+                              </a>
+                            </li>
+                            {{/each}}
                         </ul>
                     </li>
                 </ul>
@@ -45,11 +65,13 @@ layout_script: benefits.js
     </div><!--/#page-header-->
     <div id="page-header-gradient"></div>
     <div id="page-content">
-        {{#unless page.no_container}}<div class="container row">{{/unless}}
-        {{> body}}
+        {{#unless this.no_container}}<div class="container row">{{/unless}}
+        {% body %}
         <div class="attention center-desktop row">
-            <h3>Your improved site awaits <a href="{{linkPath}}/pricing" class="primary-button">View Plans &amp; Pricing</a></h3>
+          {{#with cta}}
+          <h3>{{h3}} <a href="{{../linkPath}}/{{a.link}}" class="primary-button">{{a.text}}</a></h3>
+          {{/with}}
         </div>
-        {{#unless page.no_container}}</div><!--/.container-->{{/unless}}
+        {{#unless this.no_container}}</div><!--/.container-->{{/unless}}
     </div><!--/#content-->
 </div><!--/#main-->

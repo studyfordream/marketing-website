@@ -1,44 +1,44 @@
-hero: 
+hero:
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/hero-img-comp.jpg"
-  title: "Make your app <br><strong>more engaging</strong>"
-  vid_btn_txt: "Watch Video"
-  signup_btn_txt: "Get Started"
-  link_text: "A single platform for iOS, Android, and the web."
-top_grid: 
-  title: "Fast, powerful A/B testing"
-  sub_title: "for mobile apps"
-  grid_content:
+  TR_title: "Make your app <br><strong>more engaging</strong>"
+  TR_vid_btn_txt: "Watch Video"
+  TR_signup_btn_txt: "Get Started"
+  TR_link_text: "A single A/B testing platform for iOS, Android, and the web."
+top_grid:
+  TR_title: "Fast, powerful A/B testing"
+  TR_sub_title: "for mobile apps"
+  TR_grid_content:
   -
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/01.svg"
-    title: "Optimize Everything"
-    grid_content: "Test and roll out entire features, no matter how custom your app is built. Deliver consistent experiences across web and mobile apps."
+    TR_title: "Optimize Everything"
+    TR_grid_content: "Test and roll out entire features, no matter how custom your app is built. Deliver consistent experiences across web and mobile apps."
   -
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/02.svg"
-    title: "Iterate Faster"
-    grid_content: "Make visual changes to your app in real time. No App Store review required."
+    TR_title: "Iterate Faster"
+    TR_grid_content: "Make visual changes to your app in real time. No App Store review required. Compatible with both iOS and Android."
 
   -
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/03.svg"
-    title: "Reliable and Trusted"
-    grid_content: "Optimize your app on the #1 experience optimization platform that is already delivering billions of experiences globally."
-panels:
-- 
-  title: "Visual Editor"
-  text: "Change your interface on the fly without writing a line of code."
+    TR_title: "Reliable and Trusted"
+    TR_grid_content: "Optimize your app on the #1 experience optimization platform that is already delivering billions of experiences globally."
+TR_panels:
+-
+  TR_title: "Visual Editor"
+  TR_text: "Change your interface on the fly without writing a line of code."
   bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/01visual-editor-static.gif"
   bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/visual-editor-1.gif"
-- 
-  title: "Developer <br>Tools"
-  text: "Optimize code-level variables and roll out entirely new features, no matter how custom your app."
+-
+  TR_title: "Developer <br>Tools"
+  TR_text: "Optimize code-level variables and roll out entirely new features, no matter how custom your app."
   bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/02developer-tools-static.gif"
   bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/developer-tools-2.gif"
-- 
-  title: "Instant <br>Rollout"
-  text: "Make visual changes to your app immediately without waiting for App Store review."
+-
+  TR_title: "Instant <br>Rollout"
+  TR_text: "Make visual changes to your app immediately without waiting for App Store review."
   bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/03instant-rollout-static.gif"
   bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/instant-rollout-3.gif"
 customer_logos:
- body: |
+ MD_body: |
   ## Already loved by these<br><strong>awesome apps</strong>
  icons:
   -
@@ -65,54 +65,53 @@ customer_logos:
   -
     url: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/8.png"
     name: "HomeFinder"
-testing_ideas: 
-  header: "Try out these <strong>testing ideas</strong>"
-  ideas_grid:
+testing_ideas:
+  TR_header: "Try out these <strong>testing ideas</strong>"
+  TR_ideas_grid:
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/onboard-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/onboard.gif"
-    title: "Onboarding Flow"
-    text: "More than 80% of apps are deleted after their first use. That’s why it’s so important to test how you onboard users and show the value of your app."
+    TR_title: "Onboarding Flow"
+    TR_text: "More than 80% of apps are deleted after their first use. That’s why it’s so important to test how you onboard users and show the value of your app."
     article_link: "//help.optimizely.com/hc/en-us/articles/203430454"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/permission-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/permission.gif"
-    title: "Requesting Permissions"
-    text: "With more access, you can offer a better experience. Try testing the right way to ask your users for permissions."
+    TR_title: "Requesting Permissions"
+    TR_text: "With more access, you can offer a better experience. Try testing the right way to ask your users for permissions."
     article_link: "//help.optimizely.com/hc/en-us/articles/203476374"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/feature-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/feature.gif"
-    title: "Feature Discovery"
-    text: "Should users search? Should they use your menu? You have the opportunity to optimize your users’ flow through your app."
+    TR_title: "Feature Discovery"
+    TR_text: "Should users search? Should they use your menu? You have the opportunity to optimize your users’ flow through your app."
     article_link: "#"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/input-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/input.gif"
-    title: "Inputs and Interactions"
-    text: "Every chance for a user to interact with your app is a chance for you to optimize. Test different types of forms and inputs."
+    TR_title: "Inputs and Interactions"
+    TR_text: "Every chance for a user to interact with your app is a chance for you to optimize. Test different types of forms and inputs."
     article_link: "#"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/re-engage-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/re-engage-2.gif"
-    title: "Re-engagement"
-    text: "Acquisition is tough. Re-acquisition is tougher. You can optimize the ways you re-engage your users to keep them active."
+    TR_title: "Re-engagement"
+    TR_text: "Acquisition is tough. Re-acquisition is tougher. You can optimize the ways you re-engage your users to keep them active."
     article_link: "#"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/rollout-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/rollout-2.gif"
-    title: "Phase Rollouts"
-    text: "Mobile A/B testing gives you an easy way to test new features and quickly remove the ones that don’t work."
+    TR_title: "Phase Rollouts"
+    TR_text: "Mobile split testing and multivariate testing give you an easy way to test new features and quickly remove the ones that don’t work."
     article_link: "#"
 form_panel:
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/bottom-img-comp.jpg"
-  title: "Start optimizing"
-  subtitle: "your mobile app today"
-  email: "Work Email"
+  TR_title: "Start optimizing"
+  TR_subtitle: "your mobile app today"
+  TR_email: "Work Email"
   email_icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/email.svg"
-  password: "Create Password"
+  TR_password: "Create Password"
   password_icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/lock.svg"
-  submit_button: "Get Started"
-  submit_success: "Success"
-  link_text: "A single platform for iOS, Android, and the web."
-
+  TR_submit_button: "Get Started"
+  TR_submit_success: "Success"
+  TR_link_text: "A single A/B testing platform for iOS, Android, and the web."

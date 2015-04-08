@@ -150,7 +150,7 @@ var createAccountHelper = {
         callback: function(){
             //show confirmation
             //w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
-            w.location = 'https://www.optimizely.com/welcome';
+            w.location = w.apiDomain + '/welcome';
         },
         load: w.optly.mrkt.changePlanHelper.load
       });

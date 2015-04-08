@@ -1,5 +1,5 @@
 ---
-layout: modal_wrapper.hbs
+layout: modal_wrapper
 wrapper_id: webinar-signup-modal
 wrapper_class: webinar-modal
 data_modal_id: webinar-signup
@@ -7,14 +7,14 @@ data_modal_name: webinar-signup
 form_action: /webinar/register
 api_domain: true
 form_id: webinar-registration-form
-modal_title: Webinar Signup
+TR_modal_title: "Webinar Signup"
 form_method: POST
-primary_button_text: Register
-negative_button_text: Cancel
+TR_primary_button_text: Register
+TR_negative_button_text: Cancel
 ---
           <div class="webinar-info-cont">
             <div class="left">
-              <p>Selected date:</p>
+              <p>{{tr 'Selected date'}}:</p>
             </div>
             <div class="right webinar-info">
               <div class="webinar-detail-info"></div>
@@ -22,13 +22,13 @@ negative_button_text: Cancel
           </div>
           <div class="clearfix" style="clear: both;">
             <label>
-              <span>Name: </span>
-              <span class="name-related error-hide error-right">Name is required</span>
+              <span>{{tr 'Name'}}:</span>
+              <span class="name-related error-hide error-right">{{tr 'Name is required'}}</span>
               <input type="text" id="name" name="name" required></input>
             </label>
             <label>
-              <span>Email:</span>
-              <span class="email-related error-hide error-right">Email is required</span>
+              <span>{{tr 'Email'}}:</span>
+              <span class="email-related error-hide error-right">{{tr 'Email is required'}}</span>
               <input type="email" id="email" name="Email" required></input>
             </label>
             <input type="hidden" name="WebinarRegistrationDate" id="date-long" value="">
@@ -42,5 +42,5 @@ negative_button_text: Cancel
             <input type="hidden" name="Lead_Source_Subcategory__c" value="Live Demo">
           </div>
           <div class="privacy-policy">
-            <a href="{{linkPath}}/privacy">Privacy Policy</a>
+            <a href="{{linkPath}}/privacy">{{tr 'Privacy Policy'}}</a>
           </div>
