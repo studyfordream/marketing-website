@@ -1,71 +1,71 @@
 ---
 page_intro:
-  header: "Let’s personalize the web."
-  body: "Join us as we enable everyone to make data-driven decisions and improve the way they show information to the world."
-  button_text: "View All Jobs"
+  TR_header: "Let’s personalize the web."
+  TR_body: "Join us as we enable everyone to make data-driven decisions and improve the way they show information to the world."
+  TR_button_text: "View All Jobs"
 
 benefits:
-  header: "Why you’ll love it here"
-  list:
+  TR_header: "Why you’ll love it here"
+  TR_list:
   -
-    header: "Compensation & Rewards"
-    body: "Competitive pay, equity, referral/peer bonuses, and monthly recruiting raffle prizes"
+    TR_header: "Compensation & Rewards"
+    TR_body: "Competitive pay, equity, referral/peer bonuses, and monthly recruiting raffle prizes"
     id: "piggybank"
   -
-    header: "Rest & Relaxation"
-    body: "Paid holidays, unlimited time off, and seventeen weeks of paid parental leave"
+    TR_header: "Rest & Relaxation"
+    TR_body: "Paid holidays, unlimited time off, and seventeen weeks of paid parental leave"
     id: "calendar"
   -
-    header: "Healthcare Coverage"
-    body: "Premiums covered for you, your dependents, and your spouse or domestic partner"
+    TR_header: "Healthcare Coverage"
+    TR_body: "Premiums covered for you, your dependents, and your spouse or domestic partner"
     id: "health"
   -
-    header: "Meals on Us"
-    body: "Catered in-office lunch and dinner on weekdays and a fully stocked kitchen"
+    TR_header: "Meals on Us"
+    TR_body: "Catered in-office lunch and dinner on weekdays and a fully stocked kitchen"
     id: "burger"
   -
-    header: "Easy to get to"
-    body: "Convenient office location, free transit card, and secure bike storage"
+    TR_header: "Easy to get to"
+    TR_body: "Convenient office location, free transit card, and secure bike storage"
     id: "bart"
   -
-    header: "Brand New Gear"
-    body: "A shiny MacBook Pro or Air, a Thunderbolt Display, and any other gear you need"
+    TR_header: "Brand New Gear"
+    TR_body: "A shiny MacBook Pro or Air, a Thunderbolt Display, and any other gear you need"
     id: "apple"
   -
-    header: "Gym Membership"
-    body: "Free Crunch Fitness membership or a health and wellness subsidy"
+    TR_header: "Gym Membership"
+    TR_body: "Free Crunch Fitness membership or a health and wellness subsidy"
     id: "heart"
 
   -
-    header: "We have fun"
-    body: "Frequent team outings, game nights, pool, video games, and a ping pong robot"
+    TR_header: "We have fun"
+    TR_body: "Frequent team outings, game nights, pool, video games, and a ping pong robot"
     id: "pingpong"
 
   communities:
-    title: "Employee Communities"
-    body: "Optimizely believes in encouraging an open, welcoming workplace that our communities help foster."
+    TR_title: "Employee Communities"
+    TR_body: "Optimizely believes in encouraging an open, welcoming workplace that our communities help foster."
     id: "communities"
 
-employee_testimonials:
+TR_employee_testimonials:
 -
     name: "David"
-    title: "Sales"
+    TR_title: "Sales"
     image: "https://optimizely-marketer-assets.s3.amazonaws.com/jobs/images/david.jpg"
-    quote: "Working at Optimizely is everything you could ask for and more—the work, the product, the culture, and the leadership."
+    TR_quote: "Working at Optimizely is everything you could ask for and more—the work, the product, the culture, and the leadership."
 -
     name: "Sophie"
-    title: "Sales"
+    TR_title: "Sales"
     image: "https://optimizely-marketer-assets.s3.amazonaws.com/jobs/images/sophie.jpg"
-    quote: "We are given the opportunity to take ownership of projects, making us all architects of the fast growing company."
+    TR_quote: "We are given the opportunity to take ownership of projects, making us all architects of the fast growing company."
 -
     name: "Jeff"
-    title: "Design"
+    TR_title: "Design"
     image: "https://optimizely-marketer-assets.s3.amazonaws.com/jobs/images/jeffz.jpg"
-    quote: "I am constantly learning and growing, and I am excited to solve the challenges we face creating the best A/B testing platform in the world."
+    TR_quote: "I am constantly learning and growing, and I am excited to solve the challenges we face creating the best A/B testing platform in the world."
 -
     name: "Luke"
-    title: "Success"
+    TR_title: "Success"
     image: "https://optimizely-marketer-assets.s3.amazonaws.com/jobs/images/luke.jpg"
-    quote: "Every day, my fellow Optimizely coworkers inspire me to become better at my job, and in general, better at life."
+    TR_quote: "Every day, my fellow Optimizely coworkers inspire me to become better at my job, and in general, better at life."
 
-job_openings_header: "All Job Openings"
+TR_job_openings_header: "All Job Openings"

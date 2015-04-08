@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
   compile: {
     options: {
@@ -6,6 +8,11 @@ module.exports = {
         return filePath.replace(/^.*[\\\/]/, '').replace('.hbs', '');
       }
     },
+    // compilerOptions: {
+    //   knownHelpers: {
+    //     'tr': require(path.join(process.cwd(), 'website-guts/helpers/helper.tr'))
+    //   }
+    // },
     files: {
       '<%= config.temp %>/assets/js/handlebarsTemplates.js': ['<%= config.guts %>/templates/client/**/*.hbs']
     }

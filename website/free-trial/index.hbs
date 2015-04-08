@@ -1,9 +1,22 @@
 ---
-layout: trial_form.hbs
-seo_title: "Optimizely: Test it Out"
+layout: trial_form
+TR_seo_title: "Optimizely: Test it Out"
 page_header: false
-form_header: "Test it Out for Free"
-form_text: "Welcome to Optimizely. Sign up for a free account and test out the most popular <span id='symmetry_test'>A/B testing tool</span> on the planet!"
+TR_form_header: "Test it Out for Free"
+TR_form_text: "Welcome to Optimizely. Sign up for a free account and test out the most popular <span id='symmetry_test'>A/B testing tool</span> on the planet!"
+about:
+  TR_title: "About Optimizely"
+  TR_li:
+  - "No technical skills required"
+  - "Most popular testing tool on the planet"
+  - "A user interface customers love"
+how:
+  TR_title: "How it works"
+  TR_li:
+  - "Visually optimize your website"
+  - "Choose the goals you want to track"
+  - "Push live and watch ROI improve"
+TR_quote: "Optimizely removed every roadblock to landing page testing and allows us to quickly make user-driven decisions."
 social_proof: true
 page_script: free-trial.js
 external_stylesheets:
@@ -17,21 +30,21 @@ compact_header: true
     <div class="row">
       <div class="columns six">
         <div id="about-optimizely">
-          <p><strong>About Optimizely</strong></p>
+          <p><strong>{{this.about.title}}</strong></p>
           <ul>
-            <li>No technical skills required</li>
-            <li>Most popular testing tool on the planet</li>
-            <li>A user interface customers love</li>
+            {{#each this.about.li}}
+            <li>{{.}}</li>
+            {{/each}}
           </ul>
         </div>
       </div>
       <div class="columns six">
         <div id="how-it-works">
-          <p><strong>How it works</strong></p>
+          <p><strong>{{this.how.title}}</strong></p>
           <ul>
-            <li>Visually optimize your website</li>
-            <li>Choose the goals you want to track</li>
-            <li>Push live and watch ROI improve</li>
+            {{#each this.how.li}}
+            <li>{{.}}</li>
+            {{/each}}
           </ul>
         </div>
       </div>
@@ -42,7 +55,7 @@ compact_header: true
   <div class="container">
     <div class="row">
       <div class="columns ten offset-one">
-        <q class="pull-quote" cite="http://www.sliderocket.com">Optimizely removed every roadblock to landing page testing and allows us to quickly make user-driven decisions.</q>
+        <q class="pull-quote" cite="http://www.sliderocket.com">{{this.quote}}</q>
         <img src="https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/ppc/sliderocket.png">
       </div>
     </div>

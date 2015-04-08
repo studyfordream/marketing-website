@@ -9,7 +9,7 @@
 module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
-  var dateVar = grunt.template.today("dddd, mmmm dS, yyyy, h:MM:ss TT");
+  var dateVar = grunt.template.today('dddd, mmmm dS, yyyy, h:MM:ss TT');
 
   //jit-grunt loads only the npm tasks required for the grunt task.
   //makes livereload much faster.
@@ -22,6 +22,7 @@ module.exports = function(grunt) {
         sass: 'grunt-sass',
         connect: 'grunt-contrib-connect',
         jasmine_node: 'grunt-jasmine-node',
+        assemble: 'grunt/assemble/',
         open: 'grunt-open'
       }
     },
@@ -60,7 +61,7 @@ module.exports = function(grunt) {
     'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
-    'assemble',
+    'assemble:smartling-staging-deploy',
     'handlebars',
     'modernizr',
     'concat',
@@ -72,7 +73,7 @@ module.exports = function(grunt) {
     'clean:postBuild'
   ]);
 
-  grunt.registerTask('server', [
+  var serverTasks = [
     'config:dev',
     'jshint:clientDev',
     'jshint:server',
@@ -89,7 +90,24 @@ module.exports = function(grunt) {
     'clean:postBuild',
     'connect:livereload',
     'watch'
-  ]);
+  ];
+
+  grunt.registerTask('server', function(which) {
+    var cachedI;
+    var assembleTask = serverTasks.filter(function(task, i) {
+      if(/assemble/.test(task)) {
+        cachedI = i;
+        return true;
+      }
+    })[0];
+
+    if(which) {
+      assembleTask += (':' + which);
+      serverTasks[cachedI] = assembleTask;
+    }
+
+    grunt.task.run(serverTasks);
+  });
 
   grunt.registerTask('build', [
     'config:production',
@@ -167,7 +185,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('release', 'makes a release to github', function() {
     // Use the forceon option for all tasks that need to continue executing in case of error
-    var prepare = ['prompt', 'build']
+    var prepare = ['prompt', 'build'];
     var compress = ['compress'];
     var git_release_tasks = ['gitfetch', 'forceon', 'gittag', 'gitpush', 'forceoff', 'github-release'];
 

@@ -84,10 +84,15 @@ module.exports = {
   },
   server: {
     options: {
-      node: true
+      node: true,
+      debug: true
     },
     files: {
-      src: ['<%= config.guts %>/helpers/*.js']
+      src: [
+        '<%= config.guts %>/helpers/*.js',
+        'grunt/**/*.js',
+        'Gruntfile.js'
+      ]
     }
   }
 };

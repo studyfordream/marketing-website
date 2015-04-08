@@ -1,55 +1,55 @@
-page_intro: "Keep up to date with how Optimizely is enabling businesses to build better web experiences. You can also get the latest from us via <a href='http://www.twitter.com/optimizely' title='Optimizely on Twitter'>Twitter</a>, <a href='http://www.facebook.com/optimizely' title='Optimizely on Facebook'>Facebook</a>, and <a href='https://plus.google.com/113842166556345533815/posts' title='Optimizely on Google Plus'>Google+</a>. Please contact us for <a href='mailto:press@optimizely.com'>press inquiries</a> or <a href='/partners'>partnership inquiries</a>."
-left_column_header: "News"
+TR_page_intro: "Keep up to date with how Optimizely is enabling businesses to build better web experiences. You can also get the latest from us via <a href='http://www.twitter.com/optimizely' title='Optimizely on Twitter'>Twitter</a>, <a href='http://www.facebook.com/optimizely' title='Optimizely on Facebook'>Facebook</a>, and <a href='https://plus.google.com/113842166556345533815/posts' title='Optimizely on Google Plus'>Google+</a>. Please contact us for <a href='mailto:press@optimizely.com'>press inquiries</a> or <a href='/partners'>partnership inquiries</a>."
+TR_left_column_header: "News"
 press_kit:
-  header: "Press Kit"
-  items:
+  TR_header: "Press Kit"
+  TR_items:
   -
     link: "https://s3.amazonaws.com/optimizely-marketing/OptimizelyPressKit.zip"
-    title: "Download our press kit"
-    text: "Download Optimizely Logos"
+    TR_title: "Download our press kit"
+    TR_text: "Download Optimizely Logos"
   -
     link: "http://www.scribd.com/doc/197409519/Fact-Sheet"
-    title: "Download our fact sheet"
-    text: "Download Fact Sheet"
-press_releases:
+    TR_title: "Download our fact sheet"
+    TR_text: "Download Fact Sheet"
+TR_press_releases:
     header: "Press Releases"
 press_inquiries:
-  header: "Press Inquiries"
-  body: "If you’d like to write a story about Optimizely, please email <a href='mailto:press@optimizely.com'>press@optimizely.com</a>"
+  TR_header: "Press Inquiries"
+  TR_body: "If you’d like to write a story about Optimizely, please email <a href='mailto:press@optimizely.com'>press@optimizely.com</a>"
 company_information:
-  header: "Company Information"
+  TR_header: "Company Information"
 investors:
-  header: "Investors"
+  TR_header: "Investors"
 blog:
-  header: "Optimizely Blog"
+  TR_header: "Optimizely Blog"
   link: "http://blog.optimizely.com/"
-  btn_text: "Click here"
-  text: "to read the latest articles on our blog."
+  TR_btn_text: "Click here"
+  TR_text: "to read the latest articles on our blog."
 follow_the_latest:
-  header: "Follow the latest from Optimizely:"
-  items:
+  TR_header: "Follow the latest from Optimizely:"
+  TR_items:
   -
     link: "http://blog.optimizely.com"
-    title: "Optimizely Blog: Conversion Rate Optimism"
-    text: "Optimizely Blog"
+    TR_title: "Optimizely Blog: Conversion Rate Optimism"
+    TR_text: "Optimizely Blog"
     swap_id: "press-footer-blog"
   -
     link: "http://pages.optimizely.com/newsletter_subscribe.html"
-    title: "Optimizely Newsletter"
-    text: "Newsletter"
+    TR_title: "Optimizely Newsletter"
+    TR_text: "Newsletter"
   -
     link: "http://www.facebook.com/optimizely"
-    title: "Optimizely on Facebook"
+    TR_title: "Optimizely on Facebook"
     text: "Facebook"
   -
     link: "http://www.twitter.com/optimizely"
-    title: "Optimizely on Twitter"
+    TR_title: "Optimizely on Twitter"
     text: "Twitter"
   -
     link: "http://www.youtube.com/optimizely"
-    title: "Optimizely on Youtube"
+    TR_title: "Optimizely on Youtube"
     text: "YouTube"
   -
     link: "https://plus.google.com/113842166556345533815/posts"
-    title: "Optimizely on Google Plus"
+    TR_title: "Optimizely on Google Plus"
     text: "Google+"

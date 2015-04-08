@@ -1,7 +1,7 @@
 ---
-layout: modal_wrapper.hbs
-modal_title: Create experiment
-modal_sub_header: Enter a URL below to get started on a new experiment!
+layout: modal_wrapper
+TR_modal_title: "Create experiment"
+TR_modal_sub_header: "Enter a URL below to get started on a new experiment!"
 form_id: create-exp-form
 data_modal_id: create-exp
 data_modal_name: create-experiment
@@ -9,18 +9,18 @@ wrapper_id: create-exp-dialog
 form_method: GET
 form_action: /edit
 api_domain: true
-primary_button_text: Create experiment
-negative_button_text: Cancel
+TR_primary_button_text: Create experiment
+TR_negative_button_text: Cancel
 ---
               <label>
-                  <span>Experiment name (optional)</span>
+                  <span>{{tr 'Experiment name (optional)'}}</span>
                   <input type="text" name="name" />
               </label>
               <label>
-                  <span>Experiment URL</span>
-                  <span class="url-related error-hide error-right">This field is required</span>
+                  <span>{{tr 'Experiment URL'}}</span>
+                  <span class="url-related error-hide error-right">{{tr 'This field is required'}}</span>
                   <input type="text" name="url" maxlength="500" required />
               </label>
               <div class="options">
-                  <p class="error-message error-hide">Please correct form errors</p>
+                  <p class="error-message error-hide">{{tr 'Please correct form errors'}}</p>
               </div>
