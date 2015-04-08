@@ -79,7 +79,7 @@ days:
                 job_title: "Director of Conversion Rate Optimization"
                 company: "Elevated"
           -
-            title: "How to Build a Culture of Optimization from Within"
+            title: "The Inside Scoop: Coming Soon from Optimizely"
             time: "10:25 – 11:10"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
@@ -88,26 +88,14 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Optimizely, Blue Bottle Coffee, Pinterest, Eventbrite"
-            track: "culture"
-            roles: "executive"
+            companies: "Optimizely"
+            track: "action"
+            roles: "marketer productmanager developer"
             speakers:
               -
-                name: "Jenny Lykken"
-                job_title: "Learning and Development Manager"
+                name: "Jon Noronha"
+                job_title: "Product Manager"
                 company: "Optimizely"
-              -
-                name: "Jevan Soo"
-                job_title: "Chief People Officer"
-                company: "Blue Bottle Coffee"
-              -
-                name: "Joel Constable"
-                job_title: "Head of People"
-                company: "Pinterest"
-              -
-                name: "Durand Diun"
-                job_title: "Director of Learning"
-                company: "Eventbrite"
           -
             title: "Scaling your Testing Program for Maximum Impact"
             time: "10:25 – 11:10"
@@ -220,6 +208,36 @@ days:
                 name: "Adam Avramescu"
                 job_title: "Customer Education Manager"
                 company: "Optimizely"
+          -
+            title: "How to Build a Culture of Optimization from Within"
+            time: "1:30 - 2:15"
+            location: "Terrace B"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Optimizely, Blue Bottle Coffee, Pinterest, Eventbrite"
+            track: "culture"
+            roles: "executive"
+            speakers:
+              -
+                name: "Jenny Lykken"
+                job_title: "Learning and Development Manager"
+                company: "Optimizely"
+              -
+                name: "Jevan Soo"
+                job_title: "Chief People Officer"
+                company: "Blue Bottle Coffee"
+              -
+                name: "Joel Constable"
+                job_title: "Head of People"
+                company: "Pinterest"
+              -
+                name: "Durand Diun"
+                job_title: "Director of Learning"
+                company: "Eventbrite"
       -
         start_time: "2:15"
         title: "Break in Exhibit Hall"
@@ -253,7 +271,7 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Tile, BitTorrent, RocketLawyer"
+            companies: "Tilt, BitTorrent, RocketLawyer"
             track: "platform"
             roles: "developer"
             speakers:
@@ -508,6 +526,32 @@ days:
                 name: "Tyler Bullen"
                 job_title: "Personalization Program Manager"
                 company: "The Clymb"
+          -
+            title: "Building the Saas Engine"
+            time: "11:25 - 12:10"
+            location: "Terrace B"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "KISSmetrics, Marketo, Demandbase"
+            track: "action"
+            roles: "marketer executive"
+            speakers:
+              -
+                name: "Brian Kelly"
+                job_title: "CEO"
+                company: "KISSmetrics"
+              -
+                name: "Heidi Bullock"
+                job_title: "VP of Demand Generation"
+                company: "Marketo"
+              -
+                name: "Peter Isaacson"
+                job_title: "CMO"
+                company: "Demandbase"
       -
         start_time: "12:10"
         title: "Lunch and Networking"
@@ -594,7 +638,7 @@ days:
         events:
           -
             title: "From Skeptic to Champion: How to Win Over Key Stakeholders and Other Non-Believers"
-            time: "10:25 – 11:10"
+            time: "3:35 - 4:20"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
@@ -618,6 +662,24 @@ days:
                 name: "Valerie Kroll"
                 job_title: "Manager of Digital Analytics"
                 company: "American Medical Association"
+          -
+            title: "Removing Friction and Cognitive Overhead: The Role of UX Design in Optimization"
+            time: "3:35 - 4:20"
+            location: "Terrace B"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Volusion"
+            track: "strategy"
+            roles: "marketer productmanager developer"
+            speakers:
+              -
+                name: "Merritt Aho Sr."
+                job_title: "Digital Analyst"
+                company: "Volusion"
       -
         start_time: "4:20"
         title: "Opticon Ends"
