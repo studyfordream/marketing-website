@@ -54,7 +54,7 @@ footer {
             display: inline-block;
         }
         a {
-            background-size: 25px,25px;
+            background-size: contain;
             filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
             opacity: 0.8;
             background-repeat: no-repeat;
@@ -88,11 +88,6 @@ footer {
         color: #b4b7b9;
         &:hover {
           color: #707475;
-        }
-      }
-      .social-links {
-        a {
-          width: 26px;
         }
       }
       h4 {
