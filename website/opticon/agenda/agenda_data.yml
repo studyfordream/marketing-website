@@ -29,10 +29,13 @@ days:
     time_slots:
       -
         start_time: "9:00"
+        title: "Exhibit Hall Open"
+      -
+        start_time: "9:00"
         events:
           -
-            title: "Optimizely Keynote about Experience Optimization Platforms"
-            time: "10:25 – 11:10"
+            title: "Optimizely Keynote"
+            time: "9:00 - 10:00"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
@@ -44,13 +47,9 @@ days:
             roles: "marketer developer productmanager executive"
             speakers:
               -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
+                name: "Dan Siroker"
+                job_title: "Co-Founder & CEO"
                 company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
       -
         start_time: "10:00"
         title: "Break in Exhibit Hall"
@@ -58,7 +57,7 @@ days:
         start_time: "10:25"
         events:
           -
-            title: "Optimizing All the Things: How A Culture of Optimization Takes Shape Across Each Facet of your Business"
+            title: "The Power and Influence of the Written Word in Conversion"
             time: "10:25 – 11:10"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
@@ -67,58 +66,20 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
+            companies: "FunnyBiz Conference, Elevated"
             track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Increase YOUR Confidence Level with Stats Engine"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "action"
             roles: "marketer productmanager"
             speakers:
               -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
+                name: "Rachman Blake"
+                job_title: "Co-Founder"
+                company: "FunnyBiz Conference"
               -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
+                name: "Keith Lovgren"
+                job_title: "Director of Conversion Rate Optimization"
+                company: "Elevated"
           -
-            title: "From Skeptic to Champion: How To Win Over Key Stakeholders and Other Non-Believers"
+            title: "How to Build a Culture of Optimization from Within"
             time: "10:25 – 11:10"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
@@ -127,28 +88,28 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
+            companies: "Optimizely, Blue Bottle Coffee, Pinterest, Eventbrite"
             track: "culture"
-            roles: "marketer developer"
+            roles: "executive"
             speakers:
               -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
+                name: "Jenny Lykken"
+                job_title: "Learning and Development Manager"
                 company: "Optimizely"
               -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
+                name: "Jevan Soo"
+                job_title: "Chief People Officer"
+                company: "Blue Bottle Coffee"
               -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
+                name: "Joel Constable"
+                job_title: "Head of People"
+                company: "Pinterest"
               -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
+                name: "Durand Diun"
+                job_title: "Director of Learning"
+                company: "Eventbrite"
           -
-            title: "Optimizely Keynote about Experience Optimization Platforms"
+            title: "Scaling your Testing Program for Maximum Impact"
             time: "10:25 – 11:10"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
@@ -157,35 +118,32 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "platform"
-            roles: "marketer developer"
+            companies: "charity: water, Moz, The Next Web"
+            track: "strategy"
+            roles: "marketer developer productmanager executive"
             speakers:
               -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
+                name: "Deepa Subramaniam"
+                job_title: "Director of Product"
+                company: "charity: water"
               -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
+                name: "Martijn Scheijbeler"
+                job_title: "Lead Growth, SEO & Analytics"
+                company: "The Next Web"
               -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
+                name: "Andy Nelson"
+                job_title: "Director of Growth Marketing"
+                company: "Moz"
+
       -
-        start_time: "11:00"
+        start_time: "11:10"
         title: "Break in Exhibit Hall"
       -
         start_time: "11:30"
         events:
           -
             title: "Fireside Chat with Marc Andreessen"
-            time: "11:30 - 12:00"
+            time: "11:30 - 12:15"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
@@ -198,17 +156,17 @@ days:
             speakers:
               -
                 name: "Marc Andreessen"
-                job_title: "Senior Vice President"
-                company: "a16z"
+                job_title: "CEO"
+                company: "Andreessen Horowitz"
       -
-        start_time: "12:00"
+        start_time: "12:15"
         title: "Lunch and Networking"
       -
         start_time: "1:30"
         events:
           -
-            title: "Optimizing All the Things: How A Culture of Optimization Takes Shape Across Each Facet of your Business"
-            time: "10:25 – 11:10"
+            title: "Structure and Scale: Establishing your Optimization Dream Team"
+            time: "1:30 - 2:15"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
@@ -216,116 +174,52 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Increase YOUR Confidence Level with Stats Engine"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "action"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "From Skeptic to Champion: How To Win Over Key Stakeholders and Other Non-Believers"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "platform"
-            roles: "executive"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Optimizely Keynote about Experience Optimization Platforms"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
+            companies: "Optimizely, Abercrombie & Fitch, Trulia, WiderFunnel"
             track: "culture"
-            roles: "developer"
+            roles: "marketer productmanager"
             speakers:
               -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
+                name: "Junan Pang"
+                job_title: "Manager, Enterprise Client Services"
                 company: "Optimizely"
               -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
+                name: "Claire Wissler"
+                job_title: "Direct to Consumer Analyst"
+                company: "Abercrombie & Fitch"
               -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
+                name: "Lauren Ford"
+                job_title: "Senior Quantative Analyst"
+                company: "Trulia"
               -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
+                name: "Chris Goward"
+                job_title: "Founder and CEO"
+                company: "WiderFunnel"
+          -
+            title: "Optimizing Optimizely"
+            time: "1:30 - 2:15"
+            location: "Terrace B"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Optimizely"
+            track: "action"
+            roles: "marketer productmanager"
+            speakers:
+              -
+                name: "Kyle Rush"
+                job_title: "Head of Optimization"
+                company: "Optimizely"
+              -
+                name: "Amanda Swan"
+                job_title: "Community Manager"
+                company: "Optimizely"
+              -
+                name: "Adam Avramescu"
+                job_title: "Customer Education Manager"
+                company: "Optimizely"
       -
         start_time: "2:15"
         title: "Break in Exhibit Hall"
@@ -333,318 +227,8 @@ days:
         start_time: "2:35"
         events:
           -
-            title: "Optimizing All the Things: How A Culture of Optimization Takes Shape Across Each Facet of your Business"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "platform"
-            roles: "productmanager developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Increase YOUR Confidence Level with Stats Engine"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            track: "culture"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "From Skeptic to Champion: How To Win Over Key Stakeholders and Other Non-Believers"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Optimizely Keynote about Experience Optimization Platforms"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-      -
-        start_time: "3:20"
-        title: "Break in Exhibit Hall"
-      -
-        start_time: "3:40"
-        events:
-          -
-            title: "Optimizing All the Things: How A Culture of Optimization Takes Shape Across Each Facet of your Business"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "culture"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Increase YOUR Confidence Level with Stats Engine"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "From Skeptic to Champion: How To Win Over Key Stakeholders and Other Non-Believers"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "action"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Optimizely Keynote about Experience Optimization Platforms"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            track: "platform"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-      -
-        start_time: "4:25"
-        title: "Break in Exhibit Hall"
-      -
-        start_time: "4:45"
-        events:
-          -
-            title: "Optimizing All the Things: How A Culture of Optimization Takes Shape Across Each Facet of your Business"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "strategy"
-            roles: "developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Increase YOUR Confidence Level with Stats Engine"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "strategy"
-            roles: "marketer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "From Skeptic to Champion: How To Win Over Key Stakeholders and Other Non-Believers"
-            time: "10:25 – 11:10"
+            title: "Benchmark your Optimization Program"
+            time: "2:35 - 3:20"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
@@ -656,24 +240,12 @@ days:
             roles: "executive"
             speakers:
               -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
+                name: "Shana Rusonis"
+                job_title: "Content Marketing Manager"
                 company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
           -
-            title: "Optimizely Keynote about Experience Optimization Platforms"
-            time: "10:25 – 11:10"
+            title: "AB Testing in Modern Web Architecture"
+            time: "2:35 - 3:20"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
@@ -681,39 +253,174 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "strategy"
-            roles: "productmanager"
+            companies: "Tile, BitTorrent, RocketLawyer"
+            track: "platform"
+            roles: "developer"
             speakers:
               -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
+                name: "Dave King"
+                job_title: "Development Team Lead"
+                company: "Tilt"
+              -
+                name: "Rex Ren"
+                job_title: "Software Engineer"
+                company: "BitTorrent"
+              -
+                name: "Justin Knoll"
+                job_title: "Chief Architect"
+                company: "BitTorrent"
+              -
+                name: "Case Van Arkel"
+                job_title: "Senior Optimization Specialist"
+                company: "RocketLawyer"
+          -
+            title: "Making it Stick: The X Factor that Made Optimization Succeed"
+            time: "2:35 - 3:20"
+            location: "Terrace B"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Blu Dot, Village Roadshow"
+            track: "strategy"
+            roles: "executive"
+            speakers:
+              -
+                name: "Mike Wodtke"
+                job_title: "eCommerce Director"
+                company: "Blu Dot"
+              -
+                name: "Jon Satterly"
+                job_title: "Group Director, Digital Development"
+                company: "Village Roadshow"
+          -
+            title: "Increase your Confidence Level with Stats Engine"
+            time: "2:35 - 3:20"
+            location: "Terrace B"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Optimizely"
+            track: "action"
+            roles: "marketer productmanager developer"
+            speakers:
+              -
+                name: "Leo Pekelis"
+                job_title: "Statistician"
                 company: "Optimizely"
               -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
+                name: "Pete Koomen"
+                job_title: "Co-Founder & CTO"
+                company: "Optimizely"
+      -
+        start_time: "3:20"
+        title: "Break in Exhibit Hall"
+      -
+        start_time: "3:40"
+        events:
+          -
+            title: "Blow Up your Mobile App Metrics: Real Life Mobile App Optimization"
+            time: "3:40 - 4:25"
+            location: "Terrace B"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Credit Sesame"
+            track: "action"
+            roles: "marketer productmanager developer"
+            speakers:
               -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
+                name: "George McMullen"
+                job_title: "Head of Mobile"
+                company: "Credit Sesame"
+          -
+            title: "Collaborating to Scale: How to Spread Optimization Across your Org and Keep Things from Getting Messy"
+            time: "3:40 - 4:25"
+            location: "Terrace B"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Atlassian"
+            track: "culture"
+            roles: "marketer developer executive productmanager"
+            speakers:
               -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
+                name: "Cameron Daetsch"
+                job_title: "Head of Growth"
+                company: "Atlassian"
+      -
+        start_time: "4:25"
+        title: "Break in Exhibit Hall"
+      -
+        start_time: "4:45"
+        events:
+          -
+            title: "Testing your Boundaries: Lessons Learned from Testing in International Markets"
+            time: "4:45 - 5:30"
+            location: "Terrace B"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Site Tuners, ASICS"
+            track: "strategy"
+            roles: "marketer executive productmanager"
+            speakers:
+              -
+                name: "Tim Ash"
+                job_title: "Chair"
+                company: "Site Tuners"
+              -
+                name: "Jose Uzcategui"
+                job_title: "Ecommerce Conversion Optimization Lead"
+                company: "ASICS"
+          -
+            title: "Site Redesign Strategies"
+            time: "4:45 - 5:30"
+            location: "Terrace B"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Apperian"
+            track: "action"
+            roles: "marketer productmanager"
+            speakers:
+              -
+                name: "Tiffany Early"
+                job_title: "Director, Inbound Marketing"
+                company: "Apperian"
       -
         start_time: "5:30"
-        title: "Opticon Bash!"
+        title: "Opticon Bash"
   -
     title: "Thursday, June 18"
     html_id: "day-two"
     time_slots:
       -
+        start_time: "8:00"
+        title: "Exhibit Hall Open"
+      -
         start_time: "9:00"
         events:
           -
             title: "Opties Awards Presentation"
-            time: "10:25 – 11:10"
+            time: "9:00 - 10:00"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
@@ -723,24 +430,15 @@ days:
               effective in their decision making."
             track: "strategy platform action culture"
             roles: "marketer developer productmanager executive"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
       -
         start_time: "10:00"
         title: "Break in Exhibit Hall"
       -
-        start_time: "10:25"
+        start_time: "10:20"
         events:
           -
-            title: "Optimizing All the Things: How A Culture of Optimization Takes Shape Across Each Facet of your Business"
-            time: "10:25 – 11:10"
+            title: "Moving the Needle in your E-Commerce Funnel"
+            time: "10:20 – 11:05"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
@@ -748,89 +446,21 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Increase YOUR Confidence Level with Stats Engine"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "From Skeptic to Champion: How To Win Over Key Stakeholders and Other Non-Believers"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
+            companies: "LegalZoom, Teespring"
             track: "action"
-            roles: "marketer developer"
+            roles: "marketer productmanager executive"
             speakers:
               -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
+                name: "Jesse Avshalomov"
+                job_title: "Director, Product + Growth"
+                company: "Teespring"
               -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
+                name: "Eddie Hartman"
+                job_title: "Chief Product Officer"
+                company: "LegalZoom"
           -
-            title: "Optimizely Keynote about Experience Optimization Platforms"
-            time: "10:25 – 11:10"
+            title: "The 21st Century Marketing Stack & Team"
+            time: "10:20 – 11:05"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
@@ -838,34 +468,27 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy platform action culture"
-            roles: "marketer developer productmanager executive"
+            companies: "99Designs, Optimizely"
+            track: "strategy"
+            roles: "marketer developer"
             speakers:
               -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
+                name: "Pamela Webber"
+                job_title: "CMO"
+                company: "99Designs"
+              -
+                name: "Jessie Becker"
+                job_title: "CMO"
                 company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
       -
-        start_time: "11:00"
+        start_time: "11:05"
         title: "Break in Exhibit Hall"
       -
-        start_time: "11:30"
+        start_time: "11:25"
         events:
           -
-            title: "Fireside Chat with Marc Andreessen"
-            time: "11:30 - 12:00"
+            title: "Early Lessons in Personalization"
+            time: "11:25 - 12:10"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
@@ -873,13 +496,18 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy platform action culture"
+            companies: "AdRoll, The Clymb"
+            track: "strategy"
             roles: "marketer developer productmanager executive"
             speakers:
               -
-                name: "Marc Andreessen"
-                job_title: "Senior Vice President"
-                company: "a16z"
+                name: "Mike Norland"
+                job_title: "Marketing Director"
+                company: "AdRoll"
+              -
+                name: "Tyler Bullen"
+                job_title: "Personalization Program Manager"
+                company: "The Clymb"
       -
         start_time: "12:10"
         title: "Lunch and Networking"
@@ -887,8 +515,8 @@ days:
         start_time: "1:25"
         events:
           -
-            title: "Programmatic Ad Buying and Funnel Optimization"
-            time: "10:25 – 11:10"
+            title: "Personalization Using Optimizely Audience Integrations"
+            time: "1:25 - 2:10"
             location: "Main Room"
             description: "Industry investment into real-time programmatic bidding is growing.
               Without the proper tracking and monitoring setup, optimization efforts start to
@@ -900,123 +528,45 @@ days:
               via a variety of ad platforms (notably - Google and Facebook). 2) Customer and A/B
               segmentation 3) Audience management through a DMP 4) Performance feedback of A/B and
               its effect on bid optimization."
-            companies: "Uber, IDEO, Birchbox, Disney"
+            companies: "Citrix, Microsoft Store"
+            track: "platform"
+            roles: "marketer productmanager"
+            speakers:
+              -
+                name: "Cori Kaylor"
+                job_title: "Sr. Manager, Web Strategy & Online Marketing"
+                company: "Citrix"
+              -
+                name: "Trevin Chow"
+                job_title: "Principal Group Manager"
+                company: "Microsoft Store"
+          -
+            title: "Best Practices in Programmatic Ad Buying and Conversion Funnel Optimization"
+            time: "1:25 - 2:10"
+            location: "Terrace B"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Netflix"
             track: "strategy"
             roles: "marketer productmanager"
             speakers:
               -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Increase YOUR Confidence Level with Stats Engine"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Uber, IDEO, Birchbox, Disney"
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "From Skeptic to Champion: How To Win Over Key Stakeholders and Other Non-Believers"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Optimizely Keynote about Experience Optimization Platforms"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
+                name: "Patrick McGrath"
+                job_title: "Product Manager of Ad Technology"
+                company: "Netflix"
       -
         start_time: "2:15"
         title: "Break in Exhibit Hall"
       -
-        start_time: "2:35"
+        start_time: "2:30"
         events:
           -
-            title: "Optimizing All the Things: How A Culture of Optimization Takes Shape Across Each Facet of your Business"
-            time: "10:25 – 11:10"
+            title: "Hypothesize, Analyze, Optimize: How to Perfect your Experiment Process"
+            time: "2:30 - 3:15"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
@@ -1024,112 +574,18 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
+            companies: "Princess Cruises, Ruelala"
             track: "strategy"
-            roles: "marketer developer"
+            roles: "marketer productmanager"
             speakers:
               -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
+                name: "Katherine Shea"
+                job_title: "Product Manager"
+                company: "Ruelala"
               -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Increase YOUR Confidence Level with Stats Engine"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "From Skeptic to Champion: How To Win Over Key Stakeholders and Other Non-Believers"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Optimizely Keynote about Experience Optimization Platforms"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
+                name: "Abel Ramos"
+                job_title: "Product Owner, Shopping and Booking Web Scrum Team"
+                company: "Princess Cruises"
       -
         start_time: "3:15"
         title: "Break in Exhibit Hall"
@@ -1137,7 +593,7 @@ days:
         start_time: "3:35"
         events:
           -
-            title: "Optimizing All the Things: How A Culture of Optimization Takes Shape Across Each Facet of your Business"
+            title: "From Skeptic to Champion: How to Win Over Key Stakeholders and Other Non-Believers"
             time: "10:25 – 11:10"
             location: "Terrace B"
             description: "For many customers Optimizely has become a
@@ -1146,112 +602,22 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
+            companies: "Optimizely, Mode, American Medical Association"
+            track: "culture"
+            roles: "marketer productmanager executive"
             speakers:
               -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
+                name: "Rohan Karunakaran"
+                job_title: "Customer Success Manager"
                 company: "Optimizely"
               -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
+                name: "Benn Stancil"
+                job_title: "Chief Analyst"
+                company: "Mode"
               -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Increase YOUR Confidence Level with Stats Engine"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "From Skeptic to Champion: How To Win Over Key Stakeholders and Other Non-Believers"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
-          -
-            title: "Optimizely Keynote about Experience Optimization Platforms"
-            time: "10:25 – 11:10"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            track: "strategy"
-            roles: "marketer developer"
-            speakers:
-              -
-                name: "Heather Watkins"
-                job_title: "Senior Vice President Marketing and Brand Communications"
-                company: "Optimizely"
-              -
-                name: "Andrea O’Connor"
-                job_title: "CEO"
-                company: "Areallylongcompanyname"
-              -
-                name: "Jules Forrest"
-                job_title: "CEO "
-                company: "El Farolito Burritos"
-              -
-                name: "Jon San Miguel"
-                job_title: "Chief Executive Facilities Manager"
-                company: "Hipster Granola Long Words Here"
+                name: "Valerie Kroll"
+                job_title: "Manager of Digital Analytics"
+                company: "American Medical Association"
       -
         start_time: "4:20"
         title: "Opticon Ends"
