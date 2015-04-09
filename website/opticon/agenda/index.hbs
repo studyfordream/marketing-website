@@ -7,40 +7,77 @@ no_footer: true
 body_class:
 - opticon
 - opticon-agenda
+page_script: opticon-agenda.js
 og_title: "Opticon 2015"
 og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
 external_script:
 - //use.typekit.net/ucj0cgp.js
 ---
 
-<div class="confetti-container">
-  <div class="confetti-right"></div>
-</div>
 {{#with page_data}}
 <div class="content-container container">
   <h1 class="page-title common-page-title adelle-sans--bold">{{title}}</h1>
-  <p class="subtitle adelle-sans">{{sub_title}}</p>
 
-  <div class="agenda-container flex-container">
-    <div class="agenda-day">
-      <h3 class="description-title adelle-sans">{{first_day.title}}</h3>
-      {{#each first_day.times}}
-      <div class="agenda-row flex-container">
-        <p class="agenda-time adelle-sans">{{{this.time}}}</p>
-        <p class="agenda-event adelle-sans">{{this.event}}</p>
-    </div>
-      {{/each}}
-    </div>
-
-    <div class="agenda-day">
-      <h3 class="description-title adelle-sans">{{second_day.title}}</h3>
-      {{#each second_day.times}}
-      <div class="agenda-row flex-container">
-        <p class="agenda-time adelle-sans">{{{this.time}}}</p>
-        <p class="agenda-event adelle-sans">{{this.event}}</p>
+  <div class="row" id="filter-row">
+    <a class="day-link" id="day-one-link" href="#day-one">
+      <h4 class="agenda-day agenda-day--active adelle-sans" id="day-one-header">{{day_one}}</h4>
+    </a>
+    <a class="day-link" id="day-two-link" href="#day-two">
+      <h4 class="agenda-day adelle-sans" id="day-two-header">{{day_two}}</h4>
+    </a>
+    {{! Filter Pill }}
+    <div class="pill pill--opticon">
+      <div class="adelle-sans">{{filter_box.title}}</div>
+      <div class="dropdown-cont js-dropdown adelle-sans">{{filter_box.track_section.title}} &#9662;
+        <ul>
+          {{#each filter_box.track_section.tracks}}
+          <li class="filter-item js-filter-item adelle-sans" data-filter="{{ createClassList this }}">{{this}}</li>
+          {{/each}}
+        </ul>
       </div>
-      {{/each}}
-    </div>
-  </div>
-</div>
+      <div class="dropdown-cont js-dropdown adelle-sans">{{filter_box.role_section.title}} &#9662;
+        <ul>
+          {{#each filter_box.role_section.roles}}
+          <li class="filter-item js-filter-item adelle-sans" data-filter="{{ createClassList this }}">{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <a href="#" class="filter--reset js-reset tooltip-hover adelle-sans" data-content="Reset filters">{{filter_box.reset}}</a>
+    </div>{{! /pill }}
+  </div>{{! /row }}
+
+  {{! Agenda }}
+  {{#each days}}
+  <h3 id="{{this.html_id}}" class="description-title adelle-sans">{{this.title}}</h3>
+    {{#each this.time_slots}}
+      <div class="time-slot js-time-slot">
+        <h4 class="time-slot__time adelle-sans">{{this.start_time}}</h4>
+        <div class="time-slot__content js-events">
+          {{#if this.title}}
+            <h5 class="event-title event-title--everyone adelle-sans">{{this.title}}</h5>
+          {{/if}}
+          {{#each this.events}}
+          <div class="event-cont js-event" data-track="{{this.track}}" data-roles="{{this.roles}}">
+              <h5 class="js-accordian-control event-title event-title--choice adelle-sans">{{this.title}}</h5>
+              <span class="expansion-arrow js-arrow">&#10095;</span>
+              {{#if this.companies}}
+                <p class="speaker-companies adelle-sans">Featuring speakers from {{this.companies}}</p>
+              {{/if}}
+              <div class="js-toggle-cont">
+                <div class="speaker-cont">
+                  {{#each this.speakers}}
+                    <p class="speaker-cont__speaker event-text adelle-sans">{{this.name}}, {{this.job_title}}, {{this.company}}</p>
+                  {{/each}}
+                </div>
+                <p class="event-text adelle-sans--bold">Time: {{this.time}}</p>
+                {{! TODO add back once we have talk desciptions}}
+                {{!<p class="event-text adelle-sans">this.description</p>}}
+              </div>{{! /toggle-cont }}
+            </div>{{! /event-cont }}
+          {{/each}}
+        </div>{{! /time-slot__content }}
+      </div>{{! /time-slot }}
+    {{/each}}
+  {{/each}}
+</div>{{! /content-container }}
 {{/with}}
