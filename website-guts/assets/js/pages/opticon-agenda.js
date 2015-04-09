@@ -159,10 +159,9 @@ $filterListItem.on('click', function(event) {
 $('.js-reset').on('click', function(event) {
   filterList = [];
   $events.each(function(eIndex, eventItem) {
-    $(eventItem).show();
+    $(eventItem).show(200, changeTalkVisibility);
   });
   $filterListItem.each(function(eIndex, eventItem) {
     $(this).removeClass('selected');
   });
-  changeTalkVisibility();
 });
