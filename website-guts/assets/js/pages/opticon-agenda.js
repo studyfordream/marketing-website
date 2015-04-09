@@ -12,11 +12,11 @@ function calculateDayTwoDistanceFromTop() {
 
 //Accordian for talks
 $('.js-toggle-cont').slideToggle('fast'); //all details closed to start
-$('.js-accordian-control').click(function(event) {
+$('.js-accordian-control').click(function() {
   $(this).nextAll('.js-arrow').toggleClass('expansion-arrow--open');
   $(this).nextAll('.js-toggle-cont').slideToggle('fast', calculateDayTwoDistanceFromTop);
 });
-$('.js-arrow').click(function(event) {
+$('.js-arrow').click(function() {
   $(this).toggleClass('expansion-arrow--open');
   $(this).nextAll('.js-toggle-cont').slideToggle('fast', calculateDayTwoDistanceFromTop);
 });
@@ -39,7 +39,7 @@ $('#day-two-link').on('click', w.optly.mrkt.utils.smoothScroll);
 var $filterRow = $('#filter-row'),
     $dayOneNav = $('#day-one-header'),
     $dayTwoNav = $('#day-two-header');
-$window.on('scroll', function(e) {
+$window.on('scroll', function() {
   var scrollTop = $window.scrollTop();
   calculateDayTwoDistanceFromTop();
   if (scrollTop < 200) {
@@ -92,7 +92,7 @@ var $dropdownElems = $('.js-dropdown'),
     $eventsContainers = $('.js-events');
 
 //Top filter dropdown
-$dropdownElems.click(function(event) {
+$dropdownElems.click(function() {
   var $this = $(this);
   $this.toggleClass('active');
   $dropdownElems.not( $this ).removeClass( 'active' );
@@ -149,19 +149,19 @@ $filterListItem.on('click', function(event) {
         $(eventItem).hide(200, changeTalkVisibility);
       } else {
         $(eventItem).show(200, changeTalkVisibility);
-        //$(eventItem).show();
       }
     });
   }
 });
 
 // Reset -- clear all filters
-$('.js-reset').on('click', function(event) {
+$('.js-reset').on('click', function() {
   filterList = [];
   $events.each(function(eIndex, eventItem) {
+    console.log(eIndex);
     $(eventItem).show(200, changeTalkVisibility);
   });
-  $filterListItem.each(function(eIndex, eventItem) {
+  $filterListItem.each(function() {
     $(this).removeClass('selected');
   });
 });
