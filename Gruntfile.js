@@ -164,8 +164,8 @@ module.exports = function(grunt) {
     'autoprefixer',
     'copy',
     'clean:postBuild',
-    'om-test',
     'connect:resemble',
+    'om-test',
     'mochaTest',
   ]);
 
