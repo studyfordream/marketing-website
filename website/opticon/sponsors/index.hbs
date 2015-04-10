@@ -1,0 +1,34 @@
+---
+layout: opticon
+seo_title: Opticon Sponsors
+no_container: true
+no_header: true
+no_footer: true
+body_class:
+- opticon
+- opticon-sponsors
+og_title: "Opticon 2015"
+og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
+external_script:
+- //use.typekit.net/ucj0cgp.js
+---
+
+<div class="page-content container">
+  {{#with page_data}}
+  <h2 class="page-title common-page-title adelle-sans--bold">{{title}}</h2>
+  <h3 class="description-title adelle-sans">{{subtitle}}</h3>
+  <p class="adelle-sans">{{sponsor_cta}}</p>
+
+  <div class="platinum">
+    <h4 class="platinum__title adelle-sans">{{platinum_sponsors.title}}</h4>
+    <div class="platinum__image-cont">
+      {{#each platinum_sponsors.sponsor_list}}
+      <div style="background-image: url('{{this.image_link}}')"></div>
+      {{/each}}
+    </div>
+  </div>
+  <div class="gold-container">
+    <h4 class="gold-container__title adelle-sans">{{gold_sponsors.title}}</h4>
+  </div>
+  {{/with}}
+</div>
