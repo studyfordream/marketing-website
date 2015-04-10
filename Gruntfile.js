@@ -21,8 +21,8 @@ module.exports = function(grunt) {
         resemble: 'grunt-resemble-cli',
         sass: 'grunt-sass',
         connect: 'grunt-contrib-connect',
-        jasmine_node: 'grunt-jasmine-node',
         assemble: 'grunt/assemble/',
+        mochaTest: 'grunt-mocha-test',
         open: 'grunt-open'
       }
     },
@@ -128,7 +128,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('ui-test', function(which) {
-    var jasminTest = 'jasmine_node',
+    var mochaTest = 'mochaTest',
         tasks = [
           'config:dev',
           'jshint:test'
@@ -136,14 +136,14 @@ module.exports = function(grunt) {
 
     if(which){
       if(which !== 'om'){
-        jasminTest += ':' + which;
-        tasks.push(jasminTest);
+        mochaTest += ':' + which;
+        tasks.push(mochaTest);
       } else if(which === 'om'){
         tasks.push('om-test');
       }
     } else {
       tasks.push('om-test');
-      tasks.push(jasminTest);
+      tasks.push(mochaTest);
     }
 
     grunt.task.run(tasks);
@@ -166,7 +166,7 @@ module.exports = function(grunt) {
     'clean:postBuild',
     'om-test',
     'connect:resemble',
-    'jasmine_node',
+    'mochaTest',
   ]);
 
   grunt.registerTask('default', [

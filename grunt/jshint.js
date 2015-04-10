@@ -17,12 +17,10 @@ module.exports = {
       unused: true,
       node: true,
       globals: {
-        jasmine: false,
-        spyOn: false,
+        mocha: false,
         it: false,
         console: false,
         describe: false,
-        expect: false,
         beforeEach: false,
         waits: false,
         waitsFor: false,

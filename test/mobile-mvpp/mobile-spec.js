@@ -11,6 +11,7 @@ var testPath = config.basePath({
     gclid: 'CPjX-a-Hn8QCFQckgQodcxcAfw'
   }
 });
+var expect = require('chai').expect;
 
 describe('testing the signup forms on the top of the mobile mvpp page', function() {
 
@@ -29,7 +30,7 @@ describe('testing the signup forms on the top of the mobile mvpp page', function
         .evaluate(function() {
           return document.getElementById('mobile-signup-form-top').querySelector('.password1-related').classList.contains('oform-error-show');
         }, function(passwordError) {
-          expect(passwordError).toBeTruthy();
+          expect(passwordError).to.equal(true);
         })
         .run(done);
     });
@@ -52,7 +53,7 @@ describe('testing the signup forms on the top of the mobile mvpp page', function
           var emailError = document.getElementById('mobile-signup-form-top').querySelector('.email-related').classList.contains('oform-error-show');
           return passwordError && emailError;
         }, function(formErrorsShown) {
-          expect(formErrorsShown).toBeTruthy();
+          expect(formErrorsShown).to.equal(true);
         })
         .run(done);
     });
@@ -77,40 +78,40 @@ describe('testing the signup forms on the top of the mobile mvpp page', function
             var reportingObject = JSON.parse(result.split(' @@ ')[1]);
             describe('check form submission', function(){
               it('valid body attribute', function(){
-                expect(/^\/account\/create/.test(result)).toBe(true);
+                expect(/^\/account\/create/.test(result)).to.equal(true);
               });
             });
             describe('check reporting object', function(){
 
               it('gclid', function(){
-                expect(reportingObject.GCLID__c).toBe('CPjX-a-Hn8QCFQckgQodcxcAfw');
+                expect(reportingObject.GCLID__c).to.equal('CPjX-a-Hn8QCFQckgQodcxcAfw');
               });
               it('email', function(){
-                expect(reportingObject.email).toBe('david_test@optimizely.com');
+                expect(reportingObject.email).to.equal('david_test@optimizely.com');
               });
               it('first name', function(){
-                expect(reportingObject.firstName).toBe('David');
+                expect(reportingObject.firstName).to.equal('David');
               });
               it('last name', function(){
-                expect(reportingObject.lastName).toBe('FP ');
+                expect(reportingObject.lastName).to.equal('FP ');
               });
               it('lead source', function(){
-                expect(reportingObject.leadSource).toBe('Website');
+                expect(reportingObject.leadSource).to.equal('Website');
               });
               it('otm campaign', function(){
-                expect(reportingObject.otm_Campaign__c).toBe('G_WW_Search_Shiva');
+                expect(reportingObject.otm_Campaign__c).to.equal('G_WW_Search_Shiva');
               });
               it('otm content', function(){
-                expect(reportingObject.otm_Content__c).toBe('mabtt');
+                expect(reportingObject.otm_Content__c).to.equal('mabtt');
               });
               it('otm medium', function(){
-                expect(reportingObject.otm_Medium__c).toBe('cpc');
+                expect(reportingObject.otm_Medium__c).to.equal('cpc');
               });
               it('otm source', function(){
-                expect(reportingObject.otm_Source__c).toBe('google');
+                expect(reportingObject.otm_Source__c).to.equal('google');
               });
               it('initial form source', function(){
-                expect(reportingObject.Initial_Form_Source__c).toBe('Create Account - Mobile');
+                expect(reportingObject.Initial_Form_Source__c).to.equal('Create Account - Mobile');
               });
 
             });
