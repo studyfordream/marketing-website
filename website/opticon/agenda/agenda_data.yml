@@ -162,7 +162,7 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Abercrombie & Fitch, Trulia, WiderFunnel, Optimizely"
+            companies: "Abercrombie & Fitch, Trulia, Optimizely"
             track: "culture"
             roles: "marketer productmanager"
             speakers:
@@ -175,13 +175,13 @@ days:
                 job_title: "Senior Quantative Analyst"
                 company: "Trulia"
               -
-                name: "Chris Goward"
-                job_title: "Founder and CEO"
-                company: "WiderFunnel"
-              -
                 name: "Junan Pang"
                 job_title: "Manager, Enterprise Client Services"
                 company: "Optimizely"
+              -
+                name: "Moderated by: Chris Goward"
+                job_title: "Founder and CEO"
+                company: "WiderFunnel"
           -
             title: "Optimizing Optimizely"
             time: "1:30 - 2:15"
@@ -302,7 +302,7 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Blu Dot, Village Roadshow"
+            companies: "Blu Dot, Village Roadshow, Clearhead"
             track: "strategy"
             roles: "executive"
             speakers:
@@ -314,6 +314,10 @@ days:
                 name: "Jon Satterley"
                 job_title: "Group Director, Digital Development"
                 company: "Village Roadshow"
+              -
+                name: "Moderated by: Matty Wishnow"
+                job_title: "Founder & CEO"
+                company: "Clearhead"
           -
             title: "Increase your Confidence Level with Stats Engine"
             time: "2:35 - 3:20"
@@ -394,18 +398,18 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Conversion Conference, ASICS"
+            companies: "ASICS"
             track: "strategy"
             roles: "marketer executive productmanager"
             speakers:
               -
-                name: "Tim Ash"
-                job_title: "Chair, Conversion Conference"
-                company: "Conversion Conference"
-              -
                 name: "Jose Uzcategui"
                 job_title: "Ecommerce Conversion Optimization Lead"
                 company: "ASICS"
+              -
+                name: "Moderated by: Tim Ash"
+                job_title: "Chair, Conversion Conference"
+                company: "Conversion Conference"
           -
             title: "Site Redesign Strategies"
             time: "4:45 - 5:30"
@@ -422,7 +426,7 @@ days:
             speakers:
               -
                 name: "Tiffany Early"
-                job_title: "Director, Inbound Marketing"
+                job_title: "Director, Digital Branding"
                 company: "Apperian"
       -
         start_time: "5:30"
@@ -585,6 +589,10 @@ days:
                 name: "Trevin Chow"
                 job_title: "Principal Group Manager"
                 company: "Microsoft Store"
+              -
+                name: "Moderated by: Clarissa Bukhan"
+                job_title: "Technology Partner Manager"
+                company: "Optimizely"
           -
             title: "Best Practices in Programmatic Ad Buying and Conversion Funnel Optimization"
             time: "1:25 - 2:10"
