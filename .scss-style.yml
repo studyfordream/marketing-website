@@ -6,7 +6,7 @@ linters:
     space_after_bang: false
   BorderZero:
     enabled: false
-    convention: zero
+    convention: none
   ColorKeyword:
     enabled: true
     severity: warning
@@ -17,20 +17,17 @@ linters:
   DebugStatement:
     enabled: true
   DeclarationOrder:
-    enabled: true
+    enabled: false
   DuplicateProperty:
     enabled: true
   ElsePlacement:
-    enabled: true
-    style: same_line
+    enabled: false
   EmptyLineBetweenBlocks:
-    enabled: true
-    ignore_single_line_blocks: true
+    enabled: false
   EmptyRule:
     enabled: true
   FinalNewline:
-    enabled: true
-    present: true
+    enabled: false
   HexLength:
     enabled: false
     style: short
@@ -40,32 +37,26 @@ linters:
   HexValidation:
     enabled: true
   IdSelector:
-    enabled: true
+    enabled: false
   ImportantRule:
-    enabled: true
+    enabled: false
   ImportPath:
-    enabled: true
-    leading_underscore: false
-    filename_extension: false
+    enabled: false
   Indentation:
     enabled: true
-    allow_non_nested_indentation: false
+    allow_non_nested_indentation: true
     character: space
     width: 2
   LeadingZero:
-    enabled: true
+    enabled: false
     style: include_zero
   MergeableSelector:
     enabled: true
     force_nesting: true
   NameFormat:
-    enabled: true
-    allow_leading_underscore: true
-    convention: hyphenated_lowercase
+    enabled: false
   NestingDepth:
-    enabled: true
-    max_depth: 4
-    severity: warning
+    enabled: false
   PlaceholderInExtend:
     enabled: false
   PropertyCount:
@@ -73,10 +64,7 @@ linters:
     include_nested: false
     max_properties: 10
   PropertySortOrder:
-    enabled: true
-    ignore_unspecified: false
-    severity: warning
-    separate_groups: false
+    enabled: false
   PropertySpelling:
     enabled: true
     extra_properties: []
@@ -87,12 +75,11 @@ linters:
     allow_element_with_id: false
     severity: warning
   SelectorDepth:
-    enabled: true
+    enabled: false
     max_depth: 2
     severity: warning
   SelectorFormat:
-    enabled: true
-    convention: hyphenated_lowercase
+    enabled: false
   Shorthand:
     enabled: true
     severity: warning
@@ -116,18 +103,17 @@ linters:
     enabled: true
     spaces: 0
   StringQuotes:
-    enabled: true
-    style: double_quotes
+    enabled: false
   TrailingSemicolon:
     enabled: true
   TrailingZero:
     enabled: false
   UnnecessaryMantissa:
-    enabled: true
+    enabled: false
   UnnecessaryParentReference:
-    enabled: true
+    enabled: false
   UrlFormat:
-    enabled: true
+    enabled: false
   UrlQuotes:
     enabled: true
   VariableForProperty:
