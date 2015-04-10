@@ -11,6 +11,7 @@ var freeTrialPath = config.basePath({
     gclid: 'CPjX-a-Hn8QCFQckgQodcxcAfw'
   }
 });
+var expect = require('chai').expect;
 
 describe('testing form on the free trial page', function() {
 
@@ -27,7 +28,7 @@ describe('testing form on the free trial page', function() {
         .wait(1000)
         .screenshot(config.screenshot({ imgName: 'free-trial-email-error' }))
         .exists('#email.oform-error-show', function(emailErrorExists) {
-          expect(emailErrorExists).toBe(true);
+          expect(emailErrorExists).to.equal(true);
         }).run(done);
     });
   });
@@ -52,44 +53,44 @@ describe('testing form on the free trial page', function() {
         }, function(result) {
             var reportingObject = JSON.parse(result.split(' @@ ')[1]);
             describe('successful submission', function(){
-              expect(/^\/account\/free_trial_create/.test(result)).toBe(true);
+              expect(/^\/account\/free_trial_create/.test(result)).to.equal(true);
             });
             describe('', function(){
               it('inbound lead form type', function(){
-                expect(reportingObject.Inbound_Lead_Form_Type__c).toBe('Free Trial Signup Form');
+                expect(reportingObject.Inbound_Lead_Form_Type__c).to.equal('Free Trial Signup Form');
               });
               it('gclid', function(){
-                expect(reportingObject.GCLID__c).toBe('CPjX-a-Hn8QCFQckgQodcxcAfw');
+                expect(reportingObject.GCLID__c).to.equal('CPjX-a-Hn8QCFQckgQodcxcAfw');
               });
               it('email', function(){
-                expect(reportingObject.email).toBe('david+test2015117154242@optimizely.com');
+                expect(reportingObject.email).to.equal('david+test2015117154242@optimizely.com');
               });
               it('first name', function(){
-                expect(reportingObject.firstName).toBe('david');
+                expect(reportingObject.firstName).to.equal('david');
               });
               it('last name', function(){
-                expect(reportingObject.lastName).toBe('fox-powell test');
+                expect(reportingObject.lastName).to.equal('fox-powell test');
               });
               it('lead source', function(){
-                expect(reportingObject.leadSource).toBe('Website');
+                expect(reportingObject.leadSource).to.equal('Website');
               });
               it('otm campaign', function(){
-                expect(reportingObject.otm_Campaign__c).toBe('G_WW_Search_Shiva');
+                expect(reportingObject.otm_Campaign__c).to.equal('G_WW_Search_Shiva');
               });
               it('otm content', function(){
-                expect(reportingObject.otm_Content__c).toBe('mabtt');
+                expect(reportingObject.otm_Content__c).to.equal('mabtt');
               });
               it('otm medium', function(){
-                expect(reportingObject.otm_Medium__c).toBe('cpc');
+                expect(reportingObject.otm_Medium__c).to.equal('cpc');
               });
               it('otm source', function(){
-                expect(reportingObject.otm_Source__c).toBe('google');
+                expect(reportingObject.otm_Source__c).to.equal('google');
               });
               it('initial form source', function(){
-                expect(reportingObject.Initial_Form_Source__c).toBe('Free Trial PPC');
+                expect(reportingObject.Initial_Form_Source__c).to.equal('Free Trial PPC');
               });
               it('phone', function(){
-                expect(reportingObject.phone).toBe('9172315327');
+                expect(reportingObject.phone).to.equal('9172315327');
               });
             });
         })
@@ -113,7 +114,7 @@ describe('testing form on the free trial page', function() {
         }
         return inputs.length;
       }, function(inputsLength) {
-        expect(inputsLength).toBe(4);
+        expect(inputsLength).to.equal(4);
       })
       .click('#seo-form #submit')
       .wait('body.oform-error')
@@ -121,7 +122,7 @@ describe('testing form on the free trial page', function() {
       .evaluate(function() {
         return document.body.classList.contains('oform-error');
       }, function(bodyClassError) {
-        expect(bodyClassError).toBe(true);
+        expect(bodyClassError).to.equal(true);
       })
       .run(done);
     });

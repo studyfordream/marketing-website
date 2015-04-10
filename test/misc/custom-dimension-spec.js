@@ -2,6 +2,7 @@ var Nightmare = require('nightmare');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
 var testPath = config.basePath({path: '/'});
+var expect = require('chai').expect;
 
 describe('check that custom dimension gets set correctly', function() {
 
@@ -30,9 +31,9 @@ describe('check that custom dimension gets set correctly', function() {
             signedIn: window.optly.signedIn
           };
         }, function(result) {
-          expect(result.initialPlanType).toBe('none');
-          expect(result.currentPlanType).toBe('free');
-          expect(result.signedIn).toBe(true);
+          expect(result.initialPlanType).to.equal('none');
+          expect(result.currentPlanType).to.equal('free');
+          expect(result.signedIn).to.equal(true);
         })
         .run(done);
     });

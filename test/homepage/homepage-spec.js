@@ -3,6 +3,7 @@ var Nightmare = require('nightmare');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
 var homepagePath = config.basePath({path: '/'});
+var expect = require('chai').expect;
 
 describe('test homepage', function() {
 
@@ -32,52 +33,52 @@ describe('test homepage', function() {
             describe('verified that', function(){
               var reportingObject = JSON.parse(result.split(' @@ ')[1]);
               it('visitor was signed in', function(){
-                expect(/signed\-in/.test(result)).toBe(true);
+                expect(/signed\-in/.test(result)).to.equal(true);
               });
               it('form submission worked', function(){
-                expect(/test\-it\-out\-success/.test(result)).toBe(true);
+                expect(/test\-it\-out\-success/.test(result)).to.equal(true);
               });
               it('android checkbox is in reporting object', function(){
-                expect(reportingObject.Android_Interest__c).toBe('true');
+                expect(reportingObject.Android_Interest__c).to.equal('true');
               });
               it('iOS checkbox is in reporting object', function(){
-                expect(reportingObject.iOS_Interest__c).toBe('true');
+                expect(reportingObject.iOS_Interest__c).to.equal('true');
               });
               it('mobile web checkbox is in reporting object', function(){
-                expect(reportingObject.Mobile_Web_Interest__c).toBe('true');
+                expect(reportingObject.Mobile_Web_Interest__c).to.equal('true');
               });
               it('web checkbox is in reporting object', function(){
-                expect(reportingObject.Web_Interest__c).toBe('true');
+                expect(reportingObject.Web_Interest__c).to.equal('true');
               });
               it('lead source is in reporting object', function(){
-                expect(reportingObject.leadSource).toBe('Website');
+                expect(reportingObject.leadSource).to.equal('Website');
               });
               it('initial form source is in reporting object', function(){
-                expect(reportingObject.Initial_Form_Source__c).toBe('Test It Out Homepage');
+                expect(reportingObject.Initial_Form_Source__c).to.equal('Test It Out Homepage');
               });
               it('inbound lead form type is in reporting object', function(){
-                expect(reportingObject.Inbound_Lead_Form_Type__c).toBe('Home Page Signup form');
+                expect(reportingObject.Inbound_Lead_Form_Type__c).to.equal('Home Page Signup form');
               });
               it('lead source subcategory is in reporting object', function(){
-                expect(reportingObject.Lead_Source_Subcategory__c).toBe('Optimizely');
+                expect(reportingObject.Lead_Source_Subcategory__c).to.equal('Optimizely');
               });
               it('utm medium is in reporting object', function(){
-                expect(reportingObject.utm_Medium__c).toBe('direct');
+                expect(reportingObject.utm_Medium__c).to.equal('direct');
               });
               it('otm medium is in reporting object', function(){
-                expect(reportingObject.otm_Medium__c).toBe('direct');
+                expect(reportingObject.otm_Medium__c).to.equal('direct');
               });
               it('email is in reporting object', function(){
-                expect(reportingObject.email).toBe('david_test@optimizely.com');
+                expect(reportingObject.email).to.equal('david_test@optimizely.com');
               });
               it('first name is in reporting object', function(){
-                expect(reportingObject.firstName).toBe('David');
+                expect(reportingObject.firstName).to.equal('David');
               });
               it('last name is in reporting object', function(){
-                expect(reportingObject.lastName).toBe('FP ');
+                expect(reportingObject.lastName).to.equal('FP ');
               });
               it('phone is in reporting object', function(){
-                expect(reportingObject.phone).toBe('999999999');
+                expect(reportingObject.phone).to.equal('999999999');
               });
             });
         })

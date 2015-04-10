@@ -24,7 +24,7 @@ module.exports = function(options){
 
           cachedPath = 'https://www.optimizelystaging.com/' + global.branchPath + opts.path + '?uiTest=true';
         } else {
-          cachedPath = 'http://localhost:9000' + global.linkPath + opts.path + '?uiTest=true';
+          cachedPath = 'http://localhost:9000' + '/dist' + opts.path + '?uiTest=true';
         }
       }
       console.log('Testing: ', cachedPath + queryString);
