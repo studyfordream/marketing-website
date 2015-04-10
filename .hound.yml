@@ -1,0 +1,13 @@
+java_script:
+  enabled: false
+
+scss:
+  enabled: true
+  config_file: .scss-style.yml
+
+ruby:
+  enabled: false
+
+coffee_script:
+  enabled: false
+
