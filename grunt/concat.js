@@ -73,19 +73,19 @@ module.exports = function(grunt, options){
   };
 
   return {
-    namespacePages: {
-      options: {
-        banner: '<%= grunt.config.get("concat_banner") %>',
-        footer: '<%= grunt.config.get("concat_footer") %>',
-        process: function(src, filepath) {
-          return 'var targetName = "' + grunt.task.current.target + '" + "--" +  "' + secondLastSlash(filepath) + '";\n\n' + src;
-        }
-      },
-      src: ['pages/*.js', 'layouts/*.js'],
-      expand: true,
-      cwd: '<%= config.guts %>/assets/js/',
-      dest: '<%= config.dist %>/assets/js/'
-    },
+    //namespacePages: {
+      //options: {
+        //banner: '<%= grunt.config.get("concat_banner") %>',
+        //footer: '<%= grunt.config.get("concat_footer") %>',
+        //process: function(src, filepath) {
+          //return 'var targetName = "' + grunt.task.current.target + '" + "--" +  "' + secondLastSlash(filepath) + '";\n\n' + src;
+        //}
+      //},
+      //src: ['pages/*.js', 'layouts/*.js'],
+      //expand: true,
+      //cwd: '<%= config.guts %>/assets/js/',
+      //dest: '<%= config.dist %>/assets/js/'
+    //},
     namespaceOMPages: {
       options: {
         banner: '<%= grunt.config.get("concat_banner") %>',
@@ -130,29 +130,29 @@ module.exports = function(grunt, options){
       isFile: true,
       dest: '<%= config.dist %>/assets/js/libraries/jquery-modernizr-om.min.js'
     },
-    globalBundle: {
-      options: {
-        banner: '<%= grunt.config.get("concat_banner") %>',
-        footer: '<%= grunt.config.get("concat_footer") %>',
-        process: processBundleName
-      },
-      files: {
-        '<%= config.temp %>/assets/js/global.js': makeBundlePaths(bundlePaths)
-      }
-    },
-    concatBundle: {
-      files: {
-        '<%= config.dist %>/assets/js/bundle.js': [
-          '<%= config.bowerDir %>/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js',
-          '<%= config.guts %>/assets/js/libraries/handlebars-v1.3.0.js',
-          '<%= config.bowerDir %>/momentjs/moment.js',
-          '<%= config.temp %>/assets/js/handlebarsTemplates.js',
-          '<%= config.bowerDir %>/oform/dist/oForm.min.js',
-          '<%= config.temp %>/assets/js/global.js',
-          '<%= config.guts %>/assets/js/components/oForm-globals.js',
-          '<%= config.bowerDir %>/fitvids/jquery.fitvids.js'
-        ]
-      }
-    }
+    //globalBundle: {
+      //options: {
+        //banner: '<%= grunt.config.get("concat_banner") %>',
+        //footer: '<%= grunt.config.get("concat_footer") %>',
+        //process: processBundleName
+      //},
+      //files: {
+        //'<%= config.temp %>/assets/js/global.js': makeBundlePaths(bundlePaths)
+      //}
+    //},
+    //concatBundle: {
+      //files: {
+        //'<%= config.dist %>/assets/js/bundle.js': [
+          //'<%= config.bowerDir %>/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js',
+          //'<%= config.guts %>/assets/js/libraries/handlebars-v1.3.0.js',
+          //'<%= config.bowerDir %>/momentjs/moment.js',
+          //'<%= config.temp %>/assets/js/handlebarsTemplates.js',
+          //'<%= config.bowerDir %>/oform/dist/oForm.min.js',
+          //'<%= config.temp %>/assets/js/global.js',
+          //'<%= config.guts %>/assets/js/components/oForm-globals.js',
+          //'<%= config.bowerDir %>/fitvids/jquery.fitvids.js'
+        //]
+      //}
+    //}
   };
 };

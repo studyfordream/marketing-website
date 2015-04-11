@@ -40,7 +40,6 @@ module.exports = {
       unused: true,
       globals: {
         jQuery: false,
-        moment: false,
         $: false,
         Oform: false,
         w: false,
@@ -63,7 +62,6 @@ module.exports = {
       globals: {
         jQuery: false,
         console: false,
-        moment: false,
         _gaq: false,
         $: false,
         Oform: false,
