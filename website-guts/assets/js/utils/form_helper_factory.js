@@ -1,4 +1,4 @@
-var tr = w.optly.tr;
+var tr = require('translation');
 window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 window.optly.mrkt.form.HelperFactory = function(scopeObj) {
@@ -211,7 +211,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
               var oFormInstance = w.optly.mrkt.activeModals[$(this.formElm).attr('id')];
               var element = $(this.formElm).find('input[name="email"]')[0];
               oFormInstance.options.adjustClasses(element, false);
-              $(this.formElm).find('.email-related').text(window.optly.tr(resp.error));
+              $(this.formElm).find('.email-related').text(tr(resp.error));
             }
           }
         } else {
