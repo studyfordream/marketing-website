@@ -22,7 +22,7 @@ module.exports = function (grunt) {
      * };
      *
      * because bundle name (i.e. key) has a slash it gets dynamically written to that direcotry
-     * by output: {filename: '[name].js'
+     * by output: {filename: '[name].js'}
      * Wrapping value in an array [ ] is a hack recommended by @sokra so multiple bundles
      * that may `require` from one another do not throw errors in the build.
      */
