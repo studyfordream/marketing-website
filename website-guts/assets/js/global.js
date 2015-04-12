@@ -15,7 +15,7 @@ var each = function(arr, fn) {
   }
 };
 
-each(allGlobals, function(context) {
+each(allGlobals, (context) => {
   if(typeof context.keys === 'function') {
     each(context.keys(), context);
   }
