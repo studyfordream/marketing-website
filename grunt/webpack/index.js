@@ -69,11 +69,11 @@ module.exports = function (grunt) {
       grunt.log.write(msg);
     }));
 
-		var handler = function handler(err, stats) {
-			if(err) {
-				grunt.log.error(err);
-				return done(false);
-			}
+    var handler = function handler(err, stats) {
+      if(err) {
+        grunt.log.error(err);
+        return done(false);
+      }
 
       grunt.log.notverbose.writeln(stats.toString(grunt.util._.merge({
         colors: true,
@@ -89,16 +89,16 @@ module.exports = function (grunt) {
         colors: true
       }, options.stats)));
       if(!options.keepalive) {
-				done();
-				done = function(){};
-			}
-		};
+        done();
+        done = function(){};
+      }
+    };
 
-		if (env === 'dev') {
-			compiler.watch(options.watchDelay || 200, handler);
-		} else {
-			compiler.run(handler);
-		}
+    if (env === 'dev') {
+      compiler.watch(options.watchDelay || 200, handler);
+    } else {
+      compiler.run(handler);
+    }
 
   });
 

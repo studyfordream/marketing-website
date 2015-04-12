@@ -1,15 +1,15 @@
 w.optly.mrkt.automatedTest = function(){
 
-	var uiTest, stagingDomain;
+  var uiTest, stagingDomain;
 
-	uiTest = w.optly.mrkt.utils.getURLParameter('uiTest') === 'true';
+  uiTest = w.optly.mrkt.utils.getURLParameter('uiTest') === 'true';
 
-	stagingDomain = w.location.hostname !== 'www.optimizely.com';
+  stagingDomain = w.location.hostname !== 'www.optimizely.com';
 
-	if(uiTest && stagingDomain){
-		return true;
-	} else {
-		return false;
-	}
+  if(uiTest && stagingDomain){
+    return true;
+  } else {
+    return false;
+  }
 
 };
