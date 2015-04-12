@@ -11,7 +11,8 @@ module.exports = {
       colors: true,
       modules: true,
       reasons: true
-    }
+    },
+    dest: '<%= config.dist %>/assets/js/'
   },
   pages: {
     src: ['pages/*.js', 'layouts/*.js'],

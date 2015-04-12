@@ -43,12 +43,13 @@ module.exports = function(opts) {
   ];
 
   var plugins = [
-    new webpack.ResolverPlugin(new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main']))
+    new webpack.ResolverPlugin(new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])),
+    new webpack.NoErrorsPlugin()
   ];
 
+  //TODO: Add webpack dev server for Hot Module Replacment
   var devPlugins = [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin()
   ];
 
   var prodPlugins = [
@@ -58,8 +59,7 @@ module.exports = function(opts) {
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
-    }),
-    new webpack.NoErrorsPlugin()
+    })
   ];
 
   if(opts.env === 'dev') {
@@ -75,7 +75,7 @@ module.exports = function(opts) {
     jshint: jshintConfig,
     entry: opts.entry,
     output: {
-      path: './dist/assets/js',
+      path: './' + opts.outputPath,
       publicPath: opts.publicPath,
       filename: '[name].js'
     },
@@ -97,7 +97,7 @@ module.exports = function(opts) {
   };
 
   if(opts.env === 'dev') {
-    webpackConfig.devtool = 'source-map';
+    webpackConfig.devtool = 'inline-source-map';
   }
 
   return webpackConfig;

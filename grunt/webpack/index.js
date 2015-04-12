@@ -13,6 +13,19 @@ module.exports = function (grunt) {
   grunt.registerTask('webpack', 'Webpack', function () {
     var done = this.async();
 
+    /**
+     * Create the entry bundle
+     *
+     * ex = {
+     *   'layouts/seo': './website-guts/assets/js/layouts/seo.js',
+     *   'pages/android': './website-guts/assets/js/pagess/android.js'
+     * };
+     *
+     * because bundle name (i.e. key) has a slash it gets dynamically written to that direcotry
+     * by output: {filename: '[name].js'
+     * Wrapping value in an array [ ] is a hack recommended by @sokra so multiple bundles
+     * that may `require` from one another do not throw errors in the build.
+     */
     var expandPath = function(basePath, dirs) {
       return grunt.file.expand({cwd: basePath}, dirs).reduce(function(map, filepath) {
         map[filepath.replace('.js', '')] = ['./' + path.join(basePath, filepath)];
@@ -38,6 +51,7 @@ module.exports = function (grunt) {
     var opts = {
       entry: entryBundle,
       env: env,
+      outputPath: options.dest,
       publicPath: options.publicPath,
       jshintConfig: _.merge({}, jshintEnvConfig, serverJshintConfig),
       injectFileNameParams: [
@@ -75,7 +89,7 @@ module.exports = function (grunt) {
         return done(false);
       }
 
-      grunt.log.notverbose.writeln(stats.toString(grunt.util._.merge({
+      grunt.log.notverbose.writeln(stats.toString(_.merge({
         colors: true,
         hash: false,
         timings: false,
@@ -85,7 +99,7 @@ module.exports = function (grunt) {
         modules: false,
         children: true
       }, options.stats)));
-      grunt.verbose.writeln(stats.toString(grunt.util._.merge({
+      grunt.verbose.writeln(stats.toString(_.merge({
         colors: true
       }, options.stats)));
       if(!options.keepalive) {
@@ -95,6 +109,7 @@ module.exports = function (grunt) {
     };
 
     if (env === 'dev') {
+      //TODO: Add webpack dev server for Hot Module Replacment here
       compiler.watch(options.watchDelay || 200, handler);
     } else {
       compiler.run(handler);
