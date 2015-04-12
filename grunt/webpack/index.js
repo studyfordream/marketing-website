@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
+var ProgressPlugin = require('webpack/lib/ProgressPlugin');
 var path = require('path');
 var _ = require('lodash');
 var gutil = require('gulp-util');
@@ -48,35 +49,56 @@ module.exports = function (grunt) {
 
 
     var webpackConfig = makeConfig(opts);
+    var compiler = webpack(webpackConfig);
+    var chars = 0;
 
-    if(false) {
+    compiler.apply(new ProgressPlugin(function(percentage, msg) {
+      if(percentage < 1) {
+        percentage = Math.floor(percentage * 100);
+        msg = percentage + '% ' + msg;
+        if(percentage < 100) { msg = ' ' + msg; }
+        if(percentage < 10) { msg = ' ' + msg; }
+      }
+      for(; chars > msg.length; chars--) {
+        grunt.log.write('\b \b');
+      }
+      chars = msg.length;
+      for(var i = 0; i < chars; i++) {
+        grunt.log.write('\b');
+      }
+      grunt.log.write(msg);
+    }));
 
-     return new WebpackDevServer(webpack(webpackConfig), {
-        contentBase: options.root,
-        publicPath: options.publicPath,
-        hot: true,
-        stats: { colors: true }
-      }).listen(8000, 'localhost', function (err, result) {
-          if(err) {
-            throw new gutil.PluginError('webpack-dev-server', err);
-          }
-          // Server listening
-          gutil.log('[webpack-dev-server]', 'http://localhost:8000/webpack-dev-server/index.html');
-          done();
-      });
-    } else {
+		var handler = function handler(err, stats) {
+			if(err) {
+				grunt.log.error(err);
+				return done(false);
+			}
 
-      return webpack(webpackConfig, function(err, stats) {
-          if(err) {
-            throw new gutil.PluginError('webpack', err);
-          }
-          gutil.log('[webpack]', stats.toString({
-             // output options
-          }));
+      grunt.log.notverbose.writeln(stats.toString(grunt.util._.merge({
+        colors: true,
+        hash: false,
+        timings: false,
+        assets: true,
+        chunks: false,
+        chunkModules: false,
+        modules: false,
+        children: true
+      }, options.stats)));
+      grunt.verbose.writeln(stats.toString(grunt.util._.merge({
+        colors: true
+      }, options.stats)));
+      if(!options.keepalive) {
+				done();
+				done = function(){};
+			}
+		};
 
-          done();
-      });
-    }
+		if (env === 'dev') {
+			compiler.watch(options.watchDelay || 200, handler);
+		} else {
+			compiler.run(handler);
+		}
 
   });
 

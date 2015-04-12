@@ -96,5 +96,9 @@ module.exports = function(opts) {
     plugins: plugins
   };
 
+  if(opts.env === 'dev') {
+    webpackConfig.devtool = 'source-map';
+  }
+
   return webpackConfig;
 };

@@ -6,7 +6,12 @@ module.exports = {
     banner: '<%= grunt.config.get("concat_banner") %>',
     footer: '<%= grunt.config.get("concat_footer") %>',
     root: '<%= grunt.config.get("dist") %>',
-    publicPath: '/assets/js/'
+    publicPath: '/assets/js/',
+    stats: {
+      colors: true,
+      modules: true,
+      reasons: true
+    }
   },
   pages: {
     src: ['pages/*.js', 'layouts/*.js'],
