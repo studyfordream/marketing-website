@@ -2,75 +2,137 @@ title: "Sponsors"
 subtitle: "Your Opticon experience wouldn’t be possible without the following sponsors"
 sponsor_cta: "If you are interested in becomming a sponsor, please fill out a Sponsorship Prospectus"
 
-platinum_sponsors:
-  title: "Platinum Sponsors"
-  sponsor_list:
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
-
-gold_sponsors:
-  title: "Gold Sponsors"
-  sponsor_list:
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
-    -
-      image_link: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
-      image_alt: ""
-      site_link: ""
-      description: ""
+sponsor_levels:
+  -
+    title: "Platinum Sponsors"
+    sponsor_list:
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/ZMOSneV0RDKBotvqXjoJ7lJaqdjmmHEr6m3zXs6JFYq1dNnWfAjzawQ9H3Xsr37F"
+        site_link: ""
+        description: ""
+        class: "platinum"
+  -
+    title: "Gold Sponsors"
+    sponsor_list:
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/ZMOSneV0RDKBotvqXjoJ7lJaqdjmmHEr6m3zXs6JFYq1dNnWfAjzawQ9H3Xsr37F"
+        site_link: ""
+        description: ""
+        class: "gold"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/oTbsj1KRQFqtHOsDuY7eW6rCfZaZOwno34WxiLGqGhvA9ScPncuJpwMl0SpiKe1p"
+        site_link: ""
+        description: ""
+        class: "gold"
+  -
+    title: "Silver Sponsors"
+    class: "silver"
+    sponsor_list:
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/ZMOSneV0RDKBotvqXjoJ7lJaqdjmmHEr6m3zXs6JFYq1dNnWfAjzawQ9H3Xsr37F"
+        site_link: ""
+        description: ""
+        class: "silver"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/oTbsj1KRQFqtHOsDuY7eW6rCfZaZOwno34WxiLGqGhvA9ScPncuJpwMl0SpiKe1p"
+        site_link: ""
+        description: ""
+        class: "silver"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/buTiSXAEnliaPRfFx18MTw6dmtv0vdCJC9q5W5oc33p39sB8CH7fxRndeyKx1NUH"
+        site_link: ""
+        description: ""
+        class: "silver"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/NO5a0xOiwvvMrY5DMYnj4S03rlq5Yhiv0d5bsTlgZVjT4J9pxJas1uq3m1xEgSnz"
+        site_link: ""
+        description: ""
+        class: "silver"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/SU8I0ghq2FqlMbnq9DuKPhjVY0ol5PUvBh5mt4UvGITjubQ87ioKu7oVrJLPZWST"
+        site_link: ""
+        description: ""
+        class: "silver"
+  -
+    title: "Bronze Sponsors"
+    class: "bronze"
+    sponsor_list:
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/ZMOSneV0RDKBotvqXjoJ7lJaqdjmmHEr6m3zXs6JFYq1dNnWfAjzawQ9H3Xsr37F"
+        site_link: ""
+        description: ""
+        class: "bronze"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/oTbsj1KRQFqtHOsDuY7eW6rCfZaZOwno34WxiLGqGhvA9ScPncuJpwMl0SpiKe1p"
+        site_link: ""
+        description: ""
+        class: "bronze"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/buTiSXAEnliaPRfFx18MTw6dmtv0vdCJC9q5W5oc33p39sB8CH7fxRndeyKx1NUH"
+        site_link: ""
+        description: ""
+        class: "bronze"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/NO5a0xOiwvvMrY5DMYnj4S03rlq5Yhiv0d5bsTlgZVjT4J9pxJas1uq3m1xEgSnz"
+        site_link: ""
+        description: ""
+        class: "bronze"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/SU8I0ghq2FqlMbnq9DuKPhjVY0ol5PUvBh5mt4UvGITjubQ87ioKu7oVrJLPZWST"
+        site_link: ""
+        description: ""
+        class: "bronze"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/buTiSXAEnliaPRfFx18MTw6dmtv0vdCJC9q5W5oc33p39sB8CH7fxRndeyKx1NUH"
+        site_link: ""
+        description: ""
+        class: "bronze"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/NO5a0xOiwvvMrY5DMYnj4S03rlq5Yhiv0d5bsTlgZVjT4J9pxJas1uq3m1xEgSnz"
+        site_link: ""
+        description: ""
+        class: "bronze"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/SU8I0ghq2FqlMbnq9DuKPhjVY0ol5PUvBh5mt4UvGITjubQ87ioKu7oVrJLPZWST"
+        site_link: ""
+        description: ""
+        class: "bronze"
+  -
+    title: "Optimization Roundtable Sponsors"
+    class: "roundtable"
+    sponsor_list:
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/ZMOSneV0RDKBotvqXjoJ7lJaqdjmmHEr6m3zXs6JFYq1dNnWfAjzawQ9H3Xsr37F"
+        site_link: ""
+        description: ""
+        class: "roundtable"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/oTbsj1KRQFqtHOsDuY7eW6rCfZaZOwno34WxiLGqGhvA9ScPncuJpwMl0SpiKe1p"
+        site_link: ""
+        description: ""
+        class: "roundtable"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/buTiSXAEnliaPRfFx18MTw6dmtv0vdCJC9q5W5oc33p39sB8CH7fxRndeyKx1NUH"
+        site_link: ""
+        description: ""
+        class: "roundtable"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/NO5a0xOiwvvMrY5DMYnj4S03rlq5Yhiv0d5bsTlgZVjT4J9pxJas1uq3m1xEgSnz"
+        site_link: ""
+        description: ""
+        class: "roundtable"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/SU8I0ghq2FqlMbnq9DuKPhjVY0ol5PUvBh5mt4UvGITjubQ87ioKu7oVrJLPZWST"
+        site_link: ""
+        description: ""
+        class: "roundtable"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/NO5a0xOiwvvMrY5DMYnj4S03rlq5Yhiv0d5bsTlgZVjT4J9pxJas1uq3m1xEgSnz"
+        site_link: ""
+        description: ""
+        class: "roundtable"
+      -
+        image_link: "https://dl.dropboxusercontent.com/content_link/SU8I0ghq2FqlMbnq9DuKPhjVY0ol5PUvBh5mt4UvGITjubQ87ioKu7oVrJLPZWST"
+        site_link: ""
+        description: ""
+        class: "roundtable"

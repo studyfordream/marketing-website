@@ -19,16 +19,15 @@ external_script:
   <h3 class="description-title adelle-sans">{{subtitle}}</h3>
   <p class="adelle-sans">{{sponsor_cta}}</p>
 
-  <div class="platinum">
-    <h4 class="platinum__title adelle-sans">{{platinum_sponsors.title}}</h4>
-    <div class="platinum__image-cont">
-      {{#each platinum_sponsors.sponsor_list}}
-      <div style="background-image: url('{{this.image_link}}')"></div>
+  {{#each sponsor_levels}}
+  <div class="sponsor-level">
+    <h4 class="sponsor-level__title adelle-sans">{{this.title}}</h4>
+    <div class="sponsor-level__image-cont">
+      {{#each this.sponsor_list}}
+      <div class="sponsor-level__image-cont__image sponsor-level__image-cont__image--{{this.class}}" style="background-image: url('{{this.image_link}}')"></div>
       {{/each}}
     </div>
   </div>
-  <div class="gold-container">
-    <h4 class="gold-container__title adelle-sans">{{gold_sponsors.title}}</h4>
-  </div>
+  {{/each}}
   {{/with}}
 </div>

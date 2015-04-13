@@ -1,11 +1,32 @@
 body.opticon-sponsors {
-  .platinum {
-    &__
-
+  .sponsor-level {
+    margin: 100px 0;
+    &__image-cont {
+      display: flex;
+      flex-wrap: wrap;
+      &__image {
+        width: 100%;
+        padding-top: 150px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        margin: 0 auto;
+      }
+    }
   }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon-sponsors {
+    .description-title { width: 630px; }
+    .sponsor-level__image-cont {
+      &__image {
+        &--platinum   { width: 75%; }
+        &--gold       { width: 43%; }
+        &--silver     { width: 30%; }
+        &--bronze     { width: 21%; }
+        &--roundtable { width: 13%; }
+      }
+    }
   }
 }
