@@ -13,18 +13,25 @@ module.exports = function (grunt) {
   grunt.registerTask('webpack', 'Webpack', function () {
     var done = this.async();
 
+    /*
+      Create the entry bundle
+      because bundle name (i.e. key) has a slash it gets dynamically written to that directory
+      by output: {filename: '[name].js'}
+      Wrapping value in an array [ ] is a hack recommended by @sokra so multiple bundles
+      that may `require` from one another do not throw errors in the build.
+       */
     /**
-     * Create the entry bundle
-     *
+     * @param {String} str -  String to localize
+     * @param {...*} substitutions - Substitution parameters
+     * @returns {Object} Webpack src/dest multiple entry object
      * ex = {
-     *   'layouts/seo': './website-guts/assets/js/layouts/seo.js',
-     *   'pages/android': './website-guts/assets/js/pagess/android.js'
+     *   'layouts/seo': ['./website-guts/assets/js/layouts/seo.js'],
+     *   'pages/android': '[./website-guts/assets/js/pagess/android.js]'
      * };
      *
-     * because bundle name (i.e. key) has a slash it gets dynamically written to that direcotry
-     * by output: {filename: '[name].js'}
-     * Wrapping value in an array [ ] is a hack recommended by @sokra so multiple bundles
-     * that may `require` from one another do not throw errors in the build.
+     */
+
+    /**
      */
     var expandPath = function(basePath, dirs) {
       return grunt.file.expand({cwd: basePath}, dirs).reduce(function(map, filepath) {
@@ -48,17 +55,17 @@ module.exports = function (grunt) {
 
     var jshintEnvConfig = env === 'dev' ? jshintConfig.clientDev.options : jshintConfig.clientProd.options;
 
+    var injectParams ='inject=' + encodeURIComponent('var targetName = __filename.replace("website-guts/assets/js/", "");\n\n') +
+        '&banner=' + encodeURIComponent(banner) +
+        '&footer=' + encodeURIComponent(footer);
+
     var opts = {
       entry: entryBundle,
       env: env,
       outputPath: options.dest,
       publicPath: options.publicPath,
       jshintConfig: _.merge({}, jshintEnvConfig, serverJshintConfig),
-      injectFileNameParams: [
-        'inject=' + encodeURIComponent('var targetName = __filename.replace("website-guts/assets/js/", "");\n\n'),
-        '&banner=' + encodeURIComponent(banner),
-        '&footer=' + encodeURIComponent(footer)
-      ].join('')
+      injectFileNameParams: injectParams
     };
 
 

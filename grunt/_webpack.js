@@ -16,12 +16,10 @@ module.exports = {
   },
   pages: {
     src: ['pages/*.js', 'layouts/*.js'],
-    cwd: '<%= config.guts %>/assets/js/',
-    dest: '<%= config.dist %>/assets/js/'
+    cwd: '<%= config.guts %>/assets/js/'
   },
   globalBundle: {
     src: 'global.js',
-    cwd: '<%= config.guts %>/assets/js/',
-    dest: '<%= config.dist %>/assets/js/'
+    cwd: '<%= config.guts %>/assets/js/'
   }
 };

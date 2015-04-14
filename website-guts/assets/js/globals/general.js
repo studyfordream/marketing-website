@@ -1,25 +1,5 @@
 window.optly.mrkt.anim= window.optly.mrkt.anim || {};
 
-window.optly.mrkt.formDataStringToObject = function getJsonFromUrl(string) {
-
-  var data, result, i;
-
-  data = string.split('&');
-
-  result = {};
-
-  for(i=0; i<data.length; i++) {
-
-    var item = data[i].split('=');
-
-    result[item[0]] = item[1];
-
-  }
-
-  return result;
-
-};
-
 //apply active class to active links
 w.optly.mrkt.activeLinks = {};
 
@@ -29,12 +9,9 @@ w.optly.mrkt.activeLinks.markActiveLinks = function(){
 
   $('a').each(function(){
 
-    if(
+    var href = $(this).attr('href');
 
-      $(this).attr('href') === w.optly.mrkt.activeLinks.currentPath ||
-        $(this).attr('href') + '/' === w.optly.mrkt.activeLinks.currentPath
-
-    ){
+    if(href  === w.optly.mrkt.activeLinks.currentPath || href + '/' === w.optly.mrkt.activeLinks.currentPath) {
 
       $(this).addClass('active');
 
@@ -70,8 +47,6 @@ w.optly.mrkt.inlineFormLabels = function(){
 
 };
 
-window.optly.mrkt.activeLinks.markActiveLinks();
-
 w.optly.mrkt.formDataStringToObject = function getJsonFromUrl(string) {
 
   var data, result, i;
@@ -92,30 +67,6 @@ w.optly.mrkt.formDataStringToObject = function getJsonFromUrl(string) {
 
 };
 
-window.optly.mrkt.inlineFormLabels = function(){
-
-  if(w.optly.mrkt.browser !== 'Explorer'){
-
-    $('form.inline-labels :input').each(function(index, elem) {
-
-      var eId = $(elem).attr('id');
-
-      var label = null;
-
-      if (eId && (label = $(elem).parents('form').find('label[for='+eId+']')).length === 1) {
-
-        $(elem).attr('placeholder', $(label).html());
-
-        $(label).addClass('hide-label');
-
-      }
-
-    });
-
-  }
-
-};
-
 /*  Random string function for analytics.identify
  * taken from here:
  * http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript
@@ -132,26 +83,30 @@ w.optly.mrkt.utils.randomString = function() {
   return text;
 };
 
+/**
+ * If the visitor has account data send data to Marketo on page load
+ * TODO: Can this be deprecated, seems as if it's contributing to Marketo queue issues
+ */
 w.optly_q.push([function(){
 
-    if(typeof w.optly_q.acctData === 'object'){
+  if(typeof w.optly_q.acctData === 'object'){
 
-w.analytics.ready(function(){
+    w.analytics.ready(function(){
 
-  w.Munchkin.munchkinFunction('associateLead', {
+      w.Munchkin.munchkinFunction('associateLead', {
 
-    Email: w.optly_q.acctData.email
+        Email: w.optly_q.acctData.email
 
-  }, w.optly_q.acctData.munchkin_token);
+      }, w.optly_q.acctData.munchkin_token);
 
-});
+    });
 
-var anonymousVisitorIdentifier = w.optly.mrkt.utils.randomString();
-w.analytics.identify(anonymousVisitorIdentifier, {
-  name: w.optly_q.acctData.name,
-  email: w.optly_q.acctData.email,
-  Email: w.optly_q.acctData.email
-});
+    var anonymousVisitorIdentifier = w.optly.mrkt.utils.randomString();
+    w.analytics.identify(anonymousVisitorIdentifier, {
+      name: w.optly_q.acctData.name,
+      email: w.optly_q.acctData.email,
+      Email: w.optly_q.acctData.email
+    });
 
   }
 

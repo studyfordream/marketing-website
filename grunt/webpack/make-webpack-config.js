@@ -11,10 +11,10 @@ module.exports = function(opts) {
     {
       test: /\.js$/,
       exclude: [
-        /node\_modules/,
-        /bower\_components/,
+        /node_modules/,
+        /bower_components/,
         /libraries/,
-        /form\-filler/,
+        /form-filler/,
         /global\.js/
       ],
       loader: 'inject-filename-loader?' + opts.injectFileNameParams
@@ -22,26 +22,36 @@ module.exports = function(opts) {
     {
       test: /\.js$/,
       exclude: [
-        /node\_modules/,
-        /bower\_components/,
+        /node_modules/,
+        /bower_components/,
         /libraries/,
-        /equal\_height\_grid/,
-        /form\-filler/,
-        /guid\_sprintf/,
-        /oform\_globals/,
-        /trim\-mixpanel\-cookie/,
+        /equal_height_grid/,
+        /form-filler/,
+        /guid_sprintf/,
+        /oform_globals/,
+        /trim-mixpanel-cookie/,
         /uri/,
-        /get\_url\_parameter/
+        /get_url_parameter/
       ],
       loader: 'jshint-loader'
     }
   ];
 
+  /**
+   * Loaders to
+   * -- compile hbs client side templates
+   * -- compile es6
+   */
   var loaders = [
     { test: /\.hbs$/, loader: 'handlebars-loader' },
     {test: /\.js?$/, exclude: ['bower_components', 'node_modules'], loader: 'babel-loader'}
   ];
 
+  /**
+   * Plugins to
+   * -- resolve all bower components from the main file specified in module's bower.json
+   * -- no assets are emitted containing errors http://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
+   */
   var plugins = [
     new webpack.ResolverPlugin(new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])),
     new webpack.NoErrorsPlugin()
@@ -52,6 +62,12 @@ module.exports = function(opts) {
     new webpack.HotModuleReplacementPlugin()
   ];
 
+  /**
+   * Plugins specific to production
+   * -- Uglifiy JS and strip comments
+   * -- Deduplicates equal or similar files http://webpack.github.io/docs/list-of-plugins.html#dedupeplugin
+   * -- Defines a global production variable that can be used in JS if necessary
+  */
   var prodPlugins = [
     new webpack.optimize.UglifyJsPlugin({output: {comments: false}}),
     new webpack.optimize.DedupePlugin(),
@@ -80,7 +96,9 @@ module.exports = function(opts) {
       filename: '[name].js'
     },
     resolve: {
+      //all these extensions will be resolved without specifying extension in the `require` function
       extensions: ['', '.js', '.hbs'],
+      //files in these directory can be required without a relative path
       modulesDirectories: [
         'node_modules',
         'bower_components',
