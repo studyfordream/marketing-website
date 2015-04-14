@@ -57,6 +57,7 @@
     "jshint-loader": "0.8.1",
     "l10n-tools": "git+ssh://git@github.com/optimizely/l10n-tools.git#430ec6c5fa463fdc286b8d26bd6a61e804e1b687",
     "l10n-tr": "git+ssh://git@github.com/optimizely/l10n-tr.git#4c4175a2c18c4340c4786edb884228c72ccdd14c",
+    "l10n-tr-plugin": "git+ssh://git@github.com/optimizely/l10n-tr-plugin.git#63e9dfbd0bb0ecf90bb65ad3392ab346abe7b729",
     "layout-stack": "^0.1.1",
     "load-grunt-config": "0.16.0",
     "lodash": "^3.2.0",

@@ -1,5 +1,6 @@
 var _ = require('lodash');
 var webpack = require('webpack');
+var trPlugin = require('l10n-tr-plugin');
 
 module.exports = function(opts) {
   var jshintConfig = _.merge({}, {
@@ -54,7 +55,8 @@ module.exports = function(opts) {
    */
   var plugins = [
     new webpack.ResolverPlugin(new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new trPlugin()
   ];
 
   //TODO: Add webpack dev server for Hot Module Replacment

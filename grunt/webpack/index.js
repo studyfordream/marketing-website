@@ -21,8 +21,8 @@ module.exports = function (grunt) {
       that may `require` from one another do not throw errors in the build.
        */
     /**
-     * @param {String} str -  String to localize
-     * @param {...*} substitutions - Substitution parameters
+     * @param {String} basePath -  Current working directory for patterns
+     * @param  {String|Array} dirs - Globbing pattern string or Array of globbing patterns
      * @returns {Object} Webpack src/dest multiple entry object
      * ex = {
      *   'layouts/seo': ['./website-guts/assets/js/layouts/seo.js'],
