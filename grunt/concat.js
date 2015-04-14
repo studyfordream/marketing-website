@@ -57,6 +57,7 @@ var bundlePaths = [
   'global.js',
   'components/*.js',
   'services/*.js',
+  '!services/set-api-domain.js',
   '!services/user_state.js'
 ];
 
