@@ -58,6 +58,7 @@ var bundlePaths = [
   'components/*.js',
   'services/*.js',
   '!services/set-api-domain.js',
+  '!services/identify-visitor-attributes.js',
   '!services/user_state.js'
 ];
 
