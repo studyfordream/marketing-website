@@ -296,7 +296,7 @@
           utm_Medium__c: w.optly.mrkt.source.utm.medium,
           otm_Medium__c: w.optly.mrkt.source.otm.medium,
           Demo_Request_Monthly_Traffic__c: traffic.options[traffic.selectedIndex].value || '',
-          Inbound_Lead_Form_Type__c: d.querySelector('[name="inboundFormLeadType"]').value,
+          Inbound_Lead_Form_Type__c: d.querySelector('[name="Inbound_Lead_Form_Type__c"]').value || '',
           token: response.token
         }, {
           integrations: {

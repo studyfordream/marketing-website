@@ -1,42 +1,78 @@
 ---
-layout: "benefits.hbs"
-seo_title: "Publishers"
-visible_title: "Publishers"
+layout: benefits
+TR_seo_title: "Publishers"
+TR_visible_title: "Publishers"
 body_class:
 - "publishers-page"
 inbound_form_lead_type: "Optimizely for Publishers"
 initial_form_source: "Optimizely for Publishers"
 lead_source_subcategory: "Optimizely for Publishers form"
+TR_page_h2: "Boost Engagement, Pageviews and Content Discoverability"
+TR_page_h5: "Highlights:"
+TR_page_paragraphs:
+- TR_p_first: "Optimizely's solutions for online publishers offer A/B and"
+  TR_a: "multivariate testing"
+  TR_p_last: "tools that deliver actionable insights into visitor behavior. Satisfying the demand for the rich, relevant and personalized content visitors crave has never been easier"
+- "Optimizely's visual editor and testing environment enable the easy creation and discovery of optimal combinations of content placement, size, headlines, images, and more. Easily define and achieve any goals, from higher click through rates, longer site visits, to downloads, or boosts in engagement."
+- "Most people on our team found it hard to believe that a single word could really have a meaningful impact on user behavior. Prior to Optimizely, testing usually meant more people needed to be involved, which made for a longer process, and didn't typically allow for a quick and easy test; it didn't take more than a day to discover that the naysayers were totally wrong."
+- "- Irving Weiss, Vitals.com"
+-
+  TR_strong: "Learn More"
+  link: "benefits"
+  TR_text: "Benefits of A/B and Multivariate Testing"
+TR_page_li:
+- "Real-time reporting tools and dashboards"
+- "Pageview and engagement tracking, custom goal creation"
+- "One-click integration with Google Analytics, SiteCatalyst and more"
+- "Run tests on dynamic pages"
+- "Target custom visitor audiences (e.g. paid traffic, geography, etc.)"
+- "WYSIWYG, no-coding required editor for building test variations"
+- "A/B and Multivariate testing"
+- "World-class support and resources for training and implementation"
+- "Fast and reliable tools and technology"
+- "Custom HTML/CSS/Javascript"
+- "And much more..."
+
 ---
 
-<h2 class="subheading">Boost Engagement, Pageviews and Content Discoverability</h2>
+<h2 class="subheading">{{page_h2}}</h2>
 
 <div class="row">
     <div class="columns seven">
-        <p>Optimizely's solutions for online publishers offer A/B and <a href="{{linkPath}}/resources/multivariate-test-vs-ab-test">multivariate testing</a> tools that deliver actionable insights into visitor behavior. Satisfying the demand for the rich, relevant and personalized content visitors crave has never been easier.</p>
-        <h5>Highlights:</h5>
+      {{#each page_paragraphs}}
+        {{#is @index 0}}
+        <p>{{this.p_first}} <a href="{{../../linkPath}}/resources/multivariate-test-vs-ab-test">{{this.a}}</a> {{this.p_last}}</p>
+        {{/is}}
+        {{#is @index 1}}
+        <h5>{{../../page_h5}}</h5>
         <ul class="benefits-list">
-            <li>Real-time reporting tools and dashboards</li>
-            <li>Pageview and engagement tracking, custom goal creation</li>
-            <li>One-click integration with Google Analytics, SiteCatalyst and more</li>
-            <li>Run tests on dynamic pages</li>
-            <li>Target custom visitor audiences (e.g. paid traffic, geography, etc.)</li>
-            <li>WYSIWYG, no-coding required editor for building test variations</li>
-            <li>A/B and Multivariate testing</li>
-            <li>World-class support and resources for training and implementation</li>
-            <li>Fast and reliable tools and technology</li>
-            <li>Custom HTML/CSS/Javascript</li>
-            <li><em>And much more...</em></li>
+          {{#each ../../page_li}}
+          {{#if @last}}
+            <li><em>{{.}}</em></li>
+            {{else}}
+            <li>{{.}}</li>
+          {{/if}}
+          {{/each}}
         </ul>
-        <p>Optimizely's visual editor and testing environment enable the easy creation and discovery of optimal combinations of content placement, size, headlines,
-        images, and more. Easily define and achieve any goals, from higher click through rates, longer site visits, to downloads, or boosts in engagement.</p>
-        <blockquote>
-            <p>Most people on our team found it hard to believe that a single word could really have a meaningful impact on user behavior. Prior to Optimizely, testing usually meant more people needed to be involved, which made for a longer process, and didn't typically allow for a quick and easy test; it didn't take more than a day to discover that the naysayers were totally wrong."</p>
-            <p class="by">- Irving Weiss, Vitals.com</p>
-        </blockquote>
-        <p><strong>Learn More: </strong><a href="{{linkPath}}/benefits">Benefits of A/B and Multivariate Testing</a>.</p>
+        <p>{{.}}</p>
+        {{/is}}
+        {{#if_gt @index compare=1}}
+        {{#if @last}}
+        <p><strong>{{strong}}: <strong><a href="{{../../../linkPath}}/{{link}}">{{text}}</a></p>
+          {{else}}
+            {{#isnt @index 3}}
+              <blockquote>
+                <p>{{{.}}}</p>
+            {{/isnt}}
+            {{#is @index 3}}
+                <p class="by">{{{.}}}</p>
+              </blockquote>
+            {{/is}}
+        {{/if}}
+        {{/if_gt}}
+      {{/each}}
     </div>
     <div class="columns five">
-        {{> contact_form }}
+        {{> contact_form}}
     </div>
 </div>

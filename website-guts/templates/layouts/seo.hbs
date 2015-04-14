@@ -1,14 +1,15 @@
 ---
-layout: wrapper.hbs
+layout: wrapper
 layout_script: seo.js
 layout_body_class:
 - seo-layout
+TR_layout_header: "Start using Optimizely to test your website today!"
 ---
 <div id="main">
   <div id="page-header">
     <div class="container">
-      <h1>{{{page.visible_title}}}</h1>
-      {{#if page.sub_head}}<p>{{page.sub_head}}</p>{{/if}}
+      <h1>{{{this.visible_title}}}</h1>
+      {{#if this.sub_head}}<p>{{this.sub_head}}</p>{{/if}}
     </div><!--/.container-->
   </div><!--/#page-header-->
   <div id="page-header-gradient"></div>
@@ -16,18 +17,18 @@ layout_body_class:
     <div class="container">
       <div class="row">
         <div class="columns ten offset-one">
-          <div class="ugc">{{#omarkdown path=linkPath}}{{> body }}{{/omarkdown}}</div>
+          <div class="ugc">{% body %}</div>
         </div>
       </div>
       <div class="row">
         <div class="columns twelve">
           <div class="shadow-cta">
-            <h4>Start using Optimizely to test your website today!</h4>
+            <h4>{{this.layout_header}}</h4>
           </div>
         </div>
       <div class="columns six offset-three">
         <div class="landing-page-form">
-          {{#if page.form_header}}
+          {{#if this.form_header}}
           <h4 class="seo-form-heading">{{page.form_header}}</h4>
           {{/if}}
           <p class="seo-form-subheader">{{{page.form_text}}}</p>
@@ -39,21 +40,21 @@ layout_body_class:
             <input id="hidden" type="hidden" name="hidden" value="">
             <ul>
               <li class="url-input-related">
-              <label for="url">Type in a URL to try it out</label>
+              <label for="url">{{tr 'Type in a URL to try it out'}}</label>
               <input id="url" required name="url-input" type="url">
               </li>
               <li class="name-related">
-              <label for="name">Your Name</label>
+              <label for="name">{{tr 'Your Name'}}</label>
               <input id="name" required data-validation="name" name="name" type="text">
               </li>
               <li id="phone-email-cont">
               <div class="label half left email-related">
-                <label for="email">Email - no spam</label>
+                <label for="email">{{tr 'Email - no spam'}}</label>
                 <input id="email" required name="email" type="email">
               </div>
 
               <div class="label half right phone_number-related">
-                <label for="phone">Phone Number</label>
+                <label for="phone">{{tr 'Phone Number'}}</label>
                 <input id="phone" name="phone_number" type="tel">
               </div>
               </li>
@@ -61,8 +62,8 @@ layout_body_class:
               <small>By clicking the <q>Test it Out</q> button below I agree to the <br><a href="{{linkPath}}/terms" target="_blank">Terms of Service</a> and <a href="{{linkPath}}/privacy" target="_blank">Privacy Policy</a>.</small>
               </li>
               <li class="a-center">
-              <button type="submit" id="submit" class="button oform-processing-hide">Test it Out</button>
-              <p class="oform-processing-show">Processing...</p>
+              <button type="submit" id="submit" class="button oform-processing-hide">{{tr 'Test it Out'}}</button>
+              <p class="oform-processing-show">{{tr 'Processing'}}...</p>
               </li>
             </ul>
           </form>

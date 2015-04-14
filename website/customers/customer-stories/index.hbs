@@ -1,10 +1,8 @@
 ---
-layout: customers.hbs
-seo_title: "Customer Stories"
-visible_title: "Customer Stories"
+layout: customers
+TR_seo_title: "Customer Stories"
+TR_visible_title: "Customer Stories"
 no_container: true
-subnav_first: "customers"
-subnav_last: "customers/customer-stories"
 page_script: customer-stories.js
 body_class:
 - customer-stories-page
@@ -12,22 +10,22 @@ body_class:
 <div id="customer-stories-content">
   <div class="container">
     <div class="row top-content SL_swap" id="featured-customer-story">
-      {{#if customer_stories_data.featured_video}}
+      {{#if page_data.featured_video}}
         <div class="columns two-thirds">
           <div class="video-container">
-            <iframe width="100%" height="100%" src="//www.youtube.com/embed/{{customer_stories_data.featured_video.youtube_id}}" frameborder="0" allowfullscreen></iframe>
+            <iframe width="100%" height="100%" src="//www.youtube.com/embed/{{page_data.featured_video.youtube_id}}" frameborder="0" allowfullscreen></iframe>
           </div>
         </div><!--/.columns-->
         <div class="columns one-third">
-          <h2>{{customer_stories_data.featured_video.header}}</h2>
-          <p>{{customer_stories_data.featured_video.body}}</p>
+          <h2>{{page_data.featured_video.header}}</h2>
+          <p>{{page_data.featured_video.body}}</p>
         </div>
       {{/if}}
     </div><!--/.row-->
   </div>
   <div class="case-studies-bg-container">
     <div class="case-studies-container container">
-      {{#each customer_stories_data.customer_stories}}
+      {{#each page_data.customer_stories}}
         {{#classgridstart @index 3}}
           <div class="row stories">
         {{/classgridstart}}
@@ -39,7 +37,7 @@ body_class:
                 <img src="{{logo_url}}"/>
                 <p>{{body}}</p>
                 <div class="button-container">
-                  <a href="{{download_url}}" target="_blank" class="button small">Download</a>
+                  <a href="{{download_url}}" target="_blank" class="button small">{{button}}</a>
                 </div>
               </div>
             </div> <!-- .customer-grid-elm -->
@@ -49,13 +47,13 @@ body_class:
       {{/each}}
     </div> <!-- .case-studies-container -->
   </div> <!-- .case-studies-bg-container -->
-  {{#if customer_stories_data.call_to_action}}
+  {{#if page_data.call_to_action}}
   <div class="case-studies-cta container">
     <div class="callout">
-        <h3>{{customer_stories_data.call_to_action.header}}</h3>
-        <p>{{customer_stories_data.call_to_action.body}}</p>
+        <h3>{{page_data.call_to_action.header}}</h3>
+        <p>{{page_data.call_to_action.body}}</p>
         <!-- TODO: create endpoint -->
-        <a href="mailto:content@optimizely.com" class="primary-button">{{customer_stories_data.call_to_action.button_text}}</a>
+        <a href="mailto:content@optimizely.com" class="primary-button">{{page_data.call_to_action.button_text}}</a>
     </div>
   </div>
   {{/if}}

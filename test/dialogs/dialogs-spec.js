@@ -2,6 +2,7 @@ var Nightmare = require('nightmare');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
 var testPath = config.basePath({path: '/'});
+var expect = require('chai').expect;
 
 describe('testing the signin, create account, retrieve password dialogs', function() {
 
@@ -24,7 +25,7 @@ describe('testing the signin, create account, retrieve password dialogs', functi
           return document.body.getAttribute('class');
         }, function(result) {
           var signedIn = /signed\-in/;
-          expect(signedIn.test(result)).toBe(true);
+          expect(signedIn.test(result)).to.equal(true);
         })
         .run(done);
     });
@@ -48,7 +49,7 @@ describe('testing the signin, create account, retrieve password dialogs', functi
           return document.body.getAttribute('class');
         }, function(result) {
           var signedIn = /signed\-in/;
-          expect(signedIn.test(result)).toBe(true);
+          expect(signedIn.test(result)).to.equal(true);
         })
         .run(done);
     });
@@ -70,7 +71,7 @@ describe('testing the signin, create account, retrieve password dialogs', functi
         .evaluate(function() {
           return document.querySelector('#reset-password-dialog .options p').innerHTML;
         }, function(optionsElmText) {
-            expect(optionsElmText).toBe('Email sent.');
+            expect(optionsElmText).to.equal('Email sent.');
         })
         .screenshot(config.screenshot({ imgName: 'email-complete' }))
         .run(done);

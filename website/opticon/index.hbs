@@ -1,5 +1,5 @@
 ---
-layout: opticon.hbs
+layout: opticon
 seo_title: Opticon
 no_container: true
 no_header: true
@@ -13,7 +13,7 @@ external_script:
 - //use.typekit.net/ucj0cgp.js
 ---
 
-{{#with opticon_data}}
+{{#with global_opticon_data}}
 <div class="confetti-container">
   <div class="confetti-left"></div>
 </div>
@@ -42,10 +42,10 @@ external_script:
 <!--Description Section-->
 <!--                   -->
 <section class="description container">
-  <h3 class="description-title adelle-sans">{{opticon_data.description.title}}</h3>
-  <p class="description-text adelle-sans">{{opticon_data.description.blurb}}</p>
+  <h3 class="description-title adelle-sans">{{global_opticon_data.description.title}}</h3>
+  <p class="description-text adelle-sans">{{global_opticon_data.description.blurb}}</p>
   <div class="button-container">
-    <a class="opticon-button adelle-sans" href="{{linkPath}}/opticon/about">{{opticon_data.description.cta}}</a>
+    <a class="opticon-button adelle-sans" href="{{linkPath}}/opticon/about">{{global_opticon_data.description.cta}}</a>
   </div>
   <p class="adelle-sans description-text">
     {{opticon_about.top_paragraph.cta_2014}}
@@ -55,7 +55,7 @@ external_script:
 
 
 {{> opticon_keynote_speakers}}
-{{#with opticon_data}}
+{{#with global_opticon_data}}
 
 <!--              -->
 <!--Tracks Section-->

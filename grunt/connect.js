@@ -40,7 +40,8 @@ module.exports = function(grunt, options) {
             connect.static(options.base[0]),
 
             function(req, res, next){
-              var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+              var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                code;
               if(req.method === 'POST'){
 
                 if(req.url === '/pricing/change_plan'){
@@ -90,7 +91,7 @@ module.exports = function(grunt, options) {
                       res.end( grunt.file.read('website-guts/endpoint-mocks/accountExists.json') );
                     }
                 } else if(req.url === '/account/signin') {
-                  var readPath, code;
+                  var readPath;
 
                   if(emailRegEx.test(req.body.email) && checkComplexPassword(req.body.password)) {
                     readPath = 'website-guts/endpoint-mocks/accountInfo.json';
@@ -106,7 +107,7 @@ module.exports = function(grunt, options) {
                   }, 2000);
 
                 } else if(req.url === '/recover/request') {
-                  var code, respObj;
+                  var respObj;
 
                   if(req.body.email === 'david.fox-powell@optimizely.com') {
                     respObj = '{"message":"Email sent.","succeeded":true}';
@@ -161,7 +162,7 @@ module.exports = function(grunt, options) {
 
           }
 
-        ]
+        ];
 
       }
     },

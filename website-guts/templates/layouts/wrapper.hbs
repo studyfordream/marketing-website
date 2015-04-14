@@ -1,11 +1,11 @@
 ---
 layout_modals:
-- signin_modal_compiled
-- signup_modal_compiled
-- create_experiment_compiled
-- reset_password_compiled
-- error_modal_compiled
-- contact_sales_compiled
+- signin_modal
+- signup_modal
+- create_experiment
+- reset_password
+- error_modal
+- contact_sales
 ---
 <!DOCTYPE html>
 <html class="no-js">
@@ -30,6 +30,7 @@ layout_modals:
             window.optly = {};  window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
             window.optly.identifyVisitorAttributes = function(){
               window.optly.planMap = {
+                'free':               '1',
           			'free_light': 				'1',
           			'bronze-monthly': 		'2',
           			'bronze-oneyear': 		'2',
@@ -50,6 +51,11 @@ layout_modals:
                 '5':                  'enterprise'
           		};
               window.optly.visitorAttributes = $.cookie('visitorAttributes');
+              if($.cookie('optimizely_signed_in')){
+                window.optly.signedIn = true;
+              } else {
+                window.optly.signedIn = false;
+              }
               var plan;
               if(window.optly.visitorAttributes){
                 window.optly.visitorAttributes = window.optly.visitorAttributes.split('|');
@@ -65,7 +71,8 @@ layout_modals:
                 $('body').attr('data-plan', plan);
               });
               window.analytics.identify({
-                'Customer plan': plan
+                'Customer plan': plan,
+                'Signed in': window.optly.signedIn
               });
             };
             window.optly.identifyVisitorAttributes();
@@ -75,14 +82,14 @@ layout_modals:
         <script>{{#scriptinjector '../assets/js/services/user_state.js' true}}{{/scriptinjector}}</script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {{#if environmentVariables.staging}}<meta name="robots" content="noindex">{{/if}}
-        <title>{{#if page.seo_title}}{{page.seo_title}}{{else}}Optimizely: Make every experience count{{/if}}</title>
+        <title>{{#if this.seo_title}}{{this.seo_title}}{{else}}{{tr 'Optimizely: Make every experience count'}}{{/if}}</title>
         {{!-- Standard meta tags --}}
-        <meta name="description" content="{{#if page.description}}{{page.description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
+        <meta name="description" content="{{#if this.description}}{{this.description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
         <meta name="keywords" content="AB test, split test, multivariate testing, conversion rate, experience optimization">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {{!-- Open Graph meta tags --}}
-        <meta property="og:title" content="Optimizely: {{#if page.og_title}}{{page.og_title}}{{else}}Make every experience count{{/if}}">
-        <meta property="og:description" content="{{#if page.og_description}}{{page.og_description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
+        <meta property="og:title" content="Optimizely: {{#if this.og_title}}{{this.og_title}}{{else}}Make every experience count{{/if}}">
+        <meta property="og:description" content="{{#if this.og_description}}{{this.og_description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
         {{#if environmentVariables.production}}
         <script>
@@ -93,37 +100,42 @@ layout_modals:
         })(window,document,'script','scripts.demandbase.com/q8GATaKQ.min.js','demandbase_js_lib');
         </script>
         {{/if}}
-        {{#if page.external_script}}
-        {{#each page.external_script}}
+        {{#if this.head_async_script}}
+        {{#each this.head_async_script}}
+        <script async="true" src="{{#hasAssetPath .}}{{../../assetsDir}}/{{/hasAssetPath}}{{.}}"></script>
+        {{/each}}
+        {{/if}}
+        {{#if this.external_script}}
+        {{#each this.external_script}}
         <script  src="{{#hasAssetPath .}}{{../../assetsDir}}/{{/hasAssetPath}}{{.}}"></script>
         {{/each}}
         {{/if}}
-        {{#if page.meta_tags}}
-        {{#each page.meta_tags}}
+        {{#if this.meta_tags}}
+        {{#each this.meta_tags}}
         {{{this}}}
         {{/each}}
         {{/if}}
-        {{#if page.external_stylesheets}}
-        {{#each page.external_stylesheets}}
-        <link rel="stylesheet" type="text/css" href="{{#hasAssetPath .}}{{../../assetsDir}}/{{/hasAssetPath}}{{.}}">
+        {{#if this.external_stylesheets}}
+        {{#each this.external_stylesheets}}
+          <link rel="stylesheet" type="text/css" href="{{#hasAssetPath this}}{{../../assetsDir}}/{{/hasAssetPath}}{{this}}">
         {{/each}}
         {{/if}}
         <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7838232/684744/css/fonts.css">
         <link rel="stylesheet" href="{{assetsDir}}/css/styles.css">
-        {{#if page.head_script ~}}<script src="{{page.head_script}}"></script>{{/if}}
+        {{#if this.head_script ~}}<script src="{{this.head_script}}"></script>{{/if}}
         {{#if environmentVariables.production}}
         <script id="bizible-settings" type="text/javascript" src="//cdn.bizible.com/_biz-a.js" async data-attach-secure-forms="true"></script>
         {{/if}}
     </head>
-     <body class="signed-out{{#if page.compact_header}} compact-header{{/if}}{{#each layout_body_class}} {{.}}{{/each}}{{#each page.body_class}} {{.}}{{/each}}">
+     <body class="signed-out{{#if this.compact_header}} compact-header{{/if}}{{#each layout_body_class}} {{.}}{{/each}}{{#each this.body_class}} {{.}}{{/each}}">
         <!--[if lt IE 8]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <p class="browsehappy">{{{tr 'You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.'}}}</p>
         <![endif]-->
         <div id="outer-wrapper">
             <div id="inner-wrapper">
-              {{#unless page.no_header}}
+              {{#unless this.no_header}}
                 <header>
-                    {{#unless page.compact_header}}
+                    {{#unless this.compact_header}}
                     <div id="top-nav-cont">
                         <div class="container">
                             <div class="mobile-nav-toggle">
@@ -136,8 +148,8 @@ layout_modals:
                             </div>
                             <div id="utility-nav-cont">
                                 <ul class="signed-out-content utility-nav nav" data-show-user-state="logged-out">
-                                    <li class="first"><a data-modal-click="signup">Sign Up</a></li>
-                                    <li class="last"><a data-modal-click="signin">Log In</a></li>
+                                    <li class="first"><a data-modal-click="signup">{{tr 'Sign Up'}}</a></li>
+                                    <li class="last"><a data-modal-click="signin">{{tr 'Log In'}}</a></li>
                                 </ul><!--/.signed-out-content-->
                                 <ul id="signed-in-utility" class="signed-in-content utility-nav nav"></ul><!--/.signed-in-content-->
                             </div><!--/#utility-nav-cont-->
@@ -147,66 +159,66 @@ layout_modals:
                     <div id="main-nav-cont" class="main-nav">
                         <div class="container">
                             <p class="logo-cont"><a class="logo" href="{{linkPath}}/">Optimizely</a></p>
-                            {{#unless page.compact_header}}
+                            {{#unless this.compact_header}}
                             <nav>
                                 <ul id="main-nav" class="nav">
                                     <li class="first">
-                                        <p>Product</p>
+                                        <p>{{tr 'Product'}}</p>
                                         <ul>
-                                            <li class="first"><a href="{{linkPath}}/benefits/">Benefits</a></li>
-                                            <li><a href="{{linkPath}}/pricing">Plans and Pricing</a></li>
-                                            <li><a href="{{linkPath}}/mobile/">Mobile</a></li>
-                                            <li><a href="{{linkPath}}/statistics/">Stats Engine</a></li>
-                                            <li><a href="{{linkPath}}/customers/">Customer List</a></li>
-                                            <li><a href="{{linkPath}}/customers/customer-stories/">Customer Stories</a></li>
-                                            <li class="last"><a href="{{linkPath}}/resources/live-demo-webinar/">Live Demo Signup</a></li>
+                                            <li class="first"><a href="{{linkPath}}/benefits/">{{tr 'Benefits'}}</a></li>
+                                            <li><a href="{{linkPath}}/pricing">{{tr 'Plans and Pricing'}}</a></li>
+                                            <li><a href="{{linkPath}}/mobile/">{{tr 'Mobile'}}</a></li>
+                                            <li><a href="{{linkPath}}/statistics/">{{tr 'Stats Engine'}}</a></li>
+                                            <li><a href="{{linkPath}}/customers/">{{tr 'Customer List'}}</a></li>
+                                            <li><a href="{{linkPath}}/customers/customer-stories/">{{tr 'Customer Stories'}}</a></li>
+                                            <li class="last"><a href="{{linkPath}}/resources/live-demo-webinar/">{{tr 'Live Demo Signup'}}</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="{{linkPath}}/pricing">Pricing</a></li>
+                                    <li><a href="{{linkPath}}/pricing">{{tr 'Pricing'}}</a></li>
                                     <li>
-                                        <p>Support</p>
+                                        <p>{{tr 'Support'}}</p>
                                         <ul>
-                                            <li><a href="https://community.optimizely.com">Community</a></li>
-                                            <li><a href="https://help.optimizely.com/hc/en-us">Knowledge Base</a></li>
-                                            <li><a href="https://learn.optimizely.com">Academy</a></li>
-                                            <li><a href="https://community.optimizely.com/t5/Browse-Groups/ct-p/opt_groups">User Groups</a></li>
-                                            <li><a href="http://developers.optimizely.com/">Developer Documentation</a></li>
+                                            <li><a href="https://community.optimizely.com">{{tr 'Community'}}</a></li>
+                                            <li><a href="https://help.optimizely.com">{{tr 'Support'}}</a></li>
+                                            <li><a href="https://learn.optimizely.com">{{tr 'Academy'}}</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <p>Resources</p>
+                                        <p>{{tr 'Resources'}}</p>
                                         <ul>
-                                            <li><a href="{{linkPath}}/ab-testing/">What is A/B Testing?</a></li>
-                                            <li><a href="{{linkPath}}/split-testing/">What is Split Testing?</a></li>
-                                            <li><a href="{{linkPath}}/resources/multivariate-testing/">What is Multivariate Testing?</a></li>
-                                            <li><a href="{{linkPath}}/partners/solutions/">Solutions Partners</a></li>
-                                            <li><a href="{{linkPath}}/partners/technology/">Integrations</a></li>
-                                            <li><a href="{{linkPath}}/faq/">FAQ</a></li>
-                                            <li><a href="http://certification.optimizely.com">Certification</a></li>
-                                            <li><a href="{{linkPath}}/resources/sample-size-calculator/">Sample Size Calculator</a></li>
-                                            <li><a href="{{linkPath}}/resources/">Content Library</a></li>
-                                            <li id="SL-link-blog" class="SL_swap"><a href="http://blog.optimizely.com">Blog</a></li>
+                                          <li><a href="{{linkPath}}/ab-testing/">{{tr 'What is A/B Testing?'}}</a></li>
+                                          <li><a href="{{linkPath}}/split-testing/">{{tr 'What is Split Testing?'}}</a></li>
+                                          <li><a href="{{linkPath}}/resources/multivariate-testing/">{{tr 'What is Multivariate Testing?'}}</a></li>
+                                          <li><a href="{{linkPath}}/partners/solutions/">{{tr 'Solutions Partners'}}</a></li>
+                                          <li><a href="{{linkPath}}/partners/technology/">{{tr 'Integrations'}}</a></li>
+                                          <li><a href="{{linkPath}}/faq/">{{tr 'FAQ'}}</a></li>
+                                          <li><a href="http://certification.optimizely.com">{{tr 'Certification'}}</a></li>
+                                          <li><a href="{{linkPath}}/resources/sample-size-calculator/">{{tr 'Sample Size Calculator'}}</a></li>
+                                          <li><a href="{{linkPath}}/resources/">{{tr 'Content Library'}}</a></li>
+                                          <li id="SL-link-blog" class="SL_swap"><a href="http://blog.optimizely.com">{{tr 'Blog'}}</a></li>
                                         </ul>
                                     </li>
-                                    <li class="last"><a href="{{linkPath}}/jobs/">Jobs</a></li>
+                                    <li class="last"><a href="{{linkPath}}/jobs/">{{tr 'Jobs'}}</a></li>
                                 </ul><!--#main-nav-->
                             </nav>{{/unless}}
                         </div><!--/container-->
                     </div><!--/#main-nav-cont-->
                 </header>
                 {{/unless}}
-                {{> body }}
+
+                {% body %}
+
                 {{#unless no_footer}}
-                <footer {{#if page.footer_style}}class="{{page.footer_style}}"{{/if}}>
+                <footer {{#if this.footer_style}}class="{{this.footer_style}}"{{/if}}>
                     <div class="container footer-wrapper">
                         <p><a class="logo" href="{{linkPath}}/">Optimizely</a></p>
                         <div id="footer-nav-cont">
                             <div class="left-nav">
-                              <p>&copy; {{moment format="YYYY"}}, Optimizely. All Rights Reserved</p>
+                                <p>&copy; {{moment format="YYYY"}}, {{{tr 'Optimizely. All Rights Reserved'}}}</p>
                                 <ul id="legalese" class="clearfix">
-                                    <li class="terms"><a href="{{linkPath}}/terms/">Terms of Service</a> &nbsp;<span class="separater">|</span></li>
-                                    <li><a href="{{linkPath}}/privacy/">Privacy Policy</a> &nbsp;<span class="separater">|</span></li>
-                                    <li class="security"><a href="{{linkPath}}/security/">Security</a></li>
+                                    <li class="terms"><a href="{{linkPath}}/terms/" id="SL-link-terms" class="SL_swap">{{tr 'Terms of Service'}}</a> &nbsp;<span class="separater">|</span></li>
+                                    <li><a href="{{linkPath}}/privacy/" id="SL-link-privacy" class="SL_swap">{{tr 'Privacy Policy'}}</a> &nbsp;<span class="separater">|</span></li>
+                                    <li class="security"><a href="{{linkPath}}/security/">{{tr 'Security'}}</a></li>
                                 </ul>
                                 <ul class="social-links" itemscope itemtype="http://schema.org/Organization">
                                     <link itemprop="url" href="https://www.optimizely.com/">
@@ -219,64 +231,64 @@ layout_modals:
                             <div class="right-nav">
                                     <ul id="footer-nav" class="row">
                                         <li id="footer-nav-features" class="columns three">
-                                            <h4>Product Features &amp; Benefits</h4>
+                                            <h4>{{{tr 'Product Features &amp; Benefits'}}}</h4>
                                             <ul>
-                                                <li><a href="{{linkPath}}/pricing">Plans and Pricing</a></li>
-                                                <li><a href="{{linkPath}}/benefits/">Benefits</a></li>
-                                                <li><a href="{{linkPath}}/mobile/">Mobile</a></li>
-                                                <li><a href="{{linkPath}}/statistics/">Stats Engine</a></li>
-                                                <li><a href="{{linkPath}}/partners/">Optimizely for Agencies</a></li>
-                                                <li><a href="http://developers.optimizely.com">Optimizely for Developers</a></li>
-                                                <li><a href="{{linkPath}}/ecommerce/">Optimizely for E-commerce</a></li>
-                                                <li><a href="{{linkPath}}/enterprises/">Optimizely for Enterprises</a></li>
-                                                <li><a href="{{linkPath}}/publishers/">Optimizely for Publishers</a></li>
-                                                <li><a href="{{linkPath}}/small-business/">Optimizely for Small Business</a></li>
+                                                <li><a href="{{linkPath}}/pricing">{{tr 'Plans and Pricing'}}</a></li>
+                                                <li><a href="{{linkPath}}/benefits/">{{tr 'Benefits'}}</a></li>
+                                                <li><a href="{{linkPath}}/mobile/">{{tr 'iOS'}}</a></li>
+                                                <li><a href="{{linkPath}}/statistics/">{{tr 'Stats Engine'}}</a></li>
+                                                <li><a href="{{linkPath}}/partners/">{{tr 'Optimizely for Agencies'}}</a></li>
+                                                <li><a href="http://developers.optimizely.com">{{tr 'Optimizely for Developers'}}</a></li>
+                                                <li><a href="{{linkPath}}/ecommerce/">{{tr 'Optimizely for E-commerce'}}</a></li>
+                                                <li><a href="{{linkPath}}/enterprises/">{{tr 'Optimizely for Enterprises'}}</a></li>
+                                                <li><a href="{{linkPath}}/publishers/">{{tr 'Optimizely for Publishers'}}</a></li>
+                                                <li><a href="{{linkPath}}/small-business/">{{tr 'Optimizely for Small Business'}}</a></li>
                                             </ul>
                                         </li>
                                         <li id="footer-nav-customers" class="columns two">
-                                            <h4>Customers</h4>
+                                            <h4>{{tr 'Customers'}}</h4>
                                             <ul>
-                                                <li><a href="{{linkPath}}/customers/">Customer List</a></li>
-                                                <li><a href="{{linkPath}}/customers/customer-stories/">Customer Stories</a></li>
+                                                <li><a href="{{linkPath}}/customers/">{{tr 'Customer List'}}</a></li>
+                                                <li><a href="{{linkPath}}/customers/customer-stories/">{{tr 'Customer Stories'}}</a></li>
                                             </ul>
                                         </li>
                                         <li id="footer-nav-resources" class="columns three">
-                                            <h4>Resources</h4>
-                                            <ul>
-                                                <li><a href="{{linkPath}}/ab-testing/">What is A/B Testing?</a></li>
-                                                <li><a href="{{linkPath}}/split-testing/">What is Split Testing?</a></li>
-                                                <li><a href="{{linkPath}}/resources/multivariate-testing/">What is Multivariate Testing?</a></li>
-                                                <li><a href="{{linkPath}}/resources/live-demo-webinar/">Live Demo Signup</a></li>
-                                                <li><a href="{{linkPath}}/partners/solutions/">Solutions Partners</a></li>
-                                                <li><a href="{{linkPath}}/partners/technology/">Integrations</a></li>
-                                                <li><a href="{{linkPath}}/customers/">Customer List</a></li>
-                                                <li><a href="{{linkPath}}/faq/">FAQ</a></li>
-                                                <li><a href="https://community.optimizely.com">Community</a></li>
-                                                <li><a href="https://help.optimizely.com/hc/en-us">Knowledge Base</a></li>
-                                                <li><a href="https://learn.optimizely.com">Academy</a></li>
-                                                <li><a href="https://community.optimizely.com/t5/Browse-Groups/ct-p/opt_groups">User Groups</a></li>
-                                                <li><a href="http://developers.optimizely.com">Developer Documentation</a></li>
-                                                <li><a href="{{linkPath}}/resources/sample-size-calculator/">Sample Size Calculator</a></li>
-                                                <li><a href="{{linkPath}}/resources/">Content Library</a></li>
-                                                <li id="SL-link-blog" class="SL_swap"><a href="http://blog.optimizely.com">Blog</a></li>
-                                            </ul>
+                                          <h4>{{tr 'Resources'}}</h4>
+                                          <ul>
+                                            <li><a href="{{linkPath}}/ab-testing/">{{tr 'What is A/B Testing?'}}</a></li>
+                                            <li><a href="{{linkPath}}/split-testing/">{{tr 'What is Split Testing?'}}</a></li>
+                                            <li><a href="{{linkPath}}/resources/multivariate-testing/">{{tr 'What is Multivariate Testing?'}}</a></li>
+                                            <li><a href="{{linkPath}}/resources/live-demo-webinar/">Live Demo Signup</a></li>
+                                            <li><a href="{{linkPath}}/partners/solutions/">{{tr 'Solutions Partners'}}</a></li>
+                                            <li><a href="{{linkPath}}/partners/technology/">{{tr 'Integrations'}}</a></li>
+                                            <li><a href="{{linkPath}}/customers/">Customer List</a></li>
+                                            <li><a href="{{linkPath}}/faq/">{{tr 'FAQ'}}</a></li>
+                                            <li><a href="https://community.optimizely.com">{{tr 'Community'}}</a></li>
+                                            <li><a href="https://help.optimizely.com/hc/en-us">{{tr 'Knowledge Base'}}</a></li>
+                                            <li><a href="https://learn.optimizely.com">{{tr 'Academy'}}</a></li>
+                                            <li><a href="https://community.optimizely.com/t5/Browse-Groups/ct-p/opt_groups">{{tr 'User Groups'}}</a></li>
+                                            <li><a href="http://developers.optimizely.com">{{tr 'Developer Documentation'}}</a></li>
+                                            <li><a href="{{linkPath}}/resources/sample-size-calculator/">{{tr 'Sample Size Calculator'}}</a></li>
+                                            <li><a href="{{linkPath}}/resources/">{{tr 'Content Library'}}</a></li>
+                                            <li id="SL-link-blog" class="SL_swap"><a href="http://blog.optimizely.com">{{tr 'Blog'}}</a></li>
+                                          </ul>
                                         </li>
                                         <li id="footer-nav-about" class="columns two">
-                                            <h4>About</h4>
+                                            <h4>{{tr 'About'}}</h4>
                                             <ul>
-                                                <li><a href="{{linkPath}}/about/">About</a></li>
-                                                <li><a href="{{linkPath}}/jobs/">Jobs</a></li>
-                                                <li><a href="{{linkPath}}/press/">Press</a></li>
-                                                <li><a href="{{linkPath}}/events/">Events</a></li>
-                                                <li><a href="{{linkPath}}/contact/">Contact</a></li>
+                                                <li><a href="{{linkPath}}/about/">{{tr 'About'}}</a></li>
+                                                <li><a href="{{linkPath}}/jobs/">{{tr 'Jobs'}}</a></li>
+                                                <li><a href="{{linkPath}}/press/">{{tr 'Press'}}</a></li>
+                                                <li><a href="{{linkPath}}/events/">{{tr 'Events'}}</a></li>
+                                                <li><a href="{{linkPath}}/contact/">{{tr 'Contact'}}</a></li>
                                             </ul>
                                         </li>
                                         <li id="footer-nav-other" class="columns two">
-                                            <h4>Other</h4>
+                                            <h4>{{tr 'Other'}}</h4>
                                             <ul>
-                                                <li><a href="{{linkPath}}/success">Customer Success</a></li>
-                                                <li><a href="{{linkPath}}/demo/">Request a Demo</a></li>
-                                                <li><a href="{{linkPath}}/opt_out/">Opt Out</a></li>
+                                                <li><a href="http://success.optimizely.com">{{tr 'Customer Success'}}</a></li>
+                                                <li><a href="{{linkPath}}/demo/">{{tr 'Request a Demo'}}</a></li>
+                                                <li><a href="{{linkPath}}/opt_out/">{{tr 'Opt Out'}}</a></li>
                                             </ul>
                                         </li>
                                     </ul><!--/#footer-nav-->
@@ -297,32 +309,32 @@ layout_modals:
             </div><!--/#inner-wrapper-->
         </div><!--/#outer-wrapper-->
         <!-- <div class="optly-hide" data-tooltip="default"></div> -->
-        {{~#if layout_modals~}}
-        {{~includeModals layout_modals~}}
-        {{~/if}}
-        {{~#if page.modals~}}
-        {{~includeModals page.modals~}}
-        {{~/if}}
+        {{~#each this.layout_modals~}}
+        {{modal this}}
+        {{~/each}}
+        {{~#each this.modals~}}
+        {{modal this}}
+        {{~/each}}
         <script>
           var optly = optly || {};
           optly.mrkt = optly.mrkt || {};
           optly.mrkt.assetsDir = '{{assetsDir}}';
         </script>
         <script src="{{assetsDir}}/js/bundle.js" defer></script>
-        {{#if page.script_dependencies}}
-        {{#each page.script_dependencies}}
+        {{#if this.script_dependencies}}
+        {{#each this.script_dependencies}}
         <script src="{{.}}" defer></script>
         {{/each}}
         {{/if}}
         {{#if layout_script}}
         <script src="{{assetsDir}}/js/layouts/{{layout_script}}" defer></script>
         {{~/if}}
-        {{#if page.page_script}}
-        <script src="{{assetsDir}}/js/pages/{{page.page_script}}" defer></script>
+        {{#if this.page_script}}
+        <script src="{{assetsDir}}/js/pages/{{this.page_script}}" defer></script>
         {{/if}}
 
-        {{#if environmentVariables.production}}
-        {{> ad_tags }}
-        {{/if}}
+        {{!#if environmentVariables.production}}
+        {{> ad_tags}}
+        {{!/if}}
     </body>
 </html>

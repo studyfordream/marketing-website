@@ -2,20 +2,21 @@ main_bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudve
 
 top_content:
   android_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/android/nexus5_airbnb_v3.png"
-  title: "Make your Android app <span>more engaging</span>"
-  sub_title: "Sign up below to learn more about the developer preview for Optimizely’s Android SDK"
+  TR_title: "Make your Android app <span>more engaging</span>"
+  TR_sub_title: "Sign up below to learn more about the developer preview for Optimizely’s Android SDK"
 
 form:
-  email_icon: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/input-icons/email.svg"
-  email_placeholder: "Work Email"
-  button_text: "Sign Up"
+  TR_email_placeholder: "Work Email"
+  TR_button_text: "Sign Up"
+  TR_required: "Required"
+  TR_invalid: Invalid Email
 
 hidden_content:
-  title: "Thanks for your interest in <span>Optimizely’s Android SDK</span>"
-  content: "We’re gradually expanding our developer preview; tell us more about your app to get early access."
-  button_text: "Get Access"
+  TR_title: "Thanks for your interest in <span>Optimizely’s Android SDK</span>"
+  TR_content: "We’re gradually expanding our developer preview; tell us more about your app to get early access."
+  TR_button_text: "Get Access"
   access_link: "https://optimizely.getfeedback.com/r/7QG8nsb6"
 
 ios_link:
-  text: "Have an iOS app? Try"
-  anchor: "Optimizely's iOS SDK"
+  TR_text: "Have an iOS app? Try"
+  TR_anchor: "Optimizely's iOS SDK"

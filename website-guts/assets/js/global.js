@@ -366,6 +366,7 @@ w.optly.mrkt.changePlanHelper = {
 
 			setPlan.open('post', w.apiDomain + '/pricing/change_plan', true);
 			setPlan.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      setPlan.withCredentials = true;
 			setPlan.send('plan_id=' + args.plan);
 
 		}
@@ -546,6 +547,12 @@ if(w.monitorTiming){
 		}
 	}, 1000);
 }
+
+//TODO: remove this and compile through webpack when implemented
+window.Handlebars.registerHelper('tr', function () {
+  // just a proxy to send request to window.optly.tr
+  return arguments[0];
+});
 
 if( $.cookie('amplitude_idoptimizely.com') ) {
   w.optly.mrkt.deleteCookie('amplitude_idoptimizely.com', { path: '/', expires: -5, domain: '.optimizely.com'} );

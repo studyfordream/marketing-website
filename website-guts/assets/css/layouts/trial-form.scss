@@ -5,6 +5,16 @@ body.trial-form-layout {
     }
   }
 
+  .header-wrapper {
+    padding: 60px 0;
+    background: #fff;
+    border-bottom: 1px solid #d5d5d5;
+  }
+
+  #page-header {
+    padding-top: 0;
+  }
+
   #seo-form {
     li {
       margin-bottom: 0;
@@ -16,12 +26,12 @@ body.trial-form-layout {
       width: 100%;
       margin-bottom: 10px;
       text-align: center;
-      &.button {
-        margin-top: 10px;
-      }
     }
     .oform-error-message, .oform-processing-show {
       display: none;
+    }
+    button {
+      margin-top: 10px;
     }
   }
 

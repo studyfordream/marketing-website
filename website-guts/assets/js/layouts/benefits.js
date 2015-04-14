@@ -15,11 +15,10 @@ window.optly.mrkt.benefitsLayout.menuHandlers = function() {
 
 window.optly.mrkt.benefitsLayout.menuOrder = function() {
   /* Changes the order of menu items and disables the current link */
+  var firstItem = $('.for-menu li:first');
+  var currentMenuItem = $('.for-menu').find('.active');
 
-  var currentPage     = $('.for-menu').attr('data-current').split('/')[1],
-      currentMenuItem = $('.for-menu').find('a[href*=' + currentPage + ']');
-
-  $(currentMenuItem).removeClass('hide').removeAttr('href').parent().insertBefore($('.for-menu li:first'));
+  $(currentMenuItem).removeClass('hide').removeAttr('href').parent().insertBefore(firstItem);
 };
 
 window.optly.mrkt.benefitsLayout.menuHandlers();

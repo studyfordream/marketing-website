@@ -1,6 +1,10 @@
 ---
-layout: faq.hbs
-visible_title: Getting Started
+layout: faq
+TR_visible_title: Getting Started
+TR_h2: "Start Using Optimizely"
+TR_label: "Type in a URL to try it out"
+TR_placeholder: "Type in a URL to try it out"
+TR_button: "Test it Out"
 body_class:
 - getting-started
 page_script:
@@ -8,15 +12,15 @@ page_script:
 ---
 
 <div class="divider-heading row">
-    <h2>Start Using Optimizely</h2>
+  <h2>{{h2}}</h2>
 </div>
 
 <div class="row">
     <div class="callout cta columns ten offset-one">
         <form action="#" id="test-it-out">
-            <label for="url-input">Type in a URL to try it out</label>
-            <input type="text" name="url-input" class="url-input" placeholder="Type in a URL to try it out">
-            <button type="submit" class="primary-button right">Test it Out</button>
+          <label for="url-input">{{label}}</label>
+          <input type="text" name="url-input" class="url-input" placeholder="{{placeholder}}">
+          <button type="submit" class="primary-button right">{{button}}</button>
         </form>
     </div>
 </div>

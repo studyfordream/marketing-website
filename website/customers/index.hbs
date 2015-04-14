@@ -1,8 +1,8 @@
 ---
-layout: page.hbs
-seo_title: Customers
-visible_title: "Over 8,000 Happy Customers"
-sub_head: Find out who's testing with Optimizely right now
+layout: page
+TR_seo_title: Customers
+TR_visible_title: "Over 8,000 Happy Customers"
+TR_sub_head: Find out who's testing with Optimizely right now
 page_script: customers.js
 body_class:
 - customers-page
@@ -89,7 +89,7 @@ body_class:
 </div>
 <div class="testimonials-container">
   <ul>
-    {{#each customers.slides}}
+    {{#each page_data.slides}}
     <li {{#isnt @index 0}}class="optly-hide"{{/isnt}}data-slides={{@index}}>
       <q>{{header}}</q>
       <div class="logo-border">

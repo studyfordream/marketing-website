@@ -1,3 +1,4 @@
+var tr = w.optly.tr;
 window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 window.optly.mrkt.form.HelperFactory = function(scopeObj) {
@@ -43,27 +44,27 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
 
   var defaultHelpers = {
     errorMessages: {
-      DEFAULT: window.optly.tr('Please Correct Form Errors'),
-      UNEXPECTED: window.optly.tr('An unexpected error occurred. Please contact us if the problem persists.'),
-      REQUIRED: window.optly.tr('Required'),
-      REQUIRED_FIELD: window.optly.tr('This field is required'),
-      VALID_EMAIL: window.optly.tr('Please enter a valid email address.'),
-      INVALID_PASSWORD: window.optly.tr('Password is Invalid'),
-      PASSWORD_CHAR: window.optly.tr('Password Minimum 8 characters, mix of upper/lowercase letters, numbers or symbols'),
-      ENTER_SAME_VAL: window.optly.tr('Please enter the same value as above'),
-      DIALOG_DEFAULT: window.optly.tr('We\'ve encoutered an unexpected error.'),
-      DIALOG_ACCOUNT: window.optly.tr('There was an error creating your account.')
+      DEFAULT: tr('Please Correct Form Errors'),
+      UNEXPECTED: tr('An unexpected error occurred. Please contact us if the problem persists.'),
+      REQUIRED: tr('Required'),
+      REQUIRED_FIELD: tr('This field is required'),
+      VALID_EMAIL: tr('Please enter a valid email address.'),
+      INVALID_PASSWORD: tr('Password is Invalid'),
+      PASSWORD_CHAR: tr('Password Minimum 8 characters, mix of upper/lowercase letters, numbers or symbols'),
+      ENTER_SAME_VAL: tr('Please enter the same value as above'),
+      DIALOG_DEFAULT: tr('We\'ve encoutered an unexpected error.'),
+      DIALOG_ACCOUNT: tr('There was an error creating your account.')
     },
 
     successMessages: {
-      DEFAULT: window.optly.tr('Submitted Successfully')
+      DEFAULT: tr('Submitted Successfully')
     },
 
     showOptionsError: function (message){
       if(typeof message === 'object') {
         if(message.serverMessage) {
           // translate the message if it is from the server response
-          message = window.optly.tr(message.serverMessage);
+          message = tr(message.serverMessage);
         } else {
           // get the success message translate from the constant dictionary
           message = this.errorMessages[message.error];
@@ -86,7 +87,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       if(typeof message === 'object') {
         if(message.serverMessage) {
           // translate the message if it is from the server response
-          message = window.optly.tr(message.serverMessage);
+          message = tr(message.serverMessage);
         } else {
           // get the success message translate from the constant dictionary
           message = this.successMessages[message.success];
