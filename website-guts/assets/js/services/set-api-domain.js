@@ -21,11 +21,11 @@ function replaceFormAction(oldDomain, newDomain) {
 }
 
 var oldApiDomain = window.apiDomain;
-var apiDomain = getURLParameter('apiDomain');
+var updatedApiDomain = getURLParameter('apiDomain');
 
-if(apiDomain && typeof apiDomain === 'string') {
-  window.apiDomain = apiDomain;
+if(updatedApiDomain && typeof updatedApiDomain === 'string') {
+  window.apiDomain = updatedApiDomain;
   document.addEventListener('DOMContentLoaded', function() {
-    replaceFormAction(oldApiDomain, apiDomain);
+    replaceFormAction(oldApiDomain, updatedApiDomain);
   });
 }
