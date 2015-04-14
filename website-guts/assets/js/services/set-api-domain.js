@@ -25,6 +25,7 @@ var updatedApiDomain = getURLParameter('apiDomain');
 
 if(updatedApiDomain && typeof updatedApiDomain === 'string') {
   window.apiDomain = updatedApiDomain;
+  window.customApiDomain = true;
   document.addEventListener('DOMContentLoaded', function() {
     replaceFormAction(oldApiDomain, updatedApiDomain);
   });
