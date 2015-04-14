@@ -10,6 +10,8 @@ description:
   title: "Opticon is the premier event for the experience optimization and testing community."
   blurb: "Attendees, including business leaders, industry experts and practitioners, leave Opticon armed with new strategies, ideas, and contacts to take their optimization programs to the next level."
   cta: "Learn More"
+  cta_2014: "Want to get a taste of what's in store? Check out our "
+  cta_2014_link_text: "Opticon 2014 recap"
 
 speakers_cta: "See Speakers"
 
@@ -40,34 +42,3 @@ tracks:
 registration:
   title: "Save your seat for the experience optimization conference of the year."
   cta: "Register Now"
-
-sponsors:
-  title: "Sponsored by"
-  sub_title: "Powered by <a href='https://www.optimizely.com/'>Optimizely</a>"
-  large_sponsors:
-    -
-      image: ""
-    -
-      image: ""
-    -
-      image: ""
-    -
-      image: ""
-  small_sponsors:
-    -
-      image: ""
-    -
-      image: ""
-    -
-      image: ""
-    -
-      image: ""
-    -
-      image: ""
-    -
-      image: ""
-    -
-      image: ""
-    -
-      image: ""
-
