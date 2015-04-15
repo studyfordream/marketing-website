@@ -1,5 +1,4 @@
 window.optly.mrkt.jobsPage = {};
-var jobList = require('jobList');
 
 window.optly.mrkt.jobsPage.testimonials = function() {
     var lastIndex = 0;
@@ -38,7 +37,7 @@ function getGreenhouseData(data) {
           }
         }
 
-        $('#job-list-cont').append( jobList(data) );
+        $('#job-list-cont').append( window.optly.mrkt.templates.jobList(data) );
       }
 }
 
