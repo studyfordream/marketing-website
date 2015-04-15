@@ -23,15 +23,13 @@ external_script:
     <h3 class="description-title adelle-sans">{{top_paragraph.title}}</h3>
     <p class="description-text adelle-sans">{{top_paragraph.blurb}}</p>
     <a class="opticon-button adelle-sans" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Justify_Your_Trip.pdf">{{top_paragraph.cta}}</a>
-    {{/with}}
     <p class="adelle-sans description-text">
-      {{page_data.top_paragraph.cta_2014}}
-      <a href="{{linkPath}}/opticon/opticon-2014">{{page_data.top_paragraph.cta_2014_link_text}} &raquo;</a>
+      {{top_paragraph.cta_2014}}
+      <a href="{{../linkPath}}/opticon/opticon-2014">{{top_paragraph.cta_2014_link_text}} &raquo;</a>
     </p>
   </div>
   <div class="flex-container">
     <div class="left-paragraph">
-      {{#with page_data}}
       <h3 class="description-title adelle-sans">{{left_paragraph.title}}</h3>
       <p class="description-text adelle-sans">{{left_paragraph.blurb}}</p>
       <a class="opticon-button adelle-sans" href="https://opticon2015.eventbrite.com/">{{left_paragraph.cta}}</a>
