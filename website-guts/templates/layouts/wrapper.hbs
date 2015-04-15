@@ -27,16 +27,16 @@ layout_modals:
         <script type="text/javascript">
             window.apiDomain = '{{apiDomain}}';
             {{#is environment "staging"}}
-              {{#scriptinjector '../assets/js/services/set-api-domain.js' true}}{{/scriptinjector}}
+              {{#scriptinjector '../assets/js/head-scripts/set-api-domain.js' true}}{{/scriptinjector}}
             {{/is}}
             window.optly_q = [];
             window.optly = {};
             window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
             window.analytics.load('{{environmentVariables.segmentProjectID}}');
             window.analytics.page();
-            {{#scriptinjector '../assets/js/services/identify-visitor-attributes.js' true}}{{/scriptinjector}}
+            {{#scriptinjector '../assets/js/head-scripts/identify-visitor-attributes.js' true}}{{/scriptinjector}}
         </script>
-        <script>{{#scriptinjector '../assets/js/services/user_state.js' true}}{{/scriptinjector}}</script>
+        <script>{{#scriptinjector '../assets/js/head-scripts/user-state.js' true}}{{/scriptinjector}}</script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {{#if environmentVariables.staging}}<meta name="robots" content="noindex">{{/if}}
         <title>{{#if this.seo_title}}{{this.seo_title}}{{else}}{{tr 'Optimizely: Make every experience count'}}{{/if}}</title>
