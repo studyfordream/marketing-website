@@ -7,21 +7,24 @@ sponsor_levels:
     title: "Platinum Sponsors"
     sponsor_list:
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/GKAcQVCRIne5f1pkbG0rXDRcpPaSVS0dt6PDb4Jy9rA3AWVfYiDSx3ziCtJBcLif"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
+        site_link: "http://clearhead.me/"
+        description: "Based in Austin TX, Clearhead is the leading full service digital optimization agency and Optimizely’s top Solution Partner in North America.  In just under three years, we’ve modeled a new kind of "upside down" agency - one built by former eCommerce, product, and digital execs from major brands and retailers.
+          Clearhead’s goal is simple: deliver significant ROI via A/B testing, personalization, and web analytics strategy and execution.
+            Our client-side experience helped fine tuned a process we’ve now offered over two-dozen Internet Retail 500 and B2C lead-gen clients. We begin by defining hypotheses designed to move the needle, put them through the paces, and finish by reporting elegant, executive-friendly data stories that not only achieve buy-in, they transform long-term company culture.
+            Are you trying to jump start your program? Contemplating a major site re-design and want data to drive process? Join the Clearhead experiment.  http://clearhead.me/"
         class: "platinum"
   -
     title: "Gold Sponsors"
     sponsor_list:
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/ZMOSneV0RDKBotvqXjoJ7lJaqdjmmHEr6m3zXs6JFYq1dNnWfAjzawQ9H3Xsr37F"
-        site_link: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/ae_logo.png"
+        site_link: "http://www.americaneagle.com/"
         description: ""
         class: "gold"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/oTbsj1KRQFqtHOsDuY7eW6rCfZaZOwno34WxiLGqGhvA9ScPncuJpwMl0SpiKe1p"
-        site_link: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/marketo_logo.png"
+        site_link: "http://www.marketo.com/"
         description: ""
         class: "gold"
   -
@@ -29,110 +32,101 @@ sponsor_levels:
     class: "silver"
     sponsor_list:
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/ZMOSneV0RDKBotvqXjoJ7lJaqdjmmHEr6m3zXs6JFYq1dNnWfAjzawQ9H3Xsr37F"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/wider_funnel_logo.png"
+        site_link: "http://www.widerfunnel.com/"
+        description: "WiderFunnel is a conversion optimization agency focused solely on improving results for our clients. We layer strategy and full-service A/B testing on top of your website and mobile apps. With 7 years of conversion optimization experience, and thousands of tests, we know what lifts profits. We bring the very best ideas, science, structure and methods for continuous improvement. We have worked with hundreds of clients from Fortune 500 to mid-size owner-operators. No matter the industry, the WiderFunnel System is proven to lift online revenue."
         class: "silver"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/oTbsj1KRQFqtHOsDuY7eW6rCfZaZOwno34WxiLGqGhvA9ScPncuJpwMl0SpiKe1p"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/funnel_envy_logo.png"
+        site_link: "http://www.funnelenvy.com/"
+        description: "We’re the bridge between engineering and marketing. At FunnelEnvy we turn traffic into customers with strategic business alignment, an agile process and rapid execution. As a Three Star Optimizely Solutions Partner we manage the full CRO process from strategy through execution. Our technical focus lets us move faster with minimal impact to your developers. And when you need the complicated tests, real-time personalization and integration or deeper data analysis we’re ready to handle it."
         class: "silver"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/buTiSXAEnliaPRfFx18MTw6dmtv0vdCJC9q5W5oc33p39sB8CH7fxRndeyKx1NUH"
-        site_link: ""
-        description: ""
-        class: "silver"
-      -
-        image_link: "https://dl.dropboxusercontent.com/content_link/NO5a0xOiwvvMrY5DMYnj4S03rlq5Yhiv0d5bsTlgZVjT4J9pxJas1uq3m1xEgSnz"
-        site_link: ""
-        description: ""
-        class: "silver"
-      -
-        image_link: "https://dl.dropboxusercontent.com/content_link/SU8I0ghq2FqlMbnq9DuKPhjVY0ol5PUvBh5mt4UvGITjubQ87ioKu7oVrJLPZWST"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/roi_dna_logo.svg"
+        site_link: "http://www.roidna.com/"
+        description: "ROI·DNA is a full service digital agency headquartered in San Francisco, delivering tailored services that drive growth for our clients. With dedicated teams in creative, development, and digital marketing, ROI·DNA delivers solutions built on incisive expertise across every area of the digital space."
         class: "silver"
   -
     title: "Bronze Sponsors"
     class: "bronze"
     sponsor_list:
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/ZMOSneV0RDKBotvqXjoJ7lJaqdjmmHEr6m3zXs6JFYq1dNnWfAjzawQ9H3Xsr37F"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/dialogtech_transition_logo.png"
+        site_link: "http://www.dialogtech.com/"
+        description: " DialogTech, formerly known as Ifbyphone, is the market leader in call analytics and automation. DialogTech provides marketing, sales, and support professionals with a single platform that enables transparency and control over every conversation, so companies can optimize lead generation, acquire new business faster, and increase customer loyalty."
         class: "bronze"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/oTbsj1KRQFqtHOsDuY7eW6rCfZaZOwno34WxiLGqGhvA9ScPncuJpwMl0SpiKe1p"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/sitetuners_logo.png"
+        site_link: "http://sitetuners.com/"
+        description: "SiteTuners is the perfect complement to your Optimizely installation, providing A/B test strategy, conversion-centric redesign services and ongoing optimization training and support to  internal CRO teams.  Since 2002, SiteTuners has helped more than 1,250 companies worldwide  to improve the performance of their online marketing programs. Talk to us about how we can do  the same for you."
         class: "bronze"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/buTiSXAEnliaPRfFx18MTw6dmtv0vdCJC9q5W5oc33p39sB8CH7fxRndeyKx1NUH"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/lytics_logo.png"
+        site_link: "Lytics connects email, social, web and mobile data to discover audience segments that improve the targeting of your Optimizely experiments. Combine Optimizely and Lytics to take web personalization to new levels. Run targeted experiments to convert anonymous visitors or continue delighting your loyal users.
+Better personalized marketing awaits. Start today: <a href='http://www.getlytics.com/tour/optimizely?utm_source=opticon&utm_medium=sponsors&utm_campaign=conferences'>www.getlytics.com/tour/optimizely</a>"
+        description: "Lytics connects email, social, web and mobile data to discover audience segments that improve the targeting of your Optimizely experiments. Combine Optimizely and Lytics to take web personalization to new levels. Run targeted experiments to convert anonymous visitors or continue delighting your loyal users. Better personalized marketing awaits. Start today: getlytics.com"
         class: "bronze"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/NO5a0xOiwvvMrY5DMYnj4S03rlq5Yhiv0d5bsTlgZVjT4J9pxJas1uq3m1xEgSnz"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/robots_and_pencils_logo.png"
+        site_link: "https://robotsandpencils.com/"
+        description: "<a href='https://robotsandpencils.com/'>Robots and Pencils</a> is a mobile strategy and app development company known for its top-ranking consumer apps, transformative enterprise apps and mobile-first learning platforms. Launched in 2009, Robots and Pencils has since created more than 250 apps used by 77 million people world wide, and reimagined mobile development with the creation of <a href='http://pencilcase.io/'>PencilCase</a>."
         class: "bronze"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/SU8I0ghq2FqlMbnq9DuKPhjVY0ol5PUvBh5mt4UvGITjubQ87ioKu7oVrJLPZWST"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/vertical_nerve_logo.png"
+        site_link: "http://www.verticalnerve.com/"
+        description: "Vertical Nerve is a digital optimization agency focused on producing measurable results. We work with clients and implement programs specifically designed to acquire more traffic and convert more sales and leads. We draw from over 15 years of success helping businesses and organization realize more ROI from their digital channels."
         class: "bronze"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/buTiSXAEnliaPRfFx18MTw6dmtv0vdCJC9q5W5oc33p39sB8CH7fxRndeyKx1NUH"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clicktale_logo.svg"
+        site_link: "http://www.clicktale.com/"
+        description: "ClickTale®, the enterprise leader in Digital Customer Experience, enables businesses to maximize revenues by optimizing the way people experience the Web and Mobile. ClickTale’s comprehensive solution features the industry’s most innovative heatmap technology, playback of individual-user browsing sessions and Customer Experience Consultants dedicated to your success. ClickTale effortlessly integrates with web analytics, testing tools and more."
         class: "bronze"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/NO5a0xOiwvvMrY5DMYnj4S03rlq5Yhiv0d5bsTlgZVjT4J9pxJas1uq3m1xEgSnz"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/usertesting_logo.png"
+        site_link: "http://www.usertesting.com/"
+        description: "UserTesting is the fastest and most advanced user experience testing platform on the market. The company gives marketers, product managers, and UX designers on-demand access to people in their target audience who deliver audio, video, and written feedback on websites, mobile apps, prototypes, and even physical products and locations."
         class: "bronze"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/SU8I0ghq2FqlMbnq9DuKPhjVY0ol5PUvBh5mt4UvGITjubQ87ioKu7oVrJLPZWST"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/parsely_logo.png"
+        site_link: "http://www.parsely.com/"
+        description: "Parse.ly partners with digital media publishers to provide clear audience insights through an intuitive analytics platform. Thousand of writers, editors, site managers, technologists and analysts already use Parse.ly to understand what content draws in website visitors, and why. Using our powerful dashboards and APIs, customers build successful digital strategies that allow them to grow and engage a loyal audience.  See how media companies, like Business Insider, the Atlantic, Upworthy and Conde Nast, bring clarity to their content and audience through analytics at <a href='http://www.parsely.com/'>www.parsely.com</a>"
         class: "bronze"
   -
     title: "Optimization Roundtable Sponsors"
     class: "roundtable"
     sponsor_list:
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/ZMOSneV0RDKBotvqXjoJ7lJaqdjmmHEr6m3zXs6JFYq1dNnWfAjzawQ9H3Xsr37F"
-        site_link: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/digital_operative_logo.png"
+        site_link: "http://www.digitaloperative.com/"
         description: ""
         class: "roundtable"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/oTbsj1KRQFqtHOsDuY7eW6rCfZaZOwno34WxiLGqGhvA9ScPncuJpwMl0SpiKe1p"
-        site_link: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/funnel_envy_logo.png"
+        site_link: "http://www.funnelenvy.com/"
         description: ""
         class: "roundtable"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/buTiSXAEnliaPRfFx18MTw6dmtv0vdCJC9q5W5oc33p39sB8CH7fxRndeyKx1NUH"
-        site_link: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/roi_dna_logo.svg"
+        site_link: "http://www.roidna.com/"
+        description: "ROI·DNA is a full service digital agency headquartered in San Francisco, delivering tailored services that drive growth for our clients. With dedicated teams in creative, development, and digital marketing, ROI·DNA delivers solutions built on incisive expertise across every area of the digital space."
+        class: "roundtable"
+      -
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/stratigent_logo.png"
+        site_link: "http://www.stratigent.com/"
         description: ""
         class: "roundtable"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/NO5a0xOiwvvMrY5DMYnj4S03rlq5Yhiv0d5bsTlgZVjT4J9pxJas1uq3m1xEgSnz"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/usertesting_logo.png"
+        site_link: "http://www.usertesting.com/"
+        description: "UserTesting is the fastest and most advanced user experience testing platform on the market. The company gives marketers, product managers, and UX designers on-demand access to people in their target audience who deliver audio, video, and written feedback on websites, mobile apps, prototypes, and even physical products and locations."
         class: "roundtable"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/SU8I0ghq2FqlMbnq9DuKPhjVY0ol5PUvBh5mt4UvGITjubQ87ioKu7oVrJLPZWST"
-        site_link: ""
-        description: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/parsely_logo.png"
+        site_link: "http://www.parsely.com/"
+        description: "Parse.ly partners with digital media publishers to provide clear audience insights through an intuitive analytics platform. Thousand of writers, editors, site managers, technologists and analysts already use Parse.ly to understand what content draws in website visitors, and why. Using our powerful dashboards and APIs, customers build successful digital strategies that allow them to grow and engage a loyal audience.  See how media companies, like Business Insider, the Atlantic, Upworthy and Conde Nast, bring clarity to their content and audience through analytics at <a href='http://www.parsely.com/'>www.parsely.com</a>"
         class: "roundtable"
       -
-        image_link: "https://dl.dropboxusercontent.com/content_link/NO5a0xOiwvvMrY5DMYnj4S03rlq5Yhiv0d5bsTlgZVjT4J9pxJas1uq3m1xEgSnz"
-        site_link: ""
-        description: ""
-        class: "roundtable"
-      -
-        image_link: "https://dl.dropboxusercontent.com/content_link/SU8I0ghq2FqlMbnq9DuKPhjVY0ol5PUvBh5mt4UvGITjubQ87ioKu7oVrJLPZWST"
-        site_link: ""
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/ae_logo.png"
+        site_link: "http://www.americaneagle.com/"
         description: ""
         class: "roundtable"

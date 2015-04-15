@@ -9,6 +9,7 @@ body_class:
 - opticon-sponsors
 og_title: "Opticon 2015"
 og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
+page_script: opticon-sponsors.js
 modals:
 - opticon_sponsor_model
 external_script:
@@ -26,7 +27,7 @@ external_script:
     <h4 class="sponsor-level__title adelle-sans">{{this.title}}</h4>
     <div class="sponsor-level__image-cont">
       {{#each this.sponsor_list}}
-      <a href="#" data-modal-click="opticon-sponsor-modal"><div class="sponsor-level__image-cont__image sponsor-level__image-cont__image--{{this.class}}" style="background-image: url('{{this.image_link}}')"></div></a>
+      <div class="sponsor-level__image-cont__image sponsor-level__image-cont__image--{{this.class}}" data-modal-click="opticon-sponsor-modal" style="background-image: url('{{this.image_link}}')"></div>
       {{/each}}
     </div>
   </div>
