@@ -1,5 +1,4 @@
 var lastDropdown;
-var loggedInUtilityNav = require('loggedInUtilityNav');
 
 function bindDropdownClick($dropdownMenus) {
 
@@ -69,7 +68,7 @@ window.optly.mrkt.showUtilityNav = function (acctData, expData) {
 
     $('body').addClass('signed-in').removeClass('signed-out');
 
-    $('#signed-in-utility').html( loggedInUtilityNav(handlebarsData) );
+    $('#signed-in-utility').html( window.optly.mrkt.templates.loggedInUtilityNav(handlebarsData) );
     var $dropdownMenus = $('[data-show-dropdown]');
 
     bindDropdownClick($dropdownMenus);
