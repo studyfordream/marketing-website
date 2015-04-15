@@ -5,6 +5,18 @@ featured_video:
 
 TR_customer_stories:
 -
+  TR_header: "2x revenue in one month"
+  logo_url: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/smarter-travel-logo.png"
+  TR_body: "Smarter Travel optimized a key entry-point landing page to drive search conversions and monetization."
+  download_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/smartertravel-customer-story.pdf"
+  TR_button: "Download"
+-
+  TR_header: "133% more sign-ups"
+  logo_url: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/trunk-club-logo.png"
+  TR_body: "Trunk Club optimized its customer sign-up flow by adding more steps and visual elements throughout."
+  download_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-stories/trunkclub-customer-story.pdf"
+  TR_button: "Download"
+-
   TR_header: "28% lift in social shares"
   logo_url: "//cdn.optimizely.com/img/5935064/befd776a60b44ea3bec46c54ec11d3cb.png"
   TR_body: "Upworthy tested adding a recommended content module to its website to drive more social shares and engagement."
