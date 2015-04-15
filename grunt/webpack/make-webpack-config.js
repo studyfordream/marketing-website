@@ -14,9 +14,7 @@ module.exports = function(opts) {
       exclude: [
         /node_modules/,
         /bower_components/,
-        /libraries/,
-        /form-filler/,
-        /global\.js/
+        /libraries/
       ],
       loader: 'inject-filename-loader?' + opts.injectFileNameParams
     },
@@ -71,7 +69,16 @@ module.exports = function(opts) {
    * -- Defines a global production variable that can be used in JS if necessary
   */
   var prodPlugins = [
-    new webpack.optimize.UglifyJsPlugin({output: {comments: false}}),
+    new webpack.optimize.UglifyJsPlugin({
+      output: {
+        comments: false
+      },
+      compress: {
+        conditionals: false,
+        warnings: false,
+      },
+      sourceMap: false
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env': {

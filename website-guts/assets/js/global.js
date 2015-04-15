@@ -17,8 +17,8 @@ require('script!oform/dist/oForm.min');
  */
 var allGlobals = [
   require.context('./utils', false, /^(?!\.\/form-filler\.js).*\.js$/),
-  require.context('./utils/form_helpers', false, /^(?!\.\/form_helper_factory\.js).*\.js$/),
-  require.context('./globals', false, /^(?!\.\/translation\.js).*\.js$/),
+  require.context('./utils/form_helpers', false, /\.js$/),
+  require.context('./globals', false, /\.js$/),
   require.context('./components', false, /\.js$/),
   require.context('./services', false, /^(?!\.\/user_state\.js).*\.js$/)
 ];
