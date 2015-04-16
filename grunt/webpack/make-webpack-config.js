@@ -46,6 +46,7 @@ module.exports = function(opts) {
     { test: /\.hbs$/, loader: 'handlebars-loader' },
     {test: /\.js?$/, exclude: ['bower_components', 'node_modules'], loader: 'babel-loader'}
   ];
+  console.log('LOADERS', loaders);
 
   /**
    * Plugins to
