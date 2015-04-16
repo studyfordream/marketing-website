@@ -20,14 +20,14 @@ external_script:
   {{#with page_data}}
   <h2 class="page-title common-page-title adelle-sans--bold">{{title}}</h2>
   <h3 class="description-title adelle-sans">{{subtitle}}</h3>
-  <p class="adelle-sans">{{sponsor_cta}}</p>
+  <p class="adelle-sans">{{{sponsor_cta}}}</p>
 
   {{#each sponsor_levels}}
   <div class="sponsor-level">
     <h4 class="sponsor-level__title adelle-sans">{{this.title}}</h4>
     <div class="sponsor-level__image-cont">
       {{#each this.sponsor_list}}
-      <div class="sponsor-level__image-cont__image sponsor-level__image-cont__image--{{this.class}}" data-modal-click="opticon-sponsor-modal" style="background-image: url('{{this.image_link}}')" data-description="{{this.description}}" data-name="{{this.display_url}}"></div>
+      <div class="sponsor-level__image-cont__image sponsor-level__image-cont__image--{{this.class}}" data-modal-click="opticon-sponsor-modal" style="background-image: url('{{this.image_link}}')" data-description="{{this.description}}" data-name="{{this.display_url}}" data-link="{{this.site_link}}"></div>
       {{/each}}
     </div>
   </div>
