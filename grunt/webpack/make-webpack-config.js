@@ -14,15 +14,6 @@ module.exports = function(opts) {
       exclude: [
         /node_modules/,
         /bower_components/,
-        /libraries/
-      ],
-      loader: 'inject-filename-loader?' + opts.injectFileNameParams
-    },
-    {
-      test: /\.js$/,
-      exclude: [
-        /node_modules/,
-        /bower_components/,
         /libraries/,
         /equal_height_grid/,
         /form-filler/,
@@ -42,6 +33,15 @@ module.exports = function(opts) {
    * -- compile es6
    */
   var loaders = [
+    {
+      test: /\.js$/,
+      exclude: [
+        /node_modules/,
+        /bower_components/,
+        /libraries/
+      ],
+      loader: 'inject-filename-loader?' + opts.injectFileNameParams
+    },
     { test: /\.hbs$/, loader: 'handlebars-loader' },
     {test: /\.js?$/, exclude: ['bower_components', 'node_modules'], loader: 'babel-loader'}
   ];
@@ -53,13 +53,13 @@ module.exports = function(opts) {
    */
   var plugins = [
     new webpack.ResolverPlugin(new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])),
-    new webpack.NoErrorsPlugin(),
-    new trPlugin()
+    new webpack.NoErrorsPlugin()
+    //new trPlugin()
   ];
 
   //TODO: Add webpack dev server for Hot Module Replacment
   var devPlugins = [
-    new webpack.HotModuleReplacementPlugin()
+    //new webpack.HotModuleReplacementPlugin()
   ];
 
   /**
@@ -73,10 +73,10 @@ module.exports = function(opts) {
       output: {
         comments: false
       },
-      compress: {
-        conditionals: false,
-        warnings: false,
-      },
+      //compress: {
+        //conditionals: false,
+        //warnings: false,
+      //},
       sourceMap: false
     }),
     new webpack.optimize.DedupePlugin(),
@@ -87,6 +87,7 @@ module.exports = function(opts) {
     })
   ];
 
+  console.log('WEBPACK ENV', opts.env);
   if(opts.env === 'dev') {
     plugins.push.apply(plugins, devPlugins);
   } else {
