@@ -1,4 +1,3 @@
-var path = require('path');
 var _ = require('lodash');
 var webpack = require('webpack');
 var trPlugin = require('l10n-tr-plugin');
@@ -8,8 +7,6 @@ module.exports = function(opts) {
     emitErrors: true,
     failOnHint: true,
   }, opts.jshintConfig);
-
-  console.log('LOADER PARAMS', opts.injectFileNameParams);
 
   var preloaders = [
     {
@@ -108,9 +105,6 @@ module.exports = function(opts) {
       filename: '[name].js'
     },
     resolve: {
-      root: [
-        path.resolve(__dirname, '../node_modules')
-      ],
       //all these extensions will be resolved without specifying extension in the `require` function
       extensions: ['', '.js', '.hbs'],
       //files in these directory can be required without a relative path
