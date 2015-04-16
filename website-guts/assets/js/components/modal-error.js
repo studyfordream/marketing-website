@@ -1,4 +1,4 @@
-var tr = w.optly.tr;
+var tr = require('l10n-tr');
 var DEFAULT_ERROR_MESSAGE = tr('Don\'t worry, most issues are minor - please refresh your browser and try again.');
 var errorCache = [];
 
@@ -27,7 +27,7 @@ function showError(errorMessage, errorId) {
     }
     errorCache.push(info.errorMessage);
   }
-  
+
   return info;
 }
 
@@ -59,5 +59,5 @@ $(function() {
   if(oldErrorQ.length !== 0) {
     window.optly.mrkt.errorQ.push(oldErrorQ);
   }
-  
+
 });
