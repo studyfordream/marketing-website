@@ -108,7 +108,7 @@ TR_tables:
         starter_bool: true
         enterprise_bool: true
       -
-        TR_title: "New vs. Returning Visitors"
+        TR_title: "New Vs. Returning Visitors"
         boolean: true
         starter_bool: false
         enterprise_bool: true
