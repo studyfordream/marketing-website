@@ -58,9 +58,6 @@ module.exports = function (grunt) {
     var injectParams ='inject=' + encodeURIComponent('var targetName = __filename.replace("website-guts/assets/js/", "");\n\n') +
         '&banner=' + encodeURIComponent(banner) +
         '&footer=' + encodeURIComponent(footer);
-    console.log('INJECT', footer);
-    console.log('BANNER', footer);
-    console.log('FOOTER', footer);
 
     console.log('CONFIG BANNER', banner);
     console.log('CONFIG FOOTER', footer);
