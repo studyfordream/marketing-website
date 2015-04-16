@@ -18,15 +18,61 @@ body.opticon-sponsors {
 
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon-sponsors {
-    .description-title { width: 630px; }
+    .description-title {
+      width: 630px;
+      margin: 30px auto;
+    }
     .sponsor-level__image-cont {
       &__image {
-        &--platinum   { width: 75%; }
+        &--platinum   {
+          width: 75%;
+          padding-top: 190px;
+        }
+        &--platinum   {
+          width: 75%;
+          padding-top: 190px;
+        }
+        &--platinum   {
+          width: 75%;
+          padding-top: 190px;
+        }
+        &--platinum   {
+          width: 75%;
+          padding-top: 190px;
+        }
+        &--platinum   {
+          width: 75%;
+          padding-top: 190px;
+        }
         &--gold       { width: 43%; }
         &--silver     { width: 30%; }
         &--bronze     { width: 21%; }
         &--roundtable { width: 13%; }
       }
     }
+    .company-container {
+      display: flex;
+      &__right {
+        width: 60%;
+      }
+      &__left {
+        width: 40%;
+        padding: 10px 15px;
+        text-align: center;
+        &__image {
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center center;
+          padding-top: 100px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.opticon-sponsors {
+    .description-title { margin: 30px 0; }
   }
 }
