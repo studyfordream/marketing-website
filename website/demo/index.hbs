@@ -1,11 +1,16 @@
 ---
-layout: "page.hbs"
+layout: page
+page_script: demo.js
 body_class:
-- "demo-page"
-visible_title: "Request a Demo"
-seo_title: "Request a Demo"
-sub_head: "Get a personalized tour of Optimizely"
-form_heading: "Join us for a live demo."
+  - demo-page
+TR_form_heading: "Join us for a live demo."
+TR_page_h4: "Spend time with an Optimizely A/B testing expert"
+TR_page_paragraphs:
+  - "Interested in seeing what Optimizely could do for your business? Let us demonstrate the power and ease of Optimizely on your own website!"
+  - "To get started, fill out the form <span class='inline mobile show-hide'>below</span><span class='inline tablet show-hide'>to the right</span>. We will contact you shortly to schedule your demo."
+TR_seo_title: "Request a Demo"
+TR_sub_head: "Get a personalized tour of Optimizely"
+TR_visible_title: "Request a Demo"
 inbound_form_lead_type: "Demo Request"
 page_script: "demo.js"
 lead_source_subcategory: "Demo Request form"
@@ -13,9 +18,10 @@ lead_source_subcategory: "Demo Request form"
 
 <div class="row">
     <div class="columns seven">
-        <h4>Spend time with an Optimizely A/B testing expert</h4>
-        <p>Interested in seeing what Optimizely could do for your business? Let us demonstrate the power and ease of Optimizely on your own website!</p>
-        <p>To get started, fill out the form <span class="inline mobile show-hide">below</span><span class="inline tablet show-hide">to the right</span>. We will contact you shortly to schedule your demo.</p>
+        <h4>{{page_h4}}</h4>
+        {{#each page_paragraphs}}
+        <p>{{{.}}}</p>
+        {{/each}}
     </div>
     <div class="columns five">
         {{> contact_form}}

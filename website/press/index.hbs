@@ -1,81 +1,81 @@
 ---
-layout: about.hbs
+layout: about
 no_container: true
-seo_title: Press
-visible_title: Press
+TR_seo_title: Press
+TR_visible_title: Press
 page_script: press.js
 body_class:
 - press-page
 ---
 <div class="sheet">
-	<h4 class="sheet-headline" id="press-intro">{{{press.page_intro}}}</h4>
+	<h4 class="sheet-headline" id="press-intro">{{{page_data.page_intro}}}</h4>
 	<div>
 		<article id="press-mentions">
-			<h3>{{press.left_column_header}}</h3>
-			{{#each press_mentions.items}}
+			<h3>{{page_data.left_column_header}}</h3>
+			{{#each page_data.mention_items}}
 			<div class="press-feed-item{{#compare @index '>=' 20}} optly-hide{{/compare}}">
 				<img src="{{logo_url}}">
-				<time datetime="{{formatDate story_date "%Y-%m-%d"}}">{{formatDate story_date "%b. %Y"}}</time>
+				<time datetime="{{moment story_date 'YYYY-MM-DD'}}">{{moment story_date "MMM. YYYY"}}</time>
 				<h4 class="press-article-headline notranslate"><a href="{{link_to_story}}" target="_blank">{{story_title}}</a></h4>
 	    </div><!--/.press-feed-item-->
 	    {{/each}}
-	    <div class="show-more secondary-button">Show More</div>
-	    <div class="hide-more secondary-button">Hide More</div>
+      <div class="show-more secondary-button">{{tr 'Show More'}}</div>
+      <div class="hide-more secondary-button">{{tr 'Hide More'}}</div>
 		</article><!--/#press-mentions-->
 		<aside id="press-info">
-			{{#if press.press_kit}}
+			{{#if page_data.press_kit}}
 			<div id="press-kit">
-				<h3 class="heading-underline">{{press.press_kit.header}}</h3>
-				{{#each press.press_kit.items}}
+				<h3 class="heading-underline">{{page_data.press_kit.header}}</h3>
+				{{#each page_data.press_kit.items}}
 				<p>
 					<a href="{{this.link}}" title="{{this.title}}">{{this.text}}</a>
 				</p>
 				{{/each}}
 			</div><!--/#press-kit-->
 			{{/if}}
-			{{#if press.press_releases}}
+			{{#if page_data.press_releases}}
 			<div id="press-releases">
-				<h3>{{press.press_releases.header}}</h3>
+				<h3>{{page_data.press_releases.header}}</h3>
 				<ul class="notranslate">
-					{{#each press_releases.items}}
+					{{#each page_data.release_items}}
 					<li>
-						<time datetime="{{formatDate release_date "%Y-%m-%d"}}">{{formatDate release_date "%b %Y"}}</time>
+						<time datetime="{{moment release_date 'YYYY-MM-DD'}}">{{moment release_date "MMM YYYY"}}</time>
 						<p><a href="{{link_to_release}}" target="_blank">{{release_title}}</a></p>
 					</li>
 					{{/each}}
 				</ul>
 			</div>
 			{{/if}}
-			{{#if press.press_inquiries}}
+			{{#if page_data.press_inquiries}}
 			<div id="press-inquiries">
-				<h3>{{press.press_inquiries.header}}</h3>
-				<p>{{{press.press_inquiries.body}}}</p>
+				<h3>{{page_data.press_inquiries.header}}</h3>
+				<p>{{{page_data.press_inquiries.body}}}</p>
 			</div>
 			{{/if}}
-			{{#if press.company_information}}
+			{{#if page_data.company_information}}
 			<div id="company-information">
-				<h3>{{press.company_information.header}}</h3>
-				<p><strong>Location:</strong>{{#each company_info.locations}}<br>{{.}}{{/each}}</p>
-				<p><strong>Founded:</strong> {{company_info.founded}}</p>
-				<p><strong>Size:</strong> {{company_info.employee_count}}</p>
-				<h3>Investors</h3>
-				<p><strong>Venture:</strong> {{#eachNoTrailing company_info.venture ", "}}{{.}}, {{/eachNoTrailing}}</p>
-				<p><strong>Angels:</strong> {{#eachNoTrailing company_info.angels ", "}}{{.}}, {{/eachNoTrailing}}</p>
+				<h3>{{page_data.company_information.header}}</h3>
+        <p><strong>{{tr 'Location'}}:</strong>{{#each global_company_info.locations}}<br>{{.}}{{/each}}</p>
+				<p><strong>{{tr 'Founded'}}:</strong> {{global_company_info.founded}}</p>
+				<p><strong>{{tr 'Size'}}:</strong> {{global_company_info.employee_count}}</p>
+				<h3>{{tr 'Investors'}}</h3>
+				<p><strong>{{tr 'Venture'}}:</strong> {{#eachNoTrailing global_company_info.venture ", "}}{{.}}, {{/eachNoTrailing}}</p>
+				<p><strong>{{tr 'Angels'}}:</strong> {{#eachNoTrailing global_company_info.angels ", "}}{{.}}, {{/eachNoTrailing}}</p>
 			</div>
 			{{/if}}
-			{{#if press.blog}}
+			{{#if page_data.blog}}
 			<div id="optimizely-blog" class="SL_swap" id="press-blog-sidebar">
-				<h3>{{press.blog.header}}</h3>
-				<p><a href="{{press.blog.link}}">{{press.blog.btn_text}}</a>&nbsp;{{press.blog.text}}</p>
+				<h3>{{page_data.blog.header}}</h3>
+				<p><a href="{{page_data.blog.link}}">{{page_data.blog.btn_text}}</a>&nbsp;{{page_data.blog.text}}</p>
 			</div>
 			{{/if}}
 		</aside><!--/#press-info-->
 	</div><!--/#press-content-->
-	{{#if press.follow_the_latest}}
+	{{#if page_data.follow_the_latest}}
 	<div id="follow-latest" id="press-follow-latest">
-		<p>{{press.follow_the_latest.header}}</p>
+		<p>{{page_data.follow_the_latest.header}}</p>
 		<ul>
-			{{#each press.follow_the_latest.items}}
+			{{#each page_data.follow_the_latest.items}}
 			<li{{#if this.swap_id}} class="SL_swap" id="{{this.swap_id}}"{{/if}}><a href="{{this.link}}" title="{{this.title}}">{{this.text}}</a></li>
 			{{/each}}
 		</ul>

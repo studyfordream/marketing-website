@@ -1,0 +1,298 @@
+TR_current_plan_message: "Your current plan"
+TR_back: "Back to Feature Overview"
+
+starter_header:
+  TR_title: "Starter"
+  TR_desc: "All the basics.<br>No credit card required."
+
+enterprise_header:
+  TR_title: "Enterprise"
+  TR_desc: "Customized For Your Business."
+
+TR_tables:
+  -
+    TR_title: "Create & Launch Experiments"
+    TR_desc: "Start making decisions with actionable data. Optimizely
+      lets you see your ideas come to life quickly.
+      Halt neverending debates with your team and boss."
+    TR_features:
+      -
+        TR_title: "A/B testing"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+      -
+        TR_title: "Multivariate Testing"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+      -
+        TR_title: "Instant Rollouts"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+        TR_tooltip: "Make visual changes to your website or mobile app immediately without waiting for your developers or App Store review."
+      -
+        TR_title: "Mobile Developer Tools"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+        TR_tooltip: "Optimize code-level variables and roll out entirely new features, no matter how custom your mobile app."
+      -
+        TR_title: "Multi-page Testing (funnel)"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+        TR_tooltip: "Test and personalize experiences throughout your funnel."
+      -
+  -
+    TR_title: "Discover Visitor Insights"
+    TR_desc: "Learn more about the visitors that connect with you on your websites and mobile apps."
+    TR_features:
+      -
+        TR_title: "Stats Engine"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+        TR_tooltip: "A new approach to experience optimization that aligns statistics with the way businesses actually operate."
+      -
+        TR_title: "Basic Visitor Segmentation"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+        TR_tooltip: "Segment experiment results by source type, browser, mobile vs. non-mobile"
+      -
+        TR_title: "Custom Visitor Segmentation"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Custom Reports"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+        TR_tooltip: "Create and share reusable reports highlighting specific metrics."
+      -
+        TR_title: "Report Annotations"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+        TR_tooltip: "Add notes directly on your results page."
+  -
+    TR_title: "Target Optimized Experiences"
+    TR_desc: "Focus on your high-value visitors and increase revenue."
+    TR_features:
+      -
+        TR_title: "Browser or Device"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+      -
+        TR_title: "Referrer URL"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+      -
+        TR_title: "Query Parameters"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+      -
+        TR_title: "Traffic Source"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+      -
+        TR_title: "Browser Language"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+      -
+        TR_title: "Ad Campaign"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Custom Event"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Custom Javascript"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "IP Address"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Custom Dimension"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Cookies"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Custom Tags"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+        TR_tooltip: "Target optimized experiences based on data you have about your visitors."
+      -
+        TR_title: "Time of Day"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Location (Geotargeting)"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+  -
+    TR_title: "Integrate Data Across Your Platforms"
+    TR_desc: "Seamlessly integrate Optimizely with the best-in-class
+      products you already use and take action on your data, no matter where it lives."
+    TR_features:
+      -
+        TR_title: "Basic Analytics & Heatmapping Integrations"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+        TR_tooltip: "Integrate with Google Analytics, ClickTale, KissMetrics, and more!"
+      -
+        TR_title: "Advanced Analytics Integrations"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+        TR_tooltip: "Integrate with enterprise-ready analytics tools such as Adobe Analytics (Site Catalyst) and Google Analytics Premium."
+      -
+        TR_title: "Third Party Data Integrations"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+        TR_tooltip: "Integrate with third party data providers such as BlueKai and Tealium."
+      -
+        TR_title: "API Access"
+        string: true
+        starter_text: "JavaScript API<br/>REST API (1000 calls/month)"
+        TR_enterprise_text: "JavaScript API<br/>REST API (Custom calls/day)"
+  -
+    TR_title: "Manage Your Experience Optimization Program"
+    TR_desc: "Empower your team with actionable, real-time data on your visitors and foster the growth of a data-driven culture in your company."
+    TR_features:
+      -
+        TR_title: "Projects"
+        string: true
+        starter_text: "1 Web and 1 Mobile App"
+        TR_enterprise_text: "Custom"
+      -
+        TR_title: "Domains"
+        string: true
+        starter_text: "One Domain and One Mobile App"
+        TR_enterprise_text: "Custom"
+      -
+        TR_title: "Experiments"
+        string: true
+        starter_text: "Unlimited"
+        TR_enterprise_text: "Unlimited"
+      -
+        TR_title: "Collaborators"
+        string: true
+        starter_text: "3"
+        TR_enterprise_text: "Custom"
+      -
+        TR_title: "Multi-account Login"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+      -
+        TR_title: "Preview Changes"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+      -
+        TR_title: "Experiment Change History"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Cross-browser Testing"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Role-based Permissions"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Experiment Scheduler"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+        TR_tooltip: "Schedule when experiments should start and stop in advance."
+      -
+        TR_title: "Traffic Optimized"
+        string: true
+        starter_text: "50,000 MUVs/MAUs"
+        TR_enterprise_text: "Custom"
+        TR_tooltip: "Monthly unique visitors are counted by adding the number
+          of unique visitors in an experiment on the web to the number of
+          monthly active users in an experiment on a mobile app. You can
+          distribute the unique visitor allocation however you like."
+  -
+    TR_title: "Support"
+    TR_desc: "Take your optimization program to the next level with enterprise
+      onboarding and get access to technical and testing strategy experts."
+    TR_features:
+      -
+        TR_title: "Community (Optiverse)"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+        tooltip: "A thriving community where experimenters unite, explore, and optimize."
+      -
+        TR_title: "Knowledge Base"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+        tooltip: "A resource to search and browse for answers and documentation."
+      -
+        title: "Academy"
+        boolean: true
+        starter_bool: true
+        enterprise_bool: true
+        tooltip: "A space to learn and grow your optimization skills."
+      -
+        TR_title: "Online Tickets"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Phone Support"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Enterprise Onboarding"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+      -
+        TR_title: "Dedicated Customer Success Manager"
+        boolean: true
+        starter_bool: false
+        enterprise_bool: true
+
+calls_to_action:
+  starter:
+    TR_label: "Free"
+    TR_button_text: "Get Started Now"
+  enterprise:
+    TR_label: "Get Quote"
+    TR_button_text: "Talk to Us"

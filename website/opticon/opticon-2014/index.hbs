@@ -1,5 +1,5 @@
 ---
-layout: opticon.hbs
+layout: opticon
 seo_title: Opticon About
 no_container: true
 no_header: true
@@ -9,7 +9,7 @@ body_class:
 - opticon-2014
 page_script: opticon-2014.js
 modals:
-- video_modal_compiled
+- video_modal
 og_title: "Opticon 2015"
 og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
 external_script:
@@ -19,7 +19,7 @@ external_stylesheets:
 - css/magnific-popup.css
 ---
 
-{{#with opticon-2014}}
+{{#with page_data}}
 <div class="container content-container flex-container">
   <div class="copy-half">
     <h2 class="page-title common-page-title adelle-sans--bold">{{page_title}}</h2>

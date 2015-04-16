@@ -3,6 +3,7 @@ var Nightmare = require('nightmare');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
 var sxswPath = config.basePath({path: '/events/sxsw2015'});
+var expect = require('chai').expect;
 
 describe('event marketing page', function() {
 
@@ -27,40 +28,40 @@ describe('event marketing page', function() {
             describe('marketing events form submission', function(){
               it('submits successfully', function(){
                 var marketingEventLeadSuccess = /marketing\-event\-lead\-create\-success/;
-                expect(marketingEventLeadSuccess.test(result)).toBe(true);
+                expect(marketingEventLeadSuccess.test(result)).to.equal(true);
               });
             });
             var reportingObject = JSON.parse(result.split(' @@ ')[1]);
             describe('reporting object', function(){
               it('Inbound_Lead_Form_Type__c', function(){
-                expect(reportingObject.Inbound_Lead_Form_Type__c).toBe('External Events Capture');
+                expect(reportingObject.Inbound_Lead_Form_Type__c).to.equal('External Events Capture');
               });
               it('Initial_Form_Source__c', function(){
-                expect(reportingObject.Initial_Form_Source__c).toBe('External Events Capture');
+                expect(reportingObject.Initial_Form_Source__c).to.equal('External Events Capture');
               });
               it('Lead_Source_Subcategory__c', function(){
-                expect(reportingObject.Lead_Source_Subcategory__c).toBe('201503 SXSW - AustinTXUS');
+                expect(reportingObject.Lead_Source_Subcategory__c).to.equal('201503 SXSW - AustinTXUS');
               });
               it('company', function(){
-                expect(reportingObject.company).toBe('Optimizely');
+                expect(reportingObject.company).to.equal('Optimizely');
               });
               it('email', function(){
-                expect(reportingObject.email).toBe('testing@optimizely.com');
+                expect(reportingObject.email).to.equal('testing@optimizely.com');
               });
               it('firstName', function(){
-                expect(reportingObject.firstName).toBe('David');
+                expect(reportingObject.firstName).to.equal('David');
               });
               it('lastName', function(){
-                expect(reportingObject.lastName).toBe('Fox test');
+                expect(reportingObject.lastName).to.equal('Fox test');
               });
               it('leadSource', function(){
-                expect(reportingObject.leadSource).toBe('Events');
+                expect(reportingObject.leadSource).to.equal('Events');
               });
               it('otm_Medium__c', function(){
-                expect(reportingObject.otm_Medium__c).toBe('direct');
+                expect(reportingObject.otm_Medium__c).to.equal('direct');
               });
               it('utm_Medium__c', function(){
-                expect(reportingObject.utm_Medium__c).toBe('direct');
+                expect(reportingObject.utm_Medium__c).to.equal('direct');
               });
             });
         })

@@ -1,5 +1,4 @@
 var Nightmare = require('nightmare');
-//var path = require('path');
 var config = require('../config')({dirname: __dirname});
 var phantomPath = config.phantomPath;
 var pricingPath = config.basePath({
@@ -12,6 +11,7 @@ var pricingPath = config.basePath({
     gclid: 'CPjX-a-Hn8QCFQckgQodcxcAfw'
   }
 });
+var expect = require('chai').expect;
 
 describe('pricing page', function() {
 
@@ -35,8 +35,8 @@ describe('pricing page', function() {
         }, function(result) {
             var createAccount = /downgrade\-plan\-submit/;
             var changePlan = /downgrade\-plan\-submit/;
-            expect(createAccount.test(result)).toBe(true);
-            expect(changePlan.test(result)).toBe(true);
+            expect(createAccount.test(result)).to.equal(true);
+            expect(changePlan.test(result)).to.equal(true);
         })
         .run(done);
     });
@@ -56,7 +56,7 @@ describe('pricing page', function() {
         .evaluate(function() {
           return document.querySelector('#starter-plan .action');
         }, function(result) {
-            expect(result).toBe('');
+            expect(result).to.equal('');
         })
         .run(done);
     });
@@ -79,7 +79,7 @@ describe('pricing page', function() {
           return document.body.getAttribute('class');
         }, function(result) {
             var changePlan = /change\-plan\-success/;
-            expect(changePlan.test(result)).toBe(true);
+            expect(changePlan.test(result)).to.equal(true);
         })
         .run(done);
     });
@@ -99,7 +99,7 @@ describe('pricing page', function() {
         .evaluate(function() {
           return window.jQuery('#starter-cta').attr('id');
         }, function(result) {
-            expect(result).toBe('starter-cta');
+            expect(result).to.equal('starter-cta');
         })
         .run(done);
     });
@@ -131,65 +131,65 @@ describe('pricing page', function() {
         }, function(result) {
             describe('form submission', function(){
               it('create account', function(){
-                expect(/create\-account\-success/.test(result)).toBe(true);
+                expect(/create\-account\-success/.test(result)).to.equal(true);
               });
               it('change plan', function(){
-                expect(/change\-plan\-success/.test(result)).toBe(true);
+                expect(/change\-plan\-success/.test(result)).to.equal(true);
               });
             });
             var reportingObject = JSON.parse(result.split(' @@ ')[1]);
             describe('reporting object', function(){
               it('gclid', function(){
-                expect(reportingObject.GCLID__c).toBe('CPjX-a-Hn8QCFQckgQodcxcAfw');
+                expect(reportingObject.GCLID__c).to.equal('CPjX-a-Hn8QCFQckgQodcxcAfw');
               });
               it('email', function(){
-                expect(reportingObject.email).toBe('david_test@optimizely.com');
+                expect(reportingObject.email).to.equal('david_test@optimizely.com');
               });
               it('first name', function(){
-                expect(reportingObject.firstName).toBe('David');
+                expect(reportingObject.firstName).to.equal('David');
               });
               it('last name', function(){
-                expect(reportingObject.lastName).toBe('FP ');
+                expect(reportingObject.lastName).to.equal('FP ');
               });
               it('lead source', function(){
-                expect(reportingObject.leadSource).toBe('Website');
+                expect(reportingObject.leadSource).to.equal('Website');
               });
               it('initial form source', function(){
-                expect(reportingObject.Initial_Form_Source__c).toBe('Pricing Signup form');
+                expect(reportingObject.Initial_Form_Source__c).to.equal('Pricing Signup form');
               });
               it('inbound lead form source', function(){
-                expect(reportingObject.Initial_Form_Source__c).toBe('Pricing Signup form');
+                expect(reportingObject.Initial_Form_Source__c).to.equal('Pricing Signup form');
               });
               it('lead source subcategory', function(){
-                expect(reportingObject.Lead_Source_Subcategory__c).toBe('Optimizely');
+                expect(reportingObject.Lead_Source_Subcategory__c).to.equal('Optimizely');
               });
               it('otm campaign', function(){
-                expect(reportingObject.otm_Campaign__c).toBe('G_WW_Search_Shiva');
+                expect(reportingObject.otm_Campaign__c).to.equal('G_WW_Search_Shiva');
               });
               it('otm content', function(){
-                expect(reportingObject.otm_Content__c).toBe('mabtt');
+                expect(reportingObject.otm_Content__c).to.equal('mabtt');
               });
               it('otm medium', function(){
-                expect(reportingObject.otm_Medium__c).toBe('cpc');
+                expect(reportingObject.otm_Medium__c).to.equal('cpc');
               });
               it('otm source', function(){
-                expect(reportingObject.otm_Source__c).toBe('google');
+                expect(reportingObject.otm_Source__c).to.equal('google');
               });
 
               it('phone', function(){
-                expect(reportingObject.phone).toBe('999999999');
+                expect(reportingObject.phone).to.equal('999999999');
               });
               it('Android', function(){
-                expect(reportingObject.Android_Interest__c).toBe('true');
+                expect(reportingObject.Android_Interest__c).to.equal('true');
               });
               it('Web', function(){
-                expect(reportingObject.Web_Interest__c).toBe('true');
+                expect(reportingObject.Web_Interest__c).to.equal('true');
               });
               it('iOS', function(){
-                expect(reportingObject.iOS_Interest__c).toBe('true');
+                expect(reportingObject.iOS_Interest__c).to.equal('true');
               });
               it('Mobile web', function(){
-                expect(reportingObject.Mobile_Web_Interest__c).toBe('true');
+                expect(reportingObject.Mobile_Web_Interest__c).to.equal('true');
               });
             });
         })
@@ -226,69 +226,69 @@ describe('pricing page', function() {
             var reportingObject = JSON.parse(result.split(' @@ ')[1]);
             describe('form works', function(){
               it('checks submit', function(){
-                expect(/contact-sales-submit/.test(result)).toBe(true);
+                expect(/contact-sales-submit/.test(result)).to.equal(true);
               });
               it('checks success', function(){
-                expect(/contact\-sales\-success/.test(result)).toBe(true);
+                expect(/contact\-sales\-success/.test(result)).to.equal(true);
               });
             });
             describe('check reporting object', function(){
               it('inbound lead form type', function(){
-                expect(reportingObject.Inbound_Lead_Form_Type__c).toBe('Contact Sales');
+                expect(reportingObject.Inbound_Lead_Form_Type__c).to.equal('Contact Sales');
               });
               it('gclid', function(){
-                expect(reportingObject.GCLID__c).toBe('CPjX-a-Hn8QCFQckgQodcxcAfw');
+                expect(reportingObject.GCLID__c).to.equal('CPjX-a-Hn8QCFQckgQodcxcAfw');
               });
               it('company', function(){
-                expect(reportingObject.company).toBe('Optimizely');
+                expect(reportingObject.company).to.equal('Optimizely');
               });
               it('title', function(){
-                expect(reportingObject.title).toBe('Frontend engineer');
+                expect(reportingObject.title).to.equal('Frontend engineer');
               });
               it('website', function(){
-                expect(reportingObject.website).toBe('https://www.optimizely.com');
+                expect(reportingObject.website).to.equal('https://www.optimizely.com');
               });
               it('email', function(){
-                expect(reportingObject.email).toBe('testing@optimizely.com');
+                expect(reportingObject.email).to.equal('testing@optimizely.com');
               });
               it('first name', function(){
-                expect(reportingObject.firstName).toBe('David');
+                expect(reportingObject.firstName).to.equal('David');
               });
               it('last name', function(){
-                expect(reportingObject.lastName).toBe('Fox test');
+                expect(reportingObject.lastName).to.equal('Fox test');
               });
               it('lead source', function(){
-                expect(reportingObject.leadSource).toBe('Website');
+                expect(reportingObject.leadSource).to.equal('Website');
               });
               it('otm campaign', function(){
-                expect(reportingObject.otm_Campaign__c).toBe('G_WW_Search_Shiva');
+                expect(reportingObject.otm_Campaign__c).to.equal('G_WW_Search_Shiva');
               });
               it('otm content', function(){
-                expect(reportingObject.otm_Content__c).toBe('mabtt');
+                expect(reportingObject.otm_Content__c).to.equal('mabtt');
               });
               it('otm medium', function(){
-                expect(reportingObject.otm_Medium__c).toBe('cpc');
+                expect(reportingObject.otm_Medium__c).to.equal('cpc');
               });
               it('otm source', function(){
-                expect(reportingObject.otm_Source__c).toBe('google');
+                expect(reportingObject.otm_Source__c).to.equal('google');
               });
               it('initial form source', function(){
-                expect(reportingObject.Initial_Form_Source__c).toBe('Contact Sales');
+                expect(reportingObject.Initial_Form_Source__c).to.equal('Contact Sales');
               });
               it('phone', function(){
-                expect(reportingObject.phone).toBe('5555555555');
+                expect(reportingObject.phone).to.equal('5555555555');
               });
               it('Android', function(){
-                expect(reportingObject.Android_Interest__c).toBe('true');
+                expect(reportingObject.Android_Interest__c).to.equal('true');
               });
               it('Web', function(){
-                expect(reportingObject.Web_Interest__c).toBe('true');
+                expect(reportingObject.Web_Interest__c).to.equal('true');
               });
               it('iOS', function(){
-                expect(reportingObject.iOS_Interest__c).toBe('true');
+                expect(reportingObject.iOS_Interest__c).to.equal('true');
               });
               it('Mobile web', function(){
-                expect(reportingObject.Mobile_Web_Interest__c).toBe('true');
+                expect(reportingObject.Mobile_Web_Interest__c).to.equal('true');
               });
             });
         })
@@ -322,69 +322,69 @@ describe('pricing page', function() {
             var reportingObject = JSON.parse(result.split(' @@ ')[1]);
             describe('form works', function(){
               it('checks submit', function(){
-                expect(/contact-sales-submit/.test(result)).toBe(true);
+                expect(/contact-sales-submit/.test(result)).to.equal(true);
               });
               it('checks success', function(){
-                expect(/contact\-sales\-success/.test(result)).toBe(true);
+                expect(/contact\-sales\-success/.test(result)).to.equal(true);
               });
             });
             describe('check reporting object', function(){
               it('inbound lead form type', function(){
-                expect(reportingObject.Inbound_Lead_Form_Type__c).toBe('Contact Sales');
+                expect(reportingObject.Inbound_Lead_Form_Type__c).to.equal('Contact Sales');
               });
               it('gclid', function(){
-                expect(reportingObject.GCLID__c).toBe('CPjX-a-Hn8QCFQckgQodcxcAfw');
+                expect(reportingObject.GCLID__c).to.equal('CPjX-a-Hn8QCFQckgQodcxcAfw');
               });
               it('company', function(){
-                expect(reportingObject.company).toBe('Optimizely');
+                expect(reportingObject.company).to.equal('Optimizely');
               });
               it('title', function(){
-                expect(reportingObject.title).toBe('Frontend engineer');
+                expect(reportingObject.title).to.equal('Frontend engineer');
               });
               it('website', function(){
-                expect(reportingObject.website).toBe('https://www.optimizely.com');
+                expect(reportingObject.website).to.equal('https://www.optimizely.com');
               });
               it('email', function(){
-                expect(reportingObject.email).toBe('testing@optimizely.com');
+                expect(reportingObject.email).to.equal('testing@optimizely.com');
               });
               it('first name', function(){
-                expect(reportingObject.firstName).toBe('David');
+                expect(reportingObject.firstName).to.equal('David');
               });
               it('last name', function(){
-                expect(reportingObject.lastName).toBe('Fox test');
+                expect(reportingObject.lastName).to.equal('Fox test');
               });
               it('lead source', function(){
-                expect(reportingObject.leadSource).toBe('Website');
+                expect(reportingObject.leadSource).to.equal('Website');
               });
               it('otm campaign', function(){
-                expect(reportingObject.otm_Campaign__c).toBe('G_WW_Search_Shiva');
+                expect(reportingObject.otm_Campaign__c).to.equal('G_WW_Search_Shiva');
               });
               it('otm content', function(){
-                expect(reportingObject.otm_Content__c).toBe('mabtt');
+                expect(reportingObject.otm_Content__c).to.equal('mabtt');
               });
               it('otm medium', function(){
-                expect(reportingObject.otm_Medium__c).toBe('cpc');
+                expect(reportingObject.otm_Medium__c).to.equal('cpc');
               });
               it('otm source', function(){
-                expect(reportingObject.otm_Source__c).toBe('google');
+                expect(reportingObject.otm_Source__c).to.equal('google');
               });
               it('initial form source', function(){
-                expect(reportingObject.Initial_Form_Source__c).toBe('Contact Sales');
+                expect(reportingObject.Initial_Form_Source__c).to.equal('Contact Sales');
               });
               it('phone', function(){
-                expect(reportingObject.phone).toBe('5555555555');
+                expect(reportingObject.phone).to.equal('5555555555');
               });
               it('Android', function(){
-                expect(reportingObject.Android_Interest__c).toBe('true');
+                expect(reportingObject.Android_Interest__c).to.equal('true');
               });
               it('Web', function(){
-                expect(reportingObject.Web_Interest__c).toBe('true');
+                expect(reportingObject.Web_Interest__c).to.equal('true');
               });
               it('iOS', function(){
-                expect(reportingObject.iOS_Interest__c).toBe('true');
+                expect(reportingObject.iOS_Interest__c).to.equal('true');
               });
               it('Mobile web', function(){
-                expect(reportingObject.Mobile_Web_Interest__c).toBe('true');
+                expect(reportingObject.Mobile_Web_Interest__c).to.equal('true');
               });
             });
         })

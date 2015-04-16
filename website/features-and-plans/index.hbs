@@ -1,20 +1,20 @@
 ---
-layout: no-sub-nav-optional-page-header.hbs
-visible_title: Features and Plans
+layout: no-sub-nav-optional-page-header
+TR_visible_title: Features and Plans
 body_class:
 - features-and-plans
 no_container: true
 page_header: false
 page_script: features-and-plans.js
 modals:
-- contact_sales_thank_you_compiled
-- downgrade_plan_compiled
-- downgrade_plan_confirm_compiled
-- pricing_plan_signup_thank_you_compiled
-seo_title: Features and Plans
-og_title:
+- contact_sales_thank_you
+- downgrade_plan
+- downgrade_plan_confirm
+- pricing_plan_signup_thank_you
+TR_seo_title: Features and Plans
+TR_og_title:
 - "Features and Plans"
-og_description:
+TR_og_description:
 - "Get started optimizing instantly, or build a custom plan for your business."
 ---
 
@@ -24,9 +24,9 @@ og_description:
 <div id="page-header">
   <div class="container">
     <div class="page-subheader-cont">
-      <h1>{{page.visible_title}}</h1>
+      <h1>{{this.visible_title}}</h1>
       <div class="header-cta-container">
-        {{#with features.page_header}}
+        {{#with global_features.page_header}}
         <a class="talk-button" id="talk-to-us" href="#">{{cta}}</a>
         <p>{{or_word}}</p>
         <p id="SL-pricing-phone-number-1" class="SL_swap">
@@ -43,7 +43,7 @@ og_description:
 <!--             -->
 <!--Title Section-->
 <!--             -->
-{{#with features.title_section}}
+{{#with global_features.title_section}}
 <section class="title-section">
   <h1 class="title-copy">{{{title}}}</h1>
   <div class="buttons-container">
@@ -57,7 +57,7 @@ og_description:
 <!--                -->
 <!--Benefits Section-->
 <!--                -->
-{{#with features.benefits_section}}
+{{#with global_features.benefits_section}}
 <section class="benefits-section" id="benefits">
   <h2 class="title-copy">{{title}}</h2>
   <div class="benefit-items-container container">
@@ -75,7 +75,7 @@ og_description:
 <!--                -->
 <!--Feature Sections-->
 <!--                -->
-{{#with features}}
+{{#with global_features}}
   {{#each feature_sections}}
     {{#is_even @index}}
     <section class="feature-section even">
@@ -88,7 +88,7 @@ og_description:
         <p>{{desc}}</p>
       </div>
       <div class="features-container">
-        <h4>Features:</h4>
+        <h4>{{../feature_sections_title}}:</h4>
         <ul>
           {{#each this.features}}
           <li>{{this}}</li>
@@ -109,7 +109,7 @@ og_description:
 <!--                  -->
 <!--Enterprise Section-->
 <!--                  -->
-{{#with features}}
+{{#with global_features}}
 <section class="enterprise-section" id="enterprise">
   <h2 class="title-copy">{{enterprise_section.title}}</h2>
   <p class="subtitle">{{enterprise_section.subtitle}}</p>
@@ -125,7 +125,7 @@ og_description:
 <!--               -->
 <!--Starter Section-->
 <!--               -->
-{{#with features}}
+{{#with global_features}}
 <section class="starter-section" id="starter-cta-cont">
   <h2 class="title-copy">{{starter_section.title}}</h2>
   <p class="subtitle">{{{starter_section.subtitle}}}</p>

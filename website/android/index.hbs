@@ -1,15 +1,15 @@
 ---
-layout: "custom.hbs"
-seo_title: "Make your Android app more engaging"
+layout: "custom"
+TR_seo_title: "Make your Android app more engaging"
 page_script:
 - android.js
 body_class:
 - android-page
 footer_style: grey
-og_title: "Make your Android app more engaging"
-og_description: "Learn how to optimize your app for acquisition, engagement and retention."
+TR_og_title: "Make your Android app more engaging"
+TR_og_description: "Learn how to optimize your app for acquisition, engagement and retention."
 ---
-{{#with android_data}}
+{{#with page_data}}
 <div class="page-bg android bg-img" style="background-image: url('{{main_bg_img}}')">
   <div class="container flex-tablet">
       <div class="columns four">
@@ -24,7 +24,7 @@ og_description: "Learn how to optimize your app for acquisition, engagement and 
               <div class="flex-cont">
                 <div class="flex-item">
                   <label>
-                    <span class="email-related error-hide">Required</span>
+                    <span class="email-related error-hide">{{form.required}}</span>
                     <input type="email" name="email" placeholder="{{form.email_placeholder}}" required>
                   </label>
                 </div>
@@ -34,7 +34,7 @@ og_description: "Learn how to optimize your app for acquisition, engagement and 
               </div>
             </fieldset>
             <div class="options">
-              <p class="error-message error-hide">Invalid Email</p>
+              <p class="error-message error-hide">{{form.invalid}}</p>
             </div>
             <p class="android__content--smaller">{{ios_link.text}} <a href="{{../linkPath}}/mobile">{{ios_link.anchor}}</a></p>
           </form>

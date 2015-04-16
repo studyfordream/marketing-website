@@ -17,11 +17,13 @@ node_modules
 dist
 website-guts/templates/partials/*_compiled.hbs
 screens
+tmp
 
 *.sublime-*
 bower_components/*
 node_modules/*
 .DS_Store
+tmp/*
 temp/*
 tmp
 configs/s3Config.json

@@ -83,6 +83,9 @@ body.opticon-homepage {
     .page-title {
       font-size: 4em;
     }
+    .confetti-container .confetti-right {
+      display: none;
+    }
   }
 }
 
@@ -95,6 +98,9 @@ body.opticon-homepage {
     }
     .track-container {
       padding: 115px 10px 30px 10px;
+    }
+    .confetti-container .confetti-right {
+      display: block;
     }
   }
 }

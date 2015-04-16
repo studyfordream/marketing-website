@@ -76,7 +76,7 @@ var config = function(grunt, options) {
       options: {
         variables: {
           aws: creds,
-          environment: 'staging',
+          environment: 'smartling-staging',
           exclude_from_assemble: '**/fixture.hbs',
           environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
           apiDomain: '//app.optimizely.com',
