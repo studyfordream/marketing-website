@@ -98,11 +98,6 @@ TR_tables:
         starter_bool: true
         enterprise_bool: true
       -
-        TR_title: "New vs. Returning Visitors"
-        boolean: true
-        starter_bool: true
-        enterprise_bool: true
-      -
         TR_title: "Traffic Source"
         boolean: true
         starter_bool: true
@@ -111,6 +106,11 @@ TR_tables:
         TR_title: "Browser Language"
         boolean: true
         starter_bool: true
+        enterprise_bool: true
+      -
+        TR_title: "New vs. Returning Visitors"
+        boolean: true
+        starter_bool: false
         enterprise_bool: true
       -
         TR_title: "Ad Campaign"
