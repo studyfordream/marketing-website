@@ -59,6 +59,9 @@ module.exports = function (grunt) {
         '&banner=' + encodeURIComponent(banner) +
         '&footer=' + encodeURIComponent(footer);
 
+    console.log('CONFIG BANNER', banner);
+    console.log('CONFIG FOOTER', footer);
+
     var opts = {
       entry: entryBundle,
       env: env,
