@@ -14,15 +14,6 @@ module.exports = function(opts) {
       exclude: [
         /node_modules/,
         /bower_components/,
-        /libraries/
-      ],
-      loader: 'inject-filename-loader?' + opts.injectFileNameParams
-    },
-    {
-      test: /\.js$/,
-      exclude: [
-        /node_modules/,
-        /bower_components/,
         /libraries/,
         /equal_height_grid/,
         /form-filler/,
@@ -35,6 +26,7 @@ module.exports = function(opts) {
       loader: 'jshint-loader'
     }
   ];
+  console.log('PRELOADERS', preloaders);
 
   /**
    * Loaders to
@@ -42,6 +34,15 @@ module.exports = function(opts) {
    * -- compile es6
    */
   var loaders = [
+    {
+      test: /\.js$/,
+      exclude: [
+        /node_modules/,
+        /bower_components/,
+        /libraries/
+      ],
+      loader: 'inject-filename-loader?' + opts.injectFileNameParams
+    },
     { test: /\.hbs$/, loader: 'handlebars-loader' },
     {test: /\.js?$/, exclude: ['bower_components', 'node_modules'], loader: 'babel-loader'}
   ];
