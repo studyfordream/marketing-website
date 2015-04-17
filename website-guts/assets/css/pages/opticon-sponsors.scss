@@ -10,25 +10,42 @@ body.opticon-sponsors {
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center center;
-        margin: 20px auto;
+        margin: 20px;
       }
     }
   }
+  .modal-body { position: relative; }
   .modal-footer,
   .modal-header {
     display: none;
   }
-  .company-container__left {
-    text-align: center;
-    &__image {
-      display: block;
+  .company-container {
+    &__left {
+      text-align: center;
+      &__image {
+        display: block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        padding-top: 100px;
+        margin-bottom: 10px;
+      }
+    }
+    &__close-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding-top: 25px;
+      width: 25px;
+      height: 0;
+      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/modal_close.svg');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center center;
-      padding-top: 100px;
-      margin-bottom: 10px;
+      &:hover { cursor: pointer; }
     }
   }
+  hr { border-top: 2px solid #ccc; }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
@@ -39,6 +56,7 @@ body.opticon-sponsors {
     }
     .sponsor-level__image-cont {
       &__image {
+        margin: 20px auto;
         &--platinum {
           width: 75%;
           padding-top: 210px;
