@@ -1,6 +1,3 @@
-var moment = require('moment');
-var eventDisplay = require('eventDisplay');
-
 window.optly.mrkt.events = {};
 
 var gapi = window.gapi;
@@ -31,8 +28,8 @@ window.optly.mrkt.events.showEvents = function(resp, div){
       var entry, eventData, venue, startDate, endDate, zeroRegEx, description;
 
       entry = items[i];
-      startDate = moment( entry.start.date || entry.start.dateTime );
-      endDate = moment( entry.end.date || entry.end.dateTime );
+      startDate = window.moment( entry.start.date || entry.start.dateTime );
+      endDate = window.moment( entry.end.date || entry.end.dateTime );
       zeroRegEx = /\-0/g;
 
       if(typeof entry.location === 'string'){
@@ -72,7 +69,7 @@ window.optly.mrkt.events.showEvents = function(resp, div){
       pastEvents.splice(0, pastEvents.length - 30);
     }
 
-    $(div).html(eventDisplay({events: futureEvents}));
+    $(div).html(window.optly.mrkt.templates.eventDisplay({events: futureEvents}));
 
     $('#get-past-events').on('click', function(e){
       e.preventDefault();
@@ -85,7 +82,7 @@ window.optly.mrkt.events.showEvents = function(resp, div){
           $(elm).removeClass('hide-past').addClass('hide-upcoming');
         }
       });
-      $(div).html(eventDisplay({events: pastEvents}));
+      $(div).html(window.optly.mrkt.templates.eventDisplay({events: pastEvents}));
     });
 
     $('#get-future-events').on('click', function(e){
@@ -99,7 +96,7 @@ window.optly.mrkt.events.showEvents = function(resp, div){
           $(elm).removeClass('hide-upcoming').addClass('hide-past');
         }
       });
-      $(div).html(eventDisplay({events: futureEvents}));
+      $(div).html(window.optly.mrkt.templates.eventDisplay({events: futureEvents}));
     });
 
   } else {
