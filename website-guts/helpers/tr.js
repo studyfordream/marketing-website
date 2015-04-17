@@ -1,5 +1,5 @@
 module.exports = function _tr(key) {
-  var tr = require('l10n-tr');
+  var tr = require('l10n-tools/tr');
   var app = this.app;
   var websiteRoot = app.get('data.websiteRoot');
   var isTest = app.get('env') === 'test';
