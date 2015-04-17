@@ -18,7 +18,17 @@ body.opticon-sponsors {
   .modal-header {
     display: none;
   }
-
+  .company-container__left {
+    text-align: center;
+    &__image {
+      display: block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      padding-top: 100px;
+      margin-bottom: 10px;
+    }
+  }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
@@ -59,14 +69,6 @@ body.opticon-sponsors {
         width: 40%;
         padding: 10px 15px;
         text-align: center;
-        &__image {
-          display: block;
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: center center;
-          padding-top: 100px;
-          margin-bottom: 10px;
-        }
       }
     }
   }

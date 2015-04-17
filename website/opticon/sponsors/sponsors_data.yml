@@ -1,6 +1,6 @@
 title: "Sponsors"
 subtitle: "Your Opticon experience wouldn’t be possible without the following sponsors"
-sponsor_cta: "If you are interested in becomming a sponsor, please fill out a <a href='http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Sponsorship_Prospectus.pdf'>Sponsorship Prospectus</a>."
+sponsor_cta: "If you are interested in becoming a sponsor, please review our <a href='http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Sponsorship_Prospectus.pdf'>Sponsorship Prospectus</a>."
 
 sponsor_levels:
   -
@@ -13,7 +13,7 @@ sponsor_levels:
         description: "Based in Austin TX, Clearhead is the leading full service digital optimization agency and Optimizely’s top Solution Partner in North America.  In just under three years, we’ve modeled a new kind of 'upside down' agency - one built by former eCommerce, product, and digital execs from major brands and retailers.
           Clearhead’s goal is simple: deliver significant ROI via A/B testing, personalization, and web analytics strategy and execution.
             Our client-side experience helped fine tuned a process we’ve now offered over two-dozen Internet Retail 500 and B2C lead-gen clients. We begin by defining hypotheses designed to move the needle, put them through the paces, and finish by reporting elegant, executive-friendly data stories that not only achieve buy-in, they transform long-term company culture.
-            Are you trying to jump start your program? Contemplating a major site re-design and want data to drive process? Join the Clearhead experiment.  http://clearhead.me/"
+            Are you trying to jump start your program? Contemplating a major site re-design and want data to drive process? Join the Clearhead experiment.  <a href='http://clearhead.me/' target='_blank'>clearhead.me</a>"
         class: "platinum"
   -
     title: "Gold Sponsors"
@@ -52,6 +52,18 @@ sponsor_levels:
         site_link: "http://www.roidna.com/"
         description: "ROI·DNA is a full service digital agency headquartered in San Francisco, delivering tailored services that drive growth for our clients. With dedicated teams in creative, development, and digital marketing, ROI·DNA delivers solutions built on incisive expertise across every area of the digital space."
         class: "silver"
+      -
+        display_url: "segment.com"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/segment logo.svg"
+        site_link: "https://segment.com/"
+        description: ""
+        class: "silver"
+      -
+        display_url: "teamroboboogie.com"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/roboboogie_logo.jpeg"
+        site_link: "http://teamroboboogie.com"
+        description: "Roboboogie partners closely with brands to improve their conversion rates, nurture brand advocacy and increase customer value. We combine strategic design skills with insightful data analytics to provide highly effective digital customer experience optimization programs. We go beyond CRO to get to know the detailed desires of the customers behind the data. A/B testing is the science that backs our intuitions. Optimizely is our weapon of choice. We are proven digital marketers, insightful data analysts, stunning web designers and masters of user experience design – optimization wizards passionate about creating memorable experiences that get results."
+        class: "silver"
   -
     title: "Bronze Sponsors"
     class: "bronze"
@@ -69,7 +81,7 @@ sponsor_levels:
         description: "SiteTuners is the perfect complement to your Optimizely installation, providing A/B test strategy, conversion-centric redesign services and ongoing optimization training and support to  internal CRO teams.  Since 2002, SiteTuners has helped more than 1,250 companies worldwide  to improve the performance of their online marketing programs. Talk to us about how we can do  the same for you."
         class: "bronze"
       -
-        display_url: "www.getlytics.com/tour/optimizely"
+        display_url: "www.getlytics.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/lytics_logo.png"
         site_link: "http://www.getlytics.com/tour/optimizely?utm_source=opticon&utm_medium=sponsors&utm_campaign=conferences"
         description: "Lytics connects email, social, web and mobile data to discover audience segments that improve the targeting of your Optimizely experiments. Combine Optimizely and Lytics to take web personalization to new levels. Run targeted experiments to convert anonymous visitors or continue delighting your loyal users. Better personalized marketing awaits. Start today: <a href='http://www.getlytics.com/tour/optimizely?utm_source=opticon&utm_medium=sponsors&utm_campaign=conferences'>www.getlytics.com/tour/optimizely</a>"
