@@ -35,8 +35,8 @@ body.opticon-sponsors {
       position: absolute;
       top: 10px;
       right: 10px;
-      padding-top: 25px;
-      width: 25px;
+      padding-top: 15px;
+      width: 15px;
       height: 0;
       background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/modal_close.svg');
       background-repeat: no-repeat;
@@ -45,7 +45,7 @@ body.opticon-sponsors {
       &:hover { cursor: pointer; }
     }
   }
-  hr { border-top: 2px solid #ccc; }
+  hr { border-top: 2px solid $dark-gray-color; }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
@@ -72,10 +72,6 @@ body.opticon-sponsors {
         &--bronze {
           width: 21%;
           padding-top: 130px;
-        }
-        &--roundtable {
-          width: 13%;
-          padding-top: 60px;
         }
         &:hover { cursor: pointer; }
       }
