@@ -56,7 +56,7 @@ sponsor_levels:
         display_url: "segment.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/segment logo.svg"
         site_link: "https://segment.com/"
-        description: ""
+        description: "Segment is on a mission to make using customer data effortless. As a single hub for customer data, Segment collects the data in one place, then transforms and routes it wherever you want: to more than 115 third-party analytics and marketing tools, to internal systems, and to a hostedSQL database."
         class: "silver"
       -
         display_url: "teamroboboogie.com"
