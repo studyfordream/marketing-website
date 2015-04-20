@@ -1,0 +1,99 @@
+body.opticon-sponsors {
+  .sponsor-level {
+    margin: 100px 0;
+    &__image-cont {
+      display: flex;
+      flex-wrap: wrap;
+      &__image {
+        width: 100%;
+        padding-top: 150px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        margin: 20px;
+      }
+    }
+  }
+  .modal-body { position: relative; }
+  .modal-footer,
+  .modal-header {
+    display: none;
+  }
+  .company-container {
+    &__left {
+      text-align: center;
+      &__image {
+        display: block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        padding-top: 100px;
+        margin-bottom: 10px;
+      }
+    }
+    &__right { text-align: center; }
+    &__close-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding-top: 15px;
+      width: 15px;
+      height: 0;
+      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/modal_close.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      &:hover { cursor: pointer; }
+    }
+  }
+  hr { border-top: 2px solid $dark-gray-color; }
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  body.opticon-sponsors {
+    .description-title {
+      width: 630px;
+      margin: 30px auto;
+    }
+    .sponsor-level__image-cont {
+      &__image {
+        margin: 20px auto;
+        &--platinum {
+          width: 75%;
+          padding-top: 210px;
+        }
+        &--gold {
+          width: 43%;
+          padding-top: 140px;
+        }
+        &--silver {
+          width: 30%;
+          padding-top: 150px;
+        }
+        &--bronze {
+          width: 21%;
+          padding-top: 130px;
+        }
+        &:hover { cursor: pointer; }
+      }
+    }
+    .company-container {
+      display: flex;
+      &__right {
+        width: 60%;
+        text-align: left;
+      }
+      &__left {
+        width: 40%;
+        padding: 10px 15px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.opticon-sponsors {
+    .description-title { margin: 30px 0; }
+  }
+}
