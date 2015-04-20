@@ -9,14 +9,14 @@ module.exports = function() {
    * @param {String} `str` dirname string.
    * @return {String} capitalized string.
    */
-   function cap(str) {
-     var firstChar = str.charAt(0);
-     if(isNaN(firstChar)) {
-       return firstChar.toUpperCase() + str.slice(1);
-     } else {
-       return str;
-     }
-   }
+  function cap(str) {
+    var firstChar = str.charAt(0);
+    if(isNaN(firstChar)) {
+      return firstChar.toUpperCase() + str.slice(1);
+    } else {
+      return str;
+    }
+  }
 
   /**
    * Parse a string for slashes. If they exist replace with spaces and capitalize first letter of each string.
@@ -24,17 +24,17 @@ module.exports = function() {
    * @param {String} `str` dirname string.
    * @return {String} capitalized string.
    */
-   function parseDirname(str) {
-     var split;
-     if(str.indexOf('-') !== -1) {
-       split = str.split('-');
-       return split.map(function(splitStr) {
-         return cap(splitStr);
-       }).join(' ');
-     } else {
-       return cap(str);
-     }
-   }
+  function parseDirname(str) {
+    var split;
+    if(str.indexOf('-') !== -1) {
+      split = str.split('-');
+      return split.map(function(splitStr) {
+        return cap(splitStr);
+      }).join(' ');
+    } else {
+      return cap(str);
+    }
+  }
 
   /**
    * Plugin to add SEO title
@@ -43,33 +43,32 @@ module.exports = function() {
    * - if visible_title exists use it plus a suffix
    *
    */
-   return through.obj(function (file, enc, cb) {
-     var possibleTitles = [
-       'TR_visible_title',
-       'title'
-     ];
-     var seoTitle = 'TR_seo_title';
-     var seoSuffix = ' - Optimizely';
-     var keys = Object.keys(file.data);
-     var defaultTitle = 'Optimizely: Make every experience count';
-     var altTitle, dirname;
+  return through.obj(function (file, enc, cb) {
+    var possibleTitles = [
+      'TR_visible_title',
+      'title'
+    ];
+    var seoTitle = 'TR_seo_title';
+    var seoSuffix = ' - Optimizely';
+    var keys = Object.keys(file.data);
+    var defaultTitle = 'Optimizely: Make every experience count';
+    var altTitle, dirname;
 
-     if(!~keys.indexOf(seoTitle)) {
-       altTitle = _.intersection(possibleTitles, keys)[0];
-       switch(altTitle) {
-         case possibleTitles[1]:
-           dirname = file.data.src.dirname;
-         dirname = dirname.substr(dirname.lastIndexOf('/') + 1);
-         file.data[seoTitle] = parseDirname(dirname) + seoSuffix;
-         break;
-         default:
-           file.data[seoTitle] = altTitle ? file.data[altTitle] + seoSuffix : defaultTitle;
-         break;
-       }
-     }
+    if(!~keys.indexOf(seoTitle)) {
+      altTitle = _.intersection(possibleTitles, keys)[0];
+      switch(altTitle) {
+        case possibleTitles[1]:
+          dirname = file.data.src.dirname;
+          dirname = dirname.substr(dirname.lastIndexOf('/') + 1);
+          file.data[seoTitle] = parseDirname(dirname) + seoSuffix;
+          break;
+        default:
+          file.data[seoTitle] = altTitle ? file.data[altTitle] + seoSuffix : defaultTitle;
+          break;
+      }
+    }
 
-     this.push(file);
-     cb();
-   });
+    this.push(file);
+    cb();
+  });
 };
-
