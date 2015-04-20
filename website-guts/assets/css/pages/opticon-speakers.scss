@@ -1,25 +1,31 @@
 body.opticon-speakers {
-  .message-container {
-    margin: 10vh auto;
-    background-color: white;
-    padding: 15px 0px;
-    border: 2px solid gray;
-    h1 {
-      text-align: center;
-    }
-    p {
-      text-align: center;
-      font-size: 1.2em;
-      margin: 70px;
-    }
+  .speaker-container {
+    padding: 200px 2% 0 2%;
+    margin: 30px 0 40px 0;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  .speaker-blurb {
+    text-align: left;
   }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon-speakers {
-    .message-container {
-      margin: 20vh auto;
-      width: 80%;
+    .description-title {
+      width: 575px;
+      margin-bottom: 75px;
+    }
+    .speaker-container .item-source { margin-bottom: 5px; }
+    .flex-container { flex-wrap: wrap; }
+    .speaker-container {
+      width: 33%;
+      &--guest {
+        width: 25%;
+        background-size: 130px 130px;
+        padding: 165px 2% 0 2%;
+      }
     }
   }
 }

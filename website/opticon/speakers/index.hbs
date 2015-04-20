@@ -7,7 +7,31 @@ no_footer: true
 body_class:
 - opticon
 - opticon-speakers
+og_title: "Opticon 2015"
+og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
+external_script:
+- //use.typekit.net/ucj0cgp.js
 ---
-<div class="message-container container">
-  <p>{{{global_speakers_data.description}}}</p>
+
+<div class="page-content container">
+  <h2 class="page-title common-page-title adelle-sans--bold">{{page_data.title}}</h2>
+  <h3 class="description-title adelle-sans">{{global_speakers_data.speakers.title}}</h3>
+  <h4 class="adelle-sans">{{page_data.keynote_speakers_header}}</h4>
+  {{! Keynote Speakers Section }}
+  {{> opticon_keynote_speakers}}
+
+  {{! Guest Speakers Section }}
+  {{#with page_data.guest_speakers}}
+  <h4 class="adelle-sans">{{this.title}}</h4>
+  <div class="flex-container">
+    {{#each speaker_list}}
+      <div class="speaker-container speaker-container--guest" style="background-image: url('{{this.image}}')">
+        <p class="item-title adelle-sans--bold">{{this.name}}</p>
+        <p class="item-source adelle-sans">{{this.company}}</p>
+        <a class="adelle-sans">READ BIO →</a>
+      </div>
+    {{/each}}
+    {{/with}}
+  </div>
+
 </div>

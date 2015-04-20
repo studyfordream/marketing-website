@@ -62,12 +62,8 @@ body.opticon-homepage {
 
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon-homepage {
-    .speaker-container {
-      width: 33%;
-    }
-    .description-title {
-      padding: 0 18%;
-    }
+    .speaker-container { width: 33%; }
+    .description-title { padding: 0 18%; }
     .track-container {
       width: 25%;
       padding: 115px 10px 10px 10px;
@@ -76,13 +72,9 @@ body.opticon-homepage {
       text-align: right;
       padding: 0 5%;
       h1,
-      h4 {
-        text-align: right;
-      }
+      h4 { text-align: right; }
     }
-    .page-title {
-      font-size: 4em;
-    }
+    .page-title { font-size: 4em; }
     .confetti-container .confetti-right {
       display: none;
     }
@@ -96,9 +88,7 @@ body.opticon-homepage {
       padding: 5% 0;
       width: 600px;
     }
-    .track-container {
-      padding: 115px 10px 30px 10px;
-    }
+    .track-container { padding: 115px 10px 30px 10px; }
     .confetti-container .confetti-right {
       display: block;
     }
