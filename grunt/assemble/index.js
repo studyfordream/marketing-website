@@ -28,7 +28,8 @@ module.exports = function (grunt) {
       'om-pages',
       'prep-smartling',
       'partners',
-      'pages'
+      'pages',
+      'subfolders'
     ];
 
     var normalizeSrc = function normalizeSrc (cwd, sources) {
@@ -278,7 +279,8 @@ module.exports = function (grunt) {
       var o = {
         'om-pages': 'magenta',
         pages: 'blue',
-        partners: 'red'
+        partners: 'red',
+        subfolders: 'magenta'
       };
 
       console.log(chalk[ o[type] ].bold('rendered ' + type) + ' => ' + chalk.green(key));
@@ -388,7 +390,11 @@ module.exports = function (grunt) {
           });
     };
 
-    assemble.task('subfolders', ['pages'],  function () {
+    assemble.task('om-pages', buildOm);
+    assemble.task('pages', ['prep-smartling'], buildPages);
+    assemble.task('partners', ['prep-smartling'], buildPartners);
+
+    assemble.task('subfolders', ['partners'],  function buildSubfolders() {
       var start = process.hrtime();
       var files = config.pages.files[0];
 
@@ -404,12 +410,18 @@ module.exports = function (grunt) {
       return push('subfolders')
       .pipe(ext())
       .pipe(assemble.dest(files.dest))
-      //.on('data', function(d) {
-        //console.log('data', d.path);
-      //})
+      .on('data', function(file) {
+         logData(file.path, 'subfolders');
+         var data = Object.keys(file.data).reduce(function(o, key) {
+            if(ignore.indexOf(key) === -1) {
+              o[key] = file.data[key];
+            }
+            return o;
+         }, {});
+      })
       .on('end', function () {
         var end = process.hrtime(start);
-        console.log('finished rendering subfolder', end);
+        console.log('finished rendering subfolders', end);
       });
     });
 
@@ -421,11 +433,8 @@ module.exports = function (grunt) {
         loadAll();
       }
     });
-    assemble.task('loadOm', loader(loadOmLayouts));
 
-    assemble.task('om-pages', buildOm);
-    assemble.task('pages', ['prep-smartling'], buildPages);
-    assemble.task('partners', ['prep-smartling'], buildPartners);
+    assemble.task('loadOm', loader(loadOmLayouts));
     assemble.task('rebuild:pages', buildPages);
 
     assemble.task('resetLastRunTime', function (cb) {
@@ -433,12 +442,12 @@ module.exports = function (grunt) {
       cb();
     });
 
-    assemble.task('done', ['pages', 'partners'], done);
+    assemble.task('done', ['pages', 'partners', 'subfolders'], done);
 
     assemble.task('layouts:pages', ['loadAll', 'prep-smartling'], buildPages);
     assemble.task('layouts:partners', ['loadAll', 'prep-smartling'], buildPartners);
     assemble.task('layouts:om', ['loadOm'], buildOm);
-    assemble.task('build:all', ['loadAll', 'om-pages', 'pages', 'partners']);
+    assemble.task('build:all', ['loadAll', 'om-pages', 'pages', 'partners', 'subfolders']);
 
     assemble.task('watch', ['om-pages', 'partners', 'pages'], function () {
 
@@ -493,7 +502,7 @@ module.exports = function (grunt) {
     if(env === 'dev' || env === 'test') {
       tasks = [
         'build:all',
-        'watch',
+        //'watch',
         'done'
       ];
     } else {

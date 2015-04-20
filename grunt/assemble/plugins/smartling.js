@@ -15,12 +15,14 @@ var Q = require('q');
 
 module.exports = function (assemble) {
   var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
+  var addLayoutData = require('./translation-utils/add-layout-data');
   var lang = assemble.get('lang') || {};
   var pageData = assemble.get('pageData');
   var environment = assemble.option('environment');
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var websiteRoot = assemble.get('data.websiteRoot');
   var websiteGuts = assemble.get('data.websiteGuts');
+  var clonePageData = require('./translation-utils/clone-page-data');
   var locales = assemble.get('data.locales');
   var localeCodes = Object.keys(locales).map(function(subfolder) {
     return locales[subfolder];
@@ -29,13 +31,8 @@ module.exports = function (assemble) {
   var parseFilePath = require('../utils/parse-file-path')(assemble);
   var env = assemble.get('env');
   var isTest = env === 'test';
-  var runTranslations =  isTest || env === 'smartling-staging-deploy';
+  var runTranslations = true || isTest || env === 'smartling-staging-deploy';
   var phrases = [];
-  var ignoreKeys = [
-    'src',
-    'dest',
-    'layout'
-  ];
   var pageDataMap = {};
   var layoutData = {};
 
@@ -47,15 +44,11 @@ module.exports = function (assemble) {
     var seoTitle = file.data.TR_seo_title;
     var seoTitleSuffix = ' - Optimizely';
     var pagePhrases, parsedTranslations;
+    layoutData[locale] = layoutData[locale] || {};
 
     if(seoTitle && !~seoTitle.indexOf(seoTitleSuffix) && !~seoTitle.indexOf('Optimizely:')) {
       file.data.TR_seo_title = seoTitle.trim() + seoTitleSuffix;
     }
-
-    //create lang dictionary from TR prefixes
-    parsedTranslations = createTranslationDict(file, locale);
-
-    layoutData[locale] = layoutData[locale] || {};
 
     //parse file contents for tr helper phrases
     if(file.contents) {
@@ -68,71 +61,46 @@ module.exports = function (assemble) {
       }
     }
 
-    if(filePathData.isSubfolder || filePathData.isRoot || isTest) {
-      if(file.data.layouts) {
-        layoutData[locale][dataKey] = file.data.layouts;
-      }
-      delete file.data.layouts;
-    }
+    //add the layout data onto the file object
+    //important to do this before clonePageData because layout data must be added to the file object
+    addLayoutData(file, filePathData, isTest);
 
-    pageDataMap[locale] = pageDataMap[locale] || {};
-    pageDataMap[locale][dataKey] = pageDataMap[locale][dataKey] || {};
+    //create a clone of the page data to later create the translation dictionary
+    clonePageData(file, filePathData, pageDataMap, pageData);
 
-    _.forEach(file.data, function(val, key) {
-      //TODO: figure out why values that are not flagged for translation are getting added to
-      //pageDataMap object
-      if(ignoreKeys.indexOf(key) === -1 && /^(MD|TR|HTML)_/.test(key)) {
-        pageDataMap[locale][dataKey][key] = val;
-      }
-    });
+    //create lang dictionary from TR prefixes
+    parsedTranslations = createTranslationDict(file, locale);
 
-    if(pageData[locale] && pageData[locale][dataKey]) {
-      _.merge(pageDataMap[locale][dataKey], pageData[locale][dataKey]);
-    }
-
-    /**
-     * pageDataMap creates a mirror or file data YFM
-     * {
-     *   website: {
-     *     fp: yfmData
-     *   },
-     *   modals: {
-     *     fp: yfmData
-     *   },
-     *   de: {
-     *     fp: yfmData
-     *   }
-     * }
-     * lang[locale][dataKey] => all keys flagged for translation from YFM
-     */
+    //extend the lang object with data from the YFM of file.data
+    //before this lang only contains external YML parsed from the transform
     if(Object.keys(parsedTranslations).length > 0) {
       lang[locale] = lang[locale] || {};
-      lang[locale][dataKey] = extend({}, lang[locale][dataKey], parsedTranslations);
+      lang[locale][dataKey] = _.merge({}, lang[locale][dataKey], parsedTranslations);
     }
 
     this.push(file);
     cb();
   }, function (cb) {
     //merge the external YML
-    _.forEach(pageData[websiteRoot], function(val, fp) {
-      pageDataMap[websiteRoot][fp] = _.merge({}, pageDataMap[websiteRoot][fp], val);
-    });
+    //_.forEach(pageData[websiteRoot], function(val, fp) {
+      //pageDataMap[websiteRoot][fp] = _.merge({}, pageDataMap[websiteRoot][fp], val);
+    //});
 
     //add the layout data
-    _.forEach(layoutData[websiteRoot], function(layoutObj, fp) {
+    //_.forEach(layoutData[websiteRoot], function(layoutObj, fp) {
 
-      _.forEach(layoutObj, function(val, layoutPath) {
-        var data = pageDataMap[websiteRoot][fp];
-        //account for missing pages with no previous data
-        if(data) {
-          _.merge(pageDataMap[websiteRoot][fp], val);
-        } else {
-          pageDataMap[websiteRoot][fp] = val;
-        }
-      });
+      //_.forEach(layoutObj, function(val, layoutPath) {
+        //var data = pageDataMap[websiteRoot][fp];
+        ////account for missing pages with no previous data
+        //if(data) {
+          //_.merge(pageDataMap[websiteRoot][fp], val);
+        //} else {
+          //pageDataMap[websiteRoot][fp] = val;
+        //}
+      //});
 
-      //delete pagedatamap[websiteroot][fp].layouts;
-    });
+      ////delete pagedatamap[websiteroot][fp].layouts;
+    //});
 
     /**
      *
@@ -417,6 +385,7 @@ module.exports = function (assemble) {
 
         assemble.set('rootData', pageDataMap[websiteRoot]);
         assemble.set('translated', translated);
+        console.log(Object.keys(translated));
         //assemble.set('data', globalData);
 
         cb();
@@ -434,7 +403,7 @@ module.exports = function (assemble) {
 
       removeTranslationKeys(pageDataMap);
       removeTranslationKeys(globalData);
-      assemble.set('dicts', {});
+      assemble.set('translated', {});
       assemble.set('rootData', pageDataMap[websiteRoot]);
       cb();
     }

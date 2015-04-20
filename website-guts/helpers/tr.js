@@ -3,7 +3,7 @@ module.exports = function _tr(key) {
   var app = this.app;
   var websiteRoot = app.get('data.websiteRoot');
   var isTest = app.get('env') === 'test';
-  var dicts = app.get('dicts');
+  var dicts = app.get('translated');
   var locale = this.context.locale || websiteRoot;
   if (locale === websiteRoot && !isTest) {
     return key;
