@@ -2,44 +2,19 @@
 
 var path = require('path');
 var fs = require('fs');
-var mkdirp = require('mkdirp');
 var _ = require('lodash');
-var through = require('through2');
 var extend = require('extend-shallow');
-var objParser = require('l10n-tools/object-extractor');
-var jsParser = require('l10n-tools/js-parser');
-var hbsParser = require('l10n-tools/hbs-parser');
-var smartling = require('l10n-tools/smartling');
-var Q = require('q');
-var glob = require('glob');
 var globby = require('globby');
-var mkdirp = require('mkdirp');
-var _ = require('lodash');
 var through = require('through2');
 var removeTranslationKeys = require('../utils/remove-translation-keys');
 var extendWhile = require('../utils/extend-while');
-var smartlingConfig;
-
-try{
-  smartlingConfig = fs.readFileSync(path.join(process.cwd(), 'configs/smartlingConfig.json'), {encoding: 'utf8'});
-} catch(err){
-  console.error('Cannot read Smartling config: ', err);
-}
-if(smartlingConfig){
-  smartlingConfig = JSON.parse(smartlingConfig);
-}
-
-function catalogChanged(content, fname){
-  if(!fs.existsSync(fname)) {
-    return true;
-  }
-  // extract list of keys (basically all the messages), sort them alphabetically and join together
-  var keys = Object.keys(smartling.parsePO(content)).sort().join('');
-  var latestKeys = Object.keys(smartling.parsePO(fs.readFileSync(fname, {encoding: 'UTF8'}))).sort().join('');
-  return keys !== latestKeys;
-}
+var generateKey = require('../utils/generate-key');
+var hbsParser = require('l10n-tools/hbs-parser');
+var objParser = require('l10n-tools/object-extractor');
+var Q = require('q');
 
 module.exports = function (assemble) {
+  var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
   var lang = assemble.get('lang') || {};
   var pageData = assemble.get('pageData');
   var environment = assemble.option('environment');
@@ -52,7 +27,6 @@ module.exports = function (assemble) {
   });
   var createTranslationDict = require('../utils/create-dictionary')(assemble);
   var parseFilePath = require('../utils/parse-file-path')(assemble);
-  var generateKey = require('../utils/generate-key');
   var env = assemble.get('env');
   var isTest = env === 'test';
   var runTranslations =  isTest || env === 'smartling-staging-deploy';
@@ -103,15 +77,6 @@ module.exports = function (assemble) {
 
     pageDataMap[locale] = pageDataMap[locale] || {};
     pageDataMap[locale][dataKey] = pageDataMap[locale][dataKey] || {};
-    //if(layoutData[locale][dataKey]) {
-      //Object.keys(layoutData[locale][dataKey]).forEach(function(layoutPath){
-        //if(_.isPlainObject(pageDataMap[locale][dataKey].layouts) || !pageDataMap[locale][dataKey].layouts) {
-          //pageDataMap[locale][dataKey].layouts = [];
-        //}
-
-        //pageDataMap[locale][dataKey].layouts.push(layoutPath);
-      //});
-    //}
 
     _.forEach(file.data, function(val, key) {
       //TODO: figure out why values that are not flagged for translation are getting added to
@@ -198,105 +163,14 @@ module.exports = function (assemble) {
     assemble.set('lang', lang);
 
     if(runTranslations) {
-      var DICT_FNAME = 'marketing_website_yaml.pot';
-      var JS_DICT_FNAME = 'marketing_website_js.pot';
-
-      _.forEach(lang, function(pages){
-        _.forEach(pages, function(fileInfo, fname){
-          var list = objParser.extract(fileInfo);
-          phrases.push({fname: fname, phrases: list});
-        });
-      });
-
-      var extractFrom = function extractFrom(srcs, parser){
-        return glob.sync(srcs).map(function (fname) {
-          var phrases = parser.extract(fs.readFileSync(fname));
-          return {
-            fname: generateKey(fname),
-            phrases: phrases
-          };
-        });
-      };
-
-      var createDirs = [
-        'tmp/upload',
-        'tmp/download',
-        'dist/assets/js'
-      ];
-
-      createDirs.forEach(function(dir) {
-        if(!fs.existsSync(dir)) {
-          mkdirp.sync(dir);
-        }
-      });
-
-      var clientHbsPhrases = extractFrom(path.join(websiteGuts, 'templates/client/**/*.hbs'), hbsParser);
-      //scope tranlations object outside of closure so it may be used in function below
-      //to create page specific ditionary
-      var translations = {};
-      phrases = phrases.concat(clientHbsPhrases);
-      var content = smartling.generatePO(phrases);
       var yamlDefer = Q.defer();
-      if(catalogChanged(content, 'tmp/upload/' + DICT_FNAME)){
-        fs.writeFile('tmp/upload/' + DICT_FNAME, content);
-        smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, DICT_FNAME).then(function(){
-          var defers = localeCodes.map(function(code){
-            return smartling.fetch(smartlingConfig.URL, code, DICT_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID).then(function(body){
-              fs.writeFile('tmp/download/' + code + '-' + DICT_FNAME, body);
-              translations[code] = smartling.parsePOWithContext(body);
-            });
-          });
-
-          // when all translations are fetched - call callback
-          Q.all(defers).then(function(){
-            assemble.set('dicts', translations);
-            yamlDefer.resolve();
-          });
-        });
-      } else {
-        console.log('Server catalog didn\'t change since last upload - using cached dictionaries.');
-        localeCodes.map(function(code){
-          var body = fs.readFileSync('tmp/download/' + code + '-' + DICT_FNAME, {encoding: 'UTF8'});
-          translations[code] = smartling.parsePOWithContext(body);
-        });
-        assemble.set('dicts', translations);
-        yamlDefer.resolve();
-      }
-
-      var jsPhrases = extractFrom('website-guts/assets/js/**/*.js', jsParser);
-      content = smartling.generatePO(jsPhrases);
       var jsDefer = Q.defer();
-      var deployJSDict = function deployJSDict(locale, body) {
-        var dict = smartling.parsePO2dict(body);
-        content = 'window.optlyDict = ' + JSON.stringify(dict);
-        var outputFname = './dist/assets/js/dict.' + locale + '.js';
-        fs.writeFileSync(outputFname, content);
-      };
 
-      if(catalogChanged(content, 'tmp/upload/' + JS_DICT_FNAME)){
-        fs.writeFile('tmp/upload/' + JS_DICT_FNAME, content);
-        smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, JS_DICT_FNAME).then(function(){
-          var defers = localeCodes.map(function(code){
-            return smartling.fetch(smartlingConfig.URL, code, JS_DICT_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID).then(function(body){
-              fs.writeFile('tmp/download/' + code + '-' + JS_DICT_FNAME, body);
-              deployJSDict(code, body);
-            });
-          });
+      sendToSmartling(yamlDefer, jsDefer, phrases);
 
-          // when all translations are fetched - call callback
-          Q.all(defers).then(function(){
-            jsDefer.resolve();
-          });
-        });
-      } else {
-        console.log('JS catalog didn\'t change since last upload - using cached dictionaries for JS.');
-        localeCodes.map(function(code){
-          var body = fs.readFileSync('tmp/download/' + code + '-' + JS_DICT_FNAME, {encoding: 'UTF8'});
-          deployJSDict(code, body);
-        });
-        jsDefer.resolve();
-      }
-      Q.all([yamlDefer.promise, jsDefer.promise]).then(function(){
+      Q.all([yamlDefer.promise, jsDefer.promise]).then(function(resolved){
+
+        var translations = resolved[0];
         //this will become the dictionary for pages
         var translated = {};
 
