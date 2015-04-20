@@ -70,13 +70,7 @@ module.exports = function (assemble) {
     var filePathData = parseFilePath(file.path);
     var locale = filePathData.locale;
     var dataKey = filePathData.dataKey;
-    var seoTitle = file.data.TR_seo_title;
-    var seoTitleSuffix = ' - Optimizely';
     var pagePhrases, parsedTranslations;
-
-    if(seoTitle && !~seoTitle.indexOf(seoTitleSuffix) && !~seoTitle.indexOf('Optimizely:')) {
-      file.data.TR_seo_title = seoTitle.trim() + seoTitleSuffix;
-    }
 
     //create lang dictionary from TR prefixes
     parsedTranslations = createTranslationDict(file, locale);
