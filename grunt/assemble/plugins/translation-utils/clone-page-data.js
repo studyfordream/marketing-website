@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var addLayoutData = require('./add-layout-data');
 var ignoreKeys = [
   'src',
   'dest',
@@ -20,7 +21,7 @@ var ignoreKeys = [
  * }
  * lang[locale][dataKey] => all keys flagged for translation from YFM
  */
-module.exports = function(file, filePathData, pageDataMap, pageData) {
+module.exports = function(file, filePathData, pageDataMap, pageData, isTest) {
   var locale = filePathData.locale;
   var dataKey = filePathData.dataKey;
   pageDataMap[locale] = pageDataMap[locale] || {};
@@ -33,6 +34,10 @@ module.exports = function(file, filePathData, pageDataMap, pageData) {
       pageDataMap[locale][dataKey][key] = val;
     }
   });
+
+  //add the layout data onto the file object
+  //important to do this before clonePageData because layout data must be added to the file object
+  addLayoutData(file, filePathData, pageDataMap[locale][dataKey], isTest);
 
   if(pageData[locale] && pageData[locale][dataKey]) {
     _.merge(pageDataMap[locale][dataKey], pageData[locale][dataKey]);

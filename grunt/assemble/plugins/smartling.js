@@ -4,7 +4,6 @@ var path = require('path');
 var fs = require('fs');
 var _ = require('lodash');
 var extend = require('extend-shallow');
-var globby = require('globby');
 var through = require('through2');
 var removeTranslationKeys = require('../utils/remove-translation-keys');
 var extendWhile = require('../utils/extend-while');
@@ -14,8 +13,9 @@ var objParser = require('l10n-tools/object-extractor');
 var Q = require('q');
 
 module.exports = function (assemble) {
+  var globalData = assemble.get('data');
+  var getGlobalYml = require('./translation-utils/get-global-yml');
   var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
-  var addLayoutData = require('./translation-utils/add-layout-data');
   var lang = assemble.get('lang') || {};
   var pageData = assemble.get('pageData');
   var environment = assemble.option('environment');
@@ -35,6 +35,11 @@ module.exports = function (assemble) {
   var phrases = [];
   var pageDataMap = {};
   var layoutData = {};
+  var globalYml = getGlobalYml(globalData);
+
+  //add the global yml keys flagged for translation to the lang object to be parsed
+  //and sent to smartling
+  lang.global = createTranslationDict(globalYml, 'global');
 
   return through.obj(function (file, enc, cb) {
     var ppcRe = new RegExp(path.join(websiteRoot, 'om'));
@@ -61,12 +66,8 @@ module.exports = function (assemble) {
       }
     }
 
-    //add the layout data onto the file object
-    //important to do this before clonePageData because layout data must be added to the file object
-    addLayoutData(file, filePathData, isTest);
-
     //create a clone of the page data to later create the translation dictionary
-    clonePageData(file, filePathData, pageDataMap, pageData);
+    clonePageData(file, filePathData, pageDataMap, pageData, isTest);
 
     //create lang dictionary from TR prefixes
     parsedTranslations = createTranslationDict(file, locale);
@@ -87,6 +88,7 @@ module.exports = function (assemble) {
     //});
 
     //add the layout data
+    //debugger;
     //_.forEach(layoutData[websiteRoot], function(layoutObj, fp) {
 
       //_.forEach(layoutObj, function(val, layoutPath) {
@@ -102,35 +104,16 @@ module.exports = function (assemble) {
       ////delete pagedatamap[websiteroot][fp].layouts;
     //});
 
-    /**
-     *
-     * Create an object of global yaml data and delete keys from globalData
-     * that reference file paths rather than file names
-     * this inentionally mutates the assemble.cache.data object as it is not immutable
-     *
-     * globalYml = {
-     *   fpBasenameNoExt: ymlDataObj
-     * }
-     *
-     */
-    var globalData = assemble.get('data');
-    var globalYml = Object.keys(globalData).reduce(function(o, key) {
-      if(/global\_/.test(key)) {
-        var basenameKey = path.basename(key, path.extname(key));
-        o[key] = globalData[key];
-        globalData[basenameKey] = globalData[key];
-        //intentionally mutate the assemble.cached.data object
-        delete globalData[key];
-      }
-      return o;
-    }, {});
+    ////get/reset the global yml data
+    //var globalYml = getGlobalYml(globalData);
 
-    //add the global yml keys flagged for translation to the lang object to be parsed
-    //and sent to smartling
-    lang.global = createTranslationDict(globalYml, 'global');
+    ////add the global yml keys flagged for translation to the lang object to be parsed
+    ////and sent to smartling
+    //lang.global = createTranslationDict(globalYml, 'global');
     assemble.set('lang', lang);
 
     if(runTranslations) {
+      var extendSubfolderData = require('./translation-utils/extend-subfolder-data')(assemble);
       var yamlDefer = Q.defer();
       var jsDefer = Q.defer();
 
@@ -151,21 +134,11 @@ module.exports = function (assemble) {
          * }
          *
          */
-        var subfolderFiles = globby.sync('**/*.{hbs,yml}', {cwd: subfoldersRoot});
-        var subfolderO = subfolderFiles.reduce(function(o, fp) {
-          var key = '/' + path.join(subfoldersRoot, path.dirname(fp), 'index');
-          if(!o[key]) {
-            o[key] = [];
-          }
-          o[key].push(path.extname(fp).replace('.', ''));
-
-          return o;
-        }, {});
 
         //add the page content to page data after parsing
-        _.forEach(lang[websiteRoot], function(val, fp) {
-          _.merge(pageDataMap[websiteRoot][fp], _.clone(val));
-        });
+        //_.forEach(lang[websiteRoot], function(val, fp) {
+          //_.merge(pageDataMap[websiteRoot][fp], _.clone(val));
+        //});
 
         try{
 
@@ -184,36 +157,9 @@ module.exports = function (assemble) {
             var dictKey = locales[locale];
 
             try{
-              /**
-               * Function that merges external yml and attaches it to the page data object. If a subfolder
-               * has external yml but not it's own template it must be translated on the fly from two different
-               * dictionary entries.
-               *
-               * case 1: locale template exists
-               * case 2: only external yml exists, must inherit external yml from parent and tranlsate on the fly
-               *
-               */
-              Object.keys(lang[locale]).forEach(function(fp) {
-                var subfolderFiles = subfolderO[fp];
-                var parentKey = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
-                var data;
-
-                if(subfolderFiles.length === 1 && subfolderFiles[0] === 'yml') {
-                  data = _.merge({}, lang[websiteRoot][parentKey], lang[locale][fp]);
-                  //translate here because it is difficult to reconcile later
-                  //objParser.translate(data, translations[dictKey][fp]);
-                  objParser.translate(data, translations[dictKey][parentKey]);
-                  pageDataMap[locale][fp] = _.merge({}, pageData[websiteRoot][parentKey], pageData[locale][fp], data);
-                } else {
-                  data = _.clone(lang[locale][fp]);
-                  //objParser.translate(data, translations[dictKey][fp]);
-                  pageDataMap[locale][fp] = _.merge({}, pageData[locale][fp], data);
-                }
-
-              });
-
+              extendSubfolderData(locale, pageDataMap, translations);
             } catch(e) {
-              console.log('ERROR 1', e, locale);
+              this.emit('ERROR: extendSubfolderData', e);
             }
 
             try {
@@ -385,7 +331,6 @@ module.exports = function (assemble) {
 
         assemble.set('rootData', pageDataMap[websiteRoot]);
         assemble.set('translated', translated);
-        console.log(Object.keys(translated));
         //assemble.set('data', globalData);
 
         cb();
