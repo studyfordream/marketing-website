@@ -110,6 +110,7 @@ module.exports = function (assemble) {
       var extendSubfolderData = require('./translation-utils/extend-subfolder-data')(assemble);
       var addPageContent = require('./translation-utils/add-page-content');
       var populateSubfolderData = require('./translation-utils/populate-subfolder-data');
+      var translateLayoutData = require('./translation-utils/translate-layout-data');
 
       sendToSmartling(phrases).then(function(resolved){
 
@@ -152,45 +153,14 @@ module.exports = function (assemble) {
               this.emit('ERROR: populateSubfolderData', e);
             }
 
-            //try{
-              /**
-               * Function that merges layout data and translates
-               * must account for pages that are inherited
-               *
-               */
-            ////add the layout data
-            //_.forEach(pageDataMap[locale], function(pageDataObj, fp) {
-              //var parentKey = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
-              //var layoutObj, fpDictKey;
-
-              //if(layoutData[locale][fp]) {
-                //layoutObj = layoutData[locale][fp];
-                //fpDictKey = fp;
-              //} else {
-                //layoutObj = layoutData[websiteRoot][parentKey];
-                //fpDictKey = parentKey;
-              //}
-              ////console.log(fpDictKey);
-
-              //_.forEach(layoutObj, function(val, layoutPath) {
-                //var clone = _.clone(val);
-                //if(_.isPlainObject(pageDataMap[locale][fp].layouts) || !pageDataMap[locale][fp].layouts) {
-                  //pageDataMap[locale][fp].layouts = [];
-                //}
-                //pageDataMap[locale][fp].layouts.push(layoutPath);
-                ////must translate here because need the layout key path
-                //objParser.translate(clone, translations[dictKey][layoutPath]);
-                //_.merge(pageDataMap[locale][fp], clone);
-              //});
-
-              ////delete pageDataMap[websiteRoot][fp].layouts;
-            //});
-
-
-            //} catch(e) {
-              //console.log('LAYOUT DATA MERGE ERROR', e, locale);
-            //}
-
+            /**
+             * Function that translates the layout data
+             */
+            try{
+              translateLayoutData(locale, dictKey, translations, pageDataMap);
+            } catch(e) {
+              console.log('ERROR: translateLayoutData', e);
+            }
 
             var specialTypes = [
               'modals',
@@ -200,7 +170,7 @@ module.exports = function (assemble) {
 
             /**
              * Utility Function for iterating through the special types in the lang object ['modals', 'layouts', 'partials']
-             * and merging their filepath/values into teh pageData locale object
+             * and merging their filepath/values into the pageDataMap locale object
              */
             specialTypes.forEach(function(type) {
               _.merge(pageDataMap[locale], lang[type] || {});
@@ -208,7 +178,7 @@ module.exports = function (assemble) {
 
 
             /**
-             * Function for iterating the completed pageData object and performing translations appropriately
+             * Function for iterating the completed pageDataMap object and performing translations appropriately
              *
              * case 1: locale specific file is in the dictionary so use it
              * case 2: file is inherited from the root website so must use a parent key in the dictionary to translate

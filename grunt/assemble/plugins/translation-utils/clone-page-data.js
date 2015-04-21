@@ -30,14 +30,14 @@ module.exports = function(file, filePathData, pageDataMap, pageData, isTest) {
   _.forEach(file.data, function(val, key) {
     //TODO: figure out why values that are not flagged for translation are getting added to
     //pageDataMap object
-    if(ignoreKeys.indexOf(key) === -1 && /^(MD|TR|HTML)_/.test(key)) {
+    if(key === 'layouts' || ( ignoreKeys.indexOf(key) === -1 && /^(MD|TR|HTML)_/.test(key) )) {
       pageDataMap[locale][dataKey][key] = val;
     }
   });
 
   //add the layout data onto the file object
   //important to do this before clonePageData because layout data must be added to the file object
-  addLayoutData(file, filePathData, pageDataMap[locale][dataKey], isTest);
+  //addLayoutData(file, filePathData, pageDataMap[locale][dataKey], isTest);
 
   if(pageData[locale] && pageData[locale][dataKey]) {
     _.merge(pageDataMap[locale][dataKey], pageData[locale][dataKey]);
