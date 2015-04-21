@@ -15,7 +15,7 @@ module.exports = function(assemble) {
   return function mergeTranslatedData (file, next) {
     var lang = assemble.get('lang');
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
-    var pageData = assemble.get('rootData');
+    var pageData = assemble.get('pageDataMap');
     var translated = assemble.get('translated');
     var dicts = assemble.get('dicts');
     var filePathData = parseFilePath(file.path);
@@ -23,6 +23,7 @@ module.exports = function(assemble) {
     var dataKey = filePathData.dataKey;
     var dictKey = locales[locale];
     var mergedDict, parentKey, translatedDict, rootData;
+    var layoutKeys;
 
     removeTranslationKeys(file.data);
 
@@ -33,9 +34,21 @@ module.exports = function(assemble) {
     //extend the file with the external YML content
     if(filePathData.isRoot && !isTest && !file.data.isPpc) {
       //extend the local yml data to the page
-      rootData = pageData[dataKey];
+      rootData = pageData[websiteRoot][dataKey];
 
+      //console.log(file.path, Object.keys(rootData));
       if(rootData) {
+
+        if(rootData.layouts) {
+          layoutKeys = Object.keys(rootData.layouts);
+          layoutKeys.forEach(function(key) {
+            _.forEach(rootData.layouts[key], function(val, layoutKey) {
+              file.data[layoutKey] = val;
+            });
+          });
+
+          file.data.layouts = layoutKeys;
+        }
 
         if(rootData.page_content) {
           file.content = rootData.page_content;
@@ -49,6 +62,20 @@ module.exports = function(assemble) {
       if(isTest) {
         dataKey = dataKey.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
       }
+      rootData = pageData[locale][dataKey];
+
+      if(rootData.layouts) {
+        layoutKeys = Object.keys(rootData.layouts);
+        layoutKeys.forEach(function(key) {
+          _.forEach(rootData.layouts[key], function(val, layoutKey) {
+            file.data[layoutKey] = val;
+            console.log(layoutKey, val);
+          });
+        });
+
+        file.data.layouts = layoutKeys;
+      }
+
       //set the locale on the page context for modal|partial translation
       file.data.locale = locale;
       file.data.dataKey = dataKey;

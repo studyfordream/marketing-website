@@ -21,6 +21,7 @@ module.exports = function (grunt) {
     var mergeTranslatedData = require('./middleware/merge-translated-data');
     var resourceListType = require('./plugins/store-resource-list-types');
     var sendToSmartling = require('./plugins/smartling');
+    var mergeTranslatedLayouts = require('./plugins/merge-translated-layout-context');
     var addSeoTitle = require('./plugins/seo-title');
     var typeLoader = require('./loaders/type-loader');
     var push = require('assemble-push')(assemble);
@@ -347,6 +348,7 @@ module.exports = function (grunt) {
           .on('error', function (err) {
             console.log('src error', err);
           })
+          //.pipe(mergeTranslatedLayouts(assemble))
           .pipe(ext())
           .pipe(assemble.dest(files.dest))
           .on('error', function (err) {
@@ -375,6 +377,7 @@ module.exports = function (grunt) {
 
         var files = config.partners.files[0];
         return assemble.src(normalizeSrc(files.cwd, files.src))
+          //.pipe(mergeTranslatedLayouts(assemble))
           .pipe(ext())
           .pipe(assemble.dest(path.join(files.dest, 'partners')))
           .on('data', function(file) {
@@ -405,12 +408,17 @@ module.exports = function (grunt) {
       assemble['subfolder']({
         src: [
           '**/*.hbs',
-          '!' + omSrc
+          '!' + omSrc,
+          '!website/partners/**/*.hbs'
         ],
-        fallback: [ '**/*.hbs', '!resources/resources-list/**/*' ]
+        fallback: [ 
+          '**/*.hbs',
+          '!resources/resources-list/**/*',
+        ]
       });
       /* jshint ignore:end */
       return push('subfolders')
+      //.pipe(mergeTranslatedLayouts(assemble))
       .pipe(ext())
       .pipe(assemble.dest(files.dest))
       .on('data', function(file) {

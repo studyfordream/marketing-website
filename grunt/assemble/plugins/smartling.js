@@ -157,7 +157,29 @@ module.exports = function (assemble) {
              * Function that translates the layout data
              */
             try{
-              translateLayoutData(locale, dictKey, translations, pageDataMap);
+              //translateLayoutData(locale, dictKey, translations, pageDataMap);
+
+
+            _.forEach(pageDataMap[locale], function(pageDataObj, fp) {
+              var parentKey = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
+              var layoutObj, fpDictKey;
+
+              //console.log(fpDictKey);
+
+              _.forEach(pageDataObj.layouts, function(val, layoutPath) {
+                //var clone = _.clone(val);
+                //if(_.isPlainObject(pageDataMap[locale][fp].layouts) || !pageDataMap[locale][fp].layouts) {
+                  //pageDataMap[locale][fp].layouts = [];
+                //}
+                //pageDataMap[locale][fp].layouts.push(layoutPath);
+                //must translate here because need the layout key path
+                objParser.translate(val, translations[dictKey][layoutPath]);
+                removeTranslationKeys(val);
+                //console.log(fp, val);
+              });
+
+              //delete pageDataMap[websiteRoot][fp].layouts;
+            });
             } catch(e) {
               console.log('ERROR: translateLayoutData', e);
             }
@@ -271,7 +293,7 @@ module.exports = function (assemble) {
         }
         //console.log(pageDataMap);
 
-        assemble.set('rootData', pageDataMap[websiteRoot]);
+        assemble.set('pageDataMap', pageDataMap);
         assemble.set('translated', translated);
         //assemble.set('data', globalData);
 
