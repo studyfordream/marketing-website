@@ -44,6 +44,7 @@ module.exports = function(assemble) {
 
         extendWhile(file.data, rootData);
       }
+
     } else if(filePathData.isSubfolder || ( filePathData.isRoot && isTest && !file.data.isPpc )) {
       if(isTest) {
         dataKey = dataKey.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
@@ -62,6 +63,7 @@ module.exports = function(assemble) {
 
         extendWhile(file.data, translatedDict);
       }
+      //console.log(file.data.layouts);
 
 
     } else if ( (isTest || ( file.data.locale && file.data.locale !== websiteRoot ) ) && ( filePathData.isModal || filePathData.isPartial ) ) {
