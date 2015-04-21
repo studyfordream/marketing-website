@@ -17,6 +17,33 @@ body.opticon-speakers {
       width: 575px;
       margin-bottom: 75px;
     }
+    .company-container {
+      &__left {
+        text-align: center;
+        &__image {
+          display: block;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center center;
+          padding-top: 100px;
+          margin-bottom: 10px;
+        }
+      }
+      &__right { text-align: center; }
+      &__close-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding-top: 15px;
+        width: 15px;
+        height: 0;
+        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/modal_close.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        &:hover { cursor: pointer; }
+      }
+    }
     .speaker-container .item-source { margin-bottom: 5px; }
     .flex-container { flex-wrap: wrap; }
     .speaker-container {
