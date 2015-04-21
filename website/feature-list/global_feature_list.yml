@@ -188,12 +188,12 @@ TR_tables:
       -
         TR_title: "Projects"
         string: true
-        starter_text: "1 Web and 1 Mobile App"
+        starter_text: "1 Website, 1 iOS App, and 1 Android App"
         TR_enterprise_text: "Custom"
       -
         TR_title: "Domains"
         string: true
-        starter_text: "One Domain and One Mobile App"
+        starter_text: "1 Web Domain, 1 iOS App, and 1 Android App"
         TR_enterprise_text: "Custom"
       -
         TR_title: "Experiments"
