@@ -370,7 +370,7 @@ days:
                 job_title: "Group Director, Digital Development"
                 company: "Village Roadshow"
               -
-                name: "Moderated by: Matty Wishnow"
+                name: "Matty Wishnow"
                 job_title: "CEO"
                 company: "Clearhead"
           -
@@ -441,12 +441,48 @@ days:
                 name: "Cameron Deatsch"
                 job_title: "Head of Growth"
                 company: "Atlassian"
+          -
+            title: "Integrations with the Optimizely Platform"
+            time: "3:40 - 4:25"
+            location: "Theater"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Atlassian"
+            track: "platform"
+            roles: "developer"
+            speakers:
+              -
+                name: "John Provine"
+                job_title: "Sr. Product Manager"
+                company: "Optimizely"
       -
         start_time: "4:25"
         title: "Break in Exhibit Hall"
       -
         start_time: "4:45"
         events:
+          -
+            title: "Google's Optimization Story"
+            time: "4:45 - 5:30"
+            location: "Breakout 3"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Google"
+            track: "culture"
+            roles: "marketer executive developer productmanager"
+            speakers:
+              -
+                name: "Michelle Levesque"
+                job_title: "Staff Software Engineer "
+                company: "Google"
           -
             title: "Testing your Boundaries: Lessons Learned from Testing in International Markets"
             time: "4:45 - 5:30"
@@ -501,7 +537,7 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Apperian"
+            companies: "Apperian, j2 Global Communications"
             track: "action"
             roles: "marketer productmanager"
             speakers:
@@ -509,6 +545,10 @@ days:
                 name: "Tiffany Early"
                 job_title: "Director, Digital Branding"
                 company: "Apperian"
+              -
+                name: "Matthew Vandewouwer"
+                job_title: "Marketing Manager"
+                company: "j2 Global Communications"
       -
         start_time: "5:30"
         title: "Opticon Bash"
@@ -698,14 +738,10 @@ days:
             location: "Breakout 3"
             description: "Industry investment into real-time programmatic bidding is growing.
               its effect on bid optimization."
-            companies: "Citrix, Microsoft Store"
+            companies: "Microsoft Store, Optimizely"
             track: "platform"
             roles: "marketer productmanager developer executive"
             speakers:
-              -
-                name: "Cori Kaylor"
-                job_title: "Sr. Manager, Web Strategy & Online Marketing"
-                company: "Citrix"
               -
                 name: "Trevin Chow"
                 job_title: "Director of Product Management"
