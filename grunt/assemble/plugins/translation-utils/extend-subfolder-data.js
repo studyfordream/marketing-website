@@ -47,7 +47,6 @@ module.exports = function(assemble) {
       var parentKey = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
       var data;
 
-      console.log(subfolderFiles, fp);
       if(subfolderFiles.length === 1 && subfolderFiles[0] === 'yml') {
         data = _.merge({}, lang[websiteRoot][parentKey], lang[locale][fp]);
         //translate here because it is difficult to reconcile later

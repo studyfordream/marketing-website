@@ -46,14 +46,8 @@ module.exports = function (assemble) {
     var filePathData = parseFilePath(file.path);
     var locale = filePathData.locale;
     var dataKey = filePathData.dataKey;
-    var seoTitle = file.data.TR_seo_title;
-    var seoTitleSuffix = ' - Optimizely';
     var pagePhrases, parsedTranslations;
     layoutData[locale] = layoutData[locale] || {};
-
-    if(seoTitle && !~seoTitle.indexOf(seoTitleSuffix) && !~seoTitle.indexOf('Optimizely:')) {
-      file.data.TR_seo_title = seoTitle.trim() + seoTitleSuffix;
-    }
 
     //parse file contents for tr helper phrases
     if(file.contents) {
@@ -115,10 +109,9 @@ module.exports = function (assemble) {
     if(runTranslations) {
       var extendSubfolderData = require('./translation-utils/extend-subfolder-data')(assemble);
       var addPageContent = require('./translation-utils/add-page-content');
-      var yamlDefer = Q.defer();
-      var jsDefer = Q.defer();
+      var populateSubfolderData = require('./translation-utils/populate-subfolder-data');
 
-      sendToSmartling(yamlDefer, jsDefer, phrases).then(function(resolved){
+      sendToSmartling(phrases).then(function(resolved){
 
         var translations = resolved[0];
         //this will become the dictionary for pages
@@ -132,9 +125,9 @@ module.exports = function (assemble) {
         }
 
         try{
-
-          //iterate through locales to create a `translated` object
           /**
+           * iterate through locales to create a `translated` object
+           *
            * translated = {
            *  de_DE: {
            *    fp: 'val'
@@ -154,61 +147,49 @@ module.exports = function (assemble) {
             }
 
             try {
-              /**
-               * Function for populating the page data object with filepath related objects inherited from the parent website
-               * if they do not have their own templates or yml files in subfolders.
-               *
-               */
-              _.forEach(pageDataMap[websiteRoot], function(val, fp) {
-                var subfolderPath = fp.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
-                if(!pageDataMap[locale][subfolderPath]) {
-                  val = _.clone(val);
-                  //have to merge here or lose values not flagged for translation
-                  pageDataMap[locale][subfolderPath] = _.merge({}, pageData[websiteRoot][fp] || {}, val);
-                }
-              });
-
+              populateSubfolderData(locale, websiteRoot, subfoldersRoot, pageData, pageDataMap);
             } catch(e) {
-              console.log('ERROR 2', e);
+              this.emit('ERROR: populateSubfolderData', e);
             }
-            try{
+
+            //try{
               /**
                * Function that merges layout data and translates
                * must account for pages that are inherited
                *
                */
-            //add the layout data
-            _.forEach(pageDataMap[locale], function(pageDataObj, fp) {
-              var parentKey = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
-              var layoutObj, fpDictKey;
+            ////add the layout data
+            //_.forEach(pageDataMap[locale], function(pageDataObj, fp) {
+              //var parentKey = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
+              //var layoutObj, fpDictKey;
 
-              if(layoutData[locale][fp]) {
-                layoutObj = layoutData[locale][fp];
-                fpDictKey = fp;
-              } else {
-                layoutObj = layoutData[websiteRoot][parentKey];
-                fpDictKey = parentKey;
-              }
-              //console.log(fpDictKey);
+              //if(layoutData[locale][fp]) {
+                //layoutObj = layoutData[locale][fp];
+                //fpDictKey = fp;
+              //} else {
+                //layoutObj = layoutData[websiteRoot][parentKey];
+                //fpDictKey = parentKey;
+              //}
+              ////console.log(fpDictKey);
 
-              _.forEach(layoutObj, function(val, layoutPath) {
-                var clone = _.clone(val);
-                if(_.isPlainObject(pageDataMap[locale][fp].layouts) || !pageDataMap[locale][fp].layouts) {
-                  pageDataMap[locale][fp].layouts = [];
-                }
-                pageDataMap[locale][fp].layouts.push(layoutPath);
-                //must translate here because need the layout key path
-                objParser.translate(clone, translations[dictKey][layoutPath]);
-                _.merge(pageDataMap[locale][fp], clone);
-              });
+              //_.forEach(layoutObj, function(val, layoutPath) {
+                //var clone = _.clone(val);
+                //if(_.isPlainObject(pageDataMap[locale][fp].layouts) || !pageDataMap[locale][fp].layouts) {
+                  //pageDataMap[locale][fp].layouts = [];
+                //}
+                //pageDataMap[locale][fp].layouts.push(layoutPath);
+                ////must translate here because need the layout key path
+                //objParser.translate(clone, translations[dictKey][layoutPath]);
+                //_.merge(pageDataMap[locale][fp], clone);
+              //});
 
-              //delete pageDataMap[websiteRoot][fp].layouts;
-            });
+              ////delete pageDataMap[websiteRoot][fp].layouts;
+            //});
 
 
-            } catch(e) {
-              console.log('LAYOUT DATA MERGE ERROR', e, locale);
-            }
+            //} catch(e) {
+              //console.log('LAYOUT DATA MERGE ERROR', e, locale);
+            //}
 
 
             var specialTypes = [
