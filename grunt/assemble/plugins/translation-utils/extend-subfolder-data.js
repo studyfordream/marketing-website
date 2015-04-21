@@ -19,6 +19,16 @@ module.exports = function(assemble) {
   var locales = assemble.get('data.locales');
   var lang = assemble.get('lang');
   var subfolderFiles = globby.sync('**/*.{hbs,yml}', {cwd: subfoldersRoot});
+
+  /**
+   *
+   * Read subfolders directory to determine if template exists
+   * subfolderO = {
+   *   fp: ['yml', 'hbs],
+   *   fp: ['yml']
+   * }
+   *
+   */
   var subfolderO = subfolderFiles.reduce(function(o, fp) {
     var key = '/' + path.join(subfoldersRoot, path.dirname(fp), 'index');
     if(!o[key]) {
@@ -37,6 +47,7 @@ module.exports = function(assemble) {
       var parentKey = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
       var data;
 
+      console.log(subfolderFiles, fp);
       if(subfolderFiles.length === 1 && subfolderFiles[0] === 'yml') {
         data = _.merge({}, lang[websiteRoot][parentKey], lang[locale][fp]);
         //translate here because it is difficult to reconcile later

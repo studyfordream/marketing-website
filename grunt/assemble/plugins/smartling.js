@@ -114,37 +114,28 @@ module.exports = function (assemble) {
 
     if(runTranslations) {
       var extendSubfolderData = require('./translation-utils/extend-subfolder-data')(assemble);
+      var addPageContent = require('./translation-utils/add-page-content');
       var yamlDefer = Q.defer();
       var jsDefer = Q.defer();
 
-      sendToSmartling(yamlDefer, jsDefer, phrases);
-
-      Q.all([yamlDefer.promise, jsDefer.promise]).then(function(resolved){
+      sendToSmartling(yamlDefer, jsDefer, phrases).then(function(resolved){
 
         var translations = resolved[0];
         //this will become the dictionary for pages
         var translated = {};
 
-        /**
-         *
-         * Read subfolders directory to determin if template exists
-         * subfolderO = {
-         *   fp: ['yml', 'hbs],
-         *   fp: ['yml']
-         * }
-         *
-         */
-
-        //add the page content to page data after parsing
-        //_.forEach(lang[websiteRoot], function(val, fp) {
-          //_.merge(pageDataMap[websiteRoot][fp], _.clone(val));
-        //});
+        try{
+          //add the page content and page data to the map object
+          addPageContent(lang[websiteRoot], pageDataMap[websiteRoot]);
+        } catch(e) {
+          this.emit('ERROR: addPageContent', e);
+        }
 
         try{
 
           //iterate through locales to create a `translated` object
           /**
-           * tranlated = {
+           * translated = {
            *  de_DE: {
            *    fp: 'val'
            *  },

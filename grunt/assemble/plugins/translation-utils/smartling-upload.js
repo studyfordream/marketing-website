@@ -138,5 +138,7 @@ module.exports = function(assemble) {
       });
       jsDefer.resolve();
     }
+
+    return Q.all([yamlDefer.promise, jsDefer.promise]);
   };
 };
