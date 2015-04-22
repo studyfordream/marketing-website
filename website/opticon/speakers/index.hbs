@@ -11,7 +11,7 @@ og_title: "Opticon 2015"
 og_description: "Join me at Opticon and learn why experience optimization is a must for your business."
 page_script: opticon-speakers.js
 modals:
-- opticon_sponsor_modal
+- opticon_speaker_modal
 external_script:
 - //use.typekit.net/ucj0cgp.js
 ---
@@ -31,7 +31,7 @@ external_script:
       <div class="speaker-container speaker-container--guest" style="background-image: url('{{this.image}}')">
         <p class="item-title adelle-sans--bold">{{this.name}}</p>
         <p class="item-source adelle-sans">{{this.company}}</p>
-        <p class="js-speaker-info adelle-sans" data-name="{{this.name}}" data-image="{{this.image}}" data-company="{{this.company}}" data-bio="{{this.blurb}}">READ BIO →</p>
+        <p class="js-speaker-info adelle-sans" data-name="{{this.name}}" data-image="url({{this.image}})" data-company="{{this.company}}" data-bio="{{this.blurb}}">READ BIO →</p>
       </div>
     {{/each}}
     {{/with}}

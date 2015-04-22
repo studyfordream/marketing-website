@@ -17,7 +17,7 @@ body.opticon-speakers {
       width: 575px;
       margin-bottom: 75px;
     }
-    .company-container {
+    .opticon-modal-container {
       &__left {
         text-align: center;
         &__image {
@@ -28,6 +28,7 @@ body.opticon-speakers {
           padding-top: 100px;
           margin-bottom: 10px;
         }
+        &__name { margin-bottom: 2px; }
       }
       &__right { text-align: center; }
       &__close-icon {
