@@ -28,7 +28,7 @@ days:
     html_id: "day-one"
     time_slots:
       -
-        start_time: "9:00"
+        start_time: "7:00"
         title: "Exhibit Hall Open"
       -
         start_time: "9:00"
@@ -36,7 +36,7 @@ days:
           -
             title: "Optimizely Keynote"
             time: "9:00 - 10:00"
-            location: "Terrace B"
+            location: "Main Room"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
@@ -57,31 +57,35 @@ days:
         start_time: "10:25"
         events:
           -
-            title: "The Power and Influence of the Written Word in Conversion"
+            title: "Blow Up your Mobile App Metrics: Real Life Mobile App Optimization"
             time: "10:25 – 11:10"
-            location: "Terrace B"
+            location: "Breakout 3"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "FunnyBiz Conference, Elevated"
-            track: "strategy"
-            roles: "marketer productmanager"
+            companies: "Credit Sesame, Fareportal, Pinterest"
+            track: "action"
+            roles: "marketer productmanager developer"
             speakers:
               -
-                name: "Rachman Blake"
-                job_title: "Co-Founder"
-                company: "FunnyBiz Conference"
+                name: "George McMullen"
+                job_title: "Director of Mobile Products"
+                company: "Credit Sesame"
               -
-                name: "Keith Lovgren"
-                job_title: "Director of Conversion Rate Optimization"
-                company: "Elevated"
+                name: "Raman Bhatia"
+                job_title: "Director of Product Management"
+                company: "Fareportal"
+              -
+                name: "Andrea Burbank"
+                job_title: "Data Scientist"
+                company: "Pinterest"
           -
             title: "The Inside Scoop: Coming Soon from Optimizely"
             time: "10:25 – 11:10"
-            location: "Terrace B"
+            location: "Main Room"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
@@ -90,7 +94,7 @@ days:
               effective in their decision making."
             companies: "Optimizely"
             track: "action"
-            roles: "marketer productmanager developer"
+            roles: "marketer productmanager developer executive"
             speakers:
               -
                 name: "Jon Noronha"
@@ -99,14 +103,14 @@ days:
           -
             title: "Scaling your Testing Program for Maximum Impact"
             time: "10:25 – 11:10"
-            location: "Terrace B"
+            location: "Breakout 2"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "charity: water, Moz, The Next Web"
+            companies: "charity: water, The Next Web, Moz"
             track: "strategy"
             roles: "marketer developer productmanager executive"
             speakers:
@@ -122,7 +126,28 @@ days:
                 name: "Andy Nelson"
                 job_title: "Director of Growth Marketing"
                 company: "Moz"
-
+          -
+            title: "Getting Started with the Optimizely Developer Platform"
+            time: "10:25 – 11:10"
+            location: "Breakout 4"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Optimizely"
+            track: "platform"
+            roles: "developer"
+            speakers:
+              -
+                name: "Jon Gaulding"
+                job_title: "Senior Software Engineer"
+                company: "Optimizely"
+              -
+                name: "Josiah Gaskin"
+                job_title: "Senior Software Engineer"
+                company: "Optimizely"
       -
         start_time: "11:10"
         title: "Break in Exhibit Hall"
@@ -132,7 +157,7 @@ days:
           -
             title: "Fireside Chat with Marc Andreessen"
             time: "11:30 - 12:15"
-            location: "Terrace B"
+            location: "Main Room"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
@@ -153,39 +178,9 @@ days:
         start_time: "1:30"
         events:
           -
-            title: "Structure and Scale: Establishing your Optimization Dream Team"
+            title: "Optimization at Optimizely"
             time: "1:30 - 2:15"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Abercrombie & Fitch, Trulia, Optimizely"
-            track: "culture"
-            roles: "marketer productmanager"
-            speakers:
-              -
-                name: "Claire Wissler"
-                job_title: "Direct to Consumer Analyst"
-                company: "Abercrombie & Fitch"
-              -
-                name: "Lauren Ford"
-                job_title: "Senior Quantative Analyst"
-                company: "Trulia"
-              -
-                name: "Junan Pang"
-                job_title: "Manager, Enterprise Client Services"
-                company: "Optimizely"
-              -
-                name: "Moderated by: Chris Goward"
-                job_title: "Founder and CEO"
-                company: "WiderFunnel"
-          -
-            title: "Optimizing Optimizely"
-            time: "1:30 - 2:15"
-            location: "Terrace B"
+            location: "Breakout 3"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
@@ -209,93 +204,9 @@ days:
                 job_title: "Customer Education Manager"
                 company: "Optimizely"
           -
-            title: "How to Build a Culture of Optimization from Within"
+            title: "Making it Stick: The 'X Factor' that Made Optimization Succeed"
             time: "1:30 - 2:15"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Blue Bottle Coffee, Pinterest, Eventbrite, Optimizely"
-            track: "culture"
-            roles: "executive"
-            speakers:
-              -
-                name: "Jevan Soo"
-                job_title: "Chief People Officer"
-                company: "Blue Bottle Coffee"
-              -
-                name: "Joel Constable"
-                job_title: "Head of People Development"
-                company: "Pinterest"
-              -
-                name: "Durand Duin"
-                job_title: "Director of Learning"
-                company: "Eventbrite"
-              -
-                name: "Jenny Lykken"
-                job_title: "Learning and Development Manager"
-                company: "Optimizely"
-      -
-        start_time: "2:15"
-        title: "Break in Exhibit Hall"
-      -
-        start_time: "2:35"
-        events:
-          -
-            title: "Benchmark your Optimization Program"
-            time: "2:35 - 3:20"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Optimizely"
-            track: "strategy"
-            roles: "executive"
-            speakers:
-              -
-                name: "Shana Rusonis"
-                job_title: "Content Marketing Manager"
-                company: "Optimizely"
-          -
-            title: "A/B Testing in Modern Web Architecture"
-            time: "2:35 - 3:20"
-            location: "Terrace B"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Tilt, BitTorrent, RocketLawyer"
-            track: "platform"
-            roles: "developer"
-            speakers:
-              -
-                name: "Dave King"
-                job_title: "Development Team Lead"
-                company: "Tilt"
-              -
-                name: "Rex Ren"
-                job_title: "Software Engineer"
-                company: "BitTorrent"
-              -
-                name: "Justin Knoll"
-                job_title: "Chief Architect"
-                company: "BitTorrent"
-              -
-                name: "Case Van Arkel"
-                job_title: "Senior Optimization Specialist"
-                company: "RocketLawyer"
-          -
-            title: "Making it Stick: The X Factor that Made Optimization Succeed"
-            time: "2:35 - 3:20"
-            location: "Terrace B"
+            location: "Breakout 2"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
@@ -315,13 +226,157 @@ days:
                 job_title: "Group Director, Digital Development"
                 company: "Village Roadshow"
               -
-                name: "Moderated by: Matty Wishnow"
-                job_title: "Founder & CEO"
+                name: "Matty Wishnow"
+                job_title: "CEO"
                 company: "Clearhead"
           -
-            title: "Increase your Confidence Level with Stats Engine"
+            title: "Pushing the Boundaries of Optimizely"
+            time: "1:30 - 2:15"
+            location: "Breakout 4"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Optimizely"
+            track: "platform"
+            roles: "marketer productmanager developer"
+            speakers:
+              -
+                name: "Brad Taylor"
+                job_title: "Solutions Architect"
+                company: "Optimizely"
+          -
+            title: "How to Build a Culture of Optimization from Within"
+            time: "1:30 - 2:15"
+            location: "Main Room"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Blue Bottle Coffee, Pinterest, Eventbrite"
+            track: "culture"
+            roles: "marketer productmanager executive"
+            speakers:
+              -
+                name: "Jevan Soo"
+                job_title: "Chief People Officer"
+                company: "Blue Bottle Coffee"
+              -
+                name: "Joel Constable"
+                job_title: "Head of People Development"
+                company: "Pinterest"
+              -
+                name: "Durand Duin"
+                job_title: "Director of Learning"
+                company: "Eventbrite"
+              -
+                name: "Moderated by: Jenny Lykken"
+                job_title: "Learning and Development Manager"
+                company: "Optimizely"
+      -
+        start_time: "2:15"
+        title: "Break in Exhibit Hall"
+      -
+        start_time: "2:35"
+        events:
+          -
+            title: "Benchmark your Optimization Program"
             time: "2:35 - 3:20"
-            location: "Terrace B"
+            location: "Breakout 3"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Optimizely"
+            track: "strategy"
+            roles: "marketer developer productmanager executive"
+            speakers:
+              -
+                name: "Shana Rusonis"
+                job_title: "Content Marketing Manager"
+                company: "Optimizely"
+          -
+            title: "Structure and Scale: Establishing your Optimization Dream Team"
+            time: "2:35 - 3:20"
+            location: "Main Room"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Trulia, Abercrombie & Fitch, WiderFunnel, Scripps Network Interactive"
+            track: "culture"
+            roles: "marketer productmanager executive"
+            speakers:
+              -
+                name: "Lauren Ford"
+                job_title: "Senior Quantative Analyst"
+                company: "Trulia"
+              -
+                name: "Claire Wissler"
+                job_title: "Direct to Consumer Analyst"
+                company: "Abercrombie & Fitch"
+              -
+                name: "Chris Goward"
+                job_title: "Founder and CEO"
+                company: "WiderFunnel"
+              -
+                name: "Jeff Chin"
+                job_title: "Director of Analytics and Optimization"
+                company: "Scripps Network Interactive"
+              -
+                name: "Moderated by: Junan Pang"
+                job_title: "Manager, Enterprise Client Services"
+                company: "Optimizely"
+          -
+            title: "Experience Optimization in Modern Web Architecture"
+            time: "2:35 - 3:20"
+            location: "Breakout 4"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Tilt, BitTorrent, RocketLawyer, Optimizely"
+            track: "platform"
+            roles: "developer"
+            speakers:
+              -
+                name: "Dave King"
+                job_title: "Frontend Lead"
+                company: "Tilt"
+              -
+                name: "Rex Ren"
+                job_title: "Software Engineer"
+                company: "BitTorrent"
+              -
+                name: "Justin Knoll"
+                job_title: "Chief Architect"
+                company: "BitTorrent"
+              -
+                name: "Case Van Arkel"
+                job_title: "Senior Optimization Specialist"
+                company: "RocketLawyer"
+              -
+                name: "Jordan Garcia"
+                job_title: "Software Engineer"
+                company: "Optimizely"
+              -
+                name: "Joe Casson"
+                job_title: "Sales Engineer"
+                company: "Optimizely"
+          -
+            title: "Testing with Stats Engine: Why it’s Harder to Find Winners with Optimizely"
+            time: "2:35 - 3:20"
+            location: "Breakout 2"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
@@ -330,7 +385,7 @@ days:
               effective in their decision making."
             companies: "Optimizely"
             track: "action"
-            roles: "marketer productmanager developer"
+            roles: "marketer productmanager"
             speakers:
               -
                 name: "Leo Pekelis"
@@ -347,34 +402,38 @@ days:
         start_time: "3:40"
         events:
           -
-            title: "Blow Up your Mobile App Metrics: Real Life Mobile App Optimization"
+            title: "The Power and Influence of the Written Word in Conversion"
             time: "3:40 - 4:25"
-            location: "Terrace B"
+            location: "Breakout 3"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Credit Sesame"
-            track: "action"
-            roles: "marketer productmanager developer"
+            companies: "FunnyBiz, Elevated"
+            track: "strategy"
+            roles: "marketer productmanager"
             speakers:
               -
-                name: "George McMullen"
-                job_title: "Head of Mobile"
-                company: "Credit Sesame"
+                name: "Rachman Blake"
+                job_title: "Co-Founder"
+                company: "FunnyBiz"
+              -
+                name: "Keith Lovgren"
+                job_title: "Director of Conversion Rate Optimization"
+                company: "Elevated"
           -
             title: "Collaborating to Scale: How to Spread Optimization Across your Org and Keep Things from Getting Messy"
             time: "3:40 - 4:25"
-            location: "Terrace B"
+            location: "Breakout 2"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Atlassian"
+            companies: "Atlassian, Rue La La"
             track: "culture"
             roles: "marketer developer executive productmanager"
             speakers:
@@ -382,6 +441,28 @@ days:
                 name: "Cameron Deatsch"
                 job_title: "Head of Growth"
                 company: "Atlassian"
+              -
+                name: "Abby Lokshin"
+                job_title: "Product Manager, Mobile"
+                company: "Rue La La"
+          -
+            title: "Integrations with the Optimizely Platform"
+            time: "3:40 - 4:25"
+            location: "Theater"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Optimizely"
+            track: "platform"
+            roles: "developer"
+            speakers:
+              -
+                name: "John Provine"
+                job_title: "Sr. Product Manager"
+                company: "Optimizely"
       -
         start_time: "4:25"
         title: "Break in Exhibit Hall"
@@ -389,16 +470,34 @@ days:
         start_time: "4:45"
         events:
           -
-            title: "Testing your Boundaries: Lessons Learned from Testing in International Markets"
+            title: "Google's Optimization Story"
             time: "4:45 - 5:30"
-            location: "Terrace B"
+            location: "Breakout 3"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "ASICS"
+            companies: "Google"
+            track: "culture"
+            roles: "marketer executive developer productmanager"
+            speakers:
+              -
+                name: "Michelle Levesque"
+                job_title: "Staff Software Engineer"
+                company: "Google"
+          -
+            title: "Testing your Boundaries: Lessons Learned from Testing in International Markets"
+            time: "4:45 - 5:30"
+            location: "Breakout 2"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "ASICS, Motorola, Conversion Conference"
             track: "strategy"
             roles: "marketer executive productmanager"
             speakers:
@@ -407,20 +506,42 @@ days:
                 job_title: "Ecommerce Conversion Optimization Lead"
                 company: "ASICS"
               -
+                name: "Kevin Flynn"
+                job_title: "Global Publishing Lead for Motorola.com / Testing Lead for Publishing Team"
+                company: "Motorola"
+              -
                 name: "Moderated by: Tim Ash"
                 job_title: "Chair, Conversion Conference"
                 company: "Conversion Conference"
           -
-            title: "Site Redesign Strategies"
+            title: "Getting Started with Optimizely for iOS and Mobile"
             time: "4:45 - 5:30"
-            location: "Terrace B"
+            location: "Breakout 4"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Apperian"
+            companies: "Optimizely"
+            track: "platform"
+            roles: "developer"
+            speakers:
+              -
+                name: "Suneet Shah"
+                job_title: "Senior Product Manager"
+                company: "Optimizely"
+          -
+            title: "Website Redesign Strategies"
+            time: "4:45 - 5:30"
+            location: "Main Room"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Apperian, j2 Global Communications"
             track: "action"
             roles: "marketer productmanager"
             speakers:
@@ -428,6 +549,10 @@ days:
                 name: "Tiffany Early"
                 job_title: "Director, Digital Branding"
                 company: "Apperian"
+              -
+                name: "Matthew Vandewouwer"
+                job_title: "Marketing Manager"
+                company: "j2 Global Communications"
       -
         start_time: "5:30"
         title: "Opticon Bash"
@@ -444,7 +569,7 @@ days:
           -
             title: "Optie Awards Presentation"
             time: "9:00 - 10:00"
-            location: "Terrace B"
+            location: "Main Room"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
@@ -462,36 +587,58 @@ days:
           -
             title: "Moving the Needle in your E-Commerce Funnel"
             time: "10:20 – 11:05"
-            location: "Terrace B"
+            location: "Breakout 3"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "LegalZoom, Teespring"
+            companies: "Teespring, LegalZoom"
             track: "action"
             roles: "marketer productmanager executive"
             speakers:
               -
                 name: "Jesse Avshalomov"
-                job_title: "Director, Product + Growth"
+                job_title: "Director, Product and Growth"
                 company: "Teespring"
               -
                 name: "Eddie Hartman"
-                job_title: "Chief Product Officer"
+                job_title: "Co-Founder & Chief Product Officer"
                 company: "LegalZoom"
           -
-            title: "The 21st Century Marketing Stack & Team"
+            title: "Optimizing for Engagement for Media"
             time: "10:20 – 11:05"
-            location: "Terrace B"
+            location: "Breakout 2"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "99Designs, Optimizely"
+            companies: "BabyCenter (Johnson & Johnson), StumbleUpon"
+            track: "action"
+            roles: "marketer productmanager executive"
+            speakers:
+              -
+                name: "Kathy Chao"
+                job_title: "Director of Global Marketing"
+                company: "BabyCenter (Johnson & Johnson)"
+              -
+                name: "David Marks"
+                job_title: "VP of Product"
+                company: "StumbleUpon"
+          -
+            title: "The 21st Century Marketing Stack & Team"
+            time: "10:20 – 11:05"
+            location: "Main Room"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "99Designs, Demandbase, Optimizely"
             track: "strategy"
             roles: "executive"
             speakers:
@@ -499,6 +646,10 @@ days:
                 name: "Pamela Webber"
                 job_title: "CMO"
                 company: "99Designs"
+              -
+                name: "Peter Isaacson"
+                job_title: "CMO"
+                company: "Demandbase"
               -
                 name: "Jessie Becker"
                 job_title: "CMO"
@@ -512,7 +663,7 @@ days:
           -
             title: "Early Lessons in Personalization Strategy"
             time: "11:25 - 12:10"
-            location: "Terrace B"
+            location: "Main Room"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
@@ -525,23 +676,23 @@ days:
             speakers:
               -
                 name: "Mike Norland"
-                job_title: "Marketing Director"
+                job_title: "Senior Marketing Strategist"
                 company: "AdRoll"
               -
                 name: "Tyler Bullen"
                 job_title: "Personalization Program Manager"
                 company: "The Clymb"
           -
-            title: "Building the SaaS Engine"
+            title: "Building the SaaS Growth Engine"
             time: "11:25 - 12:10"
-            location: "Terrace B"
+            location: "Breakout 2"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "KISSmetrics, Marketo, Demandbase"
+            companies: "KISSmetrics, Marketo"
             track: "action"
             roles: "marketer executive"
             speakers:
@@ -553,10 +704,32 @@ days:
                 name: "Heidi Bullock"
                 job_title: "VP of Demand Generation"
                 company: "Marketo"
+          -
+            title: "Travel, Testing, and Personalization in the 21st Century"
+            time: "11:25 - 12:10"
+            location: "Breakout 3"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Virgin America, Smarter Travel, Site Optimization Hotwire"
+            track: "action"
+            roles: "marketer executive productmanager"
+            speakers:
               -
-                name: "Peter Isaacson"
-                job_title: "CMO"
-                company: "Demandbase"
+                name: "Francisca Hawkins"
+                job_title: "Manager of eCommerce Strategy"
+                company: "Virgin America"
+              -
+                name: "Katherine Reynolds"
+                job_title: "Product Manager"
+                company: "Smarter Travel"
+              -
+                name: "Pauline Marol"
+                job_title: "Lead Product Manager, Site Optimization"
+                company: "Site Optimization Hotwire"
       -
         start_time: "12:10"
         title: "Lunch and Networking"
@@ -566,29 +739,25 @@ days:
           -
             title: "Personalization Using Optimizely Audience Integrations"
             time: "1:25 - 2:10"
-            location: "Main Room"
+            location: "Breakout 3"
             description: "Industry investment into real-time programmatic bidding is growing.
-              Without the proper tracking and monitoring setup, optimization efforts start to
-              lose their impact and even worse, can yield incorrect results. Managing the investment
-              into programmatic while maintaining reliable control over tracking and yield
-              management is difficult. This talk will help firms grow their programmatic efforts
-              in a controlled manner, while still maintaining A/B and conversion funnel optimization
-              rigor. Points of discussion: 1) Tracking and scaling a programmatic marketing program
-              via a variety of ad platforms (notably - Google and Facebook). 2) Customer and A/B
-              segmentation 3) Audience management through a DMP 4) Performance feedback of A/B and
               its effect on bid optimization."
-            companies: "Citrix, Microsoft Store"
+            companies: "Microsoft Store, Citrix, Access Intelligence"
             track: "platform"
             roles: "marketer productmanager developer executive"
             speakers:
               -
-                name: "Cori Kaylor"
-                job_title: "Sr. Manager, Web Strategy & Online Marketing"
+                name: "Trevin Chow"
+                job_title: "Director of Product Management"
+                company: "Microsoft Store"
+              -
+                name: "Ravi Venkatesan"
+                job_title: "Conversion Analyst"
                 company: "Citrix"
               -
-                name: "Trevin Chow"
-                job_title: "Principal Group Manager"
-                company: "Microsoft Store"
+                name: "Stacy Hill"
+                job_title: "Analytics Coordinator"
+                company: "Access Intelligence"
               -
                 name: "Moderated by: Clarissa Bukhan"
                 job_title: "Technology Partner Manager"
@@ -596,7 +765,7 @@ days:
           -
             title: "Best Practices in Programmatic Ad Buying and Conversion Funnel Optimization"
             time: "1:25 - 2:10"
-            location: "Terrace B"
+            location: "Main Room"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
@@ -611,6 +780,19 @@ days:
                 name: "Patrick McGrath"
                 job_title: "Product Manager of Ad Technology"
                 company: "Netflix"
+          -
+            title: "Optimization Roundtable Discussions"
+            time: "1:25 - 2:10"
+            location: "Expo Hall"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: ""
+            track: "strategy"
+            roles: "marketer productmanager developer executive"
       -
         start_time: "2:10"
         title: "Break in Exhibit Hall"
@@ -618,27 +800,58 @@ days:
         start_time: "2:30"
         events:
           -
-            title: "Hypothesize, Analyze, Optimize: How to Perfect your Experiment Process"
+            title: "Hypothesize, Analyze, Optimize: Using Hidden Insights to Perfect your Experiment Process"
             time: "2:30 - 3:15"
-            location: "Terrace B"
+            location: "Breakout 2"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Princess Cruises, Ruelala"
+            companies: "Rue La La, Princess Cruises"
             track: "strategy"
             roles: "marketer productmanager"
             speakers:
               -
                 name: "Katherine Shea"
                 job_title: "Product Manager"
-                company: "Ruelala"
+                company: "Rue La La"
               -
                 name: "Abel Ramos"
                 job_title: "Product Owner, Shopping and Booking Web Scrum Team"
                 company: "Princess Cruises"
+          -
+            title: "10 Secrets to Building an Amazing Mobile Testing Roadmap"
+            time: "2:30 - 3:15"
+            location: "Breakout 3"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            companies: "Mobile, eBay Classifieds Group"
+            track: "strategy"
+            roles: "marketer productmanager"
+            speakers:
+              -
+                name: "Christian Dürr"
+                job_title: "Project Manager and Team Lead"
+                company: "Mobile, eBay Classifieds Group"
+          -
+            title: "The Future of Experience Optimization"
+            time: "2:30 - 3:15"
+            location: "Main Room"
+            description: "For many customers Optimizely has become a
+              critical platform to listen to customers' web engagement
+              and turn those data points into an improved experience.
+              It's natural that users want to extend the Optimizely platform
+              with all of their other marketing applications to become more
+              effective in their decision making."
+            track: "strategy"
+            roles: "marketer productmanager developer executive"
+            speakers:
       -
         start_time: "3:15"
         title: "Break in Exhibit Hall"
@@ -648,25 +861,29 @@ days:
           -
             title: "From Skeptic to Champion: How to Win Over Key Stakeholders and Other Non-Believers"
             time: "3:35 - 4:20"
-            location: "Terrace B"
+            location: "Main Room"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Mode, American Medical Association, Optimizely"
+            companies: "Mode Analytics, American Medical Association, Elance-Odesk, Optimizely"
             track: "culture"
             roles: "marketer productmanager executive"
             speakers:
               -
                 name: "Benn Stancil"
                 job_title: "Chief Analyst"
-                company: "Mode"
+                company: "Mode Analytics"
               -
                 name: "Valerie Kroll"
-                job_title: "Manager of Digital Analytics"
+                job_title: "Digital Analytics Manager"
                 company: "American Medical Association"
+              -
+                name: "Jason Lin"
+                job_title: "Senior Director, Web Marketing"
+                company: "Elance-Odesk"
               -
                 name: "Rohan Karunakaran"
                 job_title: "Customer Success Manager"
@@ -674,7 +891,7 @@ days:
           -
             title: "Removing Friction and Cognitive Overhead: The Role of UX Design in Optimization"
             time: "3:35 - 4:20"
-            location: "Terrace B"
+            location: "Breakout 2"
             description: "For many customers Optimizely has become a
               critical platform to listen to customers' web engagement
               and turn those data points into an improved experience.
@@ -686,8 +903,8 @@ days:
             roles: "marketer productmanager developer"
             speakers:
               -
-                name: "Merritt Aho Sr."
-                job_title: "Digital Analyst"
+                name: "Merritt Aho"
+                job_title: "Sr. Digital Analyst"
                 company: "Volusion"
       -
         start_time: "4:20"
