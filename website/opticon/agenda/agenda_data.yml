@@ -455,7 +455,7 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Atlassian"
+            companies: "Optimizely"
             track: "platform"
             roles: "developer"
             speakers:
@@ -742,7 +742,7 @@ days:
             location: "Breakout 3"
             description: "Industry investment into real-time programmatic bidding is growing.
               its effect on bid optimization."
-            companies: "Microsoft Store"
+            companies: "Microsoft Store, Citrix, Access Intelligence"
             track: "platform"
             roles: "marketer productmanager developer executive"
             speakers:
@@ -888,19 +888,6 @@ days:
                 name: "Rohan Karunakaran"
                 job_title: "Customer Success Manager"
                 company: "Optimizely"
-          -
-            title: "The Art and Science of Persuasion: Creating Change with your Results"
-            time: "3:35 - 4:20"
-            location: "Breakout 3"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            track: "culture"
-            roles: "marketer productmanager executive"
-            speakers:
           -
             title: "Removing Friction and Cognitive Overhead: The Role of UX Design in Optimization"
             time: "3:35 - 4:20"
