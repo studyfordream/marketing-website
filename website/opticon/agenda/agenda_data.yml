@@ -311,7 +311,7 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Trulia, Abercrombie & Fitch, WiderFunnel, Scripps Network Interactive"
+            companies: "Trulia, Abercrombie & Fitch, Scripps Network Interactive"
             track: "culture"
             roles: "marketer productmanager executive"
             speakers:
@@ -497,7 +497,7 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "ASICS, Motorola, Conversion Conference"
+            companies: "ASICS, Motorola"
             track: "strategy"
             roles: "marketer executive productmanager"
             speakers:
@@ -514,7 +514,7 @@ days:
                 job_title: "Chair, Conversion Conference"
                 company: "Conversion Conference"
           -
-            title: "Getting Started with Optimizely for iOS and Mobile"
+            title: "Getting Started with Optimizely for iOS and Android"
             time: "4:45 - 5:30"
             location: "Breakout 4"
             description: "For many customers Optimizely has become a
@@ -714,7 +714,7 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Virgin America, Smarter Travel, Site Optimization Hotwire"
+            companies: "Virgin America, Smarter Travel, Hotwire"
             track: "action"
             roles: "marketer executive productmanager"
             speakers:
@@ -729,7 +729,7 @@ days:
               -
                 name: "Pauline Marol"
                 job_title: "Lead Product Manager, Site Optimization"
-                company: "Site Optimization Hotwire"
+                company: "Hotwire"
       -
         start_time: "12:10"
         title: "Lunch and Networking"
@@ -831,14 +831,14 @@ days:
               It's natural that users want to extend the Optimizely platform
               with all of their other marketing applications to become more
               effective in their decision making."
-            companies: "Mobile, eBay Classifieds Group"
+            companies: "eBay Classifieds Group"
             track: "strategy"
             roles: "marketer productmanager"
             speakers:
               -
                 name: "Christian Dürr"
                 job_title: "Project Manager and Team Lead"
-                company: "Mobile, eBay Classifieds Group"
+                company: "eBay Classifieds Group"
           -
             title: "The Future of Experience Optimization"
             time: "2:30 - 3:15"
