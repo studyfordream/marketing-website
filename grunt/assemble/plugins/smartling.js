@@ -14,7 +14,6 @@ var Q = require('q');
 
 module.exports = function (assemble) {
   var globalData = assemble.get('data');
-  var getGlobalYml = require('./translation-utils/get-global-yml');
   var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
   var lang = assemble.get('lang') || {};
   var pageData = assemble.get('pageData');
@@ -32,9 +31,11 @@ module.exports = function (assemble) {
   var env = assemble.get('env');
   var isTest = env === 'test';
   var runTranslations = true || isTest || env === 'smartling-staging-deploy';
+  var addLayoutData = require('./translation-utils/add-layout-data');
   var phrases = [];
   var pageDataMap = {};
   var layoutData = {};
+  var getGlobalYml = require('./translation-utils/get-global-yml');
   var globalYml = getGlobalYml(globalData);
 
   //add the global yml keys flagged for translation to the lang object to be parsed
@@ -60,8 +61,12 @@ module.exports = function (assemble) {
       }
     }
 
+    //add the layout data onto the file object
+    //important to do this before clonePageData because layout data must be added to the file object
+    addLayoutData(file, filePathData, pageDataMap, isTest);
+
     //create a clone of the page data to later create the translation dictionary
-    clonePageData(file, filePathData, pageDataMap, pageData, isTest);
+    clonePageData(file, filePathData, pageDataMap, pageData);
 
     //create lang dictionary from TR prefixes
     parsedTranslations = createTranslationDict(file, locale);
@@ -76,246 +81,173 @@ module.exports = function (assemble) {
     this.push(file);
     cb();
   }, function (cb) {
-    //merge the external YML
-    //_.forEach(pageData[websiteRoot], function(val, fp) {
-      //pageDataMap[websiteRoot][fp] = _.merge({}, pageDataMap[websiteRoot][fp], val);
-    //});
-
-    //add the layout data
-    //debugger;
-    //_.forEach(layoutData[websiteRoot], function(layoutObj, fp) {
-
-      //_.forEach(layoutObj, function(val, layoutPath) {
-        //var data = pageDataMap[websiteRoot][fp];
-        ////account for missing pages with no previous data
-        //if(data) {
-          //_.merge(pageDataMap[websiteRoot][fp], val);
-        //} else {
-          //pageDataMap[websiteRoot][fp] = val;
-        //}
-      //});
-
-      ////delete pagedatamap[websiteroot][fp].layouts;
-    //});
-
-    ////get/reset the global yml data
-    //var globalYml = getGlobalYml(globalData);
-
-    ////add the global yml keys flagged for translation to the lang object to be parsed
-    ////and sent to smartling
-    //lang.global = createTranslationDict(globalYml, 'global');
     assemble.set('lang', lang);
 
-    if(runTranslations) {
-      var extendSubfolderData = require('./translation-utils/extend-subfolder-data')(assemble);
-      var addPageContent = require('./translation-utils/add-page-content');
-      var populateSubfolderData = require('./translation-utils/populate-subfolder-data');
-      var translateLayoutData = require('./translation-utils/translate-layout-data');
+    var extendSubfolderData = require('./translation-utils/extend-subfolder-data')(assemble);
+    var addPageContent = require('./translation-utils/add-page-content');
+    var populateSubfolderData = require('./translation-utils/populate-subfolder-data');
+    var translateLayoutData = require('./translation-utils/translate-layout-data');
 
-      sendToSmartling(phrases).then(function(resolved){
+    sendToSmartling(phrases).then(function(resolved){
 
-        var translations = resolved[0];
-        //this will become the dictionary for pages
-        var translated = {};
+      var translations = resolved[0];
+      //this will become the dictionary for pages
+      var translated = {};
 
-        try{
-          //add the page content and page data to the map object
-          addPageContent(lang[websiteRoot], pageDataMap[websiteRoot]);
-        } catch(e) {
-          this.emit('ERROR: addPageContent', e);
-        }
+      try{
+        //add the page content and page data to the map object
+        addPageContent(lang[websiteRoot], pageDataMap[websiteRoot]);
+      } catch(e) {
+        this.emit('ERROR: addPageContent', e);
+      }
 
-        try{
-          /**
-           * iterate through locales to create a `translated` object
-           *
-           * translated = {
-           *  de_DE: {
-           *    fp: 'val'
-           *  },
-           *  fr_FR: {
-           *    fp: 'val'
-           *  }
-           * }
-           */
-          Object.keys(locales).forEach(function(locale) {
-            var dictKey = locales[locale];
+      try{
+        /**
+         * iterate through locales to create a `translated` object
+         *
+         * translated = {
+         *  de_DE: {
+         *    fp: 'val'
+         *  },
+         *  fr_FR: {
+         *    fp: 'val'
+         *  }
+         * }
+         */
+        Object.keys(locales).forEach(function(locale) {
+          var dictKey = locales[locale];
 
-            try{
-              extendSubfolderData(locale, pageDataMap, translations);
-            } catch(e) {
-              this.emit('ERROR: extendSubfolderData', e);
-            }
-
-            try {
-              populateSubfolderData(locale, websiteRoot, subfoldersRoot, pageData, pageDataMap);
-            } catch(e) {
-              this.emit('ERROR: populateSubfolderData', e);
-            }
-
-            /**
-             * Function that translates the layout data
-             */
-            try{
-              //translateLayoutData(locale, dictKey, translations, pageDataMap);
-
-
-            _.forEach(pageDataMap[locale], function(pageDataObj, fp) {
-              var parentKey = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
-              var layoutObj, fpDictKey;
-
-              //console.log(fpDictKey);
-
-              _.forEach(pageDataObj.layouts, function(val, layoutPath) {
-                //var clone = _.clone(val);
-                //if(_.isPlainObject(pageDataMap[locale][fp].layouts) || !pageDataMap[locale][fp].layouts) {
-                  //pageDataMap[locale][fp].layouts = [];
-                //}
-                //pageDataMap[locale][fp].layouts.push(layoutPath);
-                //must translate here because need the layout key path
-                objParser.translate(val, translations[dictKey][layoutPath]);
-                removeTranslationKeys(val);
-                //console.log(fp, val);
-              });
-
-              //delete pageDataMap[websiteRoot][fp].layouts;
-            });
-            } catch(e) {
-              console.log('ERROR: translateLayoutData', e);
-            }
-
-            var specialTypes = [
-              'modals',
-              'layouts',
-              'partials'
-            ];
-
-            /**
-             * Utility Function for iterating through the special types in the lang object ['modals', 'layouts', 'partials']
-             * and merging their filepath/values into the pageDataMap locale object
-             */
-            specialTypes.forEach(function(type) {
-              _.merge(pageDataMap[locale], lang[type] || {});
-            });
-
-
-            /**
-             * Function for iterating the completed pageDataMap object and performing translations appropriately
-             *
-             * case 1: locale specific file is in the dictionary so use it
-             * case 2: file is inherited from the root website so must use a parent key in the dictionary to translate
-             */
-            try {
-
-              _.forEach(pageDataMap[locale], function(val, fp) {
-                var parentPath = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
-
-                if(translations[dictKey][fp]) {
-                  objParser.translate(pageDataMap[locale][fp], translations[dictKey][fp]);
-                } else if(translations[dictKey][parentPath]) {
-                  objParser.translate(pageDataMap[locale][fp], translations[dictKey][parentPath]);
-                }
-              });
-
-            } catch(e) {
-              console.log('ERROR 3', e);
-            }
-
-          });
-
-          removeTranslationKeys(pageDataMap);
+          try{
+            extendSubfolderData(locale, pageDataMap, translations);
+          } catch(e) {
+            this.emit('ERROR: extendSubfolderData', e);
+          }
 
           try {
-            //add the page content to page data after parsing
-            _.forEach(lang[websiteRoot], function(val, fp) {
-              if(val.HTML_page_content) {
-                if(!pageDataMap[websiteRoot][fp]) {
-                  pageDataMap[websiteRoot][fp] = {};
-                }
-                pageDataMap[websiteRoot][fp].page_content = val.HTML_page_content;
+            populateSubfolderData(locale, websiteRoot, subfoldersRoot, pageData, pageDataMap);
+          } catch(e) {
+            this.emit('ERROR: populateSubfolderData', e);
+          }
+
+          var specialTypes = [
+            'modals',
+            'layouts',
+            'partials'
+          ];
+
+          /**
+           * Utility Function for iterating through the special types in the lang object ['modals', 'layouts', 'partials']
+           * and merging their filepath/values into the pageDataMap locale object
+           */
+          specialTypes.forEach(function(type) {
+            _.merge(pageDataMap[locale], lang[type] || {});
+          });
+
+
+          /**
+           * Function for iterating the completed pageData object and performing translations appropriately
+           *
+           * case 1: locale specific file is in the dictionary so use it
+           * case 2: file is inherited from the root website so must use a parent key in the dictionary to translate
+           */
+          try {
+
+            _.forEach(pageDataMap[locale], function(val, fp) {
+              var parentPath = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
+              var layoutPaths = pageDataMap[locale][fp].layouts;
+
+              var translationObj = translations[dictKey][fp] || translations[dictKey][parentPath];
+              objParser.translate(pageDataMap[locale][fp], translationObj);
+
+              if(_.isArray(layoutPaths)) {
+                layoutPaths.forEach(function(layoutPath) {
+                  objParser.translate(pageDataMap[locale][fp], translations[dictKey][layoutPath]);
+                });
               }
             });
 
           } catch(e) {
-            console.log('ERROR 5', e);
+            console.log('ERROR 3', e);
           }
 
-          /**
-           * Create a dictionary object for all pages
-           *
-           */
-          try {
-            _.forEach(locales, function(localeCode, locale) {
-              var filteredLocales = Object.keys(pageDataMap).filter(function(pageDataKey) {
-                if(locales[pageDataKey] === localeCode) {
-                  return true;
+        });
+
+        removeTranslationKeys(pageDataMap);
+
+        try {
+          //add the page content to page data after parsing
+          _.forEach(lang[websiteRoot], function(val, fp) {
+            if(val.HTML_page_content) {
+              if(!pageDataMap[websiteRoot][fp]) {
+                pageDataMap[websiteRoot][fp] = {};
+              }
+              pageDataMap[websiteRoot][fp].page_content = val.HTML_page_content;
+            }
+          });
+
+        } catch(e) {
+          console.log('ERROR 5', e);
+        }
+
+        /**
+         * Create a dictionary object for all pages
+         *
+         */
+        try {
+          _.forEach(locales, function(localeCode, locale) {
+            var filteredLocales = Object.keys(pageDataMap).filter(function(pageDataKey) {
+              if(locales[pageDataKey] === localeCode) {
+                return true;
+              }
+            });
+
+            translated[localeCode] = filteredLocales.reduce(function(o, pageDataKey) {
+              _.forEach(pageDataMap[pageDataKey], function(val, fp) {
+                if(!o.hasOwnProperty(fp)) {
+                  o[fp] = val;
                 }
               });
 
-              translated[localeCode] = filteredLocales.reduce(function(o, pageDataKey) {
-                _.forEach(pageDataMap[pageDataKey], function(val, fp) {
-                  if(!o.hasOwnProperty(fp)) {
-                    o[fp] = val;
-                  }
-                });
+              return o;
+            }, {});
+          });
 
-                return o;
-              }, {});
+        } catch(e) {
+          console.log('ERROR 6', e);
+        }
+
+
+        try {
+          _.forEach(translated, function(localeDict, localeCode) {
+            localeDict.global = localeDict.global || {};
+
+            _.forEach(globalYml, function(val, fp) {
+              var basenameKey = path.basename(fp, path.extname(fp));
+
+              localeDict.global[basenameKey] = objParser.translate(val, translations[localeCode][fp]);
+              removeTranslationKeys(localeDict.global[basenameKey]);
             });
 
-          } catch(e) {
-            console.log('ERROR 6', e);
-          }
+          });
 
-
-          try {
-            _.forEach(translated, function(localeDict, localeCode) {
-              localeDict.global = localeDict.global || {};
-
-              _.forEach(globalYml, function(val, fp) {
-                var basenameKey = path.basename(fp, path.extname(fp));
-
-                localeDict.global[basenameKey] = objParser.translate(val, translations[localeCode][fp]);
-                removeTranslationKeys(localeDict.global[basenameKey]);
-              });
-
-            });
-
-          } catch(e) {
-            console.log('ERROR 7', e);
-          }
-
-
-          removeTranslationKeys(globalData);
-
-        } catch(err) {
-          this.emit('ERROR 8', err);
+        } catch(e) {
+          console.log('ERROR 7', e);
         }
-        //console.log(pageDataMap);
 
-        assemble.set('pageDataMap', pageDataMap);
-        assemble.set('translated', translated);
-        //assemble.set('data', globalData);
 
-        cb();
-      });
-    } else {
-      //add the page content to page data after parsing
-      _.forEach(lang[websiteRoot], function(val, fp) {
-        if(val.HTML_page_content) {
-          if(!pageDataMap[websiteRoot][fp]) {
-            pageDataMap[websiteRoot][fp] = {};
-          }
-          pageDataMap[websiteRoot][fp].page_content = val.HTML_page_content;
-        }
-      });
+        removeTranslationKeys(globalData);
 
-      removeTranslationKeys(pageDataMap);
-      removeTranslationKeys(globalData);
-      assemble.set('translated', {});
-      assemble.set('rootData', pageDataMap[websiteRoot]);
+      } catch(err) {
+        this.emit('ERROR 8', err);
+      }
+      //console.log(pageDataMap);
+
+      assemble.set('pageDataMap', pageDataMap);
+      assemble.set('translated', translated);
+      //assemble.set('data', globalData);
+
       cb();
-    }
+    });
   });
 
 };

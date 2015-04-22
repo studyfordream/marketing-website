@@ -36,19 +36,7 @@ module.exports = function(assemble) {
       //extend the local yml data to the page
       rootData = pageData[websiteRoot][dataKey];
 
-      //console.log(file.path, Object.keys(rootData));
       if(rootData) {
-
-        if(rootData.layouts) {
-          layoutKeys = Object.keys(rootData.layouts);
-          layoutKeys.forEach(function(key) {
-            _.forEach(rootData.layouts[key], function(val, layoutKey) {
-              file.data[layoutKey] = val;
-            });
-          });
-
-          file.data.layouts = layoutKeys;
-        }
 
         if(rootData.page_content) {
           file.content = rootData.page_content;
@@ -61,19 +49,6 @@ module.exports = function(assemble) {
     } else if(filePathData.isSubfolder || ( filePathData.isRoot && isTest && !file.data.isPpc )) {
       if(isTest) {
         dataKey = dataKey.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
-      }
-      rootData = pageData[locale][dataKey];
-
-      if(rootData.layouts) {
-        layoutKeys = Object.keys(rootData.layouts);
-        layoutKeys.forEach(function(key) {
-          _.forEach(rootData.layouts[key], function(val, layoutKey) {
-            file.data[layoutKey] = val;
-            console.log(layoutKey, val);
-          });
-        });
-
-        file.data.layouts = layoutKeys;
       }
 
       //set the locale on the page context for modal|partial translation
