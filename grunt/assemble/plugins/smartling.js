@@ -76,7 +76,6 @@ module.exports = function (assemble) {
     //add all the parsed YFM to the page data object
     _.merge(pageDataClone[locale][dataKey], trYfm);
 
-
     trYml = createTranslationDict(pageDataClone[locale][dataKey], locale);
 
     //extend the lang object with data from the YFM of file.data
@@ -92,54 +91,19 @@ module.exports = function (assemble) {
     this.push(file);
     cb();
   }, function (cb) {
-    var globby = require('globby');
-    var subfolderFiles = globby.sync('**/*.{hbs,yml}', {cwd: subfoldersRoot});
-    var subfolderO = subfolderFiles.reduce(function(o, fp) {
-      var key = '/' + path.join(subfoldersRoot, path.dirname(fp), 'index');
-      if(!o[key]) {
-        o[key] = [];
-      }
-      o[key].push(path.extname(fp).replace('.', ''));
+    var populateSubfolderData = require('./translation-utils/populate-subfolder-data')(assemble);
+    var translatePageData = require('./translation-utils/translate-page-data')(assemble);
+    var mergeSubfolderYml = require('./translation-utils/merge-subfolder-yml')(assemble);
 
-      return o;
-    }, {});
-
-    var hasNoTemplate = Object.keys(subfolderO).filter(function(fp) {
-      var data = subfolderO[fp];
-      if(data.length === 1 && data[0] === 'yml') {
-        return true;
-      }
-    });
-
-    hasNoTemplate.forEach(function(fp) {
-      var filePathData = parseFilePath(fp);
-      var locale = filePathData.locale;
-      var parentKey = filePathData.parentKey;
-      if(pageDataClone[locale] && pageDataClone[locale][fp]) {
-        lang[locale][fp] = createTranslationDict(pageDataClone[locale][fp], locale);
-        pageDataClone[locale][fp] = _.merge({}, pageDataClone[websiteRoot][parentKey], pageDataClone[locale][fp]);
-      }
-    });
+    mergeSubfolderYml(lang, pageDataClone);
 
     assemble.set('lang', lang);
-
-    var extendSubfolderData = require('./translation-utils/extend-subfolder-data')(assemble);
-    var addPageContent = require('./translation-utils/add-page-content');
-    var populateSubfolderData = require('./translation-utils/populate-subfolder-data');
-    var translatePageData = require('./translation-utils/translate-page-data');
 
     sendToSmartling(phrases).then(function(resolved){
 
       var translations = resolved[0];
       //this will become the dictionary for pages
       var translated = {};
-
-      //try{
-        ////add the page content and page data to the map object
-        //addPageContent(lang[websiteRoot], pageDataClone[websiteRoot]);
-      //} catch(e) {
-        //this.emit('ERROR: addPageContent', e);
-      //}
 
       try{
         /**
@@ -157,14 +121,8 @@ module.exports = function (assemble) {
         Object.keys(locales).forEach(function(locale) {
           var dictKey = locales[locale];
 
-          //try{
-            //extendSubfolderData(locale, pageDataClone, translations);
-          //} catch(e) {
-            //this.emit('ERROR: extendSubfolderData', e);
-          //}
-
           try {
-            populateSubfolderData(locale, websiteRoot, subfoldersRoot, pageData, pageDataClone);
+            populateSubfolderData(locale, pageDataClone);
           } catch(e) {
             this.emit('ERROR: populateSubfolderData', e);
           }
@@ -185,7 +143,7 @@ module.exports = function (assemble) {
 
 
           try {
-            translatePageData(locale, dictKey, lang, websiteRoot, subfoldersRoot, pageDataClone, translations);
+            translatePageData(locale, dictKey, lang, pageDataClone, translations);
           } catch(e) {
             console.log('ERROR: translatePageData', e);
           }
@@ -225,7 +183,6 @@ module.exports = function (assemble) {
                 return true;
               }
             });
-            //console.log(filteredLocales);
 
             translated[localeCode] = filteredLocales.reduce(function(o, pageDataKey) {
               _.forEach(pageDataClone[pageDataKey], function(val, fp) {
@@ -267,11 +224,9 @@ module.exports = function (assemble) {
       } catch(err) {
         this.emit('ERROR 8', err);
       }
-      //console.log(pageDataClone);
 
       assemble.set('pageDataMap', pageDataClone);
       assemble.set('translated', translated);
-      //assemble.set('data', globalData);
 
       cb();
     });
