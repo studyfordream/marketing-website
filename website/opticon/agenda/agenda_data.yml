@@ -37,12 +37,7 @@ days:
             title: "Optimizely Keynote"
             time: "9:00 - 10:00"
             location: "Main Room"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: ""
             track: "strategy platform action culture"
             roles: "marketer developer productmanager executive"
             speakers:
@@ -60,13 +55,8 @@ days:
             title: "Blow Up your Mobile App Metrics: Real Life Mobile App Optimization"
             time: "10:25 – 11:10"
             location: "Breakout 3"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: "Credit Sesame, Fareportal, Pinterest"
+            description: "More than 80% of app users will download an app once and then eventually delete it. It's never been more important to drive engagement and retention in your mobile app. Come learn from a panel of mobile experts from industry leading companies discuss their success stories on how they build amazing apps and the culture that they developed around mobile app optimization."
+            companies: "Credit Sesame, Fareportal, Pinterest, Everyday Health"
             track: "action"
             roles: "marketer productmanager developer"
             speakers:
@@ -82,16 +72,15 @@ days:
                 name: "Andrea Burbank"
                 job_title: "Data Scientist"
                 company: "Pinterest"
+              -
+                name: "Kyle Humphries"
+                job_title: "Product Manager"
+                company: "Everyday Health"
           -
             title: "The Inside Scoop: Coming Soon from Optimizely"
             time: "10:25 – 11:10"
             location: "Main Room"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "We're making some big announcements about Optimizely's Experience Optimization platform at Opticon. In this session, you'll hear more details from our team about the exciting new products they're working on in 2015."
             companies: "Optimizely"
             track: "action"
             roles: "marketer productmanager developer executive"
@@ -104,12 +93,7 @@ days:
             title: "Scaling your Testing Program for Maximum Impact"
             time: "10:25 – 11:10"
             location: "Breakout 2"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "If you’re running A/B tests consistently, you’re already on the right track. But how can you take the next step and turn your testing efforts into a well-oiled growth engine that scales? Moz, charity: water, and The Next Web have all achieved tremendous success within their optimization programs and have figured out how to effectively run hundreds of experiments a year. Learn how these companies increased the impact of their testing programs by leveraging tools and processes that scale."
             companies: "charity: water, The Next Web, Moz"
             track: "strategy"
             roles: "marketer developer productmanager executive"
@@ -130,12 +114,7 @@ days:
             title: "Getting Started with the Optimizely Developer Platform"
             time: "10:25 – 11:10"
             location: "Breakout 4"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Together we’ll walk through the Optimizely Developer Platform and use it to build a fully functional integration. We'll demonstrate how easy it is to bring any first or third party data source into Optimizely and use it for targeting and segmentation. Learn how to expose custom data in the native Optimizely interface for a truly simple user experience. Following the session, both speakers will be available in the developer’s sandbox area to help you write your own integration!"
             companies: "Optimizely"
             track: "platform"
             roles: "developer"
@@ -158,12 +137,7 @@ days:
             title: "Fireside Chat with Marc Andreessen"
             time: "11:30 - 12:15"
             location: "Main Room"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: ""
             track: "strategy platform action culture"
             roles: "marketer developer productmanager executive"
             speakers:
@@ -181,12 +155,7 @@ days:
             title: "Optimization at Optimizely"
             time: "1:30 - 2:15"
             location: "Breakout 3"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Ever wondered how Optimizely employees use Optimizely? In this session, you’ll learn about our optimization programs, and how we use Optimizely beyond traditional A/B testing. We’ll also uncover how to optimize experiences that don’t have a traditional “conversion” goal. Our Head of Optimization, Kyle Rush, will walk through an advanced experiment that takes advantage of Optimizely’s most powerful features and how he takes a unique approach to measuring success, perfect for optimizers looking to push their optimization boundaries. Amanda Swan and Adam Avramescu will also share insights from the Optiverse testing program and thoughts on interpreting experiments on properties where “conversion” is unclear."
             companies: "Optimizely"
             track: "action"
             roles: "marketer productmanager"
@@ -207,12 +176,7 @@ days:
             title: "Making it Stick: The 'X Factor' that Made Optimization Succeed"
             time: "1:30 - 2:15"
             location: "Breakout 2"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: ""
             companies: "Blu Dot, Village Roadshow, Clearhead"
             track: "strategy"
             roles: "executive"
@@ -233,12 +197,7 @@ days:
             title: "Pushing the Boundaries of Optimizely"
             time: "1:30 - 2:15"
             location: "Breakout 4"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Optimizely is not just an A/B Testing tool; customers are using Optimizely in creative ways outside the scope of typical testing. From advanced solutions and third-party integrations to behavioral targeting and personalization, learn how some of the most advanced, technical users are utilizing Optimizely in ways our founders would have never even dreamed of. First, we'll have a panel discussion moderated by Sr. Solutions Architect Brad Taylor, followed by a Q&A session with some of the best and brightest minds pushing Optimizely to boldly go where no testing platform has gone before."
             companies: "Optimizely"
             track: "platform"
             roles: "marketer productmanager developer"
@@ -251,12 +210,7 @@ days:
             title: "How to Build a Culture of Optimization from Within"
             time: "1:30 - 2:15"
             location: "Main Room"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "A successful optimization program doesn't just appear out of thin air. It takes bold ideas, a nimble approach, a talented team, and an overwhelming desire to experiment and learn. At the core of all of this is your company's internal culture. Join leaders from Pinterest, Eventbrite, and Blue Bottle Coffee to learn how to develop a growth mindset that extends well beyond the web and mobile. You'll walk away with actionable ideas to strengthen your people, talent, and culture in a data-driven way."
             companies: "Blue Bottle Coffee, Pinterest, Eventbrite"
             track: "culture"
             roles: "marketer productmanager executive"
@@ -287,12 +241,7 @@ days:
             title: "Benchmark your Optimization Program"
             time: "2:35 - 3:20"
             location: "Breakout 3"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "What does 'normal' look like for an optimization program? What about best-in-class? What are the opportunities and challenges facing teams that are optimizing, and how do they allocate their manpower and budget towards them? We sought out the answers to these tough questions for our first industry benchmark report. Join Optimizely for an in-depth discussion of how to quantify and benchmark optimization performance."
             companies: "Optimizely"
             track: "strategy"
             roles: "marketer developer productmanager executive"
@@ -305,12 +254,7 @@ days:
             title: "Structure and Scale: Establishing your Optimization Dream Team"
             time: "2:35 - 3:20"
             location: "Main Room"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Companies come in all shapes and sizes, and there's no magic formula for a perfect optimization program. While team structure, department alignment, and process may vary, there's one common thread: you're still on the hook to deliver results. So how do you structure your team for success? In this panel discussion, experts from a variety of industries will share strategies, drawbacks, and lessons learned from their experiences building and scaling kick-ass optimization teams. You'll walk away armed with ideas to shape your own dream team."
             companies: "Trulia, Abercrombie & Fitch, Scripps Network Interactive"
             track: "culture"
             roles: "marketer productmanager executive"
@@ -339,12 +283,7 @@ days:
             title: "Experience Optimization in Modern Web Architecture"
             time: "2:35 - 3:20"
             location: "Breakout 4"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "AngularJS, Backbone, React—like it or not, modern web architecture is shifting into the world of the single-page application. Learn what to look for in JS frameworks so you can run powerful A/B tests with Optimizely and how to integrate Optimizely into your current single-page application architecture. The first half of the session, Jordan Garcia, Frontend Tech Lead at Optimizely, will overview single-page application frameworks. The second half will showcase customers who have implemented great A/B testing strategies developed for their single-page applications."
             companies: "Tilt, BitTorrent, RocketLawyer, Optimizely"
             track: "platform"
             roles: "developer"
@@ -377,12 +316,7 @@ days:
             title: "Testing with Stats Engine: Why it’s Harder to Find Winners with Optimizely"
             time: "2:35 - 3:20"
             location: "Breakout 2"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Statistics for A/B testing has had a usability problem. Without necessary precautions, running experiments with standard statistics results in more false positives than testers think. This is the motivation behind Optimizely's new Stats Engine: if the statistics aren’t working for the customer, it's time to re-design the statistics. In this session, you’ll learn how Optimizely created a new approach to statistics for A/B testing, best practices for using Stats Engine based on real customer experience, and the biggest challenges still on the horizon."
             companies: "Optimizely"
             track: "action"
             roles: "marketer productmanager"
@@ -402,15 +336,10 @@ days:
         start_time: "3:40"
         events:
           -
-            title: "The Power and Influence of the Written Word in Conversion"
+            title: "The Power of Empathy in Driving Conversion"
             time: "3:40 - 4:25"
             location: "Breakout 3"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Do your digital experiences convey your unique value proposition? What about creating customer delight with humor and wit? Learn how to cut through the noise and create meaningful audience connections that drive conversions." 
             companies: "FunnyBiz, Elevated"
             track: "strategy"
             roles: "marketer productmanager"
@@ -423,16 +352,15 @@ days:
                 name: "Keith Lovgren"
                 job_title: "Director of Conversion Rate Optimization"
                 company: "Elevated"
+              -
+                name: "Talia Wolf"
+                job_title: "CEO and Founder"
+                company: "Conversioner"
           -
             title: "Collaborating to Scale: How to Spread Optimization Across your Org and Keep Things from Getting Messy"
             time: "3:40 - 4:25"
             location: "Breakout 2"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Learn how to build a testing program that scales with your business – it's all about collaboraiotn and communication. In this session, you'll learn how to build a unified optimization front across multiple geographies, teams, and functions, and how to collaborate on testing projects when multiple owners are involved, for instance, web and mobile teams."
             companies: "Atlassian, Rue La La"
             track: "culture"
             roles: "marketer developer executive productmanager"
@@ -449,12 +377,7 @@ days:
             title: "Integrations with the Optimizely Platform"
             time: "3:40 - 4:25"
             location: "Theater"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: ""
             companies: "Optimizely"
             track: "platform"
             roles: "developer"
@@ -473,12 +396,7 @@ days:
             title: "Google's Optimization Story"
             time: "4:45 - 5:30"
             location: "Breakout 3"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: ""
             companies: "Google"
             track: "culture"
             roles: "marketer executive developer productmanager"
@@ -491,12 +409,7 @@ days:
             title: "Testing your Boundaries: Lessons Learned from Testing in International Markets"
             time: "4:45 - 5:30"
             location: "Breakout 2"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "In an increasingly interconnected, global market, having a product and marketing messaging that resonates in a variety of geographic regions is key to success. Learn from a panel of customers who will share their strategies for testing in international markets to understand how optimization and customer development power the best experiences across languages, cultures, and user experience idiosyncrasies."
             companies: "ASICS, Motorola"
             track: "strategy"
             roles: "marketer executive productmanager"
@@ -517,12 +430,7 @@ days:
             title: "Getting Started with Optimizely for iOS and Android"
             time: "4:45 - 5:30"
             location: "Breakout 4"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Learn how to integrate Optimizely into your native iOS and Android apps. We'll create an experiment around optimizing and testing an onboarding flow in a mobile app.  Learn how to use the visual editor, as well as advanced testing features for developers. Take home best practices for setting up your mobile experiments."
             companies: "Optimizely"
             track: "platform"
             roles: "developer"
@@ -535,12 +443,7 @@ days:
             title: "Website Redesign Strategies"
             time: "4:45 - 5:30"
             location: "Main Room"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Are you redesigning your website in the next year? Many industry experts agree that it’s best to develop a website iteratively, using A/B testing and optimization, but some websites are so rusty that only a major overhaul seems to be the solution. It can be daunting to navigate the critical process of a redesugn: rising costs, missed deadlines, and plummeting conversion rates instead of anticipated lifts. Learn from the experts on how to use customer interviews, closed-loop sales feedback, web analytics, and A/B testing to determine the optimal mix of content, navigation, and calls-to-action for your site. Get tips on how to drive results in spite of tight timelines, limited resources, CMS restrictions, and small datasets."
             companies: "Apperian, j2 Global Communications"
             track: "action"
             roles: "marketer productmanager"
@@ -570,12 +473,7 @@ days:
             title: "Optie Awards Presentation"
             time: "9:00 - 10:00"
             location: "Main Room"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: ""
             track: "strategy platform action culture"
             roles: "marketer developer productmanager executive"
       -
@@ -588,12 +486,7 @@ days:
             title: "Moving the Needle in your E-Commerce Funnel"
             time: "10:20 – 11:05"
             location: "Breakout 3"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Ecommerce accounted for 5.9%, or $1.3 trillion, of the total worldwide retail market in 2014. As more shoppers come online, smartphones and tablets account for more online purchases. Optimizing your digital customer experience will continue to become even more important to the success of your online retail business. This session will feature stories from ecommerce businesses that are making every online customer interaction count using Optimizely."
             companies: "Teespring, LegalZoom"
             track: "action"
             roles: "marketer productmanager executive"
@@ -610,12 +503,7 @@ days:
             title: "Optimizing for Engagement for Media"
             time: "10:20 – 11:05"
             location: "Breakout 2"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Join innovative digital leaders in an open discussion about the shifting media landscape and how to gain a competitive edge through optimizing for engagement and increased ad impressions."
             companies: "BabyCenter (Johnson & Johnson), StumbleUpon"
             track: "action"
             roles: "marketer productmanager executive"
@@ -632,12 +520,7 @@ days:
             title: "The 21st Century Marketing Stack & Team"
             time: "10:20 – 11:05"
             location: "Main Room"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Looking through the executive lens, we will discuss the 21st century marketing landscape, and how marketing leaders evaluate their tool stack and team. What are the most important pieces to have in places? Which teams are indispensable and what data needs to be collected? How does experience optimization fit into your digital marketing landscape, and what does the future hold?"
             companies: "99Designs, Demandbase, Optimizely"
             track: "strategy"
             roles: "executive"
@@ -664,12 +547,7 @@ days:
             title: "Early Lessons in Personalization Strategy"
             time: "11:25 - 12:10"
             location: "Main Room"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "We'll take a look at lessons derived from early progress in personalization, informed by work already canonical in the email, ecommerce, and media industries. Learn how to translate your goals, personas, data, and ideas into a meaningful approach for delivering personalized experiences. See starter use cases relevant for your vertical, like symmetric messaging for B2B, promotional strategies for ecommerce, behavioral retargeting, contextual empathy, and mobile mindsets."
             companies: "AdRoll, The Clymb"
             track: "strategy"
             roles: "marketer developer productmanager executive"
@@ -686,12 +564,7 @@ days:
             title: "Building the SaaS Growth Engine"
             time: "11:25 - 12:10"
             location: "Breakout 2"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Optimization and growth in the world of SaaS is a different kind of beast. High traffic volume is not always a given, and your product offering may be very narrowly targeted. Customers visit with a wide variety of budgets, needs, and expectations. In this panel conversation, hear executives from some of the country’s top SaaS companies discuss how they tackle these challenges head-on and continue to expand their businesses by capitalizing on the amazing optimization opportunities within their industries."
             companies: "KISSmetrics, Marketo"
             track: "action"
             roles: "marketer executive"
@@ -708,12 +581,7 @@ days:
             title: "Travel, Testing, and Personalization in the 21st Century"
             time: "11:25 - 12:10"
             location: "Breakout 3"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Of the $4.7 billion spent on U.S. travel advertising last year, 52 percent went to websites and other digital channels. Yet only a fraction of that amount is spent on capturing the ROI of those dollars with optimization. Panelists running the optimization practices at the top travel businesses in the industry will come together to talk about how testing and personalization drive revenue, conversions, and move their businesses forward."
             companies: "Virgin America, Smarter Travel, Hotwire"
             track: "action"
             roles: "marketer executive productmanager"
@@ -740,8 +608,7 @@ days:
             title: "Personalization Using Optimizely Audience Integrations"
             time: "1:25 - 2:10"
             location: "Breakout 3"
-            description: "Industry investment into real-time programmatic bidding is growing.
-              its effect on bid optimization."
+            description: "This session will highlight how Optimizely's Audience integrations allow you to deliver personalized experiences to your visitors. We'll hear from a panel of Optimizely customers about how they've used Optimizely’s integrations with first and third-party data platforms, such as BlueKai, Demandbase, and Lytics, to create custom audiences for targeted testing and personalization."
             companies: "Microsoft Store, Citrix, Access Intelligence"
             track: "platform"
             roles: "marketer productmanager developer executive"
@@ -766,12 +633,7 @@ days:
             title: "Best Practices in Programmatic Ad Buying and Conversion Funnel Optimization"
             time: "1:25 - 2:10"
             location: "Main Room"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "As of 2015, 50% of the display advertising market is executed programmatically. Without the proper tracking and monitoring setup, optimization efforts start to lose impact and even worse, can yield inaccurate results. This talk affords guidance to companies seeking to grow their programmatic efforts in a controlled manner, while still maintaining A/B and conversion funnel optimization rigor. Points of discussion: 1) Tracking and appropriately scaling a programmatic marketing program via a variety of ad platforms (notably - Google and Facebook). 2) Customer, marketing campaign, and A/B segmentation strategies 3) Audience creation and targeting management 4) A/B optimization and building a programmatic feedback loop."
             companies: "Netflix"
             track: "strategy"
             roles: "marketer productmanager"
@@ -784,15 +646,23 @@ days:
             title: "Optimization Roundtable Discussions"
             time: "1:25 - 2:10"
             location: "Expo Hall"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
-            companies: ""
+            description: "Looking to connect with others that are in a similar industry, vertical or experiencing a similar challenge? The Optimization Roundtables are your chance to build connections with others that are trying to accomplish a similar goal. Join a roundtable on a topic of your choosing and participate in a discussion on best practices led by an industry expert. Choose from topics such as headline testing, user testing, or a technical deep dive on the Optimizely product."
+            companies: "Segment, Parse.ly, Stratigent"
             track: "strategy"
             roles: "marketer productmanager developer executive"
+            speakers:
+              -
+                name: "Peter Reinhardt"
+                job_title: "Co-Founder and CEO"
+                company: "Segment"
+              -
+                name: "Stefan Deeran"
+                job_title: "Director Partnerships"
+                company: "Parse.ly"
+              -
+                name: "Bill Bruno"
+                job_title: "CEO"
+                company: "Stratigent"
       -
         start_time: "2:10"
         title: "Break in Exhibit Hall"
@@ -803,12 +673,7 @@ days:
             title: "Hypothesize, Analyze, Optimize: Using Hidden Insights to Perfect your Experiment Process"
             time: "2:30 - 3:15"
             location: "Breakout 2"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Testing is an iterative process, oftentimes with confusing or inconclusive results. However, every experiment has something to teach you, and all too often, critical information is left unnoticed! Learn how to look for insights hidden behind the the numbers and maximize the utility of every experiment you run."
             companies: "Rue La La, Princess Cruises"
             track: "strategy"
             roles: "marketer productmanager"
@@ -825,12 +690,7 @@ days:
             title: "10 Secrets to Building an Amazing Mobile Testing Roadmap"
             time: "2:30 - 3:15"
             location: "Breakout 3"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "With over 1.2 million apps in the App Store, it's never been more important to ensure you're delivering experiences that activate and retain your mobile app users. Just thinking about where to begin can be daunting. Do you start by testing your onboarding flow or your conversion funnel? New navigational elements or in-app promotions to drive conversions? The possibilities are endless, which is why it's critical to have a thoughtful approach to developing a testing roadmap that will take your app to the next level. Join us for a deep dive into how Christian Dürr developed a comprehensive testing and optimization program to grow eBay Classifieds' global business."
             companies: "eBay Classifieds Group"
             track: "strategy"
             roles: "marketer productmanager"
@@ -843,12 +703,7 @@ days:
             title: "The Future of Experience Optimization"
             time: "2:30 - 3:15"
             location: "Main Room"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: ""
             track: "strategy"
             roles: "marketer productmanager developer executive"
             speakers:
@@ -862,12 +717,7 @@ days:
             title: "From Skeptic to Champion: How to Win Over Key Stakeholders and Other Non-Believers"
             time: "3:35 - 4:20"
             location: "Main Room"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "Whether you're just getting started or are ready to take things to the next level, getting internal support and executive buy-in is instrumental in the success of any optimization program.  In this interactive session, speakers will share stories from the trenches and best practices for gaining executive support and internal engagement. You'll learn how to use data to turn any naysayer into an experimentation evangelist, and build a culture where employees are encouraged to learn together, fail forward and take risks safely."
             companies: "Mode Analytics, American Medical Association, Elance-Odesk, Optimizely"
             track: "culture"
             roles: "marketer productmanager executive"
@@ -892,12 +742,7 @@ days:
             title: "Removing Friction and Cognitive Overhead: The Role of UX Design in Optimization"
             time: "3:35 - 4:20"
             location: "Breakout 2"
-            description: "For many customers Optimizely has become a
-              critical platform to listen to customers' web engagement
-              and turn those data points into an improved experience.
-              It's natural that users want to extend the Optimizely platform
-              with all of their other marketing applications to become more
-              effective in their decision making."
+            description: "'Understand your users' is a conversion optimization adage that's much easier said than done. You've picked apart your web and mobile analytics, collected user feedback, and are ready to design experiment variations. How will you think about the user experience? Join for an in-depth look at the role of UX design in optimization and creating the perfect experience for every user."
             companies: "Volusion"
             track: "strategy"
             roles: "marketer productmanager developer"
