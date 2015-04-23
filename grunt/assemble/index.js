@@ -387,6 +387,9 @@ module.exports = function (grunt) {
              }, {});
              //console.log(Object.keys(data));
           })
+          .on('error', function (err) {
+            console.log('dest error', err);
+          })
           .on('end', function () {
             var end = process.hrtime(start);
             console.log('finished rendering partners', end);
@@ -425,6 +428,9 @@ module.exports = function (grunt) {
             }
             return o;
          }, {});
+      })
+      .on('error', function (err) {
+        console.log('dest error', err);
       })
       .on('end', function () {
         var end = process.hrtime(start);

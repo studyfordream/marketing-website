@@ -15,7 +15,6 @@ var objParser = require('l10n-tools/object-extractor');
 module.exports = function(assemble) {
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var websiteRoot = assemble.get('data.websiteRoot');
-  var pageData = assemble.get('pageData');
   var locales = assemble.get('data.locales');
   var lang = assemble.get('lang');
   var subfolderFiles = globby.sync('**/*.{hbs,yml}', {cwd: subfoldersRoot});
@@ -48,16 +47,18 @@ module.exports = function(assemble) {
       var data;
 
       if(subfolderFiles.length === 1 && subfolderFiles[0] === 'yml') {
-        data = _.merge({}, lang[websiteRoot][parentKey], lang[locale][fp]);
+        //data = _.merge({}, lang[websiteRoot][parentKey], lang[locale][fp]);
         //translate here because it is difficult to reconcile later
         //objParser.translate(data, translations[dictKey][fp]);
-        objParser.translate(data, translations[dictKey][parentKey]);
-        pageDataMap[locale][fp] = _.merge({}, pageData[websiteRoot][parentKey], pageData[locale][fp], data);
-      } else {
-        data = _.clone(lang[locale][fp]);
-        //objParser.translate(data, translations[dictKey][fp]);
-        pageDataMap[locale][fp] = _.merge({}, pageData[locale][fp], data);
+        //objParser.translate(data, translations[dictKey][parentKey]);
+        pageDataMap[locale][fp] = _.merge({}, pageDataMap[websiteRoot][parentKey], pageDataMap[locale][fp]);
       }
+
+      //else {
+        //data = _.clone(lang[locale][fp]);
+        //objParser.translate(data, translations[dictKey][fp]);
+        //pageDataMap[locale][fp] = _.merge({}, pageDataMap[locale][fp], data);
+      //}
 
     });
 

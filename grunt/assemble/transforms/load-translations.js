@@ -19,7 +19,6 @@ module.exports = function translationTransform (assemble, args) {
   var patterns = args[2];
   var locale = args[3];
   var processYMLfile = require('./translation-helpers/yml-file-data')(assemble);
-  var createTranslationDict = require('../utils/create-dictionary')(assemble);
   var data, parsedTranslations, root;
   patterns = Array.isArray(patterns) ? patterns : [patterns];
 
@@ -33,18 +32,9 @@ module.exports = function translationTransform (assemble, args) {
     translationType = translationType.split('-')[0];
   }
 
-  parsedTranslations = createTranslationDict(data, locale);
-  if(Object.keys(parsedTranslations).length > 0) {
-    lang[locale] = extend({}, lang[locale], parsedTranslations);
-  }
   pageData[locale] = extend({}, pageData[locale], data);
 
-
-  // add logic for pulling out whitelisted TR and MD strings
   // this transorm fetches all of the YML data in the files same directory
-  // would have to add some sort of whitelist/blacklist here for scoping some of the YML company data globally
-  // how will we later reference this data in templates, assuming with keyword `this`
   assemble.set('pageData', pageData);
-  assemble.set('lang', lang);
 };
 

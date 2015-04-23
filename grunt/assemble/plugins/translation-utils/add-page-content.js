@@ -9,7 +9,7 @@ module.exports = function(rootData, rootPageDataMap) {
   _.forEach(rootData, function(val, fp) {
     var contentKeys = [
       'HTML_page_content',
-      'page_data'
+      //'page_data'
     ];
     var existingKeys = _.intersection(contentKeys, Object.keys(val));
 
