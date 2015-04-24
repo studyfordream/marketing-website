@@ -275,17 +275,46 @@ module.exports = function (grunt) {
                         '!' + omLayouts
                       ]);
 
-    function logData(fp, type) {
-      var key = generateKey(fp);
-      var o = {
-        'om-pages': 'magenta',
-        pages: 'blue',
-        partners: 'red',
-        subfolders: 'magenta'
+    var logData = (function(){
+      var lastPath = [];
+      function checkI(path) {
+        return !~lastPath.indexOf(path);
+      }
+
+      return function logData(fp, type) {
+        var key = generateKey(fp);
+        var split = key.split('/');
+        split = split.filter(function(item) {
+          return !!item;
+        });
+        var one = split[0];
+        var two = split[1];
+        var o = {
+          'om-pages': 'magenta',
+          pages: 'blue',
+          partners: 'red',
+          subfolders: 'magenta'
+        };
+
+        if(options.locales[two]) {
+          if(checkI(two)) {
+            console.log(chalk[ o[type] ].bold('rendering ' + type) + ' => ' + chalk.green(two.toUpperCase()));
+            lastPath.push(two);
+          }
+        } else if(two === 'om' || two === 'partners') {
+          if(checkI(two)) {
+            console.log(chalk[ o[type] ].bold('rendering ') + ' => ' + chalk.green(type));
+            lastPath.push(two);
+          }
+        } else {
+          if(checkI(one)) {
+            console.log(chalk[ o[type] ].bold('rendering ') + ' => ' + chalk.green(type));
+            lastPath.push(one);
+          }
+        }
       };
 
-      console.log(chalk[ o[type] ].bold('rendered ' + type) + ' => ' + chalk.green(key));
-    }
+    }());
 
     assemble.task('prep-smartling', function () {
       var start = process.hrtime();
