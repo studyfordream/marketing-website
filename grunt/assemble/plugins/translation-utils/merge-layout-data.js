@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-module.exports = function(pageDataClone) {
+module.exports = function mergeLayoutData(pageDataClone) {
   _.forEach(pageDataClone, function(typeData, type) {
 
     _.forEach(typeData, function(fileData, fp) {

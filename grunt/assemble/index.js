@@ -294,6 +294,9 @@ module.exports = function (grunt) {
         .pipe(extractLayoutContext(assemble))
         .pipe(addSeoTitle())
         .pipe(sendToSmartling(assemble))
+        .on('error', function (err) {
+          console.log('plugin error', err);
+        })
         .pipe(resourceListType(assemble))
         .on('error', function (err) {
           console.log('plugin error', err);

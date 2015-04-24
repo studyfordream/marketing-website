@@ -26,7 +26,7 @@ module.exports = function(assemble) {
     }
   });
 
-  return function(lang, pageDataClone) {
+  return function mergeSubfolderYml(lang, pageDataClone) {
     hasNoTemplate.forEach(function(fp) {
       var filePathData = parseFilePath(fp);
       var locale = filePathData.locale;

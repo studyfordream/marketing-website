@@ -11,7 +11,7 @@ var path = require('path');
  * }
  *
  */
-module.exports = function(globalData) {
+module.exports = function getGlobalYml(globalData) {
   return Object.keys(globalData).reduce(function(o, key) {
     if(/global\_/.test(key)) {
       var basenameKey = path.basename(key, path.extname(key));

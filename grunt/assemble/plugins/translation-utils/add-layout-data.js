@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-module.exports = function(file) {
+module.exports = function addLayoutData(file) {
   var layoutData = file.data.layouts;
 
   if(file.data.layouts) {

@@ -13,39 +13,39 @@ module.exports = function(assemble){
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var websiteRoot = assemble.get('data.websiteRoot');
 
-return function(locale, dictKey, lang, pageDataClone, translations) {
-  _.forEach(pageDataClone[locale], function(val, fp) {
-    var parentPath = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
-    var layoutPaths = pageDataClone[locale][fp].layouts;
-    //must first remove the layouts to avoid double translation
-    if(layoutPaths) {
-      delete pageDataClone[locale][fp].layouts;
-    }
+  return function translatePageData(locale, dictKey, lang, pageDataClone, translations) {
+    _.forEach(pageDataClone[locale], function(val, fp) {
+      var parentPath = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
+      var layoutPaths = pageDataClone[locale][fp].layouts;
+      //must first remove the layouts to avoid double translation
+      if(layoutPaths) {
+        delete pageDataClone[locale][fp].layouts;
+      }
 
-    var parentTranslations = translations[dictKey][parentPath];
-    var childTranslations = translations[dictKey][fp];
-    var parentLang = lang[websiteRoot][parentPath];
-    var childLang = lang[locale][fp];
-    var parentTrans = objParser.translate(parentLang || {}, parentTranslations);
-    var childTrans = objParser.translate(childLang || {}, childTranslations);
+      var parentTranslations = translations[dictKey][parentPath];
+      var childTranslations = translations[dictKey][fp];
+      var parentLang = lang[websiteRoot][parentPath];
+      var childLang = lang[locale][fp];
+      var parentTrans = objParser.translate(parentLang || {}, parentTranslations);
+      var childTrans = objParser.translate(childLang || {}, childTranslations);
 
-    _.merge(pageDataClone[locale][fp], parentTrans, childTrans);
+      _.merge(pageDataClone[locale][fp], parentTrans, childTrans);
 
-    if(layoutPaths) {
-      pageDataClone[locale][fp].layouts = pageDataClone[locale][fp].layouts || {};
+      if(layoutPaths) {
+        pageDataClone[locale][fp].layouts = pageDataClone[locale][fp].layouts || {};
 
-      _.forEach(layoutPaths, function(layoutData, layoutPath) {
-        var langData = lang.layouts[layoutPath];
+        _.forEach(layoutPaths, function(layoutData, layoutPath) {
+          var langData = lang.layouts[layoutPath];
 
-        //only translate data from lang dictionary to avoid translating matching phrases not intedend for translation
-        objParser.translate(langData, translations[dictKey][layoutPath]);
-        _.merge(layoutData, langData);
-        //TODO: probably a better way to do this => recreate the layouts object
-        pageDataClone[locale][fp].layouts[layoutPath] = layoutData;
+          //only translate data from lang dictionary to avoid translating matching phrases not intedend for translation
+          objParser.translate(langData, translations[dictKey][layoutPath]);
+          _.merge(layoutData, langData);
+          //TODO: probably a better way to do this => recreate the layouts object
+          pageDataClone[locale][fp].layouts[layoutPath] = layoutData;
 
-      });
-    }
-  });
+        });
+      }
+    });
 
-};
+  };
 };

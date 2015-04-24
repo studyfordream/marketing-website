@@ -25,7 +25,7 @@ module.exports = function translationTransform (assemble, args) {
   if( /page/.test(translationType) ) {
     data = processYMLfile(patterns, locale);
   } else if ( /subfolder/.test(translationType) ) {
-    data = processYMLfile(patterns, locale, path.join(subfoldersRoot, locale));
+    data = processYMLfile(patterns, path.join(subfoldersRoot, locale));
   } else {
     //NOTE: this was ommitted and is being performed in the smartling plugin
     //put partial, modal, layout specific parsing here is necessary

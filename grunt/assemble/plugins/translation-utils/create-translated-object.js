@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-module.exports = function(locales, localeCode, pageDataClone) {
+module.exports = function createTranslatedObject(locales, localeCode, pageDataClone) {
   var filteredLocales = Object.keys(pageDataClone).filter(function(pageDataKey) {
     if(locales[pageDataKey] === localeCode) {
       return true;

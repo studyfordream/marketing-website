@@ -87,13 +87,14 @@ module.exports = function (assemble) {
     this.push(file);
     cb();
   }, function (cb) {
+    var curryTryCatch = require('../utils/curry-try-catch');
     var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
-    var populateSubfolderData = require('./translation-utils/populate-subfolder-data')(assemble);
-    var translatePageData = require('./translation-utils/translate-page-data')(assemble);
-    var mergeSubfolderYml = require('./translation-utils/merge-subfolder-yml')(assemble);
-    var mergeLayoutData = require('./translation-utils/merge-layout-data');
-    var createTranslatedObject = require('./translation-utils/create-translated-object');
-    var translateGlobalYml = require('./translation-utils/translate-global-yml');
+    var populateSubfolderData = curryTryCatch(require('./translation-utils/populate-subfolder-data')(assemble));
+    var translatePageData = curryTryCatch(require('./translation-utils/translate-page-data')(assemble));
+    var mergeSubfolderYml = curryTryCatch(require('./translation-utils/merge-subfolder-yml')(assemble));
+    var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data'));
+    var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
+    var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml'));
 
     mergeSubfolderYml(lang, pageDataClone);
 
@@ -123,11 +124,7 @@ module.exports = function (assemble) {
       Object.keys(locales).forEach(function(locale) {
         var dictKey = locales[locale];
 
-        try {
-          populateSubfolderData(locale, pageDataClone);
-        } catch(e) {
-          console.error('ERROR: populateSubfolderData', e);
-        }
+        populateSubfolderData(locale, pageDataClone);
 
         var specialTypes = [
           'modals',
@@ -143,23 +140,14 @@ module.exports = function (assemble) {
           _.merge(pageDataClone[locale], lang[type] || {});
         });
 
-
-        try {
-          translatePageData(locale, dictKey, lang, pageDataClone, translations);
-        } catch(e) {
-          console.error('ERROR: translatePageData', e);
-        }
+        translatePageData(locale, dictKey, lang, pageDataClone, translations);
 
       });
 
       //remove translation keys after page translations
       removeTranslationKeys(pageDataClone);
 
-      try {
-        mergeLayoutData(pageDataClone);
-      } catch(e) {
-        console.error('ERROR: mergeLayoutData', e);
-      }
+      mergeLayoutData(pageDataClone);
 
       /**
        * iterate through locales to create a `translated` object
@@ -173,29 +161,27 @@ module.exports = function (assemble) {
        *  }
        * }
        */
-      try {
-        Object.keys(locales).forEach(function(locale) {
-          var localeCode = locales[locale];
+      Object.keys(locales).forEach(function(locale) {
+        var localeCode = locales[locale];
 
-          //create the translated object making sure to account for multiple domains potentially
-          //associated with the same translation key
-          translated[localeCode] = createTranslatedObject(locales, localeCode, pageDataClone);
+        //create the translated object making sure to account for multiple domains potentially
+        //associated with the same translation key
+        translated[localeCode] = createTranslatedObject(locales, localeCode, pageDataClone);
 
-          //translate the global yml and attach it to the translated object to be swapped out in the middleware
-          translated[localeCode].global = {};
-          translated[localeCode].global = translateGlobalYml(localeCode, globalYml, translations);
-        });
+        //translate the global yml and attach it to the translated object to be swapped out in the middleware
+        translated[localeCode].global = {};
+        translated[localeCode].global = translateGlobalYml(localeCode, globalYml, translations);
+      });
 
-        removeTranslationKeys(globalData);
-      } catch(e) {
-        console.error('ERROR: createTranslatedObject', e);
-      }
+      removeTranslationKeys(globalData);
 
       assemble.set('rootData', pageDataClone[websiteRoot]);
       assemble.set('translated', translated);
-
       cb();
-    });
+    })
+    .catch(function(error) {
+      this.emit('error', error);
+    }.bind(this));
   });
 
 };

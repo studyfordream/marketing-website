@@ -83,7 +83,17 @@ module.exports = {
   server: {
     options: {
       node: true,
-      debug: true
+      debug: true,
+      globals: {
+        mocha: false,
+        it: false,
+        console: false,
+        describe: false,
+        beforeEach: false,
+        waits: false,
+        waitsFor: false,
+        runs: false
+      }
     },
     files: {
       src: [

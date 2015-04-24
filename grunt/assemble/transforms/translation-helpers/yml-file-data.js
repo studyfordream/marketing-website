@@ -6,12 +6,11 @@ var Plasma = require('plasma');
 module.exports = function(assemble){
   var pagesNamespace = assemble.get('data.pageContentNamespace');
 
-  return function(patterns, locale, root) {
+  return function(patterns, cwd) {
     var plasma = new Plasma();
     var iterator = 0;
     var keysCache = [];
     var lastKey, data;
-    var cwd = root ? root : locale;
     plasma.option('cwd', cwd);
     plasma.option('namespace', function(fp) {
       var key = path.join( path.dirname(fp), 'index').replace(process.cwd(), '');

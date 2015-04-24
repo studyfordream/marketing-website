@@ -20,7 +20,7 @@ var _ = require('lodash');
  * }
  * lang[locale][dataKey] => all keys flagged for translation from YFM
  */
-module.exports = function(file) {
+module.exports = function addYfmData(file) {
   var data = file.data;
 
   return Object.keys(data).reduce(function(o, key) {
