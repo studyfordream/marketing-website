@@ -88,19 +88,18 @@ module.exports = function (assemble) {
     cb();
   }, function (cb) {
     var curryTryCatch = require('../utils/curry-try-catch');
-    var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
-    var populateSubfolderData = curryTryCatch(require('./translation-utils/populate-subfolder-data')(assemble));
-    var translatePageData = curryTryCatch(require('./translation-utils/translate-page-data')(assemble));
     var mergeSubfolderYml = curryTryCatch(require('./translation-utils/merge-subfolder-yml')(assemble));
-    var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data'));
-    var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
-    var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml'));
-
     mergeSubfolderYml(lang, pageDataClone);
-
     assemble.set('lang', lang);
+    var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
 
     sendToSmartling(phrases).then(function(resolved){
+      var populateSubfolderData = curryTryCatch(require('./translation-utils/populate-subfolder-data')(assemble));
+      var translateSpecialTypes = curryTryCatch(require('./translation-utils/translate-special-types')(assemble));
+      var translatePageData = curryTryCatch(require('./translation-utils/translate-page-data')(assemble));
+      var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data'));
+      var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
+      var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml'));
 
       var translations = resolved[0];
       //this will become the dictionary for pages
@@ -126,19 +125,7 @@ module.exports = function (assemble) {
 
         populateSubfolderData(locale, pageDataClone);
 
-        var specialTypes = [
-          'modals',
-          'layouts',
-          'partials'
-        ];
-
-        /**
-         * Utility Function for iterating through the special types in the lang object ['modals', 'layouts', 'partials']
-         * and merging their filepath/values into the pageDataClone locale object
-         */
-        specialTypes.forEach(function(type) {
-          _.merge(pageDataClone[locale], lang[type] || {});
-        });
+        translateSpecialTypes(locale, translations, pageDataClone);
 
         translatePageData(locale, dictKey, lang, pageDataClone, translations);
 
