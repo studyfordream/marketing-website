@@ -306,7 +306,7 @@ days:
                 company: "RocketLawyer"
               -
                 name: "Jordan Garcia"
-                job_title: "Software Engineer"
+                job_title: "Frontend Tech Lead"
                 company: "Optimizely"
               -
                 name: "Joe Casson"
@@ -699,6 +699,19 @@ days:
                 name: "Christian Dürr"
                 job_title: "Project Manager and Team Lead"
                 company: "eBay Classifieds Group"
+          -
+            title: "Fishing with Spears: All about Account Based Marketing"
+            time: "2:30 - 3:15"
+            location: "Breakout 4"
+            description: "Account based marketing (ABM) is quickly becoming the next big thing in B2B marketing. In fact, the ITSMA says that “ABM delivers the highest Return on Investment of any B2B marketing strategy or tactic. Period.” In this fast-paced talk, you'll see why ABM is generating so much buzz, and get practical tips for launching and scaling your ABM programs. You'll learn how ABM is different from traditional demand generation (fishing with nets), the best practices for understanding target accounts, how to orchestrate integrated account plans and measure the impact, how to market to current customers for cross-sell and retention, and how you can implement account-based marketing tactics integrated with Optimizely. If you support sales teams selling six- and seven-figure deals, then this is the session for you!"
+            companies: "Engagio"
+            track: "strategy"
+            roles: "marketer executive"
+            speakers:
+              -
+                name: "Jon Miller"
+                job_title: "CEO and Co-Founder"
+                company: "Engagio"
           -
             title: "The Future of Experience Optimization"
             time: "2:30 - 3:15"
