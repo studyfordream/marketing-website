@@ -1,6 +1,9 @@
+var path = require('path');
 var _ = require('lodash');
 var webpack = require('webpack');
 var trPlugin = require('l10n-tr-plugin');
+var injectFilenamePath = require.resolve(path.join(__dirname, 'loaders/inject-filename')).replace('.js', '');
+console.log('LOADER PATH', injectFilenamePath);
 
 module.exports = function(opts) {
   var jshintConfig = _.merge({}, {
@@ -40,7 +43,7 @@ module.exports = function(opts) {
         /bower_components/,
         /libraries/
       ],
-      loader: 'inject-filename-loader?' + opts.injectFileNameParams
+      loader: injectFilenamePath + '?' + opts.injectFileNameParams
     },
     { test: /\.hbs$/, loader: 'handlebars-loader' },
     {test: /\.js?$/, exclude: ['bower_components', 'node_modules'], loader: 'babel-loader'}
