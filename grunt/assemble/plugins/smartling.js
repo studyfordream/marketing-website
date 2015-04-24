@@ -10,45 +10,39 @@ var extendWhile = require('../utils/extend-while');
 var generateKey = require('../utils/generate-key');
 var hbsParser = require('l10n-tools/hbs-parser');
 var objParser = require('l10n-tools/object-extractor');
-var Q = require('q');
 
 module.exports = function (assemble) {
+  var createTranslationDict = require('../utils/create-dictionary')(assemble);
+  var parseFilePath = require('../utils/parse-file-path')(assemble);
+  var getGlobalYml = require('./translation-utils/get-global-yml');
   var globalData = assemble.get('data');
-  var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
+  var globalYml = getGlobalYml(globalData);
+  var env = assemble.get('env');
   var lang = assemble.get('lang') || {};
   var pageData = assemble.get('pageData');
+  var pageDataClone = _.cloneDeep(pageData);
   var environment = assemble.option('environment');
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var websiteRoot = assemble.get('data.websiteRoot');
   var websiteGuts = assemble.get('data.websiteGuts');
-  var clonePageData = require('./translation-utils/add-yfm-data');
   var locales = assemble.get('data.locales');
   var localeCodes = Object.keys(locales).map(function(subfolder) {
     return locales[subfolder];
   });
-  var createTranslationDict = require('../utils/create-dictionary')(assemble);
-  var parseFilePath = require('../utils/parse-file-path')(assemble);
-  var env = assemble.get('env');
   var isTest = env === 'test';
   var runTranslations = true || isTest || env === 'smartling-staging-deploy';
-  var getLayoutData = require('./translation-utils/add-layout-data');
   var phrases = [];
-  var pageDataMap = {};
-  var pageDataClone = _.cloneDeep(pageData);
-  var getGlobalYml = require('./translation-utils/get-global-yml');
-  var globalYml = getGlobalYml(globalData);
 
   //add the global yml keys flagged for translation to the lang object to be parsed
   //and sent to smartling
   lang.global = createTranslationDict(globalYml, 'global');
 
   return through.obj(function (file, enc, cb) {
-    var ppcRe = new RegExp(path.join(websiteRoot, 'om'));
     var filePathData = parseFilePath(file.path);
     var locale = filePathData.locale;
     var dataKey = filePathData.dataKey;
-    var pagePhrases, trYfm, trYml;
-    var layoutData;
+    var pagePhrases, trYfm, trYml, layoutData;
+
     pageDataClone[locale] = pageDataClone[locale] || {};
     pageDataClone[locale][dataKey] = pageDataClone[locale][dataKey] || {};
     lang[locale] = lang[locale] || {};
@@ -65,6 +59,8 @@ module.exports = function (assemble) {
       }
     }
 
+    //cache the layout data and remove it from the file.data object before translation parsing
+    //because layout data will be added to pageDataClone through the plugin
     if(file.data.layouts) {
       layoutData = file.data.layouts;
       delete file.data.layouts;
@@ -91,9 +87,13 @@ module.exports = function (assemble) {
     this.push(file);
     cb();
   }, function (cb) {
+    var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
     var populateSubfolderData = require('./translation-utils/populate-subfolder-data')(assemble);
     var translatePageData = require('./translation-utils/translate-page-data')(assemble);
     var mergeSubfolderYml = require('./translation-utils/merge-subfolder-yml')(assemble);
+    var mergeLayoutData = require('./translation-utils/merge-layout-data');
+    var createTranslatedObject = require('./translation-utils/create-translated-object');
+    var translateGlobalYml = require('./translation-utils/translate-global-yml');
 
     mergeSubfolderYml(lang, pageDataClone);
 
@@ -105,128 +105,93 @@ module.exports = function (assemble) {
       //this will become the dictionary for pages
       var translated = {};
 
-      try{
-        /**
-         * iterate through locales to create a `translated` object
-         *
-         * translated = {
-         *  de_DE: {
-         *    fp: 'val'
-         *  },
-         *  fr_FR: {
-         *    fp: 'val'
-         *  }
-         * }
-         */
-        Object.keys(locales).forEach(function(locale) {
-          var dictKey = locales[locale];
+      /**
+       * iterate through locales to create complete the `pageDataClone` object
+       *
+       * pageDataClone = {
+       *  website: {
+       *    fp: 'val'
+       *  },
+       *  de: {
+       *    fp: 'val'
+       *  },
+       *  modals: {
+       *    fp: 'val'
+       *  }
+       * }
+       */
+      Object.keys(locales).forEach(function(locale) {
+        var dictKey = locales[locale];
 
-          try {
-            populateSubfolderData(locale, pageDataClone);
-          } catch(e) {
-            this.emit('ERROR: populateSubfolderData', e);
-          }
-
-          var specialTypes = [
-            'modals',
-            'layouts',
-            'partials'
-          ];
-
-          /**
-           * Utility Function for iterating through the special types in the lang object ['modals', 'layouts', 'partials']
-           * and merging their filepath/values into the pageDataClone locale object
-           */
-          specialTypes.forEach(function(type) {
-            _.merge(pageDataClone[locale], lang[type] || {});
-          });
-
-
-          try {
-            translatePageData(locale, dictKey, lang, pageDataClone, translations);
-          } catch(e) {
-            console.log('ERROR: translatePageData', e);
-          }
-
-        });
-
-        //remove translation keys after page translations
-        removeTranslationKeys(pageDataClone);
-
-        _.forEach(pageDataClone, function(filePaths, type) {
-
-          _.forEach(filePaths, function(data, fp) {
-            var layoutKeys = Object.keys(data.layouts || {});
-            var layoutData;
-
-            if(layoutKeys.length) {
-              layoutData = layoutKeys.reduce(function(o, key) {
-                _.merge(o, data.layouts[key]);
-                return o;
-              }, {});
-
-              _.merge(data, layoutData);
-              data.layouts = layoutKeys;
-            }
-          });
-
-        });
-
-        /**
-         * Create a dictionary object for all pages
-         *
-         */
         try {
-          _.forEach(locales, function(localeCode, locale) {
-            var filteredLocales = Object.keys(pageDataClone).filter(function(pageDataKey) {
-              if(locales[pageDataKey] === localeCode) {
-                return true;
-              }
-            });
-
-            translated[localeCode] = filteredLocales.reduce(function(o, pageDataKey) {
-              _.forEach(pageDataClone[pageDataKey], function(val, fp) {
-                if(!o.hasOwnProperty(fp)) {
-                  o[fp] = val;
-                }
-              });
-
-              return o;
-            }, {});
-          });
-
+          populateSubfolderData(locale, pageDataClone);
         } catch(e) {
-          console.log('ERROR 6', e);
+          console.error('ERROR: populateSubfolderData', e);
         }
+
+        var specialTypes = [
+          'modals',
+          'layouts',
+          'partials'
+        ];
+
+        /**
+         * Utility Function for iterating through the special types in the lang object ['modals', 'layouts', 'partials']
+         * and merging their filepath/values into the pageDataClone locale object
+         */
+        specialTypes.forEach(function(type) {
+          _.merge(pageDataClone[locale], lang[type] || {});
+        });
 
 
         try {
-          _.forEach(translated, function(localeDict, localeCode) {
-            localeDict.global = localeDict.global || {};
-
-            _.forEach(globalYml, function(val, fp) {
-              var basenameKey = path.basename(fp, path.extname(fp));
-              var clone = _.cloneDeep(val);
-
-              localeDict.global[basenameKey] = objParser.translate(clone, translations[localeCode][fp]);
-              removeTranslationKeys(localeDict.global[basenameKey]);
-            });
-
-          });
-
+          translatePageData(locale, dictKey, lang, pageDataClone, translations);
         } catch(e) {
-          console.log('ERROR 7', e);
+          console.error('ERROR: translatePageData', e);
         }
 
+      });
 
-        removeTranslationKeys(globalData);
-        console.log(globalData);
+      //remove translation keys after page translations
+      removeTranslationKeys(pageDataClone);
 
-      } catch(err) {
-        this.emit('ERROR 8', err);
+      try {
+        mergeLayoutData(pageDataClone);
+      } catch(e) {
+        console.error('ERROR: mergeLayoutData', e);
       }
 
-      assemble.set('pageDataMap', pageDataClone);
+      /**
+       * iterate through locales to create a `translated` object
+       *
+       * translated = {
+       *  de_DE: {
+       *    fp: 'val'
+       *  },
+       *  fr_FR: {
+       *    fp: 'val'
+       *  }
+       * }
+       */
+      try {
+        Object.keys(locales).forEach(function(locale) {
+          var localeCode = locales[locale];
+
+          //create the translated object making sure to account for multiple domains potentially
+          //associated with the same translation key
+          translated[localeCode] = createTranslatedObject(locales, localeCode, pageDataClone);
+
+          //translate the global yml and attach it to the translated object to be swapped out in the middleware
+          translated[localeCode].global = {};
+          translated[localeCode].global = translateGlobalYml(localeCode, globalYml, translations);
+        });
+
+        removeTranslationKeys(globalData);
+      } catch(e) {
+        console.error('ERROR: createTranslatedObject', e);
+      }
+
+      assemble.set('rootData', pageDataClone[websiteRoot]);
       assemble.set('translated', translated);
 
       cb();

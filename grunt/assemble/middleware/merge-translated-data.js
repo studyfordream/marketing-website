@@ -15,15 +15,14 @@ module.exports = function(assemble) {
   return function mergeTranslatedData (file, next) {
     var lang = assemble.get('lang');
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
-    var pageData = assemble.get('pageDataMap');
+    var rootData = assemble.get('rootData');
     var translated = assemble.get('translated');
     var dicts = assemble.get('dicts');
     var filePathData = parseFilePath(file.path);
     var locale = isTest ? 'de' : filePathData.locale;
     var dataKey = filePathData.dataKey;
     var dictKey = locales[locale];
-    var mergedDict, parentKey, translatedDict, rootData;
-    var layoutKeys;
+    var mergedDict, parentKey, translatedDict, fileDataClone, layoutKeys;
 
     removeTranslationKeys(file.data);
 
@@ -34,17 +33,17 @@ module.exports = function(assemble) {
     //extend the file with the external YML content
     if(filePathData.isRoot && !isTest && !file.data.isPpc) {
       //extend the local yml data to the page
-      rootData = pageData[websiteRoot][dataKey];
+      fileDataClone = rootData[dataKey];
 
-      if(rootData) {
+      if(fileDataClone) {
 
         //TODO: figure out how to do this transform earlier
-        if(rootData.page_content) {
-          file.content = rootData.page_content;
-          delete rootData.page_content;
+        if(fileDataClone.page_content) {
+          file.content = fileDataClone.page_content;
+          delete fileDataClone.page_content;
         }
 
-        extendWhile(file.data, rootData);
+        extendWhile(file.data, fileDataClone);
       }
 
     } else if(filePathData.isSubfolder || ( filePathData.isRoot && isTest && !file.data.isPpc )) {
