@@ -42,8 +42,8 @@ external_script:
     <div class="category-item">
       <p class="adelle-sans category-title">{{this.title}}</p>
       <p class="adelle-sans">{{this.blurb}}</p>
-      {{#if this.email}}
-      <a class="adelle-sans" href="mailto:{{this.email}}">{{this.cta}}</a>
+      {{#if this.href}}
+      <a class="adelle-sans" href="{{this.href}}">{{this.cta}}</a>
       {{else}}
       <a class="adelle-sans js-category-cta" href="#js-opties-application" data-category="{{this.title}}">{{this.cta}} →</a>
       {{/if}}
