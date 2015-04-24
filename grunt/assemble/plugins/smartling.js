@@ -208,7 +208,7 @@ module.exports = function (assemble) {
               var basenameKey = path.basename(fp, path.extname(fp));
               var clone = _.cloneDeep(val);
 
-              localeDict.global[basenameKey] = objParser.translate(val, translations[localeCode][fp]);
+              localeDict.global[basenameKey] = objParser.translate(clone, translations[localeCode][fp]);
               removeTranslationKeys(localeDict.global[basenameKey]);
             });
 
@@ -220,6 +220,7 @@ module.exports = function (assemble) {
 
 
         removeTranslationKeys(globalData);
+        console.log(globalData);
 
       } catch(err) {
         this.emit('ERROR 8', err);
