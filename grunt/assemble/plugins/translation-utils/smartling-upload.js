@@ -95,7 +95,6 @@ module.exports = function(assemble) {
 
         // when all translations are fetched - call callback
         Q.all(defers).then(function(){
-          assemble.set('dicts', translations);
           yamlDefer.resolve(translations);
         });
       });
@@ -105,7 +104,6 @@ module.exports = function(assemble) {
         var body = fs.readFileSync('tmp/download/' + code + '-' + DICT_FNAME, {encoding: 'UTF8'});
         translations[code] = smartling.parsePOWithContext(body);
       });
-      assemble.set('dicts', translations);
       yamlDefer.resolve(translations);
     }
 
