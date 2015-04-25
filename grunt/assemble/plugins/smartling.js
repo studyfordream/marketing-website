@@ -31,7 +31,6 @@ module.exports = function (assemble) {
   });
   var isTest = env === 'test';
   var runTranslations = true || isTest || env === 'smartling-staging-deploy';
-  var phrases = [];
 
   //add the global yml keys flagged for translation to the lang object to be parsed
   //and sent to smartling
@@ -51,13 +50,11 @@ module.exports = function (assemble) {
     //parse file contents for tr helper phrases
     if(file.contents) {
       pagePhrases = hbsParser.extract(file.contents.toString());
-      if(pagePhrases.length) {
-        phrases.push({
-          fname: dataKey,
-          phrases: pagePhrases
-        });
-      }
     }
+
+    var trHelperPhrases = pagePhrases.map(function(phrase) {
+      return phrase.msg;
+    });
 
     //cache the layout data and remove it from the file.data object before translation parsing
     //because layout data will be added to pageDataClone through the plugin
@@ -78,7 +75,10 @@ module.exports = function (assemble) {
     //and external yml data
     if(Object.keys(trYml)) {
       lang[locale][dataKey] = trYml;
+      lang[locale][dataKey].TR_helper_phrases = trHelperPhrases;
     }
+
+    pageDataClone[locale][dataKey].helper_phrases = trHelperPhrases;
 
     if(layoutData) {
       pageDataClone[locale][dataKey].layouts = layoutData;
@@ -93,13 +93,14 @@ module.exports = function (assemble) {
     assemble.set('lang', lang);
     var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
 
-    sendToSmartling(phrases).then(function(resolved){
+    sendToSmartling().then(function(resolved){
       var populateSubfolderData = curryTryCatch(require('./translation-utils/populate-subfolder-data')(assemble));
       var translateSpecialTypes = curryTryCatch(require('./translation-utils/translate-special-types')(assemble));
       var translatePageData = curryTryCatch(require('./translation-utils/translate-page-data')(assemble));
       var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data'));
       var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
       var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml'));
+      var translateTrHelperPhrases = curryTryCatch(require('./translation-utils/translate-tr-helper-phrases')(assemble));
 
       var translations = resolved[0];
       //this will become the dictionary for pages
@@ -128,6 +129,8 @@ module.exports = function (assemble) {
         translateSpecialTypes(locale, translations, pageDataClone);
 
         translatePageData(locale, dictKey, lang, pageDataClone, translations);
+
+        translateTrHelperPhrases(locale, dictKey, pageDataClone, translations);
 
       });
 

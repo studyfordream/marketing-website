@@ -57,10 +57,11 @@ module.exports = function(assemble) {
     smartlingConfig = JSON.parse(smartlingConfig);
   }
 
-  return function(phrases) {
+  return function() {
     var lang = assemble.get('lang');
     var yamlDefer = Q.defer();
     var jsDefer = Q.defer();
+    var phrases = [];
 
     _.forEach(lang, function(pages){
       _.forEach(pages, function(fileInfo, fname){

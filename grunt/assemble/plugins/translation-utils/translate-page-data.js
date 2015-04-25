@@ -26,6 +26,17 @@ module.exports = function(assemble){
       var childTranslations = translations[dictKey][fp];
       var parentLang = lang[websiteRoot][parentPath];
       var childLang = lang[locale][fp];
+      [parentLang, childLang].forEach(function(langObj) {
+        var helperPhrases;
+        if(langObj) {
+          helperPhrases = langObj.TR_helper_phrases;
+
+          if(helperPhrases) {
+            delete langObj.TR_helper_phrases;
+            langObj.helper_phrases = helperPhrases || [];
+          }
+        }
+      });
       var parentTrans = objParser.translate(parentLang || {}, parentTranslations);
       var childTrans = objParser.translate(childLang || {}, childTranslations);
 

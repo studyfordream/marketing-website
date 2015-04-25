@@ -20,6 +20,11 @@ module.exports = function(assemble){
     specialTypes.forEach(function(type) {
       var keys = Object.keys(lang[type]);
       var translatedTypeObj = keys.reduce(function(o, fp) {
+        var helperPhrases = lang[type][fp].TR_helper_phrases;
+        if(helperPhrases) {
+          delete lang[type][fp].TR_helper_phrases;
+          lang[type][fp].helper_phrases = helperPhrases || [];
+        }
         o[fp] = objParser.translate(lang[type][fp], translated[dictKey][fp]);
         return o;
       }, {});
