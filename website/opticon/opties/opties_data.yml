@@ -2,7 +2,7 @@ page_title: "Optie Awards 2015"
 
 top_paragraph:
   title: "Optie Award Application"
-  deadline: "Deadline: April 24, 2015"
+  deadline: "Extension Deadline: May 1, 2015"
   blurb: "Optimizely wants to recognize and celebrate the amazing work of our customers and the achievements they’ve made through experience optimization. Nominate yourself, your colleague, or your customer today for a 2015 Optie Award!"
 
 award_categories:
@@ -23,8 +23,8 @@ award_categories:
     -
       title: "Solutions Partner of the Year"
       blurb: "Optimizely partners with the best optimization experts in the world. This award recognizes the partner who has gone above and beyond to implement impactful optimization campaigns, launch creative test ideas and optimization strategies, and produce impressive business value for our customers. Selection criteria includes number of new enterprise customers, # of experiments run and value driven to the customer (determined by customer NPS score).To learn more, contact your partner manager."
-      cta: "CONTACT YOUR PARTNER MANAGER"
-      email: "partners@optimizely.com"
+      cta: "LEARN MORE"
+      href: "https://docs.google.com/a/optimizely.com/document/d/1aR-BzfwKl-_lmLQzWO7Cu5S5F2hy1alk4Y3lefYgDhc/edit"
     -
       title: "Most Impactful Use of Personalization"
       blurb: "Did you turn your testing data into powerful personalized experiences? Tell us how you incorporated third-party data, created interesting audience segments, and targeted the right experience. We want to hear about your impactful personalization campaigns!"
