@@ -71,14 +71,21 @@ module.exports = function (assemble) {
 
     trYml = createTranslationDict(pageDataClone[locale][dataKey], locale);
 
+    //don't translate partners markdown content
+    if(/partners\/(solutions|technology)\//.test(file.path) && trYml.HTML_page_content) {
+      delete trYml.HTML_page_content;
+    }
+
     //extend the lang object with data from the YFM of file.data
     //and external yml data
     if(Object.keys(trYml)) {
       lang[locale][dataKey] = trYml;
-      lang[locale][dataKey].TR_helper_phrases = trHelperPhrases;
     }
 
-    pageDataClone[locale][dataKey].helper_phrases = trHelperPhrases;
+    if(trHelperPhrases) {
+      lang[locale][dataKey].TR_helper_phrases = trHelperPhrases;
+      pageDataClone[locale][dataKey].helper_phrases = trHelperPhrases;
+    }
 
     if(layoutData) {
       pageDataClone[locale][dataKey].layouts = layoutData;

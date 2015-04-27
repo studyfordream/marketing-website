@@ -40,7 +40,6 @@ module.exports = function(assemble) {
         //TODO: figure out how to do this transform earlier
         if(fileDataClone.page_content) {
           file.content = fileDataClone.page_content;
-          delete fileDataClone.page_content;
         }
 
         extendWhile(file.data, fileDataClone);
@@ -61,7 +60,6 @@ module.exports = function(assemble) {
         //TODO: figure out how to do this transform earlier
         if(translatedDict.page_content) {
           file.content = translatedDict.page_content;
-          delete translatedDict.page_content;
         }
 
         extendWhile(file.data, translatedDict);
@@ -69,6 +67,7 @@ module.exports = function(assemble) {
 
     } else if ( (isTest || ( file.data.locale && file.data.locale !== websiteRoot ) ) && ( filePathData.isModal || filePathData.isPartial ) ) {
       locale = file.data.locale;
+      dictKey = locales[locale];
       file.data.dataKey = dataKey;
 
       translatedDict = translated[dictKey] && translated[dictKey][dataKey];
