@@ -1,10 +1,15 @@
+var path = require('path');
+
 module.exports = {
   prod: {
     options: {
       sourceMap: false,
       imagePath: '<%= grunt.config.get("sassImagePath") %>',
       precision: 3,
-      outputStyle: 'compressed'
+      outputStyle: 'compressed',
+      includePaths: [
+        path.join(process.cwd(), 'node_modules/css-smart-grid/sass')
+      ]
     },
     files: [
       {
@@ -21,7 +26,10 @@ module.exports = {
     options: {
       sourceMap: false,
       imagePath: '<%= grunt.config.get("sassImagePath") %>',
-      precision: 3
+      precision: 3,
+      includePaths: [
+        path.join(process.cwd(), 'node_modules/css-smart-grid/sass')
+      ]
     },
     files: [
       {
