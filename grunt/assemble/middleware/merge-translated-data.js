@@ -12,6 +12,7 @@ module.exports = function(assemble) {
   var isTest = assemble.get('env') === 'test';
   var lastLocale;
 
+  var lastLength, log = true;
   return function mergeTranslatedData (file, next) {
     var lang = assemble.get('lang');
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
@@ -75,7 +76,9 @@ module.exports = function(assemble) {
       //TODO: for now modals/partials are not locale specific, in future may have locale specific
       //partials that possible overwrite parent partial data
       if(!file.data.isPpc && translatedDict) {
-        extendWhile(file.data, translatedDict);
+        //TODO: helper_phrases were getting mutated for signin_modal and many more properties were being added to arrray
+        //unsure of the source of this mutation
+        file.data = _.merge({}, file.data, translatedDict);
       }
 
     }
