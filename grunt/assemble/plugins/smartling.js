@@ -87,6 +87,10 @@ module.exports = function (assemble) {
       pageDataClone[locale][dataKey].helper_phrases = trHelperPhrases;
     }
 
+    if(file.data.modals) {
+      pageDataClone[locale][dataKey].modals = file.data.modals;
+    }
+
     if(layoutData) {
       pageDataClone[locale][dataKey].layouts = layoutData;
     }
@@ -104,7 +108,7 @@ module.exports = function (assemble) {
       var populateSubfolderData = curryTryCatch(require('./translation-utils/populate-subfolder-data')(assemble));
       var translateSpecialTypes = curryTryCatch(require('./translation-utils/translate-special-types')(assemble));
       var translatePageData = curryTryCatch(require('./translation-utils/translate-page-data')(assemble));
-      var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data'));
+      var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data')(assemble));
       var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
       var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml'));
       var translateTrHelperPhrases = curryTryCatch(require('./translation-utils/translate-tr-helper-phrases')(assemble));

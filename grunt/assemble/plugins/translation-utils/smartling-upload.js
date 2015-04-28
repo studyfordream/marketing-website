@@ -78,7 +78,6 @@ module.exports = function(assemble) {
     });
 
     var clientHbsPhrases = extractFrom(path.join(websiteGuts, 'templates/client/**/*.hbs'), hbsParser);
-    //scope tranlations object outside of closure so it may be used in function below
     //to create page specific ditionary
     phrases = phrases.concat(clientHbsPhrases);
     var content = smartling.generatePO(phrases);
