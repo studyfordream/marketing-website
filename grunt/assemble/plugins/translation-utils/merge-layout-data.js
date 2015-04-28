@@ -1,16 +1,12 @@
 var path = require('path');
 var _ = require('lodash');
-var ignore = [
-  'website',
-  'modals',
-  'partials',
-  'layouts'
-];
 
 module.exports = function(assemble) {
+  var websiteGuts = assemble.get('data.websiteGuts');
+  var localeKeys = Object.keys(assemble.get('data.locales'));
 
   return function mergeLayoutData(pageDataClone) {
-    _.forEach(pageDataClone, function(typeData, type) {
+    _.forEach(pageDataClone, function(typeData, locale) {
         var partialPaths = Object.keys(typeData).filter(function(fp) {
           return /templates\/partials\//.test(fp);
         });
@@ -38,7 +34,9 @@ module.exports = function(assemble) {
           fileData.layouts = layoutKeys;
         }
 
-        if(ignore.indexOf(type) === -1 && ( fileData.layout_modals || fileData.modals )) {
+        //TODO: cleanup this logic and move into an appropriate file
+        //adding helpers from modals and all the partial helpers because they are not isolated per page
+        if(localeKeys.indexOf(locale) !== -1 && ( fileData.layout_modals || fileData.modals )) {
           var layoutModals = fileData.layout_modals || [];
           var pageModals = fileData.modals || [];
           var allModals = layoutModals.concat(pageModals || []);
@@ -47,18 +45,7 @@ module.exports = function(assemble) {
           });
 
           var modalHelperData = modalPaths.reduce(function(o, modalPath) {
-            //var partialPath, partialFilename, partialHelpers;
             var modalHelpers = ( typeData[modalPath] && typeData[modalPath].helper_phrases ) || {};
-
-            //if(!modalHelpers || Object.keys(modalHelpers).length === 0) {
-              //partialFilename = path.basename(modalPath).split('_')[0] + '_form';
-              //partialPath = path.dirname(modalPath.replace('components/modals', 'partials')) + '/' + partialFilename;
-              //partialHelpers = typeData[partialPath] && typeData[partialPath].helper_phrases;
-
-              //if(_.isPlainObject(partialHelpers)) {
-                //_.merge(modalHelpers, partialHelpers);
-              //}
-            //}
             _.merge(o, modalHelpers);
             return o;
           }, {});
