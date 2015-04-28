@@ -231,6 +231,27 @@ days:
                 name: "Moderated by: Jenny Lykken"
                 job_title: "Learning and Development Manager"
                 company: "Optimizely"
+          -
+            title: "Optimization Roundtable Discussions"
+            time: "1:30 - 2:15"
+            location: "Expo Hall"
+            description: "Looking to connect with others that are in a similar industry, vertical or experiencing a similar challenge? The Optimization Roundtables are your chance to build connections with others that are trying to accomplish a similar goal. Join a roundtable on a topic of your choosing and participate in a discussion on best practices led by an industry expert. Choose from topics such as headline testing, user testing, or a technical deep dive on the Optimizely product."
+            companies: "Segment, Parse.ly, Stratigent"
+            track: "strategy"
+            roles: "marketer productmanager developer executive"
+            speakers:
+              -
+                name: "Peter Reinhardt"
+                job_title: "Co-Founder and CEO"
+                company: "Segment"
+              -
+                name: "Stefan Deeran"
+                job_title: "Director Partnerships"
+                company: "Parse.ly"
+              -
+                name: "Bill Bruno"
+                job_title: "CEO"
+                company: "Stratigent"
       -
         start_time: "2:15"
         title: "Break in Exhibit Hall"
@@ -642,27 +663,6 @@ days:
                 name: "Patrick McGrath"
                 job_title: "Product Manager of Ad Technology"
                 company: "Netflix"
-          -
-            title: "Optimization Roundtable Discussions"
-            time: "1:25 - 2:10"
-            location: "Expo Hall"
-            description: "Looking to connect with others that are in a similar industry, vertical or experiencing a similar challenge? The Optimization Roundtables are your chance to build connections with others that are trying to accomplish a similar goal. Join a roundtable on a topic of your choosing and participate in a discussion on best practices led by an industry expert. Choose from topics such as headline testing, user testing, or a technical deep dive on the Optimizely product."
-            companies: "Segment, Parse.ly, Stratigent"
-            track: "strategy"
-            roles: "marketer productmanager developer executive"
-            speakers:
-              -
-                name: "Peter Reinhardt"
-                job_title: "Co-Founder and CEO"
-                company: "Segment"
-              -
-                name: "Stefan Deeran"
-                job_title: "Director Partnerships"
-                company: "Parse.ly"
-              -
-                name: "Bill Bruno"
-                job_title: "CEO"
-                company: "Stratigent"
       -
         start_time: "2:10"
         title: "Break in Exhibit Hall"
