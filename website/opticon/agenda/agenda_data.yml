@@ -12,6 +12,7 @@ filter_box:
       - "Platform"
       - "Action"
       - "Culture"
+      - "Mobile"
   role_section:
     title: "Role"
     roles:
@@ -38,7 +39,7 @@ days:
             time: "9:00 - 10:00"
             location: "Main Room"
             description: ""
-            track: "strategy platform action culture"
+            track: "strategy platform action culture mobile"
             roles: "marketer developer productmanager executive"
             speakers:
               -
@@ -57,7 +58,7 @@ days:
             location: "Breakout 3"
             description: "More than 80% of app users will download an app once and then eventually delete it. It's never been more important to drive engagement and retention in your mobile app. Come learn from a panel of mobile experts from industry leading companies discuss their success stories on how they build amazing apps and the culture that they developed around mobile app optimization."
             companies: "Credit Sesame, Fareportal, Pinterest, Everyday Health"
-            track: "action"
+            track: "action mobile"
             roles: "marketer productmanager developer"
             speakers:
               -
@@ -138,7 +139,7 @@ days:
             time: "11:30 - 12:15"
             location: "Main Room"
             description: ""
-            track: "strategy platform action culture"
+            track: "strategy platform action culture mobile"
             roles: "marketer developer productmanager executive"
             speakers:
               -
@@ -277,7 +278,7 @@ days:
             location: "Main Room"
             description: "Companies come in all shapes and sizes, and there's no magic formula for a perfect optimization program. While team structure, department alignment, and process may vary, there's one common thread: you're still on the hook to deliver results. So how do you structure your team for success? In this panel discussion, experts from a variety of industries will share strategies, drawbacks, and lessons learned from their experiences building and scaling kick-ass optimization teams. You'll walk away armed with ideas to shape your own dream team."
             companies: "Trulia, Abercrombie & Fitch, Scripps Network Interactive"
-            track: "culture"
+            track: "culture mobile"
             roles: "marketer productmanager executive"
             speakers:
               -
@@ -383,7 +384,7 @@ days:
             location: "Breakout 2"
             description: "Learn how to build a testing program that scales with your business – it's all about collaboraiotn and communication. In this session, you'll learn how to build a unified optimization front across multiple geographies, teams, and functions, and how to collaborate on testing projects when multiple owners are involved, for instance, web and mobile teams."
             companies: "Atlassian, Rue La La"
-            track: "culture"
+            track: "culture mobile"
             roles: "marketer developer executive productmanager"
             speakers:
               -
@@ -453,7 +454,7 @@ days:
             location: "Breakout 4"
             description: "Learn how to integrate Optimizely into your native iOS and Android apps. We'll create an experiment around optimizing and testing an onboarding flow in a mobile app.  Learn how to use the visual editor, as well as advanced testing features for developers. Take home best practices for setting up your mobile experiments."
             companies: "Optimizely"
-            track: "platform"
+            track: "platform mobile"
             roles: "developer"
             speakers:
               -
@@ -495,7 +496,7 @@ days:
             time: "9:00 - 10:00"
             location: "Main Room"
             description: ""
-            track: "strategy platform action culture"
+            track: "strategy platform action culture mobile"
             roles: "marketer developer productmanager executive"
       -
         start_time: "10:00"
@@ -692,7 +693,7 @@ days:
             location: "Breakout 3"
             description: "With over 1.2 million apps in the App Store, it's never been more important to ensure you're delivering experiences that activate and retain your mobile app users. Just thinking about where to begin can be daunting. Do you start by testing your onboarding flow or your conversion funnel? New navigational elements or in-app promotions to drive conversions? The possibilities are endless, which is why it's critical to have a thoughtful approach to developing a testing roadmap that will take your app to the next level. Join us for a deep dive into how Christian Dürr developed a comprehensive testing and optimization program to grow eBay Classifieds' global business."
             companies: "eBay Classifieds Group"
-            track: "strategy"
+            track: "strategy mobile"
             roles: "marketer productmanager"
             speakers:
               -
