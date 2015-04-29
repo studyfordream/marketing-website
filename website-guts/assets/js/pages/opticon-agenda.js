@@ -1,6 +1,7 @@
 var $dayTwo = $('#day-two');
 var dayTwoDistanceFromTop = $dayTwo.offset().top,
-    $window = $(window);
+    $window = $(window),
+    $events = $('.js-event');
 
 /*
    Recalculate the distance from the top
@@ -19,6 +20,14 @@ $('.js-accordian-control').click(function() {
 $('.js-arrow').click(function() {
   $(this).toggleClass('expansion-arrow--open');
   $(this).nextAll('.js-toggle-cont').slideToggle('fast', calculateDayTwoDistanceFromTop);
+});
+
+// Expand all
+$('.js-expand-all').click(function() {
+  $events.each(function(index, item) {
+    $(item).find('.js-arrow').addClass('expansion-arrow--open');
+    $(item).find('.js-toggle-cont').show('fast', calculateDayTwoDistanceFromTop);
+  });
 });
 
 // Override smoothScroll to subtrack 180
@@ -86,7 +95,6 @@ function isSubset(arr1, arr2) {
 }
 
 var $dropdownElems = $('.js-dropdown'),
-    $events = $('.js-event'),
     filterList = [],
     $filterListItem = $('.js-filter-item'),
     $eventsContainers = $('.js-events');
