@@ -99,9 +99,6 @@ module.exports = function(assemble) {
 
       lastLocale = locale;
     }
-    if(file.data.helper_phrases) {
-      delete file.data.helper_phrases;
-    }
 
     next();
   };

@@ -9,7 +9,7 @@ module.exports = function translateGlobalYml(localeCode, globalYml, translations
     var basenameKey = path.basename(fp, path.extname(fp));
     var clone = _.cloneDeep(val);
 
-    o[basenameKey] = objParser.translate(clone, translations[localeCode][fp]);
+    o[basenameKey] = objParser.translate(clone, translations[localeCode]);
     return o;
   }, {});
 

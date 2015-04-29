@@ -40,21 +40,12 @@ module.exports = function (assemble) {
     var filePathData = parseFilePath(file.path);
     var locale = filePathData.locale;
     var dataKey = filePathData.dataKey;
-    var pagePhrases, trYfm, trYml, layoutData;
+    var trYfm, trYml, layoutData;
 
     pageDataClone[locale] = pageDataClone[locale] || {};
     pageDataClone[locale][dataKey] = pageDataClone[locale][dataKey] || {};
     lang[locale] = lang[locale] || {};
     lang[locale][dataKey] = lang[locale][dataKey] || {};
-
-    //parse file contents for tr helper phrases
-    if(file.contents) {
-      pagePhrases = hbsParser.extract(file.contents.toString());
-    }
-
-    var trHelperPhrases = pagePhrases.map(function(phrase) {
-      return phrase.msg;
-    });
 
     //cache the layout data and remove it from the file.data object before translation parsing
     //because layout data will be added to pageDataClone through the plugin
@@ -70,7 +61,11 @@ module.exports = function (assemble) {
     _.merge(pageDataClone[locale][dataKey], trYfm);
 
     trYml = createTranslationDict(pageDataClone[locale][dataKey], locale);
-
+    //parse file contents for tr helper phrases
+    if(file.contents) {
+      // Add extracted phrases as translation key so they will be sent to smartling
+      trYml.TR_hbs_extracted = hbsParser.extract(file.contents.toString());
+    }
     //don't translate partners markdown content
     if(/partners\/(solutions|technology)\//.test(file.path) && trYml.HTML_page_content) {
       delete trYml.HTML_page_content;
@@ -80,11 +75,6 @@ module.exports = function (assemble) {
     //and external yml data
     if(Object.keys(trYml)) {
       lang[locale][dataKey] = trYml;
-    }
-
-    if(trHelperPhrases) {
-      lang[locale][dataKey].TR_helper_phrases = trHelperPhrases;
-      pageDataClone[locale][dataKey].helper_phrases = trHelperPhrases;
     }
 
     if(file.data.modals) {
@@ -111,7 +101,6 @@ module.exports = function (assemble) {
       var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data')(assemble));
       var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
       var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml'));
-      var translateTrHelperPhrases = curryTryCatch(require('./translation-utils/translate-tr-helper-phrases')(assemble));
 
       var translations = resolved[0];
       //this will become the dictionary for pages
@@ -136,13 +125,8 @@ module.exports = function (assemble) {
         var dictKey = locales[locale];
 
         populateSubfolderData(locale, pageDataClone);
-
-        translateSpecialTypes(locale, translations, pageDataClone);
-
-        translatePageData(locale, dictKey, lang, pageDataClone, translations);
-
-        translateTrHelperPhrases(locale, dictKey, pageDataClone, translations);
-
+        translateSpecialTypes(locale, translations[dictKey], pageDataClone);
+        translatePageData(locale, lang, pageDataClone, translations[dictKey]);
       });
 
       //remove translation keys after page translations
@@ -178,6 +162,7 @@ module.exports = function (assemble) {
 
       assemble.set('rootData', pageDataClone[websiteRoot]);
       assemble.set('translated', translated);
+      assemble.set('translations', translations); // Store retrieved from Smartling translations object
       cb();
     })
     .catch(function(error) {

@@ -88,7 +88,7 @@ module.exports = function(assemble) {
         var defers = localeCodes.map(function(code){
           return smartling.fetch(smartlingConfig.URL, code, DICT_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID).then(function(body){
             fs.writeFile('tmp/download/' + code + '-' + DICT_FNAME, body);
-            translations[code] = smartling.parsePOWithContext(body);
+            translations[code] = smartling.parsePO2dict(body);
           });
         });
 
@@ -101,7 +101,7 @@ module.exports = function(assemble) {
       console.log('Server catalog didn\'t change since last upload - using cached dictionaries.');
       localeCodes.map(function(code){
         var body = fs.readFileSync('tmp/download/' + code + '-' + DICT_FNAME, {encoding: 'UTF8'});
-        translations[code] = smartling.parsePOWithContext(body);
+        translations[code] = smartling.parsePO2dict(body);
       });
       yamlDefer.resolve(translations);
     }

@@ -13,7 +13,7 @@ module.exports = function(assemble){
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var websiteRoot = assemble.get('data.websiteRoot');
 
-  return function translatePageData(locale, dictKey, lang, pageDataClone, translations) {
+  return function translatePageData(locale, lang, pageDataClone, translations) {
     _.forEach(pageDataClone[locale], function(val, fp) {
       var parentPath = fp.replace(path.join(subfoldersRoot, locale), websiteRoot);
       var layoutPaths = pageDataClone[locale][fp].layouts;
@@ -22,25 +22,11 @@ module.exports = function(assemble){
         delete pageDataClone[locale][fp].layouts;
       }
 
-      var parentTranslations = translations[dictKey][parentPath];
-      var childTranslations = translations[dictKey][fp];
       var parentLang = lang[websiteRoot][parentPath];
-      var childLang = lang[locale][fp];
-      [parentLang, childLang].forEach(function(langObj) {
-        var helperPhrases;
-        if(langObj) {
-          helperPhrases = langObj.TR_helper_phrases;
-
-          if(helperPhrases) {
-            delete langObj.TR_helper_phrases;
-            langObj.helper_phrases = helperPhrases || [];
-          }
-        }
-      });
-      var parentTrans = objParser.translate(parentLang || {}, parentTranslations);
-      var childTrans = objParser.translate(childLang || {}, childTranslations);
-
-      _.merge(pageDataClone[locale][fp], parentTrans, childTrans);
+      if(parentLang){
+        var trans = objParser.translate(parentLang, translations);
+        _.merge(pageDataClone[locale][fp], trans);
+      }
 
       if(layoutPaths) {
         pageDataClone[locale][fp].layouts = pageDataClone[locale][fp].layouts || {};
@@ -49,7 +35,7 @@ module.exports = function(assemble){
           var langData = lang.layouts[layoutPath];
 
           //only translate data from lang dictionary to avoid translating matching phrases not intedend for translation
-          objParser.translate(langData, translations[dictKey][layoutPath]);
+          objParser.translate(langData, translations);
           _.merge(layoutData, langData);
           //TODO: probably a better way to do this => recreate the layouts object
           pageDataClone[locale][fp].layouts[layoutPath] = layoutData;
