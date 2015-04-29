@@ -117,6 +117,7 @@ function storeModalState(modalType, modalOpen) {
 
 window.optly.mrkt.modal.open = function(modalArgs) {
   var modalType = modalArgs.modalType,
+    modalPosition = modalArgs.position,
     $elm = $elms[modalType],
     modalName = $elm.data('modalName'),
     animInitiated,
@@ -147,9 +148,13 @@ window.optly.mrkt.modal.open = function(modalArgs) {
     storeModalState(modalType, true);
   }
 
-  $('html, body').addClass('modal-open');
-
-  window.scrollTo(0,0);
+  debugger;
+  if (modalPosition &&  !w.optly.mrkt.isMobile()) {
+    $elm.find('.dialog').css('top', modalPosition);
+  } else {
+    $('html, body').addClass('modal-open');
+    window.scrollTo(0,0);
+  }
 
   animInitiated = window.optly.mrkt.anim.enter( $elm );
 
@@ -199,7 +204,7 @@ window.optly.mrkt.modal.close = function(modalArgs) {
   // Set timeout smooths out the scroll top and modal opening
   window.setTimeout(function() {
     //Scroll top if have scrolled within the div
-    window.scrollTo(0,0);
+    //window.scrollTo(0,0);
     $elm.children()[0].scrollTop = 0;
 
     animInitiated = window.optly.mrkt.anim.leave( $elm );
