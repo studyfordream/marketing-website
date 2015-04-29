@@ -1,5 +1,4 @@
 var path = require('path');
-var _ = require('lodash');
 var extendWhile = require('../utils/extend-while');
 
 module.exports = function(assemble) {
@@ -62,23 +61,32 @@ module.exports = function(assemble) {
         extendWhile(file.data, translatedDict);
       }
 
-    } else if ( (isTest || ( file.data.locale && file.data.locale !== websiteRoot ) ) && ( filePathData.isModal || filePathData.isPartial ) ) {
+    } else if ( filePathData.isModal || filePathData.isPartial ) {
       locale = file.data.locale;
       dictKey = locales[locale];
       file.data.dataKey = dataKey;
 
-      translatedDict = translated[dictKey] && translated[dictKey][dataKey];
+      translatedDict = dictKey && translated[dictKey] && translated[dictKey][dataKey];
 
+      //if(/contact_sales_form/.test(file.path)) {
+        //console.log(file.content);
+      //}
       //TODO: for now modals/partials are not locale specific, in future may have locale specific
       //partials that possible overwrite parent partial data
-      if(!file.data.isPpc && translatedDict) {
-        //TODO: helper_phrases were getting mutated for signin_modal and many more properties were being added to arrray
-        //unsure of the source of this mutation
-        file.data = _.merge({}, file.data, translatedDict);
+      if(translatedDict) {
+        if(translatedDict.page_content) {
+          file.content = translatedDict.page_content;
+        }
+
+        extendWhile(file.data, translatedDict);
       }
+
 
     }
 
+      if(/partials/.test(file.path)) {
+        console.log(file.path);
+      }
     //deal with global data
     //this assumes that modals and partials don't access global data
     if(locale !== lastLocale && !file.data.isPpc && !filePathData.isModal && !filePathData.isPartial) {

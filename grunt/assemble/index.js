@@ -230,9 +230,6 @@ module.exports = function (grunt) {
     //order is important here because we want to merge layouts before translating
     //assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
     assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
-    //assemble.preRender(/\/resources\-list\//, function(file, next) {
-      //next();
-    //});
 
     //localize link path after locale is appended in the translate data middleware
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;

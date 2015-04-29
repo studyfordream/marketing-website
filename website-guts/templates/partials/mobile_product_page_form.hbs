@@ -2,13 +2,13 @@
   <div class="row grid-cont">
     <div class="form-grid">
       <label>
-          <span class="email-related error-hide error-right">Required</span>
+        <span class="email-related error-hide error-right">{{tr 'Required'}}</span>
           <input type="email" name="email" placeholder="{{email}}" required>
       </label>
     </div>
     <div class="form-grid">
       <label>
-          <span class="password1-related error-hide error-right">Required</span>
+          <span class="password1-related error-hide error-right">{{tr 'Required'}}</span>
           <input type="password" name="password1" placeholder="{{password}}" required>
       </label>
     </div>
@@ -22,6 +22,6 @@
   <input type="hidden" name="iOS_Interest__c" value="true">
   <input type="hidden" name="Initial_Form_Source__c" value="Create Account - Mobile">
   <div class="options">
-      <p class="error-message error-hide">Please Correct Form Errors</p>
+    <p class="error-message error-hide">{{tr 'Please Correct Form Errors'}}</p>
   </div>
 </form>

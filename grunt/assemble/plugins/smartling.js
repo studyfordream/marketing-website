@@ -86,7 +86,7 @@ module.exports = function (assemble) {
       var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data'));
       var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
       var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml'));
-
+      var translateAssembleViews = curryTryCatch(require('./translation-utils/translate-assemble-views')(assemble));
       var translations = resolved[0];
       //this will become the dictionary for pages
       var translated = {};
@@ -144,6 +144,8 @@ module.exports = function (assemble) {
       });
 
       removeTranslationKeys(globalData);
+
+      translateAssembleViews(translated);
 
       assemble.set('rootData', pageDataClone[websiteRoot]);
       assemble.set('translated', translated);
