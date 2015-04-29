@@ -1,6 +1,7 @@
 var path = require('path');
 var _ = require('lodash');
 var objParser = require('l10n-tools/object-extractor');
+var fixHTMLEscape = require('./fix-html-escape');
 
 /**
  * Function for iterating the completed pageData object and performing translations appropriately
@@ -27,6 +28,7 @@ module.exports = function(assemble){
       //order is important because child keys must overwrite parent
       var combinedYml = _.merge({}, parentLang, childLang);
       var trans = objParser.translate(combinedYml, translations);
+      fixHTMLEscape(trans);
       _.merge(pageDataClone[locale][fp], trans);
 
       if(layoutPaths) {
@@ -37,6 +39,7 @@ module.exports = function(assemble){
 
           //only translate data from lang dictionary to avoid translating matching phrases not intedend for translation
           objParser.translate(langData, translations);
+          fixHTMLEscape(langData);
           _.merge(layoutData, langData);
           //TODO: probably a better way to do this => recreate the layouts object
           pageDataClone[locale][fp].layouts[layoutPath] = layoutData;

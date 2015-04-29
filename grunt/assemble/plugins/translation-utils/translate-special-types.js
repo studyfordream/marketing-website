@@ -1,5 +1,6 @@
 var _ = require('lodash');
 var objParser = require('l10n-tools/object-extractor');
+var fixHTMLEscape = require('./fix-html-escape');
 
 module.exports = function(assemble){
   var lang = assemble.get('lang');
@@ -18,6 +19,7 @@ module.exports = function(assemble){
       var keys = Object.keys(lang[type]);
       var translatedTypeObj = keys.reduce(function(memo, fp) {
         memo[fp] = objParser.translate(lang[type][fp], translations);
+        fixHTMLEscape(memo[fp]);
         return memo;
       }, {});
       _.merge(pageDataClone[locale], translatedTypeObj);
