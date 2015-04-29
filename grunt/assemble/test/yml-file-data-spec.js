@@ -5,7 +5,6 @@
 
  describe('transforms', function() {
    var instance = null;
-   var pagesNamespace = null;
 
    beforeEach(function() {
      instance = assemble.init();

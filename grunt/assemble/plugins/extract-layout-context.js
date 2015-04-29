@@ -1,3 +1,5 @@
+/* jshint ignore:start */
+
 var path = require('path');
 var _ = require('lodash');
 var createStack = require('layout-stack');
@@ -35,7 +37,6 @@ module.exports = function(assemble) {
       'dest',
       'layout'
     ];
-    /* jshint ignore:start */
     while (name = stack.shift()) {
       //get the dictionary key represented by the file path
       page = generateKey(layouts[name].src.path);
@@ -54,7 +55,6 @@ module.exports = function(assemble) {
       }
 
     }
-    /* jshint ignore:end */
 
     if(Object.keys(data).length) {
       file.data.layouts = data;
@@ -63,3 +63,4 @@ module.exports = function(assemble) {
     cb();
   });
 };
+/* jshint ignore:end */

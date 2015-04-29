@@ -1,6 +1,5 @@
 var path = require('path');
 var _ = require('lodash');
-var objParser = require('l10n-tools/object-extractor');
 var extendWhile = require('../utils/extend-while');
 
 module.exports = function(assemble) {
@@ -12,18 +11,15 @@ module.exports = function(assemble) {
   var isTest = assemble.get('env') === 'test';
   var lastLocale;
 
-  var lastLength, log = true;
   return function mergeTranslatedData (file, next) {
-    var lang = assemble.get('lang');
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
     var rootData = assemble.get('rootData');
     var translated = assemble.get('translated');
-    var dicts = assemble.get('dicts');
     var filePathData = parseFilePath(file.path);
     var locale = isTest ? 'de' : filePathData.locale;
     var dataKey = filePathData.dataKey;
     var dictKey = locales[locale];
-    var mergedDict, parentKey, translatedDict, fileDataClone, layoutKeys;
+    var translatedDict, fileDataClone;
 
     removeTranslationKeys(file.data);
 

@@ -4,6 +4,7 @@ module.exports = {
     curly: true,
     eqeqeq: true,
     indent: 4,
+    unused: 'vars',
     latedef: true,
     noempty: true,
     nonbsp: true,
@@ -14,7 +15,6 @@ module.exports = {
   test: {
     options: {
       browser: true,
-      unused: true,
       node: true,
       globals: {
         mocha: false,
@@ -37,7 +37,6 @@ module.exports = {
   clientProd: {
     options: {
       browser: true,
-      unused: true,
       globals: {
         jQuery: false,
         moment: false,

@@ -1,14 +1,8 @@
-var extend = require('extend-shallow');
 var _ = require('lodash');
 var path = require('path');
 var removeTranslationKeys = require('../utils/remove-translation-keys.js');
 
 module.exports = function(assemble) {
-  function filterTags(arr) {
-    return arr.filter(function(tag) {
-      return !!tag;
-    });
-  }
   //sets a key on the assemble instance equal to the collection name
   //this object contains keys of the dirname using dirnameKey rename key function
   //and then the collection is accessed in the template using the collection

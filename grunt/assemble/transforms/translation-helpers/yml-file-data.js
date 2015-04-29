@@ -1,5 +1,4 @@
 var path = require('path');
-var extend = require('extend-shallow');
 var _ = require('lodash');
 var Plasma = require('plasma');
 
@@ -36,12 +35,12 @@ module.exports = function(assemble){
     //plasma overwrites the same keys data so this will extend it
     if(iterator > 0) {
       data = Object.keys(data).reduce(function(o, key) {
-        var matched, re;
+        var matched;
         if(lastKey && key.indexOf('~') !== -1) {
           matched = key.split('~')[0];
 
           if( matched === lastKey.split('~')[0] ) {
-            extend(o[matched], data[key]);
+            _.extend(o[matched], data[key]);
             delete data[key];
           }
 

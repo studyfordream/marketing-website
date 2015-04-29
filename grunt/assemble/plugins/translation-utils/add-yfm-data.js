@@ -1,10 +1,3 @@
-var _ = require('lodash');
-//var ignoreKeys = [
-  //'src',
-  //'dest',
-  //'layout'
-//];
-
 /**
  * pageDataMap creates a mirror or file data YFM
  * {

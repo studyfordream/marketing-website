@@ -7,7 +7,6 @@ var splitKey = require('./split-key');
 //when putting data back in must recognize arrays and sub out strings in objects accordingly
 module.exports = function (assemble) {
   var locales = assemble.get('data.locales');
-  var generateKey = require('./generate-key');
 
   //array will only be translated if key defining the array has a TR or MD flag
   //otherwise keys like layout_body_class or src containing arrays will be put into
@@ -51,10 +50,6 @@ module.exports = function (assemble) {
     }
   }
 
-  function trimNewLine(val) {
-    return val.replace(/\s\S*$/, '');
-  }
-
   var createDictionary = function createDictionary(fileData, locale) {
     var linkPath = assemble.get('data.linkPath');
     var data = fileData.data || fileData;
@@ -78,9 +73,7 @@ module.exports = function (assemble) {
       var split = splitKey(key);
       var prefix = split[0];
       var suffix = split[1];
-      var val;
-      var recursed;
-      var pageContent;
+      var val, recursed;
       var isPageContent = translatePageContent(key, split, fileData, marked);
 
       if( translationKeys.indexOf(prefix) !== -1 && isPageContent ) {

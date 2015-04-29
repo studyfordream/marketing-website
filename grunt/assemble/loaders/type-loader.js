@@ -1,7 +1,3 @@
-var fs = require('fs');
-var path = require('path');
-var globby = require('globby');
-var matter = require('gray-matter');
 var _ = require('lodash');
 
 module.exports = function (assemble) {

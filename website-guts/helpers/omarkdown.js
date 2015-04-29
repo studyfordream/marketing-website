@@ -1,5 +1,4 @@
 var marked = require('optimizely-marked');
-var extend = require('extend-shallow');
 
 module.exports = function omarkdown (options)  {
   marked.setOptions({

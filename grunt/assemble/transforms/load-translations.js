@@ -12,14 +12,14 @@ var extend = require('extend-shallow');
 //method scopes page data from YML file in same directory onto the `lang` object
 //must remember to account for YML data that is intended to be global
 module.exports = function translationTransform (assemble, args) {
-  var lang = assemble.get('lang') || {};
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var pageData = assemble.get('pageData') || {};
   var translationType = args[0];
   var patterns = args[2];
   var locale = args[3];
   var processYMLfile = require('./translation-helpers/yml-file-data')(assemble);
-  var data, parsedTranslations, root;
+  var data;
+
   patterns = Array.isArray(patterns) ? patterns : [patterns];
 
   if( /page/.test(translationType) ) {

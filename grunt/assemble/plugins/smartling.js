@@ -1,15 +1,9 @@
 'use strict';
 
-var path = require('path');
-var fs = require('fs');
 var _ = require('lodash');
-var extend = require('extend-shallow');
 var through = require('through2');
 var removeTranslationKeys = require('../utils/remove-translation-keys');
-var extendWhile = require('../utils/extend-while');
-var generateKey = require('../utils/generate-key');
 var hbsParser = require('l10n-tools/hbs-parser');
-var objParser = require('l10n-tools/object-extractor');
 
 module.exports = function (assemble) {
   var createTranslationDict = require('../utils/create-dictionary')(assemble);
@@ -17,20 +11,11 @@ module.exports = function (assemble) {
   var getGlobalYml = require('./translation-utils/get-global-yml');
   var globalData = assemble.get('data');
   var globalYml = getGlobalYml(globalData);
-  var env = assemble.get('env');
   var lang = assemble.get('lang') || {};
   var pageData = assemble.get('pageData');
   var pageDataClone = _.cloneDeep(pageData);
-  var environment = assemble.option('environment');
-  var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var websiteRoot = assemble.get('data.websiteRoot');
-  var websiteGuts = assemble.get('data.websiteGuts');
   var locales = assemble.get('data.locales');
-  var localeCodes = Object.keys(locales).map(function(subfolder) {
-    return locales[subfolder];
-  });
-  var isTest = env === 'test';
-  var runTranslations = true || isTest || env === 'smartling-staging-deploy';
 
   //add the global yml keys flagged for translation to the lang object to be parsed
   //and sent to smartling
@@ -98,7 +83,7 @@ module.exports = function (assemble) {
       var populateSubfolderData = curryTryCatch(require('./translation-utils/populate-subfolder-data')(assemble));
       var translateSpecialTypes = curryTryCatch(require('./translation-utils/translate-special-types')(assemble));
       var translatePageData = curryTryCatch(require('./translation-utils/translate-page-data')(assemble));
-      var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data')(assemble));
+      var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data'));
       var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
       var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml'));
 

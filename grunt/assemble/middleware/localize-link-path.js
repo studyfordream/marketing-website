@@ -1,4 +1,3 @@
-var path = require('path');
 //adjust the link paths to include the subfolder name for locales
 module.exports = function(assemble) {
   var websiteRoot = assemble.get('data.websiteRoot');

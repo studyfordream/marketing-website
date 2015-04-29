@@ -1,17 +1,14 @@
 'use strict';
 
 var ext = require('gulp-extname');
-var through = require('through2');
 var chalk = require('chalk');
 var path = require('path');
-var extend = require('extend-shallow');
-var createStack = require('layout-stack');
 var customSubfolders = require('./types/subfolders');
 var _ = require('lodash');
 
 module.exports = function (grunt) {
 
-  grunt.registerTask('assemble', 'Assemble', function (target, target2) {
+  grunt.registerTask('assemble', 'Assemble', function (target) {
     var done = this.async();
     var assemble = require('assemble');
     var localizeLinkPath = require('./middleware/localize-link-path');
@@ -25,13 +22,6 @@ module.exports = function (grunt) {
     var typeLoader = require('./loaders/type-loader');
     var push = require('assemble-push')(assemble);
     var buildInitialized = false;
-    var assembleTasks = [
-      'om-pages',
-      'prep-smartling',
-      'partners',
-      'pages',
-      'subfolders'
-    ];
 
     var normalizeSrc = function normalizeSrc (cwd, sources) {
       sources = Array.isArray(sources) ? sources : [sources];
@@ -55,7 +45,6 @@ module.exports = function (grunt) {
     var renderTypeHelper = require('./helpers/render-type-helper')(assemble, options.websiteRoot);
     var generateKey = require('./utils/generate-key');
     var renameKey = assemble.option('renameKey');
-    var layoutPath = options.layoutDir.substring(0, options.layoutDir.indexOf('*') - 1);
     var ppcKey = options.ppcKey;
 
     if(target) {
@@ -355,14 +344,6 @@ module.exports = function (grunt) {
         });
     };
 
-    var ignore = [
-      'src',
-      'dest',
-      'assets',
-      'public',
-      '_assets'
-    ];
-
     var buildPages = function buildPages (reload) {
         var start = process.hrtime();
 
@@ -386,19 +367,11 @@ module.exports = function (grunt) {
           })
           .on('data', function(file) {
              logData(file.path, 'pages');
-             var data = Object.keys(file.data).reduce(function(o, key) {
-               if(ignore.indexOf(key) === -1) {
-                 o[key] = file.data[key];
-               }
-               return o;
-             }, {});
-              //console.log(Object.keys(data).length);
           })
           .on('end', function () {
             var end = process.hrtime(start);
             console.log('finished rendering pages', end);
             assemble.set('lastRunTime', new Date());
-            // console.log(assemble.get('data'));
           });
     };
 
@@ -411,13 +384,6 @@ module.exports = function (grunt) {
           .pipe(assemble.dest(path.join(files.dest, 'partners')))
           .on('data', function(file) {
              logData(file.path, 'partners');
-             var data = Object.keys(file.data).reduce(function(o, key) {
-                if(ignore.indexOf(key) === -1) {
-                  o[key] = file.data[key];
-                }
-                return o;
-             }, {});
-             //console.log(Object.keys(data));
           })
           .on('error', function (err) {
             console.log('dest error', err);
@@ -454,12 +420,6 @@ module.exports = function (grunt) {
       .pipe(assemble.dest(files.dest))
       .on('data', function(file) {
          logData(file.path, 'subfolders');
-         var data = Object.keys(file.data).reduce(function(o, key) {
-            if(ignore.indexOf(key) === -1) {
-              o[key] = file.data[key];
-            }
-            return o;
-         }, {});
       })
       .on('error', function (err) {
         console.log('dest error', err);

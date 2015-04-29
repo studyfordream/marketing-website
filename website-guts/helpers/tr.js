@@ -1,6 +1,6 @@
 var tr = require('l10n-tr');
 
-module.exports = function _tr(key) {
+module.exports = function _tr() {
   var app = this.app;
   var dict;
   if(app){

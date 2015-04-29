@@ -1,7 +1,6 @@
 'use strict';
 
 var path = require('path');
-var fs = require('fs');
 var _ = require('lodash');
 /**
  * Use to parse info from filepath such as what type of file object it is
@@ -25,7 +24,6 @@ module.exports = function (assemble) {
   var generateKey = require('./generate-key');
 
   return function (fp) {
-    var pageData = assemble.get('pageData');
     var subfoldersRoot = assemble.get('data.subfoldersRoot');
     var data = {
       dataKey: generateKey(fp)

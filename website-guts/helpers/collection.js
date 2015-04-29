@@ -1,8 +1,6 @@
 var _ = require('lodash');
 var path = require('path');
 var generateKey = require('../../grunt/assemble/utils/generate-key');
-var objParser = require('l10n-tools/object-extractor');
-var removeTranslationKeys = require('../../grunt/assemble/utils/remove-translation-keys');
 
 module.exports = function collection (name, options) {
   //get the collection object off of the assemble instance
@@ -18,7 +16,6 @@ module.exports = function collection (name, options) {
   var dictKey = locale && locales[locale];
   var col = app.get(name);
   var collectionData = Object.keys(col).map(function (key) {
-    var translationKey;
     var data = col[key];
     var rootKey = generateKey(data.src.path);
     if(locale) {

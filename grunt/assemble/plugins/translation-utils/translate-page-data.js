@@ -22,11 +22,12 @@ module.exports = function(assemble){
         delete pageDataClone[locale][fp].layouts;
       }
 
-      var parentLang = lang[websiteRoot][parentPath];
-      if(parentLang){
-        var trans = objParser.translate(parentLang, translations);
-        _.merge(pageDataClone[locale][fp], trans);
-      }
+      var parentLang = (lang[websiteRoot] && lang[websiteRoot][parentPath]) || {};
+      var childLang = (lang[locale] && lang[locale][fp]) || {};
+      //order is important because child keys must overwrite parent
+      var combinedYml = _.merge({}, parentLang, childLang);
+      var trans = objParser.translate(combinedYml, translations);
+      _.merge(pageDataClone[locale][fp], trans);
 
       if(layoutPaths) {
         pageDataClone[locale][fp].layouts = pageDataClone[locale][fp].layouts || {};
