@@ -21,6 +21,7 @@ module.exports = function (grunt) {
     var mergeTranslatedData = require('./middleware/merge-translated-data');
     var resourceListType = require('./plugins/store-resource-list-types');
     var sendToSmartling = require('./plugins/smartling');
+    var addSeoTitle = require('./plugins/seo-title');
     var typeLoader = require('./loaders/type-loader');
     var push = require('assemble-push')(assemble);
     var buildInitialized = false;
@@ -289,6 +290,7 @@ module.exports = function (grunt) {
 
       return assemble.src(hbsPaths, { since: (assemble.get('lastRunTime')?new Date(assemble.get('lastRunTime')):null)})
         .pipe(extractLayoutContext(assemble))
+        .pipe(addSeoTitle())
         .pipe(sendToSmartling(assemble))
         .pipe(resourceListType(assemble))
         .on('error', function (err) {
@@ -307,6 +309,7 @@ module.exports = function (grunt) {
         return assemble.src([omSrc])
         .pipe(extractLayoutContext(assemble))
         .pipe(mergeLayoutContext())
+        .pipe(addSeoTitle())
         .pipe(ext())
         .pipe(assemble.dest(path.join(files.dest, ppcKey)))
         .on('data', function(file) {

@@ -268,7 +268,8 @@ window.optly.mrkt.services.xhr = {
               parsedRes = JSON.parse(data.responseText);
             } catch (error) {
                 errorMessage = error + ', Response Text: ' + data.responseText + ', Status Text: ' + data.statusText + ', Status: ' + data.status;
-                if(!isExpEndpoint) {
+                //if it's staging don't open the error modal because cookie is not being dropped
+                if( !isExpEndpoint && !window.customApiDomain) {
                   window.optly.mrkt.errorQ.push([
                     'logError',
                     {

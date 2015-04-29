@@ -35,16 +35,16 @@ sponsor_levels:
     class: "silver"
     sponsor_list:
       -
-        display_url: "www.widerfunnel.com"
-        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/wider_funnel_logo.png"
-        site_link: "http://www.widerfunnel.com/"
-        description: "WiderFunnel is a conversion optimization agency focused solely on improving results for our clients. We layer strategy and full-service A/B testing on top of your website and mobile apps. With 7 years of conversion optimization experience, and thousands of tests, we know what lifts profits. We bring the very best ideas, science, structure and methods for continuous improvement. We have worked with hundreds of clients from Fortune 500 to mid-size owner-operators. No matter the industry, the WiderFunnel System is proven to lift online revenue."
-        class: "silver"
-      -
         display_url: "www.funnelenvy.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/funnel_envy_logo.png"
         site_link: "http://www.funnelenvy.com/"
         description: "We’re the bridge between engineering and marketing. At FunnelEnvy we turn traffic into customers with strategic business alignment, an agile process and rapid execution. As a Three Star Optimizely Solutions Partner we manage the full CRO process from strategy through execution. Our technical focus lets us move faster with minimal impact to your developers. And when you need the complicated tests, real-time personalization and integration or deeper data analysis we’re ready to handle it."
+        class: "silver"
+      -
+        display_url: "teamroboboogie.com"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/roboboogie_logo.jpeg"
+        site_link: "http://teamroboboogie.com"
+        description: "Roboboogie partners closely with brands to improve their conversion rates, nurture brand advocacy and increase customer value. We combine strategic design skills with insightful data analytics to provide highly effective digital customer experience optimization programs. We go beyond CRO to get to know the detailed desires of the customers behind the data. A/B testing is the science that backs our intuitions. Optimizely is our weapon of choice. We are proven digital marketers, insightful data analysts, stunning web designers and masters of user experience design – optimization wizards passionate about creating memorable experiences that get results."
         class: "silver"
       -
         display_url: "www.roidna.com"
@@ -59,26 +59,26 @@ sponsor_levels:
         description: "Segment is on a mission to make using customer data effortless. As a single hub for customer data, Segment collects the data in one place, then transforms and routes it wherever you want: to more than 115 third-party analytics and marketing tools, to internal systems, and to a hostedSQL database."
         class: "silver"
       -
-        display_url: "teamroboboogie.com"
-        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/roboboogie_logo.jpeg"
-        site_link: "http://teamroboboogie.com"
-        description: "Roboboogie partners closely with brands to improve their conversion rates, nurture brand advocacy and increase customer value. We combine strategic design skills with insightful data analytics to provide highly effective digital customer experience optimization programs. We go beyond CRO to get to know the detailed desires of the customers behind the data. A/B testing is the science that backs our intuitions. Optimizely is our weapon of choice. We are proven digital marketers, insightful data analysts, stunning web designers and masters of user experience design – optimization wizards passionate about creating memorable experiences that get results."
+        display_url: "www.widerfunnel.com"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/wider_funnel_logo.png"
+        site_link: "http://www.widerfunnel.com/"
+        description: "WiderFunnel is a conversion optimization agency focused solely on improving results for our clients. We layer strategy and full-service A/B testing on top of your website and mobile apps. With 7 years of conversion optimization experience, and thousands of tests, we know what lifts profits. We bring the very best ideas, science, structure and methods for continuous improvement. We have worked with hundreds of clients from Fortune 500 to mid-size owner-operators. No matter the industry, the WiderFunnel System is proven to lift online revenue."
         class: "silver"
   -
     title: "Bronze Sponsors"
     class: "bronze"
     sponsor_list:
       -
+        display_url: "www.clicktale.com"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clicktale_logo.svg"
+        site_link: "http://www.clicktale.com/"
+        description: "ClickTale®, the enterprise leader in Digital Customer Experience, enables businesses to maximize revenues by optimizing the way people experience the Web and Mobile. ClickTale’s comprehensive solution features the industry’s most innovative heatmap technology, playback of individual-user browsing sessions and Customer Experience Consultants dedicated to your success. ClickTale effortlessly integrates with web analytics, testing tools and more."
+        class: "bronze"
+      -
         display_url: "www.dialogtech.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/dialogtech_transition_logo.png"
         site_link: "http://www.dialogtech.com/"
         description: " DialogTech, formerly known as Ifbyphone, is the market leader in call analytics and automation. DialogTech provides marketing, sales, and support professionals with a single platform that enables transparency and control over every conversation, so companies can optimize lead generation, acquire new business faster, and increase customer loyalty."
-        class: "bronze"
-      -
-        display_url: "sitetuners.com"
-        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/sitetuners_logo.png"
-        site_link: "http://sitetuners.com/"
-        description: "SiteTuners is the perfect complement to your Optimizely installation, providing A/B test strategy, conversion-centric redesign services and ongoing optimization training and support to  internal CRO teams.  Since 2002, SiteTuners has helped more than 1,250 companies worldwide  to improve the performance of their online marketing programs. Talk to us about how we can do  the same for you."
         class: "bronze"
       -
         display_url: "www.getlytics.com"
@@ -87,22 +87,22 @@ sponsor_levels:
         description: "Lytics connects email, social, web and mobile data to discover audience segments that improve the targeting of your Optimizely experiments. Combine Optimizely and Lytics to take web personalization to new levels. Run targeted experiments to convert anonymous visitors or continue delighting your loyal users. Better personalized marketing awaits. Start today: <a href='http://www.getlytics.com/tour/optimizely?utm_source=opticon&utm_medium=sponsors&utm_campaign=conferences'>www.getlytics.com/tour/optimizely</a>"
         class: "bronze"
       -
+        display_url: "www.parsely.com"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/parsely_logo.png"
+        site_link: "http://www.parsely.com/"
+        description: "Parse.ly partners with digital media publishers to provide clear audience insights through an intuitive analytics platform. Thousand of writers, editors, site managers, technologists and analysts already use Parse.ly to understand what content draws in website visitors, and why. Using our powerful dashboards and APIs, customers build successful digital strategies that allow them to grow and engage a loyal audience.  See how media companies, like Business Insider, the Atlantic, Upworthy and Conde Nast, bring clarity to their content and audience through analytics at <a href='http://www.parsely.com/'>www.parsely.com</a>"
+        class: "bronze"
+      -
         display_url: "robotsandpencils.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/robots_and_pencils_logo.png"
         site_link: "https://robotsandpencils.com/"
         description: "<a href='https://robotsandpencils.com/'>Robots and Pencils</a> is a mobile strategy and app development company known for its top-ranking consumer apps, transformative enterprise apps and mobile-first learning platforms. Launched in 2009, Robots and Pencils has since created more than 250 apps used by 77 million people world wide, and reimagined mobile development with the creation of <a href='http://pencilcase.io/'>PencilCase</a>."
         class: "bronze"
       -
-        display_url: "www.verticalnerve.com"
-        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/vertical_nerve_logo.png"
-        site_link: "http://www.verticalnerve.com/"
-        description: "Vertical Nerve is a digital optimization agency focused on producing measurable results. We work with clients and implement programs specifically designed to acquire more traffic and convert more sales and leads. We draw from over 15 years of success helping businesses and organization realize more ROI from their digital channels."
-        class: "bronze"
-      -
-        display_url: "www.clicktale.com"
-        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clicktale_logo.svg"
-        site_link: "http://www.clicktale.com/"
-        description: "ClickTale®, the enterprise leader in Digital Customer Experience, enables businesses to maximize revenues by optimizing the way people experience the Web and Mobile. ClickTale’s comprehensive solution features the industry’s most innovative heatmap technology, playback of individual-user browsing sessions and Customer Experience Consultants dedicated to your success. ClickTale effortlessly integrates with web analytics, testing tools and more."
+        display_url: "sitetuners.com"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/sitetuners_logo.png"
+        site_link: "http://sitetuners.com/"
+        description: "SiteTuners is the perfect complement to your Optimizely installation, providing A/B test strategy, conversion-centric redesign services and ongoing optimization training and support to  internal CRO teams.  Since 2002, SiteTuners has helped more than 1,250 companies worldwide  to improve the performance of their online marketing programs. Talk to us about how we can do  the same for you."
         class: "bronze"
       -
         display_url: "www.usertesting.com"
@@ -111,8 +111,8 @@ sponsor_levels:
         description: "UserTesting is the fastest and most advanced user experience testing platform on the market. The company gives marketers, product managers, and UX designers on-demand access to people in their target audience who deliver audio, video, and written feedback on websites, mobile apps, prototypes, and even physical products and locations."
         class: "bronze"
       -
-        display_url: "www.parsely.com"
-        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/parsely_logo.png"
-        site_link: "http://www.parsely.com/"
-        description: "Parse.ly partners with digital media publishers to provide clear audience insights through an intuitive analytics platform. Thousand of writers, editors, site managers, technologists and analysts already use Parse.ly to understand what content draws in website visitors, and why. Using our powerful dashboards and APIs, customers build successful digital strategies that allow them to grow and engage a loyal audience.  See how media companies, like Business Insider, the Atlantic, Upworthy and Conde Nast, bring clarity to their content and audience through analytics at <a href='http://www.parsely.com/'>www.parsely.com</a>"
+        display_url: "www.verticalnerve.com"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/vertical_nerve_logo.png"
+        site_link: "http://www.verticalnerve.com/"
+        description: "Vertical Nerve is a digital optimization agency focused on producing measurable results. We work with clients and implement programs specifically designed to acquire more traffic and convert more sales and leads. We draw from over 15 years of success helping businesses and organization realize more ROI from their digital channels."
         class: "bronze"
