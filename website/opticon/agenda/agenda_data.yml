@@ -610,6 +610,10 @@ days:
                 name: "Heidi Bullock"
                 job_title: "VP of Demand Generation"
                 company: "Marketo"
+              -
+                name: "Moderated by: Jessie Becker"
+                job_title: "CMO"
+                company: "Optimizely"
           -
             title: "Travel, Testing, and Personalization in the 21st Century"
             time: "11:25 - 12:10"
