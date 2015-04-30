@@ -161,10 +161,6 @@ days:
             roles: "marketer productmanager"
             speakers:
               -
-                name: "Kyle Rush"
-                job_title: "Head of Optimization"
-                company: "Optimizely"
-              -
                 name: "Amanda Swan"
                 job_title: "Community Manager"
                 company: "Optimizely"
@@ -360,7 +356,7 @@ days:
             title: "The Power of Empathy in Driving Conversion"
             time: "3:40 - 4:25"
             location: "Breakout 3"
-            description: "Do your digital experiences convey your unique value proposition? What about creating customer delight with humor and wit? Learn how to cut through the noise and create meaningful audience connections that drive conversions." 
+            description: "Do your digital experiences convey your unique value proposition? What about creating customer delight with humor and wit? Learn how to cut through the noise and create meaningful audience connections that drive conversions."
             companies: "FunnyBiz, Elevated"
             track: "strategy"
             roles: "marketer productmanager"
@@ -377,6 +373,10 @@ days:
                 name: "Talia Wolf"
                 job_title: "CEO and Founder"
                 company: "Conversioner"
+              -
+                name: "Moderated by: Cara Harshman"
+                job_title: "Content Marketing Manager"
+                company: "Optimizely"
           -
             title: "Collaborating to Scale: How to Spread Optimization Across your Org and Keep Things from Getting Messy"
             time: "3:40 - 4:25"
@@ -477,6 +477,14 @@ days:
                 name: "Matthew Vandewouwer"
                 job_title: "Marketing Manager"
                 company: "j2 Global Communications"
+              -
+                name: "Matty Wishnow"
+                job_title: "Founder & CEO"
+                company: "Clearhead"
+              -
+                name: "Steve Petersen"
+                job_title: "Senior Website Marketing Coordinator"
+                company: "Western Governors University"
       -
         start_time: "5:30"
         title: "Opticon Bash"
@@ -581,6 +589,10 @@ days:
                 name: "Tyler Bullen"
                 job_title: "Personalization Program Manager"
                 company: "The Clymb"
+              -
+                name: "Catherine Pao"
+                job_title: "Growth Product Manager"
+                company: "Blue Apron"
           -
             title: "Building the SaaS Growth Engine"
             time: "11:25 - 12:10"
@@ -598,6 +610,10 @@ days:
                 name: "Heidi Bullock"
                 job_title: "VP of Demand Generation"
                 company: "Marketo"
+              -
+                name: "Moderated by: Jessie Becker"
+                job_title: "CMO"
+                company: "Optimizely"
           -
             title: "Travel, Testing, and Personalization in the 21st Century"
             time: "11:25 - 12:10"
