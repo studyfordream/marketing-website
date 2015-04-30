@@ -1,109 +1,64 @@
-var path = require('path');
 var extendWhile = require('../utils/extend-while');
 
 module.exports = function(assemble) {
-  //var mergeTranslated = require('../utils/merge-tranlated-dictionary');
-  var parseFilePath = require('../utils/parse-file-path')(assemble);
   var websiteRoot = assemble.get('data.websiteRoot');
+  var parseFilePath = require('../utils/parse-file-path')(assemble);
   var locales = assemble.get('data.locales');
   var removeTranslationKeys = require('../utils/remove-translation-keys');
-  var isTest = assemble.get('env') === 'test';
   var lastLocale;
 
   return function mergeTranslatedData (file, next) {
-    var subfoldersRoot = assemble.get('data.subfoldersRoot');
     var rootData = assemble.get('rootData');
     var translated = assemble.get('translated');
     var filePathData = parseFilePath(file.path);
-    var locale = isTest ? 'de' : filePathData.locale;
+    var locale = filePathData.locale;
     var dataKey = filePathData.dataKey;
     var dictKey = locales[locale];
-    var translatedDict, fileDataClone;
+    var data;
 
     removeTranslationKeys(file.data);
 
-    if(file.data.isPpc) {
-      return next();
-    }
+    if(!file.data.isPpc) {
 
-    //extend the file with the external YML content
-    if(filePathData.isRoot && !isTest && !file.data.isPpc) {
-      //extend the local yml data to the page
-      fileDataClone = rootData[dataKey];
+      //extend the file with the external YML content
+      if(filePathData.isRoot) {
+        file.data.locale = websiteRoot;
+        //extend the local yml data to the page
+        data = rootData[dataKey];
+      } else if(filePathData.isSubfolder) {
+        //set the locale on the page context for modal|partial translation
+        file.data.locale = locale;
+        file.data.dataKey = dataKey;
+        data = translated[dictKey] && translated[dictKey][dataKey];
+      }
 
-      if(fileDataClone) {
-
+      //extend the file data with layouts and translations
+      if(data) {
         //TODO: figure out how to do this transform earlier
-        if(fileDataClone.page_content) {
-          file.content = fileDataClone.page_content;
+        if(data.page_content) {
+          file.content = data.page_content;
+        }
+        extendWhile(file.data, data);
+      }
+
+      //deal with global data
+      //this assumes that modals and partials don't access global data
+      if(locale !== lastLocale && !filePathData.isModal && !filePathData.isPartial) {
+        var globalData = assemble.get('data');
+
+        if(filePathData.isSubfolder) {
+          Object.keys(globalData).forEach(function(key) {
+            if(/global\_/.test(key)) {
+              //intentionally mutate assemble.cache.data
+              globalData[key] = translated[dictKey].global[key];
+            }
+          });
         }
 
-        extendWhile(file.data, fileDataClone);
+        lastLocale = locale;
       }
 
-    } else if(filePathData.isSubfolder || ( filePathData.isRoot && isTest && !file.data.isPpc )) {
-      if(isTest) {
-        dataKey = dataKey.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
-      }
-
-      //set the locale on the page context for modal|partial translation
-      file.data.locale = locale;
-      file.data.dataKey = dataKey;
-      translatedDict = translated[dictKey] && translated[dictKey][dataKey];
-
-      if(translatedDict) {
-
-        //TODO: figure out how to do this transform earlier
-        if(translatedDict.page_content) {
-          file.content = translatedDict.page_content;
-        }
-
-        extendWhile(file.data, translatedDict);
-      }
-
-    } else if ( filePathData.isModal || filePathData.isPartial ) {
-      locale = file.data.locale;
-      dictKey = locales[locale];
-      file.data.dataKey = dataKey;
-
-      translatedDict = dictKey && translated[dictKey] && translated[dictKey][dataKey];
-
-      //if(/contact_sales_form/.test(file.path)) {
-        //console.log(file.content);
-      //}
-      //TODO: for now modals/partials are not locale specific, in future may have locale specific
-      //partials that possible overwrite parent partial data
-      if(translatedDict) {
-        if(translatedDict.page_content) {
-          file.content = translatedDict.page_content;
-        }
-
-        extendWhile(file.data, translatedDict);
-      }
-
-
-    }
-
-      if(/partials/.test(file.path)) {
-        console.log(file.path);
-      }
-    //deal with global data
-    //this assumes that modals and partials don't access global data
-    if(locale !== lastLocale && !file.data.isPpc && !filePathData.isModal && !filePathData.isPartial) {
-      var globalData = assemble.get('data');
-
-      if(isTest || filePathData.isSubfolder) {
-        Object.keys(globalData).forEach(function(key) {
-          if(/global\_/.test(key)) {
-            //intentionally mutate assemble.cache.data
-            globalData[key] = translated[dictKey].global[key];
-          }
-        });
-      }
-
-      lastLocale = locale;
-    }
-
+    }//end !ppc if
     next();
   };
 };

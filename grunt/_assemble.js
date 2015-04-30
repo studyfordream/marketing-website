@@ -24,9 +24,9 @@ var config = {
     subfoldersRoot: 'subfolders',
     locales: {
       'de': 'de_DE',
-      //'fr': 'fr_FR',
-      //'es': 'es_ES',
-      //'jp': 'ja_JP'
+      'fr': 'fr_FR',
+      'es': 'es_ES',
+      'jp': 'ja_JP'
     },
     ppcKey: ppcKey
   },
@@ -37,15 +37,18 @@ var config = {
     files: [
       {
         src: 'templates/components/modals/**/*.hbs',
-        dest: '<%= config.guts %>/templates/partials/',
-        cwd: '<%= config.guts %>/',
-        expand: true,
-        filter: 'isFile',
-        flatten: true,
-        rename: function(dest, src) {
-          var split = src.split('.');
-          return dest + split[0] + '_compiled';
-        }
+        cwd: '<%= config.guts %>/'
+      }
+    ]
+  },
+  l10nPartials: {
+    options: {
+      ext: '.hbs'
+    },
+    files: [
+      {
+        src: 'templates/l10nPartials/**/*.hbs',
+        cwd: '<%= config.guts %>/'
       }
     ]
   },

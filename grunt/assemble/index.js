@@ -11,6 +11,16 @@ module.exports = function (grunt) {
   grunt.registerTask('assemble', 'Assemble', function (target) {
     var done = this.async();
     var assemble = require('assemble');
+
+    //set the global data from external YML & env config
+    //special key for YML data for translation dictionary retrieval
+    var config = grunt.config.get('_assemble'); // old assemble config
+    var options = config.options; // global options
+    var loadGlobalData = require('./utils/load-global-data')(assemble);
+
+    loadGlobalData(options);
+
+    var renderTypeHelper = require('./helpers/render-type-helper')(assemble);
     var localizeLinkPath = require('./middleware/localize-link-path');
     var extractLayoutContext = require('./plugins/extract-layout-context');
     var mergeLayoutContext = require('./plugins/merge-layout-context');
@@ -33,8 +43,6 @@ module.exports = function (grunt) {
       });
     };
 
-    var config = grunt.config.get('_assemble'); // old assemble config
-    var options = config.options; // global options
     var omLayouts = path.join(config.om.options.layoutdir, '**/*.hbs');
     var omFiles = config.om.files[0];
     var omSrc = normalizeSrc(omFiles.cwd, omFiles.src).filter(function(src) {
@@ -42,50 +50,9 @@ module.exports = function (grunt) {
         return true;
       }
     })[0];
-    var renderTypeHelper = require('./helpers/render-type-helper')(assemble, options.websiteRoot);
     var generateKey = require('./utils/generate-key');
     var renameKey = assemble.option('renameKey');
     var ppcKey = options.ppcKey;
-
-    if(target) {
-      assemble.set('env', target);
-    } else {
-      assemble.set('env', options.environment);
-    }
-
-    var globalKeyCache = [];
-    //set the global data from external YML & env config
-    //special key for YML data for translation dictionary retrieval
-    var loadGlobalData = function loadGlobalData() {
-      assemble.data(options.data, {
-        namespace: function(fp) {
-          var filenameKey = path.basename(fp, path.extname(fp));
-
-          if(/global\_/.test(fp)) {
-            if(globalKeyCache.indexOf(filenameKey) === -1) {
-             globalKeyCache.push(filenameKey);
-            }
-            return generateKey(fp);
-          }
-          return filenameKey;
-        }
-      });
-      var data = assemble.get('data');
-
-      for(var key in data) {
-        if(globalKeyCache.indexOf(key) !== -1) {
-          //remove mutations to global data
-          delete data[key];
-        }
-      }
-      //add the additonal data options with the standard key
-      var addOptions = _.omit(options, 'data');
-      assemble.data(addOptions);
-    };
-
-
-
-    assemble.asyncHelper('partial', renderTypeHelper('partials'));
 
     var loader = function loader(typeFn, cb) {
       return function() {
@@ -105,6 +72,8 @@ module.exports = function (grunt) {
       };
     };
 
+    assemble.asyncHelper('partial', renderTypeHelper('partials'));
+
     function loadLayouts () {
       assemble.layouts([options.layoutDir]);
     }
@@ -112,7 +81,6 @@ module.exports = function (grunt) {
     function loadPartials () {
       assemble.partials(options.partials, [typeLoader(assemble)]);
     }
-
 
     function loadOmLayouts () {
       //append special path for ppc layouts in order to prevent naming conflicts between layouts
@@ -192,8 +160,6 @@ module.exports = function (grunt) {
       loadPageYml();
       loadSubfolderYml();
     };
-
-    loadGlobalData();
 
     // custom middleware for `resources` to add front-matter (`data`)
     // to the assemble cache. (`assemble.get('resources').foo`)
@@ -406,7 +372,7 @@ module.exports = function (grunt) {
           '!' + omSrc,
           '!website/partners/**/*.hbs'
         ],
-        fallback: [ 
+        fallback: [
           '**/*.hbs',
           '!resources/resources-list/**/*',
         ]

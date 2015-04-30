@@ -1,15 +1,12 @@
 var _ = require('lodash');
 
 module.exports = function (assemble) {
+  var locales = assemble.get('data.locales');
+
   return function typeLoader(templates) {
-    var websiteRoot = assemble.get('data.websiteRoot');
-    var isTest = assemble.get('env');
-    var locales = assemble.get('data.locales');
     var keys = Object.keys(templates);
     var localeKeys = Object.keys(locales);
-    if(isTest === 'test') {
-      localeKeys.unshift(websiteRoot);
-    }
+
     keys.forEach(function (key) {
       localeKeys.forEach(function (locale) {
         var localeKey = locale + '_' + key;

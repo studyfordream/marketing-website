@@ -1,11 +1,11 @@
 'use strict';
 var extend = require('extend-shallow');
 
-module.exports = function(assemble, websiteRoot) {
+module.exports = function(assemble) {
+  var websiteRoot = assemble.get('data.websiteRoot');
 
   return function (type) {
     return function (key, locals, options, next) {
-      var isTest = assemble.get('env');
       var app = this.app;
 
       if (typeof options === 'function') {
@@ -14,7 +14,7 @@ module.exports = function(assemble, websiteRoot) {
       }
       var locale = this.context.locale || websiteRoot;
 
-      if (isTest === 'test' || locale !== websiteRoot) {
+      if (locale !== websiteRoot) {
         key = locale + '_' + key;
       }
       var partial = app.views[type][key];
@@ -26,6 +26,7 @@ module.exports = function(assemble, websiteRoot) {
       }
 
       var locs = extend({}, this.context, locals);
+
       partial.render(locs, function (err, content) {
         if (err) {
           return next(err);
