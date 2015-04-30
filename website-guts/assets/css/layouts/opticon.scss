@@ -86,18 +86,20 @@ body.opticon {
     line-height: 23px;
     display: block;
     &--internal-page {
-      color: $light-text-color;
+      color: $opticon-nav-gray;
     }
     &:hover {
       text-decoration: none;
+      color: $opticon-brand-blue;
+      transition: all 0.2s ease-in-out;
     }
   }
   .opticon-button {
     font-size: 1em;
-    color: $brand-blue;
+    color: $opticon-brand-blue;
     background-color: #fff;
     letter-spacing: 0.38px;
-    border: 1px solid $brand-blue;
+    border: 2px solid $opticon-brand-blue;
     border-radius: 3px;
     padding: 11px 35px;
     display: inline-block;
@@ -108,7 +110,7 @@ body.opticon {
     }
     &--nav {
       margin: 0 75px;
-      padding: 4px 17px;
+      padding: 4px 25px;
       border-radius: 3px;
       &--footer {
         color: $light-text-color;
@@ -116,8 +118,8 @@ body.opticon {
         font-size: 0.87em;
       }
       &--header {
-        color: $opticon-brand-blue;
-        border: 1px solid $opticon-brand-blue;
+        background: $opticon-brand-blue;
+        color: white;
         font-size: 0.87em;
         margin-bottom: 20px;
       }
@@ -128,23 +130,23 @@ body.opticon {
     transition: all 0.5s ease-out;
     position: relative;
     overflow: hidden;
-    padding: 26px 100px !important;
+    padding: 24px 100px !important;
     .cta-arrow {
       transition: all 0.5s ease-out;
       height: 52px;
       width: 60px;
       position: absolute;
       right: -60px;
-      top: 0;
+      top: -4px;
       padding-top: 18px;
-      border-left: 1px solid $brand-blue;
+      border-left: 2px solid $brand-blue;
       text-align: center;
     }
 
     .cta-text {
       transition: all 0.5s ease-out;
       position: absolute;
-      top: 18px;
+      top: 13px;
       left: 50px;
     }
     &:hover {
@@ -155,12 +157,6 @@ body.opticon {
         left: 20px;
       }
     }
-  }
-  .optimizely-host {
-    font-size: 0.8125em;
-    color: $almost-black-text-color;
-    letter-spacing: 0.39px;
-    line-height: 28px;
   }
   .disabled {
     font-size: 0.9375em;

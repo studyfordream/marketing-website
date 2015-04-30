@@ -1,4 +1,4 @@
-title: "Sessions"
+title: "Agenda"
 
 day_one: "Day 1"
 day_two: "Day 2"
@@ -52,7 +52,7 @@ days:
         start_time: "10:25"
         events:
           -
-            title: "Blow Up your Mobile App Metrics: Real Life Mobile App Optimization"
+            title: "Blow Up Your Mobile App Metrics: Real Life Mobile App Optimization"
             time: "10:25 – 11:10"
             location: "Breakout 3"
             description: "More than 80% of app users will download an app once and then eventually delete it. It's never been more important to drive engagement and retention in your mobile app. Come learn from a panel of mobile experts from industry leading companies discuss their success stories on how they build amazing apps and the culture that they developed around mobile app optimization."
@@ -90,7 +90,7 @@ days:
                 job_title: "Product Manager"
                 company: "Optimizely"
           -
-            title: "Scaling your Testing Program for Maximum Impact"
+            title: "Scaling Your Testing Program for Maximum Impact"
             time: "10:25 – 11:10"
             location: "Breakout 2"
             description: "If you’re running A/B tests consistently, you’re already on the right track. But how can you take the next step and turn your testing efforts into a well-oiled growth engine that scales? Moz, charity: water, and The Next Web have all achieved tremendous success within their optimization programs and have figured out how to effectively run hundreds of experiments a year. Learn how these companies increased the impact of their testing programs by leveraging tools and processes that scale."
@@ -169,7 +169,7 @@ days:
                 job_title: "Customer Education Manager"
                 company: "Optimizely"
           -
-            title: "Making it Stick: The 'X Factor' that Made Optimization Succeed"
+            title: "Making it Stick: The 'X Factor' That Made Optimization Succeed"
             time: "1:30 - 2:15"
             location: "Breakout 2"
             description: ""
@@ -255,7 +255,7 @@ days:
         start_time: "2:35"
         events:
           -
-            title: "Benchmark your Optimization Program"
+            title: "Benchmark Your Optimization Program"
             time: "2:35 - 3:20"
             location: "Breakout 3"
             description: "What does 'normal' look like for an optimization program? What about best-in-class? What are the opportunities and challenges facing teams that are optimizing, and how do they allocate their manpower and budget towards them? We sought out the answers to these tough questions for our first industry benchmark report. Join Optimizely for an in-depth discussion of how to quantify and benchmark optimization performance."
@@ -268,7 +268,7 @@ days:
                 job_title: "Content Marketing Manager"
                 company: "Optimizely"
           -
-            title: "Structure and Scale: Establishing your Optimization Dream Team"
+            title: "Structure and Scale: Establishing Your Optimization Dream Team"
             time: "2:35 - 3:20"
             location: "Main Room"
             description: "Companies come in all shapes and sizes, and there's no magic formula for a perfect optimization program. While team structure, department alignment, and process may vary, there's one common thread: you're still on the hook to deliver results. So how do you structure your team for success? In this panel discussion, experts from a variety of industries will share strategies, drawbacks, and lessons learned from their experiences building and scaling kick-ass optimization teams. You'll walk away armed with ideas to shape your own dream team."
@@ -378,7 +378,7 @@ days:
                 job_title: "Content Marketing Manager"
                 company: "Optimizely"
           -
-            title: "Collaborating to Scale: How to Spread Optimization Across your Org and Keep Things from Getting Messy"
+            title: "Collaborating to Scale: How to Spread Optimization Across Your Org and Keep Things from Getting Messy"
             time: "3:40 - 4:25"
             location: "Breakout 2"
             description: "Learn how to build a testing program that scales with your business – it's all about collaboraiotn and communication. In this session, you'll learn how to build a unified optimization front across multiple geographies, teams, and functions, and how to collaborate on testing projects when multiple owners are involved, for instance, web and mobile teams."
@@ -512,7 +512,7 @@ days:
         start_time: "10:20"
         events:
           -
-            title: "Moving the Needle in your E-Commerce Funnel"
+            title: "Moving the Needle in Your E-Commerce Funnel"
             time: "10:20 – 11:05"
             location: "Breakout 3"
             description: "Ecommerce accounted for 5.9%, or $1.3 trillion, of the total worldwide retail market in 2014. As more shoppers come online, smartphones and tablets account for more online purchases. Optimizing your digital customer experience will continue to become even more important to the success of your online retail business. This session will feature stories from ecommerce businesses that are making every online customer interaction count using Optimizely."
@@ -716,7 +716,7 @@ days:
                 job_title: "Project Manager and Team Lead"
                 company: "eBay Classifieds Group"
           -
-            title: "Fishing with Spears: All about Account Based Marketing"
+            title: "Fishing with Spears: All About Account Based Marketing"
             time: "2:30 - 3:15"
             location: "Breakout 4"
             description: "Account based marketing (ABM) is quickly becoming the next big thing in B2B marketing. In fact, the ITSMA says that “ABM delivers the highest Return on Investment of any B2B marketing strategy or tactic. Period.” In this fast-paced talk, you'll see why ABM is generating so much buzz, and get practical tips for launching and scaling your ABM programs. You'll learn how ABM is different from traditional demand generation (fishing with nets), the best practices for understanding target accounts, how to orchestrate integrated account plans and measure the impact, how to market to current customers for cross-sell and retention, and how you can implement account-based marketing tactics integrated with Optimizely. If you support sales teams selling six- and seven-figure deals, then this is the session for you!"
