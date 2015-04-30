@@ -465,12 +465,13 @@ module.exports = function (grunt) {
 
     });
 
-    var tasks, env = assemble.get('env');
+    var env = options.environment;
+    var tasks;
 
-    if(env === 'dev' || env === 'test') {
+    if(env === 'dev') {
       tasks = [
         'build:all',
-        //'watch',
+        'watch',
         'done'
       ];
     } else {
