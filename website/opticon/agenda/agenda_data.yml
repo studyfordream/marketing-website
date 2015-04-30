@@ -387,13 +387,13 @@ days:
             roles: "marketer developer executive productmanager"
             speakers:
               -
+                name: "Katherine Shea"
+                job_title: "Product Manager"
+                company: "Rue La La"
+              -
                 name: "Cameron Deatsch"
                 job_title: "Head of Growth"
                 company: "Atlassian"
-              -
-                name: "Abby Lokshin"
-                job_title: "Product Manager, Mobile"
-                company: "Rue La La"
           -
             title: "Integrations with the Optimizely Platform"
             time: "3:40 - 4:25"
@@ -695,8 +695,8 @@ days:
             roles: "marketer productmanager"
             speakers:
               -
-                name: "Katherine Shea"
-                job_title: "Product Manager"
+                name: "Abby Lokshin"
+                job_title: "Product Manager, Mobile"
                 company: "Rue La La"
               -
                 name: "Abel Ramos"
