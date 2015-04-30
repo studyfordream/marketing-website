@@ -148,8 +148,8 @@ window.optly.mrkt.modal.open = function(modalArgs) {
     storeModalState(modalType, true);
   }
 
-  debugger;
-  if (modalPosition &&  !w.optly.mrkt.isMobile()) {
+  var isMobile = w.optly.mrkt.isMobile();
+  if (modalPosition &&  !isMobile) {
     $elm.find('.dialog').css('top', modalPosition);
   } else {
     $('html, body').addClass('modal-open');

@@ -1,10 +1,12 @@
 body.opticon-speakers {
   .speaker-container {
-    padding: 200px 2% 0 2%;
-    margin: 30px 0 40px 0;
+    padding: 200px 2% 0;
+    margin: 30px 0 40px;
     text-align: center;
     background-repeat: no-repeat;
     background-position: top center;
+    .item-title { margin-bottom: 5px; }
+    .item-source { line-height: 17px; }
   }
   .speaker-blurb {
     text-align: left;
@@ -45,15 +47,15 @@ body.opticon-speakers {
         &:hover { cursor: pointer; }
       }
     }
-    .speaker-container .item-source { margin-bottom: 5px; }
     .flex-container { flex-wrap: wrap; }
     .speaker-container {
       width: 33%;
       &--guest {
         width: 25%;
         background-size: 130px 130px;
-        padding: 165px 2% 0 2%;
+        padding: 165px 2% 0;
       }
+      .item-source { margin-bottom: 5px; }
     }
   }
 }
