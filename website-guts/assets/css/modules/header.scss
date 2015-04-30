@@ -33,12 +33,13 @@ header {
     header {
         position: relative;
         .container {
-          &:before, &:after {
+          &:before,
+          &:after {
             content: " ";
             display: table;
           }
           &:after {
-            clear:both;
+            clear: both;
           }
         }
         nav {

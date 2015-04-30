@@ -125,16 +125,17 @@ $placeholders: ();
 // You go:
 //    @include placeholder('clear') { ... }
 @include placeholder('clearfix') {
-	&:before, &:after {
-		content: " ";
-		display: table;
-	}
-	&:after {
-		clear:both;
-	}
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
 }
 
 @include placeholder('heading-underline') {
-	border-bottom: 1px solid #eee;
-	padding-bottom: .25em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: .25em;
 }
