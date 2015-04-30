@@ -51,16 +51,31 @@ speaker_section:
       company: "Optimizely"
   featuring: "Featuring speakers from:"
   company_list:
-    - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
-    - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
-    - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
-    - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
-    - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
-    - "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-logos/sprite-1.png"
+      class: "trulia"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-logos/sprite-1.png"
+      class: "cbs"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_gray.svg"
+      class: "microsoft"
+    -
+      image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
+      class: ""
+    -
+      image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
+      class: ""
+    -
+      image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
+      class: ""
 
 tracks:
   title: "Join the discussion around topics that matter most to you"
   description: "Each Opticon session fits into one of four tracks. Use these track to find sessions that are most relevant to you – or mix and match for a more diversified experience."
+  cta: "See Agenda"
+  2014_text: "Want to get a taste of what’s in store? Check out our "
+  2014_link: "Opticon 2014 recap"
   track_list:
     -
       title: "Platform"

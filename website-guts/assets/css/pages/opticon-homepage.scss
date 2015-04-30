@@ -59,11 +59,21 @@ body.opticon-homepage {
     width: 15%;
     padding-top: 50px;
     background-repeat: no-repeat;
+    background-size: 151px;
     margin: 0 20px;
+  }
+  .trulia { background-position: 50% -421px; }
+  .cbs { background-position: 50% -60px; }
+  .microsoft {
+    background-size: contain;
+    background-position: 0 12px;
   }
   .description { padding: 5% 13%; }
   .description-text.description-text--center { text-align: center; }
-  .tracks { padding: 50px 0 80px 0; }
+  .tracks {
+    padding: 50px 0 80px 0;
+    text-align: center;
+  }
   .track-container {
     padding: 90px 10px 30px 10px;
     text-align: center;
@@ -84,7 +94,7 @@ body.opticon-homepage {
 
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon-homepage {
-    .hero-subtitle { padding-left: 45%; }
+    .hero-subtitle { padding-left: 50%; }
     .speaker-container { width: 25%; }
     .description-title { padding: 0 23%; }
     .description-text.description-text--center { padding: 0 23%; }

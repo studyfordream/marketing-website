@@ -108,6 +108,11 @@ body.opticon {
     &:hover {
       text-decoration: none;
     }
+    &--internal-link {
+      background: $opticon-brand-blue;
+      color: #fff;
+      padding: 10px 60px;
+    }
     &--nav {
       margin: 0 75px;
       padding: 4px 25px;

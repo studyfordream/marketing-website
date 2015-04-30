@@ -65,7 +65,7 @@ external_script:
   <h5 class="speaker-companies-title adelle-sans">{{speaker_section.featuring}}</h5>
   <div class="logo-wall flex-container">
     {{#each speaker_section.company_list}}
-    <div class="logo-wall__company" style="background-image: url('{{this}}')"></div>
+    <div class="logo-wall__company {{this.class}}" style="background-image: url('{{this.image}}')"></div>
     {{/each}}
   </div>
 </section>
@@ -84,6 +84,11 @@ external_script:
       </div>
     {{/each}}
   </div>
+  <a class="opticon-button opticon-button--internal-link" href="https://www.eventbrite.com/e/opticon-2015-tickets-14328636337">
+    <div class="cta-text adelle-sans">{{tracks.cta}}</div>
+  </a>
+  <p class="adelle-sans">{{tracks.2014_text}}<a href="{{linkPath/opticon/opticon-2014}}">{{tracks.2014_link}} &raquo;</a></p>
+
 </section>
 
 {{/with}}

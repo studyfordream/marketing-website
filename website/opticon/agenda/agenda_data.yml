@@ -619,14 +619,10 @@ days:
             time: "11:25 - 12:10"
             location: "Breakout 3"
             description: "Of the $4.7 billion spent on U.S. travel advertising last year, 52 percent went to websites and other digital channels. Yet only a fraction of that amount is spent on capturing the ROI of those dollars with optimization. Panelists running the optimization practices at the top travel businesses in the industry will come together to talk about how testing and personalization drive revenue, conversions, and move their businesses forward."
-            companies: "Virgin America, Smarter Travel, Hotwire"
+            companies: "Smarter Travel, Hotwire"
             track: "action"
             roles: "marketer executive productmanager"
             speakers:
-              -
-                name: "Francisca Hawkins"
-                job_title: "Manager of eCommerce Strategy"
-                company: "Virgin America"
               -
                 name: "Katherine Reynolds"
                 job_title: "Product Manager"
