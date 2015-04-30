@@ -41,60 +41,21 @@ var config = {
       }
     ]
   },
-  l10nPartials: {
-    options: {
-      ext: '.hbs'
-    },
-    files: [
-      {
-        src: 'templates/l10nPartials/**/*.hbs',
-        cwd: '<%= config.guts %>/'
-      }
-    ]
-  },
   resources: {
-    options: {
-      collections: [
-        {
-          name: 'resources',
-          inflection: 'resource',
-          sortby: 'priority',
-          sortorder: 'descending'
-        }
-      ]
-    },
     files: [
       {
         src: ['resources/resources-list/**/*.hbs'],
         dest: '<%= config.dist %>/',
-        cwd: '<%= config.content %>/',
-        expand: true
+        cwd: '<%= config.content %>/'
       }
     ]
   },
   partners: {
-    options: {
-      collections: [
-        {
-          name: 'integrations',
-          inflection: 'integration',
-          sortby: 'priority',
-          sortorder: 'descending'
-        },
-        {
-          name: 'solutions',
-          inflection: 'solution',
-          sortby: 'priority',
-          sortorder: 'descending'
-        }
-      ]
-    },
     files: [
       {
         src: ['partners/**/*.hbs'],
         dest: '<%= config.dist %>/',
-        cwd: '<%= config.content %>/',
-        expand: true
+        cwd: '<%= config.content %>/'
       }
     ]
   },
@@ -103,8 +64,7 @@ var config = {
       {
         src: ['**/*.hbs', '!resources/resources-list/**/*.hbs', '!om/**/*.hbs'],
         dest: '<%= config.dist %>/',
-        cwd: '<%= config.content %>/',
-        expand: true
+        cwd: '<%= config.content %>/'
       }
     ]
   }
@@ -118,8 +78,7 @@ config[ppcKey] = {
     {
       src: [ppcKey + '/**/*.hbs', '!<%= grunt.config.get("exclude_from_assemble") %>'],
       dest: '<%= config.dist %>/',
-      cwd: '<%= config.content %>/',
-      expand: true
+      cwd: '<%= config.content %>/'
     }
   ]
 };

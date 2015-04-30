@@ -150,6 +150,7 @@ module.exports = function (grunt) {
       }
 
       loader([
+        loadResources,
         loadLayouts,
         loadPartials,
         loadOmLayouts,
@@ -164,7 +165,6 @@ module.exports = function (grunt) {
     // custom middleware for `resources` to add front-matter (`data`)
     // to the assemble cache. (`assemble.get('resources').foo`)
     assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
-    loadResources();
 
     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
