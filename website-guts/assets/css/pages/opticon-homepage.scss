@@ -41,6 +41,7 @@ body.opticon-homepage {
     text-align: center;
     background-repeat: no-repeat;
     background-position: top center;
+    background-size: 170px;
   }
   .speaker-blurb { text-align: left; }
   .subtitle { text-align: center; }
@@ -57,7 +58,7 @@ body.opticon-homepage {
   }
   .logo-wall__company {
     width: 15%;
-    padding-top: 50px;
+    padding-top: 42px;
     background-repeat: no-repeat;
     background-size: 151px;
     margin: 0 20px;
@@ -66,7 +67,16 @@ body.opticon-homepage {
   .cbs { background-position: 50% -60px; }
   .microsoft {
     background-size: contain;
-    background-position: 0 12px;
+    background-position: 0 18px;
+  }
+  .marketo { background-size: contain; }
+  .atlassian {
+    background-size: contain;
+    background-position-y: 100%;
+  }
+  .princess-cruises {
+    background-size: cover;
+    background-position: center;
   }
   .description { padding: 5% 13%; }
   .description-text.description-text--center { text-align: center; }

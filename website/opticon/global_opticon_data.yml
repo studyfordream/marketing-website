@@ -19,18 +19,18 @@ speaker_section:
   speaker_list:
     -
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      speaker_name: "Marc Anderson"
+      speaker_name: "Dan Siroker"
       company: "Optimizely"
     -
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      speaker_name: "Marc Anderson"
-      company: "Optimizely"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/marc-circle-headshot.png"
+      speaker_name: "Marc Andreessen"
+      company: "ANDREESSEN HOROWITZ"
     -
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      speaker_name: "Marc Anderson"
-      company: "Optimizely"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/michelle_levesque.png"
+      speaker_name: "Michelle Levesque"
+      company: "Google"
     -
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/eddie_hartman.jpg"
       speaker_name: "Marc Anderson"
       company: "Optimizely"
     -
@@ -61,14 +61,14 @@ speaker_section:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_gray.svg"
       class: "microsoft"
     -
-      image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
-      class: ""
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speaker_companies/marketo.png"
+      class: "marketo"
     -
-      image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
-      class: ""
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speaker_companies/atlassian.png"
+      class: "atlassian"
     -
-      image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/sony_gray.svg"
-      class: ""
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speaker_companies/princess-cruises.png"
+      class: "princess-cruises"
 
 tracks:
   title: "Join the discussion around topics that matter most to you"
