@@ -64,7 +64,10 @@ body.opticon-homepage {
     background-position: center;
     margin: 35px auto;
   }
-  .trulia { background-position: 50% -421px; }
+  .trulia {
+    background-position: 50% -406px;
+    background-size: 146px;
+  }
   .cbs { background-position: 50% -60px; }
   .microsoft { background-size: contain; }
   .marketo { background-size: contain; }
@@ -121,7 +124,6 @@ body.opticon-homepage {
       width: 15%;
       margin: 0 20px;
     }
-    .microsoft { background-position: 0 18px; }
     .princess-cruises {
       background-size: cover;
       background-position: center;

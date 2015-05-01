@@ -3,7 +3,7 @@ title_section:
   title2: "Opticon 2015"
   date: "June 17 & 18"
   location: "Pier 27, San Francisco"
-  sub_title: "The premier event for the experience optimization and testing community."
+  sub_title: "The premier event for the experience optimization and testing community"
   sponsor: "Powered by <a href='https://www.optimizely.com/'>Optimizely</a>"
   cta: "Register Now"
 
@@ -52,14 +52,14 @@ speaker_section:
   featuring: "Featuring speakers from:"
   company_list:
     -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_gray.svg"
+      class: "microsoft"
+    -
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-logos/sprite-1.png"
       class: "trulia"
     -
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-logos/sprite-1.png"
       class: "cbs"
-    -
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_gray.svg"
-      class: "microsoft"
     -
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speaker_companies/marketo.png"
       class: "marketo"
@@ -72,7 +72,7 @@ speaker_section:
 
 tracks:
   title: "Join the discussion around topics that matter most to you"
-  description: "Each Opticon session fits into one of four tracks. Use these track to find sessions that are most relevant to you – or mix and match for a more diversified experience."
+  description: "Each Opticon session fits into one of four tracks. Use these tracks to find sessions that are most relevant to you – or mix and match for a more diversified experience."
   cta: "See Agenda"
   2014_text: "Want to get a taste of what’s in store? Check out our "
   2014_link: "Opticon 2014 recap"
