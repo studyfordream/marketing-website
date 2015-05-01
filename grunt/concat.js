@@ -42,26 +42,6 @@ var omBundlePaths = [
   'om/global.js'
 ];
 
-<<<<<<< HEAD
-var bundlePaths = [
-  'utils/translation.js',
-  'utils/oform_globals.js',
-  'utils/check_complex_password.js',
-  'utils/equal_height_grid.js',
-  'utils/get_url_parameter.js',
-  'utils/uri.js',
-  'utils/trim-mixpanel-cookie.js',
-  'utils/guid_sprintf.js',
-  'utils/form_helper_factory.js',
-  'utils/form_helpers/*.js',
-  'utils/trim_url.js',
-  'global.js',
-  'components/*.js',
-  'services/*.js'
-];
-
-=======
->>>>>>> parent of 02ff14c... Revert "add resolveLoader paths to webpack.config"
 module.exports = function(grunt, options){
   var lastTarget;
   var processBundleName = function (src, filepath) {
