@@ -112,7 +112,7 @@ var config = function(grunt, options) {
           link_path: '/dist',
           sassSourceMap: true,
           sassImagePath: '/dist/assets/img',
-          imageUrl: 'dist/assets/img',
+          imageUrl: '/dist/assets/img',
           compress_js: false,
           drop_console: false,
           concat_banner: '(function($, w, d){ \n\n' +
