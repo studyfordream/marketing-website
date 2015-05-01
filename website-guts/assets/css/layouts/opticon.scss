@@ -85,9 +85,7 @@ body.opticon {
     letter-spacing: 0.46px;
     line-height: 23px;
     display: block;
-    &--internal-page {
-      color: $opticon-nav-gray;
-    }
+    &--internal-page { color: $opticon-nav-gray; }
     &:hover {
       text-decoration: none;
       color: $opticon-brand-blue;

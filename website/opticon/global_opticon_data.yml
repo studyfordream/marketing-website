@@ -30,25 +30,25 @@ speaker_section:
       speaker_name: "Michelle Levesque"
       company: "Google"
     -
-      image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/eddie_hartman.jpg"
-      speaker_name: "Marc Anderson"
-      company: "Optimizely"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/andrea-burbank.png"
+      speaker_name: "Andrea Burbank"
+      company: "Pinterest"
     -
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      speaker_name: "Marc Anderson"
-      company: "Optimizely"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/eddie-hartman.png"
+      speaker_name: "Eddie Hartman"
+      company: "LegalZoom"
     -
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      speaker_name: "Marc Anderson"
-      company: "Optimizely"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/pam-webber.png"
+      speaker_name: "Pam Webber"
+      company: "99Designs"
     -
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      speaker_name: "Marc Anderson"
-      company: "Optimizely"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/pat-mcgrath.png"
+      speaker_name: "Patrick McGrath"
+      company: "Netflix"
     -
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      speaker_name: "Marc Anderson"
-      company: "Optimizely"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/trevin-chow.png"
+      speaker_name: "Trevin Chow"
+      company: "Microsoft Store"
   featuring: "Featuring speakers from:"
   company_list:
     -
