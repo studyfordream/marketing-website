@@ -48,13 +48,13 @@ module.exports = function() {
       'TR_visible_title',
       'title'
     ];
-    var seoTitle = 'TR_seo_title';
+    var seoTitle = [ 'TR_seo_title', 'seo_title' ];
     var seoSuffix = ' - Optimizely';
     var keys = Object.keys(file.data);
     var defaultTitle = 'Optimizely: Make every experience count';
     var altTitle, dirname;
 
-    if(!~keys.indexOf(seoTitle)) {
+    if(!_.union(keys, seoTitle).length) {
       altTitle = _.intersection(possibleTitles, keys)[0];
       switch(altTitle) {
         case possibleTitles[1]:
