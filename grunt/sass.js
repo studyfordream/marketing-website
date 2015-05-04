@@ -13,7 +13,7 @@ module.exports = function(grunt){
           var imageUrl = grunt.config.get('imageUrl');
           var fileName = filename.getValue();
 
-          var imagePath = 'url("' + path.join(imageUrl, fileName) + '")';
+          var imagePath = 'url("' + imageUrl + '/' + fileName + '")';
           return new sass.types.String(imagePath);
         }
       }
