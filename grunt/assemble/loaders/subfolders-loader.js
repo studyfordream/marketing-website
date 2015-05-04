@@ -4,7 +4,12 @@ var globby = require('globby');
 var matter = require('gray-matter');
 var _ = require('lodash');
 
-module.exports = function (assemble, locales, lastRunTime) {
+module.exports = function (assemble) {
+  var locales = Object.keys(assemble.get('data.locales'));
+  var lastRunTime = assemble.get('lastRunTime');
+  var subfoldersRoot = assemble.get('data.subfoldersRoot');
+  var websiteRoot = assemble.get('data.websiteRoot');
+
   function createMap(argsObj) {
     var renameKey = assemble.option('renameKey');
     var langPath = argsObj.langPath;
@@ -23,11 +28,9 @@ module.exports = function (assemble, locales, lastRunTime) {
   }
 
   return function langLoader(args) {
-    var subfoldersRoot = assemble.get('data.subfoldersRoot');
     var collection = {};
     var srcPattern = args.src;
     var fallbackPattern = args.fallback;
-    var websiteRoot = assemble.get('data.websiteRoot');
     // collect an object with locale key mapping to all files for locale
     var localesCollection = locales.reduce(function(o, locale) {
       o[path.join(subfoldersRoot, locale)] = globby.sync(srcPattern, {cwd: path.join(subfoldersRoot, locale)});

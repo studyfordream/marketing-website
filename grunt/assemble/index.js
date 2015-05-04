@@ -3,7 +3,6 @@
 var ext = require('gulp-extname');
 var chalk = require('chalk');
 var path = require('path');
-var customSubfolders = require('./types/subfolders');
 var _ = require('lodash');
 
 module.exports = function (grunt) {
@@ -20,6 +19,7 @@ module.exports = function (grunt) {
 
     loadGlobalData(options);
 
+    var langLoader = require('./loaders/subfolders-loader');
     var renderTypeHelper = require('./helpers/render-type-helper')(assemble);
     var localizeLinkPath = require('./middleware/localize-link-path');
     var extractLayoutContext = require('./plugins/extract-layout-context');
@@ -100,8 +100,10 @@ module.exports = function (grunt) {
 
     assemble.helpers(options.helpers);
 
-    //load the custom subolders
-    customSubfolders(assemble, Object.keys(options.locales), assemble.get('lastRunTime'));
+    //make more dynamic to get language dirs in an array
+    assemble.create('subfolder', {
+      isRenderable: true
+    }, [langLoader(assemble)]);
 
     // create custom template type `modals`
     assemble.create('modal', 'modals', {
@@ -368,13 +370,13 @@ module.exports = function (grunt) {
       /* jshint ignore:start */
       assemble['subfolder']({
         src: [
-          '**/*.hbs',
-          '!' + omSrc,
-          '!website/partners/**/*.hbs'
+          '**/*.hbs'
         ],
         fallback: [
           '**/*.hbs',
           '!resources/resources-list/**/*',
+          '!om/**/*.hbs',
+          '!opticon/**/*.hbs'
         ]
       });
       /* jshint ignore:end */
