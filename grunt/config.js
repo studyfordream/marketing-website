@@ -22,7 +22,7 @@ var config = function(grunt, options) {
           environmentData: 'website-guts/data/environments/production/environmentVariables.json',
           apiDomain: '//www.optimizely.com',
           assetsDir: '/dist/assets',
-          imageUrl: '//du7782fucwe1l.cloudfront.net',
+          imageUrl: '//du7782fucwe1l.cloudfront.net/img',
           link_path: '',
           sassImagePath: '/img',
           compress_js: true,
