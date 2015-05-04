@@ -10,12 +10,12 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Tim Ash"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/tim_ash.png"
       company: "Conversion Conference"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Adam Avramescu"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/adam-avramescu_bw_170x170-circle.png"
       company: "Optimizely"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -27,6 +27,11 @@ guest_speakers:
       name: "Jessie Becker"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
       company: "Optimizely"
+      blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
+    -
+      name: "Raman Bhatia"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/raman-bhatiacropped.png"
+      company: "Fareportal"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Rachman Blake"
@@ -50,12 +55,12 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Andrea Burbank"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/andrea-burbank.png"
       company: "Pinterest"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Joe Casson"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/joe-casson-bw_170x170-circle.png"
       company: "Optimizely"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -70,7 +75,7 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Trevin Chow"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/trevin-chow.png"
       company: "Microsoft Store"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -80,7 +85,7 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Cameron Deatsch"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/cameron_collaborating-to-scalebw_170x170-circle.png"
       company: "Atlassian"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -100,7 +105,7 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Tiffany Early"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/tiffany-early.png"
       company: "Apperian"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -110,17 +115,17 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Lauren Ford"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/lauren-ford.png"
       company: "Trulia"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Jordan Garcia"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jordanbw_170x170-circle.png"
       company: "Optimizely"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Josiah Gaskin"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/josiahbw_170x170-circle.png"
       company: "Optimizely"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -130,12 +135,12 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Chris Goward"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/chris-goward-headshotbw_170x170-circle.png"
       company: "WiderFunnel"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Eddie Hartman"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/eddie-hartman.png"
       company: "LegalZoom"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -145,7 +150,7 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Stacy Hill"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/stacy-hillcropped.png"
       company: "Access Intelligence"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -155,12 +160,12 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Peter Isaacson"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/peter-isaacson.png"
       company: "Demandbase"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Rohan Karunakaran"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/rohan-karunakaran.png"
       company: "Optimizely"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -170,7 +175,7 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Dave King"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/dave-king.png"
       company: "Tilt"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -185,12 +190,12 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Valerie Kroll"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/valerie.png"
       company: "American Medical Association"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Michelle Levesque"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/michelle_levesque.png"
       company: "Google"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -220,12 +225,12 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Patrick McGrath"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/pat-mcgrath.png"
       company: "Netflix"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "George McMullen"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/george_mcmullen_mobile_panelbw_170x170-circle.png"
       company: "Credit Sesame"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -235,7 +240,7 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Andy Nelson"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/andy_scaling-your-testing-programbw_170x170-circle.png"
       company: "Moz"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -245,12 +250,12 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Jon Noronha"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jon-noronha.png"
       company: "Optimizely"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Junan Pang"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/junan-pang.png"
       company: "Optimizely"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -260,7 +265,7 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Leo Pekelis"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/leo-pekelis.png"
       company: "Optimizely"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -270,7 +275,7 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "John Provine"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/john-provinebw_170x170-circle.png"
       company: "Optimizely"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -295,7 +300,7 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Shana Rusonis"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/shana-rusonis.png"
       company: "Optimizely"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -305,12 +310,12 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Martijn Scheijbeler"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/martijns.png"
       company: "The Next Web"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Suneet Shah"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/suneet-shah.png"
       company: "Optimizely"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -320,22 +325,22 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Jevan Soo"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jevan_bluebottle_culture-from-withinbw_170x170-circle.png"
       company: "Blue Bottle Coffee"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Benn Stancil"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/benn_from-skeptic-to-championbw_170x170-circle.png"
       company: "Mode Analytics"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Deepa Subramaniam"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/deepas_scaling-your-testing-programbw_170x170-circle.png"
       company: "charity: water"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Amanda Swan"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/amanda-swanbw_170x170-circle.png"
       company: "Optimizely"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -345,7 +350,7 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Jose Uzcategui"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jose-uzcategui.png"
       company: "ASICS"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
@@ -355,27 +360,27 @@ guest_speakers:
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Matthew Vandewouwer"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/matthew_vandewouwer.png"
       company: "j2 Global Communications"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Ravi Venkatesan"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/ravi-venkatesan.png"
       company: "Citrix"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Pamela Webber"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/pam-webber.png"
       company: "99Designs"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Matty Wishnow"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/matt_wishnow.png"
       company: "Clearhead"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
       name: "Claire Wissler"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/claire_wissler_abercrombiebw_170x170-circle.png"
       company: "Abercrombie & Fitch"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
