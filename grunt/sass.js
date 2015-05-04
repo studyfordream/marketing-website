@@ -1,13 +1,32 @@
-module.exports = {
-  prod: {
+var path = require('path');
+var fs = require('fs');
+var sass = require('grunt-sass/node_modules/node-sass');
+
+module.exports = function(grunt){
+  return {
     options: {
-      sourceMap: false,
-      imagePath: '<%= grunt.config.get("sassImagePath") %>',
-      precision: 3,
-      outputStyle: 'compressed'
+      includePaths: [
+        path.join(process.cwd(), 'node_modules/css-smart-grid/sass')
+      ],
+      functions: {
+        'image-url($filename)': function(filename) {
+          var imageUrl = grunt.config.get('imageUrl');
+          var fileName = filename.getValue();
+
+          var imagePath = 'url("' + path.join(imageUrl, fileName) + '")';
+          return new sass.types.String(imagePath);
+        }
+      }
     },
-    files: [
-      {
+    prod: {
+      options: {
+        sourceMap: false,
+        imagePath: '<%= grunt.config.get("sassImagePath") %>',
+        precision: 3,
+        outputStyle: 'compressed',
+      },
+      files: [
+        {
         src: '<%= config.guts %>/assets/css/styles.scss',
         dest: '<%= config.temp %>/css/styles.css'
       },
@@ -15,16 +34,16 @@ module.exports = {
         src: '<%= config.guts %>/assets/css/om/styles.scss',
         dest: '<%= config.temp %>/css/om/styles.css'
       }
-    ]
-  },
-  dev: {
-    options: {
-      sourceMap: false,
-      imagePath: '<%= grunt.config.get("sassImagePath") %>',
-      precision: 3
+      ]
     },
-    files: [
-      {
+    dev: {
+      options: {
+        sourceMap: false,
+        imagePath: '<%= grunt.config.get("sassImagePath") %>',
+        precision: 3,
+      },
+      files: [
+        {
         src: '<%= config.guts %>/assets/css/styles.scss',
         dest: '<%= config.temp %>/css/styles.css'
       },
@@ -32,6 +51,8 @@ module.exports = {
         src: '<%= config.guts %>/assets/css/om/styles.scss',
         dest: '<%= config.temp %>/css/om/styles.css'
       }
-    ]
-  }
+      ]
+    }
+
+  };
 };

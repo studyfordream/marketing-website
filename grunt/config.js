@@ -22,6 +22,7 @@ var config = function(grunt, options) {
           environmentData: 'website-guts/data/environments/production/environmentVariables.json',
           apiDomain: '//www.optimizely.com',
           assetsDir: '/dist/assets',
+          imageUrl: '//du7782fucwe1l.cloudfront.net',
           link_path: '',
           sassImagePath: '/img',
           compress_js: true,
@@ -54,6 +55,7 @@ var config = function(grunt, options) {
           assetsDir: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets',
           link_path: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
           sassImagePath: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets/img',
+          imageUrl: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets/img',
           compress_js: true,
           drop_console: false,
           concat_banner: '(function($, w, d){ \n\n' +
@@ -83,6 +85,7 @@ var config = function(grunt, options) {
           assetsDir: '/assets',
           link_path: '',
           sassImagePath: '/assets/img',
+          imageUrl: '/assets/img',
           compress_js: true,
           drop_console: false,
           concat_banner: '(function($, w, d){ \n\n' +
@@ -109,6 +112,7 @@ var config = function(grunt, options) {
           link_path: '/dist',
           sassSourceMap: true,
           sassImagePath: '/dist/assets/img',
+          imageUrl: '/dist/assets/img',
           compress_js: false,
           drop_console: false,
           concat_banner: '(function($, w, d){ \n\n' +
