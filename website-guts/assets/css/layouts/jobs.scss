@@ -16,6 +16,11 @@ body.jobs-layout {
             margin: 0;
             padding: 0;
         }
+        a {
+          @include breakpoint(tablet) {
+            @include _(clearfix);
+          }
+        }
     }
 
     #page-content {
@@ -258,7 +263,6 @@ body.jobs-layout {
           width: 90%;
           margin: 0 auto 60px auto;
           a {
-            @extend .clearfix;
             span:first-child {
               float: left;
             }

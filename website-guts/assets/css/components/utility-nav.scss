@@ -69,6 +69,9 @@ $navs-to-index: main-nav dropdown-menu-top;
   .experiment-container {
     cursor: default;
     li {
+      @include breakpoint(desktop) {
+        @include _(clearfix);
+      }
       cursor: default;
     }
     a {
@@ -223,7 +226,6 @@ $navs-to-index: main-nav dropdown-menu-top;
       width: 100%;
       li {
         white-space: nowrap;
-        @extend .clearfix;
         padding: 0 12px 16px 12px;
       }
       &:first-of-type {

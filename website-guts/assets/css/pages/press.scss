@@ -17,6 +17,9 @@ body.press-page {
 		@extend .heading-underline;
 	}
 	.press-feed-item {
+    @include breakpoint(desktop) {
+      @include _(clearfix);
+    }
 		&.enter,
 		&.leave,
 		&.anim-enter,
@@ -78,7 +81,6 @@ body.press-page {
 			width: 220px;
 		}
 		.press-feed-item {
-			@extend .clearfix;
 			margin-bottom: 35px;
 			img {
 				float: left;

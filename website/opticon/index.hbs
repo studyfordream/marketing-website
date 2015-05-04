@@ -17,22 +17,25 @@ external_script:
 <div class="confetti-container">
   <div class="confetti-left"></div>
 </div>
+
 <!--             -->
 <!--Title Section-->
 <!--             -->
 <section class="title-section">
   <div class="copy-container container">
-    <h1 class="page-title first-title adelle-sans--bold">{{title_section.title1}}</h1>
-    <h1 class="page-title second-title adelle-sans--bold">{{title_section.title2}}</h1>
+    <div>
+      <span class="page-title first-title adelle-sans--bold">{{title_section.title1}}</span><br>
+      <span class="page-title first-title adelle-sans--bold">{{title_section.title2}}</span>
+    </div>
     <h4 class="event-details adelle-sans">{{title_section.date}} | {{title_section.location}}</h4>
-    <p class="optimizely-host adelle-sans">{{{title_section.sub_title}}}</p>
+    <p class="hero-subtitle adelle-sans">{{{title_section.sub_title}}}</p>
+    <p class="optimizely-host adelle-sans">{{{title_section.sponsor}}}</p>
     <a class="anim-opticon-button opticon-button register-link" href="https://www.eventbrite.com/e/opticon-2015-tickets-14328636337">
       <div class="cta-text adelle-sans">{{title_section.cta}}</div>
       <div class="cta-arrow">→</div>
     </a>
   </div>
 </section>
-{{/with}}
 
 <div class="confetti-container">
   <div class="confetti-right"></div>
@@ -42,27 +45,37 @@ external_script:
 <!--Description Section-->
 <!--                   -->
 <section class="description container">
-  <h3 class="description-title adelle-sans">{{global_opticon_data.description.title}}</h3>
-  <p class="description-text adelle-sans">{{global_opticon_data.description.blurb}}</p>
-  <div class="button-container">
-    <a class="opticon-button adelle-sans" href="{{linkPath}}/opticon/about">{{global_opticon_data.description.cta}}</a>
-  </div>
-  <p class="adelle-sans description-text">
-    {{global_opticon_data.description.cta_2014}}
-    <a href="{{linkPath}}/opticon/opticon-2014">{{global_opticon_data.description.cta_2014_link_text}}</a>
-  </p>
+  <h3 class="description-title adelle-sans">{{description.title}}</h3>
+  <p class="description-text description-text--center adelle-sans">{{description.blurb}}</p>
 </section>
 
-
-<h3 class="description-title adelle-sans container">{{global_speakers_data.speakers.title}}</h3>
-{{> opticon_keynote_speakers}}
-{{#with global_opticon_data}}
+<!--                -->
+<!--Speakers Section-->
+<!--                -->
+<section class="speakers container">
+  <h3 class="description-title adelle-sans">{{speaker_section.title}}</h3>
+  <div class="speakers-container flex-container">
+    {{#each speaker_section.speaker_list}}
+    <div class="speaker-container" style="background-image: url('{{this.image}}')">
+      <p class="item-title adelle-sans--bold">{{this.speaker_name}}</p>
+      <p class="item-source adelle-sans">{{this.company}}</p>
+    </div>
+    {{/each}}
+  </div>
+  <h5 class="speaker-companies-title adelle-sans">{{speaker_section.featuring}}</h5>
+  <div class="logo-wall flex-container">
+    {{#each speaker_section.company_list}}
+    <div class="logo-wall__company {{this.class}}" style="background-image: url('{{this.image}}')"></div>
+    {{/each}}
+  </div>
+</section>
 
 <!--              -->
 <!--Tracks Section-->
 <!--              -->
 <section class="tracks container">
   <h3 class="description-title adelle-sans">{{tracks.title}}</h3>
+  <p class="description-text description-text--center adelle-sans">{{tracks.description}}</p>
   <div class="tracks-container flex-container">
     {{#each tracks.track_list}}
       <div class="track-container {{this.class}}">
@@ -71,6 +84,11 @@ external_script:
       </div>
     {{/each}}
   </div>
+  <a class="opticon-button opticon-button--internal-link blue-hover" href="{{../linkPath}}/opticon/agenda">
+    <div class="cta-text adelle-sans">{{tracks.cta}}</div>
+  </a>
+  <p class="adelle-sans">{{tracks.2014_text}}<a href="{{../linkPath}}/opticon/opticon-2014">{{tracks.2014_link}} &raquo;</a></p>
+
 </section>
 
 {{/with}}
