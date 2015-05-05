@@ -54,6 +54,9 @@ body.trial-form-layout {
   }
 
   #social-proof-cont {
+    @include breakpoint(desktop) {
+      @include _(clearfix);
+    }
     padding-top: 20px;
   }
 
@@ -123,7 +126,6 @@ body.trial-form-layout {
         width: 50%;
       }
       margin: 0 auto 50px auto;
-      @extend .clearfix;
       .visitors-tested-cont {
         float: left;
       }

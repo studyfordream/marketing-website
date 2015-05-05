@@ -56,8 +56,7 @@ var bundlePaths = [
   'utils/trim_url.js',
   'global.js',
   'components/*.js',
-  'services/*.js',
-  '!services/user_state.js'
+  'services/*.js'
 ];
 
 module.exports = function(grunt, options){

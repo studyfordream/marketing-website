@@ -1,6 +1,6 @@
 ---
 layout: opticon
-seo_title: Opticon Sessions
+seo_title: Opticon Agenda
 no_container: true
 no_header: true
 no_footer: true
@@ -69,9 +69,8 @@ external_script:
                     <p class="speaker-cont__speaker event-text adelle-sans">{{this.name}}, {{this.job_title}}, {{this.company}}</p>
                   {{/each}}
                 </div>
-                <p class="event-text adelle-sans--bold">Time: {{this.time}}</p>
-                {{! TODO add back once we have talk desciptions}}
-                {{!<p class="event-text adelle-sans">this.description</p>}}
+                <p class="event-text adelle-sans--bold">Time: {{this.time}} | Location: {{this.location}}</p>
+                <p class="event-text adelle-sans">{{this.description}}</p>
               </div>{{! /toggle-cont }}
             </div>{{! /event-cont }}
           {{/each}}
