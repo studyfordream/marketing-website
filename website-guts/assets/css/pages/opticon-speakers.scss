@@ -7,6 +7,15 @@ body.opticon-speakers {
     background-position: top center;
     .item-title { margin-bottom: 5px; }
     .item-source { line-height: 17px; }
+    .item-more-info {
+      font-size: 16px;
+      color: $opticon-brand-blue;
+      letter-spacing: 2.46px;
+      &:hover {
+        cursor: pointer;
+        color: $opticon-brand-blue-hover;
+      }
+    }
   }
   .speaker-blurb { text-align: left; }
 }
@@ -17,6 +26,8 @@ body.opticon-speakers {
       width: 575px;
       margin-bottom: 75px;
     }
+    .item-source { min-height: 35px; }
+    .item-more-info { margin-top: 0; }
     .opticon-modal-container {
       &__left {
         text-align: center;
