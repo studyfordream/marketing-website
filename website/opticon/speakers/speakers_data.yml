@@ -17,7 +17,11 @@ guest_speakers:
       name: "Adam Avramescu"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/adam-avramescu_bw_170x170-circle.png"
       company: "Optimizely"
+<<<<<<< Updated upstream
       blurb: "Adam Avramescu leads Customer Education at Optimizely, where his goal is to empower the Optimizely team to become effective educators while scaling the delight of working with Optimizely's Customer Success team to all customers. Before joining Optimizely, Adam managed training and content development functions, scaled learning and documentation materials, and created learning games, simulations, and other high-impact experiences for higher-ed institutions and Fortune 500 clients. He holds a B.A. in English, Rhetoric and Writing from the University of Texas."
+=======
+      blurb: ""
+>>>>>>> Stashed changes
     -
       name: "Jesse Avshalomov"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
@@ -37,7 +41,11 @@ guest_speakers:
       name: "Rachman Blake"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
       company: "FunnyBiz Conference"
+<<<<<<< Updated upstream
       blurb: "Rachman Blake is the co-founder of AppHeroes, a tech recruiting company that connects startups with mobile app developers through live events with comedy. After realizing that humor and business go together like chocolate and peanut butter, he co-founded FunnyBizz, which is on a mission to abolish boring content. He co-produces the FunnyBizz Conference, where leading thinkers from the worlds of comedy and business converge to explain how humor should be used to improve business. Rachman is a sought-after speaker and has taken the stage at popular events like The Lean Startup Conference. A graduate of Princeton, Rachman is also a marathoner, from New Jersey, and has never slipped on a banana peel."
+=======
+      blurb: ""
+>>>>>>> Stashed changes
     -
       name: "Bill Bruno"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
@@ -62,7 +70,11 @@ guest_speakers:
       name: "Joe Casson"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/joe-casson-bw_170x170-circle.png"
       company: "Optimizely"
+<<<<<<< Updated upstream
       blurb: "Joe is an Optimizely Sales Engineer and recent Boston College graduate. As a Sales Engineer, he helps technical and non-technical customers alike understand how Optimizely works and how it would fit into their technology stack. Before joining Optimizely, Joe was slinging pizzas on a food truck (Del Popolo) and hacked his way through two apps as an independent Android developer (Call Your Mother, Tidbyt.) He’s also spent some time designing logos, which his mother thinks look “very nice.” Joe enjoys hitting dingers with his baseball team (triples are okay, too), free soloing the Half Dome in Yosemite, and swearing that next year really is the Mets' year."
+=======
+      blurb: ""
+>>>>>>> Stashed changes
     -
       name: "Kathy Chao"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
@@ -72,7 +84,11 @@ guest_speakers:
       name: "Jeff Chin"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
       company: "Scripps Network Interactive"
+<<<<<<< Updated upstream
       blurb: "Jeff Chin graduated with a Bachelor’s degree in Integrated Science and Technology from James Madison University in Virginia and an M.S. in Technology and Engineering Management from The George Washington University. Previously working for AOL, InvestorPlace Media, The Washington Post, and Dow Jones/The Wall Street Journal, he joined Scripps Networks Interactive in 2014 as the Director of Analytics & Optimization. At Scripps he manages a team responsible for reporting, analysis, and optimization testing of the Scripps network of sites, including foodnetwork.com, food.com, hgtv.com, travelchannel.com, diynetwork.com, cookingchanneltv.com, and gactv.com."
+=======
+      blurb: ""
+>>>>>>> Stashed changes
     -
       name: "Trevin Chow"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/trevin-chow.png"
@@ -87,7 +103,11 @@ guest_speakers:
       name: "Cameron Deatsch"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/cameron_collaborating-to-scalebw_170x170-circle.png"
       company: "Atlassian"
+<<<<<<< Updated upstream
       blurb: "Cameron Deatsch is the Head of Growth at Atlassian. The Growth team combines engineers, data scientists, online and field marketers focused on running campaigns and experiments across Atlassian's funnel. Prior to Atlassian, Cameron held positions in demand generation, sales enablement, and product marketing at both Jive Software and BEA Systems. Cameron holds an M.B.A. from the University of Montana and a B.S. in Electrical Engineering from UC Davis."
+=======
+      blurb: ""
+>>>>>>> Stashed changes
     -
       name: "Stefan Deeran"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
@@ -117,7 +137,11 @@ guest_speakers:
       name: "Lauren Ford"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/lauren-ford.png"
       company: "Trulia"
+<<<<<<< Updated upstream
       blurb: "As a Senior Quantitative Analyst at Trulia, Lauren loves all things data. She manages Trulia’s A/B Testing program, working cross-functionally with Product and Engineering teams to create, run, and analyze A/B tests on desktop and mobile platforms. Lauren took over Trulia’s A/B testing program in its early stages, and has brought process, efficiency, and rigorous analysis to the program. In addition to A/B testing, Lauren works on deep-dive analysis projects and builds reporting infrastructure to surface data to other teams within the organization. She holds a B.A. in Math and Economics from UC San Diego."
+=======
+      blurb: ""
+>>>>>>> Stashed changes
     -
       name: "Jordan Garcia"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jordanbw_170x170-circle.png"
@@ -218,6 +242,7 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jenny_culture-from-withinbw_170x170-circle.png"
       company: "Optimizely"
       blurb: "Jenny Lykken is a Learning & Development Manager at Optimizely, where she is building the learning & development function within the Customer Success team. Jenny’s mission is to instill a growth mindset in the team by delivering learning experiences that build trust & empathy, high-performing teams, leadership at all levels, and a learning organization. Before joining Optimizely, Jenny was on the Learning & Organizational Development team at Twitter. Prior to that, she spent 6 years in People Development at Google, where she was the global program manager for Google’s “sustaining high performance” learning & development curriculum. Jenny is also a certified yoga instructor (RYT-200). She is originally from North Dakota and holds a Bachelor's Degree in Psychology with honors from Harvard University."
+      blurb: ""
     -
       name: "David Marks"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"

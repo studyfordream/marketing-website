@@ -161,6 +161,10 @@ days:
             roles: "marketer productmanager"
             speakers:
               -
+                name: "Ash Alhashim"
+                job_title: "Global Director, Sales and Market Development"
+                company: "Optimizely"
+              -
                 name: "Amanda Swan"
                 job_title: "Community Manager"
                 company: "Optimizely"
