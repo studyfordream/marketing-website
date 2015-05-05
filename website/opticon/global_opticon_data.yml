@@ -1,22 +1,81 @@
 title_section:
-  title1: "It's all about"
-  title2: "the experience."
-  date: "June 17 & 18, 2015"
+  title1: "Join us at"
+  title2: "Opticon 2015"
+  date: "June 17 & 18"
   location: "Pier 27, San Francisco"
-  sub_title: "Powered by <a href='https://www.optimizely.com/'>Optimizely</a>"
+  sub_title: "The premier event for the experience optimization and testing community"
+  sponsor: "Powered by <a href='https://www.optimizely.com/'>Optimizely</a>"
   cta: "Register Now"
 
 description:
-  title: "Opticon is the premier event for the experience optimization and testing community."
-  blurb: "Attendees, including business leaders, industry experts and practitioners, leave Opticon armed with new strategies, ideas, and contacts to take their optimization programs to the next level."
+  title: "Take your optimization program to the next level"
+  blurb: "Join the discussion around the future of optimization, gain first hand access to the Optimizely team and major product updates, and leave with new strategies, ideas, and contacts to take your program, team, and career to new heights."
   cta: "Learn More"
   cta_2014: "Want to get a taste of what's in store? Check out our "
   cta_2014_link_text: "Opticon 2014 recap"
 
-speakers_cta: "See Speakers"
+speaker_section:
+  title: "Hear from world-renowned experts and industry leaders"
+  speaker_list:
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      speaker_name: "Dan Siroker"
+      company: "Optimizely"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/marc-circle-headshot.png"
+      speaker_name: "Marc Andreessen"
+      company: "ANDREESSEN HOROWITZ"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/michelle_levesque.png"
+      speaker_name: "Michelle Levesque"
+      company: "Google"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/andrea-burbank.png"
+      speaker_name: "Andrea Burbank"
+      company: "Pinterest"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/eddie-hartman.png"
+      speaker_name: "Eddie Hartman"
+      company: "LegalZoom"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/pam-webber.png"
+      speaker_name: "Pam Webber"
+      company: "99Designs"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/pat-mcgrath.png"
+      speaker_name: "Patrick McGrath"
+      company: "Netflix"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/trevin-chow.png"
+      speaker_name: "Trevin Chow"
+      company: "Microsoft Store"
+  featuring: "Featuring speakers from:"
+  company_list:
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/microsoft_gray.svg"
+      class: "microsoft"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-logos/sprite-1.png"
+      class: "trulia"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/customer-logos/sprite-1.png"
+      class: "cbs"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speaker_companies/marketo.png"
+      class: "marketo"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speaker_companies/atlassian.png"
+      class: "atlassian"
+    -
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speaker_companies/princess-cruises.png"
+      class: "princess-cruises"
 
 tracks:
-  title: "Participate in a wide range of discussion topics relating to experience optimization."
+  title: "Join the discussion around topics that matter most to you"
+  description: "Each Opticon session fits into one of four tracks. Use these tracks to find sessions that are most relevant to you – or mix and match for a more diversified experience."
+  cta: "See Agenda"
+  2014_text: "Want to get a taste of what’s in store? Check out our "
+  2014_link: "Opticon 2014 recap"
   track_list:
     -
       title: "Platform"
