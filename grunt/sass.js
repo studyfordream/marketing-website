@@ -1,5 +1,4 @@
 var path = require('path');
-var fs = require('fs');
 var sass = require('grunt-sass/node_modules/node-sass');
 
 module.exports = function(grunt){

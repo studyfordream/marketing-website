@@ -83,12 +83,14 @@ module.exports = {
     options: {
       node: true,
       debug: true,
+      expr: true,
       globals: {
         mocha: false,
         it: false,
         console: false,
         describe: false,
         beforeEach: false,
+        before: false,
         waits: false,
         waitsFor: false,
         runs: false

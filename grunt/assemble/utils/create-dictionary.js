@@ -2,6 +2,7 @@ var path = require('path');
 var _ = require('lodash');
 var marked = require('optimizely-marked');
 var splitKey = require('./split-key');
+var kindOf = require('kind-of');
 
 //need to have a way to recognize markdown in page content in hbs template outside of front matter
 //when putting data back in must recognize arrays and sub out strings in objects accordingly
@@ -40,7 +41,11 @@ module.exports = function (assemble) {
     var pageContent, val;
     var isPageContent = fileObj.data && fileObj.data[key] && suffix === 'page_content';
     if(isPageContent) {
-      pageContent = fileObj.contents.toString();  //convert the buffer object
+      if(kindOf(fileObj.contents) === 'buffer') {
+        pageContent = fileObj.contents.toString(); //convert the buffer object
+      } else {
+        pageContent = fileObj.contents;
+      }
       val = ( prefix === 'MD' ) ? mdParser(pageContent) : pageContent;
       delete fileObj.data[key];
 
@@ -51,6 +56,11 @@ module.exports = function (assemble) {
   }
 
   var createDictionary = function createDictionary(fileData, locale) {
+    //return early if given an empty object or a non `maplike` structure
+    //use `kindOf` because buffers are misenterpreted by loadash
+    if(kindOf(fileData) !== 'object') {
+      return {};
+    }
     var linkPath = assemble.get('data.linkPath');
     var data = fileData.data || fileData;
     var translationKeys = [
