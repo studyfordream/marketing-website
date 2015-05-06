@@ -126,6 +126,36 @@ var config = function(grunt, options) {
     release: {
       options: {
         variables: {
+          aws: creds,
+          environment: 'staging',
+          exclude_from_assemble: 'bobloblaw.hbs',
+          apiDomain: '//app.optimizely.test',
+          environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
+          assetsDir: '/dist/assets',
+          link_path: '',
+          sassImagePath: '/dist/assets/img',
+          imageUrl: '/dist/assets/img',
+          compress_js: true,
+          drop_console: false,
+          concat_banner: '(function($, w, d){ \n\n' +
+            '  window.optly = window.optly || {}; \n\n' +
+            '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
+            '  window.linkPath = "/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>"; \n\n' +
+            '  try { \n\n',
+          concat_footer: '  } catch(error){ \n\n' +
+            '    console.error(error, targetName);\n\n' +
+            '    if(typeof error === "object") { try { error = JSON.stringify(error, ["message", "arguments", "type", "name"]); } catch (innerErr) { error = innerErr.message || "cannot parse error message"; } }; \n\n' +
+            '    var path = window.location.pathname;\n\n' +
+            '    var trimpath = path.lastIndexOf("/") === path.length - 1 && path.length > 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
+            '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " + targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
+            '  } \n' +
+            '})(jQuery, window, document);'
+        }
+      }
+    },
+    release2: {
+      options: {
+        variables: {
           environment: 'staging',
           exclude_from_assemble: 'bobloblaw.hbs',
           environmentData: 'website-guts/data/environments/development/environmentVariables.json',
