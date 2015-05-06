@@ -35,6 +35,18 @@ sponsor_levels:
     class: "silver"
     sponsor_list:
       -
+        display_url: "http://www.blueacorn.com/"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/blue_acorn_logo.png"
+        site_link: "www.blueacorn.com"
+        description: ""
+        class: "silver"
+      -
+        display_url: "www.decibelinsight.com"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/decibel_insight2.png"
+        site_link: "https://www.decibelinsight.com/"
+        description: ""
+        class: "silver"
+      -
         display_url: "www.funnelenvy.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/funnel_envy_logo.png"
         site_link: "http://www.funnelenvy.com/"
