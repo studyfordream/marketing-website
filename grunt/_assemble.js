@@ -24,9 +24,9 @@ var config = {
     subfoldersRoot: 'subfolders',
     locales: {
       'de': 'de_DE',
-      //'fr': 'fr_FR',
-      //'es': 'es_ES',
-      //'jp': 'ja_JP'
+      'fr': 'fr_FR',
+      'es': 'es_ES',
+      'jp': 'ja_JP'
     },
     ppcKey: ppcKey
   },

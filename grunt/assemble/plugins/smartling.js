@@ -1,6 +1,8 @@
 'use strict';
 
 var _ = require('lodash');
+var fs = require('fs');
+var path = require('path');
 var through = require('through2');
 var removeTranslationKeys = require('../utils/remove-translation-keys');
 var hbsParser = require('l10n-tools/hbs-parser');
@@ -75,6 +77,9 @@ module.exports = function (assemble) {
   }, function (cb) {
     var curryTryCatch = require('../utils/curry-try-catch');
     var mergeSubfolderYml = curryTryCatch(require('./translation-utils/merge-subfolder-yml')(assemble));
+    var writePath = path.join(process.cwd(), 'grunt/assemble/test/fixture/config');
+    fs.writeFileSync(path.join(writePath, 'lang.js'), JSON.stringify(lang), {encoding: 'utf8'});
+    fs.writeFileSync(path.join(writePath, 'page-data-clone.js'), JSON.stringify(pageDataClone), {encoding: 'utf8'});
     mergeSubfolderYml(lang, pageDataClone);
     assemble.set('lang', lang);
     var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
