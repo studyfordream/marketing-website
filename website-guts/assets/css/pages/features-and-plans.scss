@@ -71,7 +71,7 @@ body.features-and-plans {
     }
     .learn-cta {
       @extend .pricing-button;
-      background-image: linear-gradient(-180deg, #2091c3 3%, $brand-blue 100%);
+      background-image: linear-gradient(-180deg, $brand-blue-hover 3%, $brand-blue 100%);
       border: 2px solid $brand-blue-border;
       padding: 15px 45px;
       margin-bottom: 15px;
