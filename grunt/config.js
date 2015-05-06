@@ -153,27 +153,7 @@ var config = function(grunt, options) {
         }
       }
     },
-    release2: {
-      options: {
-        variables: {
-          environment: 'staging',
-          exclude_from_assemble: 'bobloblaw.hbs',
-          environmentData: 'website-guts/data/environments/development/environmentVariables.json',
-          apiDomain: '//app.optimizely.test',
-          assetsDir: '/dist/assets',
-          link_path: '',
-          sassSourceMap: true,
-          sassImagePath: '/dist/assets/img',
-          compress_js: false,
-          drop_console: false,
-          concat_banner: '(function($, w, d){ \n\n' +
-                         '  window.optly = window.optly || {}; \n\n' +
-                         '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-                         '  window.linkPath = "/dist"; \n\n',
-          concat_footer: '})(jQuery, window, document);'
-        }
-      }
-    },
+    
     content: 'website',
     guts: 'website-guts',
     dist: 'dist',
