@@ -784,6 +784,23 @@ days:
                 name: "Merritt Aho"
                 job_title: "Sr. Digital Analyst"
                 company: "Volusion"
+          -
+            title: "The Art and Science of Persuasion: Creating Change with your Results"
+            time: "3:35 - 4:20"
+            location: "Breakout 3"
+            description: "Optimizely’s results page is full of data to help you make decisions about your business. Even with all of this information, it’s not always straightforward to call a winner among the mixed messages you might get. This session will break down the results page and give you strategies for evaluating your test results to identify actionable data and create an iterative testing process."
+            companies: "CBS Interactive"
+            track: "action"
+            roles: "marketer productmanager"
+            speakers:
+              -
+                name: "Daniel Kamas"
+                job_title: "Product Manager"
+                company: "CBS Interactive"
+              -
+                name: "Kelly Fang"
+                job_title: "Assocaite Product Manager"
+                company: "CBS Interactive"
       -
         start_time: "4:20"
         title: "That's a wrap!"
