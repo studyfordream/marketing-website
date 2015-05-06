@@ -52,8 +52,8 @@
       &.active {
         font-weight: bold;
         &:before {
-          background: $blue;
-          border: 1px solid $blue;
+          background: $brand-blue;
+          border: 1px solid $brand-blue;
         }
       }
     }

@@ -34,7 +34,7 @@ body.sample-size-page {
       }
     }
     .question-link {
-      color: #4d89e2;
+      color: $brand-blue;
       font-weight: normal;
     }
     .question-link:hover {
@@ -98,7 +98,7 @@ body.sample-size-page {
       font-size: 0.8em;
       background-color: transparent;
       border: none;
-      color: #4d89e2;
+      color: $brand-blue;
       margin: 0;
       outline: none;
       padding: 0;
@@ -139,7 +139,7 @@ body.sample-size-page {
       text-transform: capitalize;
     }
     #sample {
-      color: #3385d6;
+      color: $brand-blue;
       font-size: 3.5em;
       font-weight: 500;
       margin: 0;
@@ -165,7 +165,7 @@ body.sample-size-page {
       }
     }
     .calc-faq-subtitle {
-      color: #006eb6;
+      color: $brand-blue;
     }
   }
 }

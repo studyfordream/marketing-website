@@ -11,7 +11,7 @@ body.jobs-layout {
     }
 
     #job-list-cont {
-        margin-bottom: 60px;
+        margin-bottom:  60px;
         ul {
             margin: 0;
             padding: 0;
@@ -32,7 +32,7 @@ body.jobs-layout {
         display: none;
 
         h4 {
-            color: #036;
+            color: $brand-navy-blue;
             font-size: 48px;
             margin: 0;
             font-family: $sentinel-medium-font-family;
@@ -79,7 +79,7 @@ body.jobs-layout {
 
                 &:hover {
                     text-decoration: none;
-                    background-color: #c3d4e8;
+                    background-color: $faint-gray-bg;
                 }
             }
         }
@@ -87,7 +87,7 @@ body.jobs-layout {
     }
 
     .department-title {
-        color: #004776;
+        color: $brand-navy-blue;
         font-family: $gotham-small-type;
         font-size: 1em;
         font-weight: 500;
