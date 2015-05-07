@@ -153,6 +153,7 @@ module.exports = function (assemble) {
 
       translateAssembleViews(translated);
 
+      fs.writeFileSync(path.join(writePath, 'page-data-clone-no-tr-keys.js'), JSON.stringify(pageDataClone), {encoding: 'utf8'});
       assemble.set('rootData', pageDataClone[websiteRoot]);
       assemble.set('translated', translated);
       assemble.set('translations', translations); // Store retrieved from Smartling translations object

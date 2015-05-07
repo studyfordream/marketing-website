@@ -15,7 +15,7 @@ var config = {
     ],
     partials: ['<%= config.guts %>/templates/partials/*.hbs'],
     client: ['<%= config.guts %>/templates/client/**/*.hbs'],
-    helpers: ['<%= config.helpers %>/**/*.js', 'helper-moment'],
+    helpers: ['<%= config.helpers %>/**/*.js'],
     basename: path.basename(process.cwd()),
     websiteRoot: 'website',
     websiteGuts: '<%= config.guts %>',
