@@ -47,7 +47,7 @@
     "grunt-s3": "0.2.0-alpha.3",
     "grunt-sass": "git+ssh://git@github.com/sindresorhus/grunt-sass.git#3f48c971cf1bcdcec67f47dbf439942639104db8",
     "grunt-text-replace": "0.3.12",
-    "grunt-userevvd": "0.1.4",
+    "grunt-userevvd": "0.1.5",
     "gulp-extname": "0.2.0",
     "handlebars": "3.0.0",
     "l10n-tools": "git+ssh://git@github.com/optimizely/l10n-tools.git",
