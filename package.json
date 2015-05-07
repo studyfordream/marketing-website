@@ -51,7 +51,7 @@
     "gulp-extname": "0.2.0",
     "handlebars": "3.0.0",
     "kind-of": "^1.1.0",
-    "l10n-tools": "git+ssh://git@github.com/optimizely/l10n-tools.git#cbe46faf89224ad89d20d7924692f60cde45db9f",
+    "l10n-tools": "git+ssh://git@github.com/optimizely/l10n-tools.git#06d884ade60376a2b1adcd7562473d7390332d43",
     "l10n-tr": "git+ssh://git@github.com/optimizely/l10n-tr.git#4c4175a2c18c4340c4786edb884228c72ccdd14c",
     "layout-stack": "^0.1.1",
     "load-grunt-config": "0.16.0",
