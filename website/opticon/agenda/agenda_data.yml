@@ -310,10 +310,6 @@ days:
                 job_title: "Frontend Lead"
                 company: "Tilt"
               -
-                name: "Rex Ren"
-                job_title: "Software Engineer"
-                company: "BitTorrent"
-              -
                 name: "Justin Knoll"
                 job_title: "Chief Architect"
                 company: "BitTorrent"
