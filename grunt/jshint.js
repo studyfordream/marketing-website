@@ -101,7 +101,8 @@ module.exports = {
         '<%= config.guts %>/helpers/*.js',
         'grunt/**/*.js',
         'Gruntfile.js',
-        '!grunt/assemble/test/fixture/**/*.js'
+        '!grunt/assemble/test/fixture/**/*.js',
+        '!grunt/assemble/test/config/**/*.js'
       ]
     }
   }

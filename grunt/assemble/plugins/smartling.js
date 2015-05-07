@@ -117,6 +117,7 @@ module.exports = function (assemble) {
         populateSubfolderData(locale, pageDataClone);
         translateSpecialTypes(locale, translations[dictKey], pageDataClone);
         translatePageData(locale, lang, pageDataClone, translations[dictKey]);
+        removeTranslationKeys(pageDataClone[locale], locale);
       });
 
       //remove translation keys after page translations
