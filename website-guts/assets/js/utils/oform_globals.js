@@ -182,6 +182,9 @@
     if(payload.Signup_Platform__c){
       reportingObject.Signup_Platform__c = payload.Signup_Platform__c;
     }
+    if(window.optly.l10n && window.optly.l10n.locale) {
+      reportingObject.Original_Locale__c = window.optly.l10n.locale;
+    }
 
     //set the source cookie so that the next page know where the visitor
     //came from
