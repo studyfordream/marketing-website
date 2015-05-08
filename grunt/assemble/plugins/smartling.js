@@ -120,6 +120,7 @@ module.exports = function (assemble) {
         removeTranslationKeys(pageDataClone[locale], locale);
       });
 
+      fs.writeFileSync(path.join(writePath, 'page-data-clone.js'), JSON.stringify(pageDataClone.website), {encoding: 'utf8'});
       //remove translation keys after page translations
       removeTranslationKeys(pageDataClone);
 

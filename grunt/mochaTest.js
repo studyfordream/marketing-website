@@ -3,6 +3,9 @@ module.exports = {
     reporter: 'spec',
     timeout: 40000
   },
+  assemble: {
+    src: ['grunt/assemble/test/**/*-spec.js', '!grunt/assemble/test/**/streams*.js']
+  },
   'pricing': {
     src: ['test/{pricing,features-and-plans}/*-spec.js']
   },

@@ -32,16 +32,17 @@ module.exports = function(fileData, locale) {
       parsedKey = _.isArray(split) ? split : undefined;
 
       if(_.isPlainObject(val)) {
-        removeTranslationKeys(val);
+        //
+        fileData[ ( parsedKey && parsedKey[1] ) || key ] = removeTranslationKeys(val);
       } else if(_.isArray(val) && parsedKey) {
         fileData[ parsedKey[1] ] = processTransArray(val, removeTranslationKeys);
-        delete fileData[key];
       } else if( ( _.isString(val) || _.isNumber(val) || _.isNull(val) ) && parsedKey ) {
         if (/\\n+/g.test(val)) {
           val = val.replace(/\\n+/g, '');
         }
 
         if(parsedKey[0] === 'HTML') {
+          //TODO: don't hardcode linkPath, but this is tricky because assemble.get('linkPath') varies per locale
           var pathRe = new RegExp('\/dist\/(?!' + locale + '\/)', 'g');
           if(locale && pathRe.test(val)) {
             //replace href's that may have been parsed in markdown
@@ -50,16 +51,17 @@ module.exports = function(fileData, locale) {
           }
         }
 
-        if(key === 'HTML_page_content') {
-          fileData.page_content = val;
-        } else {
-          fileData[ parsedKey[1] ] = val;
-        }
+        fileData[ parsedKey[1] ] = val;
 
+      }
+
+      if(parsedKey) {
         delete fileData[key];
       }
     }
+
+    return fileData;
   }
 
-  removeTranslationKeys(fileData);
+  return removeTranslationKeys(fileData);
 };
