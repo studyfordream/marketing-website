@@ -66,7 +66,7 @@ days:
                 company: "Credit Sesame"
               -
                 name: "Raman Bhatia"
-                job_title: "Director of Product Management"
+                job_title: "Director of Mobile"
                 company: "Fareportal"
               -
                 name: "Andrea Burbank"
@@ -310,10 +310,6 @@ days:
                 job_title: "Frontend Lead"
                 company: "Tilt"
               -
-                name: "Rex Ren"
-                job_title: "Software Engineer"
-                company: "BitTorrent"
-              -
                 name: "Justin Knoll"
                 job_title: "Chief Architect"
                 company: "BitTorrent"
@@ -465,7 +461,7 @@ days:
             time: "4:45 - 5:30"
             location: "Main Room"
             description: "Are you redesigning your website in the next year? Many industry experts agree that it’s best to develop a website iteratively, using A/B testing and optimization, but some websites are so rusty that only a major overhaul seems to be the solution. It can be daunting to navigate the critical process of a redesugn: rising costs, missed deadlines, and plummeting conversion rates instead of anticipated lifts. Learn from the experts on how to use customer interviews, closed-loop sales feedback, web analytics, and A/B testing to determine the optimal mix of content, navigation, and calls-to-action for your site. Get tips on how to drive results in spite of tight timelines, limited resources, CMS restrictions, and small datasets."
-            companies: "Apperian, j2 Global Communications"
+            companies: "Apperian, j2 Global Communications, Western Governors Universityr"
             track: "action"
             roles: "marketer productmanager"
             speakers:
@@ -763,6 +759,7 @@ days:
                 name: "Rohan Karunakaran"
                 job_title: "Customer Success Manager"
                 company: "Optimizely"
+ 
           -
             title: "Removing Friction and Cognitive Overhead: The Role of UX Design in Optimization"
             time: "3:35 - 4:20"
@@ -776,6 +773,27 @@ days:
                 name: "Merritt Aho"
                 job_title: "Sr. Digital Analyst"
                 company: "Volusion"
+          -
+            title: "The Art and Science of Persuasion: Creating Change with your Results"
+            time: "3:35 - 4:20"
+            location: "Breakout 3"
+            description: "Optimizely’s results page is full of data to help you make decisions about your business. Even with all of this information, it’s not always straightforward to call a winner among the mixed messages you might get. This session will break down the results page and give you strategies for evaluating your test results to identify actionable data and create an iterative testing process."
+            companies: "CBS Interactive, Optimizely"
+            track: "action"
+            roles: "marketer productmanager"
+            speakers:
+              -
+                name: "Daniel Kamas"
+                job_title: "Product Manager"
+                company: "CBS Interactive"
+              -
+                name: "Kelly Fang"
+                job_title: "Associate Product Manager"
+                company: "CBS Interactive"
+              -
+                name: "Khattaab Khan"
+                job_title: "Strategic Consultant"
+                company: "Optimizely"
       -
         start_time: "4:20"
         title: "That's a wrap!"
