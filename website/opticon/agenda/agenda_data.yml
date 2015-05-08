@@ -461,7 +461,7 @@ days:
             time: "4:45 - 5:30"
             location: "Main Room"
             description: "Are you redesigning your website in the next year? Many industry experts agree that it’s best to develop a website iteratively, using A/B testing and optimization, but some websites are so rusty that only a major overhaul seems to be the solution. It can be daunting to navigate the critical process of a redesugn: rising costs, missed deadlines, and plummeting conversion rates instead of anticipated lifts. Learn from the experts on how to use customer interviews, closed-loop sales feedback, web analytics, and A/B testing to determine the optimal mix of content, navigation, and calls-to-action for your site. Get tips on how to drive results in spite of tight timelines, limited resources, CMS restrictions, and small datasets."
-            companies: "Apperian, j2 Global Communications, Western Governors Universityr"
+            companies: "Apperian, j2 Global Communications, Western Governors University"
             track: "action"
             roles: "marketer productmanager"
             speakers:
@@ -759,7 +759,6 @@ days:
                 name: "Rohan Karunakaran"
                 job_title: "Customer Success Manager"
                 company: "Optimizely"
- 
           -
             title: "Removing Friction and Cognitive Overhead: The Role of UX Design in Optimization"
             time: "3:35 - 4:20"
