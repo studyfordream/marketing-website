@@ -19,8 +19,9 @@ module.exports = function (assemble) {
   var websiteRoot = assemble.get('data.websiteRoot');
   var locales = assemble.get('data.locales');
 
-  //add the global yml keys flagged for translation to the lang object to be parsed
-  //and sent to smartling
+  /**
+   * add the global yml keys flagged for translation to the lang object to be parsed and sent to smartling
+   */
   lang.global = createTranslationDict(globalYml, 'global');
 
   return through.obj(function (file, enc, cb) {
@@ -34,32 +35,44 @@ module.exports = function (assemble) {
     lang[locale] = lang[locale] || {};
     lang[locale][dataKey] = lang[locale][dataKey] || {};
 
-    //cache the layout data and remove it from the file.data object before translation parsing
-    //because layout data will be added to pageDataClone through the plugin
+    /**
+     * cache the layout data and remove it from the file.data object before translation parsing
+     * because layout data will be added to pageDataClone through the plugin
+     */
     if(file.data.layouts) {
       layoutData = file.data.layouts;
       delete file.data.layouts;
     }
 
-    //get TR|MD prefixed keys and swap out MD content for HTML content
+    /**
+     * get TR|MD prefixed keys and swap out MD content for HTML content
+     */
     trYfm = createTranslationDict(file, locale);
 
-    //add all the parsed YFM to the page data object
+    /**
+     * add all the parsed YFM to the page data object
+     */
     _.merge(pageDataClone[locale][dataKey], trYfm);
 
     trYml = createTranslationDict(pageDataClone[locale][dataKey], locale);
-    //parse file contents for tr helper phrases
+
+    /**
+     * Add extracted phrases as translation key so they will be sent to smartling
+     */
     if(file.contents) {
-      // Add extracted phrases as translation key so they will be sent to smartling
       trYml.TR_hbs_extracted = hbsParser.extract(file.contents.toString());
     }
-    //don't translate partners markdown content
+
+    /**
+     * don't translate partners markdown content
+     */
     if(/partners\/(solutions|technology)\//.test(file.path) && trYml.HTML_page_content) {
       delete trYml.HTML_page_content;
     }
 
-    //extend the lang object with data from the YFM of file.data
-    //and external yml data
+    /**
+     * extend the lang object with data from the YFM of file.data and external yml data
+     */
     if(Object.keys(trYml)) {
       lang[locale][dataKey] = trYml;
     }
@@ -93,7 +106,10 @@ module.exports = function (assemble) {
       var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml'));
       var translateAssembleViews = curryTryCatch(require('./translation-utils/translate-assemble-views')(assemble));
       var translations = resolved[0];
-      //this will become the dictionary for pages
+
+      /**
+       * `translated` will become the dictionary for pages
+       */
       var translated = {};
 
       /**
@@ -121,8 +137,8 @@ module.exports = function (assemble) {
       });
 
       fs.writeFileSync(path.join(writePath, 'page-data-clone.js'), JSON.stringify(pageDataClone.website), {encoding: 'utf8'});
-      //remove translation keys after page translations
-      removeTranslationKeys(pageDataClone);
+
+      removeTranslationKeys(pageDataClone[websiteRoot]);
 
       mergeLayoutData(pageDataClone);
 

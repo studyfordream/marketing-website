@@ -3,9 +3,15 @@ var _ = require('lodash');
 var generateKey = require('./generate-key');
 
 module.exports = function(assemble) {
+  /**
+   * Utility function for adding Global Data to the `assemble` instance
+   * 1. external YML data with `global_` prefix will be added with a fp key
+   * 2. all other data will be added default key name
+   *
+   * @param {Object} `options` from the _assemble config file
+   * @return {undefined} adds `data` to the `assemble` instance
+   */
   var globalKeyCache = [];
-  //set the global data from external YML & env config
-  //special key for YML data for translation dictionary retrieval
   return function loadGlobalData(options) {
     assemble.data(options.data, {
       namespace: function(fp) {

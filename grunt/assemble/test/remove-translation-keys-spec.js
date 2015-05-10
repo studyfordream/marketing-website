@@ -163,14 +163,31 @@ describe('create dictionary from all translation keys', function() {
         expect(returnedObj.b[0].TR_b).to.be.ok;
       });
 
-      //it('mutates the original object', function() {
-        //expect(ogObj.a).to.be.ok;
-        //expect(ogObj.nested_a).to.be.ok;
-        //expect(ogObj.nested_a.a).to.be.ok;
-        //expect(ogObj.nested_a.TR_a).to.be.undefined;
-        //expect(ogObj.nested_b.a).to.be.ok;
-        //expect(ogObj.nested_b.TR_a).to.be.undefined;
-      //});
+    });
+
+    describe('removing TR_ and HTML_ keys for JS type values other than strings', function() {
+      var returnedObj;
+      var ogObj = {
+        TR_a: 1,
+        nested_a: {
+          TR_a: undefined,
+          TR_b: null
+        }
+      };
+      before(function() {
+        returnedObj = removeTranslationKeys(ogObj);
+      });
+
+      it('removes TR keys for null & undefined values', function() {
+        expect(returnedObj.a).to.be.ok;
+        expect(returnedObj.a).to.equal(1);
+      });
+
+      it('removes TR keys for integer values', function() {
+        expect(returnedObj.nested_a.a).to.be.undefined;
+        expect(returnedObj.nested_a.b).to.equal(null);
+        expect(returnedObj.nested_a).to.have.all.keys('a', 'b');
+      });
 
     });
 

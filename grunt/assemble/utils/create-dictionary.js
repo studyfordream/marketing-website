@@ -4,22 +4,34 @@ var marked = require('optimizely-marked');
 var splitKey = require('./split-key');
 var kindOf = require('kind-of');
 
-//need to have a way to recognize markdown in page content in hbs template outside of front matter
-//when putting data back in must recognize arrays and sub out strings in objects accordingly
+/**
+ *
+ * @param {Object} `assemble` the Assemble instance
+ * @return {Object} a new object with only values to be translated and their associate translation keys.
+ *
+ */
 module.exports = function (assemble) {
   var locales = assemble.get('data.locales');
 
-  //array will only be translated if key defining the array has a TR or MD flag
-  //otherwise keys like layout_body_class or src containing arrays will be put into
-  //translation dict.if the array contains only strings all those strings will be returned
-  //for translation. if it contains an object only those keys with TR|MD will be processed
-  function processArray(arr, type, parser) {
+  /**
+   *
+   * Array will only be translated if key defining the array has a TR or MD flag
+   * otherwise keys like layout_body_class or src containing arrays would be put into
+   * translation dict. If the array contains only strings all those strings will be returned
+   * for translation. If it contains an object only those keys with TR|MD will be processed
+   *
+   * @param {Array} `arr` Array to be processed
+   * @param {String} `type` Type of translation key (TR|MD)
+   * @param {Function} `parserFn` createDictionary function to be called recursively
+   * @return {Array} an array with only values to be translated
+   */
+  function processArray(arr, type, parserFn) {
     var reduced =  arr.reduce(function(map, item, index) {
       var val;
       if(_.isPlainObject(item)) {
-        val = parser(item);
-      } else if(Array.isArray(item)) {
-        val = processArray(item, type, parser);
+        val = parserFn(item);
+      } else if(_.isArray(item)) {
+        val = processArray(item, type, parserFn);
       } else if(type === 'MD') {
         val = marked(item);
       } else {
@@ -35,6 +47,15 @@ module.exports = function (assemble) {
     return reduced;
   }
 
+  /**
+   *
+   * Utility function to determine if the key/value pair represents entire (HTML|MD) flagged for translation
+   * @param {String} `key` key flagged for translation
+   * @param {Array|undefined} `split` value returned from `splitKey` function
+   * @param {Object} `fileObj` the `fileData` object being acted upon
+   * @param {Object|Function} `mdParser` the `marked` markdown parser
+   * @return {Object|Boolean} returns the page content or the parsed MD page content `val` or `false`
+   */
   function translatePageContent(key, split, fileObj, mdParser) {
     var prefix = split[0];
     var suffix = split[1];
@@ -55,6 +76,14 @@ module.exports = function (assemble) {
     }
   }
 
+  /**
+   * Utility function to traverse `fileData` object creating a new object with key/value pairs that
+   * were flagged for translation.
+   *
+   * @param {Object} `fileData` YFM and external YML data associated with the Assemble `file` object
+   * @param {String} `locale` locale the fileData is associated with
+   * @return {Object} an object containing only key/value pairs flagged for translation
+   */
   var createDictionary = function createDictionary(fileData, locale) {
     //return early if given an empty object or a non `maplike` structure
     //use `kindOf` because buffers are misenterpreted by loadash

@@ -5,12 +5,16 @@ module.exports = function(assemble){
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var websiteRoot = assemble.get('data.websiteRoot');
 
+/**
+ * Function for populating the page data object with filepath related objects inherited from the parent website
+ * if they do not have their own templates or yml files in subfolders.
+ *
+ * @param {String} `locale` function to be wrapped in try/catch
+ * @param {Object} `pageDataClone` function to be wrapped in try/catch
+ * @return {Object} Mutatest the `pageDataClone` object
+ *
+ */
   return function populateSubfolderData(locale, pageDataClone) {
-    /**
-     * Function for populating the page data object with filepath related objects inherited from the parent website
-     * if they do not have their own templates or yml files in subfolders.
-     *
-     */
 
     _.forEach(pageDataClone[websiteRoot], function(val, fp) {
       var subfolderPath = fp.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
@@ -20,5 +24,6 @@ module.exports = function(assemble){
       }
     });
 
+    return pageDataClone;
   };
 };

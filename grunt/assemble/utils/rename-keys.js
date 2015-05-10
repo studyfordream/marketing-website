@@ -49,13 +49,6 @@ module.exports = function(defaultKey) {
       return function (fp) {
         var key;
         var base = fp.substr(0, fp.indexOf('/'));
-        //locales.forEach(function(locale) {
-          //var re = new RegExp(locale);
-          //if(re.test(fp)) {
-            //base = locale;
-          //}
-        //});
-        // fp => website/about/index.hbs
         if (fp.indexOf(base + '/') > -1 && fp.indexOf(base + '/index') === -1) {
           key = fp.substr(0, fp.lastIndexOf('/'));
         } else {

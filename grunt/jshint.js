@@ -21,6 +21,7 @@ module.exports = {
         it: false,
         console: false,
         describe: false,
+        before: false,
         beforeEach: false,
         waits: false,
         waitsFor: false,
@@ -30,6 +31,7 @@ module.exports = {
     files: {
       src: [
         'test/**/*.js',
+        //'grunt/assemble/test/**/*-spec.js',
         'configs/uiTestConfig.js'
       ]
     }
