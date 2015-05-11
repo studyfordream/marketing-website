@@ -99,7 +99,6 @@ module.exports = function (assemble) {
 
     sendToSmartling().then(function(resolved){
       var populateSubfolderData = curryTryCatch(require('./translation-utils/populate-subfolder-data')(assemble));
-      var translateSpecialTypes = curryTryCatch(require('./translation-utils/translate-special-types')(assemble));
       var translatePageData = curryTryCatch(require('./translation-utils/translate-page-data')(assemble));
       var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data'));
       var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
@@ -128,11 +127,8 @@ module.exports = function (assemble) {
        * }
        */
       Object.keys(locales).forEach(function(locale) {
-        var dictKey = locales[locale];
-
         populateSubfolderData(locale, pageDataClone);
-        translateSpecialTypes(locale, translations[dictKey], pageDataClone);
-        translatePageData(locale, lang, pageDataClone, translations[dictKey]);
+        translatePageData(locale, pageDataClone, translations);
         removeTranslationKeys(pageDataClone[locale], locale);
       });
 
