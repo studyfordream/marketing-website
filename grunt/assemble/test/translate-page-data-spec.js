@@ -5,7 +5,6 @@ var config = require('./config');
 describe('create dictionary from all translation keys', function() {
   var instance = null;
   var locale = 'de';
-  var cwdPath = 'grunt/assemble/test/fixture';
   var translatePageData, translated;
 
   before(function() {
@@ -96,7 +95,7 @@ describe('create dictionary from all translation keys', function() {
     instance = assemble.init();
     instance.data(config);
     instance.set('lang', lang);
-    translatePageData = require('../plugins/translation-utils/translate-page-data')(instance, cwdPath);
+    translatePageData = require('../plugins/translation-utils/translate-page-data')(instance);
 
     translated = translatePageData(locale, pageDataClone, translations);
   });

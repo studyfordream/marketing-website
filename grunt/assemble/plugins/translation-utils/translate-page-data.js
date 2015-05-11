@@ -4,13 +4,14 @@ var globby = require('globby');
 var objParser = require('l10n-tools/object-extractor');
 var fixHTMLEscape = require('./fix-html-escape');
 
-module.exports = function(assemble, cwdPath){
+module.exports = function(assemble){
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var websiteRoot = assemble.get('data.websiteRoot');
-  var parseFilePath = require('../../utils/parse-file-path')(assemble);
+  var cwdPath = assemble.get('data.testPath') || '';
   var locales = assemble.get('data.locales');
   var lang = assemble.get('lang');
-  var subfolderFiles = globby.sync('**/*.{hbs,yml}', {cwd: path.join(process.cwd(), cwdPath || '', subfoldersRoot)});
+  var parseFilePath = require('../../utils/parse-file-path')(assemble);
+  var subfolderFiles = globby.sync('**/*.{hbs,yml}', {cwd: path.join(process.cwd(), cwdPath, subfoldersRoot)});
 
   var subfolderO = subfolderFiles.reduce(function(o, fp) {
     var key = '/' + path.join(subfoldersRoot, path.dirname(fp), 'index');

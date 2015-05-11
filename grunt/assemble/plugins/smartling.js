@@ -1,8 +1,6 @@
 'use strict';
 
 var _ = require('lodash');
-var fs = require('fs');
-var path = require('path');
 var through = require('through2');
 var removeTranslationKeys = require('../utils/remove-translation-keys');
 var hbsParser = require('l10n-tools/hbs-parser');
@@ -90,9 +88,6 @@ module.exports = function (assemble) {
   }, function (cb) {
     var curryTryCatch = require('../utils/curry-try-catch');
     var mergeSubfolderYml = curryTryCatch(require('./translation-utils/merge-subfolder-yml')(assemble));
-    var writePath = path.join(process.cwd(), 'grunt/assemble/test/fixture/config');
-    fs.writeFileSync(path.join(writePath, 'lang.js'), JSON.stringify(lang), {encoding: 'utf8'});
-    fs.writeFileSync(path.join(writePath, 'page-data-clone.js'), JSON.stringify(pageDataClone), {encoding: 'utf8'});
     mergeSubfolderYml(lang, pageDataClone);
     assemble.set('lang', lang);
     var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
@@ -132,8 +127,6 @@ module.exports = function (assemble) {
         removeTranslationKeys(pageDataClone[locale], locale);
       });
 
-      fs.writeFileSync(path.join(writePath, 'page-data-clone.js'), JSON.stringify(pageDataClone.website), {encoding: 'utf8'});
-
       removeTranslationKeys(pageDataClone[websiteRoot]);
 
       mergeLayoutData(pageDataClone);
@@ -166,7 +159,6 @@ module.exports = function (assemble) {
 
       translateAssembleViews(translated);
 
-      fs.writeFileSync(path.join(writePath, 'page-data-clone-no-tr-keys.js'), JSON.stringify(pageDataClone), {encoding: 'utf8'});
       assemble.set('rootData', pageDataClone[websiteRoot]);
       assemble.set('translated', translated);
       assemble.set('translations', translations); // Store retrieved from Smartling translations object

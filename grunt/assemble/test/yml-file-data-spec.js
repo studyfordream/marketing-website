@@ -19,7 +19,7 @@ describe('transforms', function() {
       var aKey = '/grunt/assemble/test/fixture/website/a/index';
       var bKey = '/grunt/assemble/test/fixture/website/b/index';
 
-      expect(data).to.have.all.keys(aKey, bKey);
+      expect(data).to.include.keys(aKey, bKey);
       expect(data[aKey]).to.deep.equal({ page_data: { a: 'a', b: 'b' } });
       expect(data[bKey]).to.deep.equal({ page_data: { ba: 'a' } });
     });
@@ -31,7 +31,7 @@ describe('transforms', function() {
       var cKey = '/grunt/assemble/test/fixture/subfolders/de/c/index';
       var dKey = '/grunt/assemble/test/fixture/subfolders/de/d/index';
 
-      expect(data).to.have.all.keys(cKey, dKey);
+      expect(data).to.include.keys(cKey, dKey);
       expect(data[cKey]).to.deep.equal({ page_data: { c: 'c'} });
       expect(data[dKey]).to.deep.equal({ page_data: { d: 'd', d_1: 'd_1' } });
     });

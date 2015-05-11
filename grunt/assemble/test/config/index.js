@@ -15,5 +15,6 @@ var configObj = {
 
 grunt.initConfig(configObj);
 var config = grunt.config.process(baseConfig);
+config.testPath = 'grunt/assemble/test/fixture';
 
 module.exports = config;
