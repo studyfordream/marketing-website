@@ -20,12 +20,14 @@ module.exports = function(assemble) {
 
           //merge the layout data onto the pageDataClone file data
           _.merge(fileData, layoutData);
-          //store the layout file paths in an array
-          fileData.layouts = layoutKeys;
         }
+
+        //store the layout file paths in an array
+        fileData.layouts = layoutKeys;
       });
 
     });
 
+    return pageDataClone;
   };
 };

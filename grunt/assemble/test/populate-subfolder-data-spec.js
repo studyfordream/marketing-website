@@ -2,7 +2,7 @@ var expect = require('chai').expect;
 var assemble = require('assemble');
 var config = require('./config');
 
-describe('create dictionary from all translation keys', function() {
+describe('add merge file data objects from websiteRoot to subfolders object', function() {
   var instance = null;
   var populateSubfolderData;
 

@@ -4,7 +4,7 @@ var _ = require('lodash');
 var assemble = require('assemble');
 var config = require('./config');
 
-describe('create dictionary from all translation keys', function() {
+describe('translate and merge file data', function() {
   var instance = null;
   var locale = 'de';
   var translatePageData, translated;

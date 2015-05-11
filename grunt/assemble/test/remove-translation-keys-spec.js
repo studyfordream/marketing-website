@@ -4,7 +4,7 @@ var cheerio = require('cheerio');
 var config = require('./config');
 var cheerio = require('cheerio');
 
-describe('create dictionary from all translation keys', function() {
+describe('function for removing translation keys from file data objects', function() {
   var instance = null;
   var removeTranslationKeys;
 
