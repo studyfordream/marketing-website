@@ -1,47 +1,5 @@
 <li class="first">
-  <a href="{{apiDomain}}/dashboard?project_id={{account_id}}">Dashboard</a>
-</li>
-<li id="experiment-nav-item" class="hide-in-mobile " data-show-user-state="logged-in">
-    <a href="" class="dropdown-arrow experiments" data-dropdown="experiments">Experiments</a>
-    <ul class="dropdown-menu-top{{#unless experiments}} no-exp{{/unless}}" data-show-dropdown="experiments">
-      <div class="message"></div>
-      {{#each experiments}}
-        <span class="experiment-container hide-in-mobile">
-          <li>
-          <a class="edit{{#unless can_edit}} disabled{{/unless}}"
-              {{#if can_edit}}href="{{../../apiDomain}}/edit?experiment_id={{id}}"{{/if}}
-              {{#unless has_started}}style="width: auto;"{{/unless}}>
-              <span class="experiment-description">{{description}}</span>
-            </a>
-            <a class="experiment-results"
-              href="{{../apiDomain}}/results?experiment_id={{id}}"
-              {{#unless has_started}}style="display: none;"{{/unless}}>
-              {{#if has_started}}
-              Results
-              {{/if}}
-            </a>
-          </li>
-        </span>
-      {{/each}}
-      {{#unless experiments}}
-      {{#if expErrorState}}
-        <span class="no-experiments">Error Loading Your<br>Experiments</span>
-        {{else}}
-        <span class="no-experiments">There Are No<br>Experiments</span>
-      {{/if}}
-      {{/unless}}
-      <li class="view-all-experiments hide-in-mobile" data-show="dashboard-link">
-        <a id="view-all-experiments-link" href="{{apiDomain}}/dashboard">
-          <span class="view-all-icon"></span>
-          <span>View All Experiments</span>
-        </a>
-      </li>
-      {{#if showCreateLink}}
-      <li class="show-create-experiment hide-in-mobile" data-modal-click="create-exp">
-        <a>Create New Experiment</a>
-      </li>
-      {{/if}}
-    </ul>
+  <a href="{{apiDomain}}/dashboard?project_id={{account_id}}">Home</a>
 </li>
 <li>
   <a href="https://help.optimizely.com/hc/en-us">Support</a>
