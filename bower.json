@@ -22,8 +22,6 @@
   "dependencies": {
     "normalize-css": "3.0.1",
     "jquery": "2.1.1",
-    "momentjs": "2.6.0",
-    "yepnope": "1.5.4",
     "fastclick": "1.0.2",
     "jquery-cookie": "1.4.1",
     "history.js": "1.8.0",
