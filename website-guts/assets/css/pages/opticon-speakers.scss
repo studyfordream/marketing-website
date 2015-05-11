@@ -8,9 +8,9 @@ body.opticon-speakers {
     .item-title { margin-bottom: 5px; }
     .item-source { line-height: 17px; }
     .item-more-info {
-      font-size: 16px;
+      font-size: 13px;
       color: $opticon-brand-blue;
-      letter-spacing: 2.46px;
+      letter-spacing: 1.8px;
       &:hover {
         cursor: pointer;
         color: $opticon-brand-blue-hover;
@@ -31,14 +31,6 @@ body.opticon-speakers {
     .opticon-modal-container {
       &__left {
         text-align: center;
-        &__image {
-          display: block;
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: center center;
-          padding-top: 125px;
-          margin-bottom: 10px;
-        }
         &__name { margin-bottom: 8px; }
       }
       &__right { text-align: center; }
@@ -63,7 +55,7 @@ body.opticon-speakers {
       &--guest {
         width: 25%;
         background-size: 130px 130px;
-        padding: 165px 2% 0;
+        padding: 150px 2% 0;
       }
       .item-source { margin-bottom: 5px; }
     }
