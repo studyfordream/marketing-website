@@ -8,11 +8,11 @@ lets_talk:
   TR_subtitle: "Data has changed<br>Statistics should too"
   img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/analog-01.svg"
   MD_text: |
-    <p class="SL_swap" id="statsengine-letstalktext">Traditional statistics were developed over 100 years ago, for an offline world. These methods are no longer up to the task of helping businesses make decisions with real-time data. If you look at results in real time, as most optimization platforms allow you to do, you’ll see winning results where no winner actually exists. In fact, your error rate can skyrocket to <a href="http://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/">over 30%</a> if you don't take precautions.</p>
+    <p class="SL_swap" id="statsengine-letstalktext">Traditional statistics were developed over 100 years ago, for an offline world. These methods are no longer up to the task of helping businesses make decisions with real-time data. If you look at results in real time, as most optimization platforms allow you to do, you’ll see winning results where no winner actually exists. In fact, your error rate can skyrocket to <a href="https://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/">over 30%</a> if you don't take precautions.</p>
 
     Without taking precautions, like setting a sample size and committing to a minimum detectable effect in advance, you could make changes to your website or product that at best, have no impact, and at worst, could be hurting your bottom line.
   TR_cta_text: "Read the blog"
-  cta_link: "http://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/"
+  cta_link: "https://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/"
 better_way:
   TR_title: "THERE'S A BETTER WAY"
   TR_subtitle: "We believe statistics<br>should work the way you do"
@@ -51,7 +51,7 @@ compare:
   TR_footnote: "* We simulated millions of A/A tests under both frameworks and calculated error rate by determining the percentage of experiments that declared a winning or losing variation given a continuous monitoring policy. (1000+ visitors)"
   TR_cta_title: "Interested in how Stats Engine affects your results?"
   TR_cta_text: "Learn more"
-  cta_link: "http://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/"
+  cta_link: "https://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/"
 worry:
   TR_title: "Statistics has never been easier"
   TR_panels:
