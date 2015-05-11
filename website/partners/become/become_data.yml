@@ -1,0 +1,14 @@
+intro:
+  headline: "Partner with Optimizely"
+  subhead: "The World’s Leading Experience Optimization Platform"
+  blurb: "Partnering with Optimizely provides you with the business and technical resources you need to innovate and grow your business. We help you build powerful integrations, get certified on the Optimizely platform, and collaborate in mutually beneficial marketing and sales opportunities."
+  technology:
+    headline: "Become a Technology Partner"
+    blurb: "Integrate with Optimizely and enable your customers to turn their data into action, quickly and simply."
+    cta_text: "Learn More"
+    cta_link: "/partners/become/technology"
+  solutions:
+    headline: "Become a Solutions Partner Partner"
+    blurb: "Develop new revenue streams for your business by delivering best in class optimization services."
+    cta_text: "Learn More"
+    cta_link: "/partners/become/solutions"
