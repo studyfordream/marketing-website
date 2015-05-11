@@ -161,6 +161,10 @@ days:
             roles: "marketer productmanager"
             speakers:
               -
+                name: "Ash Alhashim"
+                job_title: "Global Director, Sales and Market Development"
+                company: "Optimizely"
+              -
                 name: "Amanda Swan"
                 job_title: "Community Manager"
                 company: "Optimizely"
@@ -207,14 +211,10 @@ days:
             time: "1:30 - 2:15"
             location: "Main Room"
             description: "A successful optimization program doesn't just appear out of thin air. It takes bold ideas, a nimble approach, a talented team, and an overwhelming desire to experiment and learn. At the core of all of this is your company's internal culture. Join leaders from Pinterest, Eventbrite, and Blue Bottle Coffee to learn how to develop a growth mindset that extends well beyond the web and mobile. You'll walk away with actionable ideas to strengthen your people, talent, and culture in a data-driven way."
-            companies: "Blue Bottle Coffee, Pinterest, Eventbrite"
+            companies: "Pinterest, Eventbrite"
             track: "culture"
             roles: "marketer productmanager executive"
             speakers:
-              -
-                name: "Jevan Soo"
-                job_title: "Chief People Officer"
-                company: "Blue Bottle Coffee"
               -
                 name: "Joel Constable"
                 job_title: "Head of People Development"
@@ -461,7 +461,7 @@ days:
             time: "4:45 - 5:30"
             location: "Main Room"
             description: "Are you redesigning your website in the next year? Many industry experts agree that it’s best to develop a website iteratively, using A/B testing and optimization, but some websites are so rusty that only a major overhaul seems to be the solution. It can be daunting to navigate the critical process of a redesugn: rising costs, missed deadlines, and plummeting conversion rates instead of anticipated lifts. Learn from the experts on how to use customer interviews, closed-loop sales feedback, web analytics, and A/B testing to determine the optimal mix of content, navigation, and calls-to-action for your site. Get tips on how to drive results in spite of tight timelines, limited resources, CMS restrictions, and small datasets."
-            companies: "Apperian, j2 Global Communications, Western Governors University"
+            companies: "Apperian, Clearhead, j2 Global Communications, Western Governors University"
             track: "action"
             roles: "marketer productmanager"
             speakers:
@@ -469,6 +469,10 @@ days:
                 name: "Tiffany Early"
                 job_title: "Director, Digital Branding"
                 company: "Apperian"
+               -
+                name: "Ryan Garner"
+                job_title: "Co-Founder and Executive Vice President"
+                company: "Clearhead"
               -
                 name: "Matthew Vandewouwer"
                 job_title: "Marketing Manager"
