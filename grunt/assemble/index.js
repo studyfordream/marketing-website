@@ -290,7 +290,7 @@ module.exports = function (grunt) {
 
       return assemble.src(hbsPaths, { since: (assemble.get('lastRunTime')?new Date(assemble.get('lastRunTime')):null)})
         .pipe(extractLayoutContext(assemble))
-        .pipe(addSeoTitle())
+        .pipe(addSeoTitle(assemble))
         .pipe(sendToSmartling(assemble))
         .pipe(resourceListType(assemble))
         .on('error', function (err) {
@@ -309,7 +309,7 @@ module.exports = function (grunt) {
         return assemble.src([omSrc])
         .pipe(extractLayoutContext(assemble))
         .pipe(mergeLayoutContext())
-        .pipe(addSeoTitle())
+        .pipe(addSeoTitle(assemble))
         .pipe(ext())
         .pipe(assemble.dest(path.join(files.dest, ppcKey)))
         .on('data', function(file) {
