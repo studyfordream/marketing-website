@@ -90,7 +90,6 @@ module.exports = function(opts) {
     })
   ];
 
-  console.log('WEBPACK ENV', opts.env);
   if(opts.env === 'dev') {
     plugins.push.apply(plugins, devPlugins);
   } else {

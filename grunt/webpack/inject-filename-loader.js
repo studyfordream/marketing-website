@@ -8,7 +8,6 @@ module.exports = function(source, map) {
   }
 
   var wrapper = options.banner + options.inject + source + '\n\n' + options.footer;
-  console.log(wrapper);
 
   this.callback(null, wrapper, map);
 };
