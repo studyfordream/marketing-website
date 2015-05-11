@@ -143,11 +143,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/josiahbw_170x170-circle.png"
       company: "Optimizely"
       blurb: "Josiah earned his B.S in Computer Science from Harvey Mudd College and previously has developed for Android at Google where he worked on the Android SDK and development tools. At Optimizely, he's proud to take part in bringing the Optimizely Android SDK to market and expanding the platform."
-    #-
-      #name: "Jon Gaulding"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jon-gaulding.png"
-      #company: "Optimizely"
-      #blurb: ""
+    -
+      name: "Jon Gaulding"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jon-gaulding.png"
+      company: "Optimizely"
+      blurb: "In his confused youth, Jon earned a B.A. in Political Science at Yale while learning that he loved the Internet. He then worked in technical support for Google Apps before moving into Google Enterprise operations. He now spends his time building out APIs and other infrastructure for integrating Optimizely in ever-more powerful and delightful ways. Please don't ask him to fix your Gmail."
     -
       name: "Chris Goward"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/chris-goward-headshotbw_170x170-circle.png"
@@ -314,11 +314,6 @@ guest_speakers:
       #company: "Segment"
       #blurb: ""
     #-
-      #name: "Rex Ren"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      #company: "BitTorrent"
-      #blurb: ""
-    #-
       #name: "Katherine Reynolds"
       #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
       #company: "Smarter Travel"
@@ -348,11 +343,6 @@ guest_speakers:
       #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
       #company: "Rue La La"
       #blurb: "Katherine Shea is a Product Manager at Rue La La, a leading ecommerce lifestyle destination. Katherine joined Rue La La in October 2013 as an ambassador for testing, optimization and data-driven decision making. She established a test and learn culture at Rue La La and continues to lead all website A/B testing efforts. Prior to joining Rue La La in 2013, Katherine spent three years at Vistaprint, where she ran A/B tests for the product customization platform."
-    -
-      name: "Jevan Soo"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jevan_bluebottle_culture-from-withinbw_170x170-circle.png"
-      company: "Blue Bottle Coffee"
-      blurb: "Jevan Soo is the Chief People Officer at Blue Bottle Coffee, a fast-growing specialty coffee retailer with cafes in New York, Los Angeles, the Bay Area, and Tokyo. Prior to Blue Bottle, he held roles leading Sales Operations and People Development at Square, which grew from 400 to nearly 1200 employees during his tenure. Jevan began his career at McKinsey & Company where he spent nearly a decade in consulting and internal leadership roles, including driving McKinsey’s Asia-Pacific recruiting strategy and operations across twelve countries."
     -
       name: "Benn Stancil"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/benn_stancil.png"
