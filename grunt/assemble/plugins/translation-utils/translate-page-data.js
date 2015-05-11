@@ -60,6 +60,9 @@ module.exports = function(assemble){
       }
 
       if(!filePathData.isSubfolder) {
+        /**
+         * Takes into account translations for special types(layouts|partials|modals)
+         */
         yml = _.cloneDeep(lang[filePathData.locale][fp]);
       } else {
         //must account for if hbs template exists in subfolder, do not want to inherit
@@ -72,6 +75,7 @@ module.exports = function(assemble){
           //order is important because child keys must overwrite parent
           yml = _.merge({}, parentLang, childLang);
         }
+
         if(layoutPaths) {
           pageDataClone[locale][fp].layouts = pageDataClone[locale][fp].layouts || {};
 
@@ -82,6 +86,11 @@ module.exports = function(assemble){
             objParser.translate(langData, dict);
             fixHTMLEscape(langData);
             _.merge(layoutData, langData);
+
+            if(layoutData.TR_hbs_extracted) {
+              delete layoutData.TR_hbs_extracted;
+            }
+
             //TODO: probably a better way to do this => recreate the layouts object
             pageDataClone[locale][fp].layouts[layoutPath] = layoutData;
 
@@ -90,6 +99,9 @@ module.exports = function(assemble){
 
       }
 
+      if(yml.TR_hbs_extracted) {
+        delete yml.TR_hbs_extracted;
+      }
       trans = objParser.translate(yml, dict);
       fixHTMLEscape(trans);
       _.merge(pageDataClone[locale][fp], trans);

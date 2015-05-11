@@ -1,4 +1,6 @@
 var expect = require('chai').expect;
+var path = require('path');
+var _ = require('lodash');
 var assemble = require('assemble');
 var config = require('./config');
 
@@ -8,6 +10,19 @@ describe('create dictionary from all translation keys', function() {
   var translatePageData, translated;
 
   before(function() {
+    var patterns = ['**/*.yml'];
+    var rootPath = path.join(__dirname, 'fixture', config.websiteRoot);
+    var subfolderPath = path.join(__dirname, 'fixture', config.subfoldersRoot, locale);
+    instance = assemble.init();
+    instance.data(config);
+
+    var readYmlData = require('../transforms/translation-helpers/yml-file-data')(instance);
+    var rootData = readYmlData(patterns, rootPath);
+    var subfolderData = readYmlData(patterns, subfolderPath);
+    var createDictionary = require('../utils/create-dictionary')(instance);
+    var rootDict = createDictionary(rootData);
+    var subfolderDict = createDictionary(subfolderData, locale);
+
     var lang = {
       modals: {
         '/modals/path': {
@@ -21,49 +36,22 @@ describe('create dictionary from all translation keys', function() {
         }
       },
       layouts: {
-        '/layouts/path': {
-          TR_layout_data: 'layout data'
+        '/layouts/path/a': {
+          TR_layout_data_a: 'layout data `a`'
+        },
+        '/layouts/path/b': {
+          TR_layout_data_b: 'layout data `b`'
         }
       },
-      website: {
-        '/website/dirname/a': {
-          TR_a: 'a',
-          TR_inherit: 'inherit'
-        },
-        '/website/dirname/b': {
-          HTML_b: 'b'
-        },
-      },
-      de: {
-        '/subfolders/de/dirname/a': {
-          TR_a: 'overwrite'
-        },
-        '/subfolders/de/dirname/custom': {
-          TR_custom: 'custom'
-        }
-      }
     };
 
+    lang[config.websiteRoot] = rootDict;
+    lang[locale] = subfolderDict;
+
     var pageDataClone = {
-      website: {
-        '/website/dirname/a': {
-          TR_a: 'a',
-          TR_inherit: 'inherit'
-        },
-        '/website/dirname/b': {
-          HTML_b: 'b'
-        },
-      },
       de: {
-        '/subfolders/de/dirname/a': {
-          TR_a: 'overwrite'
-        },
-        '/subfolders/de/dirname/custom': {
-          TR_custom: 'custom',
-          custom: 'custom'
-        },
         '/modals/path': {
-          TR_modal_data: 'modalData',
+          TR_modal_data: 'modal data',
           modalData: 'modal data'
         },
         '/partials/path': {
@@ -71,29 +59,39 @@ describe('create dictionary from all translation keys', function() {
           HTML_page_content: 'partial content',
           partialData: 'partial data'
         },
-        '/layouts/path': {
-          TR_layout_data: 'layout data',
-          layoutData: 'layout data'
+      },
+      layouts: {
+        '/layouts/path/a': {
+          TR_layout_data_a: 'layout data `a`',
+          layoutData: 'layout data `a`'
+        },
+        '/layouts/path/b': {
+          TR_layout_data_b: 'layout data `b`',
+          layoutData: 'layout data `b`'
         }
       }
     };
 
+    pageDataClone[config.websiteRoot] = rootData;
+    _.forEach(subfolderData, function(fileData, fp) {
+      fileData.layouts = _.cloneDeep(pageDataClone.layouts);
+    });
+    pageDataClone[locale] = _.merge(pageDataClone[locale], subfolderData);
+
     var translations = {
       de_DE: {
-        a: '~a~',
-        inherit: '~inherit~',
-        b: '~b~',
-        overwrite: '~overwrite~',
-        custom: '~custom~',
+        'website c data': '~website c data~',
+        'subfolder c data': '~subfolder c data~',
+        'subfolder d data': '~subfolder d data~',
+        'subfolder d_1 data': '~subfolder d_1 data~',
         'modal data': '~modal data~',
         'partial data': '~partial data~',
         'partial content': '~partial content~',
-        'layout data': '~layout data~'
+        'layout data `a`': '~layout data `a`~',
+        'layout data `b`': '~layout data `b`~'
       }
     };
 
-    instance = assemble.init();
-    instance.data(config);
     instance.set('lang', lang);
     translatePageData = require('../plugins/translation-utils/translate-page-data')(instance);
 
@@ -103,10 +101,39 @@ describe('create dictionary from all translation keys', function() {
   describe('translatePageData()', function() {
 
     it('translates subfolder data', function() {
-      expect(translated[locale]).to.have.deep.property('/subfolders/de/dirname/a.TR_a', '~overwrite~');
-      expect(translated[locale]).to.have.deep.property('/subfolders/de/dirname/a.TR_inherit', '~inherit~');
+      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index']).to.have.deep.property('page_data.TR_subfolder_c', '~subfolder c data~');
+      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/d/index']).to.have.deep.property('page_data.TR_subfolder_d', '~subfolder d data~');
     });
 
+    it('translates and merges subfolder data with parent website data if no .hbs file exists in subfolder directory', function() {
+      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index']).to.have.deep.property('page_data.TR_website_c', '~website c data~');
+    });
+
+    it('returns an object with keys not flagged for translation merged onto the context', function() {
+      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index']).to.have.deep.property('page_data.c', 'c');
+      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/d/index']).to.have.deep.property('page_data.d', 'd');
+    });
+
+    it('translates special types (layouts|modals|partials)', function() {
+      expect(translated[locale]).to.have.deep.property('/modals/path.TR_modal_data', '~modal data~');
+      expect(translated[locale]).to.have.deep.property('/partials/path.TR_partial_data', '~partial data~');
+      expect(translated[locale]).to.have.deep.property('/partials/path.HTML_page_content', '~partial content~');
+    });
+
+    it('doesn\'t translate keys not flagged for translation with the same value as translation keys', function() {
+      expect(translated[locale]).to.have.deep.property('/modals/path.modalData', 'modal data');
+      expect(translated[locale]).to.have.deep.property('/partials/path.partialData', 'partial data');
+    });
+
+    it('translated layouts attached to the subfolder data context', function() {
+      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index'].layouts).to.have.deep.property('/layouts/path/a.TR_layout_data_a', '~layout data `a`~');
+      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index'].layouts).to.have.deep.property('/layouts/path/b.TR_layout_data_b', '~layout data `b`~');
+    });
+
+    it('doesn\'t translate layout data not flagged for translation', function() {
+      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index'].layouts).to.have.deep.property('/layouts/path/a.layoutData', 'layout data `a`');
+      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index'].layouts).to.have.deep.property('/layouts/path/b.layoutData', 'layout data `b`');
+    });
   });
 
 });

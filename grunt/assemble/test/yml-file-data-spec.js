@@ -32,8 +32,15 @@ describe('transforms', function() {
       var dKey = '/grunt/assemble/test/fixture/subfolders/de/d/index';
 
       expect(data).to.include.keys(cKey, dKey);
-      expect(data[cKey]).to.deep.equal({ page_data: { c: 'c'} });
-      expect(data[dKey]).to.deep.equal({ page_data: { d: 'd', d_1: 'd_1' } });
+      expect(data[cKey]).to.deep.equal({ page_data: { c: 'c', TR_subfolder_c: 'subfolder c data'} });
+      expect(data[dKey]).to.deep.equal({
+        page_data: {
+          d: 'd',
+          TR_subfolder_d: 'subfolder d data',
+          d_1: 'd_1',
+          TR_subfolder_d_1: 'subfolder d_1 data'
+        }
+      });
     });
 
   });

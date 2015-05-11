@@ -95,7 +95,7 @@ module.exports = function (assemble) {
     sendToSmartling().then(function(resolved){
       var populateSubfolderData = curryTryCatch(require('./translation-utils/populate-subfolder-data')(assemble));
       var translatePageData = curryTryCatch(require('./translation-utils/translate-page-data')(assemble));
-      var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data'));
+      var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data')(assemble));
       var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
       var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml')(assemble));
       var translateAssembleViews = curryTryCatch(require('./translation-utils/translate-assemble-views')(assemble));
