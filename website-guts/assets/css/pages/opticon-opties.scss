@@ -1,88 +1,25 @@
 body.opticon-opties {
-  .flex-container { flex-wrap: wrap; }
-  .category-item { padding: 25px 10px 25px 10px; }
-  .section-padding { padding: 100px 0; }
-  .guidelines {
-    border-top: 1px solid #ccc;
-    padding: 40px 0 155px 0;
-  }
-  .guidelines__list { margin: 30px 10px; }
-  .application-form {
-    padding: 20px 0;
-    background: $opticon-brand-blue;
-  }
-  .description-title--apply {
-    color: white;
-    text-align: center;
-  }
-  label { display: block; }
-  .full-width { width: 100%; }
-  .category-title {
-    font-size: 1.25em;
-    color: #444B4F;
-  }
-  .category-desc {
-    font-size: 13px;
-    color: #444B4F;
-  }
-  textarea { height: 100px; }
-  .label-title {
-    font-size: 1.25em;
-    color: #fff;
-    margin-top: 25px;
-  }
-  .input-instruction {
-    font-size: 0.8125em;
-    color: #fff;
-    margin: 0;
-  }
-  .inline { display: inline; }
-  .no-overflow { overflow: hidden; }
-  .approval { margin-top: 27px; }
-  .nominator {
-    margin-top: 40px;
-    padding-top: 25px;
-    border-top : 1px solid rgba(255,255,255,0.23);
-  }
-  .button-container { margin: 80px 0; }
-  .submit-button {
-    padding: 6px 30px;
-    background: white;
-    font-size: 16px;
-    color: $opticon-brand-blue;
-    letter-spacing: 0.38px;
-    line-height: 28px;
-    border: 1px solid $opticon-brand-blue;
-    border-radius: 2px;
+  .message-container {
+    margin: 10vh auto;
+    background-color: white;
+    padding: 15px 0;
+    border: 2px solid gray;
+    h1 {
+      text-align: center;
+    }
+    p {
+      text-align: center;
+      font-size: 1.2em;
+      margin: 70px;
+    }
   }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon-opties {
-    .top-paragraph { width: 60%; }
-    .paragraphs-container {
-      text-align: left;
-      margin-left: 50px;
-      .description-title { text-align: left; }
+    .message-container {
+      margin: 25vh auto;
+      width: 80%;
     }
-    .award-categories { margin: 0 10px; }
-    .category-item {
-      width: 50%;
-      padding: 50px 50px 0 0;
-    }
-    .guidelines__title { width: 30%; }
-    .guidelines__list {
-      width: 70%;
-      margin: 30px 0;
-    }
-  }
-}
-
-@media only screen and (min-width: $desktop-min-width) {
-  body.opticon-opties {
-    .paragraphs-container {
-      margin-left: auto;
-    }
-    .award-categories { margin: 0; }
   }
 }

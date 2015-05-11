@@ -56,6 +56,9 @@ body {
   }
   .modal-body { padding: 22px 42px; }
   .modal-footer {
+    @include breakpoint(tablet) {
+      @include _(clearfix);
+    }
     border-top: 1px solid #eee;
     input { width: 100%; }
     .primary-button,
@@ -246,7 +249,6 @@ body {
     }
     .modal-footer {
       input { width: auto; }
-      @extend .clearfix;
       .primary-button {
         float: right;
         margin: 0;

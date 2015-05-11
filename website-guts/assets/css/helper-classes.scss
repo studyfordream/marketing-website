@@ -1,11 +1,12 @@
 .clearfix {
-	&:before, &:after {
-		content: " ";
-		display: table;
-	}
-	&:after {
-		clear:both;
-	}
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
 }
 
 .required {
@@ -298,6 +299,19 @@ body .small-note, body p.small-note {
 	color: #006eb6;
 }
 
+.sheet {
+  > div {
+    @include breakpoint(desktop) {
+      @include _(clearfix);
+    }
+  }
+  h3 {
+    @include breakpoint(desktop) {
+      @include _(heading-underline);
+    }
+  }
+}
+
 @media screen and (min-width: $tablet-min-width) {
 	.super {
 		text-align: left;
@@ -333,12 +347,6 @@ body .small-note, body p.small-note {
 		background-color: white;
 		border: 1px solid #eee;
 		padding: 40px 55px;
-		> div {
-			@extend .clearfix;
-		}
-		h3 {
-			@extend .heading-underline;
-		}
 		h4 {
 			font-size: 1.18em;
 			line-height: 1.4;
