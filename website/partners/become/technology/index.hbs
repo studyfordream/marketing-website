@@ -1,0 +1,36 @@
+---
+layout: partner_become.hbs
+compact_header: false
+body_class:
+- partners-become
+page_script: partners-become.js
+footer_style: grey
+TR_seo_title: ""
+og_title: ""
+og_description: ""
+---
+<style>
+
+</style>
+
+<section id="landing-intro" class="panel">
+  {{#with page_data.intro}}
+  <div id="signup-form-panel-top">
+    {{{blurb}}}
+    <div class="split-partner-landing">
+      <div>
+        <h3>{{{technology.headline}}}</h3>
+        <p>{{{technology.blurb}}}</p>
+        {{{technology.headline}}}
+        <a href="{{../linkPath}}{{{technology.cta_link}}}" class="primary-cta">{{{technology.cta_text}}}</a>
+      </div>
+      <div>
+        <h3>{{{solutions.headline}}}</h3>
+        <p>{{{solutions.blurb}}}</p>
+        {{{solutions.headline}}}
+        <a href="{{../linkPath}}{{{solutions.cta_link}}}" class="primary-cta">{{{solutions.cta_text}}}</a>
+      </div>
+    </div>
+  </div>
+  {{/with}}
+</section>
