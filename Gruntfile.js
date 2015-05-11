@@ -126,7 +126,7 @@ module.exports = function(grunt) {
     'userevvd',
     'clean:postBuild'
   ]);
-  
+
   grunt.registerTask('build-release', [
     'gitinfo',
     'config:release',
@@ -145,7 +145,7 @@ module.exports = function(grunt) {
     'userevvd',
     'clean:postBuild'
   ]);
-  
+
   grunt.registerTask('ui-test', function(which) {
     var mochaTest = 'mochaTest',
         tasks = [
@@ -204,13 +204,14 @@ module.exports = function(grunt) {
 
   grunt.registerTask('release', 'makes a release to github', function() {
     // Use the forceon option for all tasks that need to continue executing in case of error
-    
+
     // We need to replace the cloudfront URL on userrevvd when we make a marketing-website release
     // otherwise assets will point to S3 / Cloudfront
     var obj = grunt.config.getRaw('userevvd');
     obj.html.options.formatNewPath = function(path) {
       return path.replace(/^dist/, '');
     };
+    obj = { userevvd: obj };
     grunt.config.merge(obj);
 
     var prepare = ['prompt', 'build-release'];
