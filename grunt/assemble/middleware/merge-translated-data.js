@@ -4,7 +4,7 @@ module.exports = function(assemble) {
   var websiteRoot = assemble.get('data.websiteRoot');
   var parseFilePath = require('../utils/parse-file-path')(assemble);
   var locales = assemble.get('data.locales');
-  var removeTranslationKeys = require('../utils/remove-translation-keys');
+  var removeTranslationKeys = require('../utils/remove-translation-keys')(assemble);
   var lastLocale;
 
   return function mergeTranslatedData (file, next) {

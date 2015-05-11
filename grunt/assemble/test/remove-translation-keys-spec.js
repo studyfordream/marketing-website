@@ -1,16 +1,17 @@
 var expect = require('chai').expect;
 var assemble = require('assemble');
 var cheerio = require('cheerio');
-var removeTranslationKeys = require('../utils/remove-translation-keys');
 var config = require('./config');
 var cheerio = require('cheerio');
 
 describe('create dictionary from all translation keys', function() {
   var instance = null;
+  var removeTranslationKeys;
 
   before(function() {
     instance = assemble.init();
     instance.data(config);
+    removeTranslationKeys = require('../utils/remove-translation-keys')(instance);
   });
 
   describe('removeTranslationKeys()', function() {

@@ -2,11 +2,11 @@
 
 var _ = require('lodash');
 var through = require('through2');
-var removeTranslationKeys = require('../utils/remove-translation-keys');
 var hbsParser = require('l10n-tools/hbs-parser');
 
 module.exports = function (assemble) {
   var createTranslationDict = require('../utils/create-dictionary')(assemble);
+  var removeTranslationKeys = require('../utils/remove-translation-keys')(assemble);
   var parseFilePath = require('../utils/parse-file-path')(assemble);
   var getGlobalYml = require('./translation-utils/get-global-yml');
   var globalData = assemble.get('data');
@@ -97,7 +97,7 @@ module.exports = function (assemble) {
       var translatePageData = curryTryCatch(require('./translation-utils/translate-page-data')(assemble));
       var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data'));
       var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
-      var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml'));
+      var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml')(assemble));
       var translateAssembleViews = curryTryCatch(require('./translation-utils/translate-assemble-views')(assemble));
       var translations = resolved[0];
 

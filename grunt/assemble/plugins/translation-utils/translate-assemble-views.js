@@ -1,6 +1,5 @@
 var _ = require('lodash');
 var path = require('path');
-var removeTranslationKeys = require('../../utils/remove-translation-keys');
 var types = [
   'partials',
   'modals'
@@ -12,6 +11,7 @@ var ignoreKeys = [
 ];
 
 module.exports = function(assemble) {
+  var removeTranslationKeys = require('../../utils/remove-translation-keys')(assemble);
   var websiteGuts = assemble.get('data.websiteGuts');
   var locales = assemble.get('data.locales');
   var views = assemble.views;
