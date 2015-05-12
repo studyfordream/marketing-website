@@ -1,3 +1,6 @@
+var moment = require('moment');
+var webinarEventDisplay = require('webinarEventDisplay');
+var webinarEventDetail = require('webinarEventDetail');
 var eventDisplayHTML, templateContext, dateArray, i;
 
 window.optly = window.optly || {};
@@ -76,7 +79,7 @@ for(i = 0; i < dateArray.length; i++){
 
 $(function(){
 
-  eventDisplayHTML = window.optly.mrkt.templates.webinarEventDisplay(templateContext);
+  eventDisplayHTML = webinarEventDisplay(templateContext);
 
   $('#events').html(eventDisplayHTML);
 
@@ -118,7 +121,7 @@ $(function(){
 
     $('.webinar-detail-info').each(function(){
 
-      $(this).html( window.optly.mrkt.templates.webinarEventDetail(templateContext.thursdays[index]) );
+      $(this).html( webinarEventDetail(templateContext.thursdays[index]) );
 
     });
 

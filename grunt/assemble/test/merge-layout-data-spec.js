@@ -19,9 +19,6 @@ describe('merge all layout keys associated with pages in websiteRoot and subfold
     var readYmlData = require('../transforms/translation-helpers/yml-file-data')(instance);
     var rootData = readYmlData(patterns, rootPath);
     var subfolderData = readYmlData(patterns, subfolderPath);
-    var createDictionary = require('../utils/create-dictionary')(instance);
-    var rootDict = createDictionary(rootData);
-    var subfolderDict = createDictionary(subfolderData, locale);
 
     var pageDataClone = {
       layouts: {
@@ -58,8 +55,8 @@ describe('merge all layout keys associated with pages in websiteRoot and subfold
   describe('mergeLayoutData()', function() {
 
     it('translates subfolder data', function() {
-      //expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index']).to.have.deep.property('page_data.TR_subfolder_c', '~subfolder c data~');
-      //expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/d/index']).to.have.deep.property('page_data.TR_subfolder_d', '~subfolder d data~');
+      expect(merged[config.websiteRoot]['/grunt/assemble/test/fixture/website/a/index']).to.have.property('layout_data_a', 'layout data `a`');
+      expect(merged[config.websiteRoot]['/grunt/assemble/test/fixture/website/a/index']).to.have.property('layout_data_b', 'layout data `b`');
     });
 
   });

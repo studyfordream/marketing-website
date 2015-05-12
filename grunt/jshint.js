@@ -1,7 +1,10 @@
 module.exports = {
   options: {
     trailing: true,
+    forin: false,
+    strict: false,
     curly: true,
+    esnext: true,
     eqeqeq: true,
     indent: 4,
     unused: 'vars',
@@ -41,7 +44,6 @@ module.exports = {
       browser: true,
       globals: {
         jQuery: false,
-        moment: false,
         $: false,
         Oform: false,
         w: false,
@@ -64,7 +66,6 @@ module.exports = {
       globals: {
         jQuery: false,
         console: false,
-        moment: false,
         _gaq: false,
         $: false,
         Oform: false,
