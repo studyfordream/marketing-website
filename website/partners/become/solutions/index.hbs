@@ -59,6 +59,13 @@ og_description: ""
   {{/with}}
 </section>
 
-<section id="solutions-join" class="panel">
 
+<section id="solutions-join" class="panel">
+  {{#with page_data.join}}
+    <div class="container text-center">
+      <h2>{{title}}</h2>
+      <a href="{{link}}" class="primary-cta">Join Now</a>
+      <p>{{blurb}}</p>
+    </div>
+  {{/with}}
 </section>

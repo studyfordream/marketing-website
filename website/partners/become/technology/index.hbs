@@ -45,7 +45,6 @@ og_description: ""
 
 <section id="technology-benefits" class="panel">
   {{#with page_data.benefits}}
-
     {{#each items.list}}
       <div class="flex-container">
 
@@ -64,6 +63,28 @@ og_description: ""
   {{/with}}
 </section>
 
-<section id="technology-join" class="panel">
+<section id="technology-hear" class="panel">
+  {{#with page_data.hear}}
+    <div class="flex-container">
+      <div class="left-paragraph">
+        <div class="video-container">
+          <iframe width="100%" height="100%" src="//www.youtube.com/embed/{{youtube_id}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
 
+      <div class="right-paragraph">
+        {{blurb}}
+      </div>
+    </div>
+  {{/with}}
+</section>
+
+<section id="technology-join" class="panel">
+  {{#with page_data.join}}
+    <div class="container text-center">
+      <h2>{{title}}</h2>
+      <a href="{{link}}" class="primary-cta">Join Now</a>
+      <p>{{blurb}}</p>
+    </div>
+  {{/with}}
 </section>

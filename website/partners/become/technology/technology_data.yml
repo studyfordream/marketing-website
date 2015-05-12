@@ -57,8 +57,10 @@ intro:
         class: "amplify"
   hear:
     title: "Hear from our Partners"
-    blurb: "<p>Watch this testimonial from Lytics on how partnering with Optimizely has transformed their business.</p><br><br><p>To learn more about the requirements and benefits of our partner program click here. To see a list of technology partners we work with today, check out our partner directory</p>.
-"
+    blurb: "<p>Watch this testimonial from Lytics on how partnering with Optimizely has transformed their business.</p><br><br><p>To learn more about the requirements and benefits of our partner program <a href="/partners">click here</a>. To see a list of technology partners we work with today, check out our partner directory</p>."
     video:
-      image: ""
-      embed: ""//www.youtube.com/embed/a7fFa0dU7gw?controls=2""
+      youtube_id: ""
+  join:
+    title: "Become a Technology Partner today!"
+    blurb:  "To learn more about the requirements and benefits of our partner program <a href="/partners">click here</a>."
+    link: "/partners"

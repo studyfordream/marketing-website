@@ -35,3 +35,7 @@ intro:
         title: "Co-Marketing Benefits"
         blurb: "Get access to a set of proven marketing resources to help you hit the ground running. "
         class: "comarketing"
+  join:
+    title: "Become a Solutions Partner today!"
+    blurb: "To learn more about the requirements and benefits of our partner program <a href="/partners">click here</a>."
+    link: "/partners"
