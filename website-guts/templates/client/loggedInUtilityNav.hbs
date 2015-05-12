@@ -6,7 +6,7 @@
 </li>
 <li id="my-account-menu" class="{{#if admin}}admin{{/if}}">
   <a id="desktop-email-nav" class="dropdown-arrow customer-email" data-dropdown="account" href="#">{{email.desktop}}</a>
-  <a id="mobile-email-nav" class="customer-email" href="/account">{{email.mobile}}</a>
+  <a id="mobile-email-nav" class="customer-email" href="{{apiDomain}}/account">{{email.mobile}}</a>
   <ul id="account-dropdown" class="dropdown-menu-top" data-show-dropdown="account">
       <li class="hide-in-mobile">
         <a href="{{apiDomain}}/account">Account Settings</a>
