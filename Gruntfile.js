@@ -38,6 +38,25 @@ module.exports = function(grunt) {
     'open'
   ]);
 
+  grunt.registerTask('production-deploy', [
+    'gitinfo',
+    'config:production',
+    'jshint:clientDev',
+    'jshint:server',
+    'clean:preBuild',
+    'assemble',
+    'handlebars',
+    'modernizr',
+    'concat',
+    'sass:prod',
+    'autoprefixer',
+    'copy',
+    'uglify',
+    's3:production',
+    'clean:postBuild'
+  ]);
+
+
   grunt.registerTask('staging-deploy', [
     'gitinfo',
     'config:staging',
@@ -124,6 +143,25 @@ module.exports = function(grunt) {
     'clean:postBuild'
   ]);
 
+  grunt.registerTask('build-release', [
+    'gitinfo',
+    'config:release',
+    'jshint:clientDev',
+    'jshint:server',
+    'clean:preBuild',
+    'assemble',
+    'handlebars',
+    'modernizr',
+    'concat',
+    'sass:prod',
+    'autoprefixer',
+    'copy',
+    'uglify',
+    'filerev',
+    'userevvd',
+    'clean:postBuild'
+  ]);
+
   grunt.registerTask('ui-test', function(which) {
     var mochaTest = 'mochaTest',
         tasks = [
@@ -181,7 +219,17 @@ module.exports = function(grunt) {
 
   grunt.registerTask('release', 'makes a release to github', function() {
     // Use the forceon option for all tasks that need to continue executing in case of error
-    var prepare = ['prompt', 'build'];
+
+    // We need to replace the cloudfront URL on userrevvd when we make a marketing-website release
+    // otherwise assets will point to S3 / Cloudfront
+    var obj = grunt.config.getRaw('userevvd');
+    obj.html.options.formatNewPath = function(path) {
+      return path.replace(/^dist/, '');
+    };
+    obj = { userevvd: obj };
+    grunt.config.merge(obj);
+
+    var prepare = ['prompt', 'build-release'];
     var compress = ['compress'];
     var git_release_tasks = ['gitfetch', 'forceon', 'gittag', 'gitpush', 'forceoff', 'github-release'];
 

@@ -1,7 +1,7 @@
 module.exports = {
   options: {
-    key: '<%= grunt.config.get("aws.key") %>',
-    secret: '<%= grunt.config.get("aws.secret") %>',
+    key: '<%= aws.key %>',
+    secret: '<%= aws.secret %>',
     access: 'public-read'
   },
   staging: {
@@ -12,6 +12,18 @@ module.exports = {
       {
         src: '<%= config.dist %>/**/*',
         dest: '<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
+        rel: '<%= config.dist %>'
+      }
+    ]
+  },
+  production: {
+    options: {
+      bucket: '<%= grunt.config.get("aws.production_bucket") %>'
+    },
+    upload: [
+      {
+        src: '<%= config.dist %>/**/*',
+        dest: '',
         rel: '<%= config.dist %>'
       }
     ]
