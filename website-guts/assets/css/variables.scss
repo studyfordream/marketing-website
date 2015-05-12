@@ -13,7 +13,7 @@ $tablet-min-width: 768px;
 
 */
 $body-font-family: "Gotham SSm A","Gotham SSm B",sans-serif;
-$gotham-font-family: "Gotham A","Gotham B",Helvetica,Arial,sans-serif;
+$gotham-font-family: Proxima, Helvetica, Arial, sans-serif;
 $gotham-large-type: "Gotham A","Gotham B",Helvetica,Arial,sans-serif;
 $gotham-small-type: "Gotham SSm A","Gotham SSm B",sans-serif;
 $condensed-sans-serif: "Tungsten A", "Tungsten B", sans-serif;
@@ -30,6 +30,10 @@ $mobile-nav-width: 80%;
 
 $footer-link-color: #accff2;
 $footer-desktop-font-size: .65em;
+$include-fonts:(
+weights: 300 400 500 600,
+italics: true
+);
 
 
 /*
