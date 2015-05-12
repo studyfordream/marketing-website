@@ -5,7 +5,7 @@
  * @return {String} encoded locale string to be appended to the oForm `data` string in the oForm middleware
  */
 
-module.exports = function(data) {
+module.exports = function() {
   var langKey;
   var tld = window.location.hostname.split('.').pop();
 

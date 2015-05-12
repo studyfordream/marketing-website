@@ -24,7 +24,7 @@
     //`this` is the oForm instance
     var isCreateAccount = /\/account\/create/.test( $(this.selector).attr('action') );
     if(isCreateAccount) {
-      data += getLanguageKey(data);
+      data += getLanguageKey();
     }
     XHR.withCredentials = true;
 
