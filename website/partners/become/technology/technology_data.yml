@@ -55,3 +55,10 @@ intro:
           - "Participate in proven go-to-market activities and access co-marketing resources."
           - "Benefit from contextual in-product promotions for your integration to Optimizely customers within your targeted industry."
         class: "amplify"
+  hear:
+    title: "Hear from our Partners"
+    blurb: "<p>Watch this testimonial from Lytics on how partnering with Optimizely has transformed their business.</p><br><br><p>To learn more about the requirements and benefits of our partner program click here. To see a list of technology partners we work with today, check out our partner directory</p>.
+"
+    video:
+      image: ""
+      embed: ""//www.youtube.com/embed/a7fFa0dU7gw?controls=2""

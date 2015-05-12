@@ -39,7 +39,24 @@ og_description: ""
 
 
 <section id="solutions-benefits" class="panel">
+  {{#with page_data.benefits}}
 
+    {{#each items.list}}
+      <div class="flex-container">
+
+        <div class={{#is_even @index}}"left-paragraph"{{else}}"right-paragraph"{{/is_even}}>
+          <h3 class="description-title adelle-sans">{{title}}</h3>
+          <p class="description-text adelle-sans">{{blurb}}</p>
+        </div>
+
+        <div class={{#is_even @index}}"right-paragraph"{{else}}"left-paragraph"{{/is_even}}>
+          <div class="{{class}}"></div>
+        </div>
+      </div>
+
+    {{/each}}
+
+  {{/with}}
 </section>
 
 <section id="solutions-join" class="panel">
