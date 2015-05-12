@@ -25,27 +25,21 @@ og_description: ""
   {{/with}}
 </section>
 
-<section id="technology-why" class="panel">
-
-  <section class="why-items container">
-    <h3 class="description-title adelle-sans">{{why.items.title}}</h3>
-    <p class="description-text description-text--center adelle-sans">{{why.items.description}}</p>
-    <div class="tracks-container flex-container">
-      {{#each why.items.list}}
-        <div class="track-container {{this.class}}">
-          <p class="item-title adelle-sans--bold">{{this.title}}</p>
-          <p class="detail-text adelle-sans">{{this.blurb}}</p>
-        </div>
-      {{/each}}
-    </div>
-    <a class="opticon-button opticon-button--internal-link blue-hover" href="{{../linkPath}}/opticon/agenda">
-      <div class="cta-text adelle-sans">{{why.items.cta}}</div>
-    </a>
-    <p class="adelle-sans">{{why.items.2014_text}}<a href="{{../linkPath}}/opticon/opticon-2014">{{why.items.2014_link}} &raquo;</a></p>
-
-  </section>
-
+<section  id="technology-why"  class="why-items container">
+  <h3 class="description-title">{{why.title}}</h3>
+  <div class="tracks-container flex-container">
+    {{#each why.items.list}}
+      <div class="why-item-container {{this.class}}">
+        <p class="item-title adelle-sans--bold">{{this.title}}</p>
+        <p class="detail-text">{{this.blurb}}</p>
+        <ul>
+          <li>{{this.list_bullet}}</li>
+        </ul>
+      </div>
+    {{/each}}
+  </div>
 </section>
+
 
 <section id="technology-benefits" class="panel">
 

@@ -2,3 +2,21 @@ intro:
   headline: "Become a Solutions Partner"
   subhead: "Grow your business with the leader in optimization"
   blurb: "The marketing technology landscape is evolving, and optimization is changing the way companies leverage data to make smarter decisions. Optimizely’s Solutions Partner Program enables digital agencies and consulting firms to take advantage of this opportunity by delivering best in class optimization services to their clients."
+  why:
+    title: "Why Partner with Optimizely? "
+    items:
+      -
+        blurb: "Partner with the Market leader in optimization"
+        class: "optimization"
+    items:
+      -
+        blurb: "Work with a trusted partner that will never compete with you"
+        class: "noncompete"
+    items:
+      -
+        blurb: "Access best in class enablement, training and support"
+        class: "training"
+    items:
+      -
+        blurb: "Open new revenue streams to grow your business"
+        class: "revenue"
