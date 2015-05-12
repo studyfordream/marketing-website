@@ -37,6 +37,25 @@ module.exports = function(grunt) {
     'open'
   ]);
 
+  grunt.registerTask('production-deploy', [
+    'gitinfo',
+    'config:production',
+    'jshint:clientDev',
+    'jshint:server',
+    'clean:preBuild',
+    'assemble',
+    'handlebars',
+    'modernizr',
+    'concat',
+    'sass:prod',
+    'autoprefixer',
+    'copy',
+    'uglify',
+    's3:production',
+    'clean:postBuild'
+  ]);
+
+
   grunt.registerTask('staging-deploy', [
     'gitinfo',
     'config:staging',

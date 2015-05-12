@@ -18,13 +18,14 @@ var config = function(grunt, options) {
     production: {
       options: {
         variables: {
+          aws: creds,
           environment: 'production',
           environmentData: 'website-guts/data/environments/production/environmentVariables.json',
-          apiDomain: '//www.optimizely.com',
+          apiDomain: '//api.optimizely.com',
           assetsDir: '/dist/assets',
-          imageUrl: '//du7782fucwe1l.cloudfront.net/img',
+          imageUrl: '/dist/assets/img',
           link_path: '',
-          sassImagePath: '/img',
+          sassImagePath: '/dist/assets/img',
           compress_js: true,
           drop_console: true,
           exclude_from_assemble: '**/fixture.hbs',
