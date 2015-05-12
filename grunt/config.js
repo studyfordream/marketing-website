@@ -21,7 +21,7 @@ var config = function(grunt, options) {
           aws: creds,
           environment: 'production',
           environmentData: 'website-guts/data/environments/production/environmentVariables.json',
-          apiDomain: '//api.optimizely.com',
+          apiDomain: '//www.optimizely.com',
           assetsDir: '/dist/assets',
           imageUrl: '/dist/assets/img',
           link_path: '',
