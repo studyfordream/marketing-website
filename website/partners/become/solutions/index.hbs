@@ -1,5 +1,5 @@
 ---
-layout: partner_become.hbs
+layout: partners_become
 compact_header: false
 body_class:
 - partners-become
@@ -12,25 +12,43 @@ og_description: ""
 <style>
 
 </style>
-
-<section id="landing-intro" class="panel">
+<section id="solutions-hero" class="panel hero">
   {{#with page_data.intro}}
-  <div id="signup-form-panel-top">
-    {{{blurb}}}
-    <div class="split-partner-landing">
-      <div>
-        <h3>{{{technology.headline}}}</h3>
-        <p>{{{technology.blurb}}}</p>
-        {{{technology.headline}}}
-        <a href="{{../linkPath}}{{{technology.cta_link}}}" class="primary-cta">{{{technology.cta_text}}}</a>
-      </div>
-      <div>
-        <h3>{{{solutions.headline}}}</h3>
-        <p>{{{solutions.blurb}}}</p>
-        {{{solutions.headline}}}
-        <a href="{{../linkPath}}{{{solutions.cta_link}}}" class="primary-cta">{{{solutions.cta_text}}}</a>
-      </div>
-    </div>
-  </div>
+    <h1>{{{headline}}}</h1>
+    <h2>{{{subhead}}}</h2>
   {{/with}}
+</section>
+
+<section id="solutions-blurb" class="panel">
+  {{#with page_data.intro}}
+    {{{blurb}}}
+  {{/with}}
+</section>
+
+<section id="solutions-why" class="panel">
+  <section class="why-items container">
+    <h3 class="description-title adelle-sans">{{why.items.title}}</h3>
+    <p class="description-text description-text--center adelle-sans">{{why.items.description}}</p>
+    <div class="tracks-container flex-container">
+      {{#each why.items.list}}
+        <div class="track-container {{this.class}}">
+          <p class="item-title adelle-sans--bold">{{this.title}}</p>
+          <p class="detail-text adelle-sans">{{this.blurb}}</p>
+        </div>
+      {{/each}}
+    </div>
+    <a class="opticon-button opticon-button--internal-link blue-hover" href="{{../linkPath}}/opticon/agenda">
+      <div class="cta-text adelle-sans">{{why.items.cta}}</div>
+    </a>
+    <p class="adelle-sans">{{why.items.2014_text}}<a href="{{../linkPath}}/opticon/opticon-2014">{{why.items.2014_link}} &raquo;</a></p>
+
+  </section>
+</section>
+
+<section id="solutions-benefits" class="panel">
+
+</section>
+
+<section id="solutions-join" class="panel">
+
 </section>

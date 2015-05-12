@@ -1,5 +1,5 @@
 ---
-layout: partner_become.hbs
+layout: partners_become
 compact_header: false
 body_class:
 - partners-become
@@ -13,11 +13,24 @@ og_description: ""
 
 </style>
 
+<section id="landing-hero" class="panel hero">
+  {{#with page_data.intro}}
+    <h1>{{{headline}}}</h1>
+    <h2>{{{subhead}}}</h2>
+  {{/with}}
+</section>
+
+
+<section id="landing-blurb" class="panel">
+  {{#with page_data.intro}}
+    {{{blurb}}}
+  {{/with}}
+</section>
+
+
 <section id="landing-intro" class="panel">
   {{#with page_data.intro}}
   <div id="signup-form-panel-top">
-    <h1>{{{headline}}}</h1>
-    <p>{{{subhead}}}</p>
     {{{blurb}}}
     <div class="split-partner-landing">
       <div>
