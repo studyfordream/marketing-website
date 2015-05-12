@@ -3,7 +3,7 @@ intro:
   subhead: "Grow your business on the Optimizely Platform"
   blurb: "Optimizely is the # 1 experience optimization platform in the world, enabling thousands of companies to deliver delightful, optimized experiences to their visitors every day. Optimizely’s Technology Partner Program enables your company to easily integrate with Optimizely, so your customers can turn data into action faster and more seamlessly than ever before. As an Optimizely Technology Partner, you’ll gain access to exclusive developer enablement and a dedicated team of experts to help guide you in developing impactful integrations with Optimizely’s platform."
   why:
-    items:
+    items_list:
       -
         title: "Build on the Market-Leading Optimization Platform"
         blurb: "Deliver your integration to Optimizely’s growing base of 10,000+ customers, spanning a wide range of industries and regions around the world."
@@ -27,3 +27,31 @@ intro:
         blurb: "Allow your customers to connect with Optimizely easily via a simple, one click implementation."
         list_bullet: "Partner with a platform that provides your customers with an easy-to-use management interface to ensure customers are actively engaged with your integration."
         class: "implementation"
+  benefits:
+    title: "Benefits of the Partner Program"
+    items_list:
+      -
+        title: "Comprehensive Developer Support and Enablement"
+        blurb: "Build an amazing integration with expert developer support from the Optimizely technical team."
+        points:
+          - "Develop your integration with a fully-featured sandbox account with full API access."
+          - "Access product news and support resources in the exclusive Optiverse partner community."
+
+
+        class: "support"
+      -
+        title: "Joint Selling Collaboration to Grow Your Business"
+        blurb: "Build an amazing integration with expert developer support from the Optimizely technical team."
+        points:
+          - "Navigate and network across the Optimizely organization via a dedicated partner manager."
+          - "Get exposed to relevant Optimizely customers via sales and customer success enablement collateral."
+          - "Connect with Optimizely Account Executives and Customer Success Managers at exclusive partner events."
+        class: "grow"
+      -
+        title: "Co-Marketing Opportunities to Amplify Your Brand"
+        blurb: "Get access to a dedicated partner manager, develop joint sales collateral and connect with Optimizely Account Executives."
+        points:
+          - "Generate new business opportunities from Optimizely’s large base of 10,000+ influential customers. "
+          - "Participate in proven go-to-market activities and access co-marketing resources."
+          - "Benefit from contextual in-product promotions for your integration to Optimizely customers within your targeted industry."
+        class: "amplify"

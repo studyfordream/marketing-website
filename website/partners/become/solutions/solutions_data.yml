@@ -4,7 +4,7 @@ intro:
   blurb: "The marketing technology landscape is evolving, and optimization is changing the way companies leverage data to make smarter decisions. Optimizely’s Solutions Partner Program enables digital agencies and consulting firms to take advantage of this opportunity by delivering best in class optimization services to their clients."
   why:
     title: "Why Partner with Optimizely? "
-    items:
+    items_list:
       -
         blurb: "Partner with the Market leader in optimization"
         class: "optimization"
@@ -20,3 +20,18 @@ intro:
       -
         blurb: "Open new revenue streams to grow your business"
         class: "revenue"
+  benefits:
+    title: "Benefits of the Partner Program"
+    items_list:
+      -
+        title: "Comprehensive Product Training & Enablement"
+        blurb: "Training, certification, and early access to new product features to develop your Optimizely expertise."
+        class: "training"
+      -
+        title: "Collaborative Co-Selling Approach"
+        blurb: "Work directly with the Optimizely sales team to help you prospect, qualify and close more business."
+        class: "coselling"
+      -
+        title: "Co-Marketing Benefits"
+        blurb: "Get access to a set of proven marketing resources to help you hit the ground running. "
+        class: "comarketing"

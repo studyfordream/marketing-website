@@ -28,7 +28,7 @@ og_description: ""
 <section  id="technology-why"  class="why-items container">
   <h3 class="description-title">{{why.title}}</h3>
   <div class="tracks-container flex-container">
-    {{#each why.items.list}}
+    {{#each why.items_list}}
       <div class="why-item-container {{this.class}}">
         <p class="item-title adelle-sans--bold">{{this.title}}</p>
         <p class="detail-text">{{this.blurb}}</p>
@@ -43,6 +43,23 @@ og_description: ""
 
 <section id="technology-benefits" class="panel">
 
+
+  {{#each benefits.items.list}}
+
+  {{/each}}
+
+  <div class="flex-container">
+    <div class="left-paragraph">
+      <h3 class="description-title adelle-sans">{{left_paragraph.title}}</h3>
+      <p class="description-text adelle-sans">{{left_paragraph.blurb}}</p>
+      <a class="opticon-button adelle-sans" href="https://opticon2015.eventbrite.com/">{{left_paragraph.cta}}</a>
+    </div>
+    <div class="right-paragraph">
+      <h3 class="description-title adelle-sans">{{right_paragraph.title}}</h3>
+      <p class="description-text adelle-sans">{{right_paragraph.blurb}}</p>
+      <a class="opticon-button adelle-sans" href="http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Sponsorship_Prospectus.pdf">{{right_paragraph.cta}}</a>
+    </div>
+  </div>
 </section>
 
 <section id="technology-join" class="panel">
