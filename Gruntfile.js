@@ -41,19 +41,21 @@ module.exports = function(grunt) {
   grunt.registerTask('production-deploy', [
     'gitinfo',
     'config:production',
-    'jshint:clientDev',
-    'jshint:server',
     'clean:preBuild',
+    'jshint:server',
     'assemble',
-    'handlebars',
     'modernizr',
     'concat',
+    'webpack',
     'sass:prod',
     'autoprefixer',
     'copy',
     'uglify',
+    'filerev',
+    'userevvd',
     's3:production',
-    'clean:postBuild'
+    'clean:postBuild',
+    'fastly:production'
   ]);
 
 
