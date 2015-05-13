@@ -1,0 +1,172 @@
+// /partners/become and child pages
+
+.partners-become { //body
+
+
+
+  background-color: $page-content-color;
+
+  .flex-container {
+    display: block; // Only for mobile
+  }
+
+  .flex-container {
+    flex-wrap: wrap;
+  }
+  .faq-container {
+    padding: 10px;
+  }
+
+
+  .primary-cta {
+    /* maintain a button max-height 40px*/
+    border-radius: 4px;
+    background: #0081BA;
+    border: 1px solid #00415D;
+    padding: 10px 20px;
+    font-family: $gotham-small-type;
+    font-size: 18px;
+    color: #FFFFFF;
+    line-height: 22px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+
+    &:hover {
+      text-decoration: none;
+      background: $blue;
+      color: #fff;
+    }
+  }
+
+  #landing-hero {
+
+    padding: 95px 0;
+    background-color: $super-dark-blue;
+    color: $page-content-color;
+
+    h1, h2 {
+      text-align: center;
+    }
+  }
+
+
+  .left-paragraph,
+  .right-paragraph {
+    padding: 4%;
+    .description-title {
+      min-height: 86px;
+    }
+    .description-text {
+      min-height: 153px;
+    }
+  }
+
+
+  #technology-why, #solutions-why {
+
+    background-color: #ffffff;
+
+  }
+
+  .why-items {
+
+    .image { //background image inside gray circle
+      width: 94px;
+      height: 62px;
+      background-repeat: no-repeat;
+      margin: 0 auto;
+      background-color: $partners-become-gray;
+      background-position: center;
+      border-radius: 50%;
+      background-size: 75%;
+      padding: 50px;
+    }
+
+    .trophy {
+      background-image: image-url('/partners-become/icon-trophy.svg');
+    }
+
+    .magnifying {
+      background-image: image-url('/partners-become/icon-magnifying.svg');
+    }
+    .browsers {
+      background-image: image-url('/partners-become/icon-browsers.svg');
+    }
+    .mouseclick {
+      background-image: image-url('/partners-become/icon-mouseclick.svg');
+    }
+
+
+
+    .track-container {
+      padding: 90px 10px 30px 10px;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-position: top center;
+      margin-top: 30px;
+    }
+
+
+
+
+  }
+
+
+  .bg-img {
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+}
+
+.benefits {
+
+
+  // .illustration1 {
+  //   background-image: image-url('/partners-become/illustration1.svg');
+  // }
+  //
+  // .illustration2 {
+  //   background-image: image-url('/partners-become/illustration2.svg');
+  // }
+  //
+  // .illustration3 {
+  //   background-image: image-url('/partners-become/illustration3.svg');
+  // }
+
+
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+  body.partners-become {
+    .flex-container {
+      display: flex;
+    }
+
+    .left-paragraph,
+    .right-paragraph {
+      padding: 10px 30px 10px 10px;
+      width: 50%;
+    }
+
+
+
+
+    .track-container {
+      width: 25%;
+      padding: 115px 10px 10px 10px;
+    }
+
+  }
+}
+
+@media only screen and (min-width: $desktop-min-width) {
+  body.partners-become {
+
+
+    .track-container {
+      padding: 115px 10px 30px 10px;
+    }
+
+  }
+}
