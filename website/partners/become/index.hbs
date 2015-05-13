@@ -21,31 +21,39 @@ og_description: ""
 </section>
 
 
-<section id="landing-blurb" class="panel">
-  {{#with page_data.intro}}
-    {{{blurb}}}
-  {{/with}}
-</section>
+<div class="page-content paragraphs-container container">
 
 
-<section id="landing-intro" class="panel">
-  {{#with page_data.intro}}
-  <div id="signup-form-panel-top">
-    {{{blurb}}}
-    <div class="split-partner-landing">
-      <div>
-        <h3>{{{technology.headline}}}</h3>
-        <p>{{{technology.blurb}}}</p>
-        {{{technology.headline}}}
+
+  <section id="landing-blurb" class="panel">
+    {{#with page_data.intro}}
+      {{{blurb}}}
+    {{/with}}
+  </section>
+
+
+  <section id="landing-intro" class="panel">
+    {{#with page_data.intro}}
+    <div id="signup-form-panel-top">
+      {{{blurb}}}
+
+
+    <div class="flex-container">
+      <div class="left-paragraph">
+        <h3 class="description-title adelle-sans">J{{{technology.headline}}}</h3>
+        <p class="description-text adelle-sans">{{{technology.blurb}}}</p>
         <a href="{{../linkPath}}{{{technology.cta_link}}}" class="primary-cta">{{{technology.cta_text}}}</a>
       </div>
-      <div>
-        <h3>{{{solutions.headline}}}</h3>
-        <p>{{{solutions.blurb}}}</p>
-        {{{solutions.headline}}}
+
+      <div class="right-paragraph">
+        <h3 class="description-title adelle-sans">{{{solutions.headline}}}</h3>
+        <p class="description-text adelle-sans">{{{solutions.blurb}}}</p>
         <a href="{{../linkPath}}{{{solutions.cta_link}}}" class="primary-cta">{{{solutions.cta_text}}}</a>
       </div>
     </div>
-  </div>
-  {{/with}}
-</section>
+
+    </div>
+    {{/with}}
+  </section>
+
+</div>

@@ -37,5 +37,5 @@ intro:
         class: "comarketing"
   join:
     title: "Become a Solutions Partner today!"
-    blurb: "To learn more about the requirements and benefits of our partner program <a href="/partners">click here</a>."
+    blurb: "To learn more about the requirements and benefits of our partner program <a href=\"/partners\">click here</a>."
     link: "/partners"

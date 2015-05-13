@@ -12,6 +12,104 @@ og_description: ""
 <style>
 
 </style>
+
+
+{{!-- static  remove when templated out dynamic version --}}
+
+<section id="landing-hero" class="panel hero">
+    <h1>Partner with Optimizely</h1>
+    <h2>The World’s Leading Experience Optimization Platform</h2>
+</section>
+
+
+<section id="technology-why">
+  <div class="why-items container">
+    <div class="tracks-container flex-container">
+        <div class="track-container">
+
+    <div class="image trophy"></div>
+
+          <p class="item-title adelle-sans--bold">Platform</p>
+          <p class="detail-text adelle-sans">How to integrate Optimizely with the products you already use as well as find new ways to enhance your current workflow.</p>
+        </div>
+        <div class="track-container ">
+    <div class="image magnifying"></div>
+
+          <p class="item-title adelle-sans--bold">Culture</p>
+          <p class="detail-text adelle-sans">How to create a culture that values and practices experience optimization every day.</p>
+        </div>
+        <div class="track-container strategy">
+    <div class="image browsers"></div>
+
+          <p class="item-title adelle-sans--bold">Strategy</p>
+          <p class="detail-text adelle-sans">Tips and best practices for incorporating experience optimization into your business strategy.</p>
+        </div>
+        <div class="track-container ">
+    <div class="image mouseclick"></div>
+
+          <p class="item-title adelle-sans--bold">Action</p>
+          <p class="detail-text adelle-sans">How to use Optimizely to create the best experiences for your users and customers.</p>
+        </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="technology-benefits" class="panel">
+  <div class="benefits container">
+    <div class="flex-container">
+      <div class="left-paragraph">
+  	<img src="/dist/assets/img//partners-become/illustration1.svg">
+ </div>
+
+      <div class="right-paragraph">
+                <h3 class="description-title adelle-sans">Become a Solutions Partner Partner</h3>
+        <p class="description-text adelle-sans">Develop new revenue streams for your business by delivering best in class optimization services.</p>
+      </div>
+    </div>
+
+
+
+
+
+  <div class="flex-container">
+      <div class="left-paragraph">
+
+                <h3 class="description-title adelle-sans">Become a Solutions Partner Partner</h3>
+        <p class="description-text adelle-sans">Develop new revenue streams for your business by delivering best in class optimization services.</p>
+ </div>
+
+      <div class="right-paragraph">
+        <img src="/dist/assets/img//partners-become/illustration2.svg">
+      </div>
+    </div>
+
+
+  <div class="flex-container">
+      <div class="left-paragraph">
+  	<img src="/dist/assets/img//partners-become/illustration3.svg">
+ </div>
+
+      <div class="right-paragraph">
+                <h3 class="description-title adelle-sans">Become a Solutions Partner Partner</h3>
+        <p class="description-text adelle-sans">Develop new revenue streams for your business by delivering best in class optimization services.</p>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+</section>
+
+
+
+{{!--
+dynamic
+
 <section id="technology-hero" class="panel hero">
   {{#with page_data.intro}}
     <h1>{{{headline}}}</h1>
@@ -19,72 +117,103 @@ og_description: ""
   {{/with}}
 </section>
 
-<section id="technology-blurb" class="panel">
-  {{#with page_data.intro}}
-    {{{blurb}}}
-  {{/with}}
-</section>
+<div class="page-content paragraphs-container container">
 
-<section  id="technology-why"  class="why-items container">
-  {{#with page_data.why}}
-    <h3 class="description-title">{{why.title}}</h3>
-    <div class="tracks-container flex-container">
-      {{#each items_list}}
-        <div class="why-item-container {{this.class}}">
-          <p class="item-title adelle-sans--bold">{{this.title}}</p>
-          <p class="detail-text">{{this.blurb}}</p>
-          <ul>
-            <li>{{this.list_bullet}}</li>
-          </ul>
+  <section id="technology-blurb" class="panel">
+    {{#with page_data.intro}}
+      {{{blurb}}}
+    {{/with}}
+  </section>
+
+  <section  id="technology-why"  class="why-items container">
+    {{#with page_data.why}}
+      <h3 class="description-title">{{why.title}}</h3>
+
+
+      <section id="technology-why" class="why-items ">
+        <div class="tracks-container flex-container">
+            <div class="track-container platform">
+              <p class="item-title adelle-sans--bold">Platform</p>
+              <p class="detail-text adelle-sans">How to integrate Optimizely with the products you already use as well as find new ways to enhance your current workflow.</p>
+            </div>
+            <div class="track-container culture">
+              <p class="item-title adelle-sans--bold">Culture</p>
+              <p class="detail-text adelle-sans">How to create a culture that values and practices experience optimization every day.</p>
+            </div>
+            <div class="track-container strategy">
+              <p class="item-title adelle-sans--bold">Strategy</p>
+              <p class="detail-text adelle-sans">Tips and best practices for incorporating experience optimization into your business strategy.</p>
+            </div>
+            <div class="track-container action">
+              <p class="item-title adelle-sans--bold">Action</p>
+              <p class="detail-text adelle-sans">How to use Optimizely to create the best experiences for your users and customers.</p>
+            </div>
         </div>
+        </section>
+
+
+      <div class="tracks-container flex-container">
+        {{#each items_list}}
+          <div class="why-item-container {{this.class}}">
+            <p class="item-title adelle-sans--bold">{{this.title}}</p>
+            <p class="detail-text">{{this.blurb}}</p>
+            <ul>
+              <li>{{this.list_bullet}}</li>
+            </ul>
+          </div>
+        {{/each}}
+    </div>
+
+    {{/with}}
+  </section>
+
+
+  <section id="technology-benefits" class="panel">
+    {{#with page_data.benefits}}
+      {{#each items.list}}
+        <div class="flex-container">
+
+          <div class={{#is_even @index}}"left-paragraph"{{else}}"right-paragraph"{{/is_even}}>
+            <h3 class="description-title adelle-sans">{{title}}</h3>
+            <p class="description-text adelle-sans">{{blurb}}</p>
+          </div>
+
+
+          <div class={{#is_even @index}}"right-paragraph"{{else}}"left-paragraph"{{/is_even}}>
+            <div class="{{class}}"></div>
+          </div>
+        </div>
+
       {{/each}}
-    </div>
-  {{/with}}
-</section>
 
+    {{/with}}
+  </section>
 
-<section id="technology-benefits" class="panel">
-  {{#with page_data.benefits}}
-    {{#each items.list}}
+  <section id="technology-hear" class="panel">
+    {{#with page_data.hear}}
       <div class="flex-container">
-
-        <div class={{#is_even @index}}"left-paragraph"{{else}}"right-paragraph"{{/is_even}}>
-          <h3 class="description-title adelle-sans">{{title}}</h3>
-          <p class="description-text adelle-sans">{{blurb}}</p>
+        <div class="left-paragraph">
+          <div class="video-container">
+            <iframe width="100%" height="100%" src="//www.youtube.com/embed/{{youtube_id}}" frameborder="0" allowfullscreen></iframe>
+          </div>
         </div>
 
-        <div class={{#is_even @index}}"right-paragraph"{{else}}"left-paragraph"{{/is_even}}>
-          <div class="{{class}}"></div>
+        <div class="right-paragraph">
+          {{blurb}}
         </div>
       </div>
+    {{/with}}
+  </section>
 
-    {{/each}}
-
-  {{/with}}
-</section>
-
-<section id="technology-hear" class="panel">
-  {{#with page_data.hear}}
-    <div class="flex-container">
-      <div class="left-paragraph">
-        <div class="video-container">
-          <iframe width="100%" height="100%" src="//www.youtube.com/embed/{{youtube_id}}" frameborder="0" allowfullscreen></iframe>
-        </div>
+  <section id="technology-join" class="panel">
+    {{#with page_data.join}}
+      <div class="container text-center">
+        <h2>{{title}}</h2>
+        <a href="{{link}}" class="primary-cta">Join Now</a>
+        <p>{{blurb}}</p>
       </div>
+    {{/with}}
+  </section>
 
-      <div class="right-paragraph">
-        {{blurb}}
-      </div>
-    </div>
-  {{/with}}
-</section>
-
-<section id="technology-join" class="panel">
-  {{#with page_data.join}}
-    <div class="container text-center">
-      <h2>{{title}}</h2>
-      <a href="{{link}}" class="primary-cta">Join Now</a>
-      <p>{{blurb}}</p>
-    </div>
-  {{/with}}
-</section>
+</div>
+--}}
