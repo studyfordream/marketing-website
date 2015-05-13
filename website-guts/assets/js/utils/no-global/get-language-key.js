@@ -6,8 +6,9 @@
  */
 
 module.exports = function() {
-  var langKey;
+  var DEFAULT_KEY = 'en_US';
   var tld = window.location.hostname.split('.').pop();
+  var langKey;
 
   if(window.optly.l10n && window.optly.l10n.locales) {
     for(var key in window.optly.l10n.locales) {
@@ -16,11 +17,11 @@ module.exports = function() {
         break;
       }
     }
-
-    if(!langKey) {
-      langKey = 'us_EN';
-    }
   }
 
-  return langKey ? window.encodeURI('&locale=' + langKey) : '';
+  if(!langKey) {
+    langKey = DEFAULT_KEY;
+  }
+
+  return window.encodeURI('&locale=' + langKey);
 };
