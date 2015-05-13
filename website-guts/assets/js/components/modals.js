@@ -149,8 +149,10 @@ window.optly.mrkt.modal.open = function(modalArgs) {
   }
 
   var isMobile = w.optly.mrkt.isMobile();
-  if (modalPosition &&  !isMobile) {
-    $elm.find('.dialog').css('top', modalPosition);
+  if (modalPosition) {
+    if (!isMobile) {
+      $elm.find('.dialog').css('top', modalPosition);
+    }
   } else {
     $('html, body').addClass('modal-open');
     window.scrollTo(0,0);
