@@ -37,25 +37,25 @@ module.exports = function(grunt) {
   grunt.registerTask('om-test', [
     'open'
   ]);
-
+  grunt.loadNpmTasks('grunt-aws');
   grunt.registerTask('production-deploy', [
-    'gitinfo',
+    // 'gitinfo',
     'config:production',
-    'clean:preBuild',
-    'jshint:server',
-    'assemble',
-    'modernizr',
-    'concat',
-    'webpack',
-    'sass:prod',
-    'autoprefixer',
-    'copy',
-    'uglify',
-    'filerev',
-    'userevvd',
-    's3:production',
-    'clean:postBuild',
-    'fastly:production'
+    // 'clean:preBuild',
+    // 'jshint:server',
+    // 'assemble',
+    // 'modernizr',
+    // 'concat',
+    // 'webpack',
+    // 'sass:prod',
+    // 'autoprefixer',
+    // 'copy',
+    // 'uglify',
+    // 'filerev',
+    // 'userevvd',
+    's3:production',    //
+    // 'clean:postBuild',
+    // 'fastly:production'
   ]);
 
 
@@ -152,9 +152,9 @@ module.exports = function(grunt) {
     'jshint:server',
     'clean:preBuild',
     'assemble',
-    'handlebars',
     'modernizr',
     'concat',
+    'webpack',
     'sass:prod',
     'autoprefixer',
     'copy',
