@@ -4,7 +4,6 @@ var config = require('./config');
 
 describe('translate and merge file data', function() {
   var instance = null;
-  var locale = 'de';
   var subfolderTemplateData;
 
   before(function() {

@@ -3,6 +3,8 @@ var _ = require('lodash');
 var webpack = require('webpack');
 var trPlugin = require('l10n-tr-plugin');
 var injectFilenamePath = path.join(process.cwd(), 'grunt/webpack/inject-filename-loader');
+var clientHelpersPath = path.join(process.cwd(), 'website-guts/client-helpers');
+console.log('LOADER PATH => ', injectFilenamePath);
 
 module.exports = function(opts) {
   var jshintConfig = _.merge({}, {
@@ -44,7 +46,7 @@ module.exports = function(opts) {
       ],
       loader: injectFilenamePath + '?' + opts.injectFileNameParams
     },
-    { test: /\.hbs$/, loader: 'handlebars-loader' },
+    { test: /\.hbs$/, loader: 'handlebars-loader?helperDirs[]=' + clientHelpersPath },
     {test: /\.js?$/, exclude: ['bower_components', 'node_modules'], loader: 'babel-loader'}
   ];
 
