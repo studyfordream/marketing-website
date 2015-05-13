@@ -1,34 +1,17 @@
 var path = require('path');
 var _ = require('lodash');
-var globby = require('globby');
 var objParser = require('l10n-tools/object-extractor');
 var fixHTMLEscape = require('./fix-html-escape');
+var curryTryCatch = require('../../utils/curry-try-catch');
 
 module.exports = function(assemble){
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var websiteRoot = assemble.get('data.websiteRoot');
-  var cwdPath = assemble.get('data.testPath') || '';
   var locales = assemble.get('data.locales');
   var lang = assemble.get('lang');
   var parseFilePath = require('../../utils/parse-file-path')(assemble);
-  var subfolderFiles = globby.sync('**/*.{hbs,yml}', {cwd: path.join(process.cwd(), cwdPath, subfoldersRoot)});
+  var subfolderTempData = curryTryCatch(require('./get-subfolder-template-data'))(assemble);
 
-  var subfolderO = subfolderFiles.reduce(function(o, fp) {
-    var key = '/' + path.join(subfoldersRoot, path.dirname(fp), 'index');
-    if(!o[key]) {
-      o[key] = [];
-    }
-    o[key].push(path.extname(fp).replace('.', ''));
-
-    return o;
-  }, {});
-
-  var hasOwnTemplate = Object.keys(subfolderO).filter(function(fp) {
-    var data = subfolderO[fp];
-    if(data.indexOf('hbs') !== -1) {
-      return true;
-    }
-  });
 
   /**
    * Function for iterating the completed pageData object and performing translations appropriately
@@ -48,6 +31,8 @@ module.exports = function(assemble){
   return function translatePageData(locale, pageDataClone, translations) {
     var dictKey = locales[locale];
     var dict = translations[dictKey];
+    var hasOwnTemplate = subfolderTempData.hasOwnTemplate;
+    console.log(subfolderTempData);
 
     _.forEach(pageDataClone[locale], function(val, fp) {
       var filePathData = parseFilePath(fp);

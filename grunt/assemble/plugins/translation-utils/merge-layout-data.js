@@ -5,6 +5,12 @@ module.exports = function(assemble) {
   var localeKeys = Object.keys(assemble.get('data.locales'));
   localeKeys.unshift(websiteRoot);
 
+  /**
+   * Function for iterating the completed pageData object and translating/adding layout data to the file.data
+   *
+   * @param {Object} `pageDataClone` object representing the map of page data
+   * @return {Object} Mutates the `pageDataClone` object and replaces layout data array with layout file paths
+   */
   return function mergeLayoutData(pageDataClone) {
     localeKeys.forEach(function(locale) {
       var typeData = pageDataClone[locale];

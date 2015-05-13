@@ -4,6 +4,7 @@ var Plasma = require('plasma');
 
 module.exports = function(assemble){
   var pagesNamespace = assemble.get('data.pageContentNamespace');
+  var testPath = assemble.get('data.testPath')
 
   return function(patterns, cwd) {
     var plasma = new Plasma();
@@ -13,6 +14,8 @@ module.exports = function(assemble){
     plasma.option('cwd', cwd);
     plasma.option('namespace', function(fp) {
       var key = path.join( path.dirname(fp), 'index').replace(process.cwd(), '');
+      console.log('key', key);
+      console.log('testpath', testpath);
       if(key[0] !== '/') {
         key = '/' + key;
       }

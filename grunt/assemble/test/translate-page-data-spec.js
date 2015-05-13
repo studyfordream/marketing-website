@@ -78,6 +78,7 @@ describe('translate and merge file data', function() {
     });
     pageDataClone[locale] = _.merge(pageDataClone[locale], subfolderData);
 
+    console.log(pageDataClone);
     var translations = {
       de_DE: {
         'website c data': '~website c data~',
