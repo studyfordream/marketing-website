@@ -311,7 +311,7 @@ days:
                 company: "Tilt"
               -
                 name: "Justin Knoll"
-                job_title: "Chief Architect"
+                job_title: "Senior Director of Product Management"
                 company: "BitTorrent"
               -
                 name: "Case Van Arkel"
@@ -391,10 +391,10 @@ days:
                 job_title: "Head of Growth"
                 company: "Atlassian"
           -
-            title: "Integrations with the Optimizely Platform"
+            title: "Powerful Integrations with Optimizely"
             time: "3:40 - 4:25"
             location: "Theater"
-            description: ""
+            description: "Optimizely offers several tools for developers to extend and integrate with Optimizely in new ways. In this session, an Optimizely product manager will give an overview of the Optimizely Developer Platform and explain how you can use APIs to transform your testing workflow. We’ll also have several guest speakers present powerful integrations they’ve built to help their business. The session will conclude with an open Q&A for anyone who’d like to learn more about the capabilities of the platform."
             companies: "Optimizely"
             track: "platform"
             roles: "developer"
