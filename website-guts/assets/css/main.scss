@@ -157,7 +157,7 @@ ul {
         background: #fff;
         padding: 17px 0;
         h1 {
-            font-family: $gotham-font-family;
+            font-family: $body-font-family;
             font-weight: normal;
             text-align: center;
             color: $page-header-color;
@@ -239,7 +239,7 @@ ul {
         li {margin-bottom: 7px;}
         h2, h3, h4, h5 {
           font-weight: 100;
-          font-family: $gotham-small-type;
+          font-family: $body-font-family;
         }
         p, li {
             font-weight: 100;
