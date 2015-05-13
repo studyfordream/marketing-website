@@ -77,9 +77,6 @@ module.exports = function(assemble) {
       }
     });
 
-    var clientHbsPhrases = extractFrom(path.join(websiteGuts, 'templates/client/**/*.hbs'), hbsParser);
-    //to create page specific ditionary
-    phrases = phrases.concat(clientHbsPhrases);
     var content = smartling.generatePO(phrases);
 
     if(catalogChanged(content, 'tmp/upload/' + DICT_FNAME)){
@@ -106,7 +103,8 @@ module.exports = function(assemble) {
       yamlDefer.resolve(translations);
     }
 
-    var jsPhrases = extractFrom('website-guts/assets/js/**/*.js', jsParser);
+    var clientHbsPhrases = extractFrom(path.join(websiteGuts, 'templates/client/**/*.hbs'), hbsParser);
+    var jsPhrases = extractFrom('website-guts/assets/js/**/*.js', jsParser).concat(clientHbsPhrases);
     content = smartling.generatePO(jsPhrases);
     var deployJSDict = function deployJSDict(locale, body) {
       var dict = smartling.parsePO2dict(body);

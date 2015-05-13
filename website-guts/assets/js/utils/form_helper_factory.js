@@ -1,4 +1,5 @@
-var tr = require('l10n-tr');
+var tr = require('./client-tr');
+
 window.optly.mrkt.form = window.optly.mrkt.form || {};
 
 window.optly.mrkt.form.HelperFactory = function(scopeObj) {

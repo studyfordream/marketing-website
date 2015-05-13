@@ -1,4 +1,4 @@
-var tr = require('l10n-tr');
+var tr = require('../utils/client-tr');
 var DEFAULT_ERROR_MESSAGE = tr('Don\'t worry, most issues are minor - please refresh your browser and try again.');
 var errorCache = [];
 
