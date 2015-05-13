@@ -32,7 +32,6 @@ module.exports = function(assemble){
     var dictKey = locales[locale];
     var dict = translations[dictKey];
     var hasOwnTemplate = subfolderTempData.hasOwnTemplate;
-    console.log(subfolderTempData);
 
     _.forEach(pageDataClone[locale], function(val, fp) {
       var filePathData = parseFilePath(fp);

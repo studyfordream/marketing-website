@@ -5,7 +5,6 @@ var _ = require('lodash');
 module.exports = function hasOwnTemplate(assemble) {
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var cwdPath = assemble.get('data.testPath') || '';
-  console.log('cwd apth', cwdPath);
   var subfolderFiles = globby.sync('**/*.{hbs,yml}', {cwd: path.join(process.cwd(), cwdPath, subfoldersRoot)});
 
   var subfolderO = subfolderFiles.reduce(function(o, fp) {

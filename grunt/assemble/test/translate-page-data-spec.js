@@ -78,10 +78,10 @@ describe('translate and merge file data', function() {
     });
     pageDataClone[locale] = _.merge(pageDataClone[locale], subfolderData);
 
-    console.log(pageDataClone);
     var translations = {
       de_DE: {
         'website c data': '~website c data~',
+        'website d data': '~website d data~',
         'subfolder c data': '~subfolder c data~',
         'subfolder d data': '~subfolder d data~',
         'subfolder d_1 data': '~subfolder d_1 data~',
@@ -102,17 +102,21 @@ describe('translate and merge file data', function() {
   describe('translatePageData()', function() {
 
     it('translates subfolder data', function() {
-      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index']).to.have.deep.property('page_data.TR_subfolder_c', '~subfolder c data~');
-      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/d/index']).to.have.deep.property('page_data.TR_subfolder_d', '~subfolder d data~');
+      expect(translated[locale]['/subfolders/de/c/index']).to.have.deep.property('page_data.TR_subfolder_c', '~subfolder c data~');
+      expect(translated[locale]['/subfolders/de/d/index']).to.have.deep.property('page_data.TR_subfolder_d', '~subfolder d data~');
     });
 
     it('translates and merges subfolder data with parent website data if no .hbs file exists in subfolder directory', function() {
-      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index']).to.have.deep.property('page_data.TR_website_c', '~website c data~');
+      expect(translated[locale]['/subfolders/de/d/index']).to.have.deep.property('page_data.TR_website_d', '~website d data~');
+    });
+
+    it('translates and does not merge subfolder data with parent website if no .hbs file exists in subfolder directory', function() {
+      expect(translated[locale]['/subfolders/de/c/index'].page_data).to.have.all.keys('TR_subfolder_c', 'c');
     });
 
     it('returns an object with keys not flagged for translation merged onto the context', function() {
-      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index']).to.have.deep.property('page_data.c', 'c');
-      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/d/index']).to.have.deep.property('page_data.d', 'd');
+      expect(translated[locale]['/subfolders/de/c/index']).to.have.deep.property('page_data.c', 'c');
+      expect(translated[locale]['/subfolders/de/d/index']).to.have.deep.property('page_data.d', 'd');
     });
 
     it('translates special types (layouts|modals|partials)', function() {
@@ -127,13 +131,13 @@ describe('translate and merge file data', function() {
     });
 
     it('translated layouts attached to the subfolder data context', function() {
-      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index'].layouts).to.have.deep.property('/layouts/path/a.TR_layout_data_a', '~layout data `a`~');
-      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index'].layouts).to.have.deep.property('/layouts/path/b.TR_layout_data_b', '~layout data `b`~');
+      expect(translated[locale]['/subfolders/de/c/index'].layouts).to.have.deep.property('/layouts/path/a.TR_layout_data_a', '~layout data `a`~');
+      expect(translated[locale]['/subfolders/de/c/index'].layouts).to.have.deep.property('/layouts/path/b.TR_layout_data_b', '~layout data `b`~');
     });
 
     it('doesn\'t translate layout data not flagged for translation', function() {
-      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index'].layouts).to.have.deep.property('/layouts/path/a.layoutData', 'layout data `a`');
-      expect(translated[locale]['/grunt/assemble/test/fixture/subfolders/de/c/index'].layouts).to.have.deep.property('/layouts/path/b.layoutData', 'layout data `b`');
+      expect(translated[locale]['/subfolders/de/c/index'].layouts).to.have.deep.property('/layouts/path/a.layoutData', 'layout data `a`');
+      expect(translated[locale]['/subfolders/de/c/index'].layouts).to.have.deep.property('/layouts/path/b.layoutData', 'layout data `b`');
     });
   });
 

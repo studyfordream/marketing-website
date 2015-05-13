@@ -13,9 +13,8 @@ module.exports = function(assemble){
     var lastKey, data;
     plasma.option('cwd', cwd);
     plasma.option('namespace', function(fp) {
-      var key = path.join( path.dirname(fp), 'index').replace(process.cwd(), '');
-      console.log('key', key);
-      console.log('testpath', testpath);
+      var replace = testPath || process.cwd();
+      var key = path.join( path.dirname(fp), 'index').replace(replace, '');
       if(key[0] !== '/') {
         key = '/' + key;
       }

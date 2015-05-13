@@ -2,13 +2,14 @@ var expect = require('chai').expect;
 var assemble = require('assemble');
 var readYml = require('../transforms/translation-helpers/yml-file-data');
 var path = require('path');
+var config = require('./config');
 
 describe('transforms', function() {
   var instance = null;
 
   beforeEach(function() {
     instance = assemble.init();
-    instance.set('data.pageContentNamespace', 'page_data');
+    instance.data(config);
   });
 
   describe('readYml()', function() {
@@ -16,8 +17,8 @@ describe('transforms', function() {
       var cwd = path.join(__dirname, 'fixture/website');
       var patterns = '**/*.yml';
       var data = readYml(instance)(patterns, cwd);
-      var aKey = '/grunt/assemble/test/fixture/website/a/index';
-      var bKey = '/grunt/assemble/test/fixture/website/b/index';
+      var aKey = '/website/a/index';
+      var bKey = '/website/b/index';
 
       expect(data).to.include.keys(aKey, bKey);
       expect(data[aKey]).to.deep.equal({ page_data: { a: 'a', b: 'b' } });
@@ -28,8 +29,8 @@ describe('transforms', function() {
       var cwd = path.join(__dirname, 'fixture/subfolders');
       var patterns = '**/*.yml';
       var data = readYml(instance)(patterns, cwd);
-      var cKey = '/grunt/assemble/test/fixture/subfolders/de/c/index';
-      var dKey = '/grunt/assemble/test/fixture/subfolders/de/d/index';
+      var cKey = '/subfolders/de/c/index';
+      var dKey = '/subfolders/de/d/index';
 
       expect(data).to.include.keys(cKey, dKey);
       expect(data[cKey]).to.deep.equal({ page_data: { c: 'c', TR_subfolder_c: 'subfolder c data'} });

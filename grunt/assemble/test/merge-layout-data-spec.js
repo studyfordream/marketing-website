@@ -49,14 +49,17 @@ describe('merge all layout keys associated with pages in websiteRoot and subfold
     var mergeLayoutData = require('../plugins/translation-utils/merge-layout-data')(instance);
 
     merged = mergeLayoutData(pageDataClone);
-    console.log(merged);
   });
 
   describe('mergeLayoutData()', function() {
 
-    it('translates subfolder data', function() {
-      expect(merged[config.websiteRoot]['/grunt/assemble/test/fixture/website/a/index']).to.have.property('layout_data_a', 'layout data `a`');
-      expect(merged[config.websiteRoot]['/grunt/assemble/test/fixture/website/a/index']).to.have.property('layout_data_b', 'layout data `b`');
+    it('adds layout data to the pageDataClone object', function() {
+      expect(merged[config.websiteRoot]['/website/a/index']).to.have.property('layout_data_a', 'layout data `a`');
+      expect(merged[config.websiteRoot]['/website/a/index']).to.have.property('layout_data_b', 'layout data `b`');
+    });
+
+    it('adds layout paths into an array stored on file.data.layouts', function() {
+      expect(merged[config.websiteRoot]['/website/a/index'].layouts).to.include('/layouts/path/a', '/layouts/path/b');
     });
 
   });
