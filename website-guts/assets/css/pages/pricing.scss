@@ -59,6 +59,7 @@ body.pricing {
     text-align: center;
     .title-copy {
       font: 2.1875em $body-font-family;
+      font-weight: 300;
       text-align: center;
       color: $super-dark-blue;
       line-height: 61px;
@@ -117,7 +118,7 @@ body.pricing {
       margin-bottom: 75px;
       h3 {
         font: 1em $body-font-family;
-        font-weight: 500;
+        font-weight: 600;
         text-align: center;
         color: $super-dark-blue;
       }
