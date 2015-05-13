@@ -3,11 +3,11 @@ keynote_speakers_header: "Keynote Speakers"
 guest_speakers:
   title: "Guest Speakers"
   speaker_list:
-    #-
-      #name: "Merritt Aho"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      #company: "Volusion"
-      #blurb: ""
+    -
+      name: "Merritt Aho"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/merritt-aho.png"
+      company: "Volusion"
+      blurb: "Merritt is a Senior Digital Analyst for Volusion, the All-In-One Solution for Selling Online that has fueled over $18 billion in ecommerce transactions. As analyst he leads Volusion's own conversion rate optimization efforts through testing, usability research, and digital analytics. Prior to joining Volusion, Merritt worked as an Analytics Manager and an Optimization Testing Manager at Dell. He earned both MBA and BA degrees from Brigham Young University."
     -
       name: "Ash Alhashim"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/ash_alhashim.png"
@@ -183,16 +183,16 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/peter-isaacson.png"
       company: "Demandbase"
       blurb: "Peter Isaacson is a proven business leader with over 25 years of marketing experience in job responsibilities ranging from branding and advertising to corporate communications and product marketing. This includes deep experience in both B2C and B2B marketing and managing large teams across international markets. As Chief Marketing Officer for Demandbase, Peter is responsible for overall marketing strategy and execution, including product, corporate, and field marketing. Prior to joining Demandbase, Peterwas CMO at Castlight Health, helping to scale the company and build the marketing team prior to their successful IPO. Peter has also held leadership positions at Microstrategy and Adobe, where he led various functions, including brand marketing, WW field marketing, and the WW Education vertical business. Peter got his start in advertising, working at agencies in New York on accounts ranging from Procter & Gamble to Compaq computers."
-    #-
-      #name: "Rohan Karunakaran"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/rohan-karunakaran.png"
-      #company: "Optimizely"
-      #blurb: ""
-    #-
-      #name: "Brian Kelly"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      #company: "KISSmetrics"
-      #blurb: ""
+    -
+      name: "Rohan Karunakaran"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/rohan-karunakaran.png"
+      company: "Optimizely"
+      blurb: "Rohan is a Launch Manager at Optimizely, the fastest growing web and mobile optimization platform on the planet.  At Optimizely, Rohan has been responsible to define, build and guide the enterprise customer journey as they get started or \"launch\" on Optimizely’s platform.  Prior to Optimizely, Rohan held account management roles at Nanigans and AdParlor, two of the largest Ad automation software businesses built on Facebook’s Ads platform, where he advised global businesses on their user acquisition and retention strategy and execution. Rohan is enthusiastic about bringing delightful customer experiences to the B2B software space and sees this as a strategic differentiator for long term success in an increasingly competitive marketplace. He looks forward to connecting with you at Opticon 2015!"
+    -
+      name: "Brian Kelly"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/brian-kelley.png"
+      company: "KISSmetrics"
+      blurb: "Brain Kelly is the CEO of KISSmetrics. He began his career at Teradata, analyzing customer data for retail and financial institutions. Then he built analytics tools at Intrepid and PeopleSoft. Later, he was the CEO of Quantivo, one of the first large-scale cloud-based analytics platforms. Immediately prior to KISSmetrics, he was the CMO of InsideView, a CRM Intelligence provider. He's passionate about making analytics insights accessible in order to help businesses succeed."
     -
       name: "Daniel Kamas"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/dan_kamas.png"
@@ -363,6 +363,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/brad_taylor.png"
       company: "Optimizely"
       blurb: "Brad Taylor has held many positions during his career in the technology industry. While working with over 100+ enterprise clients spanning 10 years, he has performed such roles as CEO, Co-founder, VP of Technology, Solutions Architect, and Product Manager. As Sr. Solutions Architect he plays a key role in creating solutions that push the Optimizely platform to new limits."
+    #-
+      #name: "Markis Taylor"
+      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/markis-taylor.png"
+      #company: "Trulia"
+      #blurb: ""
     -
       name: "Jose Uzcategui"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jose-uzcategui.png"
