@@ -26,7 +26,7 @@ node_modules/*
 tmp/*
 temp/*
 tmp
-configs/s3Config.json
+configs/secret/*
 configs/smartlingConfig.json
 test/**/screenshots/*
 *.map
