@@ -295,7 +295,7 @@
     }
 }
 
-/*Temporary until Lego is merged*/
+// Temporary until Lego is merged
 @function map-fetch($map, $keys) {
   $key: nth($keys, 1);
   $length: length($keys);
