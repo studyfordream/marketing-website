@@ -1,4 +1,5 @@
 var path = require('path');
+var _ = require('lodash');
 
 /**
  *
@@ -12,14 +13,17 @@ var path = require('path');
  *
  */
 module.exports = function getGlobalYml(globalData) {
-  return Object.keys(globalData).reduce(function(o, key) {
+  var globalYml =  Object.keys(globalData).reduce(function(o, key) {
     if(/global\_/.test(key)) {
       var basenameKey = path.basename(key, path.extname(key));
-      o[key] = globalData[key];
-      globalData[basenameKey] = globalData[key];
+      o[basenameKey] = _.cloneDeep(globalData[key]);
+
       //intentionally mutate the assemble.cached.data object
+      globalData[basenameKey] = globalData[key];
       delete globalData[key];
     }
     return o;
   }, {});
+
+  return globalYml;
 };

@@ -15,15 +15,6 @@ describe('adds all pre-translated data to an object', function() {
 
   config.locales = locales;
 
-  var langKeys = Object.keys(locales).reduce(function(cache, locale) {
-    var langKey = locales[locale];
-    if(cache.indexOf(langKey) === -1) {
-      cache.push(langKey);
-    }
-
-    return cache;
-  }, []);
-
   before(function() {
     var patterns = ['**/*.yml'];
     var rootPath = path.join(__dirname, 'fixture', config.websiteRoot);
@@ -48,7 +39,7 @@ describe('adds all pre-translated data to an object', function() {
 
     it('merges subfolder data with the same language key into an object', function() {
       var translatedObj = createTranslatedObject('de_DE', pageDataClone);
-      expect(translatedObj).to.have.all.keys('/subfolders/de/c/index', '/subfolders/de/c/index', '/subfolders/chde/index')
+      expect(translatedObj).to.have.all.keys('/subfolders/de/c/index', '/subfolders/de/c/index', '/subfolders/chde/index');
       expect(translatedObj).to.deep.equal({
         '/subfolders/de/c/index': {
           page_data: {
@@ -75,7 +66,7 @@ describe('adds all pre-translated data to an object', function() {
 
     it('works for local key that is only associate with one locale', function() {
       var translatedObj = createTranslatedObject('fr_FR', pageDataClone);
-      expect(translatedObj).to.have.all.keys('/subfolders/fr/index')
+      expect(translatedObj).to.have.all.keys('/subfolders/fr/index');
       expect(translatedObj).to.deep.equal({
         '/subfolders/fr/index': {
           page_data: {

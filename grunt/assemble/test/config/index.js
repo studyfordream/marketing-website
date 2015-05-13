@@ -3,14 +3,14 @@ var baseConfig = require('../../../_assemble').options;
 var configObj = {
   config: {
     guts: 'website-guts',
-    content: 'website',
+    content: 'grunt/assemble/test/fixture/website',
     helpers: 'website-guts/helpers'
   },
   link_path: '/dist',
   apiDomain: '',
   sassImagePath: '/dist/assets/img',
   environment: 'dev',
-  environment: 'website-guts/data/environments/development/environmentVariables.json'
+  environmentData: 'website-guts/data/environments/development/environmentVariables.json'
 };
 
 grunt.initConfig(configObj);

@@ -1,7 +1,8 @@
 var _ = require('lodash');
 
 module.exports = function(assemble) {
-  var locales = assemble.get('data.locales');
+  var curryTryCatch = require('../../utils/curry-try-catch');
+  var filterLocales = curryTryCatch(require('../../utils/filter-locales')(assemble));
 
   /**
    *
@@ -13,14 +14,7 @@ module.exports = function(assemble) {
    * @return {Object} an object with all translated data per language key scoped under filepath
    */
   return function createTranslatedObject(localeCode, pageDataClone) {
-    /**
-     * filter to add all locales with the same language key to tranlated object
-     */
-    var filteredLocales = Object.keys(pageDataClone).filter(function(pageDataKey) {
-      if(locales[pageDataKey] === localeCode) {
-        return true;
-      }
-    });
+    var filteredLocales = filterLocales(localeCode);
 
     /**
      * loop over all locales that are associated with the same localeCode and add them

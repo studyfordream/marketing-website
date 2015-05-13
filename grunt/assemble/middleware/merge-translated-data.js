@@ -30,6 +30,15 @@ module.exports = function(assemble) {
         file.data.locale = locale;
         file.data.dataKey = dataKey;
         data = translated[dictKey] && translated[dictKey][dataKey];
+
+        //attach translated global data
+        if(locales[locale] && locale !== lastLocale) {
+          var globalData = assemble.get('data');
+          var translatedGlobal = translated[dictKey].global[locale];
+
+          extendWhile(globalData, translatedGlobal);
+          lastLocale = locale;
+        }
       }
 
       //extend the file data with layouts and translations
@@ -41,22 +50,6 @@ module.exports = function(assemble) {
         extendWhile(file.data, data);
       }
 
-      //deal with global data
-      //this assumes that modals and partials don't access global data
-      if(locale !== lastLocale && !filePathData.isModal && !filePathData.isPartial) {
-        var globalData = assemble.get('data');
-
-        if(filePathData.isSubfolder) {
-          Object.keys(globalData).forEach(function(key) {
-            if(/global\_/.test(key)) {
-              //intentionally mutate assemble.cache.data
-              globalData[key] = translated[dictKey].global[key];
-            }
-          });
-        }
-
-        lastLocale = locale;
-      }
 
     }//end !ppc if
     next();
