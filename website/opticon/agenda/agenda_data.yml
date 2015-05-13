@@ -155,7 +155,7 @@ days:
             title: "Optimization at Optimizely"
             time: "1:30 - 2:15"
             location: "Breakout 3"
-            description: "Ever wondered how Optimizely employees use Optimizely? In this session, you’ll learn about our optimization programs, and how we use Optimizely beyond traditional A/B testing. We’ll also uncover how to optimize experiences that don’t have a traditional “conversion” goal. Our Head of Optimization, Kyle Rush, will walk through an advanced experiment that takes advantage of Optimizely’s most powerful features and how he takes a unique approach to measuring success, perfect for optimizers looking to push their optimization boundaries. Amanda Swan and Adam Avramescu will also share insights from the Optiverse testing program and thoughts on interpreting experiments on properties where “conversion” is unclear."
+            description: "Ever wondered how Optimizely employees use Optimizely? In this session, you’ll learn about our optimization programs, and how we use Optimizely beyond traditional A/B testing. We’ll also uncover how to optimize experiences that don’t have a traditional “conversion” goal. Our Global Director of Sales and Market Development, Ash Alhashim, will walk through an advanced experiment that takes advantage of Optimizely’s most powerful features and how he takes a unique approach to measuring success, perfect for optimizers looking to push their optimization boundaries. Amanda Swan and Adam Avramescu will also share insights from the Optiverse testing program and thoughts on interpreting experiments on properties where “conversion” is unclear."
             companies: "Optimizely"
             track: "action"
             roles: "marketer productmanager"
@@ -210,15 +210,11 @@ days:
             title: "How to Build a Culture of Optimization from Within"
             time: "1:30 - 2:15"
             location: "Main Room"
-            description: "A successful optimization program doesn't just appear out of thin air. It takes bold ideas, a nimble approach, a talented team, and an overwhelming desire to experiment and learn. At the core of all of this is your company's internal culture. Join leaders from Pinterest, Eventbrite, and Blue Bottle Coffee to learn how to develop a growth mindset that extends well beyond the web and mobile. You'll walk away with actionable ideas to strengthen your people, talent, and culture in a data-driven way."
-            companies: "Blue Bottle Coffee, Pinterest, Eventbrite"
+            description: "A successful optimization program doesn't just appear out of thin air. It takes bold ideas, a nimble approach, a talented team, and an overwhelming desire to experiment and learn. At the core of all of this is your company's internal culture. Join leaders from Pinterest and Eventbrite to learn how to develop a growth mindset that extends well beyond the web and mobile. You'll walk away with actionable ideas to strengthen your people, talent, and culture in a data-driven way."
+            companies: "Pinterest, Eventbrite"
             track: "culture"
             roles: "marketer productmanager executive"
             speakers:
-              -
-                name: "Jevan Soo"
-                job_title: "Chief People Officer"
-                company: "Blue Bottle Coffee"
               -
                 name: "Joel Constable"
                 job_title: "Head of People Development"

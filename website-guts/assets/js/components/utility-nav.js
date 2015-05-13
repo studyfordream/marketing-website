@@ -1,4 +1,5 @@
 var lastDropdown;
+var loggedInUtilityNav = require('loggedInUtilityNav');
 
 function bindDropdownClick($dropdownMenus) {
 
@@ -28,7 +29,7 @@ function bindDropdownClick($dropdownMenus) {
   });
 }
 
-window.optly.mrkt.showUtilityNav = function (acctData, expData) {
+window.optly.mrkt.showUtilityNav = function (acctData) {
   // problem exists that sometimes signed in cookie is present when user is not signed it
   // /account/info endpoint can still be hit but returns null data
   // check below to not throw a bundle error
@@ -62,13 +63,12 @@ window.optly.mrkt.showUtilityNav = function (acctData, expData) {
       email: emailObj,
       admin: acctData.is_admin,
       expErrorState: window.optly_q.expDataError,
-      experiments: expData ? expData.experiments : undefined,
       showCreateLink: ( iosProjectCount !== projectCount )
     };
 
     $('body').addClass('signed-in').removeClass('signed-out');
 
-    $('#signed-in-utility').html( window.optly.mrkt.templates.loggedInUtilityNav(handlebarsData) );
+    $('#signed-in-utility').html( loggedInUtilityNav(handlebarsData) );
     var $dropdownMenus = $('[data-show-dropdown]');
 
     bindDropdownClick($dropdownMenus);
@@ -133,4 +133,4 @@ window.optly.mrkt.signOut = function(redirectPath) {
 };
 
 // Make call to optly Q
-window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData', 'expData']);
+window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
