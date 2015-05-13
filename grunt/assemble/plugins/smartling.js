@@ -88,25 +88,18 @@ module.exports = function (assemble) {
   }, function (cb) {
     var curryTryCatch = require('../utils/curry-try-catch');
     var mergeSubfolderYml = curryTryCatch(require('./translation-utils/merge-subfolder-yml')(assemble));
-
     mergeSubfolderYml(lang, pageDataClone);
     assemble.set('lang', lang);
-
-    var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
+    var sendToSmartling = curryTryCatch(require('./translation-utils/smartling-upload')(assemble));
 
     sendToSmartling().then(function(resolved){
       var populateSubfolderData = curryTryCatch(require('./translation-utils/populate-subfolder-data')(assemble));
       var translatePageData = curryTryCatch(require('./translation-utils/translate-page-data')(assemble));
       var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data')(assemble));
-      var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
+      var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object')(assemble));
       var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml')(assemble));
       var translateAssembleViews = curryTryCatch(require('./translation-utils/translate-assemble-views')(assemble));
       var translations = resolved[0];
-
-      /**
-       * `translated` will become the dictionary for pages
-       */
-      var translated = {};
 
       /**
        * iterate through locales to create complete the `pageDataClone` object
@@ -135,6 +128,7 @@ module.exports = function (assemble) {
 
       /**
        * iterate through locales to create a `translated` object
+       * `translated` will become the dictionary for pages
        *
        * translated = {
        *  de_DE: {
@@ -145,20 +139,29 @@ module.exports = function (assemble) {
        *  }
        * }
        */
-      Object.keys(locales).forEach(function(locale) {
-        var localeCode = locales[locale];
+      var langKeys = Object.keys(locales).reduce(function(cache, locale) {
+        var langKey = locales[locale];
+        if(cache.indexOf(langKey) === -1) {
+          cache.push(langKey);
+        }
+
+        return cache;
+      }, []);
+
+      var translated = langKeys.reduce(function(memo, localeCode) {
 
         //create the translated object making sure to account for multiple domains potentially
         //associated with the same translation key
-        translated[localeCode] = createTranslatedObject(locales, localeCode, pageDataClone);
+        memo[localeCode] = createTranslatedObject(localeCode, pageDataClone);
 
         //translate the global yml and attach it to the translated object to be swapped out in the middleware
-        translated[localeCode].global = {};
-        translated[localeCode].global = translateGlobalYml(localeCode, globalYml, translations);
-      });
+        memo[localeCode].global = {};
+        memo[localeCode].global = translateGlobalYml(localeCode, globalYml, translations);
+
+        return memo;
+      }, {});
 
       removeTranslationKeys(globalData);
-
       translateAssembleViews(translated);
 
       assemble.set('rootData', pageDataClone[websiteRoot]);

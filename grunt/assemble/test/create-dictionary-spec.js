@@ -45,7 +45,7 @@ describe('create dictionary from all translation keys', function() {
         file.dont_translate = 'don\'t translate';
         file.nested_obj = {TR_nested: 'translate', nested: 'no translate'};
         file.TR_arr = ['translate me', {a: 'don\'t translate me', TR_b: 'translate me'}];
-        file.arr = ['translate me', {a: 'don\'t translate me', TR_b: 'translate me'}];
+        file.arr = ['won\'t be translated', {a: 'won\'t be translated', TR_b: 'won\'t be translated'}];
         lang = createDictionary(file, locale);
       });
 
