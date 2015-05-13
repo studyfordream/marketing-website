@@ -4,8 +4,16 @@ var Plasma = require('plasma');
 
 module.exports = function(assemble){
   var pagesNamespace = assemble.get('data.pageContentNamespace');
-  var testPath = assemble.get('data.testPath')
+  var testPath = assemble.get('data.testPath');
 
+  /**
+   * Reads external yml data per directory and namespaces it under the `pagesNamespace`
+   *
+   * @param {String} `patterns` globbing patterns for data files
+   * @param {String} `cwd` current working directory for plasma to source files
+   * @return {Object} `data` data object of parsed yml under the `pagesNamespace` key
+   *
+   */
   return function(patterns, cwd) {
     var plasma = new Plasma();
     var iterator = 0;

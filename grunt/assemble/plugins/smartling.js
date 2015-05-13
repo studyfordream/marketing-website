@@ -88,8 +88,10 @@ module.exports = function (assemble) {
   }, function (cb) {
     var curryTryCatch = require('../utils/curry-try-catch');
     var mergeSubfolderYml = curryTryCatch(require('./translation-utils/merge-subfolder-yml')(assemble));
+
     mergeSubfolderYml(lang, pageDataClone);
     assemble.set('lang', lang);
+
     var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
 
     sendToSmartling().then(function(resolved){
