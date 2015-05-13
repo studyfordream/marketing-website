@@ -1,14 +1,18 @@
 //get configs
 var config = function(grunt, options) {
-  var aws_creds;
 
-  try{
-    aws_creds = grunt.file.read('./configs/s3Config.json', {encoding: 'utf-8'});
-    if(aws_creds){
-      aws_creds = JSON.parse(aws_creds);
+  function getCreds(environment) {
+    try{
+      var aws_creds = grunt.file.read('./configs/'+environment+'Config.json', {encoding: 'utf-8'});
+      if(aws_creds){
+        aws_creds = JSON.parse(aws_creds);
+      }
+      return aws_creds;
+    } catch(err){
+      console.log('error reading s3 credentials: ', err);
+      return false;
     }
-  } catch(err){
-    console.log('error reading s3 credentials: ', err);
+    
   }
 
   return {
@@ -18,7 +22,7 @@ var config = function(grunt, options) {
     production: {
       options: {
         variables: {
-          aws: aws_creds,
+          aws: getCreds('production'),
           environment: 'production',
           environmentData: 'website-guts/data/environments/production/environmentVariables.json',
           apiDomain: '//app.optimizely.com',
@@ -48,7 +52,7 @@ var config = function(grunt, options) {
     staging: {
       options: {
         variables: {
-          aws: aws_creds,
+          aws: getCreds('staging'),
           environment: 'staging',
           exclude_from_assemble: 'bobloblaw.hbs',
           apiDomain: '//app.optimizely.com',
@@ -78,7 +82,7 @@ var config = function(grunt, options) {
     smartlingStaging: {
       options: {
         variables: {
-          aws: aws_creds,
+          aws: getCreds('staging'),
           environment: 'smartling-staging',
           exclude_from_assemble: '**/fixture.hbs',
           environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
@@ -127,7 +131,6 @@ var config = function(grunt, options) {
     release: {
       options: {
         variables: {
-          aws: aws_creds,
           environment: 'staging',
           exclude_from_assemble: 'bobloblaw.hbs',
           apiDomain: '//app.optimizely.test',
