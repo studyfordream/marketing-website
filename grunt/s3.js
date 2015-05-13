@@ -1,12 +1,12 @@
 module.exports = {
   options: {
-    key: '<%= aws.key %>',
-    secret: '<%= aws.secret %>',
+    key: '<%= secret.aws_key %>',
+    secret: '<%= secret.aws_secret %>',
     access: 'public-read'
   },
   staging: {
     options: {
-      bucket: '<%= grunt.config.get("aws.staging_bucket") %>'
+      bucket: '<%= secret.s3_bucket %>'
     },
     upload: [
       {
@@ -18,7 +18,7 @@ module.exports = {
   },
   production: {
     options: {
-      bucket: '<%= grunt.config.get("aws.production_bucket") %>'
+      bucket: '<%= secret.s3_bucket %>'
     },
     upload: [
       {
@@ -30,7 +30,7 @@ module.exports = {
   },
   smartling: {
     options: {
-      bucket: '<%= grunt.config.get("aws.smartling_staging_bucket") %>'
+      bucket: '<%= secret.smartling_bucket %>'
     },
     upload: [
       {

@@ -6,7 +6,6 @@ module.exports = {
       },
       formatNewPath: function(path){
         return path.replace(/^dist/, '');
-        // return path.replace(/^dist\/assets/, '//du7782fucwe1l.cloudfront.net');
       }
     },
     files: [
