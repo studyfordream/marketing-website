@@ -206,7 +206,6 @@ window.optly.mrkt.modal.close = function(modalArgs) {
   // Set timeout smooths out the scroll top and modal opening
   window.setTimeout(function() {
     //Scroll top if have scrolled within the div
-    //window.scrollTo(0,0);
     $elm.children()[0].scrollTop = 0;
 
     animInitiated = window.optly.mrkt.anim.leave( $elm );
