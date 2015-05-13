@@ -1,57 +1,18 @@
 <li class="first">
-  <a href="{{apiDomain}}/dashboard?project_id={{account_id}}">{{tr 'Dashboard'}}</a>
-</li>
-<li id="experiment-nav-item" class="hide-in-mobile " data-show-user-state="logged-in">
-  <a href="" class="dropdown-arrow experiments" data-dropdown="experiments">{{tr 'Experiments'}}</a>
-    <ul class="dropdown-menu-top{{#unless experiments}} no-exp{{/unless}}" data-show-dropdown="experiments">
-      <div class="message"></div>
-      {{#each experiments}}
-        <span class="experiment-container hide-in-mobile">
-          <li>
-          <a class="edit{{#unless can_edit}} disabled{{/unless}}"
-              {{#if can_edit}}href="{{../../apiDomain}}/edit?experiment_id={{id}}"{{/if}}
-              {{#unless has_started}}style="width: auto;"{{/unless}}>
-              <span class="experiment-description">{{description}}</span>
-            </a>
-            <a class="experiment-results"
-              href="{{../apiDomain}}/results?experiment_id={{id}}"
-              {{#unless has_started}}style="display: none;"{{/unless}}>
-              {{#if has_started}}
-              {{tr 'Results'}}
-              {{/if}}
-            </a>
-          </li>
-        </span>
-      {{/each}}
-      {{#unless experiments}}
-      {{#if expErrorState}}
-        <span class="no-experiments">Error Loading Your<br>Experiments</span>
-        {{else}}
-        <span class="no-experiments">There Are No<br>Experiments</span>
-      {{/if}}
-      {{/unless}}
-      <li class="view-all-experiments hide-in-mobile" data-show="dashboard-link">
-        <a id="view-all-experiments-link" href="{{apiDomain}}/dashboard">
-          <span class="view-all-icon"></span>
-          <span>{{tr 'View All Experiments'}}</span>
-        </a>
-      </li>
-      {{#if showCreateLink}}
-      <li class="show-create-experiment hide-in-mobile" data-modal-click="create-exp">
-        <a>{{tr 'Create New Experiment'}}</a>
-      </li>
-      {{/if}}
-    </ul>
+<a href="{{apiDomain}}/projects/{{account_id}}/experiments">{{tr 'Home'}}</a>
 </li>
 <li>
   <a href="https://help.optimizely.com/hc/en-us">{{tr 'Support'}}</a>
 </li>
 <li id="my-account-menu" class="{{#if admin}}admin{{/if}}">
   <a id="desktop-email-nav" class="dropdown-arrow customer-email" data-dropdown="account" href="#">{{email.desktop}}</a>
-  <a id="mobile-email-nav" class="customer-email" href="/account">{{email.mobile}}</a>
+  <a id="mobile-email-nav" class="customer-email" href="{{apiDomain}}/account">{{email.mobile}}</a>
   <ul id="account-dropdown" class="dropdown-menu-top" data-show-dropdown="account">
       <li class="hide-in-mobile">
         <a href="{{apiDomain}}/account">{{tr 'Account Settings'}}</a>
+      </li>
+      <li class="hide-in-mobile">
+        <a href="{{apiDomain}}/accountsettings">App Settings</a>
       </li>
       <li>
         <a data-logout>{{tr 'Log Out'}}</a>
