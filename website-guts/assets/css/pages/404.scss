@@ -1,0 +1,33 @@
+body.four-o-four {
+  background-color: $super-dark-blue;
+  .four-cont {
+    padding: 100px 0;
+    margin: 0 auto;
+    &_logo {
+      display: block;
+      width: 20%;
+      margin: 0 auto;
+    }
+    &_title {
+      font-size: 3.0em;
+      font-weight: 400;
+      font-family: $body-font-family;
+      color: $white;
+      text-align: center;
+    }
+  }
+
+}
+
+@media only screen and (min-width: $tablet-min-width) {
+
+  body.four-o-four {
+    .four-cont {
+      height: 70vh;
+      &_logo {
+        max-width: 150px;
+      }
+    }
+  }
+
+}
