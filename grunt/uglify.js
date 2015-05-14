@@ -8,39 +8,21 @@ module.exports = {
   },
   globalJS: {
     files: {
-      '<%= config.dist %>/assets/js/libraries/fastclick.js': ['<%= config.dist %>/assets/js/libraries/fastclick.js'],
-      '<%= config.dist %>/assets/js/bundle.js': ['<%= config.dist %>/assets/js/bundle.js']
+      '<%= config.dist %>/assets/js/libraries/fastclick.js': ['<%= config.dist %>/assets/js/libraries/fastclick.js']
     }
   },
-  pageFiles: {
-    files: [
-      {
-        expand: true,
-        cwd: '<%= config.dist %>/assets/js/',
-        src: 'pages/*.js',
-        dest: '<%= config.dist %>/assets/js/pages',
-        flatten: true
-      }
-    ]
+  omGlobalJS: {
+    files: {
+    '<%= config.dist %>/assets/js/om/bundle.js': ['<%= config.dist %>/assets/js/om/bundle.js']
+    }
   },
-  layoutFiles: {
+  omLayoutFiles: {
     files: [
       {
         expand: true,
-        cwd: '<%= config.dist %>/assets/js/',
-        src: 'layouts/*.js',
-        dest: '<%= config.dist %>/assets/js/layouts',
-        flatten: true
-      }
-    ]
-  },
-  ppcLayoutFiles: {
-    files: [
-      {
-        expand: true,
-        cwd: '<%= config.dist %>/assets/js/ppc/layouts/',
+        cwd: '<%= config.dist %>/assets/js/om/layouts/',
         src: '**/*.js',
-        dest: '<%= config.dist %>/assets/js/ppc/layouts',
+        dest: '<%= config.dist %>/assets/js/om/layouts',
         flatten: true
       }
     ]
