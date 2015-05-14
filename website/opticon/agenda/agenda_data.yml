@@ -231,23 +231,9 @@ days:
             title: "Optimization Roundtable Discussions"
             time: "1:30 - 2:15"
             location: "Expo Hall"
-            description: "Looking to connect with others that are in a similar industry, vertical or experiencing a similar challenge? The Optimization Roundtables are your chance to build connections with others that are trying to accomplish a similar goal. Join a roundtable on a topic of your choosing and participate in a discussion on best practices led by an industry expert. Choose from topics such as headline testing, user testing, or a technical deep dive on the Optimizely product."
-            companies: "Segment, Parse.ly, Stratigent"
+            description: "<p>Looking to connect with others that are in a similar industry, vertical or experiencing a similar challenge? The Optimization Roundtables are your chance to build connections with others that are trying to accomplish a similar goal. Join a roundtable on a topic of your choosing and participate in a discussion on best practices led by an industry expert.  Here are the discussion table topics:</p><ul><li>Personalization for Ecommerce - Clearhead</li><li>High velocity optimization - Arun Sivashankaran, Founder, FunnelEnvy</li><li>Making Experience Optimization a Team Sport - Michael Thomas, CMO, Noble Studios</li><li>Getting Started with Personalization - Optimizely</li><li>Discover the Optimizely Ecosystem - Optimizely</li><li>Optimizing for Mobile Retention - Optimizely</li><li>Create Great Headlines Through Testing - Stefan Deeran, Director of Strategic Partnerships, Parse.ly</li><li>Creating a Testing Culture - Matthew Zaute, Director of Analytics, Rise Interactive</li><li>High Impact Testing: Top Strategies to Get Big Results  - Mike Hay, Director of Marketing, ROI DNA</li><li>Optimizing your Growth/Marketing Stack - Peter Reinhardt, CEO,  Segment</li><li>Intelligent Solver (TM): A new way to personalize - Bill Bruno, CEO, Stratigent</li><li>The Best A/B Test Ideas You Haven't Thought Of - Phil Sharp, Director of Marketing, UserTesting</li></ul><p>Reserve your spot for a table <a href='https://docs.google.com/a/optimizely.com/forms/d/1GPIbfLk6GOxwpfJywu0S1DB8pWpLVzFbPxCuakKym6Q/viewform'>here</a>.</p>"
             track: "strategy"
             roles: "marketer productmanager developer executive"
-            speakers:
-              -
-                name: "Peter Reinhardt"
-                job_title: "Co-Founder and CEO"
-                company: "Segment"
-              -
-                name: "Stefan Deeran"
-                job_title: "Director Partnerships"
-                company: "Parse.ly"
-              -
-                name: "Bill Bruno"
-                job_title: "CEO"
-                company: "Stratigent"
       -
         start_time: "2:15"
         title: "Break in Exhibit Hall"
@@ -393,7 +379,7 @@ days:
           -
             title: "Powerful Integrations with Optimizely"
             time: "3:40 - 4:25"
-            location: "Theater"
+            location: "Breakout 4"
             description: "Optimizely offers several tools for developers to extend and integrate with Optimizely in new ways. In this session, an Optimizely product manager will give an overview of the Optimizely Developer Platform and explain how you can use APIs to transform your testing workflow. We’ll also have several guest speakers present powerful integrations they’ve built to help their business. The session will conclude with an open Q&A for anyone who’d like to learn more about the capabilities of the platform."
             companies: "Optimizely"
             track: "platform"
@@ -410,10 +396,10 @@ days:
         start_time: "4:45"
         events:
           -
-            title: "Google's Optimization Story"
+            title: "Google's $xxM Ad Optimization Bet"
             time: "4:45 - 5:30"
             location: "Breakout 3"
-            description: ""
+            description: "Michelle Levesque, Senior Staff Software Engineer at Google and former Google Ads UI Tech Lead, discusses the tools, processes, and learnings from hundreds of experiments tuning and optimizing Google's ad experiences. Moderating is Chrix Finne, Senior Product Manager at Optimizely, and former Product Manager for Google AdWords, Analytics, AdSense and AdMob."
             companies: "Google"
             track: "culture"
             roles: "marketer executive developer productmanager"
@@ -571,7 +557,7 @@ days:
           -
             title: "Early Lessons in Personalization Strategy"
             time: "11:25 - 12:10"
-            location: "Main Room"
+            location: "Breakout 3"
             description: "We'll take a look at lessons derived from early progress in personalization, informed by work already canonical in the email, ecommerce, and media industries. Learn how to translate your goals, personas, data, and ideas into a meaningful approach for delivering personalized experiences. See starter use cases relevant for your vertical, like symmetric messaging for B2B, promotional strategies for ecommerce, behavioral retargeting, contextual empathy, and mobile mindsets."
             companies: "AdRoll, The Clymb"
             track: "strategy"
@@ -613,7 +599,7 @@ days:
           -
             title: "Travel, Testing, and Personalization in the 21st Century"
             time: "11:25 - 12:10"
-            location: "Breakout 3"
+            location: "Breakout 4"
             description: "Of the $4.7 billion spent on U.S. travel advertising last year, 52 percent went to websites and other digital channels. Yet only a fraction of that amount is spent on capturing the ROI of those dollars with optimization. Panelists running the optimization practices at the top travel businesses in the industry will come together to talk about how testing and personalization drive revenue, conversions, and move their businesses forward."
             companies: "TripAdvisor (SmarterTravel Media), Hotwire"
             track: "action"
@@ -636,7 +622,7 @@ days:
           -
             title: "Personalization Using Optimizely Audience Integrations"
             time: "1:25 - 2:10"
-            location: "Breakout 3"
+            location: "Breakout 2"
             description: "This session will highlight how Optimizely's Audience integrations allow you to deliver personalized experiences to your visitors. We'll hear from a panel of Optimizely customers about how they've used Optimizely’s integrations with first and third-party data platforms, such as BlueKai, Demandbase, and Lytics, to create custom audiences for targeted testing and personalization."
             companies: "Microsoft Store, Citrix, Access Intelligence"
             track: "platform"
@@ -680,7 +666,7 @@ days:
           -
             title: "Hypothesize, Analyze, Optimize: Using Hidden Insights to Perfect your Experiment Process"
             time: "2:30 - 3:15"
-            location: "Breakout 2"
+            location: "Main Room"
             description: "Testing is an iterative process, oftentimes with confusing or inconclusive results. However, every experiment has something to teach you, and all too often, critical information is left unnoticed! Learn how to look for insights hidden behind the the numbers and maximize the utility of every experiment you run."
             companies: "Rue La La, Princess Cruises"
             track: "strategy"
@@ -737,7 +723,7 @@ days:
           -
             title: "From Skeptic to Champion: How to Win Over Key Stakeholders and Other Non-Believers"
             time: "3:35 - 4:20"
-            location: "Main Room"
+            location: "Breakout 2"
             description: "Whether you're just getting started or are ready to take things to the next level, getting internal support and executive buy-in is instrumental in the success of any optimization program.  In this interactive session, speakers will share stories from the trenches and best practices for gaining executive support and internal engagement. You'll learn how to use data to turn any naysayer into an experimentation evangelist, and build a culture where employees are encouraged to learn together, fail forward and take risks safely."
             companies: "Mode Analytics, American Medical Association, Elance-Odesk, Optimizely"
             track: "culture"
