@@ -1,5 +1,6 @@
 var expect = require('chai').expect;
 var assemble = require('assemble');
+var cheerio = require('cheerio');
 var config = require('./config');
 
 describe('adding all global yml to a translated object', function() {
@@ -14,13 +15,15 @@ describe('adding all global yml to a translated object', function() {
       'translate a data': '~translate a data~',
       'translate b data': '~translate b data~',
       'translate c data': '~translate c data~',
-      'translate d data': '~translate d data~'
+      'translate d data': '~translate d data~',
+      'Some Link': '~Some Link~'
     },
     'fr_FR': {
       'translate a data': '@translate a data@',
       'translate b data': '@translate b data@',
       'translate c data': '@translate c data@',
-      'translate d data': '@translate d data@'
+      'translate d data': '@translate d data@',
+      'Some Link': '@Some Link@'
     }
   };
 
@@ -51,6 +54,13 @@ describe('adding all global yml to a translated object', function() {
       var translated = translateGlobalYml('fr_FR', globalYml, translations);
       expect(translated).to.have.all.keys('fr');
       expect(translated.fr.global_a.global_a).to.equal('@translate a data@');
+    });
+
+    it('it translates HTML text and appends locales to `href`\'s appropriately', function() {
+      var translated = translateGlobalYml('fr_FR', globalYml, translations);
+      var $ = cheerio.load(translated.fr.global_a.content);
+      expect($('a').attr('href')).to.equal('/dist/fr/something');
+      expect($('a').text()).to.equal('@Some Link@');
     });
 
   });
