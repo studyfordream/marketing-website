@@ -52,30 +52,26 @@ days:
         start_time: "10:25"
         events:
           -
-            title: "Blow Up Your Mobile App Metrics: Real Life Mobile App Optimization"
+            title: "Making it Stick: The 'X Factor' That Made Optimization Succeed"
             time: "10:25 – 11:10"
             location: "Breakout 3"
-            description: "More than 80% of app users will download an app once and then eventually delete it. It's never been more important to drive engagement and retention in your mobile app. Come learn from a panel of mobile experts from industry leading companies discuss their success stories on how they build amazing apps and the culture that they developed around mobile app optimization."
-            companies: "Credit Sesame, Fareportal, Pinterest, Everyday Health"
-            track: "action"
-            roles: "marketer productmanager developer"
+            description: "Building an organization around continuous optimization is a distinctly different task from running A/B tests. Getting from those first experiments as a \"project\" to a data driven team and process requires vision and a commitment to hypothesis driven decision-making. How do entrepreneurial leaders and companies incorporate testing as a KPI and use it to drive a broader product roadmap? In this panel discussion with Blu Dot, Village Roadshow, and Optimizely Solutions Partner, Clearhead, will share their experiences from driving optimization forward - and the 'X factors' that made it stick."
+            companies: "Blu Dot, Village Roadshow, Clearhead"
+            track: "strategy"
+            roles: "executive"
             speakers:
               -
-                name: "George McMullen"
-                job_title: "Director of Mobile Products"
-                company: "Credit Sesame"
+                name: "Mike Wodtke"
+                job_title: "eCommerce Director"
+                company: "Blu Dot"
               -
-                name: "Raman Bhatia"
-                job_title: "Director of Mobile"
-                company: "Fareportal"
+                name: "Jon Satterley"
+                job_title: "Group Director, Digital Development"
+                company: "Village Roadshow"
               -
-                name: "Andrea Burbank"
-                job_title: "Data Scientist"
-                company: "Pinterest"
-              -
-                name: "Kyle Humphries"
-                job_title: "Product Manager"
-                company: "Everyday Health"
+                name: "Matty Wishnow"
+                job_title: "CEO"
+                company: "Clearhead"
           -
             title: "The Inside Scoop: Coming Soon from Optimizely"
             time: "10:25 – 11:10"
@@ -173,27 +169,6 @@ days:
                 job_title: "Customer Education Manager"
                 company: "Optimizely"
           -
-            title: "Making it Stick: The 'X Factor' That Made Optimization Succeed"
-            time: "1:30 - 2:15"
-            location: "Breakout 2"
-            description: "Building an organization around continuous optimization is a distinctly different task from running A/B tests. Getting from those first experiments as a \"project\" to a data driven team and process requires vision and a commitment to hypothesis driven decision-making. How do entrepreneurial leaders and companies incorporate testing as a KPI and use it to drive a broader product roadmap? In this panel discussion with Blu Dot, Village Roadshow, and Optimizely Solutions Partner, Clearhead, will share their experiences from driving optimization forward - and the \"X factors\" that made it stick."
-            companies: "Blu Dot, Village Roadshow, Clearhead"
-            track: "strategy"
-            roles: "executive"
-            speakers:
-              -
-                name: "Mike Wodtke"
-                job_title: "eCommerce Director"
-                company: "Blu Dot"
-              -
-                name: "Jon Satterley"
-                job_title: "Group Director, Digital Development"
-                company: "Village Roadshow"
-              -
-                name: "Matty Wishnow"
-                job_title: "CEO"
-                company: "Clearhead"
-          -
             title: "Pushing the Boundaries of Optimizely"
             time: "1:30 - 2:15"
             location: "Breakout 4"
@@ -203,7 +178,19 @@ days:
             roles: "marketer productmanager developer"
             speakers:
               -
+                name: "Alex Ivashchenko"
+                job_title: "Principal Software Engineer"
+                company: "Trulia"
+              -
+                name: "Markis Taylor"
+                job_title: "Engineering Lead"
+                company: "Trulia"
+              -
                 name: "Brad Taylor"
+                job_title: "Sr. Solutions Architect"
+                company: "Optimizely"
+              -
+                name: "Shaunak Mali"
                 job_title: "Solutions Architect"
                 company: "Optimizely"
           -
@@ -335,30 +322,30 @@ days:
         start_time: "3:40"
         events:
           -
-            title: "The Power of Empathy in Driving Conversion"
+            title: "Blow Up Your Mobile App Metrics: Real Life Mobile App Optimization"
             time: "3:40 - 4:25"
             location: "Breakout 3"
-            description: "Do your digital experiences convey your unique value proposition? What about creating customer delight with humor and wit? Learn how to cut through the noise and create meaningful audience connections that drive conversions."
-            companies: "FunnyBiz, Elevated"
-            track: "strategy"
-            roles: "marketer productmanager"
+            description: "More than 80% of app users will download an app once and then eventually delete it. It's never been more important to drive engagement and retention in your mobile app. Come learn from a panel of mobile experts from industry leading companies discuss their success stories on how they build amazing apps and the culture that they developed around mobile app optimization."
+            companies: "Credit Sesame, Fareportal, Pinterest, Everyday Health"
+            track: "action"
+            roles: "marketer productmanager developer"
             speakers:
               -
-                name: "Rachman Blake"
-                job_title: "Co-Founder"
-                company: "FunnyBiz"
+                name: "George McMullen"
+                job_title: "Director of Mobile Products"
+                company: "Credit Sesame"
               -
-                name: "Keith Lovgren"
-                job_title: "Director of Conversion Rate Optimization"
-                company: "Elevated"
+                name: "Raman Bhatia"
+                job_title: "Director of Mobile"
+                company: "Fareportal"
               -
-                name: "Talia Wolf"
-                job_title: "CEO and Founder"
-                company: "Conversioner"
+                name: "Andrea Burbank"
+                job_title: "Data Scientist"
+                company: "Pinterest"
               -
-                name: "Moderated by: Cara Harshman"
-                job_title: "Content Marketing Manager"
-                company: "Optimizely"
+                name: "Kyle Humphries"
+                job_title: "Product Manager"
+                company: "Everyday Health"
           -
             title: "Collaborating to Scale: How to Spread Optimization Across Your Org and Keep Things from Getting Messy"
             time: "3:40 - 4:25"
@@ -593,8 +580,12 @@ days:
                 job_title: "VP of Demand Generation"
                 company: "Marketo"
               -
-                name: "Moderated by: Jessie Becker"
+                name: "Jessie Becker"
                 job_title: "CMO"
+                company: "Optimizely"
+              -
+                name: "Moderated by: Shana Rusonis"
+                job_title: "Content Marketing Manager"
                 company: "Optimizely"
           -
             title: "Travel, Testing, and Personalization in the 21st Century"
@@ -720,6 +711,31 @@ days:
       -
         start_time: "3:35"
         events:
+          -
+            title: "The Power of Empathy in Driving Conversion"
+            time: "3:35 - 4:20"
+            location: "Breakout 3"
+            description: "Do your digital experiences convey your unique value proposition? What about creating customer delight with humor and wit? Learn how to cut through the noise and create meaningful audience connections that drive conversions."
+            companies: "FunnyBiz, Elevated"
+            track: "strategy"
+            roles: "marketer productmanager"
+            speakers:
+              -
+                name: "Rachman Blake"
+                job_title: "Co-Founder"
+                company: "FunnyBiz"
+              -
+                name: "Keith Lovgren"
+                job_title: "Director of Conversion Rate Optimization"
+                company: "Elevated"
+              -
+                name: "Talia Wolf"
+                job_title: "CEO and Founder"
+                company: "Conversioner"
+              -
+                name: "Moderated by: Cara Harshman"
+                job_title: "Content Marketing Manager"
+                company: "Optimizely"
           -
             title: "From Skeptic to Champion: How to Win Over Key Stakeholders and Other Non-Believers"
             time: "3:35 - 4:20"
