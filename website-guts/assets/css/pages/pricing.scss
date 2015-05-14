@@ -26,6 +26,7 @@ body.pricing {
       float: right;
       margin-bottom: 10px;
       > * {
+        display: block;
         float: left;
       }
       p {
@@ -156,7 +157,8 @@ body.pricing.plan-free_light {
   body.pricing {
     #page-header {
       .header-cta-container {
-        display: inline;
+        display: block;
+        width: 400px;
       }
     }
     .title-section {
