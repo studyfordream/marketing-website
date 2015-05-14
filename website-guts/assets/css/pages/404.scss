@@ -1,6 +1,6 @@
 body.four-o-four {
   background-color: $super-dark-blue;
-	.four-cont {
+  .four-cont {
     padding: 100px 0;
     margin: 0 auto;
     &_logo {
@@ -21,13 +21,13 @@ body.four-o-four {
 
 @media only screen and (min-width: $tablet-min-width) {
 
-	body.four-o-four {
+  body.four-o-four {
     .four-cont {
       height: 70vh;
       &_logo {
         max-width: 150px;
       }
     }
-	}
+  }
 
 }
