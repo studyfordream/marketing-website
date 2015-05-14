@@ -35,16 +35,16 @@ sponsor_levels:
     class: "silver"
     sponsor_list:
       -
-        display_url: "http://www.blueacorn.com/"
+        display_url: "www.blueacorn.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/blue_acorn_logo.png"
-        site_link: "www.blueacorn.com"
-        description: ""
+        site_link: "http://www.blueacorn.com/"
+        description: "Blue Acorn is a premium eCommerce agency dedicated to helping retailers and brands achieve superior eCommerce results through data-driven solutions.  Last year at Opticon, we won the coveted Optie for Partner Excellence, and we continue to be Optimizely’s agency of choice for building and updating their official Magento extension.  In fact, our commitment to providing best-in-class design, development, and optimization services is how we wound up with an entire development team that is Optimizely Certified."
         class: "silver"
       -
         display_url: "www.decibelinsight.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/decibel_insight2.png"
         site_link: "https://www.decibelinsight.com/"
-        description: ""
+        description: "Decibel Insight is enterprise class customer experience analytics, trusted by marketers and web analysts in more than 50 countries worldwide. Providing the missing piece in web optimization, our software enables businesses to understand the visitor behavior behind site performance. Advanced heatmaps, visitor session replay, form analytics and behavior reports provide evidence that is so compelling it’s impossible to ignore. Forensically examine what website visitors see, where they scroll, what they click and why they convert; understand what to do next to improve paths to conversion and fuel successful split tests with hypotheses based on real user experience."
         class: "silver"
       -
         display_url: "www.funnelenvy.com"

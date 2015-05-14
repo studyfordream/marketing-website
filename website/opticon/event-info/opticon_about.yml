@@ -22,17 +22,13 @@ faq_section:
   faqs:
     -
       question: "Where should I stay?"
-      answer: "<p class='adelle-sans'>We’ve reserved rooms at two different hotels close to the venue,
-        both at a rate of $329/night. Reservations must be made by May 15, 2015 in
-        order to guarantee the rate of $329. Please note, there are a limited number
-        of rooms available.</p>
+      answer: "<p class='adelle-sans'>We’ve reserved rooms at a Starwood hotel close to the venue at a rate of $329/night. Reservations must be made by May 15, 2015 in order to guarantee the rate of $329. Please note, there are a limited number of rooms available.</p>
         <ul>
           <li><a class='adelle-sans' target='_blank' href='https://www.starwoodmeeting.com/events/start.action?id=1502199925&key=107310DE'>Le Méridien </a>(Starwood Luxury Property)</li>
-          <li><a class='adelle-sans' target='_blank' href='http://sanfranciscoregency.hyatt.com/en/hotel/home.html'>Hyatt Regency Embarcadero</a> (Room block is full)</li>
         </ul>"
     -
       question: "What is the hotel cancellation policy?"
-      answer: "<p class='adelle-sans'>Cancellations for both hotels must be received by 3:00pm PST, 24 hours prior to the date of arrival, to avoid a one night room and tax penalty chargeable to hotel guest.</p>"
+      answer: "<p class='adelle-sans'>Cancellations for hotels must be received by 3:00pm PST, 24 hours prior to the date of arrival, to avoid a one night room and tax penalty chargeable to hotel guest.</p>"
     -
       question: "Where is the conference being held?"
       answer: "<p class='adelle-sans'>Opticon will be held at the beautiful and brand new <a target='_blank' href='http://www.sfport.com/index.aspx?page=2509'>Pier 27</a>, located on the Embarcadero in San Francisco.</p>"
