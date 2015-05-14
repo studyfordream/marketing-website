@@ -63,9 +63,8 @@ benefits:
 hear:
   TR_title: "Hear from our Partners"
   TR_blurb: "<p>Watch this testimonial from Lytics on how partnering with Optimizely has transformed their business.</p><br><br><p>To learn more about the requirements and benefits of our partner program <a href=\"/partners\">click here</a>. To see a list of technology partners we work with today, check out our partner directory</p>."
-  video:
-    youtube_id: ""
+  video_url: "//play.vidyard.com/Bf0qpT872TFpgGnJUqm0kA.html?v=3.1"
 join:
   TR_title: "Become a Technology Partner today!"
   TR_blurb:  "To learn more about the requirements and benefits of our partner program <a href=\"/partners\">click here</a>."
-  link: "/partners"
+  button_text: "Join now"

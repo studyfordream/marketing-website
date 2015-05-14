@@ -43,4 +43,4 @@ intro:
   join:
     TR_title: "Become a Solutions Partner today!"
     TR_blurb: "To learn more about the requirements and benefits of our partner program <a href=\"/partners\">click here</a>."
-    link: "/partners"
+    button_text: "Join now"

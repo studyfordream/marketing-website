@@ -86,75 +86,13 @@ og_description: ""
 </section>
 
 <section class="become-a-partner panel">
-  <div class="container ">
-    <h2 class="panel-header" style="
-">Become a Solutions Partner today!</h2>
-    <a href="/pricing" class="primary-cta">Join now</a>
+  {{#with page_data.join}}
+    <div class="container ">
+      <h2 class="panel-header">{{{title}}}</h2>
 
-<p class="blurb">To learn more about the requirements and benefits of our partner program <a href="/partners">click here</a></p>
-  </div>
-</section>
+    <a href="#" class="primary-cta">{{{button_text}}}</a>
 
-{{!-- dynamic
-
-<section id="solutions-hero" class="panel hero">
-  {{#with page_data.intro}}
-    <h1>{{{headline}}}</h1>
-    <h2>{{{subhead}}}</h2>
+    <p class="blurb">{{{blurb}}}</p>
+    </div>
   {{/with}}
 </section>
-
-<div class="page-content paragraphs-container container">
-  <section id="solutions-blurb" class="panel">
-    {{#with page_data.intro}}
-      {{{blurb}}}
-    {{/with}}
-  </section>
-
-
-  <section  id="solutions-why"  class="why-items container">
-    <h3 class="description-title">{{why.title}}</h3>
-    <div class="tracks-container flex-container">
-      {{#each why.items_list}}
-        <div class="why-item-container {{this.class}}">
-          <p class="detail-text">{{this.blurb}}</p>
-        </div>
-      {{/each}}
-    </div>
-  </section>
-
-
-  <section id="solutions-benefits" class="panel">
-    {{#with page_data.benefits}}
-
-      {{#each items.list}}
-        <div class="flex-container">
-
-          <div class={{#is_even @index}}"left-paragraph"{{else}}"right-paragraph"{{/is_even}}>
-            <h3 class="description-title ">{{title}}</h3>
-            <p class="description-text ">{{blurb}}</p>
-          </div>
-
-          <div class={{#is_even @index}}"right-paragraph"{{else}}"left-paragraph"{{/is_even}}>
-            <div class="{{class}}"></div>
-          </div>
-        </div>
-
-      {{/each}}
-
-    {{/with}}
-  </section>
-
-
-  <section id="solutions-join" class="panel">
-    {{#with page_data.join}}
-      <div class="container text-center">
-        <h2>{{title}}</h2>
-        <a href="{{link}}" class="primary-cta">Join Now</a>
-        <p>{{blurb}}</p>
-      </div>
-    {{/with}}
-  </section>
-
-</div>
---}}
