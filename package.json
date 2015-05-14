@@ -50,7 +50,7 @@
     "grunt-modernizr": "0.6.0",
     "grunt-sass": "1.0.0",
     "grunt-text-replace": "0.3.12",
-    "grunt-userevvd": "0.1.5",
+    "grunt-userevvd": "git+ssh://git@github.com/dtothefp/grunt-userevvd.git#dfoxpowell/add-css-target",
     "gulp-extname": "0.2.0",
     "gulp-util": "^3.0.4",
     "handlebars-loader": "1.0.0",

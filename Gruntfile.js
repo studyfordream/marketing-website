@@ -136,7 +136,7 @@ module.exports = function(grunt) {
     'modernizr',
     'concat',
     'webpack',
-    'sass:prod',
+    'sass:dev',
     'autoprefixer',
     'copy',
     'uglify',
