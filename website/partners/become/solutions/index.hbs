@@ -13,92 +13,109 @@ og_description: ""
 
 </style>
 
-{{!-- static  remove when templated out dynamic version --}}
+
 
 
 <section id="landing-hero" class="panel hero">
-    <h1>Partner with Optimizely</h1>
-    <h2>The World’s Leading Experience Optimization Platform</h2>
+  {{#with page_data.intro}}
+    <h1>{{{headline}}}</h1>
+    <h2>{{{subhead}}}</h2>
+    <a href="#" class="primary-cta join-link" style="
+">{{{button_text}}}</a>
+  {{/with}}
 </section>
 
 
-<section id="solutions-why">
+<section id="solutions-why" class="panel">
+
+  {{#with page_data.intro}}
+    <p class="blurb">{{{blurb}}}</p>
+  {{/with}}
+
+  {{#with page_data.why}}
   <div class="why-items container">
+
+    <h2 class="panel-header">Why partner with Optimizely?</h2>
+
     <div class="tracks-container flex-container">
         <div class="track-container">
 
     <div class="image trophy"></div>
 
-          <p class="item-title adelle-sans--bold">Platform</p>
-          <p class="detail-text adelle-sans">How to integrate Optimizely with the products you already use as well as find new ways to enhance your current workflow.</p>
+          <p class="item-title ">Platform</p>
+          <p class="detail-text ">How to integrate Optimizely with the products you already use as well as find new ways to enhance your current workflow.</p>
         </div>
         <div class="track-container ">
     <div class="image magnifying"></div>
 
-          <p class="item-title adelle-sans--bold">Culture</p>
-          <p class="detail-text adelle-sans">How to create a culture that values and practices experience optimization every day.</p>
+          <p class="item-title ">Culture</p>
+          <p class="detail-text ">How to create a culture that values and practices experience optimization every day.</p>
         </div>
         <div class="track-container strategy">
     <div class="image browsers"></div>
 
-          <p class="item-title adelle-sans--bold">Strategy</p>
-          <p class="detail-text adelle-sans">Tips and best practices for incorporating experience optimization into your business strategy.</p>
+          <p class="item-title ">Strategy</p>
+          <p class="detail-text ">Tips and best practices for incorporating experience optimization into your business strategy.</p>
         </div>
         <div class="track-container ">
     <div class="image mouseclick"></div>
 
-          <p class="item-title adelle-sans--bold">Action</p>
-          <p class="detail-text adelle-sans">How to use Optimizely to create the best experiences for your users and customers.</p>
+          <p class="item-title ">Action</p>
+          <p class="detail-text ">How to use Optimizely to create the best experiences for your users and customers.</p>
         </div>
     </div>
 
   </div>
+  {{/with}}
+
 </section>
 
 
 
 <section id="solutions-benefits" class="panel">
   <div class="benefits container">
-    <div class="flex-container">
-      <div class="left-paragraph">
-  	<img src="/dist/assets/img//partners-become/illustration1.svg">
- </div>
-
-      <div class="right-paragraph">
-                <h3 class="description-title adelle-sans">Become a Solutions Partner Partner</h3>
-        <p class="description-text adelle-sans">Develop new revenue streams for your business by delivering best in class optimization services.</p>
-      </div>
-    </div>
 
 
+        <h2 class="panel-header">Benefits of the Partner Program</h2>
+
+        <div class="split-cols clearfix">
+          <div>
+      	<img src="/dist/assets/img//partners-become/illustration1.svg">
+     </div>
+
+          <div>
+                    <h3 class="description-title ">Become a Solutions Partner Partner</h3>
+            <p class="description-text ">Develop new revenue streams for your business by delivering best in class optimization services.</p>
+          </div>
+        </div>
 
 
 
-  <div class="flex-container">
-      <div class="left-paragraph">
 
-                <h3 class="description-title adelle-sans">Become a Solutions Partner Partner</h3>
-        <p class="description-text adelle-sans">Develop new revenue streams for your business by delivering best in class optimization services.</p>
- </div>
-
-      <div class="right-paragraph">
-        <img src="/dist/assets/img//partners-become/illustration2.svg">
-      </div>
-    </div>
+        <div class="split-cols clearfix">
 
 
-  <div class="flex-container">
-      <div class="left-paragraph">
-  	<img src="/dist/assets/img//partners-become/illustration3.svg">
- </div>
+          <div>
+                    <h3 class="description-title ">Become a Solutions Partner Partner</h3>
+            <p class="description-text ">Develop new revenue streams for your business by delivering best in class optimization services.</p>
+          </div>
 
-      <div class="right-paragraph">
-                <h3 class="description-title adelle-sans">Become a Solutions Partner Partner</h3>
-        <p class="description-text adelle-sans">Develop new revenue streams for your business by delivering best in class optimization services.</p>
-      </div>
-    </div>
+          <div>
+      	<img src="/dist/assets/img//partners-become/illustration2.svg">
+     </div>
+        </div>
 
 
+        <div class="split-cols clearfix">
+          <div>
+      	<img src="/dist/assets/img//partners-become/illustration3.svg">
+     </div>
+
+          <div>
+                    <h3 class="description-title ">Become a Solutions Partner Partner</h3>
+            <p class="description-text ">Develop new revenue streams for your business by delivering best in class optimization services.</p>
+          </div>
+        </div>
 
 
 
@@ -106,7 +123,15 @@ og_description: ""
 
 </section>
 
+<section class="become-a-partner panel">
+  <div class="container ">
+    <h2 class="panel-header" style="
+">Become a Solutions Partner today!</h2>
+    <a href="/pricing" class="primary-cta">Join now</a>
 
+<p class="blurb">To learn more about the requirements and benefits of our partner program <a href="/partners">click here</a></p>
+  </div>
+</section>
 
 {{!-- dynamic
 
@@ -144,8 +169,8 @@ og_description: ""
         <div class="flex-container">
 
           <div class={{#is_even @index}}"left-paragraph"{{else}}"right-paragraph"{{/is_even}}>
-            <h3 class="description-title adelle-sans">{{title}}</h3>
-            <p class="description-text adelle-sans">{{blurb}}</p>
+            <h3 class="description-title ">{{title}}</h3>
+            <p class="description-text ">{{blurb}}</p>
           </div>
 
           <div class={{#is_even @index}}"right-paragraph"{{else}}"left-paragraph"{{/is_even}}>

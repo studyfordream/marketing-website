@@ -2,6 +2,18 @@
 
 .partners-become { //body
 
+  font-family: $body-font-family; //proxima
+
+  .panel {
+    padding: 60px 0;
+  }
+
+  .panel-header {
+    text-align: center;
+    font-size: 24px;
+    padding: 0 20px;
+  }
+
 
 
   background-color: $page-content-color;
@@ -23,7 +35,7 @@
     border-radius: 4px;
     background: #0081BA;
     border: 1px solid #00415D;
-    padding: 10px 20px;
+    padding: 20px 60px;
     font-family: $gotham-small-type;
     font-size: 18px;
     color: #FFFFFF;
@@ -39,7 +51,7 @@
   }
 
   #landing-hero {
-
+    position: relative;
     padding: 95px 0;
     background-color: $super-dark-blue;
     color: $page-content-color;
@@ -47,12 +59,42 @@
     h1, h2 {
       text-align: center;
     }
+
+    h1 {
+      font-weight: lighter;
+      font-size: 54px;
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+    .primary-cta {
+      position: absolute;
+      bottom: -30px;
+      left: calc(50% - 112px);
+    }
   }
+
+  #landing-intro {
+    .blurb, .description-text {
+      font-size: 18px;
+    }
+
+    .description-title {
+      font-size: 32px;
+      font-weight: 500;
+    }
+
+  }
+
 
 
   .left-paragraph,
   .right-paragraph {
-    padding: 4%;
+    padding: 4% 0;
     .description-title {
       min-height: 86px;
     }
@@ -62,13 +104,26 @@
   }
 
 
-  #technology-why, #solutions-why {
-
+  #technology-why, #solutions-why, #technology-hear, .panel.become-a-partner {
     background-color: #ffffff;
+  }
 
+  #technology-hear+.panel.become-a-partner {
+    background-color: $partners-become-gray ;
+  }
+
+  #technology-why, #solutions-why {
+    .blurb {
+      padding: 0 20px;
+      margin-bottom: 40px;;
+    }
   }
 
   .why-items {
+
+    .panel-header {
+      margin: 10px 0 60px;
+    }
 
     .image { //background image inside gray circle
       width: 94px;
@@ -99,11 +154,22 @@
 
 
     .track-container {
-      padding: 90px 10px 30px 10px;
+      padding: 0 20px 30px 20px;
       text-align: center;
       background-repeat: no-repeat;
       background-position: top center;
-      margin-top: 30px;
+
+
+      .item-title {
+        font-weight: 400;
+        font-size: 20px;
+        text-align: left;
+      }
+
+      .detail-text {
+        font-size: 16px;
+        text-align: left;
+      }
     }
 
 
@@ -111,15 +177,92 @@
 
   }
 
-
   .bg-img {
     background-repeat: no-repeat;
     background-position: top center;
   }
 
+
+  .vidyard_iframe {
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+  }
+
+  .become-a-partner {
+
+    .panel-header {
+      margin-bottom: 40px;
+    }
+
+    .primary-cta {
+
+      display: table;
+      margin: 0 auto;
+
+    }
+
+    .blurb {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+  }
+
 }
 
 .benefits {
+
+  .panel-header {
+    margin: 0 0 20px;
+  }
+
+
+  .split-cols {
+    margin-bottom: 80px;
+
+    img {
+      max-width: 75%; //images not too big
+    }
+
+    //the image/content alternate in tablet in up,
+    //reorder thhem in mobile
+    display: flex;
+    flex-direction: column;
+    &:nth-child(odd){
+      >div:first-child {
+        order: 1;
+      }
+      >div:last-child {
+        order: 2;
+      }
+    }
+
+    &:nth-child(even){
+      >div:first-child {
+        order: 2;
+      }
+      >div:last-child {
+        order: 1;
+      }
+    }
+
+    >div {
+      padding: 20px 10px;
+      // margin-bottom: 40px;
+    }
+
+
+    .description-title {
+      font-size: 24px;
+    }
+
+    .description-text {
+      font-size: 18px;
+    }
+
+  }
 
 
   // .illustration1 {
@@ -137,25 +280,103 @@
 
 }
 
+#technology-hear {
+
+  .panel-header {
+    margin-bottom: 70px;
+  }
+
+  .right-paragraph {
+    p {
+      text-align: left;
+      font-size: 16px;
+    }
+  }
+
+}
+
 @media only screen and (min-width: $tablet-min-width) {
   body.partners-become {
+
+    .panel-header {
+      font-size: 36px;
+    }
+
+    //simple float based two column layout
+    .split-cols {
+      >div {
+        width: 48%;
+      }
+      >div:first-child {
+        float: left;
+      }
+
+      >div:last-child {
+        float: right;
+      }
+
+    }
+
+    #technology-why, #solutions-why {
+      .blurb {
+        width: 62.5%;
+        margin: 0 auto 70px;
+      }
+    }
+
+
+    .page-content.landing {
+      width: 62.5%;
+    }
+
     .flex-container {
       display: flex;
     }
 
     .left-paragraph,
     .right-paragraph {
-      padding: 10px 30px 10px 10px;
+      padding: 10px 30px 10px 0px;
       width: 50%;
     }
-
-
-
 
     .track-container {
       width: 25%;
       padding: 115px 10px 10px 10px;
     }
+
+    .vidyard_iframe {
+      min-height: 300px;
+    }
+
+    .benefits {
+
+      .panel-header {
+        margin-bottom: 80px;
+      }
+
+      .split-cols {
+
+        img {
+          max-width: 100%;
+        }
+
+        //undo mobile flex order (will alternate)
+        display: block;
+        flex-direction: inherit;
+
+
+        >div:first-child {
+
+          padding-right: 30px;
+
+        }
+        >div:last-child {
+          padding-left: 30px;
+
+        }
+      }
+    }
+
 
   }
 }
