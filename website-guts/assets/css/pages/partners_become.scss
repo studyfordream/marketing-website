@@ -18,17 +18,15 @@
 
   .flex-container {
     display: block; // Only for mobile
-  }
-
-  .flex-container {
     flex-wrap: wrap;
   }
+
   .faq-container {
     padding: 10px;
   }
 
   .primary-cta {
-    /* maintain a button max-height 40px*/
+    // maintain a button max-height 40px
     border-radius: 4px;
     background: #0081BA;
     border: 1px solid #00415D;
@@ -123,7 +121,7 @@
       width: 94px;
       height: 62px;
       background-repeat: no-repeat;
-      margin: 0 auto 30px auto;
+      margin: 0 auto 30px;
       background-color: $partners-become-gray;
       background-position: center;
       border-radius: 50%;
@@ -146,7 +144,7 @@
     }
 
     .track-container {
-      padding: 0 20px 30px 20px;
+      padding: 0 20px 30px;
       text-align: center;
       background-repeat: no-repeat;
       background-position: top center;
@@ -302,15 +300,19 @@
 
         &:nth-child(odd) {
           >div:first-child {
+            float: right;
             padding-right: 30px;
+            padding-left: 30px;
           }
           >div:last-child {
+            float: left;
             padding-left: 30px;
+            padding-right: 30px;
           }
         }
 
         //in tablet and up, alternate the image and text
-        &:nth-child(odd) {
+        &:nth-child(even) {
           >div:first-child {
             float: right;
             padding-left: 30px;
