@@ -11,7 +11,7 @@ module.exports = {
       },
       src: '**/*',
       cwd: '<%= config.dist %>/',
-      dest: '<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
+      dest: '<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/',
     },
     production: {
       options: {
