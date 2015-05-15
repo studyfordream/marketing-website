@@ -73,7 +73,8 @@ module.exports = function(grunt) {
     'copy',
     'uglify',
     's3:staging',
-    'clean:postBuild'
+    'clean:postBuild',
+    'fastly:staging'
   ]);
 
   grunt.registerTask('smartling-staging-deploy', [
