@@ -14,8 +14,6 @@
     padding: 0 20px;
   }
 
-
-
   background-color: $page-content-color;
 
   .flex-container {
@@ -28,7 +26,6 @@
   .faq-container {
     padding: 10px;
   }
-
 
   .primary-cta {
     /* maintain a button max-height 40px*/
@@ -90,8 +87,6 @@
 
   }
 
-
-
   .left-paragraph,
   .right-paragraph {
     padding: 4% 0;
@@ -102,7 +97,6 @@
       min-height: 153px;
     }
   }
-
 
   #technology-why, #solutions-why, #technology-hear, .panel.become-a-partner {
     background-color: #ffffff;
@@ -129,7 +123,7 @@
       width: 94px;
       height: 62px;
       background-repeat: no-repeat;
-      margin: 0 auto;
+      margin: 0 auto 30px auto;
       background-color: $partners-become-gray;
       background-position: center;
       border-radius: 50%;
@@ -151,14 +145,11 @@
       background-image: image-url('/partners-become/icon-mouseclick.svg');
     }
 
-
-
     .track-container {
       padding: 0 20px 30px 20px;
       text-align: center;
       background-repeat: no-repeat;
       background-position: top center;
-
 
       .item-title {
         font-weight: 400;
@@ -171,17 +162,12 @@
         text-align: left;
       }
     }
-
-
-
-
   }
 
   .bg-img {
     background-repeat: no-repeat;
     background-position: top center;
   }
-
 
   .vidyard_iframe {
     width: 100%;
@@ -196,7 +182,6 @@
     }
 
     .primary-cta {
-
       display: table;
       margin: 0 auto;
 
@@ -207,9 +192,7 @@
       text-align: center;
       font-size: 16px;
     }
-
   }
-
 }
 
 .benefits {
@@ -217,7 +200,6 @@
   .panel-header {
     margin: 0 0 20px;
   }
-
 
   .split-cols {
     margin-bottom: 80px;
@@ -230,7 +212,6 @@
       padding: 20px 10px;
     }
 
-
     .description-title {
       font-size: 24px;
     }
@@ -238,11 +219,7 @@
     .description-text {
       font-size: 18px;
     }
-
   }
-
-
-
 }
 
 #technology-hear {
@@ -279,7 +256,6 @@
       >div:last-child {
         float: right;
       }
-
     }
 
     #technology-why, #solutions-why {
@@ -288,7 +264,6 @@
         margin: 0 auto 70px;
       }
     }
-
 
     .page-content.landing {
       width: 62.5%;
@@ -334,7 +309,6 @@
           }
         }
 
-
         //in tablet and up, alternate the image and text
         &:nth-child(odd) {
           >div:first-child {
@@ -345,26 +319,18 @@
           >div:last-child {
             float: left;
             padding-right: 30px;
-
           }
         }
-
-
-
       }
     }
-
-
   }
 }
 
 @media only screen and (min-width: $desktop-min-width) {
   body.partners-become {
 
-
     .track-container {
       padding: 115px 10px 30px 10px;
     }
-
   }
 }
