@@ -305,7 +305,7 @@
           max-width: 100%;
         }
 
-        &:nth-child(odd) {
+        &:nth-child(even) {
           >div:first-child {
             float: right;
             padding-right: 30px;
