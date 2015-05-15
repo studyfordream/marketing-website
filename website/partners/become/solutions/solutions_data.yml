@@ -9,16 +9,16 @@ why:
   TR_reasons:
     -
       TR_blurb: "Partner with the Market leader in optimization"
-      class: "trophy"
+      image: "partners-become/icon-trophy.svg"
     -
       TR_blurb: "Work with a trusted partner that will never compete with you"
-      class: "magnifying"
+      image: "partners-become/icon-magnifying.svg"
     -
       TR_blurb: "Access best in class enablement, training and support"
-      class: "browsers"
+      image: "partners-become/icon-browsers.svg"
     -
       TR_blurb: "Open new revenue streams to grow your business"
-      class: "mouseclick"
+      image: "partners-become/icon-mouseclick.svg"
 benefits:
   TR_title: "Benefits of the Partner Program"
   TR_items:

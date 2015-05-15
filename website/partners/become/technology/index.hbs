@@ -40,7 +40,7 @@ og_description: ""
 
         {{#each reasons}}
           <div class="track-container">
-            <div class="image {{this.class}}"></div>
+            <div class="image" style="background-image: url({{../../assetsDir}}/img/{{image}});"></div>
             <p class="item-title">{{{this.title}}}</p>
             <p class="detail-text ">{{{this.blurb}}}</p>
           </div>
@@ -62,7 +62,7 @@ og_description: ""
       <div class="split-cols clearfix">
 
         <div>
-          <img src="{{assetsDir}}/img/{{this.image}}">
+          <img src="{{../../assetsDir}}/img/{{image}}">
         </div>
 
         <div>
