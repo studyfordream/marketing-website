@@ -2,7 +2,7 @@ intro:
   TR_headline: "Become a Technology Partner"
   TR_subhead: "Grow your business on the Optimizely Platform"
   TR_button_text: "Join now"
-  MD_blurb: "Optimizely is the # 1 experience optimization platform in the world, enabling thousands of companies to deliver delightful, optimized experiences to their visitors every day. Optimizely’s Technology Partner Program enables your company to easily integrate with Optimizely, so your customers can turn data into action faster and more seamlessly than ever before. As an Optimizely Technology Partner, you’ll gain access to exclusive developer enablement and a dedicated team of experts to help guide you in developing impactful integrations with Optimizely’s platform."
+  TR_blurb: "Optimizely is the # 1 experience optimization platform in the world, enabling thousands of companies to deliver delightful, optimized experiences to their visitors every day. Optimizely’s Technology Partner Program enables your company to easily integrate with Optimizely, so your customers can turn data into action faster and more seamlessly than ever before. As an Optimizely Technology Partner, you’ll gain access to exclusive developer enablement and a dedicated team of experts to help guide you in developing impactful integrations with Optimizely’s platform."
 why:
   TR_header: "Why Partner with Optimizely?"
   TR_reasons:
@@ -58,7 +58,7 @@ benefits:
 hear:
   show: true
   TR_title: "Hear from our Partners"
-  TR_blurb: "<p>Watch this testimonial from Lytics on how partnering with Optimizely has transformed their business.</p><br><br><p>To learn more about the requirements and benefits of our partner program <a href=\"/partners\">click here</a>. To see a list of technology partners we work with today, check out our partner directory</p>."
+  TR_blurb: "<p>Watch this testimonial from Lytics on how partnering with Optimizely has transformed their business.</p><br><br><p>To learn more about the requirements and benefits of our partner program <a href=\"/partners\">click here</a>. To see a list of technology partners we work with today, check out our partner directory.</p>"
   video_url: "//play.vidyard.com/Bf0qpT872TFpgGnJUqm0kA.html?v=3.1"
 join:
   TR_title: "Become a Technology Partner today!"
