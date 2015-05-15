@@ -23,11 +23,23 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/adam-avramescu_bw_170x170-circle.png"
       company: "Optimizely"
       blurb: "Adam Avramescu leads Customer Education at Optimizely, where his goal is to empower the Optimizely team to become effective educators while scaling the delight of working with Optimizely's Customer Success team to all customers. Before joining Optimizely, Adam managed training and content development functions, scaled learning and documentation materials, and created learning games, simulations, and other high-impact experiences for higher-ed institutions and Fortune 500 clients. He holds a B.A. in English, Rhetoric and Writing from the University of Texas."
-    #-
-      #name: "Jesse Avshalomov"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      #company: "Teespring"
-      #blurb: ""
+    -
+      name: "Jesse Avshalomov"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jesse-avshalomov.png"
+      company: "Teespring"
+      blurb: "Jesse Avshalomov is the Director of Product and Growth at Teespring (YC W13), a platform empowering entrepreneurs to go from concept to merchandise with virtually zero friction. A data nerd by nature, Jesse founded Teespring’s Growth team and catalyzed the formation of the Product, Marketing, and Data teams. Today he’s focused on the Product org, where he architects initiatives and experimentation designed to improve retention, revenue, and lifetime value. Before Teespring, Jesse spent time as a marketing technologist at Apple and AKQA and was a co-founder at the music licensing startup now known as Loudr.  Though an entrepreneur by trade, his undergraduate and graduate work were in opera performance. Jesse can be found writing on the subject of growth at MetricSparrow.com, and he occasionally finds time to tweet as @allforJesse. He also may have invented International Beer Day."
+
+
+    -
+      name: "Jessie Becker"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jessie_becker.png"
+      company: "Optimizely"
+      blurb: "Jessie Becker is the Chief Marketing Officer at Optimizely. She oversees all marketing activities including demand generation, customer marketing, product marketing, content marketing, and PR.  Prior to joining Optimizely, Jessie was Interim Chief Marketing Officer at Netflix, where she was responsible for the global brand and customer acquisition programs. During her twelve years at Netflix she held a variety of marketing positions with increasing responsibility, and led a cross-functional product management, consumer insights, and engineering team to optimize all Netflix signup flows, with annual gross signups exceeding 10 million. Previously, Jessie held roles at Amazon.com, Microsoft, and Oracle. Jessie holds a B.A. from the University of Pennsylvania, a B.S. in Economics from The Wharton School, and an M.B.A. from Stanford University, where she was an Arjay Miller Scholar."
+    -
+      name: "Robbie Kellman Baxter"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/robbie-baxter.png"
+      company: "Peninsula Strategies"
+      blurb: "Robbie Kellman Baxter is the author of the Amazon #1 Hot New Release The Membership Economy: Find Your Superusers, Master the Forever Transaction and Build Recurring Revenue.  She created the popular business term "Membership Economy" and is the founder of Peninsula Strategies LLC, a strategy consulting firm. Her clients have included large organizations like Netflix, SurveyMonkey and Yahoo!, as well as smaller venture-backed startups. Over the course of her career, Robbie has worked in or consulted to clients in more than twenty industries.  Before starting Peninsula Strategies in 2001, Robbie served as a New York City Urban Fellow, a consultant at Booz Allen & Hamilton, and a Silicon Valley product marketer.  As a public speaker, she has presented to thousands of people in corporations, associations, and universities. Moreover, she has been quoted in or written articles for major media outlets, including CNN, Consumer Reports, The New York Times and the Wall Street Journal. She has an AB from Harvard College and an MBA from the Stanford Graduate School of Business."
     -
       name: "Jessie Becker"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jessie_becker.png"
@@ -53,11 +65,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/tyler_bullen.png"
       company: "The Clymb"
       blurb: "Tyler Bullen is the Personalization Program Manager at The Clymb. When he's not optimizing websites, he's outside cycling through Portland's hills, or barbecuing with his wife and son."
-    #-
-      #name: "Heidi Bullock"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/heidi-bullock.jpg"
-      #company: "Marketo"
-      #blurb: ""
+    -
+      name: "Heidi Bullock"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/heidi-bullock.jpg"
+      company: "Marketo"
+      blurb: "Heidi Bullock is the Vice President of Demand Generation at Marketo. She has over 10 years of B2B marketing experience in high tech companies. Her expertise includes product positioning, brand strategy, product marketing, and demand generation."
     -
       name: "Andrea Burbank"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/andrea-burbank.png"
@@ -103,6 +115,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/durand_duin.png"
       company: "Eventbrite"
       blurb: "Durand Duin is the Head of Learning at Eventbrite. With 500 employees and 8 global offices, Eventbrite is a marketplace for events, committed to bringing people together through the power of live experiences. With a focus on developing leadership, career excellence, and a coaching culture, Durand's goal is to help Eventbrite and its Britelings succeed. Before joining Eventbrite, he spent 10 years at Google, where he helped build sales and support teams for international operations in multiple locations, including India and Poland, and supported learning for the general and administrative group."
+    -
+      name: "Jeppe Dyrby"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jeppe-dyrby.png"
+      company: "eBay Classifieds Group"
+      blurb: "Jeppe Dyrby is a Senior Web Developer, doing full time A/B testing for eBay Classifieds Denmark. He's been doing web development for 10 years, and he's not done yet! "
     #-
       #name: "Christian Dürr"
       #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
@@ -118,21 +135,21 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/kelly_fang.png"
       company: "CBS Interactive"
       blurb: "Kelly Fang is the product lead for ZDNet.com. Her UX optimization and A/B testing experience began when she was an intern at CBSi and has been addicted ever since. Kelly is a champion napper, and a serial dabbler in all things tech and design."
-    #-
-      #name: "Kevin Flynn"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      #company: "Motorola"
-      #blurb: "After a 20 year career in the markets at the Chicago Board of Trade, Kevin Flynn decided to return to school to achieve his B.A. in Education and an M.B.A. in Marketing. From there, he volunteered full time at the Obama 2008 National Headquarters where he eventually managed 18 state blogs, contributed to the national blog on a daily basis, and worked on social and other online and offline projects. That's also where he met Dan Siroker and realized the importance of analytics and data-driven decisions. After some consulting and speaking engagements around the country post-election victory, he then joined Motorola's Global HQ team where he has worked on social media leading the company's Youtube and Blog channels, as well as creating and moderating content for the other social networks. He then joined the Motorola.com team and has been working as a publisher, content creator and manager, as well as bringing Optimizely on board to help improve the optimization of the site."
+    -
+      name: "Kevin Flynn"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/kevin-flynn.png"
+      company: "Motorola"
+      blurb: "After a 20 year career in the markets at the Chicago Board of Trade, Kevin Flynn decided to return to school to achieve his B.A. in Education and an M.B.A. in Marketing. From there, he volunteered full time at the Obama 2008 National Headquarters where he eventually managed 18 state blogs, contributed to the national blog on a daily basis, and worked on social and other online and offline projects. That's also where he met Dan Siroker and realized the importance of analytics and data-driven decisions. After some consulting and speaking engagements around the country post-election victory, he then joined Motorola's Global HQ team where he has worked on social media leading the company's Youtube and Blog channels, as well as creating and moderating content for the other social networks. He then joined the Motorola.com team and has been working as a publisher, content creator and manager, as well as bringing Optimizely on board to help improve the optimization of the site."
     -
       name: "Lauren Ford"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/lauren-ford.png"
       company: "Trulia"
       blurb: "As a Senior Quantitative Analyst at Trulia, Lauren loves all things data. She manages Trulia’s A/B Testing program, working cross-functionally with Product and Engineering teams to create, run, and analyze A/B tests on desktop and mobile platforms. Lauren took over Trulia’s A/B testing program in its early stages, and has brought process, efficiency, and rigorous analysis to the program. In addition to A/B testing, Lauren works on deep-dive analysis projects and builds reporting infrastructure to surface data to other teams within the organization. She holds a B.A. in Math and Economics from UC San Diego."
-    #-
-      #name: "Ryan Garner"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      #company: "Clearhead"
-      #blurb: "Ryan Garner is the co-founder and EVP of Clearhead. Previously, Ryan was Vice President of Direct-to-Consumer for the Warner Music Group, responsible for delivering and supporting the web businesses of WMG’s biggest artists including Paramore, Bruno Mars, and Wiz Khalifa. Before joining Warner in 2007, Ryan spent 5 years at JetBlue Airways as a product manager and solution architect. Ryan was an integral part of the early team that helped develop JetBlue.com into the airline's most important sales channel, responsible for 80% of sales at the time of his departure."
+    -
+      name: "Ryan Garner"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/ryan-garner.png"
+      company: "Clearhead"
+      blurb: "Ryan Garner is the co-founder and EVP of Clearhead. Previously, Ryan was Vice President of Direct-to-Consumer for the Warner Music Group, responsible for delivering and supporting the web businesses of WMG’s biggest artists including Paramore, Bruno Mars, and Wiz Khalifa. Before joining Warner in 2007, Ryan spent 5 years at JetBlue Airways as a product manager and solution architect. Ryan was an integral part of the early team that helped develop JetBlue.com into the airline's most important sales channel, responsible for 80% of sales at the time of his departure."
     -
       name: "Jordan Garcia"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jordanbw_170x170-circle.png"
@@ -184,6 +201,11 @@ guest_speakers:
       company: "Demandbase"
       blurb: "Peter Isaacson is a proven business leader with over 25 years of marketing experience in job responsibilities ranging from branding and advertising to corporate communications and product marketing. This includes deep experience in both B2C and B2B marketing and managing large teams across international markets. As Chief Marketing Officer for Demandbase, Peter is responsible for overall marketing strategy and execution, including product, corporate, and field marketing. Prior to joining Demandbase, Peterwas CMO at Castlight Health, helping to scale the company and build the marketing team prior to their successful IPO. Peter has also held leadership positions at Microstrategy and Adobe, where he led various functions, including brand marketing, WW field marketing, and the WW Education vertical business. Peter got his start in advertising, working at agencies in New York on accounts ranging from Procter & Gamble to Compaq computers."
     -
+      name: "Alex Ivashchenko"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/alex-ivashchenko.png"
+      company: "Trulia"
+      blurb: "Alex Ivashchenko works on everything Javascript at Trulia for the last 3+ years, making mWeb awesome as part of awesome team for the last one and half years. Before that Alex was creating interfaces for Yahoo internal services and bringing photoshop files into life in small design agencies in Canada."
+    -
       name: "Rohan Karunakaran"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/rohan-karunakaran.png"
       company: "Optimizely"
@@ -218,11 +240,11 @@ guest_speakers:
       #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/michelle_levesque.png"
       #company: "Google"
       #blurb: ""
-    #-
-      #name: "Jason Lin"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      #company: "Elance-Odesk"
-      #blurb: ""
+    -
+      name: "Jason Lin"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jason-lin.png"
+      company: "Elance-Odesk"
+      blurb: "Jason is the Senior Director of Web Marketing at Elance-oDesk (now upWork), an online workplace for the world where clients can find, hire, and work on projects with freelance professionals. At Elance-oDesk, Jason is responsible for optimizing the site experience for customer growth. Prior to Elance-oDesk, Jason held leadership roles at Anker as its head of marketing, at eBay leading retail promotions in emerging markets, and at Walmart.com managing seasonal marketing campaigns. He has co-founded multiple start-ups, including Hitchsters.com and InitialView.com. Jason has an M.B.A. from the University of Michigan Ross School of Business, and his B.A. from UCLA."
     #-
       #name: "Abby Lokshin"
       #image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/abby-lokshin.png"
@@ -238,6 +260,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jenny_culture-from-withinbw_170x170-circle.png"
       company: "Optimizely"
       blurb: "Jenny Lykken is a Learning & Development Manager at Optimizely, where she is building the learning & development function within the Customer Success team. Jenny’s mission is to instill a growth mindset in the team by delivering learning experiences that build trust & empathy, high-performing teams, leadership at all levels, and a learning organization. Before joining Optimizely, Jenny was on the Learning & Organizational Development team at Twitter. Prior to that, she spent 6 years in People Development at Google, where she was the global program manager for Google’s “sustaining high performance” learning & development curriculum. Jenny is also a certified yoga instructor (RYT-200). She is originally from North Dakota and holds a Bachelor's Degree in Psychology with honors from Harvard University."
+    #-
+      #name: "Shaunak Mali"
+      #image: ""
+      #company: "Optimizely"
+      #blurb: "Shaunak Mali is a Solutions Architect at Optimizely where he works with Enterprise Clients in the Media vertica. Prior to Optimizely he worked at Box as part of the Customer Success Team to help developers build on top of the Box API. He holds a Masters Degree in Computer Science from University of Southern California, Los Angeles."
     -
       name: "David Marks"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/david_marks.png"
@@ -334,15 +361,20 @@ guest_speakers:
       company: "The Next Web"
       blurb: "Martijn leads Growth, SEO & Analytics at The Next Web, and is responsible for the execution of marketing strategy involving: audience growth & engagement, marketing analytics, product and data across all projects related to The Next Web: Index, Conference, Deals, Academy, Video & Jobs."
     -
+      name: "Tania Shershin"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/taniashershin.png"
+      company: "HomeAway"
+      blurb: "Tania Shershin is the Director of Global Product Analytics at HomeAway Inc., where she is responsible for leading the planning and execution of product optimization testing and providing forecasting, reporting and analysis on key business metrics.  Prior to a leadership role at HomeAway, Tania was a Digital Strategist and Online Media Analyst at Yahoo Inc. and at TBWA Chiat Day in Los Angeles, delivering strategic insights and campaign reporting for search, display, social, and mobile channels of Fortune 100 clients.  Tania has 10 years of experience in the marketing field that has provided her perspective into the importance of customer focus and technology innovation for the digital channel.  She has an MBA from the University of California, Irvine which included studies at the Vienna University of Economics and an emphasis on global marketing."
+    -
       name: "Suneet Shah"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/suneet-shah.png"
       company: "Optimizely"
       blurb: "Suneet Shah is a Senior Product Manager at Optimizely, the leading Experience Optimization platform. He has seen how products get built at both extremes: at giant companies like Microsoft and agile startups like his own, OpenKit. As a former entrepreneur-in-residence (EIR) at the YouWeb Incubator he designed, developed and launched two successful mobile apps that reached hundreds of thousands of users. At Optimizely, Suneet uses experience in knowing what it takes to keep things simple and helps to steer the company's mobile strategy. He earned his B.A. in Computer Science at UC Berkeley."
-    #-
-      #name: "Katherine Shea"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      #company: "Rue La La"
-      #blurb: "Katherine Shea is a Product Manager at Rue La La, a leading ecommerce lifestyle destination. Katherine joined Rue La La in October 2013 as an ambassador for testing, optimization and data-driven decision making. She established a test and learn culture at Rue La La and continues to lead all website A/B testing efforts. Prior to joining Rue La La in 2013, Katherine spent three years at Vistaprint, where she ran A/B tests for the product customization platform."
+    -
+      name: "Katherine Shea"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/katherine-shea.png"
+      company: "Rue La La"
+      blurb: "Katherine Shea is a Product Manager at Rue La La, a leading ecommerce lifestyle destination. Katherine joined Rue La La in October 2013 as an ambassador for testing, optimization and data-driven decision making. She established a test and learn culture at Rue La La and continues to lead all website A/B testing efforts. Prior to joining Rue La La in 2013, Katherine spent three years at Vistaprint, where she ran A/B tests for the product customization platform."
     -
       name: "Benn Stancil"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/benn_stancil.png"
@@ -363,6 +395,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/brad_taylor.png"
       company: "Optimizely"
       blurb: "Brad Taylor has held many positions during his career in the technology industry. While working with over 100+ enterprise clients spanning 10 years, he has performed such roles as CEO, Co-founder, VP of Technology, Solutions Architect, and Product Manager. As Sr. Solutions Architect he plays a key role in creating solutions that push the Optimizely platform to new limits."
+    -
+      name: "Alek Toumert"
+      image: ""
+      company: "American Medical Association"
+      blurb: "Alek Toumert is the Senior Digital Analyst at the American Medical Association. Alek is part of a Digital Analytics team that has wrapped its arms around optimization and led the birth of a testing culture at the AMA. A Cleveland boy at heart, Alek currently resides in Chicago."
     #-
       #name: "Markis Taylor"
       #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/markis-taylor.png"
@@ -373,11 +410,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jose-uzcategui.png"
       company: "ASICS"
       blurb: "Jose leads digital analytics and optimization efforts for ASICS Global. During the last year, Jose has pioneered a conversion optimization and new analytics structure across the ASICS organization working with 5 teams in 4 continents over 100 non-ecommerce and ecommerce sites, including ASICS, Onitsuka Tiger, ASICS Tiger and Haglofs brands. Jose's background covers over 7 years of brand and agency experience in Canada and Japan working with small and enterprise clients including Papa Johns, Intel, Uggs, and his current role at ASICS. On the personal side, Jose likes playing squash and encourages squash players in Tokyo to reach out for a friendly game."
-    #-
-      #name: "Case Van Arkel"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/case-van-arkel.png"
-      #company: "RocketLawyer"
-      #blurb: ""
+    -
+      name: "Case Van Arkel"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/case-van-arkel.png"
+      company: "RocketLawyer"
+      blurb: "Case has an educational background in Design and Marketing. Fortunately, he found Conversion Rate Optimization within a few months of graduating from undergrad and hasn't looked back. He now manages the Conversion Rate Optimization program at Rocket Lawyer, Inc."
     -
       name: "Matthew Vandewouwer"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/matthew_vandewouwer.png"
