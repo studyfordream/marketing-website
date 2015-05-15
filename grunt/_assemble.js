@@ -28,6 +28,10 @@ var config = {
       //'es': 'es_ES',
       //'jp': 'ja_JP'
     },
+    tranlatedTypes: [
+      'partials',
+      'modals'
+    ],
     ppcKey: ppcKey
   },
   modals: {

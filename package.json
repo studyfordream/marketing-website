@@ -75,7 +75,9 @@
     "time-grunt": "0.3.2",
     "uglify-js": "2.4.15",
     "webpack": "^1.8.4",
-    "webpack-dev-server": "^1.8.0"
+    "webpack-dev-server": "^1.8.0",
+    "gray": "0.0.6",
+    "matter": "^0.2.0"
   },
   "devDependencies": {
     "chai": "2.2.0",
