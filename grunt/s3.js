@@ -3,13 +3,14 @@ module.exports = {
     options: {
       accessKeyId: '<%= secret.aws_key %>',
       secretAccessKey: '<%= secret.aws_secret %>',
-      access: 'public-read'
+      access: 'public-read',
+      cache: false,
     },
     staging: {
       options: {
         bucket: '<%= secret.s3_bucket %>'
       },
-      src: '**/*',
+      src: '**',
       cwd: '<%= config.dist %>/',
       dest: '<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/',
     },
