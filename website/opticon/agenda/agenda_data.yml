@@ -52,26 +52,18 @@ days:
         start_time: "10:25"
         events:
           -
-            title: "Making it Stick: The 'X Factor' That Made Optimization Succeed"
+            title: "Benchmark Your Optimization Program"
             time: "10:25 – 11:10"
             location: "Coit Tower"
-            description: "Building an organization around continuous optimization is a distinctly different task from running A/B tests. Getting from those first experiments as a \"project\" to a data driven team and process requires vision and a commitment to hypothesis driven decision-making. How do entrepreneurial leaders and companies incorporate testing as a KPI and use it to drive a broader product roadmap? In this panel discussion with Blu Dot, Village Roadshow, and Optimizely Solutions Partner, Clearhead, will share their experiences from driving optimization forward - and the 'X factors' that made it stick."
-            companies: "Blu Dot, Village Roadshow, Clearhead"
+            description: "What does 'normal' look like for an optimization program? What about best-in-class? What are the opportunities and challenges facing teams that are optimizing, and how do they allocate their manpower and budget towards them? We sought out the answers to these tough questions for our first industry benchmark report. Join Optimizely for an in-depth discussion of how to quantify and benchmark optimization performance."
+            companies: "Optimizely"
             track: "strategy"
-            roles: "executive"
+            roles: "marketer developer productmanager executive"
             speakers:
               -
-                name: "Mike Wodtke"
-                job_title: "eCommerce Director"
-                company: "Blu Dot"
-              -
-                name: "Jon Satterley"
-                job_title: "Group Director, Digital Development"
-                company: "Village Roadshow"
-              -
-                name: "Ryan Garner"
-                job_title: "Co-Founder and Executive Vice President"
-                company: "Clearhead"
+                name: "Shana Rusonis"
+                job_title: "Content Marketing Manager"
+                company: "Optimizely"
           -
             title: "The Inside Scoop: Coming Soon from Optimizely"
             time: "10:25 – 11:10"
@@ -148,6 +140,27 @@ days:
         start_time: "1:30"
         events:
           -
+            title: "Making it Stick: The 'X Factor' That Made Optimization Succeed"
+            time: "1:30 - 2:15"
+            location: "Bay Bridge"
+            description: "Building an organization around continuous optimization is a distinctly different task from running A/B tests. Getting from those first experiments as a \"project\" to a data driven team and process requires vision and a commitment to hypothesis driven decision-making. How do entrepreneurial leaders and companies incorporate testing as a KPI and use it to drive a broader product roadmap? In this panel discussion with Blu Dot, Village Roadshow, and Optimizely Solutions Partner, Clearhead, will share their experiences from driving optimization forward - and the 'X factors' that made it stick."
+            companies: "Blu Dot, Village Roadshow, Clearhead"
+            track: "strategy"
+            roles: "executive"
+            speakers:
+              -
+                name: "Mike Wodtke"
+                job_title: "eCommerce Director"
+                company: "Blu Dot"
+              -
+                name: "Jon Satterley"
+                job_title: "Group Director, Digital Development"
+                company: "Village Roadshow"
+              -
+                name: "Ryan Garner"
+                job_title: "Co-Founder and Executive Vice President"
+                company: "Clearhead"
+          -
             title: "Optimization at Optimizely"
             time: "1:30 - 2:15"
             location: "Coit Tower"
@@ -214,32 +227,12 @@ days:
                 name: "Moderated by: Jenny Lykken"
                 job_title: "Learning and Development Manager"
                 company: "Optimizely"
-          -
-            title: "Optimization Roundtable Discussions"
-            time: "1:30 - 2:15"
-            location: "Expo Hall"
-            description: "<p>Looking to connect with others that are in a similar industry, vertical or experiencing a similar challenge? The Optimization Roundtables are your chance to build connections with others that are trying to accomplish a similar goal. Join a roundtable on a topic of your choosing and participate in a discussion on best practices led by an industry expert.  Here are the discussion table topics:</p><ul><li>Personalization for Ecommerce - Clearhead</li><li>High velocity optimization - Arun Sivashankaran, Founder, FunnelEnvy</li><li>Making Experience Optimization a Team Sport - Michael Thomas, CMO, Noble Studios</li><li>Getting Started with Personalization - Optimizely</li><li>Discover the Optimizely Ecosystem - Optimizely</li><li>Optimizing for Mobile Retention - Optimizely</li><li>Create Great Headlines Through Testing - Stefan Deeran, Director of Strategic Partnerships, Parse.ly</li><li>Creating a Testing Culture - Matthew Zaute, Director of Analytics, Rise Interactive</li><li>High Impact Testing: Top Strategies to Get Big Results  - Mike Hay, Director of Marketing, ROI DNA</li><li>Optimizing your Growth/Marketing Stack - Peter Reinhardt, CEO,  Segment</li><li>Intelligent Solver (TM): A new way to personalize - Bill Bruno, CEO, Stratigent</li><li>The Best A/B Test Ideas You Haven't Thought Of - Phil Sharp, Director of Marketing, UserTesting</li></ul><p>Reserve your spot for a table <a href='https://docs.google.com/a/optimizely.com/forms/d/1GPIbfLk6GOxwpfJywu0S1DB8pWpLVzFbPxCuakKym6Q/viewform'>here</a>.</p>"
-            track: "strategy"
-            roles: "marketer productmanager developer executive"
       -
         start_time: "2:15"
         title: "Break in Exhibit Hall"
       -
         start_time: "2:35"
         events:
-          -
-            title: "Benchmark Your Optimization Program"
-            time: "2:35 - 3:20"
-            location: "Coit Tower"
-            description: "What does 'normal' look like for an optimization program? What about best-in-class? What are the opportunities and challenges facing teams that are optimizing, and how do they allocate their manpower and budget towards them? We sought out the answers to these tough questions for our first industry benchmark report. Join Optimizely for an in-depth discussion of how to quantify and benchmark optimization performance."
-            companies: "Optimizely"
-            track: "strategy"
-            roles: "marketer developer productmanager executive"
-            speakers:
-              -
-                name: "Shana Rusonis"
-                job_title: "Content Marketing Manager"
-                company: "Optimizely"
           -
             title: "Structure and Scale: Establishing Your Optimization Dream Team"
             time: "2:35 - 3:20"
@@ -272,7 +265,7 @@ days:
           -
             title: "Experience Optimization in Modern Web Architecture"
             time: "2:35 - 3:20"
-            location: "Alcatraz"
+            location: "Coit Tower"
             description: "AngularJS, Backbone, React—like it or not, modern web architecture is shifting into the world of the single-page application. Learn what to look for in JS frameworks so you can run powerful A/B tests with Optimizely and how to integrate Optimizely into your current single-page application architecture. The first half of the session, Jordan Garcia, Frontend Tech Lead at Optimizely, will overview single-page application frameworks. The second half will showcase customers who have implemented great A/B testing strategies developed for their single-page applications."
             companies: "Tilt, BitTorrent, RocketLawyer, Optimizely"
             track: "platform"
@@ -315,6 +308,13 @@ days:
                 name: "Pete Koomen"
                 job_title: "Co-Founder & CTO"
                 company: "Optimizely"
+          -
+            title: "Optimization Roundtable Discussions"
+            time: "2:35 - 3:20"
+            location: "Expo Hall"
+            description: "<p>Looking to connect with others that are in a similar industry, vertical or experiencing a similar challenge? The Optimization Roundtables are your chance to build connections with others that are trying to accomplish a similar goal. Join a roundtable on a topic of your choosing and participate in a discussion on best practices led by an industry expert.  Here are the discussion table topics:</p><ul><li>Personalization for Ecommerce - Clearhead</li><li>High velocity optimization - Arun Sivashankaran, Founder, FunnelEnvy</li><li>Making Experience Optimization a Team Sport - Michael Thomas, CMO, Noble Studios</li><li>Getting Started with Personalization - Optimizely</li><li>Discover the Optimizely Ecosystem - Optimizely</li><li>Optimizing for Mobile Retention - Optimizely</li><li>Create Great Headlines Through Testing - Stefan Deeran, Director of Strategic Partnerships, Parse.ly</li><li>Creating a Testing Culture - Matthew Zaute, Director of Analytics, Rise Interactive</li><li>High Impact Testing: Top Strategies to Get Big Results  - Mike Hay, Director of Marketing, ROI DNA</li><li>Optimizing your Growth/Marketing Stack - Peter Reinhardt, CEO,  Segment</li><li>Intelligent Solver (TM): A new way to personalize - Bill Bruno, CEO, Stratigent</li><li>The Best A/B Test Ideas You Haven't Thought Of - Phil Sharp, Director of Marketing, UserTesting</li></ul><p>Reserve your spot for a table <a href='https://docs.google.com/a/optimizely.com/forms/d/1GPIbfLk6GOxwpfJywu0S1DB8pWpLVzFbPxCuakKym6Q/viewform'>here</a>.</p>"
+            track: "strategy"
+            roles: "marketer productmanager developer executive"
       -
         start_time: "3:20"
         title: "Break in Exhibit Hall"
@@ -376,6 +376,19 @@ days:
                 name: "John Provine"
                 job_title: "Sr. Product Manager"
                 company: "Optimizely"
+          -
+            title: "The Membership Economy"
+            time: "3:40 - 4:25"
+            location: "Golden Gate"
+            description: "In the Membership Economy, no one product is as important as the ongoing relationship with your customer. Access trumps ownership, relationships take priority over transactions and communication is multidirectional and transparent. What does this massive transformational trend mean for your company? Join Robbie Kellman Baxter, author of the Amazon #1 Hot New Release The Membership Economy: Find Your Superusers, Master the Forever Transaction and Build Recurring Revenue. You'll learn how to turn digital subscriptions into forever sales, why retention is the new acquisition, and the difference between rewards programs and loyalty programs and why it matters. This interactive session is guaranteed to inspire new ideas and provide opportunities for reflection and practical implementation."
+            companies: "Peninsula Strategies"
+            track: "strategy"
+            roles: "executive marketer"
+            speakers:
+              -
+                name: "Robbie Kellman Baxter"
+                job_title: "President & Author of The Membership Economy"
+                company: "Peninsula Strategies"
       -
         start_time: "4:25"
         title: "Break in Exhibit Hall"
@@ -598,7 +611,7 @@ days:
           -
             title: "Early Lessons in Personalization Strategy"
             time: "11:25 - 12:10"
-            location: "Coit Tower"
+            location: "Golden Gate"
             description: "We'll take a look at lessons derived from early progress in personalization, informed by work already canonical in the email, ecommerce, and media industries. Learn how to translate your goals, personas, data, and ideas into a meaningful approach for delivering personalized experiences. See starter use cases relevant for your vertical, like symmetric messaging for B2B, promotional strategies for ecommerce, behavioral retargeting, contextual empathy, and mobile mindsets."
             companies: "AdRoll, The Clymb"
             track: "strategy"
@@ -617,34 +630,9 @@ days:
                 job_title: "Growth Product Manager"
                 company: "Blue Apron"
           -
-            title: "Building the SaaS Growth Engine"
-            time: "11:25 - 12:10"
-            location: "Bay Bridge"
-            description: "Optimization and growth in the world of SaaS is a different kind of beast. High traffic volume is not always a given, and your product offering may be very narrowly targeted. Customers visit with a wide variety of budgets, needs, and expectations. In this panel conversation, hear executives from some of the country’s top SaaS companies discuss how they tackle these challenges head-on and continue to expand their businesses by capitalizing on the amazing optimization opportunities within their industries."
-            companies: "KISSmetrics, Marketo"
-            track: "action"
-            roles: "marketer executive"
-            speakers:
-              -
-                name: "Brian Kelly"
-                job_title: "CEO"
-                company: "KISSmetrics"
-              -
-                name: "Heidi Bullock"
-                job_title: "VP of Demand Generation"
-                company: "Marketo"
-              -
-                name: "Jessie Becker"
-                job_title: "CMO"
-                company: "Optimizely"
-              -
-                name: "Moderated by: Shana Rusonis"
-                job_title: "Content Marketing Manager"
-                company: "Optimizely"
-          -
             title: "Travel, Testing, and Personalization in the 21st Century"
             time: "11:25 - 12:10"
-            location: "Alcatraz"
+            location: "Coit Tower"
             description: "Of the $4.7 billion spent on U.S. travel advertising last year, 52 percent went to websites and other digital channels. Yet only a fraction of that amount is spent on capturing the ROI of those dollars with optimization. Panelists running the optimization practices at the top travel businesses in the industry will come together to talk about how testing and personalization drive revenue, conversions, and move their businesses forward."
             companies: "TripAdvisor (SmarterTravel Media), Hotwire"
             track: "action"
@@ -658,18 +646,6 @@ days:
                 name: "Pauline Marol"
                 job_title: "Lead Product Manager of Site Optimization"
                 company: "Hotwire"
-          -
-            title: "The Membership Economy"
-            time: "11:25 - 12:10"
-            location: "Golden Gate"
-            description: "In the Membership Economy, no one product is as important as the ongoing relationship with your customer. Access trumps ownership, relationships take priority over transactions and communication is multidirectional and transparent. What does this massive transformational trend mean for your company? Join Robbie Kellman Baxter, author of the Amazon #1 Hot New Release The Membership Economy: Find Your Superusers, Master the Forever Transaction and Build Recurring Revenue. You'll learn how to turn digital subscriptions into forever sales, why retention is the new acquisition, and the difference between rewards programs and loyalty programs and why it matters. This interactive session is guaranteed to inspire new ideas and provide opportunities for reflection and practical implementation."
-            track: "strategy"
-            roles: "executive marketer"
-            speakers:
-              -
-                name: "Robbie Kellman Baxter"
-                job_title: "President & Author of The Membership Economy"
-                company: "Peninsula Strategies"
       -
         start_time: "12:10"
         title: "Lunch and Networking"
@@ -729,6 +705,31 @@ days:
       -
         start_time: "2:30"
         events:
+          -
+            title: "Building the SaaS Growth Engine"
+            time: "2:30 - 3:15"
+            location: "Bay Bridge"
+            description: "Optimization and growth in the world of SaaS is a different kind of beast. High traffic volume is not always a given, and your product offering may be very narrowly targeted. Customers visit with a wide variety of budgets, needs, and expectations. In this panel conversation, hear executives from some of the country’s top SaaS companies discuss how they tackle these challenges head-on and continue to expand their businesses by capitalizing on the amazing optimization opportunities within their industries."
+            companies: "KISSmetrics, Marketo"
+            track: "action"
+            roles: "marketer executive"
+            speakers:
+              -
+                name: "Brian Kelly"
+                job_title: "CEO"
+                company: "KISSmetrics"
+              -
+                name: "Heidi Bullock"
+                job_title: "VP of Demand Generation"
+                company: "Marketo"
+              -
+                name: "Jessie Becker"
+                job_title: "CMO"
+                company: "Optimizely"
+              -
+                name: "Moderated by: Shana Rusonis"
+                job_title: "Content Marketing Manager"
+                company: "Optimizely"
           -
             title: "Hypothesize, Analyze, Optimize: Using Hidden Insights to Perfect your Experiment Process"
             time: "2:30 - 3:15"
@@ -822,7 +823,7 @@ days:
           -
             title: "The Art and Science of Persuasion: Creating Change with your Results"
             time: "3:35 - 4:20"
-            location: "Coit Tower"
+            location: "Golden Gate"
             description: "Optimizely’s results page is full of data to help you make decisions about your business. Even with all of this information, it’s not always straightforward to call a winner among the mixed messages you might get. This session will break down the results page and give you strategies for evaluating your test results to identify actionable data and create an iterative testing process."
             companies: "CBS Interactive, Optimizely"
             track: "action"
