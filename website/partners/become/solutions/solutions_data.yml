@@ -23,17 +23,17 @@ benefits:
   TR_title: "Benefits of the Partner Program"
   TR_items:
     -
-      image: "/dist/assets/img/partners-become/illustration1.svg"
+      image: "partners-become/illustration1.svg"
       TR_title: "Comprehensive Product Training & Enablement"
       TR_blurb: "Training, certification, and early access to new product features to develop your Optimizely expertise."
       class: "training"
     -
-      image: "/dist/assets/img/partners-become/illustration2.svg"
+      image: "partners-become/illustration2.svg"
       TR_title: "Collaborative Co-Selling Approach"
       TR_blurb: "Work directly with the Optimizely sales team to help you prospect, qualify and close more business."
       class: "coselling"
     -
-      image: "/dist/assets/img/partners-become/illustration3.svg"
+      image: "partners-become/illustration3.svg"
       TR_title: "Co-Marketing Benefits"
       TR_blurb: "Get access to a set of proven marketing resources to help you hit the ground running. "
       class: "comarketing"

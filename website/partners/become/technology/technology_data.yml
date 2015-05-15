@@ -30,7 +30,7 @@ benefits:
   TR_title: "Benefits of the Partner Program"
   TR_items:
     -
-      image: "/dist/assets/img/partners-become/illustration1.svg"
+      image: "partners-become/illustration1.svg"
       TR_title: "Comprehensive Developer Support and Enablement"
       TR_blurb: "Build an amazing integration with expert developer support from the Optimizely technical team."
       TR_points:
@@ -38,7 +38,7 @@ benefits:
         - "Access product news and support resources in the exclusive Optiverse partner community."
       class: "support"
     -
-      image: "/dist/assets/img/partners-become/illustration2.svg"
+      image: "partners-become/illustration2.svg"
       TR_title: "Joint Selling Collaboration to Grow Your Business"
       TR_blurb: "Build an amazing integration with expert developer support from the Optimizely technical team."
       TR_points:
@@ -47,7 +47,7 @@ benefits:
         - "Connect with Optimizely Account Executives and Customer Success Managers at exclusive partner events."
       class: "grow"
     -
-      image: "/dist/assets/img/partners-become/illustration3.svg"
+      image: "partners-become/illustration3.svg"
       TR_title: "Co-Marketing Opportunities to Amplify Your Brand"
       TR_blurb: "Get access to a dedicated partner manager, develop joint sales collateral and connect with Optimizely Account Executives."
       TR_points:
