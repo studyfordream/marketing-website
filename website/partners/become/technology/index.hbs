@@ -3,7 +3,6 @@ layout: partners_become
 compact_header: false
 body_class:
 - partners-become
-page_script: partners-become.js
 footer_style: grey
 TR_seo_title: ""
 og_title: ""
@@ -12,7 +11,6 @@ og_description: ""
 <style>
 
 </style>
-
 
 
 <section id="landing-hero" class="panel hero">
@@ -38,50 +36,52 @@ og_description: ""
 
       <div class="tracks-container flex-container">
 
-        {{#each items_list}}
+        {{#each reasons}}
           <div class="track-container">
             <div class="image {{this.class}}"></div>
             <p class="item-title">{{{this.title}}}</p>
             <p class="detail-text ">{{{this.blurb}}}</p>
-            {{#if this.list_bullet}}
-              <ul>
-                <li>{{this.list_bullet}}</li>
-              </ul>
-            {{/if}}
           </div>
         {{/each}}
 
+      </div>
   {{/with}}
 </section>
 
 
 <section id="technology-benefits" class="panel">
+
   {{#with page_data.benefits}}
   <div class="benefits container">
 
     <h2 class="panel-header">{{{title}}}</h2>
-    {{#each items_list}}
+
+    {{#each items}}
       <div class="split-cols clearfix">
+
         <div>
-          <img src="{{assetsDir}}/{{this.image}}">
+          <img src="{{this.image}}">
         </div>
 
         <div>
           <h3 class="description-title ">{{{this.title}}}</h3>
           <p class="description-text ">{{{this.blurb}}}</p>
-
-          {{#if this.points.length > 0 }}
-            <ul>
-              {{#each point in points}}
-                <li>{{point}}</li>
+            <ul class="points">
+              {{#each points}}
+                <li>{{{this}}}</li>
               {{/each}}
             </ul>
-          {{/if}}
         </div>
+
       </div>
     {{/each}}
+
+
+  </div>
   {{/with}}
+
 </section>
+
 
 {{#if page_data.hear.show }}
 <section id="technology-hear" class="panel">
@@ -104,6 +104,7 @@ og_description: ""
   {{/with}}
 </section>
 {{/if}}
+
 
 <section class="become-a-partner panel">
   {{#with page_data.join}}

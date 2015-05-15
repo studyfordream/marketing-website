@@ -226,31 +226,8 @@
       max-width: 75%; //images not too big
     }
 
-    //the image/content alternate in tablet in up,
-    //reorder thhem in mobile
-    display: flex;
-    flex-direction: column;
-    &:nth-child(odd){
-      >div:first-child {
-        order: 1;
-      }
-      >div:last-child {
-        order: 2;
-      }
-    }
-
-    &:nth-child(even){
-      >div:first-child {
-        order: 2;
-      }
-      >div:last-child {
-        order: 1;
-      }
-    }
-
     >div {
       padding: 20px 10px;
-      // margin-bottom: 40px;
     }
 
 
@@ -264,18 +241,6 @@
 
   }
 
-
-  // .illustration1 {
-  //   background-image: image-url('/partners-become/illustration1.svg');
-  // }
-  //
-  // .illustration2 {
-  //   background-image: image-url('/partners-become/illustration2.svg');
-  // }
-  //
-  // .illustration3 {
-  //   background-image: image-url('/partners-become/illustration3.svg');
-  // }
 
 
 }
@@ -360,20 +325,32 @@
           max-width: 100%;
         }
 
-        //undo mobile flex order (will alternate)
-        display: block;
-        flex-direction: inherit;
-
-
-        >div:first-child {
-
-          padding-right: 30px;
-
+        &:nth-child(odd) {
+          >div:first-child {
+            padding-right: 30px;
+          }
+          >div:last-child {
+            padding-left: 30px;
+          }
         }
-        >div:last-child {
-          padding-left: 30px;
 
+
+        //in tablet and up, alternate the image and text
+        &:nth-child(odd) {
+          >div:first-child {
+            float: right;
+            padding-left: 30px;
+
+          }
+          >div:last-child {
+            float: left;
+            padding-right: 30px;
+
+          }
         }
+
+
+
       }
     }
 
