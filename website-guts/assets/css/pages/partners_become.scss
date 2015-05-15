@@ -28,12 +28,12 @@
   .primary-cta {
     // maintain a button max-height 40px
     border-radius: 4px;
-    background: #0081BA;
-    border: 1px solid #00415D;
+    background: $brand-blue;
+    border: 1px solid $super-dark-blue;
     padding: 20px 60px;
     font-family: $gotham-small-type;
     font-size: 18px;
-    color: #FFFFFF;
+    color: $white;
     line-height: 22px;
     font-weight: 500;
     letter-spacing: 0.5px;
@@ -41,7 +41,7 @@
     &:hover {
       text-decoration: none;
       background: $blue;
-      color: #fff;
+      color: $white;
     }
   }
 
@@ -51,7 +51,8 @@
     background-color: $super-dark-blue;
     color: $page-content-color;
 
-    h1, h2 {
+    h1,
+    h2 {
       text-align: center;
     }
 
@@ -74,7 +75,8 @@
   }
 
   #landing-intro {
-    .blurb, .description-text {
+    .blurb,
+    .description-text {
       font-size: 18px;
     }
 
@@ -96,15 +98,19 @@
     }
   }
 
-  #technology-why, #solutions-why, #technology-hear, .panel.become-a-partner {
-    background-color: #ffffff;
+  #technology-why,
+  #solutions-why,
+  #technology-hear,
+  .panel.become-a-partner {
+    background-color: $white;
   }
 
   #technology-hear+.panel.become-a-partner {
     background-color: $partners-become-gray ;
   }
 
-  #technology-why, #solutions-why {
+  #technology-why,
+  #solutions-why {
     .blurb {
       padding: 0 20px;
       margin-bottom: 40px;;
@@ -279,7 +285,7 @@
 
     .track-container {
       width: 25%;
-      padding: 115px 10px 10px 10px;
+      padding: 115px 10px 10px;
     }
 
     .vidyard_iframe {
@@ -332,7 +338,7 @@
   body.partners-become {
 
     .track-container {
-      padding: 115px 10px 30px 10px;
+      padding: 115px 10px 30px;
     }
   }
 }
