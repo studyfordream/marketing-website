@@ -28,18 +28,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jesse-avshalomov.png"
       company: "Teespring"
       blurb: "Jesse Avshalomov is the Director of Product and Growth at Teespring (YC W13), a platform empowering entrepreneurs to go from concept to merchandise with virtually zero friction. A data nerd by nature, Jesse founded Teespring’s Growth team and catalyzed the formation of the Product, Marketing, and Data teams. Today he’s focused on the Product org, where he architects initiatives and experimentation designed to improve retention, revenue, and lifetime value. Before Teespring, Jesse spent time as a marketing technologist at Apple and AKQA and was a co-founder at the music licensing startup now known as Loudr.  Though an entrepreneur by trade, his undergraduate and graduate work were in opera performance. Jesse can be found writing on the subject of growth at MetricSparrow.com, and he occasionally finds time to tweet as @allforJesse. He also may have invented International Beer Day."
-
-
-    -
-      name: "Jessie Becker"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jessie_becker.png"
-      company: "Optimizely"
-      blurb: "Jessie Becker is the Chief Marketing Officer at Optimizely. She oversees all marketing activities including demand generation, customer marketing, product marketing, content marketing, and PR.  Prior to joining Optimizely, Jessie was Interim Chief Marketing Officer at Netflix, where she was responsible for the global brand and customer acquisition programs. During her twelve years at Netflix she held a variety of marketing positions with increasing responsibility, and led a cross-functional product management, consumer insights, and engineering team to optimize all Netflix signup flows, with annual gross signups exceeding 10 million. Previously, Jessie held roles at Amazon.com, Microsoft, and Oracle. Jessie holds a B.A. from the University of Pennsylvania, a B.S. in Economics from The Wharton School, and an M.B.A. from Stanford University, where she was an Arjay Miller Scholar."
     -
       name: "Robbie Kellman Baxter"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/robbie-baxter.png"
       company: "Peninsula Strategies"
-      blurb: "Robbie Kellman Baxter is the author of the Amazon #1 Hot New Release The Membership Economy: Find Your Superusers, Master the Forever Transaction and Build Recurring Revenue.  She created the popular business term "Membership Economy" and is the founder of Peninsula Strategies LLC, a strategy consulting firm. Her clients have included large organizations like Netflix, SurveyMonkey and Yahoo!, as well as smaller venture-backed startups. Over the course of her career, Robbie has worked in or consulted to clients in more than twenty industries.  Before starting Peninsula Strategies in 2001, Robbie served as a New York City Urban Fellow, a consultant at Booz Allen & Hamilton, and a Silicon Valley product marketer.  As a public speaker, she has presented to thousands of people in corporations, associations, and universities. Moreover, she has been quoted in or written articles for major media outlets, including CNN, Consumer Reports, The New York Times and the Wall Street Journal. She has an AB from Harvard College and an MBA from the Stanford Graduate School of Business."
+      blurb: "Robbie Kellman Baxter is the author of the Amazon #1 Hot New Release The Membership Economy: Find Your Superusers, Master the Forever Transaction and Build Recurring Revenue.  She created the popular business term 'Membership Economy' and is the founder of Peninsula Strategies LLC, a strategy consulting firm. Her clients have included large organizations like Netflix, SurveyMonkey and Yahoo!, as well as smaller venture-backed startups. Over the course of her career, Robbie has worked in or consulted to clients in more than twenty industries.  Before starting Peninsula Strategies in 2001, Robbie served as a New York City Urban Fellow, a consultant at Booz Allen & Hamilton, and a Silicon Valley product marketer.  As a public speaker, she has presented to thousands of people in corporations, associations, and universities. Moreover, she has been quoted in or written articles for major media outlets, including CNN, Consumer Reports, The New York Times and the Wall Street Journal. She has an AB from Harvard College and an MBA from the Stanford Graduate School of Business."
     -
       name: "Jessie Becker"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jessie_becker.png"
@@ -397,7 +390,7 @@ guest_speakers:
       blurb: "Brad Taylor has held many positions during his career in the technology industry. While working with over 100+ enterprise clients spanning 10 years, he has performed such roles as CEO, Co-founder, VP of Technology, Solutions Architect, and Product Manager. As Sr. Solutions Architect he plays a key role in creating solutions that push the Optimizely platform to new limits."
     -
       name: "Alek Toumert"
-      image: ""
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/toumert-alex.png"
       company: "American Medical Association"
       blurb: "Alek Toumert is the Senior Digital Analyst at the American Medical Association. Alek is part of a Digital Analytics team that has wrapped its arms around optimization and led the birth of a testing culture at the AMA. A Cleveland boy at heart, Alek currently resides in Chicago."
     #-
