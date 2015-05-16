@@ -44,6 +44,17 @@ describe('transforms', function() {
       });
     });
 
+    it('should not read yml with a `global_` prefix', function() {
+      var cwd = path.join(__dirname, 'fixture/website');
+      var patterns = '**/*.yml';
+      var data = readYml(instance)(patterns, cwd);
+      var dKey = '/website/d/index';
+
+      expect(data).to.include.keys(dKey);
+      expect(data[dKey]).to.deep.equal({ page_data: { TR_website_d: 'website d data' } });
+      expect(data[dKey].page_data.TR_global_d).to.be.undefined;
+    });
+
   });
 
 });

@@ -19,6 +19,8 @@ module.exports = function(assemble){
     var iterator = 0;
     var keysCache = [];
     var lastKey, data;
+    patterns = Array.isArray(patterns) ? patterns : [patterns];
+    patterns.push('!**/global_*.{yml,yaml,json}');
     plasma.option('cwd', cwd);
     plasma.option('namespace', function(fp) {
       var replace = testPath || process.cwd();
