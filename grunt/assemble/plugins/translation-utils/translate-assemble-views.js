@@ -17,7 +17,7 @@ module.exports = function(assemble) {
    * Translate objects on the `assemble.views` object in order to translate modals and partials
    *
    * @param {Object} `translated` built translated object with pre-translated type data
-   * @return {undefined} mutates the `assemble.views` object to renderable components are translated accordingly
+   * @return {Object} 'assemble.views` mutates the `assemble.views` object so renderable components are translated accordingly
    */
   return function translateAssembleViews(translated) {
     types.forEach(function(type) {
