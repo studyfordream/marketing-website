@@ -12,7 +12,7 @@ var config = function(grunt, options) {
       console.log('error reading secret credentials: ', err);
       return false;
     }
-    
+
   }
 
   return {
@@ -58,7 +58,7 @@ var config = function(grunt, options) {
           apiDomain: '//app.optimizely.com',
           environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
           assetsDir: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets',
-          link_path: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/',
+          link_path: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
           sassImagePath: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets/img',
           imageUrl: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets/img',
           compress_js: true,
@@ -157,7 +157,7 @@ var config = function(grunt, options) {
         }
       }
     },
-    
+
     content: 'website',
     guts: 'website-guts',
     dist: 'dist',
