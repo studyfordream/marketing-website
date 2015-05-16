@@ -6,9 +6,9 @@ intro:
     TR_headline: "Become a Technology Partner"
     TR_blurb: "Integrate with Optimizely and enable your customers to turn their data into action, quickly and simply."
     TR_cta_text: "Learn More"
-    cta_link: "/partners/join/technology/"
+    cta_link: "join/technology/"
   solutions:
     TR_headline: "Become a Solutions Partner Partner"
     TR_blurb: "Develop new revenue streams for your business by delivering best in class optimization services."
     TR_cta_text: "Learn More"
-    cta_link: "/partners/solutions/join/"
+    cta_link: "solutions/join/"
