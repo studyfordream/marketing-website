@@ -30,7 +30,7 @@ script_dependencies:
         <div class="dropdown-cont dropdown-cont--region">{{{global_solutions_data.filter.region}}} &#9662;
           <ul>
             {{#each global_solutions_data.filter.regions}}
-              <li class="filter-item" data-filter="{{ createClassList this }}">{{this}}</li>
+              <li class="filter-item" data-filter="{{ createClassList this.attr }}">{{this.text}}</li>
             {{/each}}
           </ul>
         </div>
@@ -68,7 +68,7 @@ script_dependencies:
       </div>
       <div class="row partner-grid">
         {{#collection "solutions"}}
-          <div class="partner-grid-elm {{#if this.stars}}{{this.stars}}-star{{/if}} {{#each this.locations}}{{createClassList this.location.region}}{{/each}} {{#each this.tags}}{{createClassList this}}{{/each}}">
+        <div class="partner-grid-elm {{#if this.stars}}{{this.stars}}-star{{/if}} {{#each this.locations}}{{createClassList this.location.data_region}}{{/each}} {{#each this.tags}}{{createClassList this}}{{/each}}">
             <div class="title-container">
               <h4 class="partner-title"><a href="{{relativeDir this.dest ../linkPath}}">{{this.title}}</a></h4>
               {{#each this.locations}}

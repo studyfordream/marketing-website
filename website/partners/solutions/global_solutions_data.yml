@@ -17,16 +17,40 @@ filter:
   TR_vertical: "Industry"
   TR_reset: "Reset"
   TR_no_results: "No results found"
-  regions:
-  - "Asia Pacific"
-  - "EMEA - France"
-  - "EMEA - Germany"
-  - "EMEA - UK"
-  - "EMEA - Netherlands"
-  - "EMEA - Spain"
-  - "EMEA - Other"
-  - "North America - US East"
-  - "North America - US Central"
-  - "North America - US West"
-  - "North America - Other"
-  - "South America / Central America"
+  TR_regions:
+  -
+    TR_text: "Asia Pacific"
+    attr: "asia pacific"
+  -
+    TR_text: "EMEA - France"
+    attr: "emea - france"
+  -
+    TR_text: "EMEA - Germany"
+    attr: "emea - germany"
+  -
+    TR_text: "EMEA - UK"
+    attr: "emea - uk"
+  -
+    TR_text: "EMEA - Netherlands"
+    attr: "emea - netherlands"
+  -
+    TR_text: "EMEA - Spain"
+    attr: "emea - spain"
+  -
+    TR_text: "EMEA - Other"
+    attr: "emea - other"
+  -
+    TR_text: "North America - US East"
+    attr: "north america - us east"
+  -
+    TR_text: "North America - US Central"
+    attr: "north america - us central"
+  -
+    TR_text: "North America - US West"
+    attr: "north america - us west"
+  -
+    TR_text: "North America - Other"
+    attr: "north america - other"
+  -
+    TR_text: "South America / Central America"
+    attr: "south America / central america"

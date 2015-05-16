@@ -13,7 +13,6 @@ module.exports = function formatPercentHeader (value, percentClass)  {
   if(tildeRe.test(first4)) {
     first4 = first4.replace(tildeRe, '');
     value = first4 + value.substr(3);
-    console.log(value);
   }
 
   if( startsWithPercent.test(value) ){

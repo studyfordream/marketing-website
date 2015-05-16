@@ -30,6 +30,17 @@ module.exports = function(assemble) {
       if(col[key]) {
         return next();
       }
+      /**
+       * add a data_region attribute that will not be translated to work in dropdown menu
+       */
+      if(file.data.TR_locations) {
+        file.data.TR_locations.forEach(function(locationObj) {
+          var regionData = locationObj.location.TR_region;
+          if(_.isString(regionData)) {
+            locationObj.location.data_region = regionData.toLowerCase();
+          }
+        });
+      }
       col[key] = _.merge({}, col[key], file.data);
       removeTranslationKeys(col[key]);
       assemble.set(collection, col);
