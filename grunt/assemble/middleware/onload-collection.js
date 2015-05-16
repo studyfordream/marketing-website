@@ -41,6 +41,15 @@ module.exports = function(assemble) {
           }
         });
       }
+      if(_.isArray(file.data.TR_tags)) {
+        file.data.data_tags = file.data.TR_tags.reduce(function(arr, tag) {
+          if(_.isString(tag)) {
+            arr.push(tag.toLowerCase());
+          }
+
+          return arr;
+        }, []);
+      }
       col[key] = _.merge({}, col[key], file.data);
       removeTranslationKeys(col[key]);
       assemble.set(collection, col);

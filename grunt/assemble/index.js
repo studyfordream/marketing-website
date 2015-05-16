@@ -171,21 +171,6 @@ module.exports = function (grunt) {
     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
 
-    //expose the partners pages takes on the root index partner page
-    //for use in dropdown menu
-    assemble.preRender(/partners\/solutions\/index/, function(file, next) {
-      var col = assemble.get('solutions');
-      var tags = Object.keys(col).reduce(function(map, key) {
-        var o = col[key];
-        if(_.isArray(o.tags)) {
-          map.push.apply(map, o.tags);
-        }
-        return map;
-      }, []);
-      file.data.tags = _.uniq(tags).filter(function(tag) { return !!tag; });
-      next();
-    });
-
     //change the layout name reference to that created in the ppc layout loader
     var ppcRe = new RegExp(path.join(options.websiteRoot, ppcKey));
     assemble.onLoad(ppcRe, function(file, next) {
@@ -198,6 +183,39 @@ module.exports = function (grunt) {
     //order is important here because we want to merge layouts before translating
     //assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
     assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
+
+    //expose the partners pages takes on the root index partner page
+    //for use in dropdown menu
+    assemble.preRender(/partners\/solutions\/index/, function(file, next) {
+      var col = assemble.get('solutions');
+      var locale = file.data.locale;
+      var langKey = options.locales[locale];
+      var translations = assemble.get('translations');
+
+      var tags = Object.keys(col).reduce(function(map, key) {
+        var o = col[key];
+        if(_.isArray(o.tags)) {
+          map.push.apply(map, o.tags);
+        }
+        return map;
+      }, []);
+      tags = _.uniq(tags).filter(function(tag) { return !!tag; });
+
+      file.data.tag_dropdown = tags.reduce(function(map, tag) {
+        var trans, o = {};
+        if(locale && locale !== options.websiteRoot) {
+          trans = translations[langKey][tag];
+        }
+        o.data_tag = tag.toLowerCase();
+        o.tag = trans || tag;
+        map.push(o);
+
+        return map;
+      }, []);
+      console.log(file.data.tag_dropdown);
+
+      next();
+    });
 
     //localize link path after locale is appended in the translate data middleware
     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
