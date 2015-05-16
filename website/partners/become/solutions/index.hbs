@@ -3,6 +3,8 @@ layout: partners_become
 compact_header: false
 body_class:
 - partners-become
+modals:
+- become_partner_solutions
 page_script: partners_become.js
 footer_style: grey
 TR_seo_title: ""
@@ -17,8 +19,7 @@ og_description: ""
   {{#with page_data.intro}}
     <h1>{{{headline}}}</h1>
     <h2>{{{subhead}}}</h2>
-    <a href="#" class="primary-cta join-link" style="
-">{{{button_text}}}</a>
+    <a href="#" class="primary-cta join-link solutions-form">{{{button_text}}}</a>
   {{/with}}
 </section>
 
@@ -84,7 +85,7 @@ og_description: ""
     <div class="container ">
       <h2 class="panel-header">{{{title}}}</h2>
 
-    <a href="#" class="primary-cta join-link">{{{button_text}}}</a>
+    <a href="#" class="primary-cta join-link solutions-form">{{{button_text}}}</a>
 
     <p class="blurb">{{{blurb}}}</p>
     </div>
