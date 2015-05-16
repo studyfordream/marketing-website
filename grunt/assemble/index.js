@@ -210,8 +210,8 @@ module.exports = function (grunt) {
     assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
     loadResources();
 
-    assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
-    assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
+    assemble.onLoad(/partners\/solutions(?!join)/, collectionMiddleware('solutions'));
+    assemble.onLoad(/partners\/technology(?!join)/, collectionMiddleware('integrations'));
 
     //expose the partners pages takes on the root index partner page
     //for use in dropdown menu
