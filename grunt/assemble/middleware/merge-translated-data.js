@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var extendWhile = require('../utils/extend-while');
 
 module.exports = function(assemble) {
@@ -49,9 +50,8 @@ module.exports = function(assemble) {
         if(data.page_content) {
           file.content = data.page_content;
         }
-        extendWhile(file.data, data);
+        _.merge(file.data, data);
       }
-
 
     }//end !ppc if
     next();
