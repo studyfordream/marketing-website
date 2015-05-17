@@ -2,8 +2,8 @@ var extendWhile = require('../utils/extend-while');
 
 module.exports = function(assemble) {
   var websiteRoot = assemble.get('data.websiteRoot');
-  var parseFilePath = require('../utils/parse-file-path')(assemble);
   var locales = assemble.get('data.locales');
+  var parseFilePath = require('../utils/parse-file-path')(assemble);
   var removeTranslationKeys = require('../utils/remove-translation-keys')(assemble);
   var lastLocale;
 
@@ -23,11 +23,13 @@ module.exports = function(assemble) {
       //extend the file with the external YML content
       if(filePathData.isRoot) {
         file.data.locale = websiteRoot;
+        file.data.langKey = 'en_US';
         //extend the local yml data to the page
         data = rootData[dataKey];
       } else if(filePathData.isSubfolder) {
         //set the locale on the page context for modal|partial translation
         file.data.locale = locale;
+        file.data.langKey = dictKey;
         file.data.dataKey = dataKey;
         data = translated[dictKey] && translated[dictKey][dataKey];
 
