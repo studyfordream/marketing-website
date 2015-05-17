@@ -212,7 +212,6 @@ module.exports = function (grunt) {
 
         return map;
       }, []);
-      console.log(file.data.tag_dropdown);
 
       next();
     });

@@ -21,7 +21,7 @@ faq_content:
   TR_sections:
   -
     TR_sub_title: "What is Optimizely's Stats Engine?"
-    MD_description: "Optimizely’s sample size calculator is different from other statistical significance calculators. It is based on the formula used in [Optimizely’s Stats Engine](http://www.optimizely.com/statistics/). Stats Engine calculates statistical significance using sequential testing and false discovery rate controls. When combined, these two techniques mean you no longer need to wait for a pre-set sample size to ensure the validity of your results. If Optimizely tells you that a result is 95% significant, you can make a decision with 95% confidence. [Learn more](http://optimizely.com/statistics)"
+    MD_description: "Optimizely’s sample size calculator is different from other statistical significance calculators. It is based on the formula used in [Optimizely’s Stats Engine](/statistics). Stats Engine calculates statistical significance using sequential testing and false discovery rate controls. When combined, these two techniques mean you no longer need to wait for a pre-set sample size to ensure the validity of your results. If Optimizely tells you that a result is 95% significant, you can make a decision with 95% confidence. [Learn more](/statistics)"
 
   -
     TR_sub_title: "How many visitors do I need for my A/B test?"
