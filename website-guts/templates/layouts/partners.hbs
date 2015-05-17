@@ -50,7 +50,12 @@ layout_body_class:
                 </div>
               {{/each}}
               {{#if this.contact}}
-                {{breaklines this.contact}}
+              <p>{{tr 'Questions'}}?
+                <br>
+                <a href="mailto:{{this.contact}}">
+                  {{this.contact}}
+                </a>
+              </p>
               {{/if}}
             </div>
 
