@@ -36,7 +36,6 @@ var config = function(grunt, options) {
           concat_banner: '(function($, w, d){ \n\n' +
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-            '  window.linkPath = "" \n\n' +
             '  try { \n\n',
           concat_footer: '  } catch(error){ \n\n' +
             '    console.error(error, targetName);\n\n' +
@@ -66,7 +65,6 @@ var config = function(grunt, options) {
           concat_banner: '(function($, w, d){ \n\n' +
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-            '  window.linkPath = "/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>"; \n\n' +
             '  try { \n\n',
           concat_footer: '  } catch(error){ \n\n' +
             '    console.error(error, targetName);\n\n' +
@@ -96,7 +94,6 @@ var config = function(grunt, options) {
           concat_banner: '(function($, w, d){ \n\n' +
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-            '  window.linkPath = "<%= gitinfo.local.branch.current.name %>"; \n\n' +
             '  try { \n\n',
           concat_footer: '  } catch(error){ \n\n' +
             '  //report errors to GA \n\n' +
@@ -122,8 +119,7 @@ var config = function(grunt, options) {
           drop_console: false,
           concat_banner: '(function($, w, d){ \n\n' +
                          '  window.optly = window.optly || {}; \n\n' +
-                         '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-                         '  window.linkPath = "/dist"; \n\n',
+                         '  window.optly.mrkt = window.optly.mrkt || {}; \n\n',
           concat_footer: '})(jQuery, window, document);'
         }
       }
@@ -144,7 +140,6 @@ var config = function(grunt, options) {
           concat_banner: '(function($, w, d){ \n\n' +
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-            '  window.linkPath = ""; \n\n' +
             '  try { \n\n',
           concat_footer: '  } catch(error){ \n\n' +
             '    console.error(error, targetName);\n\n' +

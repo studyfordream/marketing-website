@@ -26,6 +26,7 @@ layout_modals:
         <script src="//cdn.optimizely.com/js/{{environmentVariables.optimizelyProjectID}}.js"></script>
         <script type="text/javascript">
             window.apiDomain = '{{apiDomain}}';
+            window.linkPath = '{{linkPath}}';
             {{#is environment "staging"}}
               {{#scriptinjector '../assets/js/head-scripts/set-api-domain.js' true}}{{/scriptinjector}}
             {{/is}}
