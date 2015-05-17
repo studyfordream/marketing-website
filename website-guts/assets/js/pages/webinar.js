@@ -1,4 +1,4 @@
-var moment = require('moment');
+var moment = require('../utils/client-moment');
 var webinarEventDisplay = require('webinarEventDisplay');
 var webinarEventDetail = require('webinarEventDetail');
 var eventDisplayHTML, templateContext, dateArray, i;
@@ -6,6 +6,7 @@ var eventDisplayHTML, templateContext, dateArray, i;
 window.optly = window.optly || {};
 window.optly.mrkt = window.optly.mrkt || {};
 window.optly.mrkt.webinar = window.optly.mrkt.webinar || {};
+
 
 window.optly.mrkt.webinar.getThursdays = function() {
 

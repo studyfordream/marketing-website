@@ -1,4 +1,4 @@
-var moment = require('moment');
+var moment = require('../utils/client-moment');
 var eventDisplay = require('eventDisplay');
 
 window.optly.mrkt.events = {};
