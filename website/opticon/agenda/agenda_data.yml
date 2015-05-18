@@ -36,7 +36,7 @@ days:
           -
             title: "Optimizely Keynote"
             time: "9:00 - 10:00"
-            location: "Main Room"
+            location: "Golden Gate"
             description: ""
             track: "strategy platform action culture"
             roles: "marketer developer productmanager executive"
@@ -52,34 +52,22 @@ days:
         start_time: "10:25"
         events:
           -
-            title: "Blow Up Your Mobile App Metrics: Real Life Mobile App Optimization"
+            title: "Benchmark Your Optimization Program"
             time: "10:25 – 11:10"
-            location: "Breakout 3"
-            description: "More than 80% of app users will download an app once and then eventually delete it. It's never been more important to drive engagement and retention in your mobile app. Come learn from a panel of mobile experts from industry leading companies discuss their success stories on how they build amazing apps and the culture that they developed around mobile app optimization."
-            companies: "Credit Sesame, Fareportal, Pinterest, Everyday Health"
-            track: "action"
-            roles: "marketer productmanager developer"
+            location: "Coit Tower"
+            description: "What does 'normal' look like for an optimization program? What about best-in-class? What are the opportunities and challenges facing teams that are optimizing, and how do they allocate their manpower and budget towards them? We sought out the answers to these tough questions for our first industry benchmark report. Join Optimizely for an in-depth discussion of how to quantify and benchmark optimization performance."
+            companies: "Optimizely"
+            track: "strategy"
+            roles: "marketer developer productmanager executive"
             speakers:
               -
-                name: "George McMullen"
-                job_title: "Director of Mobile Products"
-                company: "Credit Sesame"
-              -
-                name: "Raman Bhatia"
-                job_title: "Director of Mobile"
-                company: "Fareportal"
-              -
-                name: "Andrea Burbank"
-                job_title: "Data Scientist"
-                company: "Pinterest"
-              -
-                name: "Kyle Humphries"
-                job_title: "Product Manager"
-                company: "Everyday Health"
+                name: "Shana Rusonis"
+                job_title: "Content Marketing Manager"
+                company: "Optimizely"
           -
             title: "The Inside Scoop: Coming Soon from Optimizely"
             time: "10:25 – 11:10"
-            location: "Main Room"
+            location: "Golden Gate"
             description: "We're making some big announcements about Optimizely's Experience Optimization platform at Opticon. In this session, you'll hear more details from our team about the exciting new products they're working on in 2015."
             companies: "Optimizely"
             track: "action"
@@ -92,7 +80,7 @@ days:
           -
             title: "Scaling Your Testing Program for Maximum Impact"
             time: "10:25 – 11:10"
-            location: "Breakout 2"
+            location: "Bay Bridge"
             description: "If you’re running A/B tests consistently, you’re already on the right track. But how can you take the next step and turn your testing efforts into a well-oiled growth engine that scales? Moz, charity: water, and The Next Web have all achieved tremendous success within their optimization programs and have figured out how to effectively run hundreds of experiments a year. Learn how these companies increased the impact of their testing programs by leveraging tools and processes that scale."
             companies: "charity: water, The Next Web, Moz"
             track: "strategy"
@@ -113,7 +101,7 @@ days:
           -
             title: "Getting Started with the Optimizely Developer Platform"
             time: "10:25 – 11:10"
-            location: "Breakout 4"
+            location: "Alcatraz"
             description: "Together we’ll walk through the Optimizely Developer Platform and use it to build a fully functional integration. We'll demonstrate how easy it is to bring any first or third party data source into Optimizely and use it for targeting and segmentation. Learn how to expose custom data in the native Optimizely interface for a truly simple user experience. Following the session, both speakers will be available in the developer’s sandbox area to help you write your own integration!"
             companies: "Optimizely"
             track: "platform"
@@ -136,7 +124,7 @@ days:
           -
             title: "Fireside Chat with Marc Andreessen"
             time: "11:30 - 12:15"
-            location: "Main Room"
+            location: "Golden Gate"
             description: ""
             track: "strategy platform action culture"
             roles: "marketer developer productmanager executive"
@@ -152,9 +140,30 @@ days:
         start_time: "1:30"
         events:
           -
+            title: "Making it Stick: The 'X Factor' That Made Optimization Succeed"
+            time: "1:30 - 2:15"
+            location: "Bay Bridge"
+            description: "Building an organization around continuous optimization is a distinctly different task from running A/B tests. Getting from those first experiments as a \"project\" to a data driven team and process requires vision and a commitment to hypothesis driven decision-making. How do entrepreneurial leaders and companies incorporate testing as a KPI and use it to drive a broader product roadmap? In this panel discussion with Blu Dot, Village Roadshow, and Optimizely Solutions Partner, Clearhead, will share their experiences from driving optimization forward - and the 'X factors' that made it stick."
+            companies: "Blu Dot, Village Roadshow, Clearhead"
+            track: "strategy"
+            roles: "executive"
+            speakers:
+              -
+                name: "Mike Wodtke"
+                job_title: "eCommerce Director"
+                company: "Blu Dot"
+              -
+                name: "Jon Satterley"
+                job_title: "Group Director, Digital Development"
+                company: "Village Roadshow"
+              -
+                name: "Ryan Garner"
+                job_title: "Co-Founder and Executive Vice President"
+                company: "Clearhead"
+          -
             title: "Optimization at Optimizely"
             time: "1:30 - 2:15"
-            location: "Breakout 3"
+            location: "Coit Tower"
             description: "Ever wondered how Optimizely employees use Optimizely? In this session, you’ll learn about our optimization programs, and how we use Optimizely beyond traditional A/B testing. We’ll also uncover how to optimize experiences that don’t have a traditional “conversion” goal. Our Global Director of Sales and Market Development, Ash Alhashim, will walk through an advanced experiment that takes advantage of Optimizely’s most powerful features and how he takes a unique approach to measuring success, perfect for optimizers looking to push their optimization boundaries. Amanda Swan and Adam Avramescu will also share insights from the Optiverse testing program and thoughts on interpreting experiments on properties where “conversion” is unclear."
             companies: "Optimizely"
             track: "action"
@@ -173,43 +182,34 @@ days:
                 job_title: "Customer Education Manager"
                 company: "Optimizely"
           -
-            title: "Making it Stick: The 'X Factor' That Made Optimization Succeed"
-            time: "1:30 - 2:15"
-            location: "Breakout 2"
-            description: ""
-            companies: "Blu Dot, Village Roadshow, Clearhead"
-            track: "strategy"
-            roles: "executive"
-            speakers:
-              -
-                name: "Mike Wodtke"
-                job_title: "eCommerce Director"
-                company: "Blu Dot"
-              -
-                name: "Jon Satterley"
-                job_title: "Group Director, Digital Development"
-                company: "Village Roadshow"
-              -
-                name: "Matty Wishnow"
-                job_title: "CEO"
-                company: "Clearhead"
-          -
             title: "Pushing the Boundaries of Optimizely"
             time: "1:30 - 2:15"
-            location: "Breakout 4"
+            location: "Alcatraz"
             description: "Optimizely is not just an A/B Testing tool; customers are using Optimizely in creative ways outside the scope of typical testing. From advanced solutions and third-party integrations to behavioral targeting and personalization, learn how some of the most advanced, technical users are utilizing Optimizely in ways our founders would have never even dreamed of. First, we'll have a panel discussion moderated by Sr. Solutions Architect Brad Taylor, followed by a Q&A session with some of the best and brightest minds pushing Optimizely to boldly go where no testing platform has gone before."
             companies: "Optimizely"
             track: "platform"
             roles: "marketer productmanager developer"
             speakers:
               -
+                name: "Alex Ivashchenko"
+                job_title: "Principal Software Engineer"
+                company: "Trulia"
+              -
+                name: "Markis Taylor"
+                job_title: "Engineering Lead"
+                company: "Trulia"
+              -
                 name: "Brad Taylor"
+                job_title: "Sr. Solutions Architect"
+                company: "Optimizely"
+              -
+                name: "Shaunak Mali"
                 job_title: "Solutions Architect"
                 company: "Optimizely"
           -
             title: "How to Build a Culture of Optimization from Within"
             time: "1:30 - 2:15"
-            location: "Main Room"
+            location: "Golden Gate"
             description: "A successful optimization program doesn't just appear out of thin air. It takes bold ideas, a nimble approach, a talented team, and an overwhelming desire to experiment and learn. At the core of all of this is your company's internal culture. Join leaders from Pinterest and Eventbrite to learn how to develop a growth mindset that extends well beyond the web and mobile. You'll walk away with actionable ideas to strengthen your people, talent, and culture in a data-driven way."
             companies: "Pinterest, Eventbrite"
             track: "culture"
@@ -227,27 +227,6 @@ days:
                 name: "Moderated by: Jenny Lykken"
                 job_title: "Learning and Development Manager"
                 company: "Optimizely"
-          -
-            title: "Optimization Roundtable Discussions"
-            time: "1:30 - 2:15"
-            location: "Expo Hall"
-            description: "Looking to connect with others that are in a similar industry, vertical or experiencing a similar challenge? The Optimization Roundtables are your chance to build connections with others that are trying to accomplish a similar goal. Join a roundtable on a topic of your choosing and participate in a discussion on best practices led by an industry expert. Choose from topics such as headline testing, user testing, or a technical deep dive on the Optimizely product."
-            companies: "Segment, Parse.ly, Stratigent"
-            track: "strategy"
-            roles: "marketer productmanager developer executive"
-            speakers:
-              -
-                name: "Peter Reinhardt"
-                job_title: "Co-Founder and CEO"
-                company: "Segment"
-              -
-                name: "Stefan Deeran"
-                job_title: "Director Partnerships"
-                company: "Parse.ly"
-              -
-                name: "Bill Bruno"
-                job_title: "CEO"
-                company: "Stratigent"
       -
         start_time: "2:15"
         title: "Break in Exhibit Hall"
@@ -255,22 +234,9 @@ days:
         start_time: "2:35"
         events:
           -
-            title: "Benchmark Your Optimization Program"
-            time: "2:35 - 3:20"
-            location: "Breakout 3"
-            description: "What does 'normal' look like for an optimization program? What about best-in-class? What are the opportunities and challenges facing teams that are optimizing, and how do they allocate their manpower and budget towards them? We sought out the answers to these tough questions for our first industry benchmark report. Join Optimizely for an in-depth discussion of how to quantify and benchmark optimization performance."
-            companies: "Optimizely"
-            track: "strategy"
-            roles: "marketer developer productmanager executive"
-            speakers:
-              -
-                name: "Shana Rusonis"
-                job_title: "Content Marketing Manager"
-                company: "Optimizely"
-          -
             title: "Structure and Scale: Establishing Your Optimization Dream Team"
             time: "2:35 - 3:20"
-            location: "Main Room"
+            location: "Golden Gate"
             description: "Companies come in all shapes and sizes, and there's no magic formula for a perfect optimization program. While team structure, department alignment, and process may vary, there's one common thread: you're still on the hook to deliver results. So how do you structure your team for success? In this panel discussion, experts from a variety of industries will share strategies, drawbacks, and lessons learned from their experiences building and scaling kick-ass optimization teams. You'll walk away armed with ideas to shape your own dream team."
             companies: "Trulia, Abercrombie & Fitch, Scripps Network Interactive"
             track: "culture"
@@ -299,7 +265,7 @@ days:
           -
             title: "Experience Optimization in Modern Web Architecture"
             time: "2:35 - 3:20"
-            location: "Breakout 4"
+            location: "Coit Tower"
             description: "AngularJS, Backbone, React—like it or not, modern web architecture is shifting into the world of the single-page application. Learn what to look for in JS frameworks so you can run powerful A/B tests with Optimizely and how to integrate Optimizely into your current single-page application architecture. The first half of the session, Jordan Garcia, Frontend Tech Lead at Optimizely, will overview single-page application frameworks. The second half will showcase customers who have implemented great A/B testing strategies developed for their single-page applications."
             companies: "Tilt, BitTorrent, RocketLawyer, Optimizely"
             track: "platform"
@@ -311,7 +277,7 @@ days:
                 company: "Tilt"
               -
                 name: "Justin Knoll"
-                job_title: "Chief Architect"
+                job_title: "Senior Director of Product Management"
                 company: "BitTorrent"
               -
                 name: "Case Van Arkel"
@@ -328,7 +294,7 @@ days:
           -
             title: "Testing with Stats Engine: Why it’s Harder to Find Winners with Optimizely"
             time: "2:35 - 3:20"
-            location: "Breakout 2"
+            location: "Bay Bridge"
             description: "Statistics for A/B testing has had a usability problem. Without necessary precautions, running experiments with standard statistics results in more false positives than testers think. This is the motivation behind Optimizely's new Stats Engine: if the statistics aren’t working for the customer, it's time to re-design the statistics. In this session, you’ll learn how Optimizely created a new approach to statistics for A/B testing, best practices for using Stats Engine based on real customer experience, and the biggest challenges still on the horizon."
             companies: "Optimizely"
             track: "action"
@@ -342,6 +308,13 @@ days:
                 name: "Pete Koomen"
                 job_title: "Co-Founder & CTO"
                 company: "Optimizely"
+          -
+            title: "Optimization Roundtable Discussions"
+            time: "2:35 - 3:20"
+            location: "Expo Hall"
+            description: "<p>Looking to connect with others that are in a similar industry, vertical or experiencing a similar challenge? The Optimization Roundtables are your chance to build connections with others that are trying to accomplish a similar goal. Join a roundtable on a topic of your choosing and participate in a discussion on best practices led by an industry expert.  Here are the discussion table topics:</p><ul><li>Personalization for Ecommerce - Clearhead</li><li>High velocity optimization - Arun Sivashankaran, Founder, FunnelEnvy</li><li>Making Experience Optimization a Team Sport - Michael Thomas, CMO, Noble Studios</li><li>Getting Started with Personalization - Optimizely</li><li>Discover the Optimizely Ecosystem - Optimizely</li><li>Optimizing for Mobile Retention - Optimizely</li><li>Create Great Headlines Through Testing - Stefan Deeran, Director of Strategic Partnerships, Parse.ly</li><li>Creating a Testing Culture - Matthew Zaute, Director of Analytics, Rise Interactive</li><li>High Impact Testing: Top Strategies to Get Big Results  - Mike Hay, Director of Marketing, ROI DNA</li><li>Optimizing your Growth/Marketing Stack - Peter Reinhardt, CEO,  Segment</li><li>Intelligent Solver (TM): A new way to personalize - Bill Bruno, CEO, Stratigent</li><li>The Best A/B Test Ideas You Haven't Thought Of - Phil Sharp, Director of Marketing, UserTesting</li></ul><p>Reserve your spot for a table <a href='https://docs.google.com/a/optimizely.com/forms/d/1GPIbfLk6GOxwpfJywu0S1DB8pWpLVzFbPxCuakKym6Q/viewform'>here</a>.</p>"
+            track: "strategy"
+            roles: "marketer productmanager developer executive"
       -
         start_time: "3:20"
         title: "Break in Exhibit Hall"
@@ -349,34 +322,34 @@ days:
         start_time: "3:40"
         events:
           -
-            title: "The Power of Empathy in Driving Conversion"
+            title: "Blow Up Your Mobile App Metrics: Real Life Mobile App Optimization"
             time: "3:40 - 4:25"
-            location: "Breakout 3"
-            description: "Do your digital experiences convey your unique value proposition? What about creating customer delight with humor and wit? Learn how to cut through the noise and create meaningful audience connections that drive conversions."
-            companies: "FunnyBiz, Elevated"
-            track: "strategy"
-            roles: "marketer productmanager"
+            location: "Coit Tower"
+            description: "More than 80% of app users will download an app once and then eventually delete it. It's never been more important to drive engagement and retention in your mobile app. Come learn from a panel of mobile experts from industry leading companies discuss their success stories on how they build amazing apps and the culture that they developed around mobile app optimization."
+            companies: "Credit Sesame, Fareportal, Pinterest, Everyday Health"
+            track: "action"
+            roles: "marketer productmanager developer"
             speakers:
               -
-                name: "Rachman Blake"
-                job_title: "Co-Founder"
-                company: "FunnyBiz"
+                name: "George McMullen"
+                job_title: "Director of Mobile Products"
+                company: "Credit Sesame"
               -
-                name: "Keith Lovgren"
-                job_title: "Director of Conversion Rate Optimization"
-                company: "Elevated"
+                name: "Raman Bhatia"
+                job_title: "Director of Mobile"
+                company: "Fareportal"
               -
-                name: "Talia Wolf"
-                job_title: "CEO and Founder"
-                company: "Conversioner"
+                name: "Andrea Burbank"
+                job_title: "Data Scientist"
+                company: "Pinterest"
               -
-                name: "Moderated by: Cara Harshman"
-                job_title: "Content Marketing Manager"
-                company: "Optimizely"
+                name: "Kyle Humphries"
+                job_title: "Product Manager"
+                company: "Everyday Health"
           -
             title: "Collaborating to Scale: How to Spread Optimization Across Your Org and Keep Things from Getting Messy"
             time: "3:40 - 4:25"
-            location: "Breakout 2"
+            location: "Bay Bridge"
             description: "Learn how to build a testing program that scales with your business – it's all about collaboraiotn and communication. In this session, you'll learn how to build a unified optimization front across multiple geographies, teams, and functions, and how to collaborate on testing projects when multiple owners are involved, for instance, web and mobile teams."
             companies: "Atlassian, Rue La La"
             track: "culture"
@@ -391,10 +364,10 @@ days:
                 job_title: "Head of Growth"
                 company: "Atlassian"
           -
-            title: "Integrations with the Optimizely Platform"
+            title: "Powerful Integrations with Optimizely"
             time: "3:40 - 4:25"
-            location: "Theater"
-            description: ""
+            location: "Alcatraz"
+            description: "Optimizely offers several tools for developers to extend and integrate with Optimizely in new ways. In this session, an Optimizely product manager will give an overview of the Optimizely Developer Platform and explain how you can use APIs to transform your testing workflow. We’ll also have several guest speakers present powerful integrations they’ve built to help their business. The session will conclude with an open Q&A for anyone who’d like to learn more about the capabilities of the platform."
             companies: "Optimizely"
             track: "platform"
             roles: "developer"
@@ -403,6 +376,19 @@ days:
                 name: "John Provine"
                 job_title: "Sr. Product Manager"
                 company: "Optimizely"
+          -
+            title: "The Membership Economy"
+            time: "3:40 - 4:25"
+            location: "Golden Gate"
+            description: "In the Membership Economy, no one product is as important as the ongoing relationship with your customer. Access trumps ownership, relationships take priority over transactions and communication is multidirectional and transparent. What does this massive transformational trend mean for your company? Join Robbie Kellman Baxter, author of the Amazon #1 Hot New Release The Membership Economy: Find Your Superusers, Master the Forever Transaction and Build Recurring Revenue. You'll learn how to turn digital subscriptions into forever sales, why retention is the new acquisition, and the difference between rewards programs and loyalty programs and why it matters. This interactive session is guaranteed to inspire new ideas and provide opportunities for reflection and practical implementation."
+            companies: "Peninsula Strategies"
+            track: "strategy"
+            roles: "executive marketer"
+            speakers:
+              -
+                name: "Robbie Kellman Baxter"
+                job_title: "President & Author of The Membership Economy"
+                company: "Peninsula Strategies"
       -
         start_time: "4:25"
         title: "Break in Exhibit Hall"
@@ -410,10 +396,10 @@ days:
         start_time: "4:45"
         events:
           -
-            title: "Google's Optimization Story"
+            title: "Google's $xxM Ad Optimization Bet"
             time: "4:45 - 5:30"
-            location: "Breakout 3"
-            description: ""
+            location: "Coit Tower"
+            description: "Michelle Levesque, Senior Staff Software Engineer at Google and former Google Ads UI Tech Lead, discusses the tools, processes, and learnings from hundreds of experiments tuning and optimizing Google's ad experiences. Moderating is Chrix Finne, Senior Product Manager at Optimizely, and former Product Manager for Google AdWords, Analytics, AdSense and AdMob."
             companies: "Google"
             track: "culture"
             roles: "marketer executive developer productmanager"
@@ -425,7 +411,7 @@ days:
           -
             title: "Testing your Boundaries: Lessons Learned from Testing in International Markets"
             time: "4:45 - 5:30"
-            location: "Breakout 2"
+            location: "Bay Bridge"
             description: "In an increasingly interconnected, global market, having a product and marketing messaging that resonates in a variety of geographic regions is key to success. Learn from a panel of customers who will share their strategies for testing in international markets to understand how optimization and customer development power the best experiences across languages, cultures, and user experience idiosyncrasies."
             companies: "ASICS, Motorola"
             track: "strategy"
@@ -440,13 +426,17 @@ days:
                 job_title: "Global Publishing Lead for Motorola.com / Testing Lead for Publishing Team"
                 company: "Motorola"
               -
+                name: "Tania Shershin"
+                job_title: "Global Web Analytics Manager"
+                company: "HomeAway"
+              -
                 name: "Moderated by: Tim Ash"
                 job_title: "Chair, Conversion Conference"
                 company: "Conversion Conference"
           -
             title: "Getting Started with Optimizely for iOS and Android"
             time: "4:45 - 5:30"
-            location: "Breakout 4"
+            location: "Alcatraz"
             description: "Learn how to integrate Optimizely into your native iOS and Android apps. We'll create an experiment around optimizing and testing an onboarding flow in a mobile app.  Learn how to use the visual editor, as well as advanced testing features for developers. Take home best practices for setting up your mobile experiments."
             companies: "Optimizely"
             track: "platform"
@@ -459,7 +449,7 @@ days:
           -
             title: "Website Redesign Strategies"
             time: "4:45 - 5:30"
-            location: "Main Room"
+            location: "Golden Gate"
             description: "Are you redesigning your website in the next year? Many industry experts agree that it’s best to develop a website iteratively, using A/B testing and optimization, but some websites are so rusty that only a major overhaul seems to be the solution. It can be daunting to navigate the critical process of a redesugn: rising costs, missed deadlines, and plummeting conversion rates instead of anticipated lifts. Learn from the experts on how to use customer interviews, closed-loop sales feedback, web analytics, and A/B testing to determine the optimal mix of content, navigation, and calls-to-action for your site. Get tips on how to drive results in spite of tight timelines, limited resources, CMS restrictions, and small datasets."
             companies: "Apperian, j2 Global Communications, Western Governors University"
             track: "action"
@@ -497,7 +487,7 @@ days:
           -
             title: "Optie Awards Presentation"
             time: "9:00 - 10:00"
-            location: "Main Room"
+            location: "Golden Gate"
             description: ""
             track: "strategy platform action culture"
             roles: "marketer developer productmanager executive"
@@ -508,135 +498,9 @@ days:
         start_time: "10:20"
         events:
           -
-            title: "Moving the Needle in Your E-Commerce Funnel"
-            time: "10:20 – 11:05"
-            location: "Breakout 3"
-            description: "Ecommerce accounted for 5.9%, or $1.3 trillion, of the total worldwide retail market in 2014. As more shoppers come online, smartphones and tablets account for more online purchases. Optimizing your digital customer experience will continue to become even more important to the success of your online retail business. This session will feature stories from ecommerce businesses that are making every online customer interaction count using Optimizely."
-            companies: "Teespring, LegalZoom"
-            track: "action"
-            roles: "marketer productmanager executive"
-            speakers:
-              -
-                name: "Jesse Avshalomov"
-                job_title: "Director, Product and Growth"
-                company: "Teespring"
-              -
-                name: "Eddie Hartman"
-                job_title: "Co-Founder & Chief Product Officer"
-                company: "LegalZoom"
-          -
-            title: "Optimizing for Engagement for Media"
-            time: "10:20 – 11:05"
-            location: "Breakout 2"
-            description: "Join innovative digital leaders in an open discussion about the shifting media landscape and how to gain a competitive edge through optimizing for engagement and increased ad impressions."
-            companies: "BabyCenter (Johnson & Johnson), StumbleUpon"
-            track: "action"
-            roles: "marketer productmanager executive"
-            speakers:
-              -
-                name: "Kathy Chao"
-                job_title: "Director of Global Marketing"
-                company: "BabyCenter (Johnson & Johnson)"
-              -
-                name: "David Marks"
-                job_title: "VP of Product"
-                company: "StumbleUpon"
-          -
-            title: "The 21st Century Marketing Stack & Team"
-            time: "10:20 – 11:05"
-            location: "Main Room"
-            description: "Looking through the executive lens, we will discuss the 21st century marketing landscape, and how marketing leaders evaluate their tool stack and team. What are the most important pieces to have in places? Which teams are indispensable and what data needs to be collected? How does experience optimization fit into your digital marketing landscape, and what does the future hold?"
-            companies: "99Designs, Demandbase, Optimizely"
-            track: "strategy"
-            roles: "executive"
-            speakers:
-              -
-                name: "Pam Webber"
-                job_title: "CMO"
-                company: "99Designs"
-              -
-                name: "Peter Isaacson"
-                job_title: "CMO"
-                company: "Demandbase"
-              -
-                name: "Jessie Becker"
-                job_title: "CMO"
-                company: "Optimizely"
-      -
-        start_time: "11:05"
-        title: "Break in Exhibit Hall"
-      -
-        start_time: "11:25"
-        events:
-          -
-            title: "Early Lessons in Personalization Strategy"
-            time: "11:25 - 12:10"
-            location: "Main Room"
-            description: "We'll take a look at lessons derived from early progress in personalization, informed by work already canonical in the email, ecommerce, and media industries. Learn how to translate your goals, personas, data, and ideas into a meaningful approach for delivering personalized experiences. See starter use cases relevant for your vertical, like symmetric messaging for B2B, promotional strategies for ecommerce, behavioral retargeting, contextual empathy, and mobile mindsets."
-            companies: "AdRoll, The Clymb"
-            track: "strategy"
-            roles: "marketer developer productmanager executive"
-            speakers:
-              -
-                name: "Mike Norland"
-                job_title: "Senior Marketing Strategist"
-                company: "AdRoll"
-              -
-                name: "Tyler Bullen"
-                job_title: "Personalization Program Manager"
-                company: "The Clymb"
-              -
-                name: "Catherine Pao"
-                job_title: "Growth Product Manager"
-                company: "Blue Apron"
-          -
-            title: "Building the SaaS Growth Engine"
-            time: "11:25 - 12:10"
-            location: "Breakout 2"
-            description: "Optimization and growth in the world of SaaS is a different kind of beast. High traffic volume is not always a given, and your product offering may be very narrowly targeted. Customers visit with a wide variety of budgets, needs, and expectations. In this panel conversation, hear executives from some of the country’s top SaaS companies discuss how they tackle these challenges head-on and continue to expand their businesses by capitalizing on the amazing optimization opportunities within their industries."
-            companies: "KISSmetrics, Marketo"
-            track: "action"
-            roles: "marketer executive"
-            speakers:
-              -
-                name: "Brian Kelly"
-                job_title: "CEO"
-                company: "KISSmetrics"
-              -
-                name: "Heidi Bullock"
-                job_title: "VP of Demand Generation"
-                company: "Marketo"
-              -
-                name: "Moderated by: Jessie Becker"
-                job_title: "CMO"
-                company: "Optimizely"
-          -
-            title: "Travel, Testing, and Personalization in the 21st Century"
-            time: "11:25 - 12:10"
-            location: "Breakout 3"
-            description: "Of the $4.7 billion spent on U.S. travel advertising last year, 52 percent went to websites and other digital channels. Yet only a fraction of that amount is spent on capturing the ROI of those dollars with optimization. Panelists running the optimization practices at the top travel businesses in the industry will come together to talk about how testing and personalization drive revenue, conversions, and move their businesses forward."
-            companies: "TripAdvisor (SmarterTravel Media), Hotwire"
-            track: "action"
-            roles: "marketer executive productmanager"
-            speakers:
-              -
-                name: "Katherine Reynolds"
-                job_title: "Product Manager"
-                company: "TripAdvisor (SmarterTravel Media)"
-              -
-                name: "Pauline Marol"
-                job_title: "Lead Product Manager of Site Optimization"
-                company: "Hotwire"
-      -
-        start_time: "12:10"
-        title: "Lunch and Networking"
-      -
-        start_time: "1:25"
-        events:
-          -
             title: "Personalization Using Optimizely Audience Integrations"
-            time: "1:25 - 2:10"
-            location: "Breakout 3"
+            time: "10:20 – 11:05"
+            location: "Bay Bridge"
             description: "This session will highlight how Optimizely's Audience integrations allow you to deliver personalized experiences to your visitors. We'll hear from a panel of Optimizely customers about how they've used Optimizely’s integrations with first and third-party data platforms, such as BlueKai, Demandbase, and Lytics, to create custom audiences for targeted testing and personalization."
             companies: "Microsoft Store, Citrix, Access Intelligence"
             track: "platform"
@@ -659,9 +523,173 @@ days:
                 job_title: "Technology Partner Manager"
                 company: "Optimizely"
           -
+            title: "Moving the Needle in Your E-Commerce Funnel"
+            time: "10:20 – 11:05"
+            location: "Coit Tower"
+            description: "Ecommerce accounted for 5.9%, or $1.3 trillion, of the total worldwide retail market in 2014. As more shoppers come online, smartphones and tablets account for more online purchases. Optimizing your digital customer experience will continue to become even more important to the success of your online retail business. This session will feature stories from ecommerce businesses that are making every online customer interaction count using Optimizely."
+            companies: "Teespring, LegalZoom"
+            track: "action"
+            roles: "marketer productmanager executive"
+            speakers:
+              -
+                name: "Jesse Avshalomov"
+                job_title: "Director, Product and Growth"
+                company: "Teespring"
+              -
+                name: "Eddie Hartman"
+                job_title: "Co-Founder & Chief Product Officer"
+                company: "LegalZoom"
+          -
+            title: "The 21st Century Marketing Stack & Team"
+            time: "10:20 – 11:05"
+            location: "Golden Gate"
+            description: "Looking through the executive lens, we will discuss the 21st century marketing landscape, and how marketing leaders evaluate their tool stack and team. What are the most important pieces to have in places? Which teams are indispensable and what data needs to be collected? How does experience optimization fit into your digital marketing landscape, and what does the future hold?"
+            companies: "99Designs, Demandbase, Optimizely"
+            track: "strategy"
+            roles: "executive"
+            speakers:
+              -
+                name: "Pam Webber"
+                job_title: "CMO"
+                company: "99Designs"
+              -
+                name: "Peter Isaacson"
+                job_title: "CMO"
+                company: "Demandbase"
+              -
+                name: "Jessie Becker"
+                job_title: "CMO"
+                company: "Optimizely"
+          -
+            title: "Statistics in 40 minutes"
+            time: "10:20 – 11:05"
+            location: "Alcatraz"
+            description: "While our mission is to make A/B Testing safe and approachable regardless of your level of experience, you can always get better results by having a few core statistics principles in your tool shed. In this session we’ll dust off your statistical workbench by reviewing false positives, p-values, and the framework of statistical hypothesis testing, and then add to it the concepts of sequential testing and false discovery rates, all within the context of A/B Testing."
+            companies: "Optimizely"
+            track: "action"
+            roles: "executive marketer"
+            speakers:
+              -
+                name: "Leo Pekelis"
+                job_title: "Statistician"
+                company: "Optimizely"
+              -
+                name: "Pete Koomen"
+                job_title: "Co-Founder & CTO"
+                company: "Optimizely"
+      -
+        start_time: "11:05"
+        title: "Break in Exhibit Hall"
+      -
+        start_time: "11:25"
+        events:
+          -
+            title: "From Skeptic to Champion: How to Win Over Key Stakeholders and Other Non-Believers"
+            time: "11:25 - 12:10"
+            location: "Bay Bridge"
+            description: "Whether you're just getting started or are ready to take things to the next level, getting internal support and executive buy-in is instrumental in the success of any optimization program.  In this interactive session, speakers will share stories from the trenches and best practices for gaining executive support and internal engagement. You'll learn how to use data to turn any naysayer into an experimentation evangelist, and build a culture where employees are encouraged to learn together, fail forward and take risks safely."
+            companies: "Mode Analytics, American Medical Association, Elance-Odesk, Optimizely"
+            track: "culture"
+            roles: "marketer productmanager executive"
+            speakers:
+              -
+                name: "Benn Stancil"
+                job_title: "Chief Analyst"
+                company: "Mode Analytics"
+              -
+                name: "Alek Toumert"
+                job_title: "Senior Digital Analyst"
+                company: "American Medical Association"
+              -
+                name: "Jason Lin"
+                job_title: "Senior Director, Web Marketing"
+                company: "Elance-Odesk"
+              -
+                name: "Rohan Karunakaran"
+                job_title: "Customer Success Manager"
+                company: "Optimizely"
+          -
+            title: "Early Lessons in Personalization Strategy"
+            time: "11:25 - 12:10"
+            location: "Golden Gate"
+            description: "We'll take a look at lessons derived from early progress in personalization, informed by work already canonical in the email, ecommerce, and media industries. Learn how to translate your goals, personas, data, and ideas into a meaningful approach for delivering personalized experiences. See starter use cases relevant for your vertical, like symmetric messaging for B2B, promotional strategies for ecommerce, behavioral retargeting, contextual empathy, and mobile mindsets."
+            companies: "AdRoll, The Clymb"
+            track: "strategy"
+            roles: "marketer developer productmanager executive"
+            speakers:
+              -
+                name: "Mike Norland"
+                job_title: "Senior Marketing Strategist"
+                company: "AdRoll"
+              -
+                name: "Tyler Bullen"
+                job_title: "Personalization Program Manager"
+                company: "The Clymb"
+              -
+                name: "Catherine Pao"
+                job_title: "Growth Product Manager"
+                company: "Blue Apron"
+          -
+            title: "Travel, Testing, and Personalization in the 21st Century"
+            time: "11:25 - 12:10"
+            location: "Coit Tower"
+            description: "Of the $4.7 billion spent on U.S. travel advertising last year, 52 percent went to websites and other digital channels. Yet only a fraction of that amount is spent on capturing the ROI of those dollars with optimization. Panelists running the optimization practices at the top travel businesses in the industry will come together to talk about how testing and personalization drive revenue, conversions, and move their businesses forward."
+            companies: "TripAdvisor (SmarterTravel Media), Hotwire"
+            track: "action"
+            roles: "marketer executive productmanager"
+            speakers:
+              -
+                name: "Katherine Reynolds"
+                job_title: "Product Manager"
+                company: "TripAdvisor (SmarterTravel Media)"
+              -
+                name: "Pauline Marol"
+                job_title: "Lead Product Manager of Site Optimization"
+                company: "Hotwire"
+      -
+        start_time: "12:10"
+        title: "Lunch and Networking"
+      -
+        start_time: "1:25"
+        events:
+          -
+            title: "Fishing with Spears: All About Account Based Marketing"
+            time: "1:25 - 2:10"
+            location: "Coit Tower"
+            description: "Account based marketing (ABM) is quickly becoming the next big thing in B2B marketing. In fact, the ITSMA says that “ABM delivers the highest Return on Investment of any B2B marketing strategy or tactic. Period.” In this fast-paced talk, you'll see why ABM is generating so much buzz, and get practical tips for launching and scaling your ABM programs. You'll learn how ABM is different from traditional demand generation (fishing with nets), the best practices for understanding target accounts, how to orchestrate integrated account plans and measure the impact, how to market to current customers for cross-sell and retention, and how you can implement account-based marketing tactics integrated with Optimizely. If you support sales teams selling six- and seven-figure deals, then this is the session for you!"
+            companies: "Engagio"
+            track: "strategy"
+            roles: "marketer executive"
+            speakers:
+              -
+                name: "Jon Miller"
+                job_title: "CEO and Co-Founder"
+                company: "Engagio"
+          -
+            title: "Optimizing for Engagement for Media"
+            time: "1:25 - 2:10"
+            location: "Bay Bridge"
+            description: "US adults spend more time consuming media on digital channels than any other medium. Even further, last year marked the first time consumers spent more time consuming media on mobile devices than on the desktop. The media landscape is shifting rapidly, and companies are increasingly looking to optimization to stay ahead. Join optimization leaders at some of the top online media companies as they describe their strategies and tactics for increasing engagement."
+            companies: "BabyCenter (Johnson & Johnson), StumbleUpon"
+            track: "action"
+            roles: "marketer productmanager executive"
+            speakers:
+              -
+                name: "Kathy Chao"
+                job_title: "Director of Global Marketing"
+                company: "BabyCenter (Johnson & Johnson)"
+              -
+                name: "David Marks"
+                job_title: "VP of Product"
+                company: "StumbleUpon"
+              -
+                name: "Michael Chang"
+                job_title: "Director of Business Intelligence"
+                company: "About.com"
+          -
             title: "Best Practices in Programmatic Ad Buying and Conversion Funnel Optimization"
             time: "1:25 - 2:10"
-            location: "Main Room"
+            location: "Golden Gate"
             description: "As of 2015, 50% of the display advertising market is executed programmatically. Without the proper tracking and monitoring setup, optimization efforts start to lose impact and even worse, can yield inaccurate results. This talk affords guidance to companies seeking to grow their programmatic efforts in a controlled manner, while still maintaining A/B and conversion funnel optimization rigor. Points of discussion: 1) Tracking and appropriately scaling a programmatic marketing program via a variety of ad platforms (notably - Google and Facebook). 2) Customer, marketing campaign, and A/B segmentation strategies 3) Audience creation and targeting management 4) A/B optimization and building a programmatic feedback loop."
             companies: "Netflix"
             track: "strategy"
@@ -678,9 +706,34 @@ days:
         start_time: "2:30"
         events:
           -
+            title: "Building the SaaS Growth Engine"
+            time: "2:30 - 3:15"
+            location: "Bay Bridge"
+            description: "Optimization and growth in the world of SaaS is a different kind of beast. High traffic volume is not always a given, and your product offering may be very narrowly targeted. Customers visit with a wide variety of budgets, needs, and expectations. In this panel conversation, hear executives from some of the country’s top SaaS companies discuss how they tackle these challenges head-on and continue to expand their businesses by capitalizing on the amazing optimization opportunities within their industries."
+            companies: "KISSmetrics, Marketo"
+            track: "action"
+            roles: "marketer executive"
+            speakers:
+              -
+                name: "Brian Kelly"
+                job_title: "CEO"
+                company: "KISSmetrics"
+              -
+                name: "Heidi Bullock"
+                job_title: "VP of Demand Generation"
+                company: "Marketo"
+              -
+                name: "Jessie Becker"
+                job_title: "CMO"
+                company: "Optimizely"
+              -
+                name: "Moderated by: Shana Rusonis"
+                job_title: "Content Marketing Manager"
+                company: "Optimizely"
+          -
             title: "Hypothesize, Analyze, Optimize: Using Hidden Insights to Perfect your Experiment Process"
             time: "2:30 - 3:15"
-            location: "Breakout 2"
+            location: "Golden Gate"
             description: "Testing is an iterative process, oftentimes with confusing or inconclusive results. However, every experiment has something to teach you, and all too often, critical information is left unnoticed! Learn how to look for insights hidden behind the the numbers and maximize the utility of every experiment you run."
             companies: "Rue La La, Princess Cruises"
             track: "strategy"
@@ -697,33 +750,24 @@ days:
           -
             title: "10 Secrets to Building an Amazing Mobile Testing Roadmap"
             time: "2:30 - 3:15"
-            location: "Breakout 3"
+            location: "Coit Tower"
             description: "With over 1.2 million apps in the App Store, it's never been more important to ensure you're delivering experiences that activate and retain your mobile app users. Just thinking about where to begin can be daunting. Do you start by testing your onboarding flow or your conversion funnel? New navigational elements or in-app promotions to drive conversions? The possibilities are endless, which is why it's critical to have a thoughtful approach to developing a testing roadmap that will take your app to the next level. Join us for a deep dive into how Christian Dürr developed a comprehensive testing and optimization program to grow eBay Classifieds' global business."
             companies: "eBay Classifieds Group"
             track: "strategy"
             roles: "marketer productmanager"
             speakers:
               -
-                name: "Christian Dürr"
-                job_title: "Project Manager and Team Lead"
+                name: "Esben Rasmussen"
+                job_title: "Senior iOS developer"
                 company: "eBay Classifieds Group"
-          -
-            title: "Fishing with Spears: All About Account Based Marketing"
-            time: "2:30 - 3:15"
-            location: "Breakout 4"
-            description: "Account based marketing (ABM) is quickly becoming the next big thing in B2B marketing. In fact, the ITSMA says that “ABM delivers the highest Return on Investment of any B2B marketing strategy or tactic. Period.” In this fast-paced talk, you'll see why ABM is generating so much buzz, and get practical tips for launching and scaling your ABM programs. You'll learn how ABM is different from traditional demand generation (fishing with nets), the best practices for understanding target accounts, how to orchestrate integrated account plans and measure the impact, how to market to current customers for cross-sell and retention, and how you can implement account-based marketing tactics integrated with Optimizely. If you support sales teams selling six- and seven-figure deals, then this is the session for you!"
-            companies: "Engagio"
-            track: "strategy"
-            roles: "marketer executive"
-            speakers:
               -
-                name: "Jon Miller"
-                job_title: "CEO and Co-Founder"
-                company: "Engagio"
+                name: "Jeppe Dyrby"
+                job_title: "Senior Web Developer"
+                company: "eBay Classifieds Group"
           -
             title: "The Future of Experience Optimization"
             time: "2:30 - 3:15"
-            location: "Main Room"
+            location: "Golden Gate"
             description: ""
             track: "strategy"
             roles: "marketer productmanager developer executive"
@@ -735,36 +779,36 @@ days:
         start_time: "3:35"
         events:
           -
-            title: "From Skeptic to Champion: How to Win Over Key Stakeholders and Other Non-Believers"
+            title: "The Power of Empathy in Driving Conversion"
             time: "3:35 - 4:20"
-            location: "Main Room"
-            description: "Whether you're just getting started or are ready to take things to the next level, getting internal support and executive buy-in is instrumental in the success of any optimization program.  In this interactive session, speakers will share stories from the trenches and best practices for gaining executive support and internal engagement. You'll learn how to use data to turn any naysayer into an experimentation evangelist, and build a culture where employees are encouraged to learn together, fail forward and take risks safely."
-            companies: "Mode Analytics, American Medical Association, Elance-Odesk, Optimizely"
-            track: "culture"
-            roles: "marketer productmanager executive"
+            location: "Coit Tower"
+            description: "Do your digital experiences convey your unique value proposition? What about creating customer delight with humor and wit? Learn how to cut through the noise and create meaningful audience connections that drive conversions."
+            companies: "FunnyBiz, Elevated"
+            track: "strategy"
+            roles: "marketer productmanager"
             speakers:
               -
-                name: "Benn Stancil"
-                job_title: "Chief Analyst"
-                company: "Mode Analytics"
+                name: "Rachman Blake"
+                job_title: "Co-Founder"
+                company: "FunnyBiz"
               -
-                name: "Valerie Kroll"
-                job_title: "Digital Analytics Manager"
-                company: "American Medical Association"
+                name: "Keith Lovgren"
+                job_title: "Director of Conversion Rate Optimization"
+                company: "Elevated"
               -
-                name: "Jason Lin"
-                job_title: "Senior Director, Web Marketing"
-                company: "Elance-Odesk"
+                name: "Talia Wolf"
+                job_title: "CEO and Founder"
+                company: "Conversioner"
               -
-                name: "Rohan Karunakaran"
-                job_title: "Customer Success Manager"
+                name: "Moderated by: Cara Harshman"
+                job_title: "Content Marketing Manager"
                 company: "Optimizely"
           -
             title: "Removing Friction and Cognitive Overhead: The Role of UX Design in Optimization"
             time: "3:35 - 4:20"
-            location: "Breakout 2"
+            location: "Bay Bridge"
             description: "'Understand your users' is a conversion optimization adage that's much easier said than done. You've picked apart your web and mobile analytics, collected user feedback, and are ready to design experiment variations. How will you think about the user experience? Join for an in-depth look at the role of UX design in optimization and creating the perfect experience for every user."
-            companies: "Volusion"
+            companies: "Volusion, Optimizely"
             track: "strategy"
             roles: "marketer productmanager developer"
             speakers:
@@ -772,10 +816,14 @@ days:
                 name: "Merritt Aho"
                 job_title: "Sr. Digital Analyst"
                 company: "Volusion"
+              -
+                name: "Ryan Lillis"
+                job_title: "Strategic Consultant"
+                company: "Optimizely"
           -
             title: "The Art and Science of Persuasion: Creating Change with your Results"
             time: "3:35 - 4:20"
-            location: "Breakout 3"
+            location: "Golden Gate"
             description: "Optimizely’s results page is full of data to help you make decisions about your business. Even with all of this information, it’s not always straightforward to call a winner among the mixed messages you might get. This session will break down the results page and give you strategies for evaluating your test results to identify actionable data and create an iterative testing process."
             companies: "CBS Interactive, Optimizely"
             track: "action"
