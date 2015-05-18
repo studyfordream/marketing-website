@@ -54,7 +54,7 @@ sponsor_levels:
         class: "silver"
       -
         display_url: "teamroboboogie.com"
-        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/roboboogie_logo.jpeg"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/roboboogie_bigcircle_color.png"
         site_link: "http://teamroboboogie.com"
         description: "Roboboogie partners closely with brands to improve their conversion rates, nurture brand advocacy and increase customer value. We combine strategic design skills with insightful data analytics to provide highly effective digital customer experience optimization programs. We go beyond CRO to get to know the detailed desires of the customers behind the data. A/B testing is the science that backs our intuitions. Optimizely is our weapon of choice. We are proven digital marketers, insightful data analysts, stunning web designers and masters of user experience design – optimization wizards passionate about creating memorable experiences that get results."
         class: "silver"
@@ -71,6 +71,12 @@ sponsor_levels:
         description: "Segment is on a mission to make using customer data effortless. As a single hub for customer data, Segment collects the data in one place, then transforms and routes it wherever you want: to more than 115 third-party analytics and marketing tools, to internal systems, and to a hostedSQL database."
         class: "silver"
       -
+        display_url: "tealium.com"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/tealium_logo.png"
+        site_link: "http://tealium.com/"
+        description: "Tealium is the leader in real-time unified marketing solutions, helping brands seamlessly integrate their siloed applications and data, and drive more profitable interactions across all digital touch points. Tealium’s open platform for tag management and data enrichment enables marketers to bring order to chaos and build better customer experiences. Tealium’s integration with Optimizely’s experience optimization and testing platform enables more targeted digital marketing initiatives and powers more relevant, intelligent digital marketing experiences for joint customers."
+        class: "silver"
+      -
         display_url: "www.widerfunnel.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/wider_funnel_logo.png"
         site_link: "http://www.widerfunnel.com/"
@@ -80,6 +86,12 @@ sponsor_levels:
     title: "Bronze Sponsors"
     class: "bronze"
     sponsor_list:
+      -
+        display_url: "amplitude.com"
+        image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/amplitude_logo.png"
+        site_link: "https://amplitude.com/"
+        description: "Amplitude is an analytics platform that helps you understand your users so that you can drive growth. You can track user actions and funnels in our dashboards, as well as answer any question you want by querying your data in a hosted Redshift cluster."
+        class: "bronze"
       -
         display_url: "www.clicktale.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clicktale_logo.svg"
