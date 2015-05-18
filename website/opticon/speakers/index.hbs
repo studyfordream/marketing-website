@@ -18,10 +18,23 @@ external_script:
 
 <div class="page-content container">
   <h2 class="page-title common-page-title adelle-sans--bold">{{page_data.title}}</h2>
-  <h3 class="description-title adelle-sans">{{global_speakers_data.speakers.title}}</h3>
-  <h4 class="adelle-sans">{{page_data.keynote_speakers_header}}</h4>
+  <h3 class="description-title adelle-sans">{{page_data.subtitle}}</h3>
+
   {{! Keynote Speakers Section }}
-  {{> opticon_keynote_speakers}}
+  {{#with page_data.keynote_speakers}}
+  <section class="speakers container">
+    <h4 class="adelle-sans">{{this.title}}</h4>
+    <div class="speakers-container flex-container">
+      {{#each speaker_list}}
+      <div class="speaker-container" style="background-image: url('{{this.image}}')">
+        <p class="item-title adelle-sans--bold">{{this.name}}</p>
+        <p class="item-source adelle-sans">{{this.company}}</p>
+        <p class="js-speaker-info item-more-info adelle-sans--bold" data-name="{{this.name}}" data-image="url({{this.image}})" data-company="{{this.company}}" data-bio="{{this.blurb}}">READ BIO →</p>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+  {{/with}}
 
   {{! Guest Speakers Section }}
   {{#with page_data.guest_speakers}}

@@ -1,5 +1,24 @@
 title: "Speakers"
-keynote_speakers_header: "Keynote Speakers"
+subtitle: "Engage with heads of industry and world-renowned thought leaders."
+keynote_speakers:
+  title: "Keynote Speakers"
+  speaker_list:
+    -
+      name: "Dan Siroker"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
+      company: "Optimizely"
+      blurb: "Dan Siroker is the Co-Founder & CEO of Optimizely, a company that makes it dramatically easier to optimize your website and mobile experience. The inspiration for Optimizely came from Dan's experience as the Director of Analytics for the Obama Presidential Campaign and Deputy New Media Director for the Presidential Transition. Before Optimizely, Dan co-founded an online math game for kids called CarrotSticks and was formerly a Product Manager for Google Chrome and AdWords. Dan graduated with Honors from Stanford University with a B.S. in Computer Science, and was named to Forbes' 30 under 30 in 2012."
+    -
+      name: "Marc Andreessen"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/marc-circle-headshot.png"
+      company: "Andreessen Horowitz"
+      blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
+    -
+      name: "Pete Koomen"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/pete-koomen.png"
+      company: "Optimizely"
+      blurb: "Pete Koomen is the Co-Founder and CTO of Optimizely, the world's leading experience optimization platform, providing A/B testing, targeting and multichannel optimization for websites and mobile apps. Before co-founding Optimizely with CEO Dan Siroker, Pete spent three years as a Product Manager at Google, where he helped launch and grow the App Engine platform. Pete holds dual bachelor’s degrees in Mathematics and Computer Science, as well as a master’s in Computer Science from the University of Illinois at Urbana-Champaign. In his spare time, Pete enjoys the symphony and rock climbing."
+
 guest_speakers:
   title: "Guest Speakers"
   speaker_list:
