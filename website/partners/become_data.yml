@@ -1,14 +1,14 @@
 intro:
   TR_headline: "Partner with Optimizely"
-  TR_subhead: "The World’s Leading Experience Optimization Platform"
+  TR_subhead: "The # 1 Experience Optimization Platform"
   MD_blurb: "Partnering with Optimizely provides you with the business and technical resources you need to innovate and grow your business. We help you build powerful integrations, get certified on the Optimizely platform, and collaborate in mutually beneficial marketing and sales opportunities."
   technology:
     TR_headline: "Become a Technology Partner"
-    TR_blurb: "Integrate with Optimizely and enable your customers to turn their data into action, quickly and simply."
+    TR_blurb: "Integrate with Optimizely and enable your customers to turn their data into action."
     TR_cta_text: "Learn More"
     cta_link: "partners/technology/join"
   solutions:
-    TR_headline: "Become a Solutions Partner Partner"
+    TR_headline: "Become a Solutions Partner"
     TR_blurb: "Develop new revenue streams for your business by delivering best in class optimization services."
     TR_cta_text: "Learn More"
     cta_link: "partners/solutions/join"
