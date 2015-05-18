@@ -54,7 +54,7 @@
     "gulp-extname": "0.2.0",
     "handlebars": "3.0.0",
     "kind-of": "^1.1.0",
-    "l10n-tools": "git+ssh://git@github.com/optimizely/l10n-tools.git#cbe46faf89224ad89d20d7924692f60cde45db9f",
+    "l10n-tools": "git+ssh://git@github.com/optimizely/l10n-tools.git#84237337ee50fc8e3e1d3b5205784c4e39996c17",
     "l10n-tr": "git+ssh://git@github.com/optimizely/l10n-tr.git#4c4175a2c18c4340c4786edb884228c72ccdd14c",
     "gulp-util": "^3.0.4",
     "handlebars-loader": "1.0.0",
