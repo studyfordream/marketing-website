@@ -57,7 +57,10 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       DIALOG_ACCOUNT: tr('There was an error creating your account.'),
       SERVER_MESSAGES: {
         'Account already exists.': tr('Account already exists.'),
-        'Please enter a real email address.': tr('Please enter a real email address.')
+        'Please enter a real email address.': tr('Please enter a real email address.'),
+        'Email sent.': tr('Email sent.'),
+        'Account was not found.': tr('Account was not found.'),
+        'Incorrect email or password.': tr('Incorrect email or password.')
       }
     },
 
@@ -69,7 +72,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       if(typeof message === 'object') {
         if(message.serverMessage) {
           // translate the message if it is from the server response
-          message = this.errorMessages.SERVER_MESSAGES[message.serverMessage];
+          message = this.errorMessages.SERVER_MESSAGES[message.serverMessage] || this.errorMessages.DIALOG_DEFAULT;
         } else {
           // get the success message translate from the constant dictionary
           message = this.errorMessages[message.error];
