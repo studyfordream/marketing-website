@@ -74,7 +74,7 @@ sponsor_levels:
         display_url: "tealium.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/tealium_logo.png"
         site_link: "http://tealium.com/"
-        description: ""
+        description: "Tealium is the leader in real-time unified marketing solutions, helping brands seamlessly integrate their siloed applications and data, and drive more profitable interactions across all digital touch points. Tealium’s open platform for tag management and data enrichment enables marketers to bring order to chaos and build better customer experiences. Tealium’s integration with Optimizely’s experience optimization and testing platform enables more targeted digital marketing initiatives and powers more relevant, intelligent digital marketing experiences for joint customers."
         class: "silver"
       -
         display_url: "www.widerfunnel.com"
