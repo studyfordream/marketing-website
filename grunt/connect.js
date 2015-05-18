@@ -41,6 +41,7 @@ module.exports = function(grunt, options) {
 
             function(req, res, next){
               var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                respObj,
                 code;
               if(req.method === 'POST'){
 
@@ -71,9 +72,17 @@ module.exports = function(grunt, options) {
 
                 } else if(req.url === '/account/free_trial_create'){
 
+                  if(req.body.email === 'david.fox-powell@optimizely.com') {
+                    respObj = '{"id":"9b96c818-b116-40f8-9a30-e08ef7dae4a4","succeeded":false,"error":"Account already exists."}';
+                    code = 400;
+                  } else {
+                    respObj = grunt.file.read('website-guts/endpoint-mocks/free-trial-success.json');
+                    code = 200;
+                  }
+
                   setTimeout(function(){
-                    res.writeHead(200, {'Content-Type': 'application/json'});
-                    res.end( grunt.file.read('website-guts/endpoint-mocks/free-trial-success.json') );
+                    res.writeHead(code, {'Content-Type': 'application/json'});
+                    res.end( respObj );
                   }, 2000);
 
                 } else if(req.url === '/account/free_trial_landing/account_exists'){
@@ -107,7 +116,6 @@ module.exports = function(grunt, options) {
                   }, 2000);
 
                 } else if(req.url === '/recover/request') {
-                  var respObj;
 
                   if(req.body.email === 'david.fox-powell@optimizely.com') {
                     respObj = '{"message":"Email sent.","succeeded":true}';

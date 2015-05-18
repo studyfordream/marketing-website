@@ -184,7 +184,7 @@ TR_tables:
       -
         TR_title: "API Access"
         string: true
-        starter_text: "JavaScript API<br/>REST API (1000 calls/month)"
+        TR_starter_text: "JavaScript API<br/>REST API (1000 calls/month)"
         TR_enterprise_text: "JavaScript API<br/>REST API (Custom calls/day)"
   -
     TR_title: "Manage Your Experience Optimization Program"
@@ -193,22 +193,22 @@ TR_tables:
       -
         TR_title: "Projects"
         string: true
-        starter_text: "1 Website, 1 iOS App, and 1 Android App"
+        TR_starter_text: "1 Website, 1 iOS App, and 1 Android App"
         TR_enterprise_text: "Custom"
       -
         TR_title: "Domains"
         string: true
-        starter_text: "1 Web Domain, 1 iOS App, and 1 Android App"
+        TR_starter_text: "1 Web Domain, 1 iOS App, and 1 Android App"
         TR_enterprise_text: "Custom"
       -
         TR_title: "Experiments"
         string: true
-        starter_text: "Unlimited"
+        TR_starter_text: "Unlimited"
         TR_enterprise_text: "Unlimited"
       -
         TR_title: "Collaborators"
         string: true
-        starter_text: "3"
+        TR_starter_text: "3"
         TR_enterprise_text: "Custom"
       -
         TR_title: "Multi-account Login"
@@ -244,7 +244,7 @@ TR_tables:
       -
         TR_title: "Traffic Optimized"
         string: true
-        starter_text: "50,000 MUVs/MAUs"
+        TR_starter_text: "50,000 MUVs/MAUs"
         TR_enterprise_text: "Custom"
         TR_tooltip: "Monthly unique visitors are counted by adding the number
           of unique visitors in an experiment on the web to the number of
@@ -260,19 +260,19 @@ TR_tables:
         boolean: true
         starter_bool: true
         enterprise_bool: true
-        tooltip: "A thriving community where experimenters unite, explore, and optimize."
+        TR_tooltip: "A thriving community where experimenters unite, explore, and optimize."
       -
         TR_title: "Knowledge Base"
         boolean: true
         starter_bool: true
         enterprise_bool: true
-        tooltip: "A resource to search and browse for answers and documentation."
+        TR_tooltip: "A resource to search and browse for answers and documentation."
       -
         title: "Academy"
         boolean: true
         starter_bool: true
         enterprise_bool: true
-        tooltip: "A space to learn and grow your optimization skills."
+        TR_tooltip: "A space to learn and grow your optimization skills."
       -
         TR_title: "Online Tickets"
         boolean: true

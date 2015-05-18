@@ -38,7 +38,7 @@ var seoHelper = {
   },
 
   done: function() {
-    if($('body').hasClass('oform-error')){
+    if($('body').hasClass('oform-error')) {
       $('body').removeClass('oform-processing');
       //report that there were errors in the form
       w.analytics.track('seo-form validation error', {

@@ -54,7 +54,11 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       PASSWORD_CHAR: tr('Password Minimum 8 characters, mix of upper/lowercase letters, numbers or symbols'),
       ENTER_SAME_VAL: tr('Please enter the same value as above'),
       DIALOG_DEFAULT: tr('We\'ve encoutered an unexpected error.'),
-      DIALOG_ACCOUNT: tr('There was an error creating your account.')
+      DIALOG_ACCOUNT: tr('There was an error creating your account.'),
+      SERVER_MESSAGES: {
+        'Account already exists.': tr('Account already exists.'),
+        'Please enter a real email address.': tr('Please enter a real email address.')
+      }
     },
 
     successMessages: {
@@ -65,7 +69,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
       if(typeof message === 'object') {
         if(message.serverMessage) {
           // translate the message if it is from the server response
-          message = tr(message.serverMessage);
+          message = this.errorMessages.SERVER_MESSAGES[message.serverMessage];
         } else {
           // get the success message translate from the constant dictionary
           message = this.errorMessages[message.error];
@@ -200,6 +204,7 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
         return resp || {};
       } else {
         if(resp && resp.error) {
+          $('body').addClass('oform-error').removeClass('oform-processing');
           // if the server response has an error property
           this.showOptionsError({serverMessage: resp.error});
           //handle invalid emails
@@ -212,7 +217,8 @@ window.optly.mrkt.form.HelperFactory = function(scopeObj) {
               var oFormInstance = w.optly.mrkt.activeModals[$(this.formElm).attr('id')];
               var element = $(this.formElm).find('input[name="email"]')[0];
               oFormInstance.options.adjustClasses(element, false);
-              $(this.formElm).find('.email-related').text(tr(resp.error));
+              var message = this.errorMessages.SERVER_MESSAGES[resp.error];
+              $(this.formElm).find('.email-related').text(message);
             }
           }
         } else {
