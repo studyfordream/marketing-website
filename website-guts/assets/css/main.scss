@@ -216,27 +216,26 @@ ul {
     }
     .ugc {
         color: $text-color;
-        li {
-          text-align: left;
-        }
         p, ul, ol {
           margin: 1em 0 1em 0;
         }
         p, li {
-            font-size: 1.1em;
+          font-size: 1.1em;
         }
         li {
           list-style: none;
+          text-align: left;
+          font-weight: 100;
+          margin-bottom: 7px;
         }
         p {
-            line-height: 1.7;
-            text-align: left;
-            img {
-              display: block;
-              margin: 1em auto 1em auto;
-            }
+          line-height: 1.7;
+          text-align: left;
+          img {
+            display: block;
+            margin: 1em auto;
+          }
         }
-        li { margin-bottom: 7px; }
         h2,
         h3,
         h4,
@@ -245,9 +244,6 @@ ul {
           font-family: $body-font-family;
         }
         p,
-        li {
-          font-weight: 100;
-        }
         h2,
         h3,
         h4,

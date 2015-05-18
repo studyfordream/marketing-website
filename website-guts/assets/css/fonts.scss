@@ -37,7 +37,7 @@ $hosted-fonts:(
   }
 
   // If italic versions should be included.
-  @if (map-fetch($include-fonts, italics) == true ) {
+  @if (map-fetch($include-fonts, italics) == true) {
     @font-face {
       font-family: 'Proxima';
       font-weight: $weight;
