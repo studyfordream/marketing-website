@@ -230,3 +230,7 @@ w.optly.mrkt.setAttributeCookie = function(signInResponse){
 };
 
 w.optly_q.push([w.optly.mrkt.setAttributeCookie]);
+
+$(function() {
+  $(window).scrollTop(0);
+});

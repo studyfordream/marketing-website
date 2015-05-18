@@ -12,7 +12,7 @@ var config = function(grunt, options) {
       console.log('error reading secret credentials: ', err);
       return false;
     }
-    
+
   }
 
   return {
@@ -157,7 +157,7 @@ var config = function(grunt, options) {
         }
       }
     },
-    
+
     content: 'website',
     guts: 'website-guts',
     dist: 'dist',
