@@ -4,14 +4,14 @@ locations:
 - San Francisco, CA
 - Amsterdam, The Netherlands
 founded: 2010
-venture:
+TR_venture:
 - Andreessen Horowitz
 - Benchmark
 - Bain Capital Ventures
 - Battery Ventures
 - Google Ventures
 - InterWest Partners
-angels:
+TR_angels:
 - Ariel Poler
 - Ashton Kutcher
 - Avichal Garg
