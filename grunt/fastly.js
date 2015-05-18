@@ -7,5 +7,11 @@ module.exports = {
         purgeAll: true,
         serviceId: '<%= secret.fastly_service_id %>'
       }
+    },
+    staging: {
+      options: {
+        purgeAll: true,
+        serviceId: '<%= secret.fastly_service_id %>'
+      }
     }
 };
