@@ -1,6 +1,6 @@
 $('.js-speaker-info').on('click', function(e) {
   e.preventDefault();
-  window.optly.mrkt.modal.open({modalType: 'opticon-sponsor-modal', position: ($(window).scrollTop() + ($(window).height() - 400) / 2)});
+  window.optly.mrkt.modal.open({modalType: 'opticon-sponsor-modal', staticModal: true});
   $('.js-speaker-image').css('background-image', this.getAttribute('data-image'));
   $('.js-speaker-name').html(this.getAttribute('data-name'));
   $('.js-speaker-company').html(this.getAttribute('data-company'));

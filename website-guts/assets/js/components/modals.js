@@ -117,7 +117,7 @@ function storeModalState(modalType, modalOpen) {
 
 window.optly.mrkt.modal.open = function(modalArgs) {
   var modalType = modalArgs.modalType,
-    modalPosition = modalArgs.position,
+    staticModal = modalArgs.staticModal,
     $elm = $elms[modalType],
     modalName = $elm.data('modalName'),
     animInitiated,
@@ -148,12 +148,7 @@ window.optly.mrkt.modal.open = function(modalArgs) {
     storeModalState(modalType, true);
   }
 
-  var isMobile = w.optly.mrkt.isMobile();
-  if (modalPosition) {
-    if (!isMobile) {
-      $elm.find('.dialog').css('top', modalPosition);
-    }
-  } else {
+  if (!staticModal) {
     $('html, body').addClass('modal-open');
     window.scrollTo(0,0);
   }

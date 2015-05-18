@@ -278,6 +278,13 @@ body.opticon {
         text-align: center;
       }
     }
+    .modal-dialog-container .dialog {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-top: 0;
+    }
     .opticon-modal-container__close-icon {
       padding-top: 15px;
       width: 15px;
