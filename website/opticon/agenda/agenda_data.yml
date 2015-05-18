@@ -666,7 +666,7 @@ days:
                 job_title: "CEO and Co-Founder"
                 company: "Engagio"
           -
-            title: "Optimizing for Engagement for Media"
+            title: "Optimizing for Engagement in Media"
             time: "1:25 - 2:10"
             location: "Bay Bridge"
             description: "US adults spend more time consuming media on digital channels than any other medium. Even further, last year marked the first time consumers spent more time consuming media on mobile devices than on the desktop. The media landscape is shifting rapidly, and companies are increasingly looking to optimization to stay ahead. Join optimization leaders at some of the top online media companies as they describe their strategies and tactics for increasing engagement."
@@ -764,14 +764,6 @@ days:
                 name: "Jeppe Dyrby"
                 job_title: "Senior Web Developer"
                 company: "eBay Classifieds Group"
-          -
-            title: "The Future of Experience Optimization"
-            time: "2:30 - 3:15"
-            location: "Golden Gate"
-            description: ""
-            track: "strategy"
-            roles: "marketer productmanager developer executive"
-            speakers:
       -
         start_time: "3:15"
         title: "Break in Exhibit Hall"
