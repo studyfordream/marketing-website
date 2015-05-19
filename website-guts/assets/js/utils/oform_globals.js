@@ -1,5 +1,5 @@
 ;(function(){
-
+  var getLanguageKey = require('./no-global/get-language-key');
   var w, d;
 
   w = window;
@@ -21,7 +21,11 @@
   };
 
   w.optly.mrkt.Oform.defaultMiddleware = function(XHR, data){
-
+    //`this` is the oForm instance
+    var isCreateAccount = /\/account\/create/.test( $(this.selector).attr('action') );
+    if(isCreateAccount) {
+      data += getLanguageKey();
+    }
     XHR.withCredentials = true;
 
     return data;

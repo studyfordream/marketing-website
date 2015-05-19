@@ -11,8 +11,8 @@ press_kit:
     link: "http://www.scribd.com/doc/197409519/Fact-Sheet"
     TR_title: "Download our fact sheet"
     TR_text: "Download Fact Sheet"
-TR_press_releases:
-    header: "Press Releases"
+press_releases:
+    TR_header: "Press Releases"
 press_inquiries:
   TR_header: "Press Inquiries"
   TR_body: "If you’d like to write a story about Optimizely, please email <a href='mailto:press@optimizely.com'>press@optimizely.com</a>"
@@ -22,14 +22,14 @@ investors:
   TR_header: "Investors"
 blog:
   TR_header: "Optimizely Blog"
-  link: "http://blog.optimizely.com/"
+  link: "https://blog.optimizely.com/"
   TR_btn_text: "Click here"
   TR_text: "to read the latest articles on our blog."
 follow_the_latest:
   TR_header: "Follow the latest from Optimizely:"
   TR_items:
   -
-    link: "http://blog.optimizely.com"
+    link: "https://blog.optimizely.com"
     TR_title: "Optimizely Blog: Conversion Rate Optimism"
     TR_text: "Optimizely Blog"
     swap_id: "press-footer-blog"

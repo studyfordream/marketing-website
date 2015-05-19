@@ -197,3 +197,9 @@ $('#downgrade-plan-form').submit(function(e) {
   });
   e.preventDefault();
 });
+
+//check for url parameter to make the contact sales modal open on page load.
+var modal = w.optly.mrkt.utils.getURLParameter('modal');
+if (modal === 'contact-sales') {
+  w.optly.mrkt.modal.open({ modalType: modal, track: false });
+}

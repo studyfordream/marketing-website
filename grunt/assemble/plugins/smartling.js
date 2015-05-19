@@ -1,14 +1,12 @@
 'use strict';
 
 var _ = require('lodash');
-var fs = require('fs');
-var path = require('path');
 var through = require('through2');
-var removeTranslationKeys = require('../utils/remove-translation-keys');
 var hbsParser = require('l10n-tools/hbs-parser');
 
 module.exports = function (assemble) {
   var createTranslationDict = require('../utils/create-dictionary')(assemble);
+  var removeTranslationKeys = require('../utils/remove-translation-keys')(assemble);
   var parseFilePath = require('../utils/parse-file-path')(assemble);
   var getGlobalYml = require('./translation-utils/get-global-yml');
   var globalData = assemble.get('data');
@@ -19,8 +17,9 @@ module.exports = function (assemble) {
   var websiteRoot = assemble.get('data.websiteRoot');
   var locales = assemble.get('data.locales');
 
-  //add the global yml keys flagged for translation to the lang object to be parsed
-  //and sent to smartling
+  /**
+   * add the global yml keys flagged for translation to the lang object to be parsed and sent to smartling
+   */
   lang.global = createTranslationDict(globalYml, 'global');
 
   return through.obj(function (file, enc, cb) {
@@ -34,32 +33,37 @@ module.exports = function (assemble) {
     lang[locale] = lang[locale] || {};
     lang[locale][dataKey] = lang[locale][dataKey] || {};
 
-    //cache the layout data and remove it from the file.data object before translation parsing
-    //because layout data will be added to pageDataClone through the plugin
+    /**
+     * cache the layout data and remove it from the file.data object before translation parsing
+     * because layout data will be added to pageDataClone through the plugin
+     */
     if(file.data.layouts) {
       layoutData = file.data.layouts;
       delete file.data.layouts;
     }
 
-    //get TR|MD prefixed keys and swap out MD content for HTML content
+    /**
+     * get TR|MD prefixed keys and swap out MD content for HTML content
+     */
     trYfm = createTranslationDict(file, locale);
 
-    //add all the parsed YFM to the page data object
+    /**
+     * add all the parsed YFM to the page data object
+     */
     _.merge(pageDataClone[locale][dataKey], trYfm);
 
     trYml = createTranslationDict(pageDataClone[locale][dataKey], locale);
-    //parse file contents for tr helper phrases
+
+    /**
+     * Add extracted phrases as translation key so they will be sent to smartling
+     */
     if(file.contents) {
-      // Add extracted phrases as translation key so they will be sent to smartling
       trYml.TR_hbs_extracted = hbsParser.extract(file.contents.toString());
     }
-    //don't translate partners markdown content
-    if(/partners\/(solutions|technology)\//.test(file.path) && trYml.HTML_page_content) {
-      delete trYml.HTML_page_content;
-    }
 
-    //extend the lang object with data from the YFM of file.data
-    //and external yml data
+    /**
+     * extend the lang object with data from the YFM of file.data and external yml data
+     */
     if(Object.keys(trYml)) {
       lang[locale][dataKey] = trYml;
     }
@@ -77,24 +81,18 @@ module.exports = function (assemble) {
   }, function (cb) {
     var curryTryCatch = require('../utils/curry-try-catch');
     var mergeSubfolderYml = curryTryCatch(require('./translation-utils/merge-subfolder-yml')(assemble));
-    var writePath = path.join(process.cwd(), 'grunt/assemble/test/fixture/config');
-    fs.writeFileSync(path.join(writePath, 'lang.js'), JSON.stringify(lang), {encoding: 'utf8'});
-    fs.writeFileSync(path.join(writePath, 'page-data-clone.js'), JSON.stringify(pageDataClone), {encoding: 'utf8'});
     mergeSubfolderYml(lang, pageDataClone);
     assemble.set('lang', lang);
-    var sendToSmartling = require('./translation-utils/smartling-upload')(assemble);
+    var sendToSmartling = curryTryCatch(require('./translation-utils/smartling-upload')(assemble));
 
     sendToSmartling().then(function(resolved){
       var populateSubfolderData = curryTryCatch(require('./translation-utils/populate-subfolder-data')(assemble));
-      var translateSpecialTypes = curryTryCatch(require('./translation-utils/translate-special-types')(assemble));
       var translatePageData = curryTryCatch(require('./translation-utils/translate-page-data')(assemble));
-      var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data'));
-      var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object'));
-      var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml'));
+      var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data')(assemble));
+      var createTranslatedObject = curryTryCatch(require('./translation-utils/create-translated-object')(assemble));
+      var translateGlobalYml = curryTryCatch(require('./translation-utils/translate-global-yml')(assemble));
       var translateAssembleViews = curryTryCatch(require('./translation-utils/translate-assemble-views')(assemble));
       var translations = resolved[0];
-      //this will become the dictionary for pages
-      var translated = {};
 
       /**
        * iterate through locales to create complete the `pageDataClone` object
@@ -112,20 +110,18 @@ module.exports = function (assemble) {
        * }
        */
       Object.keys(locales).forEach(function(locale) {
-        var dictKey = locales[locale];
-
         populateSubfolderData(locale, pageDataClone);
-        translateSpecialTypes(locale, translations[dictKey], pageDataClone);
-        translatePageData(locale, lang, pageDataClone, translations[dictKey]);
+        translatePageData(locale, pageDataClone, translations);
+        removeTranslationKeys(pageDataClone[locale], locale);
       });
 
-      //remove translation keys after page translations
-      removeTranslationKeys(pageDataClone);
+      removeTranslationKeys(pageDataClone[websiteRoot]);
 
       mergeLayoutData(pageDataClone);
 
       /**
        * iterate through locales to create a `translated` object
+       * `translated` will become the dictionary for pages
        *
        * translated = {
        *  de_DE: {
@@ -136,20 +132,29 @@ module.exports = function (assemble) {
        *  }
        * }
        */
-      Object.keys(locales).forEach(function(locale) {
-        var localeCode = locales[locale];
+      var langKeys = Object.keys(locales).reduce(function(cache, locale) {
+        var langKey = locales[locale];
+        if(cache.indexOf(langKey) === -1) {
+          cache.push(langKey);
+        }
+
+        return cache;
+      }, []);
+
+      var translated = langKeys.reduce(function(memo, localeCode) {
 
         //create the translated object making sure to account for multiple domains potentially
         //associated with the same translation key
-        translated[localeCode] = createTranslatedObject(locales, localeCode, pageDataClone);
+        memo[localeCode] = createTranslatedObject(localeCode, pageDataClone);
 
         //translate the global yml and attach it to the translated object to be swapped out in the middleware
-        translated[localeCode].global = {};
-        translated[localeCode].global = translateGlobalYml(localeCode, globalYml, translations);
-      });
+        memo[localeCode].global = {};
+        memo[localeCode].global = translateGlobalYml(localeCode, globalYml, translations);
+
+        return memo;
+      }, {});
 
       removeTranslationKeys(globalData);
-
       translateAssembleViews(translated);
 
       assemble.set('rootData', pageDataClone[websiteRoot]);

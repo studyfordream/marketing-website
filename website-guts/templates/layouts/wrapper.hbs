@@ -31,6 +31,8 @@ layout_modals:
             {{/is}}
             window.optly_q = [];
             window.optly = {};
+            window.optly.l10n = window.optly.l10n || {};
+            window.optly.l10n.locales = {{{stringifyJS 'locales'}}};
             window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
             window.analytics.load('{{environmentVariables.segmentProjectID}}');
             window.analytics.page();
@@ -47,7 +49,8 @@ layout_modals:
         {{!-- Open Graph meta tags --}}
         <meta property="og:title" content="Optimizely: {{#if this.og_title}}{{this.og_title}}{{else}}Make every experience count{{/if}}">
         <meta property="og:description" content="{{#if this.og_description}}{{this.og_description}}{{else}}Deliver your best customer experiences at every touchpoint on the web and mobile apps.{{/if}}">
-        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+        <meta property="og:image" content="https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/global/optly_social_share.png">
+        <link rel="shortcut icon" href="{{assetsDir}}/img/favicon.ico">
         {{#if environmentVariables.production}}
         <script>
         (function(d,b,a,s,e) {
@@ -152,7 +155,7 @@ layout_modals:
                                           <li><a href="http://certification.optimizely.com">{{tr 'Certification'}}</a></li>
                                           <li><a href="{{linkPath}}/resources/sample-size-calculator/">{{tr 'Sample Size Calculator'}}</a></li>
                                           <li><a href="{{linkPath}}/resources/">{{tr 'Content Library'}}</a></li>
-                                          <li id="SL-link-blog" class="SL_swap"><a href="http://blog.optimizely.com">{{tr 'Blog'}}</a></li>
+                                          <li id="SL-link-blog" class="SL_swap"><a href="https://blog.optimizely.com">{{tr 'Blog'}}</a></li>
                                         </ul>
                                     </li>
                                     <li class="last"><a href="{{linkPath}}/jobs/">{{tr 'Jobs'}}</a></li>
@@ -227,7 +230,7 @@ layout_modals:
                                             <li><a href="http://developers.optimizely.com">{{tr 'Developer Documentation'}}</a></li>
                                             <li><a href="{{linkPath}}/resources/sample-size-calculator/">{{tr 'Sample Size Calculator'}}</a></li>
                                             <li><a href="{{linkPath}}/resources/">{{tr 'Content Library'}}</a></li>
-                                            <li id="SL-link-blog" class="SL_swap"><a href="http://blog.optimizely.com">{{tr 'Blog'}}</a></li>
+                                            <li id="SL-link-blog" class="SL_swap"><a href="https://blog.optimizely.com">{{tr 'Blog'}}</a></li>
                                           </ul>
                                         </li>
                                         <li id="footer-nav-about" class="columns two">

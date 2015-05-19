@@ -1,3 +1,4 @@
+require('core-js/es5');// jshint ignore:line
 w.optly.mrkt.inlineFormLabels();
 
 if(!w.optly.mrkt.isMobile()){
