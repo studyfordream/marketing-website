@@ -21,14 +21,13 @@ $sentinel-font-family: "Sentinel SSm A", "Sentinel SSm B", sans-serif;
 $sentinel-medium-font-family: "Sentinel A", "Sentinel B", Georgia, sans-serif;
 $adelle-sans-font-family: "AdelleSans-Regular", Helvetica, Arial, sans-serif;
 
-$page-header-color: #004f83;
+$page-header-color: #00415d;
 $page-content-color: #f4f4f4;
 
 $header-background: #00415d;
-$nav-hover-color: #006eb6;
+$nav-hover-color: #0081ba;
 $mobile-nav-width: 80%;
 
-$footer-link-color: #accff2;
 $footer-desktop-font-size: .65em;
 
 
@@ -40,13 +39,12 @@ $footer-desktop-font-size: .65em;
 $white: #ffffff;
 //blues
 $light-blue-bg: #e6edf0;
-$blue: #006EB6;
+$light-blue: #accff2;
 $brand-blue: #0081ba;
-$brand-blue-hover: #0f8ec7;
-$dark-blue: #0053a7;
-$super-dark-blue: #00415d;
-$super-dark-blue-hover: #005377;
-$dark-blue-hover: #00415d;
+$brand-blue-hover: #2091c3;
+$brand-blue-border: #007ab0;
+$brand-navy-blue: #00415d;
+$brand-navy-blue-hover: #005377;
 $baby-blue-bg: #a2cbe1;
 $opticon-light-blue: #e9f3f4;
 $opticon-brand-blue: #0081ba;
@@ -67,7 +65,7 @@ $opticon-text-gray: #6C6C6C;
 $opticon-nav-gray: #4a4a4a;
 //other
 $text-color: #242424;
-$a-text-color: #4d89e2;
+$a-text-color: $brand-blue;
 $header-text-color: #003366;
 $subheader-text-color: #6b6b6b;
 $dark-text-color: #131313;
