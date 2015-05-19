@@ -1,12 +1,12 @@
 ---
 layout: page
-TR_seo_title: Communities
-TR_visible_title: Communities
+seo_title: Communities
+visible_title: Communities
 body_class:
 - communities-page
 ---
 {{#each page_data.groups}}
-<div class="row">
+<div class="row" l10n-skip>
   <h2>{{group_name}}</h2>
   <img class="group-pic desktop-img" src="{{../assetsDir}}{{image}}" />
   {{{text_content}}}
