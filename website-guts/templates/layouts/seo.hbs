@@ -17,7 +17,13 @@ TR_layout_header: "Start using Optimizely to test your website today!"
     <div class="container">
       <div class="row">
         <div class="columns ten offset-one">
-          <div class="ugc">{% body %}</div>
+          <div class="ugc">
+            {{#if this.parse_md}}
+              {{#omarkdown path=linkPath}}{% body %}{{/omarkdown}}
+              {{else}}
+              {% body %}
+            {{/if}}
+          </div>
         </div>
       </div>
       <div class="row">
