@@ -262,11 +262,11 @@ guest_speakers:
       #image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/abby-lokshin.png"
       #company: "Rue La La"
       #blurb: ""
-    #-
-      #name: "Keith Lovgren"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      #company: "Elevated"
-      #blurb: "Keith Lovgren has been working in Conversion Optimization since Google released its website optimizer in 2006. He is the director of Conversion Rate Optimization at Elevated.com. His favorite part of Experience Optimization is figuring out how to bridge the gap between companies and their website visitors. In his spare time, he volunteers at Waves of Impact, a nonprofit that provides free surf camps for children with special challenges and wounded veterans."
+    -
+      name: "Keith Lovgren"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/keith_lovgren.png"
+      company: "Elevated"
+      blurb: "Keith Lovgren has been working in Conversion Optimization since Google released its website optimizer in 2006. He is the director of Conversion Rate Optimization at Elevated.com. His favorite part of Experience Optimization is figuring out how to bridge the gap between companies and their website visitors. In his spare time, he volunteers at Waves of Impact, a nonprofit that provides free surf camps for children with special challenges and wounded veterans."
     -
       name: "Jenny Lykken"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jenny_culture-from-withinbw_170x170-circle.png"
