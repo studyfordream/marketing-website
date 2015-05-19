@@ -15,9 +15,12 @@ module.exports = function (grunt) {
     //special key for YML data for translation dictionary retrieval
     var config = grunt.config.get('_assemble'); // old assemble config
     var options = config.options; // global options
+    var env = options.environment;
+    var smartlingEnv = options.smartlingConfigs[ target || env ];
     var loadGlobalData = require('./utils/load-global-data')(assemble);
 
     loadGlobalData(options);
+    assemble.set('smartlingEnvConfig', smartlingEnv);
 
     var langLoader = require('./loaders/subfolders-loader');
     var renderTypeHelper = require('./helpers/render-type-helper')(assemble);
@@ -484,7 +487,6 @@ module.exports = function (grunt) {
 
     });
 
-    var env = options.environment;
     var tasks;
 
     if(env === 'dev') {

@@ -22,6 +22,12 @@ var config = {
     modalsDir: '<%= config.guts %>/templates/components/modals',
     pageContentNamespace: 'page_data',
     subfoldersRoot: 'subfolders',
+    smartlingConfigs: {
+      'dev': 'smartlingConfig_sandbox_pseudo.json',
+      'real': 'smartlingConfig_sandbox_real.json',
+      'custom': 'smartlingConfig_custom.json',
+      'production': 'smartlingConfig_prod.json',
+    },
     locales: {
       'de': 'de_DE',
       'fr': 'fr_FR',
