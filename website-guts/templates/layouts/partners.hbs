@@ -81,7 +81,7 @@ layout_body_class:
             </div>
 
             <div class="notranslate">
-              {% body %}
+              {{#omarkdown path=linkPath}}{% body %}{{/omarkdown}}
             </div>
 
             {{#if this.tags}}

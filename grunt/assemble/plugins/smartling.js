@@ -62,13 +62,6 @@ module.exports = function (assemble) {
     }
 
     /**
-     * don't translate partners markdown content
-     */
-    if(/partners\/(solutions|technology)\//.test(file.path) && trYml.HTML_page_content) {
-      delete trYml.HTML_page_content;
-    }
-
-    /**
      * extend the lang object with data from the YFM of file.data and external yml data
      */
     if(Object.keys(trYml)) {
