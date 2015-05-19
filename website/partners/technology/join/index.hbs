@@ -43,9 +43,6 @@ og_description: ""
             <div class="image" style="background-image: url({{../../assetsDir}}/img/{{image}});"></div>
             <p class="item-title">{{{this.title}}}</p>
             <p class="detail-text ">{{{this.blurb}}}</p>
-            <ul>
-              <li>{{{list_bullet}}}</li>
-            </ul>
           </div>
         {{/each}}
 
@@ -71,11 +68,6 @@ og_description: ""
         <div>
           <h3 class="description-title ">{{{this.title}}}</h3>
           <p class="description-text ">{{{this.blurb}}}</p>
-            <ul class="points">
-              {{#each points}}
-                <li>{{{this}}}</li>
-              {{/each}}
-            </ul>
         </div>
 
       </div>
@@ -109,3 +101,16 @@ og_description: ""
   {{/with}}
 </section>
 {{/if}}
+
+
+<section class="become-a-partner panel">
+  {{#with page_data.join}}
+    <div class="container ">
+      <h2 class="panel-header">{{{title}}}</h2>
+
+    <a href="#" class="primary-cta join-link technology-form">{{{button_text}}}</a>
+
+    <p class="blurb">{{{blurb}}}</p>
+    </div>
+  {{/with}}
+</section>

@@ -2,65 +2,50 @@ intro:
   TR_headline: "Become a Technology Partner"
   TR_subhead: "Grow your business on the Optimizely Platform"
   TR_button_text: "Apply Now"
-  TR_blurb: "Optimizely is the # 1 experience optimization platform in the world, enabling thousands of companies to deliver delightful, optimized experiences to their visitors every day. Optimizely’s Technology Partner Program enables your company to easily integrate with Optimizely, so your customers can turn data into action faster and more seamlessly than ever before. As an Optimizely Technology Partner, you’ll gain access to exclusive developer enablement and a dedicated team of experts to help guide you in developing impactful integrations with Optimizely’s platform."
+  TR_blurb: "Optimizely is the # 1 experience optimization platform in the world, enabling thousands of companies to deliver delightful, optimized experiences to their visitors every day. Optimizely’s Technology Partner Program enables your company to easily integrate with Optimizely, so your customers can turn data into action quickly  and seamlessly."
 why:
   TR_header: "Why Partner with Optimizely?"
   TR_reasons:
     -
-      TR_title: "Build on the Market-Leading Optimization Platform"
-      TR_blurb: "Deliver your integration to Optimizely’s growing base of 10,000+ customers, spanning a wide range of industries and regions around the world."
-      TR_list_bullet: "Gain credibility among top technology influencers who make up Optimizely’s innovative customer base."
+      TR_title: "Market-Leading Optimization Platform"
+      TR_blurb: "Deliver your integration to Optimizely’s growing base of 10,000+ customers"
       image: "partners-become/icon-trophy.svg"
     -
-      TR_title: "Allow Your Customers to Take Action on Data Faster"
-      TR_blurb: "Give your customers a fast, easy-to-use way to take action on data using Optimizely so they can accelerate their workflow."
-      TR_list_bullet: "Drive even deeper engagement with your customers by allowing them to use data to power optimized web and mobile experiences."
+      TR_title: "Turn Data into Action"
+      TR_blurb: "Give your customers a fast and easy way to take action on their data so they can accelerate their workflow."
       image: "partners-become/icon-magnifying.svg"
     -
-      TR_title: "Develop Seamless Integrations Customized to Your Needs"
-      TR_blurb: "Build on Optimizely’s open, flexible APIs that allow you to create integrations customized to your needs, no matter how unique your use case."
-      TR_list_bullet: "Integrate your app deeply into Optimizely and vice versa, so your customers can easily transfer data between products."
+      TR_title: "Develop Customized Integrations"
+      TR_blurb: "Optimizely’s open, flexible APIs allow you to create integrations customized to your needs."
       image: "partners-become/icon-browsers.svg"
     -
-      TR_title: "Give Your Customers a Powerful and Simple Integration Experience"
-      TR_blurb: "Allow your customers to connect with Optimizely easily via a simple, one click implementation."
-      TR_list_bullet: "Partner with a platform that provides your customers with an easy-to-use management interface to ensure customers are actively engaged with your integration."
+      TR_title: "Seamless Integration Experience "
+      TR_blurb: "Connect with Optimizely easily via a simple, one-click implementation."
       image: "partners-become/icon-mouseclick.svg"
 benefits:
-  TR_title: "Benefits of the Partner Program"
+  TR_title: "Benefits of the Technology Partner Program"
   TR_items:
     -
       image: "partners-become/illustration1.svg"
-      TR_title: "Comprehensive Developer Support and Enablement"
-      TR_blurb: "Build an amazing integration with expert developer support from the Optimizely technical team."
-      TR_points:
-        - "Develop your integration with a fully-featured sandbox account with full API access."
-        - "Access product news and support resources in the exclusive Optiverse partner community."
+      TR_title: "Comprehensive Developer Enablement"
+      TR_blurb: "Build an amazing integration with expert support from Optimizely’s technical team, a fully featured sandbox and access to Optimizely’s partner community."
       class: "support"
     -
       image: "partners-become/illustration2.svg"
-      TR_title: "Joint Selling Collaboration to Grow Your Business"
+      TR_title: "Joint Selling Collaboration"
       TR_blurb: "Get access to a dedicated partner manager, develop joint sales collateral and connect with Optimizely Account Executives."
-      TR_points:
-        - "Navigate and network across the Optimizely organization via a dedicated partner manager."
-        - "Get exposed to relevant Optimizely customers via sales and customer success enablement collateral."
-        - "Connect with Optimizely Account Executives and Customer Success Managers at exclusive partner events."
       class: "grow"
     -
       image: "partners-become/illustration3.svg"
-      TR_title: "Co-Marketing Opportunities to Amplify Your Brand"
-      TR_blurb: ""
-      TR_points:
-        - "Generate new business opportunities from Optimizely’s large base of 10,000+ influential customers. "
-        - "Participate in proven go-to-market activities and access co-marketing resources."
-        - "Benefit from contextual in-product promotions for your integration to Optimizely customers within your targeted industry."
+      TR_title: "Co-Marketing Opportunities"
+      TR_blurb: "Participate in proven go-to-market activities, get access to co-marketing resources and benefit from contextual in-product promotions."
       class: "amplify"
 hear:
   show: true
   TR_title: "Hear from our Partners"
-  TR_blurb: "<p>Watch this testimonial from Lytics on how partnering with Optimizely has transformed their business.</p><br><br><p>To learn more about the requirements and benefits of our partner program <a href=\"/partners\">click here</a>. To see a list of technology partners we work with today, check out our partner directory.</p>"
+  TR_blurb: "Watch this testimonial from Lytics on how partnering with Optimizely has transformed their business."
   video_url: "//play.vidyard.com/Bf0qpT872TFpgGnJUqm0kA.html?v=3.1"
 join:
-  TR_title: ""
-  TR_blurb:  ""
-  button_text: ""
+  TR_title: "Join the Optimizely Technology Partner Program"
+  TR_blurb:  "To learn more about the requirements and benefits of our partner program <a href=\"/doc.pdf\">click here</a>. To see a list of technology partners we work with today, check out our partner directory."
+  button_text: "Apply Now"
