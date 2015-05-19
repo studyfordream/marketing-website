@@ -14,6 +14,7 @@ var generateKey = require('../../utils/generate-key');
 
 module.exports = function(assemble) {
   var websiteGuts = assemble.get('data.websiteGuts');
+  var env = assemble.get('data.environment');
   var smartlingConfigFile = assemble.get('smartlingEnvConfig');
   console.log('CURRENT SMARTLING CONFIG => %s', smartlingConfigFile);
   var smartlingConfig;
@@ -52,6 +53,10 @@ module.exports = function(assemble) {
     smartlingConfig = fs.readFileSync(path.join(process.cwd(), 'configs/secret', smartlingConfigFile), {encoding: 'utf8'});
   } catch(err){
     console.error('Cannot read Smartling config: ', err);
+    if(env !== 'production') {
+      console.error('reading default smartlingConfig.json');
+      smartlingConfig = fs.readFileSync(path.join(process.cwd(), 'configs/secret/smartlingConfig.json'), {encoding: 'utf8'});
+    }
   }
   if(smartlingConfig){
     smartlingConfig = JSON.parse(smartlingConfig);
