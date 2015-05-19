@@ -14,10 +14,10 @@ keynote_speakers:
       company: "Andreessen Horowitz"
       blurb: "Marc Andreessen is an innovator and creator; he is one of the few to pioneer a software category used by more than a billion people and one of the few to establish multiple billion-dollar companies. Marc co-created the highly influential Mosaic Internet browser, co-founded Netscape and Loudcloud, and is now a co-founder and partner of Andreessen Horowitz, a venture capital firm that provides seed, venture, and growth-stage funding to technology companies."
     -
-      name: "Pete Koomen"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/pete-koomen.png"
-      company: "Optimizely"
-      blurb: "Pete Koomen is the Co-Founder and CTO of Optimizely, the world’s leading experience optimization platform providing A/B testing, targeting, and optimization for websites and mobile apps. Before co-founding Optimizely with CEO Dan Siroker, Pete spent three years as a Product Manager at Google, where he helped launch and grow Google App Engine. Pete holds a M.S. in Computer Science from the University of Illinois at Urbana-Champaign."
+      name: "Mary Hamilton"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/mary_hamilton.png"
+      company: "Accenture"
+      blurb: "Mary Hamilton is the Managing Director of the Accenture Technology Labs in Silicon Valley. Within Technology Labs, she leads the Global Digital Experiences research and development agenda focused on applying emerging digital technologies to address key business challenges of Accenture’s clients.  Since joining Accenture in 1997, Mary has brought innovative technology solutions to both Accenture and clients across a variety of industries, running technology innovation projects from incubation to large-scale implementation. She received her SB degree in Materials Science and Engineering from Massachusetts Institute of Technology. Mary is originally from Toledo, Ohio, spent several years of her career in Chicago, IL, and now lives in San Francisco, CA. She enjoys traveling whenever possible, especially with her one year old son."
 
 guest_speakers:
   title: "Guest Speakers"
@@ -162,11 +162,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/ryan-garner.png"
       company: "Clearhead"
       blurb: "Ryan Garner is the co-founder and EVP of Clearhead. Previously, Ryan was Vice President of Direct-to-Consumer for the Warner Music Group, responsible for delivering and supporting the web businesses of WMG’s biggest artists including Paramore, Bruno Mars, and Wiz Khalifa. Before joining Warner in 2007, Ryan spent 5 years at JetBlue Airways as a product manager and solution architect. Ryan was an integral part of the early team that helped develop JetBlue.com into the airline's most important sales channel, responsible for 80% of sales at the time of his departure."
-    -
-      name: "Jordan Garcia"
-      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jordanbw_170x170-circle.png"
-      company: "Optimizely"
-      blurb: "Ryan Garner is the co-founder and EVP of Clearhead. Previously, Ryan was Vice President of Direct-to-Consumer for the Warner Music Group, responsible for delivering and supporting the web businesses of WMG’s biggest artists including Paramore, Bruno Mars, and Wiz Khalifa. Before joining Warner in 2007, Ryan spent 5 years at JetBlue Airways as a product manager and solution architect. Ryan was an integral part of the early team that helped develop JetBlue.com into the airline's most important sales channel, responsible for 80% of sales at the time of his departure."
+    #-
+      #name: "Jordan Garcia"
+      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jordanbw_170x170-circle.png"
+      #company: "Optimizely"
+      #blurb: ""
     -
       name: "Josiah Gaskin"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/josiahbw_170x170-circle.png"
@@ -242,6 +242,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/justin-knoll.png"
       company: "BitTorrent"
       blurb: "Justin Knoll is Senior Director of Product Management at BitTorrent, Inc., where he oversees the development of BitTorrent Bundle, a direct-to-fan platform which allows artists to sell their work directly to fans using the power of the world’s largest peer-to-peer network. The platform has been the choice of artists like Radiohead’s Thom Yorke, Madonna, Linkin Park, Moby, and others. Before taking on the product management role for Bundle, he served as the company’s Chief Architect, bringing over 15 years of software engineering experience and a passion for data-driven decision making, profiling, and optimization to the role. His first paid programming job was in a functional magnetic resonance imaging (fMRI) behavioral science research laboratory, writing code to interpret experimental results."
+    -
+      name: "Pete Koomen"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/pete-koomen.png"
+      company: "Optimizely"
+      blurb: "Pete Koomen is the Co-Founder and CTO of Optimizely, the world’s leading experience optimization platform providing A/B testing, targeting, and optimization for websites and mobile apps. Before co-founding Optimizely with CEO Dan Siroker, Pete spent three years as a Product Manager at Google, where he helped launch and grow Google App Engine. Pete holds a M.S. in Computer Science from the University of Illinois at Urbana-Champaign."
     -
       name: "Valerie Kroll"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/valerie.png"
