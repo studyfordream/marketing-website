@@ -81,16 +81,17 @@ og_description: ""
 </section>
 
 {{#if page_data.hear.show }}
-<section id="technology-hear" class="panel">
+<section id="solutions-hear" class="panel">
+
+  {{#with page_data.hear}}
 
   <h2 class="panel-header">{{{title}}}</h2>
 
-  {{#with page_data.hear}}
   <div class="container">
     <div class="flex-container">
       <div class="left-paragraph">
-  	<iframe class="vidyard_iframe" src="{{video_url}}" width="640" height="360" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
- </div>
+        <iframe class="vidyard_iframe" src="{{video_url}}" width="640" height="360" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+      </div>
 
       <div class="right-paragraph">
         <p>{{{blurb}}}</p>
