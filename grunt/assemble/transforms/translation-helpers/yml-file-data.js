@@ -42,34 +42,41 @@ module.exports = function(assemble){
     });
 
     data = plasma.load(patterns);
-    //!!!TODO: need to adjust logic here to account for nested dirs
-    //my method below is actually overwriting YML data for nested pages
-    //plasma overwrites the same keys data so this will extend it
-    if(iterator > 0) {
-      data = Object.keys(data).reduce(function(o, key) {
-        var matched;
-        if(lastKey && key.indexOf('~') !== -1) {
-          matched = key.split('~')[0];
+    /**
+     * If the directory is empty plasma will return the patterns array
+     */
+    if(data !== patterns && !Array.isArray(data)) {
 
-          if( matched === lastKey.split('~')[0] ) {
-            _.extend(o[matched], data[key]);
-            delete data[key];
+      if(iterator > 0) {
+        data = Object.keys(data).reduce(function(o, key) {
+          var matched;
+          if(lastKey && key.indexOf('~') !== -1) {
+            matched = key.split('~')[0];
+
+            if( matched === lastKey.split('~')[0] ) {
+              _.extend(o[matched], data[key]);
+              delete data[key];
+            }
+
+          } else {
+            o[key] = data[key];
           }
 
-        } else {
-          o[key] = data[key];
-        }
+          lastKey = matched ? matched : key;
+          return o;
+        }, {});
+      }
 
-        lastKey = matched ? matched : key;
+      //create the namespace for page data
+      data = Object.keys(data).reduce(function(o, key) {
+        o[key] = {};
+        o[key][pagesNamespace] = data[key];
         return o;
       }, {});
+
+    } else {
+      data = {};
     }
-    //create the namespace for page data
-    data = Object.keys(data).reduce(function(o, key) {
-      o[key] = {};
-      o[key][pagesNamespace] = data[key];
-      return o;
-    }, {});
 
     return data;
   };

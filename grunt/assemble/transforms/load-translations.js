@@ -32,9 +32,11 @@ module.exports = function translationTransform (assemble, args) {
     translationType = translationType.split('-')[0];
   }
 
-  pageData[locale] = extend({}, pageData[locale], data);
+  if(Object.keys(data).length) {
+    pageData[locale] = extend({}, pageData[locale], data);
 
-  // this transorm fetches all of the YML data in the files same directory
-  assemble.set('pageData', pageData);
+    // this transorm fetches all of the YML data in the files same directory
+    assemble.set('pageData', pageData);
+  }
 };
 

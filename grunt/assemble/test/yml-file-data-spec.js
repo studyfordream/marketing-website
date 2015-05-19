@@ -55,6 +55,15 @@ describe('transforms', function() {
       expect(data[dKey].page_data.TR_global_d).to.be.undefined;
     });
 
+    it('should return an empty object when reading and empty directory', function() {
+      var cwd = path.join(__dirname, 'fixture/subfolders/empty');
+      var patterns = '**/*.yml';
+      var data = readYml(instance)(patterns, cwd);
+
+      expect(Object.keys(data).length).to.equal(0);
+    });
+
+
   });
 
 });
