@@ -3,7 +3,7 @@ layout: wrapper
 layout_script: seo.js
 layout_body_class:
 - seo-layout
-TR_layout_header: "Start using Optimizely to test your website today!"
+layout_header: "Start using Optimizely to test your website today!"
 ---
 <div id="main">
   <div id="page-header">
@@ -18,7 +18,7 @@ TR_layout_header: "Start using Optimizely to test your website today!"
       <div class="row">
         <div class="columns ten offset-one">
           <div class="ugc">
-            {% body %}
+            {{#omarkdown}}{% body %}{{/omarkdown}}
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@ TR_layout_header: "Start using Optimizely to test your website today!"
           <h4 class="seo-form-heading">{{page.form_header}}</h4>
           {{/if}}
           <p class="seo-form-subheader">{{{page.form_text}}}</p>
-          {{> (l10nPartial 'seo_form')}}
+          {{> seo_form}}
         </div>
       </div>
     </div><!--/.container-->
