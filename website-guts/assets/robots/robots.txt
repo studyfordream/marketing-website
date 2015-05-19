@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /l/
+
+sitemap: https://www.optimizely.com/sitemap.xml
