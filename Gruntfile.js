@@ -22,6 +22,7 @@ module.exports = function(grunt) {
         sass: 'grunt-sass',
         connect: 'grunt-contrib-connect',
         assemble: 'grunt/assemble/',
+        webpack: 'grunt/webpack/',
         mochaTest: 'grunt-mocha-test',
         open: 'grunt-open'
       }
@@ -36,35 +37,55 @@ module.exports = function(grunt) {
   grunt.registerTask('om-test', [
     'open'
   ]);
+  grunt.loadNpmTasks('grunt-aws');
+  grunt.registerTask('production-deploy', [
+    'gitinfo',
+    'config:production',
+    'clean:preBuild',
+    'jshint:server',
+    'assemble',
+    'modernizr',
+    'concat',
+    'webpack',
+    'sass:prod',
+    'autoprefixer',
+    'copy',
+    'uglify',
+    'filerev',
+    'userevvd',
+    's3:production',
+    'clean:postBuild',
+    'fastly:production'
+  ]);
+
 
   grunt.registerTask('staging-deploy', [
     'gitinfo',
     'config:staging',
-    'jshint:clientDev',
-    'jshint:server',
     'clean:preBuild',
+    'jshint:server',
     'assemble',
-    'handlebars',
     'modernizr',
     'concat',
+    'webpack',
     'sass:prod',
     'autoprefixer',
     'copy',
     'uglify',
     's3:staging',
-    'clean:postBuild'
+    'clean:postBuild',
+    'fastly:staging'
   ]);
 
   grunt.registerTask('smartling-staging-deploy', [
     'gitinfo',
     'config:smartlingStaging',
-    'jshint:clientDev',
-    'jshint:server',
     'clean:preBuild',
+    'jshint:server',
     'assemble:smartling-staging-deploy',
-    'handlebars',
     'modernizr',
     'concat',
+    'webpack',
     'sass:prod',
     'autoprefixer',
     'copy',
@@ -75,14 +96,13 @@ module.exports = function(grunt) {
 
   var serverTasks = [
     'config:dev',
-    'jshint:clientDev',
-    'jshint:server',
     'jshint:test',
+    'jshint:server',
     'clean:preBuild',
     'assemble',
-    'handlebars',
     'modernizr',
     'concat',
+    'webpack',
     'sass:dev',
     'replace',
     'autoprefixer',
@@ -111,13 +131,31 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'config:production',
-    'jshint:clientProd',
+    'clean:preBuild',
+    'jshint:server',
+    'assemble',
+    'modernizr',
+    'concat',
+    'webpack',
+    'sass:prod',
+    'autoprefixer',
+    'copy',
+    'uglify',
+    'filerev',
+    'userevvd',
+    'clean:postBuild'
+  ]);
+
+  grunt.registerTask('build-release', [
+    'gitinfo',
+    'config:release',
+    'jshint:clientDev',
     'jshint:server',
     'clean:preBuild',
     'assemble',
-    'handlebars',
     'modernizr',
     'concat',
+    'webpack',
     'sass:prod',
     'autoprefixer',
     'copy',
@@ -151,14 +189,13 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'config:dev',
-    'jshint:clientProd',
-    'jshint:server',
     'jshint:test',
+    'jshint:server',
     'clean:preBuild',
     'assemble',
-    'handlebars',
     'modernizr',
     'concat',
+    'webpack',
     'sass:dev',
     'replace',
     'autoprefixer',
@@ -185,7 +222,17 @@ module.exports = function(grunt) {
 
   grunt.registerTask('release', 'makes a release to github', function() {
     // Use the forceon option for all tasks that need to continue executing in case of error
-    var prepare = ['prompt', 'build'];
+
+    // We need to replace the cloudfront URL on userrevvd when we make a marketing-website release
+    // otherwise assets will point to S3 / Cloudfront
+    var obj = grunt.config.getRaw('userevvd');
+    obj.html.options.formatNewPath = function(path) {
+      return path.replace(/^dist/, '');
+    };
+    obj = { userevvd: obj };
+    grunt.config.merge(obj);
+
+    var prepare = ['prompt', 'build-release'];
     var compress = ['compress'];
     var git_release_tasks = ['gitfetch', 'forceon', 'gittag', 'gitpush', 'forceoff', 'github-release'];
 

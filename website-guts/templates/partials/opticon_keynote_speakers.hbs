@@ -3,8 +3,6 @@
 <!--                -->
 {{#with global_speakers_data}}
 <section class="speakers container">
-  <h3 class="description-title adelle-sans">{{speakers.title}}</h3>
-  <p class="subtitle adelle-sans">{{speakers.keynote.title}}</p>
   <div class="speakers-container flex-container">
     {{#each speakers.keynote.speaker_list}}
     <div class="speaker-container" style="background-image: url('{{this.image}}')">

@@ -24,11 +24,22 @@ body.pricing {
       display: none;
       font-family: $gotham-font-family;
       float: right;
-      margin-top: 10px;
       margin-bottom: 10px;
-      p:last-of-type {
-        float: right;
-        margin: -10px 0 0 0;
+      > * {
+        display: block;
+        float: left;
+      }
+      p {
+        margin-top: 0;
+      }
+      > a {
+        margin-top: 5px;
+      }
+      p:first-of-type {
+        margin-top: 10px;
+      }
+      span {
+        display: block;
       }
     }
     .talk-button {
@@ -146,7 +157,8 @@ body.pricing.plan-free_light {
   body.pricing {
     #page-header {
       .header-cta-container {
-        display: inline;
+        display: block;
+        width: 400px;
       }
     }
     .title-section {

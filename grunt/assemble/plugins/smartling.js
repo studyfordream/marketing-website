@@ -21,7 +21,7 @@ var extendWhile = require('../utils/extend-while');
 var smartlingConfig;
 
 try{
-  smartlingConfig = fs.readFileSync(path.join(process.cwd(), 'configs/smartlingConfig.json'), {encoding: 'utf8'});
+  smartlingConfig = fs.readFileSync(path.join(process.cwd(), 'configs/secret/smartlingConfig.json'), {encoding: 'utf8'});
 } catch(err){
   console.error('Cannot read Smartling config: ', err);
 }
