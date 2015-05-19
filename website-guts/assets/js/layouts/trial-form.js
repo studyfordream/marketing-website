@@ -1,3 +1,4 @@
+require('core-js/es5');// jshint ignore:line
 var tr = require('../utils/client-tr');
 
 var errorMessages = {

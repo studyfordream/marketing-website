@@ -14,9 +14,9 @@ var generateKey = require('../../utils/generate-key');
 
 module.exports = function(assemble) {
   var websiteGuts = assemble.get('data.websiteGuts');
+  var smartlingConfigFile = assemble.get('smartlingEnvConfig');
+  console.log('CURRENT SMARTLING CONFIG => %s', smartlingConfigFile);
   var smartlingConfig;
-  var DICT_FNAME = 'marketing_website_yaml.pot';
-  var JS_DICT_FNAME = 'marketing_website_js.pot';
   var createDirs = [
     'tmp/upload',
     'tmp/download',
@@ -49,13 +49,19 @@ module.exports = function(assemble) {
   }
 
   try{
-    smartlingConfig = fs.readFileSync(path.join(process.cwd(), 'configs/secret/smartlingConfig.json'), {encoding: 'utf8'});
+    smartlingConfig = fs.readFileSync(path.join(process.cwd(), 'configs/secret', smartlingConfigFile), {encoding: 'utf8'});
   } catch(err){
     console.error('Cannot read Smartling config: ', err);
   }
   if(smartlingConfig){
     smartlingConfig = JSON.parse(smartlingConfig);
   }
+  if(process.env.SL_PREFIX){
+    smartlingConfig.PREFIX = process.env.SL_PREFIX;
+  }
+
+  var yamlDictFname = smartlingConfig.PREFIX + '_yaml.pot';
+  var jsDictFname = smartlingConfig.PREFIX + '_js.pot';
 
   return function() {
     var lang = assemble.get('lang');
@@ -70,7 +76,6 @@ module.exports = function(assemble) {
       });
     });
 
-
     createDirs.forEach(function(dir) {
       if(!fs.existsSync(dir)) {
         mkdirp.sync(dir);
@@ -79,13 +84,13 @@ module.exports = function(assemble) {
 
     var content = smartling.generatePO(phrases);
 
-    if(catalogChanged(content, 'tmp/upload/' + DICT_FNAME)){
-      fs.writeFile('tmp/upload/' + DICT_FNAME, content);
-      smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, DICT_FNAME).then(function(){
-        var defers = localeCodes.map(function(code){
-          return smartling.fetch(smartlingConfig.URL, code, DICT_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID).then(function(body){
-            fs.writeFile('tmp/download/' + code + '-' + DICT_FNAME, body);
-            translations[code] = smartling.parsePO2dict(body);
+    if(catalogChanged(content, 'tmp/upload/' + yamlDictFname)){
+      fs.writeFile('tmp/upload/' + yamlDictFname, content);
+      smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, yamlDictFname, smartlingConfig.AUTO_APPROVE).then(function(){
+        var defers = localeCodes.map(function(localeCode){
+          return smartling.receive(localeCode, yamlDictFname, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, smartlingConfig.PSUEDO).then(function(body){
+            fs.writeFile('tmp/download/' + localeCode + '-' + yamlDictFname, body);
+            translations[localeCode] = smartling.parsePO2dict(body);
           });
         });
 
@@ -97,7 +102,7 @@ module.exports = function(assemble) {
     } else {
       console.log('Server catalog didn\'t change since last upload - using cached dictionaries.');
       localeCodes.map(function(code){
-        var body = fs.readFileSync('tmp/download/' + code + '-' + DICT_FNAME, {encoding: 'UTF8'});
+        var body = fs.readFileSync('tmp/download/' + code + '-' + yamlDictFname, {encoding: 'UTF8'});
         translations[code] = smartling.parsePO2dict(body);
       });
       yamlDefer.resolve(translations);
@@ -113,13 +118,13 @@ module.exports = function(assemble) {
       fs.writeFileSync(outputFname, content);
     };
 
-    if(catalogChanged(content, 'tmp/upload/' + JS_DICT_FNAME)){
-      fs.writeFile('tmp/upload/' + JS_DICT_FNAME, content);
-      smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, JS_DICT_FNAME).then(function(){
-        var defers = localeCodes.map(function(code){
-          return smartling.fetch(smartlingConfig.URL, code, JS_DICT_FNAME, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID).then(function(body){
-            fs.writeFile('tmp/download/' + code + '-' + JS_DICT_FNAME, body);
-            deployJSDict(code, body);
+    if(catalogChanged(content, 'tmp/upload/' + jsDictFname)){
+      fs.writeFile('tmp/upload/' + jsDictFname, content);
+      smartling.send(content, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID, jsDictFname, smartlingConfig.AUTO_APPROVE).then(function(){
+        var defers = localeCodes.map(function(localeCode){
+          return smartling.receive(localeCode, jsDictFname, smartlingConfig.API_KEY, smartlingConfig.PROJECT_ID).then(function(body){
+            fs.writeFile('tmp/download/' + localeCode + '-' + jsDictFname, body);
+            deployJSDict(localeCode, body);
           });
         });
 
@@ -131,7 +136,7 @@ module.exports = function(assemble) {
     } else {
       console.log('JS catalog didn\'t change since last upload - using cached dictionaries for JS.');
       localeCodes.map(function(code){
-        var body = fs.readFileSync('tmp/download/' + code + '-' + JS_DICT_FNAME, {encoding: 'UTF8'});
+        var body = fs.readFileSync('tmp/download/' + code + '-' + jsDictFname, {encoding: 'UTF8'});
         deployJSDict(code, body);
       });
       jsDefer.resolve();
