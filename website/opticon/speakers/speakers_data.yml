@@ -7,7 +7,7 @@ keynote_speakers:
       name: "Dan Siroker"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
       company: "Optimizely"
-      blurb: "Dan Siroker is the Co-Founder & CEO of Optimizely, a company that makes it dramatically easier to optimize your website and mobile experience. The inspiration for Optimizely came from Dan's experience as the Director of Analytics for the Obama Presidential Campaign and Deputy New Media Director for the Presidential Transition. Before Optimizely, Dan co-founded an online math game for kids called CarrotSticks and was formerly a Product Manager for Google Chrome and AdWords. Dan graduated with Honors from Stanford University with a B.S. in Computer Science, and was named to Forbes' 30 under 30 in 2012."
+      blurb: "Dan Siroker is the CEO and co-founder of Optimizely, the world’s leading experience optimization platform providing A/B testing, targeting, and optimization for websites and mobile apps. The inspiration for Optimizely came from his experience as the Director of Analytics for the Obama Presidential Campaign. He was formerly a Product Manager for Google Chrome and AdWords, and in 2012, was named to Forbes' 30 Under 30."
     -
       name: "Marc Andreessen"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/marc-circle-headshot.png"
@@ -17,7 +17,7 @@ keynote_speakers:
       name: "Pete Koomen"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/pete-koomen.png"
       company: "Optimizely"
-      blurb: "Pete Koomen is the Co-Founder and CTO of Optimizely, the world's leading experience optimization platform, providing A/B testing, targeting and multichannel optimization for websites and mobile apps. Before co-founding Optimizely with CEO Dan Siroker, Pete spent three years as a Product Manager at Google, where he helped launch and grow the App Engine platform. Pete holds dual bachelor’s degrees in Mathematics and Computer Science, as well as a master’s in Computer Science from the University of Illinois at Urbana-Champaign. In his spare time, Pete enjoys the symphony and rock climbing."
+      blurb: "Pete Koomen is the Co-Founder and CTO of Optimizely, the world’s leading experience optimization platform providing A/B testing, targeting, and optimization for websites and mobile apps. Before co-founding Optimizely with CEO Dan Siroker, Pete spent three years as a Product Manager at Google, where he helped launch and grow Google App Engine. Pete holds a M.S. in Computer Science from the University of Illinois at Urbana-Champaign."
 
 guest_speakers:
   title: "Guest Speakers"
