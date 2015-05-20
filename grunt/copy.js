@@ -50,7 +50,7 @@ module.exports = {
   },
   robots: {
     files: [
-      {src: ['<%= config.guts %>/assets/robots/robots.txt'], dest: '<%= config.dist %>/robots.txt'},
+      {src: ['robots.txt'], dest: '<%= config.dist %>/robots.txt'},
     ]
   },
   omUITest: {
