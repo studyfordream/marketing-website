@@ -14,13 +14,19 @@ api_domain: true
               <label>
                   <span>{{tr 'Email address'}}</span>
                   <span class="email-related error-hide error-right">{{tr 'Email is required'}}</span>
-                  <input type="email" name="email" autofocus>
+                  <input type="email" id="signin-form-email" name="email" autofocus>
               </label>
-              <label>
+              <label id="signin-form-password-label">
                   <span>{{tr 'Password'}}</span>
                   <span class="password-related error-hide error-right">{{tr 'Password is required'}}</span>
                   <input type="password" name="password" required>
               </label>
+
+              <label>
+                  <input type="checkbox" id="signin-form-sso-checkbox" name="isSSO">
+                  <span>{{tr 'Use single sign-on'}}</span>
+              </label>
+
               <div class="terms">
                   <label class="spaced">
                       <input type="checkbox" name="persist" checked="checked">
