@@ -394,10 +394,8 @@ module.exports = function (grunt) {
         ],
         fallback: [
           '**/*.hbs',
-          '!resources/resources-list/**/*',
-          '!om/**/*.hbs',
-          '!opticon/**/*.hbs'
-        ]
+          '!resources/resources-list/**/*'
+        ].concat(options.omitFromSubfolders)
       });
       /* jshint ignore:end */
       return push('subfolders')

@@ -39,7 +39,14 @@ var config = {
       'partials',
       'modals'
     ],
-    ppcKey: ppcKey
+    ppcKey: ppcKey,
+    omitFromSubfolders: [
+      '!om/**/*.hbs',
+      '!opticon/**/*.hbs',
+      '!features-and-plans/**/*.hbs',
+      '!feature-list/**/*.hbs',
+      '!404/**/*.hbs'
+    ]
   },
   modals: {
     options: {
