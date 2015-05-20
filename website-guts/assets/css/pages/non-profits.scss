@@ -99,14 +99,14 @@ body.non-profits-page {
     }
     &:hover {
       cursor: pointer;
-      color: #00415D!important;
+      color: $brand-navy-blue!important;
       .sbmt-btn-icon {
         color: #fff!important;
       }
       .circle-arrow {
-        border-color: #00415D!important;
+        border-color: $brand-navy-blue!important;
         &:after {
-          border-left-color: #00415D!important;
+          border-left-color: $brand-navy-blue!important;
         }
       }
       &:before {
@@ -188,7 +188,7 @@ body.non-profits-page {
   #panel-3,
   #panel-4 {
     > * {
-      color: #00415D;
+      color: $brand-navy-blue;
     }
     h2,
     h3 {
@@ -210,7 +210,7 @@ body.non-profits-page {
   #panel-2 {
     // padding: 110px 0 160px 0;
     img {
-      border: 1px solid #00415D;
+      border: 1px solid $brand-navy-blue;
     }
     .btn-cont {
       font-size: 1.4em;
@@ -218,7 +218,7 @@ body.non-profits-page {
     a,
     .caret {
       text-transform: uppercase;
-      color: #0081BA;
+      color: $brand-blue;
       font-weight: 500;
     }
     .header-cont {
@@ -308,7 +308,7 @@ body.non-profits-page {
     }
     .outline-button {
       background: transparent;
-      border-color: #00415D;
+      border-color: $brand-navy-blue;
       margin: 20px 0;
     }
     h2,

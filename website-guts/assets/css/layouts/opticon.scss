@@ -30,7 +30,7 @@ body.opticon {
   .common-page-title {
     font-size: 2.75em;
     display: inline;
-    padding: 15px 20px 5px 20px;
+    padding: 7px 20px;
   }
   .subtitle {
     font-size: 1.25em;
@@ -221,6 +221,38 @@ body.opticon {
     right: 0;
     display: none;
   }
+  .modal-body { position: relative; }
+  .modal-footer,
+  .modal-header {
+    display: none;
+  }
+  .opticon-modal-container {
+    &__left {
+      text-align: center;
+      &__image {
+        display: block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        padding-top: 125px;
+        margin-bottom: 10px;
+      }
+    }
+    &__right { text-align: center; }
+    &__close-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding-top: 35px;
+      width: 35px;
+      height: 0;
+      background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/modal_close.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      &:hover { cursor: pointer; }
+    }
+  }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
@@ -234,6 +266,29 @@ body.opticon {
     .register-title { width: 50%; }
     .opticon-button--nav { margin: 0 0 0 15px; }
     .opticon-button--nav--footer { font-size: 1em; }
+    .opticon-modal-container {
+      display: flex;
+      &__right {
+        width: 60%;
+        text-align: left;
+      }
+      &__left {
+        width: 40%;
+        padding: 10px 15px;
+        text-align: center;
+      }
+    }
+    .modal-dialog-container .dialog {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-top: 0;
+    }
+    .opticon-modal-container__close-icon {
+      padding-top: 15px;
+      width: 15px;
+    }
   }
 }
 

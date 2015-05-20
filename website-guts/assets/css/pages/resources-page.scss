@@ -31,7 +31,7 @@ body.resources-page {
     h1,
     .sub-head {
       display: block;
-      color: #004f83;
+      color: $brand-navy-blue;
       font-weight: 100;
       margin-bottom: 0;
       margin-top: 0;
@@ -103,7 +103,7 @@ body.resources-page {
     }
 
     .resources-title {
-      color: #4D6C81;
+      color: $brand-navy-blue;
       font-weight: 400;
       text-align: center;
       padding-top: 10px;
@@ -138,7 +138,7 @@ body.resources-page {
       h1,
       .sub-head {
         text-align: left;
-        color: #004f83;
+        color: $brand-navy-blue;
         margin-bottom: 0;
         margin-left: 2%;
       }

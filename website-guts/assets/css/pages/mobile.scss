@@ -123,7 +123,7 @@ body.mobile-page {
     }
     h2,
     h3 {
-      color: #0081BA;
+      color: $brand-blue;
     }
     h3 {
       margin: 50px 0 15px 0;
@@ -202,10 +202,10 @@ body.mobile-page {
     }
     .circle-arrow {
       transition: all 0.2s linear;
-      border-color: #0081BA;
+      border-color: $brand-blue;
       &:after {
         transition: all 0.2s linear;
-        border-left-color: #0081BA;
+        border-left-color: $brand-blue;
       }
     }
     .video-link {
@@ -265,13 +265,13 @@ body.mobile-page {
       &:first-of-type {
         background-color: #fff;
         padding-left: 50px;
-        color: #0081BA;
+        color: $brand-blue;
         &:hover {
-          color: $dark-blue-hover;
+          color: $brand-blue-hover;
           .circle-arrow {
-            border-color: $dark-blue-hover;
+            border-color: $brand-blue-hover;
             &:after {
-              border-left-color: $dark-blue-hover;
+              border-left-color: $brand-blue-hover;
             }
           }
         }
@@ -296,7 +296,7 @@ body.mobile-page {
       }
       &:hover {
         cursor: pointer;
-        color: #00415D;
+        color: $brand-navy-blue;
         .sbmt-btn-icon {
           color: #fff;
         }

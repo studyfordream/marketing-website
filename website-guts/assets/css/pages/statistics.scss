@@ -16,7 +16,7 @@ body.statistics-page {
     }
 
     &.darkblue-bg {
-      background: $super-dark-blue;
+      background: $brand-navy-blue;
       color: #FFFFFF;
     }
 
@@ -52,7 +52,7 @@ body.statistics-page {
       }
 
       &.dark {
-        color: #00415d;
+        color: $brand-navy-blue;
       }
     }
 
@@ -60,7 +60,7 @@ body.statistics-page {
       font-family: $gotham-large-type;
       font-size: 30px;
       font-weight: 400;
-      color: #00415D;
+      color: $brand-navy-blue;
       letter-spacing: 1px;
       line-height: 38px;
 
@@ -74,8 +74,8 @@ body.statistics-page {
       font-family: $gotham-small-type;
       font-size: 14px;
       font-weight: 500;
-      border-bottom: 2px solid $blue;
-      color: #00415D;
+      border-bottom: 2px solid $brand-blue;
+      color: $brand-navy-blue;
       display: table;
       letter-spacing: 1px;
       line-height: 20px;
@@ -100,15 +100,15 @@ body.statistics-page {
       font-weight: 400;
       font-size: 16px;
       font-weight: 100;
-      color: #00415D;
+      color: $brand-navy-blue;
       letter-spacing: 0.5px;
       line-height: 30px;
 
       a {
-        color: #00415D;
+        color: $brand-navy-blue;
         text-decoration: underline;
         &:hover {
-          color: #0081ba;
+          color: $brand-blue;
         }
       }
     }
@@ -126,7 +126,7 @@ body.statistics-page {
     a.text {
       font-family: $gotham-small-type;
       font-size: 16px;
-      color: #0081ba;
+      color: $brand-blue;
       letter-spacing: 0.5px;
       line-height: 26px;
       text-decoration: underline;
@@ -139,8 +139,8 @@ body.statistics-page {
     .primary-cta {
       /* maintain a button max-height 40px*/
       border-radius: 4px;
-      background: #0081BA;
-      border: 1px solid #00415D;
+      background: $brand-blue;
+      border: 1px solid $brand-navy-blue;
       padding: 10px 20px;
       font-family: $gotham-small-type;
       font-size: 18px;
@@ -151,7 +151,7 @@ body.statistics-page {
 
       &:hover {
         text-decoration: none;
-        background: $blue;
+        background: $brand-blue-hover;
         color: #fff;
       }
     }
@@ -159,8 +159,8 @@ body.statistics-page {
     .secondary-cta {
       /* maintain a button max-height 40px*/
       border-radius: 4px;
-      border: 1px solid $blue;
-      color: #00415D;
+      border: 1px solid $brand-blue;
+      color: $brand-navy-blue;
       display: inline-block;
       padding: 10px 20px;
       margin-top: 20px;
@@ -172,7 +172,7 @@ body.statistics-page {
 
       &:hover {
         text-decoration: none;
-        background: $blue;
+        background: $brand-blue;
         color: #fff;
       }
 
@@ -273,7 +273,7 @@ body.statistics-page {
       padding: 15px;
 
       .percent {
-        color: $blue;
+        color: $brand-blue;
         font-size: 80px;
         font-weight: 400;
         span {
@@ -286,7 +286,7 @@ body.statistics-page {
     }
 
     .comparison-1 {
-      border: 1px solid $blue;
+      border: 1px solid $brand-blue;
     }
 
     .comparison-2 {

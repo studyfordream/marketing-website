@@ -8,7 +8,7 @@ body.opticon-homepage {
   .page-title {
     font-size: 2.6em;
     background: $opticon-brand-blue;
-    padding: 15px 20px 0px 20px;
+    padding: 5px 20px;
     margin: 0;
     letter-spacing: 1.83px;
     line-height: 64px;
@@ -79,7 +79,7 @@ body.opticon-homepage {
   .description { padding: 5% 13%; }
   .description-text.description-text--center { text-align: center; }
   .tracks {
-    padding: 50px 0 80px 0;
+    padding: 100px 0 80px;
     text-align: center;
   }
   .track-container {
@@ -136,9 +136,7 @@ body.opticon-homepage {
     .description {
       padding: 5% 0;
     }
-    .track-container {
-      padding: 115px 10px 30px 10px;
-    }
+    .track-container { padding: 115px 10px 30px; }
     .confetti-container .confetti-right {
       display: block;
     }
