@@ -8,7 +8,7 @@ body.pricing {
   #page-header {
     h1 {
       font: 1.5em $body-font-family;
-      color: #3B5871;
+      color: $brand-navy-blue;
       margin-top: 6px;
     }
     p {
@@ -72,7 +72,7 @@ body.pricing {
       font: 2.1875em $body-font-family;
       font-weight: 300;
       text-align: center;
-      color: $super-dark-blue;
+      color: $brand-navy-blue;
       line-height: 61px;
       margin-bottom: 57px;
       margin-top: 60px;
@@ -82,8 +82,8 @@ body.pricing {
     }
     .explore {
       @extend .pricing-button;
-      background-image: linear-gradient(-180deg, #0081EB 3%, #0081BA 100%);
-      border: 2px solid #0063BA;
+      background-image: linear-gradient(-180deg, $brand-blue-hover 3%, $brand-blue 100%);
+      border: 2px solid $brand-blue-border;
       padding: 15px 31px;
       margin-right: 15px;
       box-shadow: none;
@@ -108,7 +108,7 @@ body.pricing {
       text-align: center;
       padding-top: 62px;
       font: 1.875em $body-font-family;
-      color: $super-dark-blue;
+      color: $brand-navy-blue;
       line-height: 34px;
       padding: 66px 0;
     }
@@ -131,7 +131,7 @@ body.pricing {
         font: 1em $body-font-family;
         font-weight: 600;
         text-align: center;
-        color: $super-dark-blue;
+        color: $brand-navy-blue;
       }
       p {
         font-size: 15px;

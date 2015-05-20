@@ -19,7 +19,7 @@
     }
     h1 {
       font: 1.9em $body-font-family;
-      color: #0581C2;
+      color: $brand-blue;
       line-height: 36px;
       margin-bottom: 5px;
     }
@@ -75,7 +75,7 @@
     .table-title {
       font: 1em $body-font-family;
       font-weight: 600;
-      color: #00415D;
+      color: $brand-navy-blue;
       letter-spacing: 0.39px;
       line-height: 18px;
     }

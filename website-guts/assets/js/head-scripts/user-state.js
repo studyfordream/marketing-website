@@ -370,9 +370,17 @@ window.optly.mrkt.services.xhr = {
   },
 
   getLoginStatus: function(requestParams) {
+    var tld = window.location.hostname.split('.').pop();
+    var ccTLD = [
+      'es',
+      'fr',
+      'de',
+      'jp'
+    ];
+    var isCcTld = ccTLD.indexOf(tld) !== -1;
     var deferreds;
 
-    if ( !!this.readCookie('optimizely_signed_in') || /^www.optimizelystaging.com/.test(window.location.hostname) ) {
+    if ( !!this.readCookie('optimizely_signed_in') || /^www.optimizelystaging.com/.test(window.location.hostname) || isCcTld ) {
       deferreds = this.makeRequest(requestParams);
     } else {
       window.optly_q = window.optly.mrkt.Optly_Q();

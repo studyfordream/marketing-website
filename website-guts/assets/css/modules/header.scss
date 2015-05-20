@@ -1,5 +1,5 @@
 header {
-    background: #00415d;
+    background: $brand-navy-blue;
     .utility-nav {
       margin: 0;
       li {
@@ -28,7 +28,7 @@ header {
 }
 @media only screen and (max-width: 59.99em) {
     body {
-        background: #00415d;
+        background: $brand-navy-blue;
     }
     header {
         position: relative;
@@ -49,7 +49,7 @@ header {
             height: 100%;
             top: 0;
             width: 0;
-            background: #00415d;
+            background: $brand-navy-blue;
         }
         nav:after {
             content: "";
@@ -228,14 +228,14 @@ header {
       }
       ul ul {
           display: none;
-          background: linear-gradient(to bottom, #00558d 0%,#006eb6 15%,#006eb6 100%);
+          background: linear-gradient(to bottom, #006896 0%, $brand-blue 15%, $brand-blue 100%);
       }
   }
   #top-nav-cont {
-    background: #00415d;
+    background: $brand-navy-blue;
   }
   #main-nav-cont {
-    background: #00415d;
+    background: $brand-navy-blue;
   }
   .logo-cont {
       position: absolute;
@@ -254,7 +254,7 @@ header {
           padding: 12px;
       }
       a:hover {
-          background: $nav-hover-color;
+          background: $brand-blue-hover;
       }
   }
   #main-nav {
@@ -294,18 +294,18 @@ header {
                   font-weight: 300;
               }
               a:hover {
-                  background-color: #3385d6;
+                  background-color: $brand-blue-hover;
               }
           }
       }
       > li:hover {
           ul {display: block!important;}
-          border-top: 4px solid $nav-hover-color;
+          border-top: 4px solid $brand-blue-hover;
       }
   }
   body.compact-header {
     header {
-      background: #006eb6;
+      background: $brand-blue;
       height: auto;
       .logo-cont {
         float: left;

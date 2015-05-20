@@ -10,7 +10,7 @@
   .question {
     font: 1em $body-font-family;
     font-weight: 600;
-    color: #00415D;
+    color: $brand-navy-blue;
     letter-spacing: 0.53px;
     line-height: 19px;
     margin-top: 55px;
@@ -35,7 +35,7 @@
     text-align: center;
     color: #696F72;
     a {
-      color: #0094CD;
+      color: $brand-blue;
     }
   }
 }

@@ -193,7 +193,7 @@ ul {
           }
         }
         &.current {
-          color: $dark-blue;
+          color: $brand-blue;
           font-weight: bold;
         }
       }
@@ -263,7 +263,7 @@ ul {
           font-size: 1.4em;
         }
         a {
-          color: #4d89e2;
+          color: $brand-blue;
           text-decoration: none;
         }
     }
@@ -280,7 +280,7 @@ ul {
 @media only screen and (min-width: $desktop-min-width) {
     /* Style adjustments for viewports that meet the condition */
     body {
-      background: #006eb6;
+      background: $brand-blue;
       text-align: left;
     }
 
@@ -342,7 +342,7 @@ ul {
           &.active {
             display: block;
             font-weight: 500;
-            color: #0053a7;
+            color: $brand-blue;
           }
       }
   }

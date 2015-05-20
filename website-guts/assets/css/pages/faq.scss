@@ -19,7 +19,7 @@ body.faq-page {
     margin-bottom: 15px;
     padding: 10px 30px 8px;
     cursor: pointer;
-    color: #006eb6;
+    color: $brand-blue;
     font-weight: 400;
     position: relative;
     &:hover {
@@ -41,7 +41,7 @@ body.faq-page {
 
     &.open {
       background: #fff;
-      color: #004f83;
+      color: $brand-navy-blue;
       
       &:after {
         background-position: -200px -8px;
