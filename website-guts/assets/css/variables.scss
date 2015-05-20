@@ -12,10 +12,7 @@ $tablet-min-width: 768px;
 	Type
 
 */
-$body-font-family: "Gotham SSm A","Gotham SSm B",sans-serif;
-$gotham-font-family: "Gotham A","Gotham B",Helvetica,Arial,sans-serif;
-$gotham-large-type: "Gotham A","Gotham B",Helvetica,Arial,sans-serif;
-$gotham-small-type: "Gotham SSm A","Gotham SSm B",sans-serif;
+$body-font-family: Proxima, Helvetica, sans-serif;
 $condensed-sans-serif: "Tungsten A", "Tungsten B", sans-serif;
 $sentinel-font-family: "Sentinel SSm A", "Sentinel SSm B", sans-serif;
 $sentinel-medium-font-family: "Sentinel A", "Sentinel B", Georgia, sans-serif;
@@ -29,6 +26,10 @@ $nav-hover-color: #0081ba;
 $mobile-nav-width: 80%;
 
 $footer-desktop-font-size: .65em;
+$include-fonts:(
+  weights: 300 400 500 600,
+  italics: true
+);
 
 
 /*

@@ -1,0 +1,21 @@
+// Temporary until Lego is merged
+@function map-fetch($map, $keys) {
+  $key: nth($keys, 1);
+  $length: length($keys);
+  $value: map-get($map, $key);
+  @if ($length > 1) {
+    $rest: ();
+    @for $i from 2 through $length {
+      $rest: append($rest, nth($keys, $i));
+    }
+    @if ($value == null) {
+      @error "The value '#{$key}' doesn't exist in the map.";
+    }
+    @return map-fetch($value, $rest)
+  } @else {
+    @if ($value == null) {
+      @error "The value '#{$key}' doesn't exist in the map.";
+    }
+    @return $value;
+  }
+}

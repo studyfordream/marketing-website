@@ -7,7 +7,7 @@ body.pricing {
   /*           */
   #page-header {
     h1 {
-      font: 1.5em $gotham-font-family;
+      font: 1.5em $body-font-family;
       color: $brand-navy-blue;
       margin-top: 6px;
     }
@@ -22,7 +22,7 @@ body.pricing {
     }
     .header-cta-container {
       display: none;
-      font-family: $gotham-font-family;
+      font-family: $body-font-family;
       float: right;
       margin-bottom: 10px;
       > * {
@@ -50,7 +50,7 @@ body.pricing {
       background-image: linear-gradient(-180deg, #EEEFF3 0%, #E0E1E5 100%);
       border: 1px solid #D4D5D9;
       border-radius: 2px;
-      font: 12px $gotham-small-type;
+      font: 12px $body-font-family;
       color: $almost-black-text-color;
       line-height: 12px;
       &:hover {
@@ -69,7 +69,8 @@ body.pricing {
     border: 1px solid #E6E6E6;
     text-align: center;
     .title-copy {
-      font: 2.1875em $gotham-font-family;
+      font: 2.1875em $body-font-family;
+      font-weight: 300;
       text-align: center;
       color: $brand-navy-blue;
       line-height: 61px;
@@ -86,7 +87,7 @@ body.pricing {
       padding: 15px 31px;
       margin-right: 15px;
       box-shadow: none;
-      font: $gotham-font-family;
+      font: $body-font-family;
       color: white;
       span {
         padding: 3px 60px;
@@ -106,7 +107,7 @@ body.pricing {
     .title-copy {
       text-align: center;
       padding-top: 62px;
-      font: 1.875em $gotham-font-family;
+      font: 1.875em $body-font-family;
       color: $brand-navy-blue;
       line-height: 34px;
       padding: 66px 0;
@@ -127,8 +128,8 @@ body.pricing {
       margin-right: auto;
       margin-bottom: 75px;
       h3 {
-        font: 1em $gotham-small-type;
-        font-weight: 500;
+        font: 1em $body-font-family;
+        font-weight: 600;
         text-align: center;
         color: $brand-navy-blue;
       }

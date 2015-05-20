@@ -37,8 +37,8 @@ body.statistics-page {
     }
 
     h1 {
-      font-weight: 600;
-      font-family: $gotham-large-type;
+      font-weight: 400;
+      font-family: $body-font-family;
       font-size: 36px;
       letter-spacing: 1px;
       line-height: 44px;
@@ -57,7 +57,7 @@ body.statistics-page {
     }
 
     h2 {
-      font-family: $gotham-large-type;
+      font-family: $body-font-family;
       font-size: 30px;
       font-weight: 400;
       color: $brand-navy-blue;
@@ -71,7 +71,7 @@ body.statistics-page {
     }
 
     h3 {
-      font-family: $gotham-small-type;
+      font-family: $body-font-family;
       font-size: 14px;
       font-weight: 500;
       border-bottom: 2px solid $brand-blue;
@@ -96,7 +96,7 @@ body.statistics-page {
     }
 
     p {
-      font-family: $gotham-small-type;
+      font-family: $body-font-family;
       font-weight: 400;
       font-size: 16px;
       font-weight: 100;
@@ -114,7 +114,7 @@ body.statistics-page {
     }
 
     p.white {
-      font-family: $gotham-small-type;
+      font-family: $body-font-family;
       font-weight: 400;
       font-size: 16px;
       font-weight: 100;
@@ -124,7 +124,7 @@ body.statistics-page {
     }
 
     a.text {
-      font-family: $gotham-small-type;
+      font-family: $body-font-family;
       font-size: 16px;
       color: $brand-blue;
       letter-spacing: 0.5px;
@@ -142,7 +142,7 @@ body.statistics-page {
       background: $brand-blue;
       border: 1px solid $brand-navy-blue;
       padding: 10px 20px;
-      font-family: $gotham-small-type;
+      font-family: $body-font-family;
       font-size: 18px;
       color: #FFFFFF;
       line-height: 22px;
@@ -164,7 +164,7 @@ body.statistics-page {
       display: inline-block;
       padding: 10px 20px;
       margin-top: 20px;
-      font-family: $gotham-small-type;
+      font-family: $body-font-family;
       font-size: 13px;
       font-weight: 500;
       line-height: 20px;

@@ -3,14 +3,12 @@ $desktop-min-width: 960px;
 $tablet-min-width: 769px;
 
 /* type */
-$body-font-family: "Gotham SSm A","Gotham SSm B",sans-serif;
-$gotham-font-family: "Gotham A","Gotham B",Helvetica,Arial,sans-serif;
-$gotham-large-type: "Gotham A","Gotham B",Helvetica,Arial,sans-serif;
-$gotham-small-type: "Gotham SSm A","Gotham SSm B",sans-serif;
-$condensed-sans-serif: 'Tungsten A', 'Tungsten B', sans-serif;
-$sentinel-font-family: "Sentinel SSm A", "Sentinel SSm B", sans-serif;
-$sentinel-medium-font-family: "Sentinel A", "Sentinel B", Georgia, sans-serif;
+$body-font-family: Proxima, Helvetica, sans-serif;
 $footer-desktop-font-size: .65em;
+$include-fonts:(
+  weights: 300 400 500 600,
+  italics: true
+);
 
 /* colors */
 $link-color: #0081ba;
