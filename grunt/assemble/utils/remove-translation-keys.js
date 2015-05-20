@@ -90,8 +90,12 @@ module.exports = function(assemble) {
           /**
            * Attach the parsed `val` to the `fileData` object with a key that has the translation prefix
            * removed, and subsequently delete the translation key/value pair.
+           * Important to check for existing key because this allows pre-translated values
+           * in external YML to overwrite translated values of parent YML
            */
-          fileData[ parsedKey.key ] = val;
+          if(!fileData[ parsedKey.key ]) {
+            fileData[ parsedKey.key ] = val;
+          }
           delete fileData[key];
 
         } else {

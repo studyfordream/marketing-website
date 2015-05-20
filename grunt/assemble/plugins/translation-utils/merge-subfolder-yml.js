@@ -14,6 +14,8 @@ module.exports = function(assemble) {
       var locale = filePathData.locale;
       var parentKey = filePathData.parentKey;
       if(pageDataClone[locale] && pageDataClone[locale][fp]) {
+        lang[locale] = lang[locale] || {};
+        lang[locale][fp] = lang[locale][fp] || {};
         lang[locale][fp] = createTranslationDict(pageDataClone[locale][fp], locale);
         pageDataClone[locale][fp] = _.merge({}, pageDataClone[websiteRoot][parentKey], pageDataClone[locale][fp]);
       }

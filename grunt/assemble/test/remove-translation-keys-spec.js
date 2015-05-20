@@ -192,6 +192,23 @@ describe('function for removing translation keys from file data objects', functi
 
     });
 
+    describe('an object with key with the same name as a TR|MD key', function() {
+      var returnedObj;
+      var ogObj = {
+        TR_a: 'translated',
+        a: 'not translated'
+      };
+      before(function() {
+        returnedObj = removeTranslationKeys(ogObj);
+      });
+
+      it('it overwrites TR|MDvalues with keys of the same name without TR|MD', function() {
+        expect(returnedObj.a).to.equal('not translated');
+        expect(returnedObj.TR_a).to.be.undefined;
+      });
+
+    });
+
   });
 
 });
