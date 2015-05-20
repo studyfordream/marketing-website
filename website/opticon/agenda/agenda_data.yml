@@ -408,6 +408,10 @@ days:
                 name: "Michelle Levesque"
                 job_title: "Staff Software Engineer"
                 company: "Google"
+              -
+                name: "Moderated by: Chrix Finne"
+                job_title: "Senior Product Manager"
+                company: "Optimizely"
           -
             title: "Testing your Boundaries: Lessons Learned from Testing in International Markets"
             time: "4:45 - 5:30"
@@ -607,7 +611,7 @@ days:
               -
                 name: "Jason Lin"
                 job_title: "Senior Director, Web Marketing"
-                company: "Elance-Odesk"
+                company: "upWork"
               -
                 name: "Rohan Karunakaran"
                 job_title: "Customer Success Manager"
@@ -650,6 +654,10 @@ days:
                 name: "Pauline Marol"
                 job_title: "Lead Product Manager of Site Optimization"
                 company: "Hotwire"
+              -
+                name: "Moderated by: Travis Bryant"
+                job_title: "VP of Sales"
+                company: "Optimizely"
       -
         start_time: "12:10"
         title: "Lunch and Networking"
@@ -727,12 +735,12 @@ days:
                 job_title: "VP of Demand Generation"
                 company: "Marketo"
               -
-                name: "Jessie Becker"
-                job_title: "CMO"
-                company: "Optimizely"
+                name: "T. Baxter Denny"
+                job_title: "VP Online Marketing and Operations"
+                company: "New Relic"
               -
-                name: "Moderated by: Shana Rusonis"
-                job_title: "Content Marketing Manager"
+                name: "Moderated by: Jessie Becker"
+                job_title: "CMO"
                 company: "Optimizely"
           -
             title: "Hypothesize, Analyze, Optimize: Using Hidden Insights to Perfect your Experiment Process"
