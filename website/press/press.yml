@@ -30,9 +30,9 @@ follow_the_latest:
   TR_items:
   -
     link: "https://blog.optimizely.com"
+    de_link: "https://blog.optimizely.de"
     TR_title: "Optimizely Blog: Conversion Rate Optimism"
     TR_text: "Optimizely Blog"
-    swap_id: "press-footer-blog"
   -
     link: "http://pages.optimizely.com/newsletter_subscribe.html"
     TR_title: "Optimizely Newsletter"
@@ -40,16 +40,16 @@ follow_the_latest:
   -
     link: "http://www.facebook.com/optimizely"
     TR_title: "Optimizely on Facebook"
-    text: "Facebook"
+    TR_text: "Facebook"
   -
     link: "http://www.twitter.com/optimizely"
     TR_title: "Optimizely on Twitter"
-    text: "Twitter"
+    TR_text: "Twitter"
   -
     link: "http://www.youtube.com/optimizely"
     TR_title: "Optimizely on Youtube"
-    text: "YouTube"
+    TR_text: "YouTube"
   -
     link: "https://plus.google.com/113842166556345533815/posts"
     TR_title: "Optimizely on Google Plus"
-    text: "Google+"
+    TR_text: "Google+"

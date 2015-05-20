@@ -1,0 +1,4 @@
+page_header:
+  #have to have a placeholder phone number for templating in footer
+  phone_number: "1-800-252-9480"
+  hide: true

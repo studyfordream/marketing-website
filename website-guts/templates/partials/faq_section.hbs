@@ -10,9 +10,20 @@
     {{/each}}
   </div>
   <p class="contact-text">{{contact.text}}</p>
-  <p id="SL-pricing-phone-number-2" class="SL_swap phone-number">
+{{/with}}
+
+{{#if page_data.page_header.phone_number}}
+{{#with page_data.page_header}}
+  <p class="phone-number" {{#if hide}}style="display:none;"{{/if}}>
+    <a href="tel:{{phone_number}}">{{phone_number}}</a><br>
+  </p>
+{{/with}}
+{{else}}
+{{#with global_faq_section}}
+  <p class="phone-number">
   US: <a href="tel:{{contact.us_phone_number}}">{{contact.us_phone_number}}</a><br>
   UK: <a href="tel:{{contact.uk_phone_number}}">{{contact.uk_phone_number}}</a>
   </p>
 {{/with}}
+{{/if}}
 </section>

@@ -1,0 +1,13 @@
+lets_talk:
+  ##swap the blog link
+  MD_text: |
+    Traditional statistics were developed over 100 years ago, for an offline world. These methods are no longer up to the task of helping businesses make decisions with real-time data. If you look at results in real time, as most optimization platforms allow you to do, you’ll see winning results where no winner actually exists. In fact, your error rate can skyrocket to [over 30%](http://blog.optimizely.de/2015/01/27/statistik-furs-internetzeitalter-warum-wir-optimizelys-neue-stats-engine-entwickelt-haben/) if you don't take precautions.
+
+    Without taking precautions, like setting a sample size and committing to a minimum detectable effect in advance, you could make changes to your website or product that at best, have no impact, and at worst, could be hurting your bottom line.
+  cta_link: "http://blog.optimizely.de/2015/01/27/statistik-furs-internetzeitalter-warum-wir-optimizelys-neue-stats-engine-entwickelt-haben/"
+confidence:
+  ##swap image
+  img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/sequential-testing-graphic_de_2.png"
+compare:
+  ##swap blog link
+  cta_link: "http://blog.optimizely.de/2015/01/27/statistik-furs-internetzeitalter-warum-wir-optimizelys-neue-stats-engine-entwickelt-haben/"

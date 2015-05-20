@@ -76,7 +76,11 @@ body_class:
 		<p>{{page_data.follow_the_latest.header}}</p>
 		<ul>
 			{{#each page_data.follow_the_latest.items}}
-			<li{{#if this.swap_id}} class="SL_swap" id="{{this.swap_id}}"{{/if}}><a href="{{this.link}}" title="{{this.title}}">{{this.text}}</a></li>
+      {{#if @first}}
+        <li><a href="{{#isLang 'de_DE'}}{{../de_link}}{{/isLang}}{{#isntLang 'de_DE'}}{{../link}}{{/isntLang}}" title="{{this.title}}">{{this.text}}</a></li>
+      {{else}}
+        <li><a href="{{this.link}}" title="{{this.title}}">{{this.text}}</a></li>
+      {{/if}}
 			{{/each}}
 		</ul>
 	</div>
