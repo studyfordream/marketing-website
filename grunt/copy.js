@@ -48,6 +48,11 @@ module.exports = {
       }
     ]
   },
+  robots: {
+    files: [
+      {src: ['robots.txt'], dest: '<%= config.dist %>/robots.txt'},
+    ]
+  },
   omUITest: {
     files: [
       {
