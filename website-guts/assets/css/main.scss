@@ -157,7 +157,7 @@ ul {
         background: #fff;
         padding: 17px 0;
         h1 {
-            font-family: $gotham-font-family;
+            font-family: $body-font-family;
             font-weight: normal;
             text-align: center;
             color: $page-header-color;
@@ -193,7 +193,7 @@ ul {
           }
         }
         &.current {
-          color: $dark-blue;
+          color: $brand-blue;
           font-weight: bold;
         }
       }
@@ -216,52 +216,55 @@ ul {
     }
     .ugc {
         color: $text-color;
-        li {
-          text-align: left;
-        }
         p, ul, ol {
           margin: 1em 0 1em 0;
         }
         p, li {
-            font-size: 1.1em;
+          font-size: 1.1em;
+          font-weight: 100;
         }
         li {
           list-style: none;
+          text-align: left;
+          font-weight: 100;
+          margin-bottom: 7px;
         }
         p {
-            line-height: 1.7;
-            text-align: left;
-            img {
-              display: block;
-              margin: 1em auto 1em auto;
-            }
+          line-height: 1.7;
+          text-align: left;
+          img {
+            display: block;
+            margin: 1em auto;
+          }
         }
-        li {margin-bottom: 7px;}
-        h2, h3, h4, h5 {
+        h2,
+        h3,
+        h4,
+        h5 {
           font-weight: 100;
-          font-family: $gotham-small-type;
+          font-family: $body-font-family;
         }
-        p, li {
-            font-weight: 100;
-        }
-        h2, h3, h4, h5 {
-            margin: 0;
-            text-align: center;
-            font-size: 2em;
+        h2,
+        h3,
+        h4,
+        h5 {
+          margin: 0;
+          text-align: center;
+          font-size: 2em;
         }
         h3 {
-            font-size: 1.8em;
-            line-height: 1.2;
+          font-size: 1.8em;
+          line-height: 1.2;
         }
         h4 {
-            font-size: 1.6em;
+          font-size: 1.6em;
         }
         h5 {
-            font-size: 1.4em;
+          font-size: 1.4em;
         }
         a {
-            color: #4d89e2;
-            text-decoration: none;
+          color: $brand-blue;
+          text-decoration: none;
         }
     }
     .lede-img {
@@ -277,7 +280,7 @@ ul {
 @media only screen and (min-width: $desktop-min-width) {
     /* Style adjustments for viewports that meet the condition */
     body {
-      background: #006eb6;
+      background: $brand-blue;
       text-align: left;
     }
 
@@ -339,7 +342,7 @@ ul {
           &.active {
             display: block;
             font-weight: 500;
-            color: #0053a7;
+            color: $brand-blue;
           }
       }
   }

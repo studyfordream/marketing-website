@@ -21,7 +21,7 @@ footer {
     }
     text-align: center;
     padding: 30px 0;
-    background: $bright-blue;
+    background: $brand-blue;
     color: #fff;
     h4 {
         font-size: 1.3em;
@@ -40,11 +40,11 @@ footer {
       text-indent: -900em;
       background-image: image-url('ppc/footer-logo-transparent.png');
       height: 23px;
-      width: 108px;
+      width: 107px;
       margin: 0 auto;
     }
     a {
-        color: $footer-link-color;
+        color: $light-blue;
         text-decoration: none;
     }
     a:hover {text-decoration: underline;}
@@ -58,7 +58,7 @@ footer {
             filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
             opacity: 0.8;
             background-repeat: no-repeat;
-            color: #accff2;
+            color: $light-blue;
             display: inline-block;
             height: 0;
             margin-right: 6px;
@@ -190,7 +190,7 @@ footer {
         padding: 0 10px;
         h4 {
             padding: 0 0 7px 0;
-            border-bottom: 1px dotted $footer-link-color;
+            border-bottom: 1px dotted $light-blue;
         }
         li {
             margin: 0 0 6px 0;

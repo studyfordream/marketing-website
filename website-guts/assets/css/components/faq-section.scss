@@ -8,21 +8,21 @@
     border-top: 1px solid #DFDFDF;
   }
   .question {
-    font: 0.9em $gotham-small-type;
-    font-weight: 500;
-    color: #00415D;
+    font: 1em $body-font-family;
+    font-weight: 600;
+    color: $brand-navy-blue;
     letter-spacing: 0.53px;
     line-height: 19px;
     margin-top: 55px;
   }
   .answer {
-    font: 0.95em $gotham-font-family;
+    font: 0.95em $body-font-family;
     color: #696F72;
     line-height: 22px;
     margin-bottom: 55px;
   }
   .contact-text {
-    font: 1.9em $gotham-font-family;
+    font: 1.9em $body-font-family;
     color: #696F72;
     line-height: 52px;
     text-align: center;
@@ -35,7 +35,7 @@
     text-align: center;
     color: #696F72;
     a {
-      color: #0094CD;
+      color: $brand-blue;
     }
   }
 }

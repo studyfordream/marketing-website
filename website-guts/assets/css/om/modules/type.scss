@@ -13,11 +13,16 @@
 .oldie {@include desktop;}
 
 body {
-  font-family: $gotham-small-type;
+  font-family: $body-font-family;
   color: #242424;
 }
-h1, h2, h3, h4, h5, h6 {
-  font-family: $gotham-large-type;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $body-font-family;
   text-align: center;
 }
 p {

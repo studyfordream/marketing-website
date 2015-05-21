@@ -18,7 +18,7 @@
   }
 
   .jumbotron-customer {
-    background: #1863ae;
+    background: $brand-blue;
   }
 
   .sliderbg-color {
@@ -79,7 +79,7 @@
   }
 
   .text-blue {
-    color: $blue;
+    color: $brand-blue;
   }
 }
 
@@ -140,7 +140,7 @@
         font-family: inherit;
       }
       h2 {
-        color:#1863ae;
+        color:$brand-blue;
         font-size: 18px;
         font-weight: lighter;
       }
@@ -156,7 +156,7 @@
 
   .success {
     .sliderbg {
-      background: image-url('success/banner3.jpg') no-repeat center center;
+      background-position: center center;
       min-height: 292px;
       padding: 0;
     }

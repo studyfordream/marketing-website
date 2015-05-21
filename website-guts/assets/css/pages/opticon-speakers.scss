@@ -1,25 +1,63 @@
 body.opticon-speakers {
-  .message-container {
-    margin: 10vh auto;
-    background-color: white;
-    padding: 15px 0px;
-    border: 2px solid gray;
-    h1 {
-      text-align: center;
-    }
-    p {
-      text-align: center;
-      font-size: 1.2em;
-      margin: 70px;
+  .speaker-container {
+    padding: 200px 2% 0;
+    margin: 30px 0 40px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: top center;
+    .item-title { margin-bottom: 5px; }
+    .item-source { line-height: 17px; }
+    .item-more-info {
+      font-size: 13px;
+      color: $opticon-brand-blue;
+      letter-spacing: 1.8px;
+      &:hover {
+        cursor: pointer;
+        color: $opticon-brand-blue-hover;
+      }
     }
   }
+  .speaker-blurb { text-align: left; }
 }
 
 @media only screen and (min-width: $tablet-min-width) {
   body.opticon-speakers {
-    .message-container {
-      margin: 20vh auto;
-      width: 80%;
+    .description-title {
+      width: 575px;
+      margin-bottom: 75px;
+    }
+    .item-source { min-height: 35px; }
+    .item-more-info { margin-top: 0; }
+    .opticon-modal-container {
+      &__left {
+        text-align: center;
+        &__name { margin-bottom: 8px; }
+      }
+      &__right { text-align: center; }
+      &__close-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding-top: 15px;
+        width: 15px;
+        height: 0;
+        background-image: url('//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/modal_close.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        &:hover { cursor: pointer; }
+      }
+      .item-source { line-height: 17px; }
+    }
+    .flex-container { flex-wrap: wrap; }
+    .speaker-container {
+      width: 33%;
+      &--guest {
+        width: 25%;
+        background-size: 130px 130px;
+        padding: 150px 2% 0;
+      }
+      .item-source { margin-bottom: 5px; }
     }
   }
 }

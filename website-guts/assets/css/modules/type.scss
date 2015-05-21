@@ -1,20 +1,25 @@
-$link-color: #4d89e2;
+$link-color: $brand-blue;
 
 body {
-	font-family: $gotham-small-type;
-	color: $text-color;
+  font-family: $body-font-family;
+  color: $text-color;
 }
-h1, h2, h3, h4, h5, h6 {
-	font-family: $gotham-large-type;
-	text-align: center;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $body-font-family;
+  text-align: center;
 }
 h1 {
 	font-size: 2em;
 	font-weight: 100;
 }
 h3 {
-    font-size: 1.8em;
-    line-height: 1.2;
+  font-size: 1.8em;
+  line-height: 1.2;
 }
 h4 {
 	font-size: 1.4em;
@@ -62,7 +67,7 @@ a {
 		font-size: 1.15em;
 	}
 	h5 {
-		color: #006eb6;
+		color: $brand-blue;
 		font-size: 1em;
 		font-weight: 300;
 	}

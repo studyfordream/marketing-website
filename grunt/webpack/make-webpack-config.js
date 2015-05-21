@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var trPlugin = require('l10n-tr-plugin');
 var injectFilenamePath = path.join(process.cwd(), 'grunt/webpack/inject-filename-loader');
 var clientHelpersPath = path.join(process.cwd(), 'website-guts/client-helpers');
+var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 console.log('LOADER PATH => ', injectFilenamePath);
 
@@ -58,7 +59,12 @@ module.exports = function(opts) {
    */
   var plugins = [
     new webpack.ResolverPlugin(new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new CommonsChunkPlugin({
+      name: 'commons',
+
+      filename: 'commons.js',
+    })
     //new trPlugin()
   ];
 

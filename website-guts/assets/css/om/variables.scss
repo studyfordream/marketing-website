@@ -3,17 +3,18 @@ $desktop-min-width: 960px;
 $tablet-min-width: 769px;
 
 /* type */
-$body-font-family: "Gotham SSm A","Gotham SSm B",sans-serif;
-$gotham-font-family: "Gotham A","Gotham B",Helvetica,Arial,sans-serif;
-$gotham-large-type: "Gotham A","Gotham B",Helvetica,Arial,sans-serif;
-$gotham-small-type: "Gotham SSm A","Gotham SSm B",sans-serif;
-$condensed-sans-serif: 'Tungsten A', 'Tungsten B', sans-serif;
-$sentinel-font-family: "Sentinel SSm A", "Sentinel SSm B", sans-serif;
-$sentinel-medium-font-family: "Sentinel A", "Sentinel B", Georgia, sans-serif;
+$body-font-family: Proxima, Helvetica, sans-serif;
 $footer-desktop-font-size: .65em;
+$include-fonts:(
+  weights: 300 400 500 600,
+  italics: true
+);
 
 /* colors */
-$link-color: #4d89e2;
-$footer-link-color: #accff2;
+$link-color: #0081ba;
+$light-blue: #accff2;
 
-$bright-blue: #006eb6;
+$brand-blue: #0081ba;
+$brand-blue-border: #007ab0;
+$brand-blue-hover: #2091c3;
+$brand-navy-blue: #00415d;

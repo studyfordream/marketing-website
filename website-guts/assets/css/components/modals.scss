@@ -50,8 +50,8 @@ body {
       font-size: 0.8em;
     }
     p.normal-header {
-      font-family: $gotham-large-type;
-      color: #006eb6;
+      font-family: $body-font-family;
+      color: $brand-blue;
     }
   }
   .modal-body { padding: 22px 42px; }

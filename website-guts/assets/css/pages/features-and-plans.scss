@@ -8,8 +8,8 @@ body.features-and-plans {
   /*           */
   #page-header {
     h1 {
-      font: 24px $gotham-font-family;
-      color: #3B5871;
+      font: 24px $body-font-family;
+      color: $brand-navy-blue;
       margin-top: 6px;
     }
     p {
@@ -23,7 +23,7 @@ body.features-and-plans {
     }
     .header-cta-container {
       display: none;
-      font-family: $gotham-font-family;
+      font-family: $body-font-family;
       float: right;
       margin-top: 10px;
       margin-bottom: 10px;
@@ -40,7 +40,7 @@ body.features-and-plans {
       background-image: linear-gradient(-180deg, #EEEFF3 0%, #E0E1E5 100%);
       border: 1px solid #D4D5D9;
       border-radius: 2px;
-      font: 12px $gotham-small-type;
+      font: 12px $body-font-family;
       color: $almost-black-text-color;
       line-height: 12px;
       &:hover {
@@ -59,9 +59,9 @@ body.features-and-plans {
     border: 1px solid #E6E6E6;
     text-align: center;
     .title-copy {
-      font: 35px $gotham-font-family;
+      font: 35px $body-font-family;
       text-align: center;
-      color: $super-dark-blue;
+      color: $brand-navy-blue;
       line-height: 61px;
       margin-bottom: 57px;
       margin-top: 60px;
@@ -71,12 +71,12 @@ body.features-and-plans {
     }
     .learn-cta {
       @extend .pricing-button;
-      background-image: linear-gradient(-180deg, #0081EB 3%, #0081BA 100%);
-      border: 2px solid #0063BA;
+      background-image: linear-gradient(-180deg, $brand-blue-hover 3%, $brand-blue 100%);
+      border: 2px solid $brand-blue-border;
       padding: 15px 45px;
       margin-bottom: 15px;
       box-shadow: none;
-      font: $gotham-font-family;
+      font: $body-font-family;
       color: white;
       display: inline-block;
       span {
@@ -89,11 +89,11 @@ body.features-and-plans {
     }
     .plans-cta {
       @extend .pricing-button;
-      border: 2px solid #4A90E2;
+      border: 2px solid $brand-blue;
       background-color: transparent;
       background-image: none;
-      font: $gotham-font-family;
-      color: #4A90E2;
+      font: $body-font-family;
+      color: $brand-blue;
       padding: 15px 87.5px;
       display: inline-block;
       &:hover {
@@ -110,8 +110,8 @@ body.features-and-plans {
     padding: 50px 0;
     .title-copy {
       text-align: center;
-      font: 30px $gotham-font-family;
-      color: $super-dark-blue;
+      font: 30px $body-font-family;
+      color: $brand-navy-blue;
       line-height: 34px;
       padding: 0 0 50px 0;
     }
@@ -129,10 +129,10 @@ body.features-and-plans {
       margin-left: auto;
       margin-right: auto;
       h3 {
-        font: 1em $gotham-small-type;
+        font: 1em $body-font-family;
         font-weight: 500;
         text-align: center;
-        color: $super-dark-blue;
+        color: $brand-navy-blue;
       }
       p {
         font-size: 15px;
@@ -150,11 +150,11 @@ body.features-and-plans {
     border: 1px solid #EBEBEB;
     padding: 50px 0;
     h2 {
-      font: 28px $gotham-font-family;
-      color: $super-dark-blue;
+      font: 28px $body-font-family;
+      color: $brand-navy-blue;
     }
     p {
-      font: 15px $gotham-font-family;
+      font: 15px $body-font-family;
       color: #696F72;
       line-height: 28px;
     }
@@ -170,7 +170,7 @@ body.features-and-plans {
       padding: 0;
       display: inline-block;
       h4 {
-        font: 1em $gotham-small-type;
+        font: 1em $body-font-family;
         font-weight: 500;
         color: #696F72;
         letter-spacing: 0.53px;
@@ -195,14 +195,14 @@ body.features-and-plans {
   /*Enterprise Section*/
   /*                  */
   .enterprise-section {
-    background-image: radial-gradient(48% 112%, #005275 46%, #00415D 100%);
+    background-image: radial-gradient(48% 112%, #005275 46%, $brand-navy-blue 100%);
     border: 1px solid #F0F0F0;
     * {
       text-align: center;
     }
     h2 {
       font-size: 36px;
-      color: #A7C3E2;
+      color: $light-blue;
       margin-bottom: 0;
       margin-top: 40px;
     }
@@ -234,7 +234,7 @@ body.features-and-plans {
     .title-copy {
       margin-bottom: 0;
       font-size: 24px;
-      color: #00415D;
+      color: $brand-navy-blue;
     }
     .button-container {
       margin: 25px 0 60px 0;
@@ -247,7 +247,7 @@ body.features-and-plans {
       background-image: linear-gradient(-180deg, #EEEFF3 0%, #E0E1E5 100%);
       border: 1px solid #D4D5D9;
       border-radius: 2px;
-      font: 14px $gotham-small-type;
+      font: 14px $body-font-family;
       color: $almost-black-text-color;
       padding: 12px 50px;
       &:hover {

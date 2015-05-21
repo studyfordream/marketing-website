@@ -31,6 +31,8 @@ layout_modals:
             {{/is}}
             window.optly_q = [];
             window.optly = {};
+            window.optly.l10n = window.optly.l10n || {};
+            window.optly.l10n.locales = {{{stringifyJS 'locales'}}};
             window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
             window.analytics.load('{{environmentVariables.segmentProjectID}}');
             window.analytics.page();
@@ -78,7 +80,6 @@ layout_modals:
           <link rel="stylesheet" type="text/css" href="{{#hasAssetPath this}}{{../../assetsDir}}/{{/hasAssetPath}}{{this}}">
         {{/each}}
         {{/if}}
-        <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7838232/684744/css/fonts.css">
         <link rel="stylesheet" href="{{assetsDir}}/css/styles.css">
         {{#if this.head_script ~}}<script src="{{this.head_script}}"></script>{{/if}}
         {{#if environmentVariables.production}}
@@ -278,6 +279,7 @@ layout_modals:
           optly.mrkt = optly.mrkt || {};
           optly.mrkt.assetsDir = '{{assetsDir}}';
         </script>
+        <script src="{{assetsDir}}/js/commons.js"></script>
         <script src="{{assetsDir}}/js/bundle.js" defer></script>
         {{#if this.script_dependencies}}
         {{#each this.script_dependencies}}

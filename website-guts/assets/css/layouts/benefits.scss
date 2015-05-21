@@ -27,7 +27,7 @@ body.benefits-layout {
         display: block;
 
         a {
-          color: #006eb6;
+          color: $brand-blue;
 
           &:after {
             content: '\25be';
@@ -42,7 +42,7 @@ body.benefits-layout {
       text-align: left;
 
       &:hover {
-        color: #006eb6;
+        color: $brand-blue;
       }
     }
 
@@ -54,7 +54,7 @@ body.benefits-layout {
           border-bottom: 1px solid #eee;
 
           a {
-            color: #006eb6;
+            color: $brand-blue;
           }
         }
       }
@@ -78,7 +78,7 @@ body.benefits-layout {
 
   blockquote {
     background: image-url("quote.png") 2px 4px no-repeat;
-    color: #006eb6;
+    color: $brand-blue;
     padding-left: 50px;
     margin: 20px 20px 20px 0;
 
