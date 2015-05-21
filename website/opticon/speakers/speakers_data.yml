@@ -67,6 +67,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/rachmen_blake.png"
       company: "FunnyBiz Conference"
       blurb: "Rachman Blake is the co-founder of AppHeroes, a tech recruiting company that connects startups with mobile app developers through live events with comedy. After realizing that humor and business go together like chocolate and peanut butter, he co-founded FunnyBizz, which is on a mission to abolish boring content. He co-produces the FunnyBizz Conference, where leading thinkers from the worlds of comedy and business converge to explain how humor should be used to improve business. Rachman is a sought-after speaker and has taken the stage at popular events like The Lean Startup Conference. A graduate of Princeton, Rachman is also a marathoner, from New Jersey, and has never slipped on a banana peel."
+    -
+      name: "Travis Bryant"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/travis-bryant.png"
+      company: "Optimizely"
+      blurb: "Travis is the VP of Sales for Optimizely, the world's leading experience optimization platform. Travis started with Optimizely in December 2012 when the company was 35 people, guiding triple-digit revenue growth as the organization has grown to over 350 people with offices in San Francisco, New York, London, Japan, Amsterdam and Cologne. Before Optimizely, Travis spent 7 years at Salesforce.com through multiple roles in Sales. His path to Sales was not the obvious one, having started his career as a Java developer at Chevron after graduating from Cal Poly San Luis Obispo with a degree in Information Systems in 2001."
     #-
       #name: "Bill Bruno"
       #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
@@ -117,6 +122,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/cameron_collaborating-to-scalebw_170x170-circle.png"
       company: "Atlassian"
       blurb: "Cameron Deatsch is the Head of Growth at Atlassian. The Growth team combines engineers, data scientists, online and field marketers focused on running campaigns and experiments across Atlassian's funnel. Prior to Atlassian, Cameron held positions in demand generation, sales enablement, and product marketing at both Jive Software and BEA Systems. Cameron holds an M.B.A. from the University of Montana and a B.S. in Electrical Engineering from UC Davis."
+    -
+      name: "T. Baxter Denny"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/t-baxter.png"
+      company: "New Relic"
+      blurb: "Baxter is a Marketing data nerd. He currently manages the DemandGen, Marketing Ops and Customer Lifecycle teams at New Relic. Prior to that he ran Inbound Marketing and Ops at Couchbase, and had similar roles at Citrix and CEB. When he's not geeking out about funnel metrics he \"enjoys\" endurance sports and watching the Washington Redskins lose games."
     #-
       #name: "Stefan Deeran"
       #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
@@ -148,6 +158,11 @@ guest_speakers:
       company: "CBS Interactive"
       blurb: "Kelly Fang is the product lead for ZDNet.com. Her UX optimization and A/B testing experience began when she was an intern at CBSi and has been addicted ever since. Kelly is a champion napper, and a serial dabbler in all things tech and design."
     -
+      name: "Chrix Finne"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/chrix-finne.png"
+      company: "Optimizely"
+      blurb: "Chrix (with an ‘x’!) is Senior Product Manager at Optimizely. Since joining Optimizely in 2013 he's helped expand Optimizely's offerings in mobile, targeting, and analytics. Previously, he worked on Mobile Display Ads at Google, where he was product lead for the mobile Google Display Network (GDN) as well as ads quality and pricing on the AdMob network. Long ago, Chrix launched Google Analytics for iOS and Android, and expanded Google Reader to be \"social\". Chrix is a graduate of Harvard University, a devout skier and cyclist, and an amateur classical trumpet player and baritone."
+    -
       name: "Kevin Flynn"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/kevin-flynn.png"
       company: "Motorola"
@@ -162,11 +177,11 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/ryan-garner.png"
       company: "Clearhead"
       blurb: "Ryan Garner is the co-founder and EVP of Clearhead. Previously, Ryan was Vice President of Direct-to-Consumer for the Warner Music Group, responsible for delivering and supporting the web businesses of WMG’s biggest artists including Paramore, Bruno Mars, and Wiz Khalifa. Before joining Warner in 2007, Ryan spent 5 years at JetBlue Airways as a product manager and solution architect. Ryan was an integral part of the early team that helped develop JetBlue.com into the airline's most important sales channel, responsible for 80% of sales at the time of his departure."
-    #-
-      #name: "Jordan Garcia"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jordanbw_170x170-circle.png"
-      #company: "Optimizely"
-      #blurb: ""
+    -
+      name: "Jordan Garcia"
+      image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jordanbw_170x170-circle.png"
+      company: "Optimizely"
+      blurb: "Jordan is the Frontend Tech Lead at Optimizely.  Over the last year Jordan has been behind the technical implementations of several large Optimizely projects, including the audience builder, redesigned dashboard and the overall frontend architecture of Optimizely's web product.  He's been building web applications since 2009, where he co-founded an online instructional gaming company with his college roommates."
     -
       name: "Josiah Gaskin"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/josiahbw_170x170-circle.png"
@@ -192,11 +207,6 @@ guest_speakers:
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/eddie-hartman.png"
       company: "LegalZoom"
       blurb: "Edward Hartman is one of LegalZoom's Co-Founders and has served in several key roles since 2000, most recently as Chief Product Officer. Prior to LegalZoom, Mr. Hartman was the Chief Technology Officer at TROON, LTD, later acquired by Xceed International. Mr. Hartman was a creator of two web-based applications, MajorFind and Megaphone. He sat on the board of the Project Management Institute (Los Angeles Chapter) and is a current board member of the Brent Shapiro Foundation. Mr. Hartman received a B.S. in Computer Science and a B.A. in Anthropology from Yale University and an M.B.A. from the Wharton School, University of Pennsylvania Program for Executives in San Francisco, California, where he was designated a Palmer Scholar. He is a member of the California Bar."
-    #-
-      #name: "Francisca Hawkins"
-      #image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/dan-circle-headshot.png"
-      #company: "Virgin America"
-      #blurb: ""
     -
       name: "Stacy Hill"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/stacy-hillcropped.png"
@@ -260,8 +270,8 @@ guest_speakers:
     -
       name: "Jason Lin"
       image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/jason-lin.png"
-      company: "Elance-Odesk"
-      blurb: "Jason is the Senior Director of Web Marketing at Elance-oDesk (now upWork), an online workplace for the world where clients can find, hire, and work on projects with freelance professionals. At Elance-oDesk, Jason is responsible for optimizing the site experience for customer growth. Prior to Elance-oDesk, Jason held leadership roles at Anker as its head of marketing, at eBay leading retail promotions in emerging markets, and at Walmart.com managing seasonal marketing campaigns. He has co-founded multiple start-ups, including Hitchsters.com and InitialView.com. Jason has an M.B.A. from the University of Michigan Ross School of Business, and his B.A. from UCLA."
+      company: "upWork"
+      blurb: "Jason is the Senior Director of Web Marketing at Elance-oDesk (now upWork), an online workplace for the world where clients can find, hire, and work on projects with freelance professionals. At upWork, Jason is responsible for optimizing the site experience for customer growth. Prior to upWork, Jason held leadership roles at Anker as its head of marketing, at eBay leading retail promotions in emerging markets, and at Walmart.com managing seasonal marketing campaigns. He has co-founded multiple start-ups, including Hitchsters.com and InitialView.com. Jason has an M.B.A. from the University of Michigan Ross School of Business, and his B.A. from UCLA."
     #-
       #name: "Abby Lokshin"
       #image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/speakers/abby-lokshin.png"
