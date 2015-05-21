@@ -722,7 +722,7 @@ days:
             time: "2:30 - 3:15"
             location: "Bay Bridge"
             description: "Optimization and growth in the world of SaaS is a different kind of beast. High traffic volume is not always a given, and your product offering may be very narrowly targeted. Customers visit with a wide variety of budgets, needs, and expectations. In this panel conversation, hear executives from some of the country’s top SaaS companies discuss how they tackle these challenges head-on and continue to expand their businesses by capitalizing on the amazing optimization opportunities within their industries."
-            companies: "KISSmetrics, Marketo"
+            companies: "KISSmetrics, Marketo, New Relic"
             track: "action"
             roles: "marketer executive"
             speakers:
